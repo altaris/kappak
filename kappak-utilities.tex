@@ -1,0 +1,26 @@
+\ProvidesFile{kappak-utilities.tex}[Part of kappak package]
+
+%% ----------------------------------------
+%%
+%% Internal commands
+%%
+%% ----------------------------------------
+
+%% ----------------------------------------
+%% Required packages
+%% ----------------------------------------
+
+\RequirePackage{ifthen}
+
+%% ----------------------------------------
+%% Definitions
+%% ----------------------------------------
+
+\newcommand{\@tryNewCommand}[2]{
+	% #1 cmd, #2 code
+	\ifthenelse{\isundefined{#1}}{
+		\newcommand{#1}{#2}
+	}{
+		\PackageWarning{kappak-v4}{Warning : command \protect#1 already defined. Skipping definition, errors may occur later !}
+	} % \ifthenelse{\isundefined{#2}}
+}

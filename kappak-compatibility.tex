@@ -1,0 +1,435 @@
+\ProvidesFile{kappak-compatibility.tex}[Part of kappak package]
+
+% ---------------------------------------- 0408
+\ifthenelse{\@usedVersion < 0408}{
+
+\ifthenelse{\boolean{@b_extpack_use_tikz}}{
+	
+%% --------------------
+%% Simple
+%% --------------------
+
+	\newcommand{\squarediagram}[8]{
+		\[ \begin{tikzpicture}
+			\matrix (m) [matrix of math nodes,
+					row sep = \@tRowsep em,
+					column sep = \@tColsep em,
+					text height = 1.5 ex,
+					text depth = 0.25 ex,
+					ampersand replacement = \&] {
+				#1 \& #2 \\
+				#3 \& #4 \\
+			};
+			\path [>=stealth, \@tDiagSqUA, \@tDiagSqUL] (m-1-1) edge node [above] {$#5$} (m-1-2);
+			\path [>=stealth, \@tDiagSqLA, \@tDiagSqLL] (m-1-1) edge node [left]  {$#6$} (m-2-1);
+			\path [>=stealth, \@tDiagSqRA, \@tDiagSqRL] (m-1-2) edge node [right] {$#7$} (m-2-2);
+			\path [>=stealth, \@tDiagSqDA, \@tDiagSqDL] (m-2-1) edge node [above] {$#8$} (m-2-2);
+		\end{tikzpicture}
+		\]
+		\def\@tDiagSqUA{->}\def\@tDiagSqLA{->}\def\@tDiagSqRA{->}\def\@tDiagSqDA{->}\def\@tDiagSqUL{solid}\def\@tDiagSqLL{solid}\def\@tDiagSqRL{solid}\def\@tDiagSqDL{solid}
+	}
+	
+%% --------------------
+%% Pushout
+%% --------------------
+
+	\newcommand{\pushoutdiagram}[8]{
+		\[ \begin{tikzpicture}[inline/.style = {fill = white, inner sep = 2.5pt}]
+			\matrix (m) [matrix of math nodes,
+					row sep = \@tRowsep em,
+					column sep = \@tColsep em,
+					text height = 1.5 ex,
+					text depth = 0.25 ex,
+					ampersand replacement = \&] {
+				#1 \& #2 \\
+				#3 \& #4 \\
+			};
+			\path (m-1-1) edge [-, draw = white] node [inline] {\mbox{\LARGE{$\ulcorner$}}} (m-2-2);
+			\path [>=stealth, \@tDiagSqUA, \@tDiagSqUL] (m-1-1) edge node [above] {$#5$} (m-1-2);
+			\path [>=stealth, \@tDiagSqLA, \@tDiagSqLL] (m-1-1) edge node [left]  {$#6$} (m-2-1);
+			\path [>=stealth, \@tDiagSqRA, \@tDiagSqRL] (m-1-2) edge node [right] {$#7$} (m-2-2);
+			\path [>=stealth, \@tDiagSqDA, \@tDiagSqDL] (m-2-1) edge node [above] {$#8$} (m-2-2);
+		\end{tikzpicture}
+		\]
+		\def\@tDiagSqUA{->}\def\@tDiagSqLA{->}\def\@tDiagSqRA{->}\def\@tDiagSqDA{->}\def\@tDiagSqUL{solid}\def\@tDiagSqLL{solid}\def\@tDiagSqRL{solid}\def\@tDiagSqDL{solid}
+	}
+	
+%% --------------------
+%% Pullback
+%% --------------------
+
+	\newcommand{\pullbackdiagram}[8]{
+		\[ \begin{tikzpicture}[inline/.style = {fill = white, inner sep = 2.5pt}]
+			\matrix (m) [matrix of math nodes,
+					row sep = \@tRowsep em,
+					column sep = \@tColsep em,
+					text height = 1.5 ex,
+					text depth = 0.25ex,
+					ampersand replacement = \&] {
+				#1 \& #2 \\
+				#3 \& #4 \\
+			};
+			\path (m-1-1) edge [-, draw = white] node [inline] {\mbox{\LARGE{$\lrcorner$}}} (m-2-2);
+			\path [>=stealth, \@tDiagSqUA, \@tDiagSqUL] (m-1-1) edge node [above] {$#5$} (m-1-2);
+			\path [>=stealth, \@tDiagSqLA, \@tDiagSqLL] (m-1-1) edge node [left]  {$#6$} (m-2-1);
+			\path [>=stealth, \@tDiagSqRA, \@tDiagSqRL] (m-1-2) edge node [right] {$#7$} (m-2-2);
+			\path [>=stealth, \@tDiagSqDA, \@tDiagSqDL] (m-2-1) edge node [above] {$#8$} (m-2-2);
+		\end{tikzpicture}
+		\]
+		\def\@tDiagSqUA{->}\def\@tDiagSqLA{->}\def\@tDiagSqRA{->}\def\@tDiagSqDA{->}\def\@tDiagSqUL{solid}\def\@tDiagSqLL{solid}\def\@tDiagSqRL{solid}\def\@tDiagSqDL{solid}
+	}
+	
+%% --------------------
+%% UL : Up left
+%% --------------------
+
+	\newcommand{\triangleULdiagram}[6]{
+		\[ \begin{tikzpicture}
+			\matrix (m) [matrix of math nodes,
+					row sep = \@tRowsep em,
+					column sep = \@tColsep em,
+					text height = 1.5 ex,
+					text depth = 0.25 ex,
+					ampersand replacement = \&] {
+				#1 \& #2 \\
+				#3 \& \\
+			};
+			\path [>=stealth, \@tDiagTrigAA, \@tDiagTrigAL] (m-1-1) edge node [above]       {$#4$} (m-1-2);
+			\path [>=stealth, \@tDiagTrigBA, \@tDiagTrigBL] (m-1-1) edge node [left]        {$#5$} (m-2-1);
+			\path [>=stealth, \@tDiagTrigCA, \@tDiagTrigCL] (m-2-1) edge node [below right] {$#6$} (m-1-2);
+		\end{tikzpicture}
+		\]
+		\def\@tDiagTrigAA{->}\def\@tDiagTrigBA{->}\def\@tDiagTrigCA{->}\def\@tDiagTrigAL{solid}\def\@tDiagTrigBL{solid}\def\@tDiagTrigCL{solid}
+	}
+	
+%% --------------------
+%% UR : Up right
+%% --------------------
+
+	\newcommand{\triangleURdiagram}[6]{
+		\[ \begin{tikzpicture}
+			\matrix (m) [matrix of math nodes,
+					row sep = \@tRowsep em,
+					column sep = \@tColsep em,
+					text height = 1.5ex,
+					text depth = 0.25ex,
+					ampersand replacement = \&] {
+				#1 \& #2 \\
+				\& #3 \\
+			};
+			\path [>=stealth, \@tDiagTrigAA, \@tDiagTrigAL] (m-1-1) edge node [above]      {$#4$} (m-1-2);
+			\path [>=stealth, \@tDiagTrigBA, \@tDiagTrigBL] (m-1-1) edge node [below left] {$#5$} (m-2-2);
+			\path [>=stealth, \@tDiagTrigCA, \@tDiagTrigCL] (m-1-2) edge node [right]      {$#6$} (m-2-2);
+		\end{tikzpicture}
+		\]
+		\def\@tDiagTrigAA{->}\def\@tDiagTrigBA{->}\def\@tDiagTrigCA{->}\def\@tDiagTrigAL{solid}\def\@tDiagTrigBL{solid}\def\@tDiagTrigCL{solid}
+	}
+	
+%% --------------------
+%% DL : Down left
+%% --------------------
+
+	\newcommand{\triangleDLdiagram}[6]{
+		\[ \begin{tikzpicture}
+			\matrix (m) [matrix of math nodes,
+					row sep = \@tRowsep em,
+					column sep = \@tColsep em,
+					text height = 1.5ex,
+					text depth = 0.25ex,
+					ampersand replacement = \&] {
+				#1 \& \\
+				#2 \& #3 \\
+			};
+			\path [>=stealth, \@tDiagTrigAA, \@tDiagTrigAL] (m-1-1) edge node [left]        {$#4$} (m-2-1);
+			\path [>=stealth, \@tDiagTrigBA, \@tDiagTrigBL] (m-1-1) edge node [above right] {$#5$} (m-2-2);
+			\path [>=stealth, \@tDiagTrigCA, \@tDiagTrigCL] (m-2-1) edge node [above]       {$#6$} (m-2-2);
+		\end{tikzpicture}
+		\]
+		\def\@tDiagTrigAA{->}\def\@tDiagTrigBA{->}\def\@tDiagTrigCA{->}\def\@tDiagTrigAL{solid}\def\@tDiagTrigBL{solid}\def\@tDiagTrigCL{solid}
+	}
+	
+%% --------------------
+%% DR : Down right
+%% --------------------
+
+	\newcommand{\triangleDRdiagram}[6]{
+		\[ \begin{tikzpicture}
+			\matrix (m) [matrix of math nodes,
+					row sep = \@tRowsep em,
+					column sep = \@tColsep em,
+					text height = 1.5ex,
+					text depth = 0.25ex,
+					ampersand replacement = \&] {
+				\& #1 \\
+				#2 \& #3 \\
+			};
+			\path [>=stealth, \@tDiagTrigAA, \@tDiagTrigAL] (m-2-1) edge node [above left] {$#4$} (m-1-2);
+			\path [>=stealth, \@tDiagTrigBA, \@tDiagTrigBL] (m-1-2) edge node [right]      {$#5$} (m-2-2);
+			\path [>=stealth, \@tDiagTrigCA, \@tDiagTrigCL] (m-2-1) edge node [above]      {$#6$} (m-2-2);
+		\end{tikzpicture}
+		\]
+		\def\@tDiagTrigAA{->}\def\@tDiagTrigBA{->}\def\@tDiagTrigCA{->}\def\@tDiagTrigAL{solid}\def\@tDiagTrigBL{solid}\def\@tDiagTrigCL{solid}
+	}
+		
+%% --------------------
+%% U : Up
+%% --------------------
+
+	\newcommand{\triangleUdiagram}[6]{
+		\[ \begin{tikzpicture}
+			\matrix (m) [matrix of math nodes,
+					row sep = \@tRowsep em,
+					column sep = \@tColsep em,
+					text height = 1.5ex,
+					text depth = 0.25ex,
+					ampersand replacement = \&] {
+				\& #1 \& \\
+				#2 \& \& #3 \\
+			};
+			\path [>=stealth, \@tDiagTrigAA, \@tDiagTrigAL] (m-2-1) edge node [above left]  {$#4$} (m-1-2);
+			\path [>=stealth, \@tDiagTrigBA, \@tDiagTrigBL] (m-1-2) edge node [above right] {$#5$} (m-2-3);
+			\path [>=stealth, \@tDiagTrigCA, \@tDiagTrigCL] (m-2-1) edge node [above]       {$#6$} (m-2-3);
+		\end{tikzpicture}
+		\]
+		\def\@tDiagTrigAA{->}\def\@tDiagTrigBA{->}\def\@tDiagTrigCA{->}\def\@tDiagTrigAL{solid}\def\@tDiagTrigBL{solid}\def\@tDiagTrigCL{solid}
+	}
+	
+%% --------------------
+%% L : Left
+%% --------------------
+	\newcommand{\triangleLdiagram}[6]{
+		\[ \begin{tikzpicture}
+			\matrix (m) [matrix of math nodes,
+					row sep = \@tRowsep em,
+					column sep = \@tColsep em,
+					text height = 1.5ex,
+					text depth = 0.25ex,
+					ampersand replacement = \&] {
+				\& #1 \\
+				#2 \& \\
+				\& #3 \\
+			};
+			\path [>=stealth, \@tDiagTrigAA, \@tDiagTrigAL] (m-2-1) edge node [above left] {$#4$} (m-1-2);
+			\path [>=stealth, \@tDiagTrigBA, \@tDiagTrigBL] (m-1-2) edge node [right]      {$#5$} (m-3-2);
+			\path [>=stealth, \@tDiagTrigCA, \@tDiagTrigCL] (m-2-1) edge node [below left] {$#6$} (m-3-2);
+		\end{tikzpicture}
+		\]
+		\def\@tDiagTrigAA{->}\def\@tDiagTrigBA{->}\def\@tDiagTrigCA{->}\def\@tDiagTrigAL{solid}\def\@tDiagTrigBL{solid}\def\@tDiagTrigCL{solid}
+	}
+		
+%% --------------------
+%% R : Right
+%% --------------------
+
+	\newcommand{\triangleRdiagram}[6]{
+		\[ \begin{tikzpicture}
+			\matrix (m) [matrix of math nodes,
+					row sep = \@tRowsep em,
+					column sep = \@tColsep em,
+					text height = 1.5ex,
+					text depth = 0.25ex,
+					ampersand replacement = \&] {
+				#1 \& \\
+				\& #2 \\
+				#3 \& \\
+			};
+			\path [>=stealth, \@tDiagTrigAA, \@tDiagTrigAL] (m-1-1) edge node [left]        {$#4$} (m-3-1);
+			\path [>=stealth, \@tDiagTrigBA, \@tDiagTrigBL] (m-1-1) edge node [above right] {$#5$} (m-2-2);
+			\path [>=stealth, \@tDiagTrigCA, \@tDiagTrigCL] (m-3-1) edge node [below right] {$#6$} (m-2-2);
+		\end{tikzpicture}
+		\]
+		\def\@tDiagTrigAA{->}\def\@tDiagTrigBA{->}\def\@tDiagTrigCA{->}\def\@tDiagTrigAL{solid}\def\@tDiagTrigBL{solid}\def\@tDiagTrigCL{solid}
+	}
+	
+%% --------------------
+%% D : Down
+%% --------------------
+
+	\newcommand{\triangleDdiagram}[6]{
+		\[ \begin{tikzpicture}
+			\matrix (m) [matrix of math nodes,
+					row sep = \@tRowsep em,
+					column sep = \@tColsep em,
+					text height = 1.5ex,
+					text depth = 0.25ex,
+					ampersand replacement = \&] {
+				#1 \& \& #2 \\
+				\& #3 \& \\
+			};
+			\path [>=stealth, \@tDiagTrigAA, \@tDiagTrigAL] (m-1-1) edge node [above]       {$#4$} (m-1-3);
+			\path [>=stealth, \@tDiagTrigBA, \@tDiagTrigBL] (m-1-1) edge node [below left]  {$#5$} (m-2-2);
+			\path [>=stealth, \@tDiagTrigCA, \@tDiagTrigCL] (m-2-2) edge node [below right] {$#6$} (m-1-3);
+		\end{tikzpicture}
+		\]
+		\def\@tDiagTrigAA{->}\def\@tDiagTrigBA{->}\def\@tDiagTrigCA{->}\def\@tDiagTrigAL{solid}\def\@tDiagTrigBL{solid}\def\@tDiagTrigCL{solid}
+	}
+	
+%% ----------------------------------------
+%% Linear diagrams
+%% ----------------------------------------
+	
+%% --------------------
+%% Styles
+%% --------------------
+
+	\newcommand{\lineardiagramarrows}[4]{
+		\ifthenelse{\equal{#1}{}}{\def\@tDiagLineAA{->}}{}
+		\ifthenelse{\equal{#1}{->}}{\def\@tDiagLineAA{->}}{}
+		\ifthenelse{\equal{#1}{<-}}{\def\@tDiagLineAA{<-}}{}
+		\ifthenelse{\equal{#1}{<->}}{\def\@tDiagLineAA{<->}}{}
+		\ifthenelse{\equal{#1}{->>}}{\def\@tDiagLineAA{->>}}{}
+		\ifthenelse{\equal{#1}{<<-}}{\def\@tDiagLineAA{<<-}}{}
+		\ifthenelse{\equal{#1}{>->}}{\def\@tDiagLineAA{>->}}{}
+		\ifthenelse{\equal{#1}{<-<}}{\def\@tDiagLineAA{<-<}}{}
+		\ifthenelse{\equal{#1}{c->}}{\def\@tDiagLineAA{right hook->}}{}
+		\ifthenelse{\equal{#1}{<-c}}{\def\@tDiagLineAA{<-left hook}}{}
+		\ifthenelse{\equal{#1}{|->}}{\def\@tDiagLineAA{|->}}{}
+		\ifthenelse{\equal{#1}{<-|}}{\def\@tDiagLineAA{<-|}}{}
+		\ifthenelse{\equal{#2}{}}{\def\@tDiagLineBA{->}}{}
+		\ifthenelse{\equal{#2}{->}}{\def\@tDiagLineBA{->}}{}
+		\ifthenelse{\equal{#2}{<-}}{\def\@tDiagLineBA{<-}}{}
+		\ifthenelse{\equal{#2}{<->}}{\def\@tDiagLineBA{<->}}{}
+		\ifthenelse{\equal{#2}{->>}}{\def\@tDiagLineBA{->>}}{}
+		\ifthenelse{\equal{#2}{<<-}}{\def\@tDiagLineBA{<<-}}{}
+		\ifthenelse{\equal{#2}{>->}}{\def\@tDiagLineBA{>->}}{}
+		\ifthenelse{\equal{#2}{<-<}}{\def\@tDiagLineBA{<-<}}{}
+		\ifthenelse{\equal{#2}{c->}}{\def\@tDiagLineBA{right hook->}}{}
+		\ifthenelse{\equal{#2}{<-c}}{\def\@tDiagLineBA{<-left hook}}{}
+		\ifthenelse{\equal{#2}{|->}}{\def\@tDiagLineBA{|->}}{}
+		\ifthenelse{\equal{#2}{<-|}}{\def\@tDiagLineBA{<-|}}{}
+		\ifthenelse{\equal{#3}{}}{\def\@tDiagLineCA{->}}{}
+		\ifthenelse{\equal{#3}{->}}{\def\@tDiagLineCA{->}}{}
+		\ifthenelse{\equal{#3}{<-}}{\def\@tDiagLineCA{<-}}{}
+		\ifthenelse{\equal{#3}{<->}}{\def\@tDiagLineCA{<->}}{}
+		\ifthenelse{\equal{#3}{->>}}{\def\@tDiagLineCA{->>}}{}
+		\ifthenelse{\equal{#3}{<<-}}{\def\@tDiagLineCA{<<-}}{}
+		\ifthenelse{\equal{#3}{>->}}{\def\@tDiagLineCA{>->}}{}
+		\ifthenelse{\equal{#3}{<-<}}{\def\@tDiagLineCA{<-<}}{}
+		\ifthenelse{\equal{#3}{c->}}{\def\@tDiagLineCA{right hook->}}{}
+		\ifthenelse{\equal{#3}{<-c}}{\def\@tDiagLineCA{<-left hook}}{}
+		\ifthenelse{\equal{#3}{|->}}{\def\@tDiagLineCA{|->}}{}
+		\ifthenelse{\equal{#3}{<-|}}{\def\@tDiagLineCA{<-|}}{}
+		\ifthenelse{\equal{#4}{}}{\def\@tDiagLineDA{->}}{}
+		\ifthenelse{\equal{#4}{->}}{\def\@tDiagLineDA{->}}{}
+		\ifthenelse{\equal{#4}{<-}}{\def\@tDiagLineDA{<-}}{}
+		\ifthenelse{\equal{#4}{<->}}{\def\@tDiagLineDA{<->}}{}
+		\ifthenelse{\equal{#4}{->>}}{\def\@tDiagLineDA{->>}}{}
+		\ifthenelse{\equal{#4}{<<-}}{\def\@tDiagLineDA{<<-}}{}
+		\ifthenelse{\equal{#4}{>->}}{\def\@tDiagLineDA{>->}}{}
+		\ifthenelse{\equal{#4}{<-<}}{\def\@tDiagLineDA{<-<}}{}
+		\ifthenelse{\equal{#4}{c->}}{\def\@tDiagLineDA{right hook->}}{}
+		\ifthenelse{\equal{#4}{<-c}}{\def\@tDiagLineDA{<-left hook}}{}
+		\ifthenelse{\equal{#4}{|->}}{\def\@tDiagLineDA{|->}}{}
+		\ifthenelse{\equal{#4}{<-|}}{\def\@tDiagLineDA{<-|}}{}
+	} % \newcommand{\lineardiagramarrows}[4]{
+	\lineardiagramarrows{}{}{}{}
+	
+	\newcommand{\lineardiagramlines}[4]{
+		\ifthenelse{\equal{#1}{}}{\def\@tDiagLineAL{solid}}{}
+		\ifthenelse{\equal{#1}{-}}{\def\@tDiagLineAL{solid}}{}
+		\ifthenelse{\equal{#1}{..}}{\def\@tDiagLineAL{dotted}}{}
+		\ifthenelse{\equal{#1}{--}}{\def\@tDiagLineAL{dashed}}{}
+		\ifthenelse{\equal{#2}{}}{\def\@tDiagLineBL{solid}}{}
+		\ifthenelse{\equal{#2}{-}}{\def\@tDiagLineBL{solid}}{}
+		\ifthenelse{\equal{#2}{..}}{\def\@tDiagLineBL{dotted}}{}
+		\ifthenelse{\equal{#2}{--}}{\def\@tDiagLineBL{dashed}}{}
+		\ifthenelse{\equal{#3}{}}{\def\@tDiagLineCL{solid}}{}
+		\ifthenelse{\equal{#3}{-}}{\def\@tDiagLineCL{solid}}{}
+		\ifthenelse{\equal{#3}{..}}{\def\@tDiagLineCL{dotted}}{}
+		\ifthenelse{\equal{#3}{--}}{\def\@tDiagLineCL{dashed}}{}
+		\ifthenelse{\equal{#4}{}}{\def\@tDiagLineDL{solid}}{}
+		\ifthenelse{\equal{#4}{-}}{\def\@tDiagLineDL{solid}}{}
+		\ifthenelse{\equal{#4}{..}}{\def\@tDiagLineDL{dotted}}{}
+		\ifthenelse{\equal{#4}{--}}{\def\@tDiagLineDL{dashed}}{}
+	}
+	\lineardiagramlines{}{}{}{}
+	
+%% --------------------
+%% 2
+%% --------------------
+
+	\newcommand{\linearOOdiagram}[3]{
+		\[ \begin{tikzpicture}
+			\matrix (m) [matrix of math nodes,
+					row sep = \@tRowsep em,
+					column sep = \@tColsep em,
+					text height = 1.5ex,
+					text depth = 0.25ex,
+					ampersand replacement = \&] {
+				#1 \& #2 \\
+			};
+			\path [>=stealth, \@tDiagLineAA, \@tDiagLineAL] (m-1-1) edge node [above] {$#3$} (m-1-2);
+		\end{tikzpicture}
+		\]
+		\def\@tDiagLineAA{->}\def\@tDiagLineAL{solid}
+	}
+
+%% --------------------
+%% 3
+%% --------------------
+
+	\newcommand{\linearOOOdiagram}[5]{
+		\[ \begin{tikzpicture}
+			\matrix (m) [matrix of math nodes,
+					row sep = \@tRowsep em,
+					column sep = \@tColsep em,
+					text height = 1.5ex,
+					text depth = 0.25ex,
+					ampersand replacement = \&] {
+				#1 \& #2 \& #3 \\
+			};
+			\path [>=stealth, \@tDiagLineAA, \@tDiagLineAL] (m-1-1) edge node [above] {$#4$} (m-1-2);
+			\path [>=stealth, \@tDiagLineBA, \@tDiagLineBL] (m-1-2) edge node [above] {$#5$} (m-1-3);
+		\end{tikzpicture}
+		\]
+		\def\@tDiagLineAA{->}\def\@tDiagLineAL{solid}\def\@tDiagLineBA{->}\def\@tDiagLineBL{solid}
+	}
+	
+%% --------------------
+%% 4
+%% --------------------
+
+	\newcommand{\linearOOOOdiagram}[7]{
+		\[ \begin{tikzpicture}
+			\matrix (m) [matrix of math nodes,
+					row sep = \@tRowsep em,
+					column sep = \@tColsep em,
+					text height = 1.5ex,
+					text depth = 0.25ex,
+					ampersand replacement = \&] {
+				#1 \& #2 \& #3 \& #4 \\
+			};
+			\path [>=stealth, \@tDiagLineAA, \@tDiagLineAL] (m-1-1) edge node [above] {$#5$} (m-1-2);
+			\path [>=stealth, \@tDiagLineBA, \@tDiagLineBL] (m-1-2) edge node [above] {$#6$} (m-1-3);
+			\path [>=stealth, \@tDiagLineCA, \@tDiagLineCL] (m-1-3) edge node [above] {$#7$} (m-1-4);
+		\end{tikzpicture}
+		\]
+		\def\@tDiagLineAA{->}\def\@tDiagLineAL{solid}\def\@tDiagLineBA{->}\def\@tDiagLineBL{solid}\def\@tDiagLineCA{->}\def\@tDiagLineCL{solid}
+	}
+	
+%% --------------------
+%% 5
+%% --------------------
+
+	\newcommand{\linearOOOOOdiagram}[9]{
+		\[ \begin{tikzpicture}
+			\matrix (m) [matrix of math nodes,
+					row sep = \@tRowsep em,
+					column sep = \@tColsep em,
+					text height = 1.5ex,
+					text depth = 0.25ex,
+					ampersand replacement = \&] {
+				#1 \& #2 \& #3 \& #4 \& #5 \\
+			};
+			\path [>=stealth, \@tDiagLineAA, \@tDiagLineAL] (m-1-1) edge node [above] {$#6$} (m-1-2);
+			\path [>=stealth, \@tDiagLineBA, \@tDiagLineBL] (m-1-2) edge node [above] {$#7$} (m-1-3);
+			\path [>=stealth, \@tDiagLineCA, \@tDiagLineCL] (m-1-3) edge node [above] {$#8$} (m-1-4);
+			\path [>=stealth, \@tDiagLineDA, \@tDiagLineDL] (m-1-4) edge node [above] {$#9$} (m-1-5);
+		\end{tikzpicture}
+		\]
+		\def\@tDiagLineAA{->}\def\@tDiagLineAL{solid}\def\@tDiagLineBA{->}\def\@tDiagLineBL{solid}\def\@tDiagLineCA{->}\def\@tDiagLineCL{solid}\def\@tDiagLineDA{->}\def\@tDiagLineDL{solid}
+	}
+
+}{} % \ifthenelse{\boolean{@b_extpack_use_tikz}}{
+		
+}{} % \ifthenelse{\@usedVersion < 0408}{

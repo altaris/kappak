@@ -1,0 +1,313 @@
+\ProvidesFile{kappak-arguments.tex}[Part of kappak package]
+
+%% ----------------------------------------
+%%
+%% Arguments processing.
+%%
+%% ----------------------------------------
+
+%% ----------------------------------------
+%% Loading required packages.
+%% ----------------------------------------
+
+\RequirePackage{keyval}
+
+%% ----------------------------------------
+%% Preparing keyval arguments processing.
+%% Code taken from
+%% http://www.tuteurs.ens.fr/logiciels/latex/nouveau_package.html .
+%% ----------------------------------------
+
+\@ifundefined{my@unusedlist}{
+  \let\my@unusedlist\@empty}{}
+\@ifundefined{my@extractkey}{%
+  \def\my@extractkey#1=#2\my@extractkey{#1}}{}
+\newcommand{\ProcessUnusedOptions}[1]{%
+  \let\my@tempa\@empty
+  \let\my@tempb\@empty
+  \@for\CurrentOption:=\my@unusedlist\do{%
+    \expandafter\expandafter\expandafter\def
+    \expandafter\expandafter\expandafter\my@key
+    \expandafter\expandafter\expandafter{%
+      \expandafter\my@extractkey\CurrentOption=\my@extractkey}%
+    \@ifundefined{KV@#1@\my@key}{%
+      \edef\my@tempa{\my@tempa,\CurrentOption,}}{%
+      \edef\my@tempb{\my@tempb,\CurrentOption,}}}%
+  \@for\CurrentOption:=\my@tempa\do{%
+    \ifx\CurrentOption\@empty\else
+      \PackageWarning{mypack}{`\CurrentOption' not defined.}\fi}%
+  \edef\my@tempb{%
+    \noexpand\setkeys{#1}{\my@tempb}}%
+  \my@tempb
+  \AtEndOfPackage{\let\@unprocessedoptions\relax}}
+
+\DeclareOption*{%
+  \expandafter\expandafter\expandafter\def
+  \expandafter\expandafter\expandafter\my@unusedlist
+  \expandafter\expandafter\expandafter{%
+    \expandafter\my@unusedlist\expandafter,%
+    \CurrentOption}}
+
+%% ----------------------------------------
+%% Recieving options
+%% ----------------------------------------
+
+%% --------------------
+%% Version
+%% --------------------
+
+\DeclareOption{alpha}{
+	\def\@usedVersion{0407}
+}
+
+\DeclareOption{bellatrix}{
+	\def\@usedVersion{0409}
+}
+
+%% --------------------
+%% Simple
+%% --------------------
+
+%% -autoPackageInclusion
+\DeclareOption{-autoPackageInclusion}{
+	\setboolean{@b_core_use_autoPackInclusion}{false}
+	\PackageWarning{kappak_v4}{-autoPackageInclusion called, no package will be included by kappak, except ifthen and keyval}
+}
+
+%% +beamer
+\DeclareOption{+beamer}{
+	\setboolean{@b_extpack_use_beamer}{true}
+}
+
+%% +compatibility
+\DeclareOption{+compatibility}{
+	\setboolean{@b_core_use_compatibility}{true}
+}
+
+%% +maths
+\DeclareOption{+maths}{
+	\setboolean{@b_maths_use_arrows}{true}
+	\setboolean{@b_maths_use_categories}{true}
+	\setboolean{@b_maths_use_characterAccents}{true}
+	\setboolean{@b_maths_use_characterStyles}{true}
+	\setboolean{@b_maths_use_misc}{true}
+	\setboolean{@b_maths_use_operators}{true}
+	\setboolean{@b_maths_use_theoremEnvs}{true}
+}
+
+%% +maths.misc
+\DeclareOption{+maths.arrows}{
+	\setboolean{@b_maths_use_arrows}{true}
+}
+
+%% +maths.categories
+\DeclareOption{+maths.categories}{
+	\setboolean{@b_maths_use_categories}{true}
+}
+
+%% +maths.characterAccents
+\DeclareOption{+maths.characterAccents}{
+	\setboolean{@b_maths_use_characterAccents}{true}
+}
+
+%% +maths.characterStyles
+\DeclareOption{+maths.characterStyles}{
+	\setboolean{@b_maths_use_characterStyles}{true}
+}
+
+%% +maths.misc
+\DeclareOption{+maths.misc}{
+	\setboolean{@b_maths_use_misc}{true}
+}
+
+%% +maths.operators
+\DeclareOption{+maths.operators}{
+	\setboolean{@b_maths_use_operators}{true}
+}
+
+%% maths.scriptCategories
+\DeclareOption{maths.scriptCategories}{
+	\setboolean{@b_maths_use_categories}{true}
+	\setboolean{@b_maths_use_scriptcategories}{true}
+}
+
+%% maths.swapNumbers
+\DeclareOption{maths.swapNumbers}{
+	\setboolean{@b_maths_swapnumbers}{true}
+}
+
+%% +maths.theoremEnvs
+\DeclareOption{+maths.theoremEnvs}{
+	\setboolean{@b_maths_use_theoremEnvs}{true}
+}
+
+%% +maths.theoremStyles
+\DeclareOption{-maths.theoremStyles}{
+	\setboolean{@b_maths_use_theoremStyles}{false}
+}
+
+%% +misc
+\DeclareOption{+misc}{
+	\setboolean{@b_use_misc}{true}
+}
+
+%% +tikz
+\DeclareOption{+tikz}{
+	\setboolean{@b_extpack_use_tikz}{true}
+}
+
+%% --------------------
+%% Keyval
+%% --------------------
+
+%% bbStyle
+\define@key{kappak}{bbStyle}[normal]{
+	\def\@bbStyle{#1}
+}
+
+%% chapterStyle
+\define@key{kappak}{chapterStyle}[normal]{
+	\def\@chapterStyle{#1}
+}
+
+%% encoding
+\define@key{kappak}{encoding}[utf8]{
+	\def\@encoding{#1}
+}
+
+%% encoding
+\define@key{kappak}{headerFooterStyle}[normal]{
+	\def\@headerFooterStyle{#1}
+}
+
+\define@key{kappak}{fontSet}[normal]{
+	\def\@fontSet{#1}
+}
+
+%% langage
+\define@key{kappak}{langage}[french]{
+	\def\@langage{#1}
+}
+
+%% lineSpacing
+\define@key{kappak}{lineSpacing}[1]{
+	\renewcommand{\baselinestretch}{#1} 
+}
+
+%% margins
+\define@key{kappak}{margins}[normal]{
+	\def\@margins{#1}
+}
+
+%% scriptStyle
+\define@key{kappak}{scriptStyle}[normal]{
+	\def\@scriptStyle{#1}
+}
+
+%% titlePageStyle
+\define@key{kappak}{titlePageStyle}[normal]{
+	\def\@titlePageStyle{#1}
+}
+
+%% version
+\define@key{kappak}{version}[0406]{
+	% 0406 is the version where \@kappakVersion started to be taken into account.
+	\def\@usedVersion{#1}
+}
+
+\ProcessOptions
+\ProcessUnusedOptions{kappak}
+
+%% ----------------------------------------
+%% Processing
+%% ----------------------------------------
+
+\ifthenelse{\boolean{@b_core_use_autoPackInclusion}}{
+	\RequirePackage[\@langage]{babel}
+	\RequirePackage[\@encoding]{inputenc}
+	\ifthenelse{\equal{\@langage}{french}}{
+		\RequirePackage[T1]{fontenc}
+	}{}
+	
+	\RequirePackage{amsmath}
+	\RequirePackage{amsfonts}
+	\RequirePackage{amssymb}
+	\RequirePackage{amsthm}
+	
+	\RequirePackage{color}
+	\RequirePackage{enumerate}
+	\RequirePackage{graphicx}
+	\RequirePackage{hyperref}
+	\RequirePackage{makeidx}
+	\RequirePackage{multicol}
+	\RequirePackage{subfig}
+	
+	\hypersetup{ % Thanks timmurphy.org
+	    colorlinks=true,
+	    linkcolor=blue ,
+	    urlcolor=red   ,
+	    linktoc=all
+	}
+}{}
+
+\newcommand{\@bb}{\mathbb}
+\ifthenelse{\equal{\@bbStyle}{bbold}}{
+	\ifthenelse{\boolean{@b_core_use_autoPackInclusion}}{
+		\RequirePackage{bbold}
+	}{}
+	\ifthenelse{\boolean{@b_maths_use_characterStyles}}{
+		\setboolean{@b_maths_allow_bbgreek}{true}
+	}{}
+}{}
+
+\ifthenelse{\boolean{@b_extpack_use_tikz}}{
+	\RequirePackage{tikz}
+	\usetikzlibrary{matrix, arrows, calc}
+}{}
+
+\newcommand{\@cal}{\mathcal}
+\ifthenelse{\equal{\@scriptStyle}{euler}}{
+	\ifthenelse{\boolean{@b_core_use_autoPackInclusion}}{
+		\RequirePackage[mathscr]{euscript}
+	}{}
+	\renewcommand{\@cal}{\mathscr}
+}{}
+\ifthenelse{\equal{\@scriptStyle}{rsfs}}{
+	\ifthenelse{\boolean{@b_core_use_autoPackInclusion}}{
+		\RequirePackage{mathrsfs}
+	}{}
+	\renewcommand{\@cal}{\mathscr}
+}{}
+
+\ifthenelse{\boolean{@b_extpack_use_beamer}}{}{
+	\ifthenelse{\boolean{@b_core_use_autoPackInclusion}}{
+		\ifthenelse{\equal{\@headerFooterStyle}{normal}}{}{
+			\RequirePackage{fancyhdr}
+		}
+		\ifthenelse{\equal{\@chapterStyle}{normal}}{}{
+			\RequirePackage{titlesec}
+		}
+	}{}
+}
+
+\ifthenelse{\equal{\@fontSet}{alternate}}{
+	\RequirePackage{mathptmx}       % selects Times Roman as basic font
+	\RequirePackage{helvet}         % selects Helvetica as sans-serif font
+	\RequirePackage{courier}        % selects Courier as typewriter font
+	%\RequirePackage{type1cm}       % activate if the above 3 fonts are
+                            		% not available on your system
+}{}
+
+\ifthenelse{\equal{\@margins}{reduced}}{
+	\RequirePackage{geometry}
+	\geometry{hscale = 0.8, centering}
+}{}
+
+\ifthenelse{\equal{\@margins}{minimal}}{
+	\RequirePackage{geometry}
+	\geometry{hscale = 0.9, centering}
+}{}
+
+\ifthenelse{\@usedVersion < \@kappakVersion}{
+	\PackageWarning{kappak-v4}{You are using an older version of kappak (v\@usedVersion, actual is v\@kappakVersion). Using compatibility.}
+}{}

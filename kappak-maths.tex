@@ -1,0 +1,215 @@
+\ProvidesFile{kappak-maths.tex}[Part of kappak package]
+
+%% ----------------------------------------
+%% Operators
+%% ----------------------------------------
+
+\ifthenelse{\boolean{@b_maths_use_operators}}{
+
+	\DeclareMathOperator{\Ann}		{Ann}
+	\DeclareMathOperator{\Aut}		{Aut}
+	\DeclareMathOperator{\Bil}		{Bil}
+	\DeclareMathOperator{\car}		{car}
+	\DeclareMathOperator{\card}		{card}
+	\DeclareMathOperator{\Card}		{Card}
+	\DeclareMathOperator{\codom}	{codom}
+	\DeclareMathOperator{\coker}	{coker}
+	\DeclareMathOperator{\colim}	{colim}
+	\DeclareMathOperator{\Cov}		{Cov}
+	\DeclareMathOperator{\Corr}		{Corr}
+	%\DeclareMathOperator{\deg}		{deg}
+	\DeclareMathOperator{\Deg}		{Deg}
+	\DeclareMathOperator{\diam}		{diam}
+	\DeclareMathOperator{\diverg}	{div}
+	\DeclareMathOperator{\dom}		{dom}
+	\DeclareMathOperator{\Dom}		{Dom}
+	\DeclareMathOperator{\End}		{End}
+	\DeclareMathOperator{\ev}		{ev}
+	\DeclareMathOperator{\Frac}		{Frac}
+	\DeclareMathOperator{\GL}		{GL}
+	\DeclareMathOperator{\grad}		{grad}
+	%\DeclareMathOperator{\hom}		{hom}
+	\DeclareMathOperator{\Hom}		{Hom}
+	\DeclareMathOperator{\id}		{id}
+	\DeclareMathOperator{\Id}		{Id}
+	\DeclareMathOperator{\im}		{im}
+	\DeclareMathOperator{\Ind}		{Ind}
+	\DeclareMathOperator{\Isom}		{Isom}
+	\DeclareMathOperator{\Ker}		{Ker}
+	\DeclareMathOperator{\Map}		{Map}
+	\DeclareMathOperator{\mes}		{mes}
+	\DeclareMathOperator{\milieu}	{milieu}
+	\DeclareMathOperator{\Mor}		{Mor}
+	\DeclareMathOperator{\ob}		{ob}
+	\DeclareMathOperator{\Ob}		{Ob}
+	\DeclareMathOperator{\Obj}		{Obj}
+	\DeclareMathOperator{\Orb}		{Orb}
+	\DeclareMathOperator{\PGCD}		{PGCD}
+	\DeclareMathOperator{\pgcd}		{pgcd}
+	\DeclareMathOperator{\PPCM}		{PPCM}
+	\DeclareMathOperator{\ppcm}		{ppcm}
+	\DeclareMathOperator{\proj}		{proj}
+	\DeclareMathOperator{\rang}		{rang}
+	\DeclareMathOperator{\Rang}		{Rang}
+	\DeclareMathOperator{\re}		{Re}
+	\DeclareMathOperator{\Res}		{Res}
+	\DeclareMathOperator{\rk}		{rk}
+	\DeclareMathOperator{\rot}		{rot}
+	\DeclareMathOperator{\sgn}		{sgn}
+	\DeclareMathOperator{\SL}		{SL}
+	\DeclareMathOperator{\Stab}		{Stab}
+	\DeclareMathOperator{\Spec}		{Spec}
+	\DeclareMathOperator{\Sym}		{Sym}
+	\DeclareMathOperator{\Tens}		{Tens}
+	\DeclareMathOperator{\tr}		{tr}
+	\DeclareMathOperator{\Var}		{Var}
+	\DeclareMathOperator{\vect}		{Vect}
+	\DeclareMathOperator{\vol}		{vol}
+	
+}{} % \ifthenelse{\boolean{@b_maths_use_operators}}{
+
+%% ----------------------------------------
+%% Categories
+%% ----------------------------------------
+
+\ifthenelse{\boolean{@b_maths_use_categories}}{
+	
+	\ifthenelse{\boolean{@b_maths_use_scriptcategories}}{
+		\newcommand{\@cat}{\@cal}
+		\newcommand{\op}{\mathrm{op}}
+		\newcommand{\newcategory}[4]{
+			\newcommand{#1}{#2\@cal{#3}\!#4}
+		}
+	}{
+		\newcommand{\@cat}[1]{\mathsf{#1}}
+		\newcommand{\op}{\@cat{op}}
+		\newcommand{\newcategory}[4]{
+			\newcommand{#1}{\@cat{#2#3#4}}
+		}
+	} % \ifthenelse{\boolean{@b_maths_use_scriptcategories}}{
+
+%% --------------------
+%% Some categories
+%% --------------------
+	
+	\newcategory{\Ab}		{}{A}{b}
+	\newcategory{\Alg}		{}{A}{lg}
+	\newcategory{\Bij}		{}{B}{ij}
+	\newcategory{\Cat}		{}{C}{at}
+	\newcategory{\CAT}		{}{C}{AT}
+	\newcategory{\Comp}		{}{C}{omp}
+	\newcategory{\CRing}	{}{C}{Ring}
+	\newcategory{\Field}	{}{F}{ield}
+	\newcategory{\Fin}		{}{F}{in}
+	\newcategory{\Graph}	{}{G}{raph}
+	\newcategory{\Grp}		{}{G}{rp}
+	\newcategory{\Mod}		{}{M}{od}
+	\newcategory{\Mon}		{}{M}{on}
+	\newcategory{\Op}		{}{O}{p}
+	\newcategory{\Pos}		{}{P}{os}
+	\newcategory{\Ring}		{}{R}{ing}
+	\newcategory{\Set}		{}{S}{et}
+	\newcategory{\SET}		{}{S}{ET}
+	\newcategory{\sGrp}		{s}{G}{rp}
+	\newcategory{\SGrp}		{}{S}{Grp}
+	\newcategory{\Sh}		{}{S}{h}
+	\newcategory{\SRing}	{}{S}{Ring}
+	\newcategory{\sSet}		{s}{S}{et}
+	\newcategory{\Top}		{}{T}{op}
+	\newcategory{\Vect}		{}{V}{ect}
+	
+%% --------------------
+%% cat style
+%% --------------------
+
+	\newcommand{\catA}{\@cat{a}}
+	\newcommand{\catB}{\@cat{b}}
+	\newcommand{\catC}{\@cat{c}}
+	\newcommand{\catD}{\@cat{d}}
+	\newcommand{\catE}{\@cat{e}}
+	\newcommand{\catF}{\@cat{f}}
+	\newcommand{\catG}{\@cat{g}}
+	\newcommand{\catH}{\@cat{h}}
+	\newcommand{\catI}{\@cat{i}}
+	\newcommand{\catJ}{\@cat{j}}
+	\newcommand{\catK}{\@cat{k}}
+	\newcommand{\catL}{\@cat{l}}
+	\newcommand{\catM}{\@cat{m}}
+	\newcommand{\catN}{\@cat{n}}
+	\newcommand{\catO}{\@cat{o}}
+	\newcommand{\catP}{\@cat{p}}
+	\newcommand{\catQ}{\@cat{q}}
+	\newcommand{\catR}{\@cat{r}}
+	\newcommand{\catS}{\@cat{s}}
+	\newcommand{\catT}{\@cat{t}}
+	\newcommand{\catU}{\@cat{u}}
+	\newcommand{\catV}{\@cat{v}}
+	\newcommand{\catW}{\@cat{w}}
+	\newcommand{\catX}{\@cat{x}}
+	\newcommand{\catY}{\@cat{y}}
+	\newcommand{\catZ}{\@cat{z}}
+	\newcommand{\catAA}{\@cat{A}}
+	\newcommand{\catBB}{\@cat{B}}
+	\newcommand{\catCC}{\@cat{C}}
+	\newcommand{\catDD}{\@cat{D}}
+	\newcommand{\catEE}{\@cat{E}}
+	\newcommand{\catFF}{\@cat{F}}
+	\newcommand{\catGG}{\@cat{G}}
+	\newcommand{\catHH}{\@cat{H}}
+	\newcommand{\catII}{\@cat{I}}
+	\newcommand{\catJJ}{\@cat{J}}
+	\newcommand{\catKK}{\@cat{K}}
+	\newcommand{\catLL}{\@cat{L}}
+	\newcommand{\catMM}{\@cat{M}}
+	\newcommand{\catNN}{\@cat{N}}
+	\newcommand{\catOO}{\@cat{O}}
+	\newcommand{\catPP}{\@cat{P}}
+	\newcommand{\catQQ}{\@cat{Q}}
+	\newcommand{\catRR}{\@cat{R}}
+	\newcommand{\catSS}{\@cat{S}}
+	\newcommand{\catTT}{\@cat{T}}
+	\newcommand{\catUU}{\@cat{U}}
+	\newcommand{\catVV}{\@cat{V}}
+	\newcommand{\catWW}{\@cat{W}}
+	\newcommand{\catXX}{\@cat{X}}
+	\newcommand{\catYY}{\@cat{Y}}
+	\newcommand{\catZZ}{\@cat{Z}}
+	
+}{} % \ifthenelse{\boolean{@b_maths_use_categories}}{
+
+%% ----------------------------------------
+%% Arrows
+%% ----------------------------------------
+
+\ifthenelse{\boolean{@b_maths_use_arrows}}{
+
+	\newcommand{\incl}{\hookrightarrow}
+	\newcommand{\longincl}{\lhook\joinrel\relbar\joinrel\rightarrow}
+	\newcommand{\epi}{\twoheadrightarrow}
+	\newcommand{\longepi}{\relbar\joinrel\twoheadrightarrow}
+	\newcommand{\mono}{\rightarrowtail}
+	\newcommand{\longmono}{
+		\stackrel{
+			\begin{tikzpicture}
+				\draw[>->] (0, 0) -- (0.55, 0);
+			\end{tikzpicture}
+		}{}
+	}
+	\newcommand{\longmultimap}{\relbar\joinrel\multimap}
+	
+}{} % \ifthenelse{\boolean{@b_maths_use_arrows}}{
+
+%% ----------------------------------------
+%% Other / handy
+%% ----------------------------------------
+
+\ifthenelse{\boolean{@b_maths_use_misc}}{
+
+	\newcommand{\bs}{\setminus}
+	\newcommand{\es}{\emptyset}
+	\newcommand{\ox}{\otimes}
+	\newcommand{\x}{\times}
+	
+	\renewcommand{\epsilon}{\varepsilon}
+	
+}{} % \ifthenelse{\boolean{@b_maths_use_misc}}{

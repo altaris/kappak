@@ -1,0 +1,127 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{kappak-v4}[2013/05/01 kappak]
+\makeatletter
+
+%% ----------------------------------------
+%% Metadatas
+%% ----------------------------------------
+
+\def\@kappakVersion{0409}
+\def\@usedVersion{0406} % 0406 is the version where \@kappakVersion started to be taken into account.
+% \PackageInfo{kappak-v4}{This is kappak, v\@kappakVersion}
+
+%% ----------------------------------------
+%%
+%% Internal commands and required packages.
+%%
+%% ----------------------------------------
+
+\input{kappak-utilities}
+
+%% ----------------------------------------
+%%
+%% Declaring variables and assigning default values.
+%%
+%% ----------------------------------------
+
+	% core
+\newboolean{@b_core_use_autoPackInclusion}	\setboolean{@b_core_use_autoPackInclusion}	{true}
+
+	% extpack
+\newboolean{@b_extpack_use_beamer}			\setboolean{@b_extpack_use_beamer}			{false}
+\newboolean{@b_extpack_use_tikz} 			\setboolean{@b_extpack_use_tikz}			{false}
+
+	% maths
+\newboolean{@b_maths_allow_bbgreek} 		\setboolean{@b_maths_allow_bbgreek}			{false}
+\newboolean{@b_maths_swapnumbers} 			\setboolean{@b_maths_swapnumbers}			{false}
+\newboolean{@b_maths_use_arrows} 			\setboolean{@b_maths_use_arrows}			{false}
+\newboolean{@b_maths_use_categories} 		\setboolean{@b_maths_use_categories}		{false}
+\newboolean{@b_maths_use_characterAccents} 	\setboolean{@b_maths_use_characterAccents}	{false}
+\newboolean{@b_maths_use_characterStyles} 	\setboolean{@b_maths_use_characterStyles}	{false}
+\newboolean{@b_maths_use_misc} 				\setboolean{@b_maths_use_misc}				{false}
+\newboolean{@b_maths_use_operators} 		\setboolean{@b_maths_use_operators}			{false}
+\newboolean{@b_maths_use_scriptcategories} 	\setboolean{@b_maths_use_scriptcategories}	{false}
+\newboolean{@b_maths_use_theoremEnvs}		\setboolean{@b_maths_use_theoremEnvs}		{false}
+\newboolean{@b_maths_use_theoremStyles}		\setboolean{@b_maths_use_theoremStyles}		{true}
+
+	% misc
+\newboolean{@b_use_misc} 					\setboolean{@b_use_misc}					{false}
+
+\def\@bbStyle			{normal}
+\def\@chapterStyle		{normal}
+\def\@encoding			{utf8}
+\def\@fontSet			{normal}
+\def\@headerFooterStyle	{normal}
+\def\@langage			{french}
+\def\@margins			{normal}
+\def\@scriptStyle		{normal}
+\def\@titlePageStyle	{normal}
+
+%% ----------------------------------------
+%%
+%% Arguments processing
+%%
+%% ----------------------------------------
+
+\input{kappak-arguments.tex}
+
+%% ----------------------------------------
+%%
+%% Commands
+%%
+%% ----------------------------------------
+
+%% ----------------------------------------
+%% Math
+%% ----------------------------------------
+
+\input{kappak-maths.tex}
+
+%% ----------------------------------------
+%% Other / handy
+%% ----------------------------------------
+
+\ifthenelse{\boolean{@b_use_misc}}{
+
+	\newcommand{\tb}{\textbullet}
+
+}{}
+
+%% ----------------------------------------
+%% Letter styles
+%% ----------------------------------------
+
+\input{kappak-letters.tex}
+
+%% ----------------------------------------
+%% tikz
+%% ----------------------------------------
+
+\input{kappak-tikz.tex}
+
+%% ----------------------------------------
+%%
+%% Document styles
+%%
+%% ----------------------------------------
+
+\input{kappak-styles.tex}
+
+%% ----------------------------------------
+%% Environments
+%% ----------------------------------------
+
+\input{kappak-environments.tex}
+
+%% ----------------------------------------
+%% Compatibility
+%% ----------------------------------------
+
+\ifthenelse{\@usedVersion < \@kappakVersion}{
+	\input{kappak-compatibility.tex}
+}{}
+
+%% ----------------------------------------
+
+\makeatother
+\endinput

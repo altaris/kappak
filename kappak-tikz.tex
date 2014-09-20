@@ -1,0 +1,497 @@
+\ProvidesFile{kappak-tikz.tex}[Part of kappak package]
+
+%% ----------------------------------------
+%%
+%% tikz related commands
+%%
+%% ----------------------------------------
+
+\ifthenelse{\boolean{@b_extpack_use_tikz}}{
+
+%% ----------------------------------------
+%% General diagrams
+%% ----------------------------------------
+
+%% --------------------
+%% Size
+%% --------------------
+
+	\newcommand{\diagramsize}[2]{
+		\ifthenelse{\equal{#1}{}}{\def\@tRowsep{3}}{\def\@tRowsep{#1}}
+		\ifthenelse{\equal{#2}{}}{\def\@tColsep{4}}{\def\@tColsep{#2}}
+	}
+	\diagramsize{}{}
+	
+%% --------------------
+%% Reset styles
+%% --------------------
+
+	\newcommand{\rds}{
+		\def\@tDiagSqUA{->}
+		\def\@tDiagSqLA{->}
+		\def\@tDiagSqRA{->}
+		\def\@tDiagSqDA{->}
+		\def\@tDiagSqUL{solid}
+		\def\@tDiagSqLL{solid}
+		\def\@tDiagSqRL{solid}
+		\def\@tDiagSqDL{solid}
+		\def\@tDiagTrigAA{->}
+		\def\@tDiagTrigBA{->}
+		\def\@tDiagTrigCA{->}
+		\def\@tDiagTrigAL{solid}
+		\def\@tDiagTrigBL{solid}
+		\def\@tDiagTrigCL{solid}
+	}
+
+%% ----------------------------------------
+%% Square diagrams
+%% ----------------------------------------
+	
+%% --------------------
+%% Styles
+%% --------------------
+
+	\newcommand{\squarediagramarrows}[4]{
+		\ifthenelse{\equal{#1}{}}{\def\@tDiagSqUA{->}}{}
+		\ifthenelse{\equal{#1}{-}}{\def\@tDiagSqUA{-}}{}
+		\ifthenelse{\equal{#1}{->}}{\def\@tDiagSqUA{->}}{}
+		\ifthenelse{\equal{#1}{<-}}{\def\@tDiagSqUA{<-}}{}
+		\ifthenelse{\equal{#1}{<->}}{\def\@tDiagSqUA{<->}}{}
+		\ifthenelse{\equal{#1}{->>}}{\def\@tDiagSqUA{->>}}{}
+		\ifthenelse{\equal{#1}{<<-}}{\def\@tDiagSqUA{<<-}}{}
+		\ifthenelse{\equal{#1}{>->}}{\def\@tDiagSqUA{>->}}{}
+		\ifthenelse{\equal{#1}{<-<}}{\def\@tDiagSqUA{<-<}}{}
+		\ifthenelse{\equal{#1}{c->}}{\def\@tDiagSqUA{right hook->}}{}
+		\ifthenelse{\equal{#1}{<-c}}{\def\@tDiagSqUA{<-left hook}}{}
+		\ifthenelse{\equal{#1}{|->}}{\def\@tDiagSqUA{|->}}{}
+		\ifthenelse{\equal{#1}{<-|}}{\def\@tDiagSqUA{<-|}}{}
+		\ifthenelse{\equal{#2}{}}{\def\@tDiagSqLA{->}}{}
+		\ifthenelse{\equal{#2}{-}}{\def\@tDiagSqLA{-}}{}
+		\ifthenelse{\equal{#2}{->}}{\def\@tDiagSqLA{->}}{}
+		\ifthenelse{\equal{#2}{<-}}{\def\@tDiagSqLA{<-}}{}
+		\ifthenelse{\equal{#2}{<->}}{\def\@tDiagSqLA{<->}}{}
+		\ifthenelse{\equal{#2}{->>}}{\def\@tDiagSqLA{->>}}{}
+		\ifthenelse{\equal{#2}{<<-}}{\def\@tDiagSqLA{<<-}}{}
+		\ifthenelse{\equal{#2}{>->}}{\def\@tDiagSqLA{>->}}{}
+		\ifthenelse{\equal{#2}{<-<}}{\def\@tDiagSqLA{<-<}}{}
+		\ifthenelse{\equal{#2}{c->}}{\def\@tDiagSqLA{right hook->}}{}
+		\ifthenelse{\equal{#2}{<-c}}{\def\@tDiagSqLA{<-left hook}}{}
+		\ifthenelse{\equal{#2}{|->}}{\def\@tDiagSqLA{|->}}{}
+		\ifthenelse{\equal{#2}{<-|}}{\def\@tDiagSqLA{<-|}}{}
+		\ifthenelse{\equal{#3}{}}{\def\@tDiagSqRA{->}}{}
+		\ifthenelse{\equal{#3}{-}}{\def\@tDiagSqRA{-}}{}
+		\ifthenelse{\equal{#3}{->}}{\def\@tDiagSqRA{->}}{}
+		\ifthenelse{\equal{#3}{<-}}{\def\@tDiagSqRA{<-}}{}
+		\ifthenelse{\equal{#3}{<->}}{\def\@tDiagSqRA{<->}}{}
+		\ifthenelse{\equal{#3}{->>}}{\def\@tDiagSqRA{->>}}{}
+		\ifthenelse{\equal{#3}{<<-}}{\def\@tDiagSqRA{<<-}}{}
+		\ifthenelse{\equal{#3}{>->}}{\def\@tDiagSqRA{>->}}{}
+		\ifthenelse{\equal{#3}{<-<}}{\def\@tDiagSqRA{<-<}}{}
+		\ifthenelse{\equal{#3}{c->}}{\def\@tDiagSqRA{right hook->}}{}
+		\ifthenelse{\equal{#3}{<-c}}{\def\@tDiagSqRA{<-left hook}}{}
+		\ifthenelse{\equal{#3}{|->}}{\def\@tDiagSqRA{|->}}{}
+		\ifthenelse{\equal{#3}{<-|}}{\def\@tDiagSqRA{<-|}}{}
+		\ifthenelse{\equal{#4}{}}{\def\@tDiagSqDA{->}}{}
+		\ifthenelse{\equal{#4}{-}}{\def\@tDiagSqDA{-}}{}
+		\ifthenelse{\equal{#4}{->}}{\def\@tDiagSqDA{->}}{}
+		\ifthenelse{\equal{#4}{<-}}{\def\@tDiagSqDA{<-}}{}
+		\ifthenelse{\equal{#4}{<->}}{\def\@tDiagSqDA{<->}}{}
+		\ifthenelse{\equal{#4}{->>}}{\def\@tDiagSqDA{->>}}{}
+		\ifthenelse{\equal{#4}{<<-}}{\def\@tDiagSqDA{<<-}}{}
+		\ifthenelse{\equal{#4}{>->}}{\def\@tDiagSqDA{>->}}{}
+		\ifthenelse{\equal{#4}{<-<}}{\def\@tDiagSqDA{<-<}}{}
+		\ifthenelse{\equal{#4}{c->}}{\def\@tDiagSqDA{right hook->}}{}
+		\ifthenelse{\equal{#4}{<-c}}{\def\@tDiagSqDA{<-left hook}}{}
+		\ifthenelse{\equal{#4}{|->}}{\def\@tDiagSqDA{|->}}{}
+		\ifthenelse{\equal{#4}{<-|}}{\def\@tDiagSqDA{<-|}}{}
+	} % \newcommand{\squarediagramarrows}[4]{
+	\squarediagramarrows{}{}{}{}
+	
+	\newcommand{\squarediagramlines}[4]{
+		\ifthenelse{\equal{#1}{}}{\def\@tDiagSqUL{solid}}{}
+		\ifthenelse{\equal{#1}{=}}{\def\@tDiagSqUL{double}}{}
+		\ifthenelse{\equal{#1}{-}}{\def\@tDiagSqUL{solid}}{}
+		\ifthenelse{\equal{#1}{..}}{\def\@tDiagSqUL{dotted}}{}
+		\ifthenelse{\equal{#1}{--}}{\def\@tDiagSqUL{dashed}}{}
+		\ifthenelse{\equal{#2}{}}{\def\@tDiagSqLL{solid}}{}
+		\ifthenelse{\equal{#2}{=}}{\def\@tDiagSqLL{double}}{}
+		\ifthenelse{\equal{#2}{-}}{\def\@tDiagSqLL{solid}}{}
+		\ifthenelse{\equal{#2}{..}}{\def\@tDiagSqLL{dotted}}{}
+		\ifthenelse{\equal{#2}{--}}{\def\@tDiagSqLL{dashed}}{}
+		\ifthenelse{\equal{#3}{}}{\def\@tDiagSqRL{solid}}{}
+		\ifthenelse{\equal{#3}{=}}{\def\@tDiagSqRL{double}}{}
+		\ifthenelse{\equal{#3}{-}}{\def\@tDiagSqRL{solid}}{}
+		\ifthenelse{\equal{#3}{..}}{\def\@tDiagSqRL{dotted}}{}
+		\ifthenelse{\equal{#3}{--}}{\def\@tDiagSqRL{dashed}}{}
+		\ifthenelse{\equal{#4}{}}{\def\@tDiagSqDL{solid}}{}
+		\ifthenelse{\equal{#4}{=}}{\def\@tDiagSqDL{double}}{}
+		\ifthenelse{\equal{#4}{-}}{\def\@tDiagSqDL{solid}}{}
+		\ifthenelse{\equal{#4}{..}}{\def\@tDiagSqDL{dotted}}{}
+		\ifthenelse{\equal{#4}{--}}{\def\@tDiagSqDL{dashed}}{}
+	}
+	\squarediagramlines{}{}{}{}
+	
+%% --------------------
+%% Simple
+%% --------------------
+
+\ifthenelse{\@usedVersion = 0408 \or \@usedVersion > 0408}{
+
+	\newcommand{\squarediagram}[8]{
+		\begin{tikzpicture}
+			\matrix (m) [matrix of math nodes,
+					row sep = \@tRowsep em,
+					column sep = \@tColsep em,
+					text height = 1.5 ex,
+					text depth = 0.25 ex,
+					ampersand replacement = \&] {
+				#1 \& #2 \\
+				#3 \& #4 \\
+			};
+			\path [>=stealth, \@tDiagSqUA] (m-1-1) edge [\@tDiagSqUL] node [above] {$#5$} (m-1-2);
+			\path [>=stealth, \@tDiagSqLA] (m-1-1) edge [\@tDiagSqLL] node [left]  {$#6$} (m-2-1);
+			\path [>=stealth, \@tDiagSqRA] (m-1-2) edge [\@tDiagSqRL] node [right] {$#7$} (m-2-2);
+			\path [>=stealth, \@tDiagSqDA] (m-2-1) edge [\@tDiagSqDL] node [above] {$#8$} (m-2-2);
+		\end{tikzpicture}
+	}
+	
+%% --------------------
+%% Pushout
+%% --------------------
+
+	\newcommand{\pushoutdiagram}[8]{
+		\begin{tikzpicture}[inline/.style = {fill = white, inner sep = 2.5pt}]
+			\matrix (m) [matrix of math nodes,
+					row sep = \@tRowsep em,
+					column sep = \@tColsep em,
+					text height = 1.5 ex,
+					text depth = 0.25 ex,
+					ampersand replacement = \&] {
+				#1 \& #2 \\
+				#3 \& #4 \\
+			};
+			\path (m-1-1) edge [-, draw = white] node [inline] {\mbox{\LARGE{$\ulcorner$}}} (m-2-2);
+			\path [>=stealth, \@tDiagSqUA] (m-1-1) edge [\@tDiagSqUL] node [above] {$#5$} (m-1-2);
+			\path [>=stealth, \@tDiagSqLA] (m-1-1) edge [\@tDiagSqLL] node [left]  {$#6$} (m-2-1);
+			\path [>=stealth, \@tDiagSqRA] (m-1-2) edge [\@tDiagSqRL] node [right] {$#7$} (m-2-2);
+			\path [>=stealth, \@tDiagSqDA] (m-2-1) edge [\@tDiagSqDL] node [above] {$#8$} (m-2-2);
+		\end{tikzpicture}
+	}
+	
+%% --------------------
+%% Pullback
+%% --------------------
+
+	\newcommand{\pullbackdiagram}[8]{
+		\begin{tikzpicture}[inline/.style = {fill = white, inner sep = 2.5pt}]
+			\matrix (m) [matrix of math nodes,
+					row sep = \@tRowsep em,
+					column sep = \@tColsep em,
+					text height = 1.5 ex,
+					text depth = 0.25ex,
+					ampersand replacement = \&] {
+				#1 \& #2 \\
+				#3 \& #4 \\
+			};
+			\path (m-1-1) edge [-, draw = white] node [inline] {\mbox{\LARGE{$\lrcorner$}}} (m-2-2);
+			\path [>=stealth, \@tDiagSqUA] (m-1-1) edge [\@tDiagSqUL] node [above] {$#5$} (m-1-2);
+			\path [>=stealth, \@tDiagSqLA] (m-1-1) edge [\@tDiagSqLL] node [left]  {$#6$} (m-2-1);
+			\path [>=stealth, \@tDiagSqRA] (m-1-2) edge [\@tDiagSqRL] node [right] {$#7$} (m-2-2);
+			\path [>=stealth, \@tDiagSqDA] (m-2-1) edge [\@tDiagSqDL] node [above] {$#8$} (m-2-2);
+		\end{tikzpicture}
+	}
+
+}{} % \ifthenelse{\@usedVersion = 0408 \or \@usedVersion > 0408}{
+
+%% ----------------------------------------
+%% Triangular diagrams
+%% ----------------------------------------
+	
+%% --------------------
+%% Styles
+%% --------------------
+
+	\newcommand{\trianglediagramarrows}[3]{
+		\ifthenelse{\equal{#1}{}}{\def\@tDiagTrigAA{->}}{}
+		\ifthenelse{\equal{#1}{-}}{\def\@tDiagTrigAA{-}}{}
+		\ifthenelse{\equal{#1}{->}}{\def\@tDiagTrigAA{->}}{}
+		\ifthenelse{\equal{#1}{<-}}{\def\@tDiagTrigAA{<-}}{}
+		\ifthenelse{\equal{#1}{<->}}{\def\@tDiagTrigAA{<->}}{}
+		\ifthenelse{\equal{#1}{->>}}{\def\@tDiagTrigAA{->>}}{}
+		\ifthenelse{\equal{#1}{<<-}}{\def\@tDiagTrigAA{<<-}}{}
+		\ifthenelse{\equal{#1}{>->}}{\def\@tDiagTrigAA{>->}}{}
+		\ifthenelse{\equal{#1}{<-<}}{\def\@tDiagTrigAA{<-<}}{}
+		\ifthenelse{\equal{#1}{c->}}{\def\@tDiagTrigAA{right hook->}}{}
+		\ifthenelse{\equal{#1}{<-c}}{\def\@tDiagTrigAA{<-left hook}}{}
+		\ifthenelse{\equal{#1}{|->}}{\def\@tDiagTrigAA{|->}}{}
+		\ifthenelse{\equal{#1}{<-|}}{\def\@tDiagTrigAA{<-|}}{}
+		\ifthenelse{\equal{#2}{}}{\def\@tDiagTrigBA{->}}{}
+		\ifthenelse{\equal{#2}{-}}{\def\@tDiagTrigBA{-}}{}
+		\ifthenelse{\equal{#2}{->}}{\def\@tDiagTrigBA{->}}{}
+		\ifthenelse{\equal{#2}{<-}}{\def\@tDiagTrigBA{<-}}{}
+		\ifthenelse{\equal{#2}{<->}}{\def\@tDiagTrigBA{<->}}{}
+		\ifthenelse{\equal{#2}{->>}}{\def\@tDiagTrigBA{->>}}{}
+		\ifthenelse{\equal{#2}{<<-}}{\def\@tDiagTrigBA{<<-}}{}
+		\ifthenelse{\equal{#2}{>->}}{\def\@tDiagTrigBA{>->}}{}
+		\ifthenelse{\equal{#2}{<-<}}{\def\@tDiagTrigBA{<-<}}{}
+		\ifthenelse{\equal{#2}{c->}}{\def\@tDiagTrigBA{right hook->}}{}
+		\ifthenelse{\equal{#2}{<-c}}{\def\@tDiagTrigBA{<-left hook}}{}
+		\ifthenelse{\equal{#2}{|->}}{\def\@tDiagTrigBA{|->}}{}
+		\ifthenelse{\equal{#2}{<-|}}{\def\@tDiagTrigBA{<-|}}{}
+		\ifthenelse{\equal{#3}{}}{\def\@tDiagTrigCA{->}}{}
+		\ifthenelse{\equal{#3}{-}}{\def\@tDiagTrigCA{-}}{}
+		\ifthenelse{\equal{#3}{->}}{\def\@tDiagTrigCA{->}}{}
+		\ifthenelse{\equal{#3}{<-}}{\def\@tDiagTrigCA{<-}}{}
+		\ifthenelse{\equal{#3}{<->}}{\def\@tDiagTrigCA{<->}}{}
+		\ifthenelse{\equal{#3}{->>}}{\def\@tDiagTrigCA{->>}}{}
+		\ifthenelse{\equal{#3}{<<-}}{\def\@tDiagTrigCA{<<-}}{}
+		\ifthenelse{\equal{#3}{>->}}{\def\@tDiagTrigCA{>->}}{}
+		\ifthenelse{\equal{#3}{<-<}}{\def\@tDiagTrigCA{<-<}}{}
+		\ifthenelse{\equal{#3}{c->}}{\def\@tDiagTrigCA{right hook->}}{}
+		\ifthenelse{\equal{#3}{<-c}}{\def\@tDiagTrigCA{<-left hook}}{}
+		\ifthenelse{\equal{#3}{|->}}{\def\@tDiagTrigCA{|->}}{}
+		\ifthenelse{\equal{#3}{<-|}}{\def\@tDiagTrigCA{<-|}}{}
+	} % \newcommand{\trianglediagramarrows}[3]{
+	\trianglediagramarrows{}{}{}
+	
+	\newcommand{\trianglediagramlines}[3]{
+		\ifthenelse{\equal{#1}{}}{\def\@tDiagTrigAL{solid}}{}
+		\ifthenelse{\equal{#1}{=}}{\def\@tDiagTrigAL{double}}{}
+		\ifthenelse{\equal{#1}{-}}{\def\@tDiagTrigAL{solid}}{}
+		\ifthenelse{\equal{#1}{..}}{\def\@tDiagTrigAL{dotted}}{}
+		\ifthenelse{\equal{#1}{--}}{\def\@tDiagTrigAL{dashed}}{}
+		\ifthenelse{\equal{#2}{}}{\def\@tDiagTrigBL{solid}}{}
+		\ifthenelse{\equal{#2}{=}}{\def\@tDiagTrigBL{double}}{}
+		\ifthenelse{\equal{#2}{-}}{\def\@tDiagTrigBL{solid}}{}
+		\ifthenelse{\equal{#2}{..}}{\def\@tDiagTrigBL{dotted}}{}
+		\ifthenelse{\equal{#2}{--}}{\def\@tDiagTrigBL{dashed}}{}
+		\ifthenelse{\equal{#3}{}}{\def\@tDiagTrigCL{solid}}{}
+		\ifthenelse{\equal{#3}{=}}{\def\@tDiagTrigCL{double}}{}
+		\ifthenelse{\equal{#3}{-}}{\def\@tDiagTrigCL{solid}}{}
+		\ifthenelse{\equal{#3}{..}}{\def\@tDiagTrigCL{dotted}}{}
+		\ifthenelse{\equal{#3}{--}}{\def\@tDiagTrigCL{dashed}}{}
+	}
+	\trianglediagramlines{}{}{}
+	
+%% --------------------
+%% UL : Up left
+%% --------------------
+
+	\newcommand{\triangleULdiagram}[6]{
+		\begin{tikzpicture}
+			\matrix (m) [matrix of math nodes,
+					row sep = \@tRowsep em,
+					column sep = \@tColsep em,
+					text height = 1.5 ex,
+					text depth = 0.25 ex,
+					ampersand replacement = \&] {
+				#1 \& #2 \\
+				#3 \& \\
+			};
+			\path [>=stealth, \@tDiagTrigAA] (m-1-1) edge [\@tDiagTrigAL] node [above]       {$#4$} (m-1-2);
+			\path [>=stealth, \@tDiagTrigBA] (m-1-1) edge [\@tDiagTrigBL] node [left]        {$#5$} (m-2-1);
+			\path [>=stealth, \@tDiagTrigCA] (m-2-1) edge [\@tDiagTrigCL] node [below right] {$#6$} (m-1-2);
+		\end{tikzpicture}\rds
+	}
+	
+%% --------------------
+%% UR : Up right
+%% --------------------
+
+	\newcommand{\triangleURdiagram}[6]{
+		\begin{tikzpicture}
+			\matrix (m) [matrix of math nodes,
+					row sep = \@tRowsep em,
+					column sep = \@tColsep em,
+					text height = 1.5ex,
+					text depth = 0.25ex,
+					ampersand replacement = \&] {
+				#1 \& #2 \\
+				\& #3 \\
+			};
+			\path [>=stealth, \@tDiagTrigAA] (m-1-1) edge [\@tDiagTrigAL] node [above]      {$#4$} (m-1-2);
+			\path [>=stealth, \@tDiagTrigBA] (m-1-1) edge [\@tDiagTrigBL] node [below left] {$#5$} (m-2-2);
+			\path [>=stealth, \@tDiagTrigCA] (m-1-2) edge [\@tDiagTrigCL] node [right]      {$#6$} (m-2-2);
+		\end{tikzpicture}
+	}
+	
+%% --------------------
+%% DL : Down left
+%% --------------------
+
+	\newcommand{\triangleDLdiagram}[6]{
+		\begin{tikzpicture}
+			\matrix (m) [matrix of math nodes,
+					row sep = \@tRowsep em,
+					column sep = \@tColsep em,
+					text height = 1.5ex,
+					text depth = 0.25ex,
+					ampersand replacement = \&] {
+				#1 \& \\
+				#2 \& #3 \\
+			};
+			\path [>=stealth, \@tDiagTrigAA] (m-1-1) edge [\@tDiagTrigAL] node [left]        {$#4$} (m-2-1);
+			\path [>=stealth, \@tDiagTrigBA] (m-1-1) edge [\@tDiagTrigBL] node [above right] {$#5$} (m-2-2);
+			\path [>=stealth, \@tDiagTrigCA] (m-2-1) edge [\@tDiagTrigCL] node [above]       {$#6$} (m-2-2);
+		\end{tikzpicture}
+	}
+	
+%% --------------------
+%% DR : Down right
+%% --------------------
+
+	\newcommand{\triangleDRdiagram}[6]{
+		\begin{tikzpicture}
+			\matrix (m) [matrix of math nodes,
+					row sep = \@tRowsep em,
+					column sep = \@tColsep em,
+					text height = 1.5ex,
+					text depth = 0.25ex,
+					ampersand replacement = \&] {
+				\& #1 \\
+				#2 \& #3 \\
+			};
+			\path [>=stealth, \@tDiagTrigAA] (m-2-1) edge [\@tDiagTrigAL] node [above left] {$#4$} (m-1-2);
+			\path [>=stealth, \@tDiagTrigBA] (m-1-2) edge [\@tDiagTrigBL] node [right]      {$#5$} (m-2-2);
+			\path [>=stealth, \@tDiagTrigCA] (m-2-1) edge [\@tDiagTrigCL] node [above]      {$#6$} (m-2-2);
+		\end{tikzpicture}
+	}
+		
+%% --------------------
+%% U : Up
+%% --------------------
+
+	\newcommand{\triangleUdiagram}[6]{
+		\begin{tikzpicture}
+			\matrix (m) [matrix of math nodes,
+					row sep = \@tRowsep em,
+					column sep = \@tColsep em,
+					text height = 1.5ex,
+					text depth = 0.25ex,
+					ampersand replacement = \&] {
+				\& #1 \& \\
+				#2 \& \& #3 \\
+			};
+			\path [>=stealth, \@tDiagTrigAA] (m-1-2) edge [\@tDiagTrigAL] node [above left]  {$#4$} (m-2-1);
+			\path [>=stealth, \@tDiagTrigBA] (m-1-2) edge [\@tDiagTrigBL] node [above right] {$#5$} (m-2-3);
+			\path [>=stealth, \@tDiagTrigCA] (m-2-1) edge [\@tDiagTrigCL] node [above]       {$#6$} (m-2-3);
+		\end{tikzpicture}
+	}
+	
+%% --------------------
+%% L : Left
+%% --------------------
+	\newcommand{\triangleLdiagram}[6]{
+		\begin{tikzpicture}
+			\matrix (m) [matrix of math nodes,
+					row sep = \@tRowsep em,
+					column sep = \@tColsep em,
+					text height = 1.5ex,
+					text depth = 0.25ex,
+					ampersand replacement = \&] {
+				\& #1 \\
+				#2 \& \\
+				\& #3 \\
+			};
+			\path [>=stealth, \@tDiagTrigAA] (m-2-1) edge [\@tDiagTrigAL] node [above left] {$#4$} (m-1-2);
+			\path [>=stealth, \@tDiagTrigBA] (m-1-2) edge [\@tDiagTrigBL] node [right]      {$#5$} (m-3-2);
+			\path [>=stealth, \@tDiagTrigCA] (m-2-1) edge [\@tDiagTrigCL] node [below left] {$#6$} (m-3-2);
+		\end{tikzpicture}
+	}
+		
+%% --------------------
+%% R : Right
+%% --------------------
+
+	\newcommand{\triangleRdiagram}[6]{
+		\begin{tikzpicture}
+			\matrix (m) [matrix of math nodes,
+					row sep = \@tRowsep em,
+					column sep = \@tColsep em,
+					text height = 1.5ex,
+					text depth = 0.25ex,
+					ampersand replacement = \&] {
+				#1 \& \\
+				\& #2 \\
+				#3 \& \\
+			};
+			\path [>=stealth, \@tDiagTrigAA] (m-1-1) edge [\@tDiagTrigAL] node [left]        {$#4$} (m-3-1);
+			\path [>=stealth, \@tDiagTrigBA] (m-1-1) edge [\@tDiagTrigBL] node [above right] {$#5$} (m-2-2);
+			\path [>=stealth, \@tDiagTrigCA] (m-3-1) edge [\@tDiagTrigCL] node [below right] {$#6$} (m-2-2);
+		\end{tikzpicture}
+	}
+	
+%% --------------------
+%% D : Down
+%% --------------------
+
+	\newcommand{\triangleDdiagram}[6]{
+		\begin{tikzpicture}
+			\matrix (m) [matrix of math nodes,
+					row sep = \@tRowsep em,
+					column sep = \@tColsep em,
+					text height = 1.5ex,
+					text depth = 0.25ex,
+					ampersand replacement = \&] {
+				#1 \& \& #2 \\
+				\& #3 \& \\
+			};
+			\path [>=stealth, \@tDiagTrigAA] (m-1-1) edge [\@tDiagTrigAL] node [above]       {$#4$} (m-1-3);
+			\path [>=stealth, \@tDiagTrigBA] (m-1-1) edge [\@tDiagTrigBL] node [below left]  {$#5$} (m-2-2);
+			\path [>=stealth, \@tDiagTrigCA] (m-1-3) edge [\@tDiagTrigCL] node [below right] {$#6$} (m-2-2);
+		\end{tikzpicture}
+	}
+	
+%% ----------------------------------------
+%% Other diagrams
+%% ----------------------------------------
+	
+%% --------------------
+%% Equalizer
+%% --------------------
+	
+	\newcommand{\eqdiagram}[9]{
+		\begin{tikzpicture}[inline/.style = {fill = white, inner sep = 2.5pt}]
+			\matrix (m) [matrix of math nodes,
+					row sep = \@tRowsep em,
+					column sep = \@tColsep em,
+					text height = 1.5ex,
+					text depth = 0.25ex,
+					ampersand replacement = \&] {
+				#1 \& #2 \& #3 \\
+				#4 \& \& \\
+			};
+			\path[-stealth]
+				(m-1-1) 				   edge 		 node [above] {$#5$} (m-1-2)
+				($(m-1-2.east) + (0,0.1)$) edge          node [above] {$#6$} ($(m-1-3.west) + (0,0.1)$)
+				($(m-1-2.east) - (0,0.1)$) edge          node [below] {$#7$} ($(m-1-3.west) - (0,0.1)$)
+				(m-2-1) 				   edge [dashed] node [left]  {$#8$} (m-1-1)
+				(m-2-1)                    edge          node [below] {$#9$} (m-1-2);
+		\end{tikzpicture}
+	}
+	
+%% --------------------
+%% Coequalizer
+%% --------------------
+	
+	\newcommand{\coeqdiagram}[9]{
+		\begin{tikzpicture}[inline/.style = {fill = white, inner sep = 2.5pt}]
+			\matrix (m) [matrix of math nodes,
+					row sep = \@tRowsep em,
+					column sep = \@tColsep em,
+					text height = 1.5ex,
+					text depth = 0.25ex,
+					ampersand replacement = \&] {
+				#1 \& #2 \& #3 \\
+				\& \& #4 \\
+			};
+			\path[-stealth]
+				($(m-1-1.east) + (0,0.1)$) edge          node [above] {$#5$} ($(m-1-2.west) + (0,0.1)$)
+				($(m-1-1.east) - (0,0.1)$) edge          node [below] {$#6$} ($(m-1-2.west) - (0,0.1)$)
+				(m-1-2)                    edge          node [above] {$#7$} (m-1-3)
+				(m-1-2)                    edge          node [below] {$#8$} (m-2-3)
+				(m-1-3)                    edge [dashed] node [right] {$#9$} (m-2-3);
+		\end{tikzpicture}
+	}
+	
+}{} % \ifthenelse{\boolean{@b_extpack_use_tikz}}{
