@@ -559,7 +559,8 @@ chVV
 chWW
 chXX
 chYY
-chZZdotA
+chZZ
+dotA
 dotB
 dotC
 dotD
