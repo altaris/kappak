@@ -38,3 +38,7 @@ Lanch the `Settings(Admin)` program. Under the `Roots` tab, add `this/is/a/path`
 ### Linux
 
 Copy `kappak.sublime-completions` in `~/.config/sublime-text-2/Packages/User/kappak.sublime-completions`.
+
+# Wiki
+
+[Here](https://github.com/altaris/kappak/wiki).
