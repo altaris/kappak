@@ -124,6 +124,7 @@
 %% bb
 %% --------------------
 
+\ifthenelse{\equal{\@bbStyle}{bbold}}{
 	\newcommand{\bbA}{\@bb{a}}
 	\newcommand{\bbB}{\@bb{b}}
 	\newcommand{\bbC}{\@bb{c}}
@@ -150,6 +151,9 @@
 	\newcommand{\bbX}{\@bb{x}}
 	\newcommand{\bbY}{\@bb{y}}
 	\newcommand{\bbZ}{\@bb{z}}
+}{
+	\newcommand{\bbK}{\Bbbk}
+} % \ifthenelse{\equal{\@bbStyle}{bbold}}{
 	\newcommand{\bbAA}{\@bb{A}}
 	\newcommand{\bbBB}{\@bb{B}}
 	\newcommand{\bbCC}{\@bb{C}}

@@ -433,3 +433,45 @@
 }{} % \ifthenelse{\boolean{@b_extpack_use_tikz}}{
 		
 }{} % \ifthenelse{\@usedVersion < 0408}{
+
+% ---------------------------------------- 0410
+\ifthenelse{\@usedVersion < 0410}{
+
+	\ifthenelse{\boolean{@b_maths_use_operators}}{
+		\DeclareMathOperator{\Cov}		{Cov}
+		\DeclareMathOperator{\Corr}		{Corr}
+		\DeclareMathOperator{\Deg}		{Deg}
+		\DeclareMathOperator{\diam}		{diam}
+		\DeclareMathOperator{\diverg}	{div}
+		\DeclareMathOperator{\grad}		{grad}
+		\DeclareMathOperator{\Isom}		{Isom}
+		\DeclareMathOperator{\mes}		{mes}
+		\DeclareMathOperator{\milieu}	{milieu}
+		\DeclareMathOperator{\Obj}		{Obj}
+		\DeclareMathOperator{\PGCD}		{PGCD}
+		\DeclareMathOperator{\pgcd}		{pgcd}
+		\DeclareMathOperator{\PPCM}		{PPCM}
+		\DeclareMathOperator{\ppcm}		{ppcm}
+		\DeclareMathOperator{\rang}		{rang}
+		\DeclareMathOperator{\Rang}		{Rang}
+		\DeclareMathOperator{\re}		{Re}
+		\DeclareMathOperator{\Res}		{Res}
+		\DeclareMathOperator{\rot}		{rot}
+		\DeclareMathOperator{\sgn}		{sgn}
+		\DeclareMathOperator{\Tens}		{Tens}
+		\DeclareMathOperator{\Var}		{Var}
+		\DeclareMathOperator{\vect}		{Vect}
+		\DeclareMathOperator{\vol}		{vol}
+	}{} % \ifthenelse{\boolean{@b_maths_use_operators}}{
+
+	\ifthenelse{\boolean{@b_maths_use_categories}}{
+		\newcategory{\Bij}		{}{B}{ij}
+		\newcategory{\Comp}		{}{C}{omp}
+		\newcategory{\CRing}	{}{C}{Ring}
+		\newcategory{\Field}	{}{F}{ield}
+		\newcategory{\sGrp}		{s}{G}{rp}
+		\newcategory{\SGrp}		{}{S}{Grp}
+		\newcategory{\SRing}	{}{S}{Ring}
+	}{} % \ifthenelse{\boolean{@b_maths_use_categories}}{
+
+}{} % \ifthenelse{\@usedVersion < 0410}{

@@ -15,56 +15,30 @@
 	\DeclareMathOperator{\codom}	{codom}
 	\DeclareMathOperator{\coker}	{coker}
 	\DeclareMathOperator{\colim}	{colim}
-	\DeclareMathOperator{\Cov}		{Cov}
-	\DeclareMathOperator{\Corr}		{Corr}
-	%\DeclareMathOperator{\deg}		{deg}
-	\DeclareMathOperator{\Deg}		{Deg}
-	\DeclareMathOperator{\diam}		{diam}
-	\DeclareMathOperator{\diverg}	{div}
 	\DeclareMathOperator{\dom}		{dom}
 	\DeclareMathOperator{\Dom}		{Dom}
 	\DeclareMathOperator{\End}		{End}
 	\DeclareMathOperator{\ev}		{ev}
 	\DeclareMathOperator{\Frac}		{Frac}
 	\DeclareMathOperator{\GL}		{GL}
-	\DeclareMathOperator{\grad}		{grad}
-	%\DeclareMathOperator{\hom}		{hom}
 	\DeclareMathOperator{\Hom}		{Hom}
 	\DeclareMathOperator{\id}		{id}
 	\DeclareMathOperator{\Id}		{Id}
 	\DeclareMathOperator{\im}		{im}
 	\DeclareMathOperator{\Ind}		{Ind}
-	\DeclareMathOperator{\Isom}		{Isom}
 	\DeclareMathOperator{\Ker}		{Ker}
 	\DeclareMathOperator{\Map}		{Map}
-	\DeclareMathOperator{\mes}		{mes}
-	\DeclareMathOperator{\milieu}	{milieu}
 	\DeclareMathOperator{\Mor}		{Mor}
 	\DeclareMathOperator{\ob}		{ob}
 	\DeclareMathOperator{\Ob}		{Ob}
-	\DeclareMathOperator{\Obj}		{Obj}
 	\DeclareMathOperator{\Orb}		{Orb}
-	\DeclareMathOperator{\PGCD}		{PGCD}
-	\DeclareMathOperator{\pgcd}		{pgcd}
-	\DeclareMathOperator{\PPCM}		{PPCM}
-	\DeclareMathOperator{\ppcm}		{ppcm}
 	\DeclareMathOperator{\proj}		{proj}
-	\DeclareMathOperator{\rang}		{rang}
-	\DeclareMathOperator{\Rang}		{Rang}
-	\DeclareMathOperator{\re}		{Re}
-	\DeclareMathOperator{\Res}		{Res}
 	\DeclareMathOperator{\rk}		{rk}
-	\DeclareMathOperator{\rot}		{rot}
-	\DeclareMathOperator{\sgn}		{sgn}
 	\DeclareMathOperator{\SL}		{SL}
 	\DeclareMathOperator{\Stab}		{Stab}
 	\DeclareMathOperator{\Spec}		{Spec}
 	\DeclareMathOperator{\Sym}		{Sym}
-	\DeclareMathOperator{\Tens}		{Tens}
 	\DeclareMathOperator{\tr}		{tr}
-	\DeclareMathOperator{\Var}		{Var}
-	\DeclareMathOperator{\vect}		{Vect}
-	\DeclareMathOperator{\vol}		{vol}
 	
 }{} % \ifthenelse{\boolean{@b_maths_use_operators}}{
 
@@ -78,7 +52,7 @@
 		\newcommand{\@cat}{\@cal}
 		\newcommand{\op}{\mathrm{op}}
 		\newcommand{\newcategory}[4]{
-			\newcommand{#1}{#2\@cal{#3}\!#4}
+			\newcommand{#1}{#2\@cat{#3}\!#4}
 		}
 	}{
 		\newcommand{\@cat}[1]{\mathsf{#1}}
@@ -94,12 +68,8 @@
 	
 	\newcategory{\Ab}		{}{A}{b}
 	\newcategory{\Alg}		{}{A}{lg}
-	\newcategory{\Bij}		{}{B}{ij}
 	\newcategory{\Cat}		{}{C}{at}
 	\newcategory{\CAT}		{}{C}{AT}
-	\newcategory{\Comp}		{}{C}{omp}
-	\newcategory{\CRing}	{}{C}{Ring}
-	\newcategory{\Field}	{}{F}{ield}
 	\newcategory{\Fin}		{}{F}{in}
 	\newcategory{\Graph}	{}{G}{raph}
 	\newcategory{\Grp}		{}{G}{rp}
@@ -110,10 +80,7 @@
 	\newcategory{\Ring}		{}{R}{ing}
 	\newcategory{\Set}		{}{S}{et}
 	\newcategory{\SET}		{}{S}{ET}
-	\newcategory{\sGrp}		{s}{G}{rp}
-	\newcategory{\SGrp}		{}{S}{Grp}
 	\newcategory{\Sh}		{}{S}{h}
-	\newcategory{\SRing}	{}{S}{Ring}
 	\newcategory{\sSet}		{s}{S}{et}
 	\newcategory{\Top}		{}{T}{op}
 	\newcategory{\Vect}		{}{V}{ect}
