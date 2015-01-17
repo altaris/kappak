@@ -178,6 +178,7 @@
 	\def\@headerFooterStyle{#1}
 }
 
+%% fontset
 \define@key{kappak}{fontSet}[normal]{
 	\def\@fontSet{#1}
 }
@@ -226,8 +227,8 @@
 	\RequirePackage[T1]{fontenc}
 }{}
 
-\RequirePackage{amsmath}
 \RequirePackage{amsfonts}
+\RequirePackage{amsmath}
 \RequirePackage{amssymb}
 \RequirePackage{amsthm}
 
@@ -282,8 +283,6 @@
 	\RequirePackage{mathptmx}       % selects Times Roman as basic font
 	\RequirePackage{helvet}         % selects Helvetica as sans-serif font
 	\RequirePackage{courier}        % selects Courier as typewriter font
-	%\RequirePackage{type1cm}       % activate if the above 3 fonts are
-                            		% not available on your system
 }{}
 
 \ifthenelse{\equal{\@margins}{reduced}}{
