@@ -72,12 +72,6 @@
 %% Simple
 %% --------------------
 
-%% -autoPackageInclusion
-\DeclareOption{-autoPackageInclusion}{
-	\setboolean{@b_core_use_autoPackInclusion}{false}
-	\PackageWarning{kappak_v4}{-autoPackageInclusion called, no package will be included by kappak, except ifthen and keyval}
-}
-
 %% +beamer
 \DeclareOption{+beamer}{
 	\setboolean{@b_extpack_use_beamer}{true}
@@ -226,39 +220,35 @@
 %% Processing
 %% ----------------------------------------
 
-\ifthenelse{\boolean{@b_core_use_autoPackInclusion}}{
-	\RequirePackage[\@langage]{babel}
-	\RequirePackage[\@encoding]{inputenc}
-	\ifthenelse{\equal{\@langage}{french}}{
-		\RequirePackage[T1]{fontenc}
-	}{}
-	
-	\RequirePackage{amsmath}
-	\RequirePackage{amsfonts}
-	\RequirePackage{amssymb}
-	\RequirePackage{amsthm}
-	
-	\RequirePackage{color}
-	\RequirePackage{enumerate}
-	\RequirePackage{graphicx}
-	\RequirePackage{hyperref}
-	\RequirePackage{makeidx}
-	\RequirePackage{multicol}
-	\RequirePackage{subfig}
-	
-	\hypersetup{ % Thanks timmurphy.org
-	    colorlinks=true,
-	    linkcolor=blue,
-	    urlcolor=red,
-	    linktoc=all
-	}
+\RequirePackage[\@langage]{babel}
+\RequirePackage[\@encoding]{inputenc}
+\ifthenelse{\equal{\@langage}{french}}{
+	\RequirePackage[T1]{fontenc}
 }{}
+
+\RequirePackage{amsmath}
+\RequirePackage{amsfonts}
+\RequirePackage{amssymb}
+\RequirePackage{amsthm}
+
+\RequirePackage{color}
+\RequirePackage{enumerate}
+\RequirePackage{graphicx}
+\RequirePackage{hyperref}
+\RequirePackage{makeidx}
+\RequirePackage{multicol}
+\RequirePackage{subfig}
+
+\hypersetup{ % Thanks timmurphy.org
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=red,
+    linktoc=all
+}
 
 \newcommand{\@bb}{\mathbb}
 \ifthenelse{\equal{\@bbStyle}{bbold}}{
-	\ifthenelse{\boolean{@b_core_use_autoPackInclusion}}{
-		\RequirePackage{bbold}
-	}{}
+	\RequirePackage{bbold}
 	\ifthenelse{\boolean{@b_maths_use_characterStyles}}{
 		\setboolean{@b_maths_allow_bbgreek}{true}
 	}{}
@@ -271,27 +261,21 @@
 
 \newcommand{\@cal}{\mathcal}
 \ifthenelse{\equal{\@scriptStyle}{euler}}{
-	\ifthenelse{\boolean{@b_core_use_autoPackInclusion}}{
-		\RequirePackage[mathscr]{euscript}
-	}{}
+	\RequirePackage[mathscr]{euscript}
 	\renewcommand{\@cal}{\mathscr}
 }{}
 \ifthenelse{\equal{\@scriptStyle}{rsfs}}{
-	\ifthenelse{\boolean{@b_core_use_autoPackInclusion}}{
-		\RequirePackage{mathrsfs}
-	}{}
+	\RequirePackage{mathrsfs}
 	\renewcommand{\@cal}{\mathscr}
 }{}
 
 \ifthenelse{\boolean{@b_extpack_use_beamer}}{}{
-	\ifthenelse{\boolean{@b_core_use_autoPackInclusion}}{
-		\ifthenelse{\equal{\@headerFooterStyle}{normal}}{}{
-			\RequirePackage{fancyhdr}
-		}
-		\ifthenelse{\equal{\@chapterStyle}{normal}}{}{
-			\RequirePackage{titlesec}
-		}
-	}{}
+	\ifthenelse{\equal{\@headerFooterStyle}{normal}}{}{
+		\RequirePackage{fancyhdr}
+	}
+	\ifthenelse{\equal{\@chapterStyle}{normal}}{}{
+		\RequirePackage{titlesec}
+	}
 }
 
 \ifthenelse{\equal{\@fontSet}{alternate}}{
