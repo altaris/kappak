@@ -1,3 +1,27 @@
+%% The MIT License (MIT)
+%% 
+%% Copyright (c) 2014 Cédric Ho Thanh
+%% 
+%% Permission is hereby granted, free of charge, to any person obtaining a copy
+%% of this software and associated documentation files (the "Software"), to deal
+%% in the Software without restriction, including without limitation the rights
+%% to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+%% copies of the Software, and to permit persons to whom the Software is
+%% furnished to do so, subject to the following conditions:
+%% 
+%% The above copyright notice and this permission notice shall be included in all
+%% copies or substantial portions of the Software.
+%% 
+%% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+%% IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+%% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+%% AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+%% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+%% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+%% SOFTWARE.
+
+%% This is the main file of kappak. It declares globals and includes other files.
+
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{kappak}[2013/05/01 kappak]
 \makeatletter
@@ -6,9 +30,9 @@
 %% Metadatas
 %% ----------------------------------------
 
-\def\@kappakVersion{0410}
-\def\@usedVersion{0406} % 0406 is the version where \@kappakVersion started to be taken into account.
-% \PackageInfo{kappak-v4}{This is kappak, v\@kappakVersion}
+\def\@kappakVersion{0410}	% Current version of kappak
+\def\@usedVersion{0406} 	% Default version. 0406 is the version where \@kappakVersion started to be taken into account.
+\PackageInfo{kappak-v4}{This is kappak, v\@kappakVersion}
 
 %% ----------------------------------------
 %%
@@ -24,28 +48,59 @@
 %%
 %% ----------------------------------------
 
-	% core
+%% ----------------------------------------
+%% core
+%% ----------------------------------------
+
+% wheaver kappak should automatically include packages. ifthen will always be included 
 \newboolean{@b_core_use_autoPackInclusion}	\setboolean{@b_core_use_autoPackInclusion}	{true}
 
-	% extpack
+%% ----------------------------------------
+%% extpack
+%% ----------------------------------------
+
+% whever beamer is used
 \newboolean{@b_extpack_use_beamer}			\setboolean{@b_extpack_use_beamer}			{false}
+% wheaver tikz is used
 \newboolean{@b_extpack_use_tikz} 			\setboolean{@b_extpack_use_tikz}			{false}
 
-	% maths
+%% ----------------------------------------
+%% maths
+%% ----------------------------------------
+
+% allow blackboard greek letters
 \newboolean{@b_maths_allow_bbgreek} 		\setboolean{@b_maths_allow_bbgreek}			{false}
+% display the theorem numbers before the ``Theorem''
 \newboolean{@b_maths_swapnumbers} 			\setboolean{@b_maths_swapnumbers}			{false}
+% arrows definitions
 \newboolean{@b_maths_use_arrows} 			\setboolean{@b_maths_use_arrows}			{false}
+% categories definitions
 \newboolean{@b_maths_use_categories} 		\setboolean{@b_maths_use_categories}		{false}
+% character accent definitions
 \newboolean{@b_maths_use_characterAccents} 	\setboolean{@b_maths_use_characterAccents}	{false}
+% character styles definitions
 \newboolean{@b_maths_use_characterStyles} 	\setboolean{@b_maths_use_characterStyles}	{false}
+% some stuff
 \newboolean{@b_maths_use_misc} 				\setboolean{@b_maths_use_misc}				{false}
+% opertor definitions
 \newboolean{@b_maths_use_operators} 		\setboolean{@b_maths_use_operators}			{false}
+% script style for categories
 \newboolean{@b_maths_use_scriptcategories} 	\setboolean{@b_maths_use_scriptcategories}	{false}
+% theorem environment definition
 \newboolean{@b_maths_use_theoremEnvs}		\setboolean{@b_maths_use_theoremEnvs}		{false}
+% styles inside theorem envs, e.g. italic for theorems, roman for definitions, ...
 \newboolean{@b_maths_use_theoremStyles}		\setboolean{@b_maths_use_theoremStyles}		{true}
 
-	% misc
+%% ----------------------------------------
+%% misc
+%% ----------------------------------------
+
+% some stuff
 \newboolean{@b_use_misc} 					\setboolean{@b_use_misc}					{false}
+
+%% ----------------------------------------
+%% variables declarations
+%% ----------------------------------------
 
 \def\@bbStyle			{normal}
 \def\@chapterStyle		{normal}
@@ -85,7 +140,7 @@
 
 	\newcommand{\tb}{\textbullet}
 
-}{}
+}{} % \ifthenelse{\boolean{@b_use_misc}}{
 
 %% ----------------------------------------
 %% Letter styles
@@ -118,8 +173,10 @@
 %% ----------------------------------------
 
 \ifthenelse{\@usedVersion < \@kappakVersion}{
+
 	\input{kappak-compatibility.tex}
-}{}
+
+}{} % \ifthenelse{\@usedVersion < \@kappakVersion}{
 
 %% ----------------------------------------
 
