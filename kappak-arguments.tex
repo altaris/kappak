@@ -274,9 +274,7 @@
 \newcommand{\@bb}{\mathbb}
 \ifthenelse{\equal{\@bbStyle}{bbold}}{
 	\RequirePackage{bbold}
-	\ifthenelse{\boolean{@b_maths_use_characterStyles}}{
-		\setboolean{@b_maths_allow_bbgreek}{true}
-	}{}
+	\setboolean{@b_maths_allow_bbgreek}{true}
 }{}
 
 \ifthenelse{\boolean{@b_extpack_use_tikz}}{
