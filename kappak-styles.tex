@@ -40,51 +40,51 @@
 %% Metadatas
 %% --------------------
 
-	\newcommand{\editor}	[1]{\def\@editor{#1}} 		\editor{}
-	\newcommand{\email}		[1]{\def\@email{#1}} 		\email{}
-	\newcommand{\image}		[2]{\def\@image{#1} 		\def\@imagescale{#2}} 	\image{}{}
-	\newcommand{\logo}		[2]{\def\@logo{#1} 			\def\@logoscale{#2}} 	\logo{}{}
-	\newcommand{\publisher}	[1]{\def\@publisher{#1}} 	\publisher{}
-	\newcommand{\subauthor}	[1]{\def\@subauthor{#1}} 	\subauthor{}
-	\newcommand{\subtitle}	[1]{\def\@subtitle{#1}} 	\subtitle{}
-	
+    \newcommand{\editor}    [1]{\def\@editor{#1}}       \editor{}
+    \newcommand{\email}     [1]{\def\@email{#1}}        \email{}
+    \newcommand{\image}     [2]{\def\@image{#1}         \def\@imagescale{#2}}   \image{}{}
+    \newcommand{\logo}      [2]{\def\@logo{#1}          \def\@logoscale{#2}}    \logo{}{}
+    \newcommand{\publisher} [1]{\def\@publisher{#1}}    \publisher{}
+    \newcommand{\subauthor} [1]{\def\@subauthor{#1}}    \subauthor{}
+    \newcommand{\subtitle}  [1]{\def\@subtitle{#1}}     \subtitle{}
+    
 %% --------------------
 %% Insertions
 %% --------------------
 
-	\newcommand{\authorshere}{
-		\ifthenelse{\equal{\@subauthor}{}}{
-			\@author
-		}{
-			\@author \\ \@subauthor
-		}
-	}
+    \newcommand{\authorshere}{
+        \ifthenelse{\equal{\@subauthor}{}}{
+            \@author
+        }{
+            \@author \\ \@subauthor
+        }
+    }
 
-	\newcommand{\imagehere}[1]{
-		\ifthenelse{\equal{\@image}{}}{}{
-			\ifthenelse{\equal{#1}{centeredFigure}}{
-				\begin{figure}[h]
-				    \center
-		    		\includegraphics[scale = \@imagescale]{\@image}
-				\end{figure}
-			}{
-				\includegraphics[scale = \@imagescale]{\@image}
-			}
-		}
-	}
-	
-	\newcommand{\logohere}[1]{
-		\ifthenelse{\equal{\@logo}{}}{}{
-			\ifthenelse{\equal{#1}{centeredFigure}}{
-				\begin{figure}[h]
-				    \center
-		    		\includegraphics[scale = \@logoscale]{\@logo}
-				\end{figure}
-			}{
-				\includegraphics[scale = \@logoscale]{\@logo}
-			}
-		}
-	}
+    \newcommand{\imagehere}[1]{
+        \ifthenelse{\equal{\@image}{}}{}{
+            \ifthenelse{\equal{#1}{centeredFigure}}{
+                \begin{figure}[h]
+                    \center
+                    \includegraphics[scale = \@imagescale]{\@image}
+                \end{figure}
+            }{
+                \includegraphics[scale = \@imagescale]{\@image}
+            }
+        }
+    }
+    
+    \newcommand{\logohere}[1]{
+        \ifthenelse{\equal{\@logo}{}}{}{
+            \ifthenelse{\equal{#1}{centeredFigure}}{
+                \begin{figure}[h]
+                    \center
+                    \includegraphics[scale = \@logoscale]{\@logo}
+                \end{figure}
+            }{
+                \includegraphics[scale = \@logoscale]{\@logo}
+            }
+        }
+    }
 
 } % \ifthenelse{\equal{\@titlePageStyle}{normal}}{}{
 
@@ -98,20 +98,20 @@
 %% --------------------
 
 \ifthenelse{\equal{\@titlePageStyle}{classic}}{
-	\renewcommand{\maketitle}{
-		\begin{titlepage}
-			\begin{center}
-				\logohere{centeredFigure} ~ \\ [2cm]
-				\huge{\textsc{\@title}} \\ [1.5cm]		
-				\begin{center} \large
-					\authorshere \\ [0.25cm]
-				\end{center}
-				{\large \@date} \\ [4cm]
-				\imagehere{centeredFigure}
-				\vfill
-			\end{center}
-		\end{titlepage}
-	}
+    \renewcommand{\maketitle}{
+        \begin{titlepage}
+            \begin{center}
+                \logohere{centeredFigure} ~ \\ [2cm]
+                \huge{\textsc{\@title}} \\ [1.5cm]      
+                \begin{center} \large
+                    \authorshere \\ [0.25cm]
+                \end{center}
+                {\large \@date} \\ [4cm]
+                \imagehere{centeredFigure}
+                \vfill
+            \end{center}
+        \end{titlepage}
+    }
 }{} % \ifthenelse{\equal{\@titlePageStyle}{classic}}{
 
 %% --------------------
@@ -119,24 +119,24 @@
 %% --------------------
 
 \ifthenelse{\equal{\@titlePageStyle}{bar}}{
-	\renewcommand{\maketitle}{
-		\begin{titlepage}
-			\begin{center}
-				\logohere{centeredFigure} ~ \\ [1.5cm]
-				\textsc{\Large \@subtitle} \\ [1.5cm]
-				\rule{\linewidth}{0.5mm} \\ [0.4cm]
-				\huge{\bfseries{\@title}} \\
-				\rule{\linewidth}{0.5mm} \\ [1cm]			
-				\begin{center}
-					{\large \authorshere}
-				\end{center}
-				\vfill 
-				\imagehere{centeredFigure}
-				\vfill
-				{\large \@date}
-			\end{center}
-		\end{titlepage}
-	}
+    \renewcommand{\maketitle}{
+        \begin{titlepage}
+            \begin{center}
+                \logohere{centeredFigure} ~ \\ [1.5cm]
+                \textsc{\Large \@subtitle} \\ [1.5cm]
+                \rule{\linewidth}{0.5mm} \\ [0.4cm]
+                \huge{\bfseries{\@title}} \\
+                \rule{\linewidth}{0.5mm} \\ [1cm]           
+                \begin{center}
+                    {\large \authorshere}
+                \end{center}
+                \vfill 
+                \imagehere{centeredFigure}
+                \vfill
+                {\large \@date}
+            \end{center}
+        \end{titlepage}
+    }
 }{} % \ifthenelse{\equal{\@titlePageStyle}{bar}}{
 
 %% --------------------
@@ -144,26 +144,26 @@
 %% --------------------
 
 \ifthenelse{\equal{\@titlePageStyle}{gm}}{
-	\renewcommand{\maketitle}{
-		\begin{titlepage}
-			\vfill
-			\hbox{
-				\rule{2pt}{\textheight}
-				\hspace*{0.05 \textwidth}
-				\parbox[b]{0.75\textwidth}{
-					\vbox{%
-						{\noindent\Huge\bfseries \@title} \\ [2\baselineskip]
-						{\Large\itshape \@subtitle} \\ [4\baselineskip]
-						{\Large \authorshere}\par
-						\vspace{0.5\textheight}
-						{\noindent \@publisher} \\ [\baselineskip]
-						{\large \@date}
-					}
-				}
-			}
-			\vfill
-		\end{titlepage}
-	}
+    \renewcommand{\maketitle}{
+        \begin{titlepage}
+            \vfill
+            \hbox{
+                \rule{2pt}{\textheight}
+                \hspace*{0.05 \textwidth}
+                \parbox[b]{0.75\textwidth}{
+                    \vbox{%
+                        {\noindent\Huge\bfseries \@title} \\ [2\baselineskip]
+                        {\Large\itshape \@subtitle} \\ [4\baselineskip]
+                        {\Large \authorshere}\par
+                        \vspace{0.5\textheight}
+                        {\noindent \@publisher} \\ [\baselineskip]
+                        {\large \@date}
+                    }
+                }
+            }
+            \vfill
+        \end{titlepage}
+    }
 }{} % \ifthenelse{\equal{\@titlePageStyle}{gm}}{
 
 %% --------------------
@@ -171,29 +171,29 @@
 %% --------------------
 
 \ifthenelse{\equal{\@titlePageStyle}{gb}}{
-	\definecolor{grey}{rgb}{0.9, 0.9, 0.9}
-	\renewcommand{\maketitle}{
-		\begin{titlepage}
-			\logohere{centeredFigure}
-			\colorbox{grey}{
-				\parbox[t]{1.0\linewidth}{
-					\vspace*{0.5cm}
-					\centering \fontsize{50pt}{50pt}\selectfont \@title \\
-					\vspace*{0.5cm}
-					\centering \fontsize{25pt}{40pt}\selectfont \@subtitle
-					\vspace*{0.5cm}
-				}
-			}
-			\vfill
-			\begin{flushright}
-				{\huge \authorshere}
-			\end{flushright}
-			\vfill
-			\begin{flushright}
-				{\Large \@date}
-			\end{flushright}
-		\end{titlepage}
-	}
+    \definecolor{grey}{rgb}{0.9, 0.9, 0.9}
+    \renewcommand{\maketitle}{
+        \begin{titlepage}
+            \logohere{centeredFigure}
+            \colorbox{grey}{
+                \parbox[t]{1.0\linewidth}{
+                    \vspace*{0.5cm}
+                    \centering \fontsize{50pt}{50pt}\selectfont \@title \\
+                    \vspace*{0.5cm}
+                    \centering \fontsize{25pt}{40pt}\selectfont \@subtitle
+                    \vspace*{0.5cm}
+                }
+            }
+            \vfill
+            \begin{flushright}
+                {\huge \authorshere}
+            \end{flushright}
+            \vfill
+            \begin{flushright}
+                {\Large \@date}
+            \end{flushright}
+        \end{titlepage}
+    }
 }{} % \ifthenelse{\equal{\@titlePageStyle}{gb}}{
 
 %% ----------------------------------------
@@ -206,16 +206,16 @@
 
 \ifthenelse{\equal{\@chapterStyle}{normal}}{}{
 
-	\ifthenelse{\equal{\@langage}{french}}{
-	    \def\@chapterName{Chapitre}
-	    \def\@sectionName{Section}
-	}{}
-	
-	\ifthenelse{\equal{\@langage}{english}}{
-	    \def\@chapterName{Chapter}
-	    \def\@sectionName{Section}
-	}{}
-	
+    \ifthenelse{\equal{\@langage}{french}}{
+        \def\@chapterName{Chapitre}
+        \def\@sectionName{Section}
+    }{}
+    
+    \ifthenelse{\equal{\@langage}{english}}{
+        \def\@chapterName{Chapter}
+        \def\@sectionName{Section}
+    }{}
+    
 }
 
 %% --------------------
@@ -224,22 +224,22 @@
 
 \ifthenelse{\equal{\@chapterStyle}{cb}}{
 
-	\titleformat{\chapter}[display]
-		{\Large\filcenter\bfseries}
-		{
-			\titlerule[1pt]
-			\vspace{1pt}
-			\titlerule
-			\vspace{1pc}
-			\LARGE\MakeUppercase{\@chapterName} \thechapter
-		}
-		{1pc}
-		{
-			\titlerule
-			\vspace{1pc}
-			\Huge
-		}
-		
+    \titleformat{\chapter}[display]
+        {\Large\filcenter\bfseries}
+        {
+            \titlerule[1pt]
+            \vspace{1pt}
+            \titlerule
+            \vspace{1pc}
+            \LARGE\MakeUppercase{\@chapterName} \thechapter
+        }
+        {1pc}
+        {
+            \titlerule
+            \vspace{1pc}
+            \Huge
+        }
+        
 }{} % \ifthenelse{\equal{\@chapterStyle}{cb}}{
 
 %% --------------------
@@ -248,34 +248,34 @@
 
 \ifthenelse{\equal{\@chapterStyle}{rb}}{
 
-	\titleformat{\chapter}[display]
-		{\LARGE\filleft\bfseries}
-		{\huge{\chaptertitlename} \thechapter}
-		{4.5pc}
-		{
-			\titlerule
-			\vspace{1pc}
-			\Huge
-			\filleft
-		}
-		[
-			\vspace{1pc}
-			\titlerule
-		]
-	
-	\titleformat{\section}
-		{\normalfont\large\bfseries\filcenter}
-		{\thesection}
-		{1em}
-		{}
-		[\vspace{0.5pc}]
-	
-	\titleformat{\subsection}
-		{\normalfont\bfseries\filcenter}
-		{\thesubsection}
-		{0.5em}
-		{}
-		
+    \titleformat{\chapter}[display]
+        {\LARGE\filleft\bfseries}
+        {\huge{\chaptertitlename} \thechapter}
+        {4.5pc}
+        {
+            \titlerule
+            \vspace{1pc}
+            \Huge
+            \filleft
+        }
+        [
+            \vspace{1pc}
+            \titlerule
+        ]
+    
+    \titleformat{\section}
+        {\normalfont\large\bfseries\filcenter}
+        {\thesection}
+        {1em}
+        {}
+        [\vspace{0.5pc}]
+    
+    \titleformat{\subsection}
+        {\normalfont\bfseries\filcenter}
+        {\thesubsection}
+        {0.5em}
+        {}
+        
 }{} % \ifthenelse{\equal{\@chapterStyle}{rb}}{
 
 %% ----------------------------------------
@@ -287,9 +287,9 @@
 %% --------------------
 
 \ifthenelse{\equal{\@headerFooterStyle}{classic}}{
-	\pagestyle{fancy}
-	\rhead{}
-	\lfoot{} \cfoot{\thepage}
+    \pagestyle{fancy}
+    \rhead{}
+    \lfoot{} \cfoot{\thepage}
 }{}
 
 %% --------------------
@@ -297,11 +297,11 @@
 %% --------------------
 
 \ifthenelse{\equal{\@headerFooterStyle}{cb}}{
-	\pagestyle{fancy}
-	\lhead{} \chead{} \rhead{}
-	\lfoot{} \cfoot{\@title \\ \thepage} \rfoot{}
-	\renewcommand{\headrulewidth}{0.4pt}
-	\renewcommand{\footrulewidth}{0.4pt}
+    \pagestyle{fancy}
+    \lhead{} \chead{} \rhead{}
+    \lfoot{} \cfoot{\@title \\ \thepage} \rfoot{}
+    \renewcommand{\headrulewidth}{0.4pt}
+    \renewcommand{\footrulewidth}{0.4pt}
 }{}
 
 %% --------------------
@@ -309,5 +309,5 @@
 %% --------------------
 
 \ifthenelse{\equal{\@headerFooterStyle}{empty}}{
-	\pagestyle{empty}
+    \pagestyle{empty}
 }{}

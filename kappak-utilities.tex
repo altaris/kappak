@@ -42,10 +42,10 @@
 
 \newcommand{\@tryNewCommand}[2]{ % #1 cmd, #2 code
 
-	\ifthenelse{\isundefined{#1}}{
-		\newcommand{#1}{#2}
-	}{
-		\PackageWarning{kappak-v4}{Warning : command \protect#1 already defined. Skipping definition, errors may occur later !}
-	} % \ifthenelse{\isundefined{#2}}
+    \ifthenelse{\isundefined{#1}}{
+        \newcommand{#1}{#2}
+    }{
+        \PackageWarning{kappak-v4}{Warning : command \protect#1 already defined. Skipping definition, errors may occur later !}
+    } % \ifthenelse{\isundefined{#2}}
 
 } % \newcommand{\@tryNewCommand}[2]{
