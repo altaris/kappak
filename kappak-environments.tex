@@ -58,6 +58,8 @@
         \def\@propertiesName        {Propriétés}
         \def\@propositionName       {Proposition}
         \def\@propositionsName      {Propositions}
+        \def\@questionName          {Question}
+        \def\@questionsName         {Questions}
         \def\@remarkName            {Remarque}
         \def\@remarksName           {Remarques}
         \def\@reminderName          {Rappel}
@@ -101,6 +103,8 @@
         \def\@propertiesName        {Properties}
         \def\@propositionName       {Proposition}
         \def\@propositionsName      {Propositions}
+        \def\@questionName          {Question}
+        \def\@questionsName         {Questions}
         \def\@remarkName            {Remark}
         \def\@remarksName           {Remarks}
         \def\@reminderName          {Reminder}
@@ -224,6 +228,10 @@
         \newtheorem{exercises}      [axiom]     {\@exercisesName}
         \newtheorem*{exercise*}                 {\@exerciseName}
         \newtheorem*{exercises*}                {\@exercisesName}
+        \newtheorem{question}       [axiom]     {\@questionName}
+        \newtheorem{questions}      [axiom]     {\@questionsName}
+        \newtheorem*{question*}                 {\@questionName}
+        \newtheorem*{questions*}                {\@questionsName}
         
         \ifthenelse{\boolean{@b_maths_use_theoremStyles}}{
             \theoremstyle{plain}
