@@ -178,9 +178,30 @@
 \ifthenelse{\boolean{@b_maths_use_arrows}}{
 
     \newcommand{\incl}{\hookrightarrow}
+    \newcommand{\leftincl}{\hookleftarrow}
     \newcommand{\longincl}{\lhook\joinrel\relbar\joinrel\rightarrow}
+    \newcommand{\longleftincl}{\leftarrow\joinrel\relbar\joinrel\rhook}
+	\newcommand{\xincl}{\xhookrightarrow}
+	\newcommand{\xleftincl}{\xhookleftarrow}    
+    
+	\renewcommand{\twoheadrightarrow}{\rightarrow\mathrel{\mkern-14mu}\rightarrow}
+	\renewcommand{\twoheadleftarrow}{\leftarrow\mathrel{\mkern-14mu}\leftarrow}	
+	\newcommand{\longtwoheadrightarrow}{\relbar\joinrel\twoheadrightarrow}
+	\newcommand{\longtwoheadleftarrow}{\twoheadleftarrow\joinrel\relbar}	
+	\newcommand{\xtwoheadrightarrow}[2][]{
+	  \xrightarrow[#1]{#2}\mathrel{\mkern-14mu}\rightarrow
+	}
+	\newcommand{\xtwoheadleftarrow}[2][]{
+	  \leftarrow\mathrel{\mkern-14mu}\xleftarrow[#1]{#2}
+	}    
+    
     \newcommand{\epi}{\twoheadrightarrow}
-    \newcommand{\longepi}{\relbar\joinrel\twoheadrightarrow}
+    \newcommand{\leftepi}{\twoheadleftarrow}
+    \newcommand{\longepi}{\longtwoheadrightarrow}
+    \newcommand{\longleftepi}{\longtwoheadleftarrow}
+    \newcommand{\xepi}{\xtwoheadrightarrow}
+    \newcommand{\xleftepi}{\xtwoheadleftarrow}
+    
     \newcommand{\mono}{\rightarrowtail}
     \newcommand{\longmono}{
         \stackrel{
@@ -189,6 +210,7 @@
             \end{tikzpicture}
         }{}
     }
+    
     \newcommand{\longmultimap}{\relbar\joinrel\multimap}
     
 }{} % \ifthenelse{\boolean{@b_maths_use_arrows}}{
