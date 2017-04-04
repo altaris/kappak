@@ -201,9 +201,9 @@
     \def\@fontSet{#1}
 }
 
-%% langage
-\define@key{kappak}{langage}[french]{
-    \def\@langage{#1}
+%% language
+\define@key{kappak}{language}[english]{
+    \def\@language{#1}
 }
 
 %% lineSpacing
@@ -239,11 +239,9 @@
 %% Processing
 %% ----------------------------------------
 
-\RequirePackage[\@langage]{babel}
+\RequirePackage[\@language]{babel}
 \RequirePackage[\@encoding]{inputenc}
-\ifthenelse{\equal{\@langage}{french}}{
-    \RequirePackage[T1]{fontenc}
-}{}
+\RequirePackage[T1]{fontenc}
 
 \RequirePackage{amsfonts}
 \RequirePackage{amsmath}

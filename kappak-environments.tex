@@ -30,52 +30,7 @@
 
 \ifthenelse{\boolean{@b_maths_use_theoremEnvs}}{
 
-    \ifthenelse{\equal{\@langage}{french}}{
-    
-        \def\@assertionName         {Assertion}
-        \def\@assertionsName        {Assertions}
-        \def\@axiomName             {Axiome}
-        \def\@axiomsName            {Axiomes}
-        \def\@conjectureName        {Conjecture}
-        \def\@conjecturesName       {Conjectures}
-        \def\@conventionName        {Convention}
-        \def\@conventionsName       {Conventions}
-        \def\@corollaryName         {Corollaire}
-        \def\@corollariesName       {Corollaires}
-        \def\@definitionName        {Définition}
-        \def\@definitionsName       {Définitions}
-        \def\@exampleName           {Exemple}
-        \def\@examplesName          {Exemples}
-        \def\@exerciseName          {Exercice}
-        \def\@exercisesName         {Exercices}
-        \def\@lemmaName             {Lemme}
-        \def\@lemmasName            {Lemmes}
-        \def\@notationName          {Notation}
-        \def\@notationsName         {Notations}
-        \def\@proofName             {Démonstration}
-        \def\@proofsName            {Démonstrations}
-        \def\@propertyName          {Propriété}
-        \def\@propertiesName        {Propriétés}
-        \def\@propositionName       {Proposition}
-        \def\@propositionsName      {Propositions}
-        \def\@questionName          {Question}
-        \def\@questionsName         {Questions}
-        \def\@remarkName            {Remarque}
-        \def\@remarksName           {Remarques}
-        \def\@reminderName          {Rappel}
-        \def\@remindersName         {Rappels}
-        \def\@scholiaName           {Scholie}
-        \def\@scholiasName          {Scholies}
-        \def\@solutionName          {Solution}
-        \def\@solutionsName         {Solutions}
-        \def\@terminologyName       {Terminologie}
-        \def\@terminologiesName     {Terminologies}
-        \def\@theoremName           {Théorème}
-        \def\@theoremsName          {Théorèmes}
-        
-    }{} % \ifthenelse{\equal{\@langage}{french}}{
-    
-    \ifthenelse{\equal{\@langage}{english}}{
+    \ifthenelse{\equal{\@language}{english}}{
     
         \def\@assertionName         {Assertion}
         \def\@assertionsName        {Assertions}
@@ -118,7 +73,52 @@
         \def\@terminologyName       {Terminology}
         \def\@terminologiesName     {Terminologies}
 
-    }{} % \ifthenelse{\equal{\@langage}{english}}{
+    }{} % \ifthenelse{\equal{\@language}{english}}{
+
+    \ifthenelse{\equal{\@language}{french}}{
+    
+        \def\@assertionName         {Assertion}
+        \def\@assertionsName        {Assertions}
+        \def\@axiomName             {Axiome}
+        \def\@axiomsName            {Axiomes}
+        \def\@conjectureName        {Conjecture}
+        \def\@conjecturesName       {Conjectures}
+        \def\@conventionName        {Convention}
+        \def\@conventionsName       {Conventions}
+        \def\@corollaryName         {Corollaire}
+        \def\@corollariesName       {Corollaires}
+        \def\@definitionName        {Définition}
+        \def\@definitionsName       {Définitions}
+        \def\@exampleName           {Exemple}
+        \def\@examplesName          {Exemples}
+        \def\@exerciseName          {Exercice}
+        \def\@exercisesName         {Exercices}
+        \def\@lemmaName             {Lemme}
+        \def\@lemmasName            {Lemmes}
+        \def\@notationName          {Notation}
+        \def\@notationsName         {Notations}
+        \def\@proofName             {Démonstration}
+        \def\@proofsName            {Démonstrations}
+        \def\@propertyName          {Propriété}
+        \def\@propertiesName        {Propriétés}
+        \def\@propositionName       {Proposition}
+        \def\@propositionsName      {Propositions}
+        \def\@questionName          {Question}
+        \def\@questionsName         {Questions}
+        \def\@remarkName            {Remarque}
+        \def\@remarksName           {Remarques}
+        \def\@reminderName          {Rappel}
+        \def\@remindersName         {Rappels}
+        \def\@scholiaName           {Scholie}
+        \def\@scholiasName          {Scholies}
+        \def\@solutionName          {Solution}
+        \def\@solutionsName         {Solutions}
+        \def\@terminologyName       {Terminologie}
+        \def\@terminologiesName     {Terminologies}
+        \def\@theoremName           {Théorème}
+        \def\@theoremsName          {Théorèmes}
+        
+    }{} % \ifthenelse{\equal{\@language}{french}}{
     
     \ifthenelse{\boolean{@b_maths_swapnumbers}}{
         \swapnumbers
