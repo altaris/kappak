@@ -100,11 +100,6 @@
 %% Simple
 %% --------------------
 
-%% +beamer
-\DeclareOption{+beamer}{
-    \setboolean{@b_extpack_use_beamer}{true}
-}
-
 %% +maths
 \DeclareOption{+maths}{
     \setboolean{@b_maths_use_arrows}{true}
@@ -290,30 +285,6 @@
     \RequirePackage{mathrsfs}
     \renewcommand{\@cal}{\mathscr}
 }{}
-
-\ifthenelse{\boolean{@b_extpack_use_beamer}}{}{
-    
-    \ifthenelse{\equal{\@headerFooterStyle}{normal}}{}{
-        \RequirePackage{fancyhdr}
-    }
-
-    \ifthenelse{
-        \equal{\@chapterStyle}{Sonny}       \or 
-        \equal{\@chapterStyle}{Lenny}       \or 
-        \equal{\@chapterStyle}{Glenn}       \or 
-        \equal{\@chapterStyle}{Conny}       \or 
-        \equal{\@chapterStyle}{Rejne}       \or 
-        \equal{\@chapterStyle}{Bjarne}      \or 
-        \equal{\@chapterStyle}{Bjornstrup}
-    }{
-        \usepackage[\@chapterStyle]{fncychap}
-    }{
-        \ifthenelse{\equal{\@chapterStyle}{normal}}{}{
-            \RequirePackage{titlesec}
-        }
-    }
-
-} % \ifthenelse{\boolean{@b_extpack_use_beamer}}{}{
 
 \ifthenelse{\equal{\@fontSet}{alternate}}{
     \RequirePackage{mathptmx}       % selects Times Roman as basic font
