@@ -267,6 +267,10 @@
     \usetikzlibrary{matrix, arrows, calc}
 }{}
 
+\ifthenelse{\equal{\@chapterStyle}{normal}}{}{
+    \RequirePackage{titlesec}
+}
+
 \newcommand{\@cal}{\mathcal}
 \ifthenelse{\equal{\@scriptStyle}{euler}}{
     \RequirePackage[mathscr]{euscript}

@@ -201,17 +201,17 @@
 %% ----------------------------------------
 
 %% --------------------
-%% Langage handling
+%% Language handling
 %% --------------------
 
 \ifthenelse{\equal{\@chapterStyle}{normal}}{}{
 
-    \ifthenelse{\equal{\@langage}{french}}{
+    \ifthenelse{\equal{\@language}{french}}{
         \def\@chapterName{Chapitre}
         \def\@sectionName{Section}
     }{}
     
-    \ifthenelse{\equal{\@langage}{english}}{
+    \ifthenelse{\equal{\@language}{english}}{
         \def\@chapterName{Chapter}
         \def\@sectionName{Section}
     }{}
