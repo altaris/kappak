@@ -32,10 +32,6 @@
 
 \ifthenelse{\boolean{@b_extpack_use_tikz}}{
 
-%% ----------------------------------------
-%% General diagrams
-%% ----------------------------------------
-
 %% --------------------
 %% Size
 %% --------------------
@@ -47,119 +43,100 @@
     \diagramsize{}{}
     
 %% --------------------
+%% Styles
+%% --------------------
+
+    \newcommand{\diagramarrows}[4]{
+        \ifthenelse{\equal{#1}{}}{\def\@diagAA{->}}{}
+        \ifthenelse{\equal{#1}{-}}{\def\@diagAA{-}}{}
+        \ifthenelse{\equal{#1}{->}}{\def\@diagAA{->}}{}
+        \ifthenelse{\equal{#1}{<-}}{\def\@diagAA{<-}}{}
+        \ifthenelse{\equal{#1}{<->}}{\def\@diagAA{<->}}{}
+        \ifthenelse{\equal{#1}{->>}}{\def\@diagAA{->>}}{}
+        \ifthenelse{\equal{#1}{<<-}}{\def\@diagAA{<<-}}{}
+        \ifthenelse{\equal{#1}{>->}}{\def\@diagAA{>->}}{}
+        \ifthenelse{\equal{#1}{<-<}}{\def\@diagAA{<-<}}{}
+        \ifthenelse{\equal{#1}{c->}}{\def\@diagAA{right hook->}}{}
+        \ifthenelse{\equal{#1}{<-c}}{\def\@diagAA{<-left hook}}{}
+        \ifthenelse{\equal{#1}{|->}}{\def\@diagAA{|->}}{}
+        \ifthenelse{\equal{#1}{<-|}}{\def\@diagAA{<-|}}{}
+        \ifthenelse{\equal{#2}{}}{\def\@diagAB{->}}{}
+        \ifthenelse{\equal{#2}{-}}{\def\@diagAB{-}}{}
+        \ifthenelse{\equal{#2}{->}}{\def\@diagAB{->}}{}
+        \ifthenelse{\equal{#2}{<-}}{\def\@diagAB{<-}}{}
+        \ifthenelse{\equal{#2}{<->}}{\def\@diagAB{<->}}{}
+        \ifthenelse{\equal{#2}{->>}}{\def\@diagAB{->>}}{}
+        \ifthenelse{\equal{#2}{<<-}}{\def\@diagAB{<<-}}{}
+        \ifthenelse{\equal{#2}{>->}}{\def\@diagAB{>->}}{}
+        \ifthenelse{\equal{#2}{<-<}}{\def\@diagAB{<-<}}{}
+        \ifthenelse{\equal{#2}{c->}}{\def\@diagAB{right hook->}}{}
+        \ifthenelse{\equal{#2}{<-c}}{\def\@diagAB{<-left hook}}{}
+        \ifthenelse{\equal{#2}{|->}}{\def\@diagAB{|->}}{}
+        \ifthenelse{\equal{#2}{<-|}}{\def\@diagAB{<-|}}{}
+        \ifthenelse{\equal{#3}{}}{\def\@diagAC{->}}{}
+        \ifthenelse{\equal{#3}{-}}{\def\@diagAC{-}}{}
+        \ifthenelse{\equal{#3}{->}}{\def\@diagAC{->}}{}
+        \ifthenelse{\equal{#3}{<-}}{\def\@diagAC{<-}}{}
+        \ifthenelse{\equal{#3}{<->}}{\def\@diagAC{<->}}{}
+        \ifthenelse{\equal{#3}{->>}}{\def\@diagAC{->>}}{}
+        \ifthenelse{\equal{#3}{<<-}}{\def\@diagAC{<<-}}{}
+        \ifthenelse{\equal{#3}{>->}}{\def\@diagAC{>->}}{}
+        \ifthenelse{\equal{#3}{<-<}}{\def\@diagAC{<-<}}{}
+        \ifthenelse{\equal{#3}{c->}}{\def\@diagAC{right hook->}}{}
+        \ifthenelse{\equal{#3}{<-c}}{\def\@diagAC{<-left hook}}{}
+        \ifthenelse{\equal{#3}{|->}}{\def\@diagAC{|->}}{}
+        \ifthenelse{\equal{#3}{<-|}}{\def\@diagAC{<-|}}{}
+        \ifthenelse{\equal{#4}{}}{\def\@diagAD{->}}{}
+        \ifthenelse{\equal{#4}{-}}{\def\@diagAD{-}}{}
+        \ifthenelse{\equal{#4}{->}}{\def\@diagAD{->}}{}
+        \ifthenelse{\equal{#4}{<-}}{\def\@diagAD{<-}}{}
+        \ifthenelse{\equal{#4}{<->}}{\def\@diagAD{<->}}{}
+        \ifthenelse{\equal{#4}{->>}}{\def\@diagAD{->>}}{}
+        \ifthenelse{\equal{#4}{<<-}}{\def\@diagAD{<<-}}{}
+        \ifthenelse{\equal{#4}{>->}}{\def\@diagAD{>->}}{}
+        \ifthenelse{\equal{#4}{<-<}}{\def\@diagAD{<-<}}{}
+        \ifthenelse{\equal{#4}{c->}}{\def\@diagAD{right hook->}}{}
+        \ifthenelse{\equal{#4}{<-c}}{\def\@diagAD{<-left hook}}{}
+        \ifthenelse{\equal{#4}{|->}}{\def\@diagAD{|->}}{}
+        \ifthenelse{\equal{#4}{<-|}}{\def\@diagAD{<-|}}{}
+    } % \newcommand{\diagramarrows}[4]{
+    
+    \newcommand{\diagramlines}[4]{
+        \ifthenelse{\equal{#1}{}}{\def\@diagLA{solid}}{}
+        \ifthenelse{\equal{#1}{=}}{\def\@diagLA{double}}{}
+        \ifthenelse{\equal{#1}{-}}{\def\@diagLA{solid}}{}
+        \ifthenelse{\equal{#1}{..}}{\def\@diagLA{dotted}}{}
+        \ifthenelse{\equal{#1}{--}}{\def\@diagLA{dashed}}{}
+        \ifthenelse{\equal{#2}{}}{\def\@diagLB{solid}}{}
+        \ifthenelse{\equal{#2}{=}}{\def\@diagLB{double}}{}
+        \ifthenelse{\equal{#2}{-}}{\def\@diagLB{solid}}{}
+        \ifthenelse{\equal{#2}{..}}{\def\@diagLB{dotted}}{}
+        \ifthenelse{\equal{#2}{--}}{\def\@diagLB{dashed}}{}
+        \ifthenelse{\equal{#3}{}}{\def\@diagLC{solid}}{}
+        \ifthenelse{\equal{#3}{=}}{\def\@diagLC{double}}{}
+        \ifthenelse{\equal{#3}{-}}{\def\@diagLC{solid}}{}
+        \ifthenelse{\equal{#3}{..}}{\def\@diagLC{dotted}}{}
+        \ifthenelse{\equal{#3}{--}}{\def\@diagLC{dashed}}{}
+        \ifthenelse{\equal{#4}{}}{\def\@diagLD{solid}}{}
+        \ifthenelse{\equal{#4}{=}}{\def\@diagLD{double}}{}
+        \ifthenelse{\equal{#4}{-}}{\def\@diagLD{solid}}{}
+        \ifthenelse{\equal{#4}{..}}{\def\@diagLD{dotted}}{}
+        \ifthenelse{\equal{#4}{--}}{\def\@diagLD{dashed}}{}
+    } % \newcommand{\diagramlines}[4]{
+
+%% --------------------
 %% Reset styles
 %% --------------------
 
     \newcommand{\rds}{
-        \def\@tDiagSqUA{->}
-        \def\@tDiagSqLA{->}
-        \def\@tDiagSqRA{->}
-        \def\@tDiagSqDA{->}
-        \def\@tDiagSqUL{solid}
-        \def\@tDiagSqLL{solid}
-        \def\@tDiagSqRL{solid}
-        \def\@tDiagSqDL{solid}
-        \def\@tDiagTrigAA{->}
-        \def\@tDiagTrigBA{->}
-        \def\@tDiagTrigCA{->}
-        \def\@tDiagTrigAL{solid}
-        \def\@tDiagTrigBL{solid}
-        \def\@tDiagTrigCL{solid}
+        \diagramarrows{}{}{}{}
+        \diagramlines{}{}{}{}
     }
-
-%% ----------------------------------------
-%% Square diagrams
-%% ----------------------------------------
+    \rds
     
 %% --------------------
-%% Styles
+%% Simple square
 %% --------------------
-
-    \newcommand{\squarediagramarrows}[4]{
-        \ifthenelse{\equal{#1}{}}{\def\@tDiagSqUA{->}}{}
-        \ifthenelse{\equal{#1}{-}}{\def\@tDiagSqUA{-}}{}
-        \ifthenelse{\equal{#1}{->}}{\def\@tDiagSqUA{->}}{}
-        \ifthenelse{\equal{#1}{<-}}{\def\@tDiagSqUA{<-}}{}
-        \ifthenelse{\equal{#1}{<->}}{\def\@tDiagSqUA{<->}}{}
-        \ifthenelse{\equal{#1}{->>}}{\def\@tDiagSqUA{->>}}{}
-        \ifthenelse{\equal{#1}{<<-}}{\def\@tDiagSqUA{<<-}}{}
-        \ifthenelse{\equal{#1}{>->}}{\def\@tDiagSqUA{>->}}{}
-        \ifthenelse{\equal{#1}{<-<}}{\def\@tDiagSqUA{<-<}}{}
-        \ifthenelse{\equal{#1}{c->}}{\def\@tDiagSqUA{right hook->}}{}
-        \ifthenelse{\equal{#1}{<-c}}{\def\@tDiagSqUA{<-left hook}}{}
-        \ifthenelse{\equal{#1}{|->}}{\def\@tDiagSqUA{|->}}{}
-        \ifthenelse{\equal{#1}{<-|}}{\def\@tDiagSqUA{<-|}}{}
-        \ifthenelse{\equal{#2}{}}{\def\@tDiagSqLA{->}}{}
-        \ifthenelse{\equal{#2}{-}}{\def\@tDiagSqLA{-}}{}
-        \ifthenelse{\equal{#2}{->}}{\def\@tDiagSqLA{->}}{}
-        \ifthenelse{\equal{#2}{<-}}{\def\@tDiagSqLA{<-}}{}
-        \ifthenelse{\equal{#2}{<->}}{\def\@tDiagSqLA{<->}}{}
-        \ifthenelse{\equal{#2}{->>}}{\def\@tDiagSqLA{->>}}{}
-        \ifthenelse{\equal{#2}{<<-}}{\def\@tDiagSqLA{<<-}}{}
-        \ifthenelse{\equal{#2}{>->}}{\def\@tDiagSqLA{>->}}{}
-        \ifthenelse{\equal{#2}{<-<}}{\def\@tDiagSqLA{<-<}}{}
-        \ifthenelse{\equal{#2}{c->}}{\def\@tDiagSqLA{right hook->}}{}
-        \ifthenelse{\equal{#2}{<-c}}{\def\@tDiagSqLA{<-left hook}}{}
-        \ifthenelse{\equal{#2}{|->}}{\def\@tDiagSqLA{|->}}{}
-        \ifthenelse{\equal{#2}{<-|}}{\def\@tDiagSqLA{<-|}}{}
-        \ifthenelse{\equal{#3}{}}{\def\@tDiagSqRA{->}}{}
-        \ifthenelse{\equal{#3}{-}}{\def\@tDiagSqRA{-}}{}
-        \ifthenelse{\equal{#3}{->}}{\def\@tDiagSqRA{->}}{}
-        \ifthenelse{\equal{#3}{<-}}{\def\@tDiagSqRA{<-}}{}
-        \ifthenelse{\equal{#3}{<->}}{\def\@tDiagSqRA{<->}}{}
-        \ifthenelse{\equal{#3}{->>}}{\def\@tDiagSqRA{->>}}{}
-        \ifthenelse{\equal{#3}{<<-}}{\def\@tDiagSqRA{<<-}}{}
-        \ifthenelse{\equal{#3}{>->}}{\def\@tDiagSqRA{>->}}{}
-        \ifthenelse{\equal{#3}{<-<}}{\def\@tDiagSqRA{<-<}}{}
-        \ifthenelse{\equal{#3}{c->}}{\def\@tDiagSqRA{right hook->}}{}
-        \ifthenelse{\equal{#3}{<-c}}{\def\@tDiagSqRA{<-left hook}}{}
-        \ifthenelse{\equal{#3}{|->}}{\def\@tDiagSqRA{|->}}{}
-        \ifthenelse{\equal{#3}{<-|}}{\def\@tDiagSqRA{<-|}}{}
-        \ifthenelse{\equal{#4}{}}{\def\@tDiagSqDA{->}}{}
-        \ifthenelse{\equal{#4}{-}}{\def\@tDiagSqDA{-}}{}
-        \ifthenelse{\equal{#4}{->}}{\def\@tDiagSqDA{->}}{}
-        \ifthenelse{\equal{#4}{<-}}{\def\@tDiagSqDA{<-}}{}
-        \ifthenelse{\equal{#4}{<->}}{\def\@tDiagSqDA{<->}}{}
-        \ifthenelse{\equal{#4}{->>}}{\def\@tDiagSqDA{->>}}{}
-        \ifthenelse{\equal{#4}{<<-}}{\def\@tDiagSqDA{<<-}}{}
-        \ifthenelse{\equal{#4}{>->}}{\def\@tDiagSqDA{>->}}{}
-        \ifthenelse{\equal{#4}{<-<}}{\def\@tDiagSqDA{<-<}}{}
-        \ifthenelse{\equal{#4}{c->}}{\def\@tDiagSqDA{right hook->}}{}
-        \ifthenelse{\equal{#4}{<-c}}{\def\@tDiagSqDA{<-left hook}}{}
-        \ifthenelse{\equal{#4}{|->}}{\def\@tDiagSqDA{|->}}{}
-        \ifthenelse{\equal{#4}{<-|}}{\def\@tDiagSqDA{<-|}}{}
-    } % \newcommand{\squarediagramarrows}[4]{
-    \squarediagramarrows{}{}{}{}
-    
-    \newcommand{\squarediagramlines}[4]{
-        \ifthenelse{\equal{#1}{}}{\def\@tDiagSqUL{solid}}{}
-        \ifthenelse{\equal{#1}{=}}{\def\@tDiagSqUL{double}}{}
-        \ifthenelse{\equal{#1}{-}}{\def\@tDiagSqUL{solid}}{}
-        \ifthenelse{\equal{#1}{..}}{\def\@tDiagSqUL{dotted}}{}
-        \ifthenelse{\equal{#1}{--}}{\def\@tDiagSqUL{dashed}}{}
-        \ifthenelse{\equal{#2}{}}{\def\@tDiagSqLL{solid}}{}
-        \ifthenelse{\equal{#2}{=}}{\def\@tDiagSqLL{double}}{}
-        \ifthenelse{\equal{#2}{-}}{\def\@tDiagSqLL{solid}}{}
-        \ifthenelse{\equal{#2}{..}}{\def\@tDiagSqLL{dotted}}{}
-        \ifthenelse{\equal{#2}{--}}{\def\@tDiagSqLL{dashed}}{}
-        \ifthenelse{\equal{#3}{}}{\def\@tDiagSqRL{solid}}{}
-        \ifthenelse{\equal{#3}{=}}{\def\@tDiagSqRL{double}}{}
-        \ifthenelse{\equal{#3}{-}}{\def\@tDiagSqRL{solid}}{}
-        \ifthenelse{\equal{#3}{..}}{\def\@tDiagSqRL{dotted}}{}
-        \ifthenelse{\equal{#3}{--}}{\def\@tDiagSqRL{dashed}}{}
-        \ifthenelse{\equal{#4}{}}{\def\@tDiagSqDL{solid}}{}
-        \ifthenelse{\equal{#4}{=}}{\def\@tDiagSqDL{double}}{}
-        \ifthenelse{\equal{#4}{-}}{\def\@tDiagSqDL{solid}}{}
-        \ifthenelse{\equal{#4}{..}}{\def\@tDiagSqDL{dotted}}{}
-        \ifthenelse{\equal{#4}{--}}{\def\@tDiagSqDL{dashed}}{}
-    }
-    \squarediagramlines{}{}{}{}
-    
-%% --------------------
-%% Simple
-%% --------------------
-
-\ifthenelse{\@usedVersion = 0408 \or \@usedVersion > 0408}{
 
     \newcommand{\squarediagram}[8]{
         \begin{tikzpicture}
@@ -172,10 +149,10 @@
                 {}#1 \& {}#2 \\
                 {}#3 \& {}#4 \\
             };
-            \path [\@tDiagSqUA] (m-1-1) edge [\@tDiagSqUL] node [above] {$#5$} (m-1-2);
-            \path [\@tDiagSqLA] (m-1-1) edge [\@tDiagSqLL] node [left]  {$#6$} (m-2-1);
-            \path [\@tDiagSqRA] (m-1-2) edge [\@tDiagSqRL] node [right] {$#7$} (m-2-2);
-            \path [\@tDiagSqDA] (m-2-1) edge [\@tDiagSqDL] node [above] {$#8$} (m-2-2);
+            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [above] {$#5$} (m-1-2);
+            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [left]  {$#6$} (m-2-1);
+            \path [\@diagAC] (m-1-2) edge [\@diagLC] node [right] {$#7$} (m-2-2);
+            \path [\@diagAD] (m-2-1) edge [\@diagLD] node [above] {$#8$} (m-2-2);
         \end{tikzpicture}
     }
     
@@ -195,10 +172,10 @@
                 {}#3 \& {}#4 \\
             };
             \path (m-1-1) edge [-, draw = white] node [inline] {\mbox{\LARGE{$\ulcorner$}}} (m-2-2);
-            \path [\@tDiagSqUA] (m-1-1) edge [\@tDiagSqUL] node [above] {$#5$} (m-1-2);
-            \path [\@tDiagSqLA] (m-1-1) edge [\@tDiagSqLL] node [left]  {$#6$} (m-2-1);
-            \path [\@tDiagSqRA] (m-1-2) edge [\@tDiagSqRL] node [right] {$#7$} (m-2-2);
-            \path [\@tDiagSqDA] (m-2-1) edge [\@tDiagSqDL] node [above] {$#8$} (m-2-2);
+            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [above] {$#5$} (m-1-2);
+            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [left]  {$#6$} (m-2-1);
+            \path [\@diagAC] (m-1-2) edge [\@diagLC] node [right] {$#7$} (m-2-2);
+            \path [\@diagAD] (m-2-1) edge [\@diagLD] node [above] {$#8$} (m-2-2);
         \end{tikzpicture}
     }
     
@@ -218,87 +195,15 @@
                 {}#3 \& {}#4 \\
             };
             \path (m-1-1) edge [-, draw = white] node [inline] {\mbox{\LARGE{$\lrcorner$}}} (m-2-2);
-            \path [\@tDiagSqUA] (m-1-1) edge [\@tDiagSqUL] node [above] {$#5$} (m-1-2);
-            \path [\@tDiagSqLA] (m-1-1) edge [\@tDiagSqLL] node [left]  {$#6$} (m-2-1);
-            \path [\@tDiagSqRA] (m-1-2) edge [\@tDiagSqRL] node [right] {$#7$} (m-2-2);
-            \path [\@tDiagSqDA] (m-2-1) edge [\@tDiagSqDL] node [above] {$#8$} (m-2-2);
+            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [above] {$#5$} (m-1-2);
+            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [left]  {$#6$} (m-2-1);
+            \path [\@diagAC] (m-1-2) edge [\@diagLC] node [right] {$#7$} (m-2-2);
+            \path [\@diagAD] (m-2-1) edge [\@diagLD] node [above] {$#8$} (m-2-2);
         \end{tikzpicture}
     }
-
-}{} % \ifthenelse{\@usedVersion = 0408 \or \@usedVersion > 0408}{
-
-%% ----------------------------------------
-%% Triangular diagrams
-%% ----------------------------------------
     
 %% --------------------
-%% Styles
-%% --------------------
-
-    \newcommand{\trianglediagramarrows}[3]{
-        \ifthenelse{\equal{#1}{}}{\def\@tDiagTrigAA{->}}{}
-        \ifthenelse{\equal{#1}{-}}{\def\@tDiagTrigAA{-}}{}
-        \ifthenelse{\equal{#1}{->}}{\def\@tDiagTrigAA{->}}{}
-        \ifthenelse{\equal{#1}{<-}}{\def\@tDiagTrigAA{<-}}{}
-        \ifthenelse{\equal{#1}{<->}}{\def\@tDiagTrigAA{<->}}{}
-        \ifthenelse{\equal{#1}{->>}}{\def\@tDiagTrigAA{->>}}{}
-        \ifthenelse{\equal{#1}{<<-}}{\def\@tDiagTrigAA{<<-}}{}
-        \ifthenelse{\equal{#1}{>->}}{\def\@tDiagTrigAA{>->}}{}
-        \ifthenelse{\equal{#1}{<-<}}{\def\@tDiagTrigAA{<-<}}{}
-        \ifthenelse{\equal{#1}{c->}}{\def\@tDiagTrigAA{right hook->}}{}
-        \ifthenelse{\equal{#1}{<-c}}{\def\@tDiagTrigAA{<-left hook}}{}
-        \ifthenelse{\equal{#1}{|->}}{\def\@tDiagTrigAA{|->}}{}
-        \ifthenelse{\equal{#1}{<-|}}{\def\@tDiagTrigAA{<-|}}{}
-        \ifthenelse{\equal{#2}{}}{\def\@tDiagTrigBA{->}}{}
-        \ifthenelse{\equal{#2}{-}}{\def\@tDiagTrigBA{-}}{}
-        \ifthenelse{\equal{#2}{->}}{\def\@tDiagTrigBA{->}}{}
-        \ifthenelse{\equal{#2}{<-}}{\def\@tDiagTrigBA{<-}}{}
-        \ifthenelse{\equal{#2}{<->}}{\def\@tDiagTrigBA{<->}}{}
-        \ifthenelse{\equal{#2}{->>}}{\def\@tDiagTrigBA{->>}}{}
-        \ifthenelse{\equal{#2}{<<-}}{\def\@tDiagTrigBA{<<-}}{}
-        \ifthenelse{\equal{#2}{>->}}{\def\@tDiagTrigBA{>->}}{}
-        \ifthenelse{\equal{#2}{<-<}}{\def\@tDiagTrigBA{<-<}}{}
-        \ifthenelse{\equal{#2}{c->}}{\def\@tDiagTrigBA{right hook->}}{}
-        \ifthenelse{\equal{#2}{<-c}}{\def\@tDiagTrigBA{<-left hook}}{}
-        \ifthenelse{\equal{#2}{|->}}{\def\@tDiagTrigBA{|->}}{}
-        \ifthenelse{\equal{#2}{<-|}}{\def\@tDiagTrigBA{<-|}}{}
-        \ifthenelse{\equal{#3}{}}{\def\@tDiagTrigCA{->}}{}
-        \ifthenelse{\equal{#3}{-}}{\def\@tDiagTrigCA{-}}{}
-        \ifthenelse{\equal{#3}{->}}{\def\@tDiagTrigCA{->}}{}
-        \ifthenelse{\equal{#3}{<-}}{\def\@tDiagTrigCA{<-}}{}
-        \ifthenelse{\equal{#3}{<->}}{\def\@tDiagTrigCA{<->}}{}
-        \ifthenelse{\equal{#3}{->>}}{\def\@tDiagTrigCA{->>}}{}
-        \ifthenelse{\equal{#3}{<<-}}{\def\@tDiagTrigCA{<<-}}{}
-        \ifthenelse{\equal{#3}{>->}}{\def\@tDiagTrigCA{>->}}{}
-        \ifthenelse{\equal{#3}{<-<}}{\def\@tDiagTrigCA{<-<}}{}
-        \ifthenelse{\equal{#3}{c->}}{\def\@tDiagTrigCA{right hook->}}{}
-        \ifthenelse{\equal{#3}{<-c}}{\def\@tDiagTrigCA{<-left hook}}{}
-        \ifthenelse{\equal{#3}{|->}}{\def\@tDiagTrigCA{|->}}{}
-        \ifthenelse{\equal{#3}{<-|}}{\def\@tDiagTrigCA{<-|}}{}
-    } % \newcommand{\trianglediagramarrows}[3]{
-    \trianglediagramarrows{}{}{}
-    
-    \newcommand{\trianglediagramlines}[3]{
-        \ifthenelse{\equal{#1}{}}{\def\@tDiagTrigAL{solid}}{}
-        \ifthenelse{\equal{#1}{=}}{\def\@tDiagTrigAL{double}}{}
-        \ifthenelse{\equal{#1}{-}}{\def\@tDiagTrigAL{solid}}{}
-        \ifthenelse{\equal{#1}{..}}{\def\@tDiagTrigAL{dotted}}{}
-        \ifthenelse{\equal{#1}{--}}{\def\@tDiagTrigAL{dashed}}{}
-        \ifthenelse{\equal{#2}{}}{\def\@tDiagTrigBL{solid}}{}
-        \ifthenelse{\equal{#2}{=}}{\def\@tDiagTrigBL{double}}{}
-        \ifthenelse{\equal{#2}{-}}{\def\@tDiagTrigBL{solid}}{}
-        \ifthenelse{\equal{#2}{..}}{\def\@tDiagTrigBL{dotted}}{}
-        \ifthenelse{\equal{#2}{--}}{\def\@tDiagTrigBL{dashed}}{}
-        \ifthenelse{\equal{#3}{}}{\def\@tDiagTrigCL{solid}}{}
-        \ifthenelse{\equal{#3}{=}}{\def\@tDiagTrigCL{double}}{}
-        \ifthenelse{\equal{#3}{-}}{\def\@tDiagTrigCL{solid}}{}
-        \ifthenelse{\equal{#3}{..}}{\def\@tDiagTrigCL{dotted}}{}
-        \ifthenelse{\equal{#3}{--}}{\def\@tDiagTrigCL{dashed}}{}
-    }
-    \trianglediagramlines{}{}{}
-    
-%% --------------------
-%% UL : Up left
+%% Triangular UL : Up left
 %% --------------------
 
     \newcommand{\triangleULdiagram}[6]{
@@ -312,14 +217,14 @@
                 {}#1 \& {}#2 \\
                 {}#3 \& \\
             };
-            \path [\@tDiagTrigAA] (m-1-1) edge [\@tDiagTrigAL] node [above]       {$#4$} (m-1-2);
-            \path [\@tDiagTrigBA] (m-1-1) edge [\@tDiagTrigBL] node [left]        {$#5$} (m-2-1);
-            \path [\@tDiagTrigCA] (m-2-1) edge [\@tDiagTrigCL] node [below right] {$#6$} (m-1-2);
+            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [above]       {$#4$} (m-1-2);
+            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [left]        {$#5$} (m-2-1);
+            \path [\@diagAC] (m-2-1) edge [\@diagLC] node [below right] {$#6$} (m-1-2);
         \end{tikzpicture}
     }
     
 %% --------------------
-%% UR : Up right
+%% Triangular UR : Up right
 %% --------------------
 
     \newcommand{\triangleURdiagram}[6]{
@@ -333,14 +238,14 @@
                 {}#1 \& {}#2 \\
                 \& {}#3 \\
             };
-            \path [\@tDiagTrigAA] (m-1-1) edge [\@tDiagTrigAL] node [above]      {$#4$} (m-1-2);
-            \path [\@tDiagTrigBA] (m-1-1) edge [\@tDiagTrigBL] node [below left] {$#5$} (m-2-2);
-            \path [\@tDiagTrigCA] (m-1-2) edge [\@tDiagTrigCL] node [right]      {$#6$} (m-2-2);
+            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [above]      {$#4$} (m-1-2);
+            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [below left] {$#5$} (m-2-2);
+            \path [\@diagAC] (m-1-2) edge [\@diagLC] node [right]      {$#6$} (m-2-2);
         \end{tikzpicture}
     }
     
 %% --------------------
-%% DL : Down left
+%% Triangular DL : Down left
 %% --------------------
 
     \newcommand{\triangleDLdiagram}[6]{
@@ -354,14 +259,14 @@
                 {}#1 \& \\
                 {}#2 \& {}#3 \\
             };
-            \path [\@tDiagTrigAA] (m-1-1) edge [\@tDiagTrigAL] node [left]        {$#4$} (m-2-1);
-            \path [\@tDiagTrigBA] (m-1-1) edge [\@tDiagTrigBL] node [above right] {$#5$} (m-2-2);
-            \path [\@tDiagTrigCA] (m-2-1) edge [\@tDiagTrigCL] node [below]       {$#6$} (m-2-2);
+            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [left]        {$#4$} (m-2-1);
+            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [above right] {$#5$} (m-2-2);
+            \path [\@diagAC] (m-2-1) edge [\@diagLC] node [below]       {$#6$} (m-2-2);
         \end{tikzpicture}
     }
     
 %% --------------------
-%% DR : Down right
+%% Triangular DR : Down right
 %% --------------------
 
     \newcommand{\triangleDRdiagram}[6]{
@@ -375,14 +280,14 @@
                 \& {}#1 \\
                 {}#2 \& {}#3 \\
             };
-            \path [\@tDiagTrigAA] (m-2-1) edge [\@tDiagTrigAL] node [above left] {$#4$} (m-1-2);
-            \path [\@tDiagTrigBA] (m-1-2) edge [\@tDiagTrigBL] node [right]      {$#5$} (m-2-2);
-            \path [\@tDiagTrigCA] (m-2-1) edge [\@tDiagTrigCL] node [above]      {$#6$} (m-2-2);
+            \path [\@diagAA] (m-2-1) edge [\@diagLA] node [above left] {$#4$} (m-1-2);
+            \path [\@diagAB] (m-1-2) edge [\@diagLB] node [right]      {$#5$} (m-2-2);
+            \path [\@diagAC] (m-2-1) edge [\@diagLC] node [above]      {$#6$} (m-2-2);
         \end{tikzpicture}
     }
         
 %% --------------------
-%% U : Up
+%% Triangular U : Up
 %% --------------------
 
     \newcommand{\triangleUdiagram}[6]{
@@ -396,14 +301,14 @@
                 \& {}#1 \& \\
                 {}#2 \& \& {}#3 \\
             };
-            \path [\@tDiagTrigAA] (m-1-2) edge [\@tDiagTrigAL] node [above left]  {$#4$} (m-2-1);
-            \path [\@tDiagTrigBA] (m-1-2) edge [\@tDiagTrigBL] node [above right] {$#5$} (m-2-3);
-            \path [\@tDiagTrigCA] (m-2-1) edge [\@tDiagTrigCL] node [above]       {$#6$} (m-2-3);
+            \path [\@diagAA] (m-1-2) edge [\@diagLA] node [above left]  {$#4$} (m-2-1);
+            \path [\@diagAB] (m-1-2) edge [\@diagLB] node [above right] {$#5$} (m-2-3);
+            \path [\@diagAC] (m-2-1) edge [\@diagLC] node [above]       {$#6$} (m-2-3);
         \end{tikzpicture}
     }
     
 %% --------------------
-%% L : Left
+%% Triangular L : Left
 %% --------------------
     \newcommand{\triangleLdiagram}[6]{
         \begin{tikzpicture}
@@ -417,14 +322,14 @@
                 {}#2 \& \\
                 \& {}#3 \\
             };
-            \path [\@tDiagTrigAA] (m-2-1) edge [\@tDiagTrigAL] node [above left] {$#4$} (m-1-2);
-            \path [\@tDiagTrigBA] (m-1-2) edge [\@tDiagTrigBL] node [right]      {$#5$} (m-3-2);
-            \path [\@tDiagTrigCA] (m-2-1) edge [\@tDiagTrigCL] node [below left] {$#6$} (m-3-2);
+            \path [\@diagAA] (m-2-1) edge [\@diagLA] node [above left] {$#4$} (m-1-2);
+            \path [\@diagAB] (m-1-2) edge [\@diagLB] node [right]      {$#5$} (m-3-2);
+            \path [\@diagAC] (m-2-1) edge [\@diagLC] node [below left] {$#6$} (m-3-2);
         \end{tikzpicture}
     }
         
 %% --------------------
-%% R : Right
+%% Triangular R : Right
 %% --------------------
 
     \newcommand{\triangleRdiagram}[6]{
@@ -439,14 +344,14 @@
                 \& {}#2 \\
                 {}#3 \& \\
             };
-            \path [\@tDiagTrigAA] (m-1-1) edge [\@tDiagTrigAL] node [left]        {$#4$} (m-3-1);
-            \path [\@tDiagTrigBA] (m-1-1) edge [\@tDiagTrigBL] node [above right] {$#5$} (m-2-2);
-            \path [\@tDiagTrigCA] (m-3-1) edge [\@tDiagTrigCL] node [below right] {$#6$} (m-2-2);
+            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [left]        {$#4$} (m-3-1);
+            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [above right] {$#5$} (m-2-2);
+            \path [\@diagAC] (m-3-1) edge [\@diagLC] node [below right] {$#6$} (m-2-2);
         \end{tikzpicture}
     }
     
 %% --------------------
-%% D : Down
+%% Triangular D : Down
 %% --------------------
 
     \newcommand{\triangleDdiagram}[6]{
@@ -460,15 +365,11 @@
                 {}#1 \& \& {}#2 \\
                 \& {}#3 \& \\
             };
-            \path [\@tDiagTrigAA] (m-1-1) edge [\@tDiagTrigAL] node [above]       {$#4$} (m-1-3);
-            \path [\@tDiagTrigBA] (m-1-1) edge [\@tDiagTrigBL] node [below left]  {$#5$} (m-2-2);
-            \path [\@tDiagTrigCA] (m-1-3) edge [\@tDiagTrigCL] node [below right] {$#6$} (m-2-2);
+            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [above]       {$#4$} (m-1-3);
+            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [below left]  {$#5$} (m-2-2);
+            \path [\@diagAC] (m-1-3) edge [\@diagLC] node [below right] {$#6$} (m-2-2);
         \end{tikzpicture}
     }
-    
-%% ----------------------------------------
-%% Other diagrams
-%% ----------------------------------------
     
 %% --------------------
 %% Equalizer
@@ -484,10 +385,9 @@
                     ampersand replacement = \&] {
                 {}#1 \& {}#2 \& {}#3 \\
             };
-            \path[-stealth]
-                (m-1-1)                    edge          node [above] {$#4$} (m-1-2)
-                ($(m-1-2.east) + (0,0.1)$) edge          node [above] {$#5$} ($(m-1-3.west) + (0,0.1)$)
-                ($(m-1-2.east) - (0,0.1)$) edge          node [below] {$#6$} ($(m-1-3.west) - (0,0.1)$);
+            \path [\@diagAA] (m-1-1)                    edge [\@diagLA] node [above] {$#4$} (m-1-2);
+            \path [\@diagAB] ($(m-1-2.east) + (0,0.1)$) edge [\@diagLB] node [above] {$#5$} ($(m-1-3.west) + (0,0.1)$);
+            \path [\@diagAC] ($(m-1-2.east) - (0,0.1)$) edge [\@diagLC] node [below] {$#6$} ($(m-1-3.west) - (0,0.1)$);
         \end{tikzpicture}
     }
     
@@ -505,10 +405,9 @@
                     ampersand replacement = \&] {
                 {}#1 \& {}#2 \& {}#3 \\
             };
-            \path[-stealth]
-                ($(m-1-1.east) + (0,0.1)$) edge          node [above] {$#4$} ($(m-1-2.west) + (0,0.1)$)
-                ($(m-1-1.east) - (0,0.1)$) edge          node [below] {$#5$} ($(m-1-2.west) - (0,0.1)$)
-                (m-1-2)                    edge          node [above] {$#6$} (m-1-3);
+            \path [\@diagAA] ($(m-1-1.east) + (0,0.1)$) edge [\@diagLA] node [above] {$#4$} ($(m-1-2.west) + (0,0.1)$);
+            \path [\@diagAB] ($(m-1-1.east) - (0,0.1)$) edge [\@diagLB] node [below] {$#5$} ($(m-1-2.west) - (0,0.1)$);
+            \path [\@diagAC] (m-1-2)                    edge [\@diagLC] node [above] {$#6$} (m-1-3);
         \end{tikzpicture}
     }
     
