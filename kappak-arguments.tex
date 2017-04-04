@@ -105,11 +105,6 @@
     \setboolean{@b_extpack_use_beamer}{true}
 }
 
-%% +compatibility
-\DeclareOption{+compatibility}{
-    \setboolean{@b_core_use_compatibility}{true}
-}
-
 %% +maths
 \DeclareOption{+maths}{
     \setboolean{@b_maths_use_arrows}{true}
@@ -337,5 +332,5 @@
 }{}
 
 \ifthenelse{\@usedVersion < \@kappakVersion}{
-    \PackageWarning{kappak-v4}{You are using an older version of kappak (v\@usedVersion, actual is v\@kappakVersion). Using compatibility.}
+    \PackageWarning{kappak-v4}{You are using an older version of kappak (v\@usedVersion, actual is v\@kappakVersion).}
 }{}
