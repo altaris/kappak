@@ -141,12 +141,6 @@
     \setboolean{@b_maths_use_operators}{true}
 }
 
-%% maths.scriptCategories
-\DeclareOption{maths.scriptCategories}{
-    \setboolean{@b_maths_use_categories}{true}
-    \setboolean{@b_maths_use_scriptcategories}{true}
-}
-
 %% +maths.theoremEnvs
 \DeclareOption{+maths.theoremEnvs}{
     \setboolean{@b_maths_use_theoremEnvs}{true}
@@ -174,6 +168,11 @@
 %% bbStyle
 \define@key{kappak}{bbStyle}[normal]{
     \def\@bbStyle{#1}
+}
+
+%% categoryStyle
+\define@key{kappak}{categoryStyle}[script]{
+    \def\@categoryStyle{#1}
 }
 
 %% chapterStyle

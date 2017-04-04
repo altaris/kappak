@@ -73,20 +73,38 @@
 %% ----------------------------------------
 
 \ifthenelse{\boolean{@b_maths_use_categories}}{
-    
-    \ifthenelse{\boolean{@b_maths_use_scriptcategories}}{
+
+    \ifthenelse{\equal{\@categoryStyle}{bf}}{
+        \newcommand{\@cat}{\mathbf}
+    }{}
+
+    \ifthenelse{\equal{\@categoryStyle}{script}}{
         \newcommand{\@cat}{\@cal}
+    }{}
+
+    \ifthenelse{\equal{\@categoryStyle}{rm}}{
+        \newcommand{\@cat}{\mathrm}
+    }{}
+
+    \ifthenelse{\equal{\@categoryStyle}{sf}}{
+        \newcommand{\@cat}{\mathsf}
+    }{}
+
+    \ifthenelse{\equal{\@categoryStyle}{tt}}{
+        \newcommand{\@cat}{\mathtt}
+    }{}
+
+    \ifthenelse{\equal{\@categoryStyle}{script}}{
         \newcommand{\op}{\mathrm{op}}
         \newcommand{\newcategory}[4]{
             \newcommand{#1}{#2\@cat{#3}\!#4}
         }
     }{
-        \newcommand{\@cat}[1]{\mathsf{#1}}
         \newcommand{\op}{\@cat{op}}
         \newcommand{\newcategory}[4]{
             \newcommand{#1}{\@cat{#2#3#4}}
         }
-    } % \ifthenelse{\boolean{@b_maths_use_scriptcategories}}{
+    } % \ifthenelse{\equal{\@categoryStyle}{script}}{
 
 %% --------------------
 %% Some categories
