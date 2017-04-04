@@ -292,12 +292,12 @@
 
 \ifthenelse{\equal{\@margins}{reduced}}{
     \RequirePackage{geometry}
-    \geometry{hscale = 0.8, centering}
+    \geometry{hscale = 0.8, vscale = 0.8, centering}
 }{}
 
 \ifthenelse{\equal{\@margins}{minimal}}{
     \RequirePackage{geometry}
-    \geometry{hscale = 0.9, centering}
+    \geometry{margin = 0.5in, centering}
 }{}
 
 \ifthenelse{\@usedVersion < \@kappakVersion}{
