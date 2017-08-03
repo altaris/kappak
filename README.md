@@ -27,6 +27,8 @@ Lanch the `Settings(Admin)` program. Under the `Roots` tab, add `this/is/a/path`
 
 # Autocomplete
 
+The Python script `autocompletion/generate.py` reads through kappak sources and generates autocompletion files.
+
 ## In TexMaker
 
 1. TexMaker -> Options -> Settings File -> Save a copy of the settings file.
@@ -37,8 +39,10 @@ Lanch the `Settings(Admin)` program. Under the `Roots` tab, add `this/is/a/path`
 
 ### Linux
 
-Copy `kappak.sublime-completions` in `~/.config/sublime-text-2/Packages/User/kappak.sublime-completions`.
+Copy `autocompletion/kappak.sublime-completions` in `~/.config/sublime-text-VERSION/Packages/User/`.
 
-# Wiki
+### Windows
 
-[Here](https://github.com/altaris/kappak/wiki).
+Copy `autocompletion/kappak.sublime-completions` in `%APPDATA%/Sublime Text 3/Packages`
+
+# [Wiki](https://github.com/altaris/kappak/wiki)
