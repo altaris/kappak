@@ -96,6 +96,10 @@
     \def\@usedVersion{0411}
 }
 
+\DeclareOption{eientei}{
+    \def\@usedVersion{0412}
+}
+
 %% --------------------
 %% Simple
 %% --------------------
@@ -265,6 +269,10 @@
 \ifthenelse{\boolean{@b_extpack_use_tikz}}{
     \RequirePackage{tikz}
     \usetikzlibrary{matrix, arrows, calc}
+}{}
+
+\ifthenelse{\boolean{@b_maths_use_misc}}{
+    \RequirePackage{xeCJK}
 }{}
 
 \ifthenelse{\equal{\@chapterStyle}{normal}}{}{
