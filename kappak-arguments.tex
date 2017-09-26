@@ -156,8 +156,8 @@
 }
 
 %% +misc
-\DeclareOption{+misc}{
-    \setboolean{@b_use_misc}{true}
+\DeclareOption{-misc}{
+    \setboolean{@b_use_misc}{false}
 }
 
 %% +tikz
@@ -172,6 +172,11 @@
 %% bbStyle
 \define@key{kappak}{bbStyle}[normal]{
     \def\@bbStyle{#1}
+}
+
+%% bibliographyStyle
+\define@key{kappak}{bibliographyStyle}[normal]{
+    \def\@bibliographyStyle{#1}
 }
 
 %% categoryStyle

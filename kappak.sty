@@ -88,13 +88,14 @@
 %% ----------------------------------------
 
 % some stuff
-\newboolean{@b_use_misc}                    \setboolean{@b_use_misc}                    {false}
+\newboolean{@b_use_misc}                    \setboolean{@b_use_misc}                    {true}
 
 %% ----------------------------------------
 %% variables declarations
 %% ----------------------------------------
 
 \def\@bbStyle           {normal}
+\def\@bibliographyStyle {plain}
 \def\@chapterStyle      {normal}
 \def\@encoding          {utf8}
 \def\@fontSet           {normal}
@@ -131,10 +132,15 @@
 
 \ifthenelse{\boolean{@b_use_misc}}{
 
-    \newcommand{\tb}{\textbullet}
-
     % Prevents annoying errors upon non printable chars
     \DeclareUnicodeCharacter{00A0}{ }
+    
+    % I never remember that thing so here's a command
+    \newcommand{\kbibliography}{
+		\nocite{*}
+		\bibliographystyle{\@bibliographyStyle}
+		\bibliography{bibliography}    
+    }
 
 }{} % \ifthenelse{\boolean{@b_use_misc}}{
 
