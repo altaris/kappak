@@ -80,7 +80,7 @@ def generateSublime(symbols):
 # ==============================================================================
 # ==============================================================================
 
-fileNames = ["kappak-environments.tex", "kappak-letters.tex", "kappak-maths.tex", "kappak-styles.tex", "kappak-tikz.tex"]
+fileNames = ["kappak.sty", "kappak-environments.tex", "kappak-letters.tex", "kappak-maths.tex", "kappak-styles.tex", "kappak-tikz.tex"]
 targets = [generateTexmaker, generateSublime]
 
 def generateSymbols():
