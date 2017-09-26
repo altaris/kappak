@@ -1,0 +1,1180 @@
+\documentclass{article}
+
+\usepackage[
+	eientei,	
+	+maths,
+	+tikz,
+	bbStyle       = bbold,
+	categoryStyle = script,	
+	scriptStyle   = euler,
+	margins       = small
+]{kappak}
+
+\title{\texttt{kappak} test}
+\author{Me}
+\date{Now}
+
+\begin{kdocument}
+
+\section{Math wubba lubba dub dub}
+
+\begin{lemma}[Yoneda]
+For $\catCC$ a locally small category, and $\pSh (\catCC) = [ \catCC^\op, \Set ]$ we have an isomorphism natural in $F \in \pSh (\catCC)$ and $C \in \catCC$:
+\[ \pSh (\catCC) (\yoneda_C, F) \cong FC . \]
+\end{lemma}
+
+\begin{corollary}
+We have an embedding:
+\[ \yoneda : \catCC \longincl \pSh (\catCC) \]
+\end{corollary}
+
+\section{Diagrams: a friendly tour}
+
+Here's simple square diagram:
+
+\begin{verbatim}
+\squarediagram{A}{B}{C}{D}{\alpha}{\beta}{\gamma}{\delta}
+\end{verbatim}
+\[ \squarediagram{A}{B}{C}{D}{\alpha}{\beta}{\gamma}{\delta} \]
+
+Let's apply styles:
+\begin{verbatim}
+\diagramarrows{->>}{<-}{-}{}
+\diagramlines{}{--}{}{=}
+\squarediagram{A}{B}{C}{D}{\alpha}{\beta}{\gamma}{\delta}
+\end{verbatim}
+\diagramarrows{->>}{<-}{-}{}
+\diagramlines{}{--}{}{=}
+\[ \squarediagram{A}{B}{C}{D}{\alpha}{\beta}{\gamma}{\delta} \]
+
+Don't forget to remove styles! (once you don't need them anymore)
+\begin{verbatim}
+\rds
+\end{verbatim}
+\rds
+
+Here are the other diagrams:
+\begin{verbatim}
+\pushoutdiagram{A}{B}{C}{D}{\alpha}{\beta}{\gamma}{\delta}
+\end{verbatim}
+\[ \pushoutdiagram{A}{B}{C}{D}{\alpha}{\beta}{\gamma}{\delta} \]
+
+\begin{verbatim}
+\pullbackdiagram{A}{B}{C}{D}{\alpha}{\beta}{\gamma}{\delta}
+\end{verbatim}
+\[ \pullbackdiagram{A}{B}{C}{D}{\alpha}{\beta}{\gamma}{\delta} \]
+
+\begin{verbatim}
+\triangleULdiagram{A}{B}{C}{\alpha}{\beta}{\gamma}
+\end{verbatim}
+\[ \triangleULdiagram{A}{B}{C}{\alpha}{\beta}{\gamma} \]
+
+\begin{verbatim}
+\triangleURdiagram{A}{B}{C}{\alpha}{\beta}{\gamma}
+\end{verbatim}
+\[ \triangleURdiagram{A}{B}{C}{\alpha}{\beta}{\gamma} \]
+
+\begin{verbatim}
+\triangleDLdiagram{A}{B}{C}{\alpha}{\beta}{\gamma}
+\end{verbatim}
+\[ \triangleDLdiagram{A}{B}{C}{\alpha}{\beta}{\gamma} \]
+
+\begin{verbatim}
+\triangleDRdiagram{A}{B}{C}{\alpha}{\beta}{\gamma}
+\end{verbatim}
+\[ \triangleDRdiagram{A}{B}{C}{\alpha}{\beta}{\gamma} \]
+
+\begin{verbatim}
+\triangleUdiagram{A}{B}{C}{\alpha}{\beta}{\gamma}
+\end{verbatim}
+\[ \triangleUdiagram{A}{B}{C}{\alpha}{\beta}{\gamma} \]
+
+Note the default direction of the arrows. You can change that by applying some style:
+\begin{verbatim}
+\diagramarrows{<-}{}{}{}
+\triangleUdiagram{A}{B}{C}{\alpha}{\beta}{\gamma}
+\end{verbatim}
+\diagramarrows{<-}{}{}{}
+\[ \triangleUdiagram{A}{B}{C}{\alpha}{\beta}{\gamma} \]
+
+Heck, let's apply more styles:
+\begin{verbatim}
+\diagramlines{..}{}{=}{}
+\triangleUdiagram{A}{B}{C}{\alpha}{\beta}{\gamma}
+\end{verbatim}
+\diagramlines{..}{}{=}{}
+\[ \triangleUdiagram{A}{B}{C}{\alpha}{\beta}{\gamma} \]
+
+Notice how the first arrow is still reversed. That's why you want to use
+\begin{verbatim}
+\rds
+\end{verbatim}
+\rds
+
+Continuing the exibition:
+
+\begin{verbatim}
+\triangleLdiagram{A}{B}{C}{\alpha}{\beta}{\gamma}
+\end{verbatim}
+\[ \triangleLdiagram{A}{B}{C}{\alpha}{\beta}{\gamma} \]
+
+\begin{verbatim}
+\triangleRdiagram{A}{B}{C}{\alpha}{\beta}{\gamma}
+\end{verbatim}
+\[ \triangleRdiagram{A}{B}{C}{\alpha}{\beta}{\gamma} \]
+
+\begin{verbatim}
+\triangleDdiagram{A}{B}{C}{\alpha}{\beta}{\gamma}
+\end{verbatim}
+\[ \triangleDdiagram{A}{B}{C}{\alpha}{\beta}{\gamma} \]
+
+\begin{verbatim}
+\eqdiagram{A}{B}{C}{f}{g}{h}
+\end{verbatim}
+\[ \eqdiagram{A}{B}{C}{f}{g}{h} \]
+
+\begin{verbatim}
+\diagramarrows{c->}{}{->>}{}
+\diagramlines{..}{--}{=}{}
+\coeqdiagram{A}{B}{C}{f}{g}{h}
+\end{verbatim}
+\diagramarrows{c->}{}{->>}{}
+\diagramlines{..}{--}{=}{}
+\[ \coeqdiagram{A}{B}{C}{f}{g}{h} \]
+
+\section{Character styles and accents}
+
+\subsection{\texttt{bb}}
+
+\begin{center} \begin{tabular}{|ll|ll|}
+	\hline
+	\texttt{bbA}          & $\bbA$          & \texttt{bbAA}         & $\bbAA$       \\
+	\texttt{bbB}          & $\bbB$          & \texttt{bbBB}         & $\bbBB$       \\
+	\texttt{bbC}          & $\bbC$          & \texttt{bbCC}         & $\bbCC$       \\
+	\texttt{bbD}          & $\bbD$          & \texttt{bbDD}         & $\bbDD$       \\
+	\texttt{bbE}          & $\bbE$          & \texttt{bbEE}         & $\bbEE$       \\
+	\texttt{bbF}          & $\bbF$          & \texttt{bbFF}         & $\bbFF$       \\
+	\texttt{bbG}          & $\bbG$          & \texttt{bbGG}         & $\bbGG$       \\
+	\texttt{bbH}          & $\bbH$          & \texttt{bbHH}         & $\bbHH$       \\
+	\texttt{bbI}          & $\bbI$          & \texttt{bbII}         & $\bbII$       \\
+	\texttt{bbJ}          & $\bbJ$          & \texttt{bbJJ}         & $\bbJJ$       \\
+	\texttt{bbK}          & $\bbK$          & \texttt{bbKK}         & $\bbKK$       \\
+	\texttt{bbL}          & $\bbL$          & \texttt{bbLL}         & $\bbLL$       \\
+	\texttt{bbM}          & $\bbM$          & \texttt{bbMM}         & $\bbMM$       \\
+	\texttt{bbN}          & $\bbN$          & \texttt{bbNN}         & $\bbNN$       \\
+	\texttt{bbO}          & $\bbO$          & \texttt{bbOO}         & $\bbOO$       \\
+	\texttt{bbP}          & $\bbP$          & \texttt{bbPP}         & $\bbPP$       \\
+	\texttt{bbQ}          & $\bbQ$          & \texttt{bbQQ}         & $\bbQQ$       \\
+	\texttt{bbR}          & $\bbR$          & \texttt{bbRR}         & $\bbRR$       \\
+	\texttt{bbS}          & $\bbS$          & \texttt{bbSS}         & $\bbSS$       \\
+	\texttt{bbT}          & $\bbT$          & \texttt{bbTT}         & $\bbTT$       \\
+	\texttt{bbU}          & $\bbU$          & \texttt{bbUU}         & $\bbUU$       \\
+	\texttt{bbV}          & $\bbV$          & \texttt{bbVV}         & $\bbVV$       \\
+	\texttt{bbW}          & $\bbW$          & \texttt{bbWW}         & $\bbWW$       \\
+	\texttt{bbX}          & $\bbX$          & \texttt{bbXX}         & $\bbXX$       \\
+	\texttt{bbY}          & $\bbY$          & \texttt{bbYY}         & $\bbYY$       \\
+	\texttt{bbZ}          & $\bbZ$          & \texttt{bbZZ}         & $\bbZZ$       \\
+	\hline
+	\texttt{bbalpha}      & $\bbalpha$      & \texttt{bbsigma}      & $\bbsigma$    \\
+	\texttt{bbbeta}       & $\bbbeta$       & \texttt{bbvarsigma}   & $\bbvarsigma$ \\
+	\texttt{bbgamma}      & $\bbgamma$      & \texttt{bbtau}        & $\bbtau$      \\
+	\texttt{bbdelta}      & $\bbdelta$      & \texttt{bbupsilon}    & $\bbupsilon$  \\
+	\texttt{bbvarepsilon} & $\bbvarepsilon$ & \texttt{bbphi}        & $\bbphi$      \\
+	\texttt{bbepsilon}    & $\bbepsilon$    & \texttt{bbvarphi}     & $\bbvarphi$   \\
+	\texttt{bbzeta}       & $\bbzeta$       & \texttt{bbchi}        & $\bbchi$      \\
+	\texttt{bbeta}        & $\bbeta$        & \texttt{bbpsi}        & $\bbpsi$      \\
+	\texttt{bbtheta}      & $\bbtheta$      & \texttt{bbomega}      & $\bbomega$    \\
+	\texttt{bbvartheta}   & $\bbvartheta$   & \texttt{bbGamma}      & $\bbGamma$    \\
+	\texttt{bbiota}       & $\bbiota$       & \texttt{bbDelta}      & $\bbDelta$    \\
+	\texttt{bbkappa}      & $\bbkappa$      & \texttt{bbTheta}      & $\bbTheta$    \\
+	\texttt{bblambda}     & $\bblambda$     & \texttt{bbLambda}     & $\bbLambda$   \\
+	\texttt{bbmu}         & $\bbmu$         & \texttt{bbXi}         & $\bbXi$       \\
+	\texttt{bbnu}         & $\bbnu$         & \texttt{bbPi}         & $\bbPi$       \\
+	\texttt{bbxi}         & $\bbxi$         & \texttt{bbSigma}      & $\bbSigma$    \\
+	\texttt{bbpi}         & $\bbpi$         & \texttt{bbUpsilon}    & $\bbUpsilon$  \\
+	\texttt{bbvarpi}      & $\bbvarpi$      & \texttt{bbPhi}        & $\bbPhi$      \\
+	\texttt{bbrho}        & $\bbrho$        & \texttt{bbPsi}        & $\bbPsi$      \\
+	\texttt{bbvarrho}     & $\bbvarrho$     & \texttt{bbOmega}      & $\bbOmega$    \\
+	\hline
+\end{tabular} \end{center}
+
+\subsection{\texttt{bf}}
+
+\begin{center} \begin{tabular}{|ll|ll|}
+	\hline
+	\texttt{bfA}          & $\bfA$          & \texttt{bfAA}         & $\bfAA$       \\
+	\texttt{bfB}          & $\bfB$          & \texttt{bfBB}         & $\bfBB$       \\
+	\texttt{bfC}          & $\bfC$          & \texttt{bfCC}         & $\bfCC$       \\
+	\texttt{bfD}          & $\bfD$          & \texttt{bfDD}         & $\bfDD$       \\
+	\texttt{bfE}          & $\bfE$          & \texttt{bfEE}         & $\bfEE$       \\
+	\texttt{bfF}          & $\bfF$          & \texttt{bfFF}         & $\bfFF$       \\
+	\texttt{bfG}          & $\bfG$          & \texttt{bfGG}         & $\bfGG$       \\
+	\texttt{bfH}          & $\bfH$          & \texttt{bfHH}         & $\bfHH$       \\
+	\texttt{bfI}          & $\bfI$          & \texttt{bfII}         & $\bfII$       \\
+	\texttt{bfJ}          & $\bfJ$          & \texttt{bfJJ}         & $\bfJJ$       \\
+	\texttt{bfK}          & $\bfK$          & \texttt{bfKK}         & $\bfKK$       \\
+	\texttt{bfL}          & $\bfL$          & \texttt{bfLL}         & $\bfLL$       \\
+	\texttt{bfM}          & $\bfM$          & \texttt{bfMM}         & $\bfMM$       \\
+	\texttt{bfN}          & $\bfN$          & \texttt{bfNN}         & $\bfNN$       \\
+	\texttt{bfO}          & $\bfO$          & \texttt{bfOO}         & $\bfOO$       \\
+	\texttt{bfP}          & $\bfP$          & \texttt{bfPP}         & $\bfPP$       \\
+	\texttt{bfQ}          & $\bfQ$          & \texttt{bfQQ}         & $\bfQQ$       \\
+	\texttt{bfR}          & $\bfR$          & \texttt{bfRR}         & $\bfRR$       \\
+	\texttt{bfS}          & $\bfS$          & \texttt{bfSS}         & $\bfSS$       \\
+	\texttt{bfT}          & $\bfT$          & \texttt{bfTT}         & $\bfTT$       \\
+	\texttt{bfU}          & $\bfU$          & \texttt{bfUU}         & $\bfUU$       \\
+	\texttt{bfV}          & $\bfV$          & \texttt{bfVV}         & $\bfVV$       \\
+	\texttt{bfW}          & $\bfW$          & \texttt{bfWW}         & $\bfWW$       \\
+	\texttt{bfX}          & $\bfX$          & \texttt{bfXX}         & $\bfXX$       \\
+	\texttt{bfY}          & $\bfY$          & \texttt{bfYY}         & $\bfYY$       \\
+	\texttt{bfZ}          & $\bfZ$          & \texttt{bfZZ}         & $\bfZZ$       \\
+	\hline
+\end{tabular}
+\begin{tabular}{|ll|ll|}
+	\hline
+	\texttt{bfalpha}      & $\bfalpha$      & \texttt{bfsigma}      & $\bfsigma$    \\
+	\texttt{bfbeta}       & $\bfbeta$       & \texttt{bfvarsigma}   & $\bfvarsigma$ \\
+	\texttt{bfgamma}      & $\bfgamma$      & \texttt{bftau}        & $\bftau$      \\
+	\texttt{bfdelta}      & $\bfdelta$      & \texttt{bfupsilon}    & $\bfupsilon$  \\
+	\texttt{bfvarepsilon} & $\bfvarepsilon$ & \texttt{bfphi}        & $\bfphi$      \\
+	\texttt{bfepsilon}    & $\bfepsilon$    & \texttt{bfvarphi}     & $\bfvarphi$   \\
+	\texttt{bfzeta}       & $\bfzeta$       & \texttt{bfchi}        & $\bfchi$      \\
+	\texttt{bfeta}        & $\bfeta$        & \texttt{bfpsi}        & $\bfpsi$      \\
+	\texttt{bftheta}      & $\bftheta$      & \texttt{bfomega}      & $\bfomega$    \\
+	\texttt{bfvartheta}   & $\bfvartheta$   & \texttt{bfGamma}      & $\bfGamma$    \\
+	\texttt{bfiota}       & $\bfiota$       & \texttt{bfDelta}      & $\bfDelta$    \\
+	\texttt{bfkappa}      & $\bfkappa$      & \texttt{bfTheta}      & $\bfTheta$    \\
+	\texttt{bflambda}     & $\bflambda$     & \texttt{bfLambda}     & $\bfLambda$   \\
+	\texttt{bfmu}         & $\bfmu$         & \texttt{bfXi}         & $\bfXi$       \\
+	\texttt{bfnu}         & $\bfnu$         & \texttt{bfPi}         & $\bfPi$       \\
+	\texttt{bfxi}         & $\bfxi$         & \texttt{bfSigma}      & $\bfSigma$    \\
+	\texttt{bfpi}         & $\bfpi$         & \texttt{bfUpsilon}    & $\bfUpsilon$  \\
+	\texttt{bfvarpi}      & $\bfvarpi$      & \texttt{bfPhi}        & $\bfPhi$      \\
+	\texttt{bfrho}        & $\bfrho$        & \texttt{bfPsi}        & $\bfPsi$      \\
+	\texttt{bfvarrho}     & $\bfvarrho$     & \texttt{bfOmega}      & $\bfOmega$    \\
+	\hline
+\end{tabular} \end{center}
+
+\subsection{\texttt{cal}}
+
+\begin{center}
+\begin{tabular}{|ll|ll|}
+	\hline
+	\texttt{calA}          & $\calA$          & \texttt{calAA}         & $\calAA$       \\
+	\texttt{calB}          & $\calB$          & \texttt{calBB}         & $\calBB$       \\
+	\texttt{calC}          & $\calC$          & \texttt{calCC}         & $\calCC$       \\
+	\texttt{calD}          & $\calD$          & \texttt{calDD}         & $\calDD$       \\
+	\texttt{calE}          & $\calE$          & \texttt{calEE}         & $\calEE$       \\
+	\texttt{calF}          & $\calF$          & \texttt{calFF}         & $\calFF$       \\
+	\texttt{calG}          & $\calG$          & \texttt{calGG}         & $\calGG$       \\
+	\texttt{calH}          & $\calH$          & \texttt{calHH}         & $\calHH$       \\
+	\texttt{calI}          & $\calI$          & \texttt{calII}         & $\calII$       \\
+	\texttt{calJ}          & $\calJ$          & \texttt{calJJ}         & $\calJJ$       \\
+	\texttt{calK}          & $\calK$          & \texttt{calKK}         & $\calKK$       \\
+	\texttt{calL}          & $\calL$          & \texttt{calLL}         & $\calLL$       \\
+	\texttt{calM}          & $\calM$          & \texttt{calMM}         & $\calMM$       \\
+	\texttt{calN}          & $\calN$          & \texttt{calNN}         & $\calNN$       \\
+	\texttt{calO}          & $\calO$          & \texttt{calOO}         & $\calOO$       \\
+	\texttt{calP}          & $\calP$          & \texttt{calPP}         & $\calPP$       \\
+	\texttt{calQ}          & $\calQ$          & \texttt{calQQ}         & $\calQQ$       \\
+	\texttt{calR}          & $\calR$          & \texttt{calRR}         & $\calRR$       \\
+	\texttt{calS}          & $\calS$          & \texttt{calSS}         & $\calSS$       \\
+	\texttt{calT}          & $\calT$          & \texttt{calTT}         & $\calTT$       \\
+	\texttt{calU}          & $\calU$          & \texttt{calUU}         & $\calUU$       \\
+	\texttt{calV}          & $\calV$          & \texttt{calVV}         & $\calVV$       \\
+	\texttt{calW}          & $\calW$          & \texttt{calWW}         & $\calWW$       \\
+	\texttt{calX}          & $\calX$          & \texttt{calXX}         & $\calXX$       \\
+	\texttt{calY}          & $\calY$          & \texttt{calYY}         & $\calYY$       \\
+	\texttt{calZ}          & $\calZ$          & \texttt{calZZ}         & $\calZZ$       \\
+	\hline
+\end{tabular}
+%\begin{tabular}{|ll|ll|}
+%	\hline
+%	\texttt{calalpha}      & $\calalpha$      & \texttt{calsigma}      & $\calsigma$    \\
+%	\texttt{calbeta}       & $\calbeta$       & \texttt{calvarsigma}   & $\calvarsigma$ \\
+%	\texttt{calgamma}      & $\calgamma$      & \texttt{caltau}        & $\caltau$      \\
+%	\texttt{caldelta}      & $\caldelta$      & \texttt{calupsilon}    & $\calupsilon$  \\
+%	\texttt{calvarepsilon} & $\calvarepsilon$ & \texttt{calphi}        & $\calphi$      \\
+%	\texttt{calepsilon}    & $\calepsilon$    & \texttt{calvarphi}     & $\calvarphi$   \\
+%	\texttt{calzeta}       & $\calzeta$       & \texttt{calchi}        & $\calchi$      \\
+%	\texttt{caleta}        & $\caleta$        & \texttt{calpsi}        & $\calpsi$      \\
+%	\texttt{caltheta}      & $\caltheta$      & \texttt{calomega}      & $\calomega$    \\
+%	\texttt{calvartheta}   & $\calvartheta$   & \texttt{calGamma}      & $\calGamma$    \\
+%	\texttt{caliota}       & $\caliota$       & \texttt{calDelta}      & $\calDelta$    \\
+%	\texttt{calkappa}      & $\calkappa$      & \texttt{calTheta}      & $\calTheta$    \\
+%	\texttt{callambda}     & $\callambda$     & \texttt{calLambda}     & $\calLambda$   \\
+%	\texttt{calmu}         & $\calmu$         & \texttt{calXi}         & $\calXi$       \\
+%	\texttt{calnu}         & $\calnu$         & \texttt{calPi}         & $\calPi$       \\
+%	\texttt{calxi}         & $\calxi$         & \texttt{calSigma}      & $\calSigma$    \\
+%	\texttt{calpi}         & $\calpi$         & \texttt{calUpsilon}    & $\calUpsilon$  \\
+%	\texttt{calvarpi}      & $\calvarpi$      & \texttt{calPhi}        & $\calPhi$      \\
+%	\texttt{calrho}        & $\calrho$        & \texttt{calPsi}        & $\calPsi$      \\
+%	\texttt{calvarrho}     & $\calvarrho$     & \texttt{calOmega}      & $\calOmega$    \\
+%	\hline
+%\end{tabular}
+\end{center}
+
+\subsection{\texttt{frak}}
+
+\begin{center}
+\begin{tabular}{|ll|ll|}
+	\hline
+	\texttt{frakA}          & $\frakA$          & \texttt{frakAA}         & $\frakAA$       \\
+	\texttt{frakB}          & $\frakB$          & \texttt{frakBB}         & $\frakBB$       \\
+	\texttt{frakC}          & $\frakC$          & \texttt{frakCC}         & $\frakCC$       \\
+	\texttt{frakD}          & $\frakD$          & \texttt{frakDD}         & $\frakDD$       \\
+	\texttt{frakE}          & $\frakE$          & \texttt{frakEE}         & $\frakEE$       \\
+	\texttt{frakF}          & $\frakF$          & \texttt{frakFF}         & $\frakFF$       \\
+	\texttt{frakG}          & $\frakG$          & \texttt{frakGG}         & $\frakGG$       \\
+	\texttt{frakH}          & $\frakH$          & \texttt{frakHH}         & $\frakHH$       \\
+	\texttt{frakI}          & $\frakI$          & \texttt{frakII}         & $\frakII$       \\
+	\texttt{frakJ}          & $\frakJ$          & \texttt{frakJJ}         & $\frakJJ$       \\
+	\texttt{frakK}          & $\frakK$          & \texttt{frakKK}         & $\frakKK$       \\
+	\texttt{frakL}          & $\frakL$          & \texttt{frakLL}         & $\frakLL$       \\
+	\texttt{frakM}          & $\frakM$          & \texttt{frakMM}         & $\frakMM$       \\
+	\texttt{frakN}          & $\frakN$          & \texttt{frakNN}         & $\frakNN$       \\
+	\texttt{frakO}          & $\frakO$          & \texttt{frakOO}         & $\frakOO$       \\
+	\texttt{frakP}          & $\frakP$          & \texttt{frakPP}         & $\frakPP$       \\
+	\texttt{frakQ}          & $\frakQ$          & \texttt{frakQQ}         & $\frakQQ$       \\
+	\texttt{frakR}          & $\frakR$          & \texttt{frakRR}         & $\frakRR$       \\
+	\texttt{frakS}          & $\frakS$          & \texttt{frakSS}         & $\frakSS$       \\
+	\texttt{frakT}          & $\frakT$          & \texttt{frakTT}         & $\frakTT$       \\
+	\texttt{frakU}          & $\frakU$          & \texttt{frakUU}         & $\frakUU$       \\
+	\texttt{frakV}          & $\frakV$          & \texttt{frakVV}         & $\frakVV$       \\
+	\texttt{frakW}          & $\frakW$          & \texttt{frakWW}         & $\frakWW$       \\
+	\texttt{frakX}          & $\frakX$          & \texttt{frakXX}         & $\frakXX$       \\
+	\texttt{frakY}          & $\frakY$          & \texttt{frakYY}         & $\frakYY$       \\
+	\texttt{frakZ}          & $\frakZ$          & \texttt{frakZZ}         & $\frakZZ$       \\
+	\hline
+\end{tabular}
+%\begin{tabular}{|ll|ll|}
+%	\hline
+%	\texttt{frakalpha}      & $\frakalpha$      & \texttt{fraksigma}      & $\fraksigma$    \\
+%	\texttt{frakbeta}       & $\frakbeta$       & \texttt{frakvarsigma}   & $\frakvarsigma$ \\
+%	\texttt{frakgamma}      & $\frakgamma$      & \texttt{fraktau}        & $\fraktau$      \\
+%	\texttt{frakdelta}      & $\frakdelta$      & \texttt{frakupsilon}    & $\frakupsilon$  \\
+%	\texttt{frakvarepsilon} & $\frakvarepsilon$ & \texttt{frakphi}        & $\frakphi$      \\
+%	\texttt{frakepsilon}    & $\frakepsilon$    & \texttt{frakvarphi}     & $\frakvarphi$   \\
+%	\texttt{frakzeta}       & $\frakzeta$       & \texttt{frakchi}        & $\frakchi$      \\
+%	\texttt{fraketa}        & $\fraketa$        & \texttt{frakpsi}        & $\frakpsi$      \\
+%	\texttt{fraktheta}      & $\fraktheta$      & \texttt{frakomega}      & $\frakomega$    \\
+%	\texttt{frakvartheta}   & $\frakvartheta$   & \texttt{frakGamma}      & $\frakGamma$    \\
+%	\texttt{frakiota}       & $\frakiota$       & \texttt{frakDelta}      & $\frakDelta$    \\
+%	\texttt{frakkappa}      & $\frakkappa$      & \texttt{frakTheta}      & $\frakTheta$    \\
+%	\texttt{fraklambda}     & $\fraklambda$     & \texttt{frakLambda}     & $\frakLambda$   \\
+%	\texttt{frakmu}         & $\frakmu$         & \texttt{frakXi}         & $\frakXi$       \\
+%	\texttt{fraknu}         & $\fraknu$         & \texttt{frakPi}         & $\frakPi$       \\
+%	\texttt{frakxi}         & $\frakxi$         & \texttt{frakSigma}      & $\frakSigma$    \\
+%	\texttt{frakpi}         & $\frakpi$         & \texttt{frakUpsilon}    & $\frakUpsilon$  \\
+%	\texttt{frakvarpi}      & $\frakvarpi$      & \texttt{frakPhi}        & $\frakPhi$      \\
+%	\texttt{frakrho}        & $\frakrho$        & \texttt{frakPsi}        & $\frakPsi$      \\
+%	\texttt{frakvarrho}     & $\frakvarrho$     & \texttt{frakOmega}      & $\frakOmega$    \\
+%	\hline
+%\end{tabular}
+\end{center}
+
+\subsection{\texttt{it}}
+
+\begin{center}
+\begin{tabular}{|ll|ll|}
+	\hline
+	\texttt{itA}          & $\itA$          & \texttt{itAA}         & $\itAA$       \\
+	\texttt{itB}          & $\itB$          & \texttt{itBB}         & $\itBB$       \\
+	\texttt{itC}          & $\itC$          & \texttt{itCC}         & $\itCC$       \\
+	\texttt{itD}          & $\itD$          & \texttt{itDD}         & $\itDD$       \\
+	\texttt{itE}          & $\itE$          & \texttt{itEE}         & $\itEE$       \\
+	\texttt{itF}          & $\itF$          & \texttt{itFF}         & $\itFF$       \\
+	\texttt{itG}          & $\itG$          & \texttt{itGG}         & $\itGG$       \\
+	\texttt{itH}          & $\itH$          & \texttt{itHH}         & $\itHH$       \\
+	\texttt{itI}          & $\itI$          & \texttt{itII}         & $\itII$       \\
+	\texttt{itJ}          & $\itJ$          & \texttt{itJJ}         & $\itJJ$       \\
+	\texttt{itK}          & $\itK$          & \texttt{itKK}         & $\itKK$       \\
+	\texttt{itL}          & $\itL$          & \texttt{itLL}         & $\itLL$       \\
+	\texttt{itM}          & $\itM$          & \texttt{itMM}         & $\itMM$       \\
+	\texttt{itN}          & $\itN$          & \texttt{itNN}         & $\itNN$       \\
+	\texttt{itO}          & $\itO$          & \texttt{itOO}         & $\itOO$       \\
+	\texttt{itP}          & $\itP$          & \texttt{itPP}         & $\itPP$       \\
+	\texttt{itQ}          & $\itQ$          & \texttt{itQQ}         & $\itQQ$       \\
+	\texttt{itR}          & $\itR$          & \texttt{itRR}         & $\itRR$       \\
+	\texttt{itS}          & $\itS$          & \texttt{itSS}         & $\itSS$       \\
+	\texttt{itT}          & $\itT$          & \texttt{itTT}         & $\itTT$       \\
+	\texttt{itU}          & $\itU$          & \texttt{itUU}         & $\itUU$       \\
+	\texttt{itV}          & $\itV$          & \texttt{itVV}         & $\itVV$       \\
+	\texttt{itW}          & $\itW$          & \texttt{itWW}         & $\itWW$       \\
+	\texttt{itX}          & $\itX$          & \texttt{itXX}         & $\itXX$       \\
+	\texttt{itY}          & $\itY$          & \texttt{itYY}         & $\itYY$       \\
+	\texttt{itZ}          & $\itZ$          & \texttt{itZZ}         & $\itZZ$       \\
+	\hline
+\end{tabular}
+%\begin{tabular}{|ll|ll|}
+%	\hline
+%	\texttt{italpha}      & $\italpha$      & \texttt{itsigma}      & $\itsigma$    \\
+%	\texttt{itbeta}       & $\itbeta$       & \texttt{itvarsigma}   & $\itvarsigma$ \\
+%	\texttt{itgamma}      & $\itgamma$      & \texttt{ittau}        & $\ittau$      \\
+%	\texttt{itdelta}      & $\itdelta$      & \texttt{itupsilon}    & $\itupsilon$  \\
+%	\texttt{itvarepsilon} & $\itvarepsilon$ & \texttt{itphi}        & $\itphi$      \\
+%	\texttt{itepsilon}    & $\itepsilon$    & \texttt{itvarphi}     & $\itvarphi$   \\
+%	\texttt{itzeta}       & $\itzeta$       & \texttt{itchi}        & $\itchi$      \\
+%	\texttt{iteta}        & $\iteta$        & \texttt{itpsi}        & $\itpsi$      \\
+%	\texttt{ittheta}      & $\ittheta$      & \texttt{itomega}      & $\itomega$    \\
+%	\texttt{itvartheta}   & $\itvartheta$   & \texttt{itGamma}      & $\itGamma$    \\
+%	\texttt{itiota}       & $\itiota$       & \texttt{itDelta}      & $\itDelta$    \\
+%	\texttt{itkappa}      & $\itkappa$      & \texttt{itTheta}      & $\itTheta$    \\
+%	\texttt{itlambda}     & $\itlambda$     & \texttt{itLambda}     & $\itLambda$   \\
+%	\texttt{itmu}         & $\itmu$         & \texttt{itXi}         & $\itXi$       \\
+%	\texttt{itnu}         & $\itnu$         & \texttt{itPi}         & $\itPi$       \\
+%	\texttt{itxi}         & $\itxi$         & \texttt{itSigma}      & $\itSigma$    \\
+%	\texttt{itpi}         & $\itpi$         & \texttt{itUpsilon}    & $\itUpsilon$  \\
+%	\texttt{itvarpi}      & $\itvarpi$      & \texttt{itPhi}        & $\itPhi$      \\
+%	\texttt{itrho}        & $\itrho$        & \texttt{itPsi}        & $\itPsi$      \\
+%	\texttt{itvarrho}     & $\itvarrho$     & \texttt{itOmega}      & $\itOmega$    \\
+%	\hline
+%\end{tabular}
+\end{center}
+
+\subsection{\texttt{rm}}
+
+\begin{center}
+\begin{tabular}{|ll|ll|}
+	\hline
+	\texttt{rmA}          & $\rmA$          & \texttt{rmAA}         & $\rmAA$       \\
+	\texttt{rmB}          & $\rmB$          & \texttt{rmBB}         & $\rmBB$       \\
+	\texttt{rmC}          & $\rmC$          & \texttt{rmCC}         & $\rmCC$       \\
+	\texttt{rmD}          & $\rmD$          & \texttt{rmDD}         & $\rmDD$       \\
+	\texttt{rmE}          & $\rmE$          & \texttt{rmEE}         & $\rmEE$       \\
+	\texttt{rmF}          & $\rmF$          & \texttt{rmFF}         & $\rmFF$       \\
+	\texttt{rmG}          & $\rmG$          & \texttt{rmGG}         & $\rmGG$       \\
+	\texttt{rmH}          & $\rmH$          & \texttt{rmHH}         & $\rmHH$       \\
+	\texttt{rmI}          & $\rmI$          & \texttt{rmII}         & $\rmII$       \\
+	\texttt{rmJ}          & $\rmJ$          & \texttt{rmJJ}         & $\rmJJ$       \\
+	\texttt{rmK}          & $\rmK$          & \texttt{rmKK}         & $\rmKK$       \\
+	\texttt{rmL}          & $\rmL$          & \texttt{rmLL}         & $\rmLL$       \\
+	\texttt{rmM}          & $\rmM$          & \texttt{rmMM}         & $\rmMM$       \\
+	\texttt{rmN}          & $\rmN$          & \texttt{rmNN}         & $\rmNN$       \\
+	\texttt{rmO}          & $\rmO$          & \texttt{rmOO}         & $\rmOO$       \\
+	\texttt{rmP}          & $\rmP$          & \texttt{rmPP}         & $\rmPP$       \\
+	\texttt{rmQ}          & $\rmQ$          & \texttt{rmQQ}         & $\rmQQ$       \\
+	\texttt{rmR}          & $\rmR$          & \texttt{rmRR}         & $\rmRR$       \\
+	\texttt{rmS}          & $\rmS$          & \texttt{rmSS}         & $\rmSS$       \\
+	\texttt{rmT}          & $\rmT$          & \texttt{rmTT}         & $\rmTT$       \\
+	\texttt{rmU}          & $\rmU$          & \texttt{rmUU}         & $\rmUU$       \\
+	\texttt{rmV}          & $\rmV$          & \texttt{rmVV}         & $\rmVV$       \\
+	\texttt{rmW}          & $\rmW$          & \texttt{rmWW}         & $\rmWW$       \\
+	\texttt{rmX}          & $\rmX$          & \texttt{rmXX}         & $\rmXX$       \\
+	\texttt{rmY}          & $\rmY$          & \texttt{rmYY}         & $\rmYY$       \\
+	\texttt{rmZ}          & $\rmZ$          & \texttt{rmZZ}         & $\rmZZ$       \\
+	\hline
+\end{tabular}
+%\begin{tabular}{|ll|ll|}
+%	\hline
+%	\texttt{rmalpha}      & $\rmalpha$      & \texttt{rmsigma}      & $\rmsigma$    \\
+%	\texttt{rmbeta}       & $\rmbeta$       & \texttt{rmvarsigma}   & $\rmvarsigma$ \\
+%	\texttt{rmgamma}      & $\rmgamma$      & \texttt{rmtau}        & $\rmtau$      \\
+%	\texttt{rmdelta}      & $\rmdelta$      & \texttt{rmupsilon}    & $\rmupsilon$  \\
+%	\texttt{rmvarepsilon} & $\rmvarepsilon$ & \texttt{rmphi}        & $\rmphi$      \\
+%	\texttt{rmepsilon}    & $\rmepsilon$    & \texttt{rmvarphi}     & $\rmvarphi$   \\
+%	\texttt{rmzeta}       & $\rmzeta$       & \texttt{rmchi}        & $\rmchi$      \\
+%	\texttt{rmeta}        & $\rmeta$        & \texttt{rmpsi}        & $\rmpsi$      \\
+%	\texttt{rmtheta}      & $\rmtheta$      & \texttt{rmomega}      & $\rmomega$    \\
+%	\texttt{rmvartheta}   & $\rmvartheta$   & \texttt{rmGamma}      & $\rmGamma$    \\
+%	\texttt{rmiota}       & $\rmiota$       & \texttt{rmDelta}      & $\rmDelta$    \\
+%	\texttt{rmkappa}      & $\rmkappa$      & \texttt{rmTheta}      & $\rmTheta$    \\
+%	\texttt{rmlambda}     & $\rmlambda$     & \texttt{rmLambda}     & $\rmLambda$   \\
+%	\texttt{rmmu}         & $\rmmu$         & \texttt{rmXi}         & $\rmXi$       \\
+%	\texttt{rmnu}         & $\rmnu$         & \texttt{rmPi}         & $\rmPi$       \\
+%	\texttt{rmxi}         & $\rmxi$         & \texttt{rmSigma}      & $\rmSigma$    \\
+%	\texttt{rmpi}         & $\rmpi$         & \texttt{rmUpsilon}    & $\rmUpsilon$  \\
+%	\texttt{rmvarpi}      & $\rmvarpi$      & \texttt{rmPhi}        & $\rmPhi$      \\
+%	\texttt{rmrho}        & $\rmrho$        & \texttt{rmPsi}        & $\rmPsi$      \\
+%	\texttt{rmvarrho}     & $\rmvarrho$     & \texttt{rmOmega}      & $\rmOmega$    \\
+%	\hline
+%\end{tabular}
+\end{center}
+
+\subsection{\texttt{sf}}
+
+\begin{center}
+\begin{tabular}{|ll|ll|}
+	\hline
+	\texttt{sfA}          & $\sfA$          & \texttt{sfAA}         & $\sfAA$       \\
+	\texttt{sfB}          & $\sfB$          & \texttt{sfBB}         & $\sfBB$       \\
+	\texttt{sfC}          & $\sfC$          & \texttt{sfCC}         & $\sfCC$       \\
+	\texttt{sfD}          & $\sfD$          & \texttt{sfDD}         & $\sfDD$       \\
+	\texttt{sfE}          & $\sfE$          & \texttt{sfEE}         & $\sfEE$       \\
+	\texttt{sfF}          & $\sfF$          & \texttt{sfFF}         & $\sfFF$       \\
+	\texttt{sfG}          & $\sfG$          & \texttt{sfGG}         & $\sfGG$       \\
+	\texttt{sfH}          & $\sfH$          & \texttt{sfHH}         & $\sfHH$       \\
+	\texttt{sfI}          & $\sfI$          & \texttt{sfII}         & $\sfII$       \\
+	\texttt{sfJ}          & $\sfJ$          & \texttt{sfJJ}         & $\sfJJ$       \\
+	\texttt{sfK}          & $\sfK$          & \texttt{sfKK}         & $\sfKK$       \\
+	\texttt{sfL}          & $\sfL$          & \texttt{sfLL}         & $\sfLL$       \\
+	\texttt{sfM}          & $\sfM$          & \texttt{sfMM}         & $\sfMM$       \\
+	\texttt{sfN}          & $\sfN$          & \texttt{sfNN}         & $\sfNN$       \\
+	\texttt{sfO}          & $\sfO$          & \texttt{sfOO}         & $\sfOO$       \\
+	\texttt{sfP}          & $\sfP$          & \texttt{sfPP}         & $\sfPP$       \\
+	\texttt{sfQ}          & $\sfQ$          & \texttt{sfQQ}         & $\sfQQ$       \\
+	\texttt{sfR}          & $\sfR$          & \texttt{sfRR}         & $\sfRR$       \\
+	\texttt{sfS}          & $\sfS$          & \texttt{sfSS}         & $\sfSS$       \\
+	\texttt{sfT}          & $\sfT$          & \texttt{sfTT}         & $\sfTT$       \\
+	\texttt{sfU}          & $\sfU$          & \texttt{sfUU}         & $\sfUU$       \\
+	\texttt{sfV}          & $\sfV$          & \texttt{sfVV}         & $\sfVV$       \\
+	\texttt{sfW}          & $\sfW$          & \texttt{sfWW}         & $\sfWW$       \\
+	\texttt{sfX}          & $\sfX$          & \texttt{sfXX}         & $\sfXX$       \\
+	\texttt{sfY}          & $\sfY$          & \texttt{sfYY}         & $\sfYY$       \\
+	\texttt{sfZ}          & $\sfZ$          & \texttt{sfZZ}         & $\sfZZ$       \\
+	\hline
+\end{tabular}
+%\begin{tabular}{|ll|ll|}
+%	\hline
+%	\texttt{sfalpha}      & $\sfalpha$      & \texttt{sfsigma}      & $\sfsigma$    \\
+%	\texttt{sfbeta}       & $\sfbeta$       & \texttt{sfvarsigma}   & $\sfvarsigma$ \\
+%	\texttt{sfgamma}      & $\sfgamma$      & \texttt{sftau}        & $\sftau$      \\
+%	\texttt{sfdelta}      & $\sfdelta$      & \texttt{sfupsilon}    & $\sfupsilon$  \\
+%	\texttt{sfvarepsilon} & $\sfvarepsilon$ & \texttt{sfphi}        & $\sfphi$      \\
+%	\texttt{sfepsilon}    & $\sfepsilon$    & \texttt{sfvarphi}     & $\sfvarphi$   \\
+%	\texttt{sfzeta}       & $\sfzeta$       & \texttt{sfchi}        & $\sfchi$      \\
+%	\texttt{sfeta}        & $\sfeta$        & \texttt{sfpsi}        & $\sfpsi$      \\
+%	\texttt{sftheta}      & $\sftheta$      & \texttt{sfomega}      & $\sfomega$    \\
+%	\texttt{sfvartheta}   & $\sfvartheta$   & \texttt{sfGamma}      & $\sfGamma$    \\
+%	\texttt{sfiota}       & $\sfiota$       & \texttt{sfDelta}      & $\sfDelta$    \\
+%	\texttt{sfkappa}      & $\sfkappa$      & \texttt{sfTheta}      & $\sfTheta$    \\
+%	\texttt{sflambda}     & $\sflambda$     & \texttt{sfLambda}     & $\sfLambda$   \\
+%	\texttt{sfmu}         & $\sfmu$         & \texttt{sfXi}         & $\sfXi$       \\
+%	\texttt{sfnu}         & $\sfnu$         & \texttt{sfPi}         & $\sfPi$       \\
+%	\texttt{sfxi}         & $\sfxi$         & \texttt{sfSigma}      & $\sfSigma$    \\
+%	\texttt{sfpi}         & $\sfpi$         & \texttt{sfUpsilon}    & $\sfUpsilon$  \\
+%	\texttt{sfvarpi}      & $\sfvarpi$      & \texttt{sfPhi}        & $\sfPhi$      \\
+%	\texttt{sfrho}        & $\sfrho$        & \texttt{sfPsi}        & $\sfPsi$      \\
+%	\texttt{sfvarrho}     & $\sfvarrho$     & \texttt{sfOmega}      & $\sfOmega$    \\
+%	\hline
+%\end{tabular}
+\end{center}
+
+\subsection{\texttt{bar}}
+
+\begin{center} \begin{tabular}{|ll|ll|}
+	\hline
+	\texttt{barA}          & $\barA$          & \texttt{barAA}         & $\barAA$       \\
+	\texttt{barB}          & $\barB$          & \texttt{barBB}         & $\barBB$       \\
+	\texttt{barC}          & $\barC$          & \texttt{barCC}         & $\barCC$       \\
+	\texttt{barD}          & $\barD$          & \texttt{barDD}         & $\barDD$       \\
+	\texttt{barE}          & $\barE$          & \texttt{barEE}         & $\barEE$       \\
+	\texttt{barF}          & $\barF$          & \texttt{barFF}         & $\barFF$       \\
+	\texttt{barG}          & $\barG$          & \texttt{barGG}         & $\barGG$       \\
+	\texttt{barH}          & $\barH$          & \texttt{barHH}         & $\barHH$       \\
+	\texttt{barI}          & $\barI$          & \texttt{barII}         & $\barII$       \\
+	\texttt{barJ}          & $\barJ$          & \texttt{barJJ}         & $\barJJ$       \\
+	\texttt{barK}          & $\barK$          & \texttt{barKK}         & $\barKK$       \\
+	\texttt{barL}          & $\barL$          & \texttt{barLL}         & $\barLL$       \\
+	\texttt{barM}          & $\barM$          & \texttt{barMM}         & $\barMM$       \\
+	\texttt{barN}          & $\barN$          & \texttt{barNN}         & $\barNN$       \\
+	\texttt{barO}          & $\barO$          & \texttt{barOO}         & $\barOO$       \\
+	\texttt{barP}          & $\barP$          & \texttt{barPP}         & $\barPP$       \\
+	\texttt{barQ}          & $\barQ$          & \texttt{barQQ}         & $\barQQ$       \\
+	\texttt{barR}          & $\barR$          & \texttt{barRR}         & $\barRR$       \\
+	\texttt{barS}          & $\barS$          & \texttt{barSS}         & $\barSS$       \\
+	\texttt{barT}          & $\barT$          & \texttt{barTT}         & $\barTT$       \\
+	\texttt{barU}          & $\barU$          & \texttt{barUU}         & $\barUU$       \\
+	\texttt{barV}          & $\barV$          & \texttt{barVV}         & $\barVV$       \\
+	\texttt{barW}          & $\barW$          & \texttt{barWW}         & $\barWW$       \\
+	\texttt{barX}          & $\barX$          & \texttt{barXX}         & $\barXX$       \\
+	\texttt{barY}          & $\barY$          & \texttt{barYY}         & $\barYY$       \\
+	\texttt{barZ}          & $\barZ$          & \texttt{barZZ}         & $\barZZ$       \\
+	\hline
+\end{tabular}
+\begin{tabular}{|ll|ll|}
+	\hline
+	\texttt{baralpha}      & $\baralpha$      & \texttt{barsigma}      & $\barsigma$    \\
+	\texttt{barbeta}       & $\barbeta$       & \texttt{barvarsigma}   & $\barvarsigma$ \\
+	\texttt{bargamma}      & $\bargamma$      & \texttt{bartau}        & $\bartau$      \\
+	\texttt{bardelta}      & $\bardelta$      & \texttt{barupsilon}    & $\barupsilon$  \\
+	\texttt{barvarepsilon} & $\barvarepsilon$ & \texttt{barphi}        & $\barphi$      \\
+	\texttt{barepsilon}    & $\barepsilon$    & \texttt{barvarphi}     & $\barvarphi$   \\
+	\texttt{barzeta}       & $\barzeta$       & \texttt{barchi}        & $\barchi$      \\
+	\texttt{bareta}        & $\bareta$        & \texttt{barpsi}        & $\barpsi$      \\
+	\texttt{bartheta}      & $\bartheta$      & \texttt{baromega}      & $\baromega$    \\
+	\texttt{barvartheta}   & $\barvartheta$   & \texttt{barGamma}      & $\barGamma$    \\
+	\texttt{bariota}       & $\bariota$       & \texttt{barDelta}      & $\barDelta$    \\
+	\texttt{barkappa}      & $\barkappa$      & \texttt{barTheta}      & $\barTheta$    \\
+	\texttt{barlambda}     & $\barlambda$     & \texttt{barLambda}     & $\barLambda$   \\
+	\texttt{barmu}         & $\barmu$         & \texttt{barXi}         & $\barXi$       \\
+	\texttt{barnu}         & $\barnu$         & \texttt{barPi}         & $\barPi$       \\
+	\texttt{barxi}         & $\barxi$         & \texttt{barSigma}      & $\barSigma$    \\
+	\texttt{barpi}         & $\barpi$         & \texttt{barUpsilon}    & $\barUpsilon$  \\
+	\texttt{barvarpi}      & $\barvarpi$      & \texttt{barPhi}        & $\barPhi$      \\
+	\texttt{barrho}        & $\barrho$        & \texttt{barPsi}        & $\barPsi$      \\
+	\texttt{barvarrho}     & $\barvarrho$     & \texttt{barOmega}      & $\barOmega$    \\
+	\hline
+\end{tabular} \end{center}
+
+\subsection{\texttt{bbar}}
+
+\begin{center} \begin{tabular}{|ll|ll|}
+	\hline
+	\texttt{bbarA}          & $\bbarA$          & \texttt{bbarAA}         & $\bbarAA$       \\
+	\texttt{bbarB}          & $\bbarB$          & \texttt{bbarBB}         & $\bbarBB$       \\
+	\texttt{bbarC}          & $\bbarC$          & \texttt{bbarCC}         & $\bbarCC$       \\
+	\texttt{bbarD}          & $\bbarD$          & \texttt{bbarDD}         & $\bbarDD$       \\
+	\texttt{bbarE}          & $\bbarE$          & \texttt{bbarEE}         & $\bbarEE$       \\
+	\texttt{bbarF}          & $\bbarF$          & \texttt{bbarFF}         & $\bbarFF$       \\
+	\texttt{bbarG}          & $\bbarG$          & \texttt{bbarGG}         & $\bbarGG$       \\
+	\texttt{bbarH}          & $\bbarH$          & \texttt{bbarHH}         & $\bbarHH$       \\
+	\texttt{bbarI}          & $\bbarI$          & \texttt{bbarII}         & $\bbarII$       \\
+	\texttt{bbarJ}          & $\bbarJ$          & \texttt{bbarJJ}         & $\bbarJJ$       \\
+	\texttt{bbarK}          & $\bbarK$          & \texttt{bbarKK}         & $\bbarKK$       \\
+	\texttt{bbarL}          & $\bbarL$          & \texttt{bbarLL}         & $\bbarLL$       \\
+	\texttt{bbarM}          & $\bbarM$          & \texttt{bbarMM}         & $\bbarMM$       \\
+	\texttt{bbarN}          & $\bbarN$          & \texttt{bbarNN}         & $\bbarNN$       \\
+	\texttt{bbarO}          & $\bbarO$          & \texttt{bbarOO}         & $\bbarOO$       \\
+	\texttt{bbarP}          & $\bbarP$          & \texttt{bbarPP}         & $\bbarPP$       \\
+	\texttt{bbarQ}          & $\bbarQ$          & \texttt{bbarQQ}         & $\bbarQQ$       \\
+	\texttt{bbarR}          & $\bbarR$          & \texttt{bbarRR}         & $\bbarRR$       \\
+	\texttt{bbarS}          & $\bbarS$          & \texttt{bbarSS}         & $\bbarSS$       \\
+	\texttt{bbarT}          & $\bbarT$          & \texttt{bbarTT}         & $\bbarTT$       \\
+	\texttt{bbarU}          & $\bbarU$          & \texttt{bbarUU}         & $\bbarUU$       \\
+	\texttt{bbarV}          & $\bbarV$          & \texttt{bbarVV}         & $\bbarVV$       \\
+	\texttt{bbarW}          & $\bbarW$          & \texttt{bbarWW}         & $\bbarWW$       \\
+	\texttt{bbarX}          & $\bbarX$          & \texttt{bbarXX}         & $\bbarXX$       \\
+	\texttt{bbarY}          & $\bbarY$          & \texttt{bbarYY}         & $\bbarYY$       \\
+	\texttt{bbarZ}          & $\bbarZ$          & \texttt{bbarZZ}         & $\bbarZZ$       \\
+	\hline
+\end{tabular}
+\begin{tabular}{|ll|ll|}
+	\hline
+	\texttt{bbaralpha}      & $\bbaralpha$      & \texttt{bbarsigma}      & $\bbarsigma$    \\
+	\texttt{bbarbeta}       & $\bbarbeta$       & \texttt{bbarvarsigma}   & $\bbarvarsigma$ \\
+	\texttt{bbargamma}      & $\bbargamma$      & \texttt{bbartau}        & $\bbartau$      \\
+	\texttt{bbardelta}      & $\bbardelta$      & \texttt{bbarupsilon}    & $\bbarupsilon$  \\
+	\texttt{bbarvarepsilon} & $\bbarvarepsilon$ & \texttt{bbarphi}        & $\bbarphi$      \\
+	\texttt{bbarepsilon}    & $\bbarepsilon$    & \texttt{bbarvarphi}     & $\bbarvarphi$   \\
+	\texttt{bbarzeta}       & $\bbarzeta$       & \texttt{bbarchi}        & $\bbarchi$      \\
+	\texttt{bbareta}        & $\bbareta$        & \texttt{bbarpsi}        & $\bbarpsi$      \\
+	\texttt{bbartheta}      & $\bbartheta$      & \texttt{bbaromega}      & $\bbaromega$    \\
+	\texttt{bbarvartheta}   & $\bbarvartheta$   & \texttt{bbarGamma}      & $\bbarGamma$    \\
+	\texttt{bbariota}       & $\bbariota$       & \texttt{bbarDelta}      & $\bbarDelta$    \\
+	\texttt{bbarkappa}      & $\bbarkappa$      & \texttt{bbarTheta}      & $\bbarTheta$    \\
+	\texttt{bbarlambda}     & $\bbarlambda$     & \texttt{bbarLambda}     & $\bbarLambda$   \\
+	\texttt{bbarmu}         & $\bbarmu$         & \texttt{bbarXi}         & $\bbarXi$       \\
+	\texttt{bbarnu}         & $\bbarnu$         & \texttt{bbarPi}         & $\bbarPi$       \\
+	\texttt{bbarxi}         & $\bbarxi$         & \texttt{bbarSigma}      & $\bbarSigma$    \\
+	\texttt{bbarpi}         & $\bbarpi$         & \texttt{bbarUpsilon}    & $\bbarUpsilon$  \\
+	\texttt{bbarvarpi}      & $\bbarvarpi$      & \texttt{bbarPhi}        & $\bbarPhi$      \\
+	\texttt{bbarrho}        & $\bbarrho$        & \texttt{bbarPsi}        & $\bbarPsi$      \\
+	\texttt{bbarvarrho}     & $\bbarvarrho$     & \texttt{bbarOmega}      & $\bbarOmega$    \\
+	\hline
+\end{tabular} \end{center}
+
+\subsection{\texttt{ch}}
+
+\begin{center} \begin{tabular}{|ll|ll|}
+	\hline
+	\texttt{chA}          & $\chA$          & \texttt{chAA}         & $\chAA$       \\
+	\texttt{chB}          & $\chB$          & \texttt{chBB}         & $\chBB$       \\
+	\texttt{chC}          & $\chC$          & \texttt{chCC}         & $\chCC$       \\
+	\texttt{chD}          & $\chD$          & \texttt{chDD}         & $\chDD$       \\
+	\texttt{chE}          & $\chE$          & \texttt{chEE}         & $\chEE$       \\
+	\texttt{chF}          & $\chF$          & \texttt{chFF}         & $\chFF$       \\
+	\texttt{chG}          & $\chG$          & \texttt{chGG}         & $\chGG$       \\
+	\texttt{chH}          & $\chH$          & \texttt{chHH}         & $\chHH$       \\
+	\texttt{chI}          & $\chI$          & \texttt{chII}         & $\chII$       \\
+	\texttt{chJ}          & $\chJ$          & \texttt{chJJ}         & $\chJJ$       \\
+	\texttt{chK}          & $\chK$          & \texttt{chKK}         & $\chKK$       \\
+	\texttt{chL}          & $\chL$          & \texttt{chLL}         & $\chLL$       \\
+	\texttt{chM}          & $\chM$          & \texttt{chMM}         & $\chMM$       \\
+	\texttt{chN}          & $\chN$          & \texttt{chNN}         & $\chNN$       \\
+	\texttt{chO}          & $\chO$          & \texttt{chOO}         & $\chOO$       \\
+	\texttt{chP}          & $\chP$          & \texttt{chPP}         & $\chPP$       \\
+	\texttt{chQ}          & $\chQ$          & \texttt{chQQ}         & $\chQQ$       \\
+	\texttt{chR}          & $\chR$          & \texttt{chRR}         & $\chRR$       \\
+	\texttt{chS}          & $\chS$          & \texttt{chSS}         & $\chSS$       \\
+	\texttt{chT}          & $\chT$          & \texttt{chTT}         & $\chTT$       \\
+	\texttt{chU}          & $\chU$          & \texttt{chUU}         & $\chUU$       \\
+	\texttt{chV}          & $\chV$          & \texttt{chVV}         & $\chVV$       \\
+	\texttt{chW}          & $\chW$          & \texttt{chWW}         & $\chWW$       \\
+	\texttt{chX}          & $\chX$          & \texttt{chXX}         & $\chXX$       \\
+	\texttt{chY}          & $\chY$          & \texttt{chYY}         & $\chYY$       \\
+	\texttt{chZ}          & $\chZ$          & \texttt{chZZ}         & $\chZZ$       \\
+	\hline
+\end{tabular}
+\begin{tabular}{|ll|ll|}
+	\hline
+	\texttt{chalpha}      & $\chalpha$      & \texttt{chsigma}      & $\chsigma$    \\
+	\texttt{chbeta}       & $\chbeta$       & \texttt{chvarsigma}   & $\chvarsigma$ \\
+	\texttt{chgamma}      & $\chgamma$      & \texttt{chtau}        & $\chtau$      \\
+	\texttt{chdelta}      & $\chdelta$      & \texttt{chupsilon}    & $\chupsilon$  \\
+	\texttt{chvarepsilon} & $\chvarepsilon$ & \texttt{chphi}        & $\chphi$      \\
+	\texttt{chepsilon}    & $\chepsilon$    & \texttt{chvarphi}     & $\chvarphi$   \\
+	\texttt{chzeta}       & $\chzeta$       & \texttt{chchi}        & $\chchi$      \\
+	\texttt{cheta}        & $\cheta$        & \texttt{chpsi}        & $\chpsi$      \\
+	\texttt{chtheta}      & $\chtheta$      & \texttt{chomega}      & $\chomega$    \\
+	\texttt{chvartheta}   & $\chvartheta$   & \texttt{chGamma}      & $\chGamma$    \\
+	\texttt{chiota}       & $\chiota$       & \texttt{chDelta}      & $\chDelta$    \\
+	\texttt{chkappa}      & $\chkappa$      & \texttt{chTheta}      & $\chTheta$    \\
+	\texttt{chlambda}     & $\chlambda$     & \texttt{chLambda}     & $\chLambda$   \\
+	\texttt{chmu}         & $\chmu$         & \texttt{chXi}         & $\chXi$       \\
+	\texttt{chnu}         & $\chnu$         & \texttt{chPi}         & $\chPi$       \\
+	\texttt{chxi}         & $\chxi$         & \texttt{chSigma}      & $\chSigma$    \\
+	\texttt{chpi}         & $\chpi$         & \texttt{chUpsilon}    & $\chUpsilon$  \\
+	\texttt{chvarpi}      & $\chvarpi$      & \texttt{chPhi}        & $\chPhi$      \\
+	\texttt{chrho}        & $\chrho$        & \texttt{chPsi}        & $\chPsi$      \\
+	\texttt{chvarrho}     & $\chvarrho$     & \texttt{chOmega}      & $\chOmega$    \\
+	\hline
+\end{tabular} \end{center}
+
+\subsection{\texttt{ddot}}
+
+\begin{center} \begin{tabular}{|ll|ll|}
+	\hline
+	\texttt{ddotA}          & $\ddotA$          & \texttt{ddotAA}         & $\ddotAA$       \\
+	\texttt{ddotB}          & $\ddotB$          & \texttt{ddotBB}         & $\ddotBB$       \\
+	\texttt{ddotC}          & $\ddotC$          & \texttt{ddotCC}         & $\ddotCC$       \\
+	\texttt{ddotD}          & $\ddotD$          & \texttt{ddotDD}         & $\ddotDD$       \\
+	\texttt{ddotE}          & $\ddotE$          & \texttt{ddotEE}         & $\ddotEE$       \\
+	\texttt{ddotF}          & $\ddotF$          & \texttt{ddotFF}         & $\ddotFF$       \\
+	\texttt{ddotG}          & $\ddotG$          & \texttt{ddotGG}         & $\ddotGG$       \\
+	\texttt{ddotH}          & $\ddotH$          & \texttt{ddotHH}         & $\ddotHH$       \\
+	\texttt{ddotI}          & $\ddotI$          & \texttt{ddotII}         & $\ddotII$       \\
+	\texttt{ddotJ}          & $\ddotJ$          & \texttt{ddotJJ}         & $\ddotJJ$       \\
+	\texttt{ddotK}          & $\ddotK$          & \texttt{ddotKK}         & $\ddotKK$       \\
+	\texttt{ddotL}          & $\ddotL$          & \texttt{ddotLL}         & $\ddotLL$       \\
+	\texttt{ddotM}          & $\ddotM$          & \texttt{ddotMM}         & $\ddotMM$       \\
+	\texttt{ddotN}          & $\ddotN$          & \texttt{ddotNN}         & $\ddotNN$       \\
+	\texttt{ddotO}          & $\ddotO$          & \texttt{ddotOO}         & $\ddotOO$       \\
+	\texttt{ddotP}          & $\ddotP$          & \texttt{ddotPP}         & $\ddotPP$       \\
+	\texttt{ddotQ}          & $\ddotQ$          & \texttt{ddotQQ}         & $\ddotQQ$       \\
+	\texttt{ddotR}          & $\ddotR$          & \texttt{ddotRR}         & $\ddotRR$       \\
+	\texttt{ddotS}          & $\ddotS$          & \texttt{ddotSS}         & $\ddotSS$       \\
+	\texttt{ddotT}          & $\ddotT$          & \texttt{ddotTT}         & $\ddotTT$       \\
+	\texttt{ddotU}          & $\ddotU$          & \texttt{ddotUU}         & $\ddotUU$       \\
+	\texttt{ddotV}          & $\ddotV$          & \texttt{ddotVV}         & $\ddotVV$       \\
+	\texttt{ddotW}          & $\ddotW$          & \texttt{ddotWW}         & $\ddotWW$       \\
+	\texttt{ddotX}          & $\ddotX$          & \texttt{ddotXX}         & $\ddotXX$       \\
+	\texttt{ddotY}          & $\ddotY$          & \texttt{ddotYY}         & $\ddotYY$       \\
+	\texttt{ddotZ}          & $\ddotZ$          & \texttt{ddotZZ}         & $\ddotZZ$       \\
+	\hline
+\end{tabular}
+\begin{tabular}{|ll|ll|}
+	\hline
+	\texttt{ddotalpha}      & $\ddotalpha$      & \texttt{ddotsigma}      & $\ddotsigma$    \\
+	\texttt{ddotbeta}       & $\ddotbeta$       & \texttt{ddotvarsigma}   & $\ddotvarsigma$ \\
+	\texttt{ddotgamma}      & $\ddotgamma$      & \texttt{ddottau}        & $\ddottau$      \\
+	\texttt{ddotdelta}      & $\ddotdelta$      & \texttt{ddotupsilon}    & $\ddotupsilon$  \\
+	\texttt{ddotvarepsilon} & $\ddotvarepsilon$ & \texttt{ddotphi}        & $\ddotphi$      \\
+	\texttt{ddotepsilon}    & $\ddotepsilon$    & \texttt{ddotvarphi}     & $\ddotvarphi$   \\
+	\texttt{ddotzeta}       & $\ddotzeta$       & \texttt{ddotchi}        & $\ddotchi$      \\
+	\texttt{ddoteta}        & $\ddoteta$        & \texttt{ddotpsi}        & $\ddotpsi$      \\
+	\texttt{ddottheta}      & $\ddottheta$      & \texttt{ddotomega}      & $\ddotomega$    \\
+	\texttt{ddotvartheta}   & $\ddotvartheta$   & \texttt{ddotGamma}      & $\ddotGamma$    \\
+	\texttt{ddotiota}       & $\ddotiota$       & \texttt{ddotDelta}      & $\ddotDelta$    \\
+	\texttt{ddotkappa}      & $\ddotkappa$      & \texttt{ddotTheta}      & $\ddotTheta$    \\
+	\texttt{ddotlambda}     & $\ddotlambda$     & \texttt{ddotLambda}     & $\ddotLambda$   \\
+	\texttt{ddotmu}         & $\ddotmu$         & \texttt{ddotXi}         & $\ddotXi$       \\
+	\texttt{ddotnu}         & $\ddotnu$         & \texttt{ddotPi}         & $\ddotPi$       \\
+	\texttt{ddotxi}         & $\ddotxi$         & \texttt{ddotSigma}      & $\ddotSigma$    \\
+	\texttt{ddotpi}         & $\ddotpi$         & \texttt{ddotUpsilon}    & $\ddotUpsilon$  \\
+	\texttt{ddotvarpi}      & $\ddotvarpi$      & \texttt{ddotPhi}        & $\ddotPhi$      \\
+	\texttt{ddotrho}        & $\ddotrho$        & \texttt{ddotPsi}        & $\ddotPsi$      \\
+	\texttt{ddotvarrho}     & $\ddotvarrho$     & \texttt{ddotOmega}      & $\ddotOmega$    \\
+	\hline
+\end{tabular} \end{center}
+
+\subsection{\texttt{dot}}
+
+\begin{center} \begin{tabular}{|ll|ll|}
+	\hline
+	\texttt{dotA}          & $\dotA$          & \texttt{dotAA}         & $\dotAA$       \\
+	\texttt{dotB}          & $\dotB$          & \texttt{dotBB}         & $\dotBB$       \\
+	\texttt{dotC}          & $\dotC$          & \texttt{dotCC}         & $\dotCC$       \\
+	\texttt{dotD}          & $\dotD$          & \texttt{dotDD}         & $\dotDD$       \\
+	\texttt{dotE}          & $\dotE$          & \texttt{dotEE}         & $\dotEE$       \\
+	\texttt{dotF}          & $\dotF$          & \texttt{dotFF}         & $\dotFF$       \\
+	\texttt{dotG}          & $\dotG$          & \texttt{dotGG}         & $\dotGG$       \\
+	\texttt{dotH}          & $\dotH$          & \texttt{dotHH}         & $\dotHH$       \\
+	\texttt{dotI}          & $\dotI$          & \texttt{dotII}         & $\dotII$       \\
+	\texttt{dotJ}          & $\dotJ$          & \texttt{dotJJ}         & $\dotJJ$       \\
+	\texttt{dotK}          & $\dotK$          & \texttt{dotKK}         & $\dotKK$       \\
+	\texttt{dotL}          & $\dotL$          & \texttt{dotLL}         & $\dotLL$       \\
+	\texttt{dotM}          & $\dotM$          & \texttt{dotMM}         & $\dotMM$       \\
+	\texttt{dotN}          & $\dotN$          & \texttt{dotNN}         & $\dotNN$       \\
+	\texttt{dotO}          & $\dotO$          & \texttt{dotOO}         & $\dotOO$       \\
+	\texttt{dotP}          & $\dotP$          & \texttt{dotPP}         & $\dotPP$       \\
+	\texttt{dotQ}          & $\dotQ$          & \texttt{dotQQ}         & $\dotQQ$       \\
+	\texttt{dotR}          & $\dotR$          & \texttt{dotRR}         & $\dotRR$       \\
+	\texttt{dotS}          & $\dotS$          & \texttt{dotSS}         & $\dotSS$       \\
+	\texttt{dotT}          & $\dotT$          & \texttt{dotTT}         & $\dotTT$       \\
+	\texttt{dotU}          & $\dotU$          & \texttt{dotUU}         & $\dotUU$       \\
+	\texttt{dotV}          & $\dotV$          & \texttt{dotVV}         & $\dotVV$       \\
+	\texttt{dotW}          & $\dotW$          & \texttt{dotWW}         & $\dotWW$       \\
+	\texttt{dotX}          & $\dotX$          & \texttt{dotXX}         & $\dotXX$       \\
+	\texttt{dotY}          & $\dotY$          & \texttt{dotYY}         & $\dotYY$       \\
+	\texttt{dotZ}          & $\dotZ$          & \texttt{dotZZ}         & $\dotZZ$       \\
+	\hline
+\end{tabular}
+\begin{tabular}{|ll|ll|}
+	\hline
+	\texttt{dotalpha}      & $\dotalpha$      & \texttt{dotsigma}      & $\dotsigma$    \\
+	\texttt{dotbeta}       & $\dotbeta$       & \texttt{dotvarsigma}   & $\dotvarsigma$ \\
+	\texttt{dotgamma}      & $\dotgamma$      & \texttt{dottau}        & $\dottau$      \\
+	\texttt{dotdelta}      & $\dotdelta$      & \texttt{dotupsilon}    & $\dotupsilon$  \\
+	\texttt{dotvarepsilon} & $\dotvarepsilon$ & \texttt{dotphi}        & $\dotphi$      \\
+	\texttt{dotepsilon}    & $\dotepsilon$    & \texttt{dotvarphi}     & $\dotvarphi$   \\
+	\texttt{dotzeta}       & $\dotzeta$       & \texttt{dotchi}        & $\dotchi$      \\
+	\texttt{doteta}        & $\doteta$        & \texttt{dotpsi}        & $\dotpsi$      \\
+	\texttt{dottheta}      & $\dottheta$      & \texttt{dotomega}      & $\dotomega$    \\
+	\texttt{dotvartheta}   & $\dotvartheta$   & \texttt{dotGamma}      & $\dotGamma$    \\
+	\texttt{dotiota}       & $\dotiota$       & \texttt{dotDelta}      & $\dotDelta$    \\
+	\texttt{dotkappa}      & $\dotkappa$      & \texttt{dotTheta}      & $\dotTheta$    \\
+	\texttt{dotlambda}     & $\dotlambda$     & \texttt{dotLambda}     & $\dotLambda$   \\
+	\texttt{dotmu}         & $\dotmu$         & \texttt{dotXi}         & $\dotXi$       \\
+	\texttt{dotnu}         & $\dotnu$         & \texttt{dotPi}         & $\dotPi$       \\
+	\texttt{dotxi}         & $\dotxi$         & \texttt{dotSigma}      & $\dotSigma$    \\
+	\texttt{dotpi}         & $\dotpi$         & \texttt{dotUpsilon}    & $\dotUpsilon$  \\
+	\texttt{dotvarpi}      & $\dotvarpi$      & \texttt{dotPhi}        & $\dotPhi$      \\
+	\texttt{dotrho}        & $\dotrho$        & \texttt{dotPsi}        & $\dotPsi$      \\
+	\texttt{dotvarrho}     & $\dotvarrho$     & \texttt{dotOmega}      & $\dotOmega$    \\
+	\hline
+\end{tabular} \end{center}
+
+\subsection{\texttt{hat}}
+
+\begin{center} \begin{tabular}{|ll|ll|}
+	\hline
+	\texttt{hatA}          & $\hatA$          & \texttt{hatAA}         & $\hatAA$       \\
+	\texttt{hatB}          & $\hatB$          & \texttt{hatBB}         & $\hatBB$       \\
+	\texttt{hatC}          & $\hatC$          & \texttt{hatCC}         & $\hatCC$       \\
+	\texttt{hatD}          & $\hatD$          & \texttt{hatDD}         & $\hatDD$       \\
+	\texttt{hatE}          & $\hatE$          & \texttt{hatEE}         & $\hatEE$       \\
+	\texttt{hatF}          & $\hatF$          & \texttt{hatFF}         & $\hatFF$       \\
+	\texttt{hatG}          & $\hatG$          & \texttt{hatGG}         & $\hatGG$       \\
+	\texttt{hatH}          & $\hatH$          & \texttt{hatHH}         & $\hatHH$       \\
+	\texttt{hatI}          & $\hatI$          & \texttt{hatII}         & $\hatII$       \\
+	\texttt{hatJ}          & $\hatJ$          & \texttt{hatJJ}         & $\hatJJ$       \\
+	\texttt{hatK}          & $\hatK$          & \texttt{hatKK}         & $\hatKK$       \\
+	\texttt{hatL}          & $\hatL$          & \texttt{hatLL}         & $\hatLL$       \\
+	\texttt{hatM}          & $\hatM$          & \texttt{hatMM}         & $\hatMM$       \\
+	\texttt{hatN}          & $\hatN$          & \texttt{hatNN}         & $\hatNN$       \\
+	\texttt{hatO}          & $\hatO$          & \texttt{hatOO}         & $\hatOO$       \\
+	\texttt{hatP}          & $\hatP$          & \texttt{hatPP}         & $\hatPP$       \\
+	\texttt{hatQ}          & $\hatQ$          & \texttt{hatQQ}         & $\hatQQ$       \\
+	\texttt{hatR}          & $\hatR$          & \texttt{hatRR}         & $\hatRR$       \\
+	\texttt{hatS}          & $\hatS$          & \texttt{hatSS}         & $\hatSS$       \\
+	\texttt{hatT}          & $\hatT$          & \texttt{hatTT}         & $\hatTT$       \\
+	\texttt{hatU}          & $\hatU$          & \texttt{hatUU}         & $\hatUU$       \\
+	\texttt{hatV}          & $\hatV$          & \texttt{hatVV}         & $\hatVV$       \\
+	\texttt{hatW}          & $\hatW$          & \texttt{hatWW}         & $\hatWW$       \\
+	\texttt{hatX}          & $\hatX$          & \texttt{hatXX}         & $\hatXX$       \\
+	\texttt{hatY}          & $\hatY$          & \texttt{hatYY}         & $\hatYY$       \\
+	\texttt{hatZ}          & $\hatZ$          & \texttt{hatZZ}         & $\hatZZ$       \\
+	\hline
+\end{tabular}
+\begin{tabular}{|ll|ll|}
+	\hline
+	\texttt{hatalpha}      & $\hatalpha$      & \texttt{hatsigma}      & $\hatsigma$    \\
+	\texttt{hatbeta}       & $\hatbeta$       & \texttt{hatvarsigma}   & $\hatvarsigma$ \\
+	\texttt{hatgamma}      & $\hatgamma$      & \texttt{hattau}        & $\hattau$      \\
+	\texttt{hatdelta}      & $\hatdelta$      & \texttt{hatupsilon}    & $\hatupsilon$  \\
+	\texttt{hatvarepsilon} & $\hatvarepsilon$ & \texttt{hatphi}        & $\hatphi$      \\
+	\texttt{hatepsilon}    & $\hatepsilon$    & \texttt{hatvarphi}     & $\hatvarphi$   \\
+	\texttt{hatzeta}       & $\hatzeta$       & \texttt{hatchi}        & $\hatchi$      \\
+	\texttt{hateta}        & $\hateta$        & \texttt{hatpsi}        & $\hatpsi$      \\
+	\texttt{hattheta}      & $\hattheta$      & \texttt{hatomega}      & $\hatomega$    \\
+	\texttt{hatvartheta}   & $\hatvartheta$   & \texttt{hatGamma}      & $\hatGamma$    \\
+	\texttt{hatiota}       & $\hatiota$       & \texttt{hatDelta}      & $\hatDelta$    \\
+	\texttt{hatkappa}      & $\hatkappa$      & \texttt{hatTheta}      & $\hatTheta$    \\
+	\texttt{hatlambda}     & $\hatlambda$     & \texttt{hatLambda}     & $\hatLambda$   \\
+	\texttt{hatmu}         & $\hatmu$         & \texttt{hatXi}         & $\hatXi$       \\
+	\texttt{hatnu}         & $\hatnu$         & \texttt{hatPi}         & $\hatPi$       \\
+	\texttt{hatxi}         & $\hatxi$         & \texttt{hatSigma}      & $\hatSigma$    \\
+	\texttt{hatpi}         & $\hatpi$         & \texttt{hatUpsilon}    & $\hatUpsilon$  \\
+	\texttt{hatvarpi}      & $\hatvarpi$      & \texttt{hatPhi}        & $\hatPhi$      \\
+	\texttt{hatrho}        & $\hatrho$        & \texttt{hatPsi}        & $\hatPsi$      \\
+	\texttt{hatvarrho}     & $\hatvarrho$     & \texttt{hatOmega}      & $\hatOmega$    \\
+	\hline
+\end{tabular} \end{center}
+
+\subsection{\texttt{o}}
+
+\begin{center} \begin{tabular}{|ll|ll|}
+	\hline
+	\texttt{oA}          & $\oA$          & \texttt{oAA}         & $\oAA$       \\
+	\texttt{oB}          & $\oB$          & \texttt{oBB}         & $\oBB$       \\
+	\texttt{oC}          & $\oC$          & \texttt{oCC}         & $\oCC$       \\
+	\texttt{oD}          & $\oD$          & \texttt{oDD}         & $\oDD$       \\
+	\texttt{oE}          & $\oE$          & \texttt{oEE}         & $\oEE$       \\
+	\texttt{oF}          & $\oF$          & \texttt{oFF}         & $\oFF$       \\
+	\texttt{oG}          & $\oG$          & \texttt{oGG}         & $\oGG$       \\
+	\texttt{oH}          & $\oH$          & \texttt{oHH}         & $\oHH$       \\
+	\texttt{oI}          & $\oI$          & \texttt{oII}         & $\oII$       \\
+	\texttt{oJ}          & $\oJ$          & \texttt{oJJ}         & $\oJJ$       \\
+	\texttt{oK}          & $\oK$          & \texttt{oKK}         & $\oKK$       \\
+	\texttt{oL}          & $\oL$          & \texttt{oLL}         & $\oLL$       \\
+	\texttt{oM}          & $\oM$          & \texttt{oMM}         & $\oMM$       \\
+	\texttt{oN}          & $\oN$          & \texttt{oNN}         & $\oNN$       \\
+	\texttt{oO}          & $\oO$          & \texttt{oOO}         & $\oOO$       \\
+	\texttt{oP}          & $\oP$          & \texttt{oPP}         & $\oPP$       \\
+	\texttt{oQ}          & $\oQ$          & \texttt{oQQ}         & $\oQQ$       \\
+	\texttt{oR}          & $\oR$          & \texttt{oRR}         & $\oRR$       \\
+	\texttt{oS}          & $\oS$          & \texttt{oSS}         & $\oSS$       \\
+	\texttt{oT}          & $\oT$          & \texttt{oTT}         & $\oTT$       \\
+	\texttt{oU}          & $\oU$          & \texttt{oUU}         & $\oUU$       \\
+	\texttt{oV}          & $\oV$          & \texttt{oVV}         & $\oVV$       \\
+	\texttt{oW}          & $\oW$          & \texttt{oWW}         & $\oWW$       \\
+	\texttt{oX}          & $\oX$          & \texttt{oXX}         & $\oXX$       \\
+	\texttt{oY}          & $\oY$          & \texttt{oYY}         & $\oYY$       \\
+	\texttt{oZ}          & $\oZ$          & \texttt{oZZ}         & $\oZZ$       \\
+	\hline
+\end{tabular}
+\begin{tabular}{|ll|ll|}
+	\hline
+	\texttt{oalpha}      & $\oalpha$      & \texttt{osigma}      & $\osigma$    \\
+	\texttt{obeta}       & $\obeta$       & \texttt{ovarsigma}   & $\ovarsigma$ \\
+	\texttt{ogamma}      & $\ogamma$      & \texttt{otau}        & $\otau$      \\
+	\texttt{odelta}      & $\odelta$      & \texttt{oupsilon}    & $\oupsilon$  \\
+	\texttt{ovarepsilon} & $\ovarepsilon$ & \texttt{ophi}        & $\ophi$      \\
+	\texttt{oepsilon}    & $\oepsilon$    & \texttt{ovarphi}     & $\ovarphi$   \\
+	\texttt{ozeta}       & $\ozeta$       & \texttt{ochi}        & $\ochi$      \\
+	\texttt{oeta}        & $\oeta$        & \texttt{opsi}        & $\opsi$      \\
+	\texttt{otheta}      & $\otheta$      & \texttt{oomega}      & $\oomega$    \\
+	\texttt{ovartheta}   & $\ovartheta$   & \texttt{oGamma}      & $\oGamma$    \\
+	\texttt{oiota}       & $\oiota$       & \texttt{oDelta}      & $\oDelta$    \\
+	\texttt{okappa}      & $\okappa$      & \texttt{oTheta}      & $\oTheta$    \\
+	\texttt{olambda}     & $\olambda$     & \texttt{oLambda}     & $\oLambda$   \\
+	\texttt{omu}         & $\omu$         & \texttt{oXi}         & $\oXi$       \\
+	\texttt{onu}         & $\onu$         & \texttt{oPi}         & $\oPi$       \\
+	\texttt{oxi}         & $\oxi$         & \texttt{oSigma}      & $\oSigma$    \\
+	\texttt{opi}         & $\opi$         & \texttt{oUpsilon}    & $\oUpsilon$  \\
+	\texttt{ovarpi}      & $\ovarpi$      & \texttt{oPhi}        & $\oPhi$      \\
+	\texttt{orho}        & $\orho$        & \texttt{oPsi}        & $\oPsi$      \\
+	\texttt{ovarrho}     & $\ovarrho$     & \texttt{oOmega}      & $\oOmega$    \\
+	\hline
+\end{tabular} \end{center}
+
+\subsection{\texttt{tild}}
+
+\begin{center} \begin{tabular}{|ll|ll|}
+	\hline
+	\texttt{tildA}          & $\tildA$          & \texttt{tildAA}         & $\tildAA$       \\
+	\texttt{tildB}          & $\tildB$          & \texttt{tildBB}         & $\tildBB$       \\
+	\texttt{tildC}          & $\tildC$          & \texttt{tildCC}         & $\tildCC$       \\
+	\texttt{tildD}          & $\tildD$          & \texttt{tildDD}         & $\tildDD$       \\
+	\texttt{tildE}          & $\tildE$          & \texttt{tildEE}         & $\tildEE$       \\
+	\texttt{tildF}          & $\tildF$          & \texttt{tildFF}         & $\tildFF$       \\
+	\texttt{tildG}          & $\tildG$          & \texttt{tildGG}         & $\tildGG$       \\
+	\texttt{tildH}          & $\tildH$          & \texttt{tildHH}         & $\tildHH$       \\
+	\texttt{tildI}          & $\tildI$          & \texttt{tildII}         & $\tildII$       \\
+	\texttt{tildJ}          & $\tildJ$          & \texttt{tildJJ}         & $\tildJJ$       \\
+	\texttt{tildK}          & $\tildK$          & \texttt{tildKK}         & $\tildKK$       \\
+	\texttt{tildL}          & $\tildL$          & \texttt{tildLL}         & $\tildLL$       \\
+	\texttt{tildM}          & $\tildM$          & \texttt{tildMM}         & $\tildMM$       \\
+	\texttt{tildN}          & $\tildN$          & \texttt{tildNN}         & $\tildNN$       \\
+	\texttt{tildO}          & $\tildO$          & \texttt{tildOO}         & $\tildOO$       \\
+	\texttt{tildP}          & $\tildP$          & \texttt{tildPP}         & $\tildPP$       \\
+	\texttt{tildQ}          & $\tildQ$          & \texttt{tildQQ}         & $\tildQQ$       \\
+	\texttt{tildR}          & $\tildR$          & \texttt{tildRR}         & $\tildRR$       \\
+	\texttt{tildS}          & $\tildS$          & \texttt{tildSS}         & $\tildSS$       \\
+	\texttt{tildT}          & $\tildT$          & \texttt{tildTT}         & $\tildTT$       \\
+	\texttt{tildU}          & $\tildU$          & \texttt{tildUU}         & $\tildUU$       \\
+	\texttt{tildV}          & $\tildV$          & \texttt{tildVV}         & $\tildVV$       \\
+	\texttt{tildW}          & $\tildW$          & \texttt{tildWW}         & $\tildWW$       \\
+	\texttt{tildX}          & $\tildX$          & \texttt{tildXX}         & $\tildXX$       \\
+	\texttt{tildY}          & $\tildY$          & \texttt{tildYY}         & $\tildYY$       \\
+	\texttt{tildZ}          & $\tildZ$          & \texttt{tildZZ}         & $\tildZZ$       \\
+	\hline
+\end{tabular}
+\begin{tabular}{|ll|ll|}
+	\hline
+	\texttt{tildalpha}      & $\tildalpha$      & \texttt{tildsigma}      & $\tildsigma$    \\
+	\texttt{tildbeta}       & $\tildbeta$       & \texttt{tildvarsigma}   & $\tildvarsigma$ \\
+	\texttt{tildgamma}      & $\tildgamma$      & \texttt{tildtau}        & $\tildtau$      \\
+	\texttt{tilddelta}      & $\tilddelta$      & \texttt{tildupsilon}    & $\tildupsilon$  \\
+	\texttt{tildvarepsilon} & $\tildvarepsilon$ & \texttt{tildphi}        & $\tildphi$      \\
+	\texttt{tildepsilon}    & $\tildepsilon$    & \texttt{tildvarphi}     & $\tildvarphi$   \\
+	\texttt{tildzeta}       & $\tildzeta$       & \texttt{tildchi}        & $\tildchi$      \\
+	\texttt{tildeta}        & $\tildeta$        & \texttt{tildpsi}        & $\tildpsi$      \\
+	\texttt{tildtheta}      & $\tildtheta$      & \texttt{tildomega}      & $\tildomega$    \\
+	\texttt{tildvartheta}   & $\tildvartheta$   & \texttt{tildGamma}      & $\tildGamma$    \\
+	\texttt{tildiota}       & $\tildiota$       & \texttt{tildDelta}      & $\tildDelta$    \\
+	\texttt{tildkappa}      & $\tildkappa$      & \texttt{tildTheta}      & $\tildTheta$    \\
+	\texttt{tildlambda}     & $\tildlambda$     & \texttt{tildLambda}     & $\tildLambda$   \\
+	\texttt{tildmu}         & $\tildmu$         & \texttt{tildXi}         & $\tildXi$       \\
+	\texttt{tildnu}         & $\tildnu$         & \texttt{tildPi}         & $\tildPi$       \\
+	\texttt{tildxi}         & $\tildxi$         & \texttt{tildSigma}      & $\tildSigma$    \\
+	\texttt{tildpi}         & $\tildpi$         & \texttt{tildUpsilon}    & $\tildUpsilon$  \\
+	\texttt{tildvarpi}      & $\tildvarpi$      & \texttt{tildPhi}        & $\tildPhi$      \\
+	\texttt{tildrho}        & $\tildrho$        & \texttt{tildPsi}        & $\tildPsi$      \\
+	\texttt{tildvarrho}     & $\tildvarrho$     & \texttt{tildOmega}      & $\tildOmega$    \\
+	\hline
+\end{tabular} \end{center}
+
+\subsection{\texttt{u}}
+
+\begin{center} \begin{tabular}{|ll|ll|}
+	\hline
+	\texttt{uA}          & $\uA$          & \texttt{uAA}         & $\uAA$       \\
+	\texttt{uB}          & $\uB$          & \texttt{uBB}         & $\uBB$       \\
+	\texttt{uC}          & $\uC$          & \texttt{uCC}         & $\uCC$       \\
+	\texttt{uD}          & $\uD$          & \texttt{uDD}         & $\uDD$       \\
+	\texttt{uE}          & $\uE$          & \texttt{uEE}         & $\uEE$       \\
+	\texttt{uF}          & $\uF$          & \texttt{uFF}         & $\uFF$       \\
+	\texttt{uG}          & $\uG$          & \texttt{uGG}         & $\uGG$       \\
+	\texttt{uH}          & $\uH$          & \texttt{uHH}         & $\uHH$       \\
+	\texttt{uI}          & $\uI$          & \texttt{uII}         & $\uII$       \\
+	\texttt{uJ}          & $\uJ$          & \texttt{uJJ}         & $\uJJ$       \\
+	\texttt{uK}          & $\uK$          & \texttt{uKK}         & $\uKK$       \\
+	\texttt{uL}          & $\uL$          & \texttt{uLL}         & $\uLL$       \\
+	\texttt{uM}          & $\uM$          & \texttt{uMM}         & $\uMM$       \\
+	\texttt{uN}          & $\uN$          & \texttt{uNN}         & $\uNN$       \\
+	\texttt{uO}          & $\uO$          & \texttt{uOO}         & $\uOO$       \\
+	\texttt{uP}          & $\uP$          & \texttt{uPP}         & $\uPP$       \\
+	\texttt{uQ}          & $\uQ$          & \texttt{uQQ}         & $\uQQ$       \\
+	\texttt{uR}          & $\uR$          & \texttt{uRR}         & $\uRR$       \\
+	\texttt{uS}          & $\uS$          & \texttt{uSS}         & $\uSS$       \\
+	\texttt{uT}          & $\uT$          & \texttt{uTT}         & $\uTT$       \\
+	\texttt{uU}          & $\uU$          & \texttt{uUU}         & $\uUU$       \\
+	\texttt{uV}          & $\uV$          & \texttt{uVV}         & $\uVV$       \\
+	\texttt{uW}          & $\uW$          & \texttt{uWW}         & $\uWW$       \\
+	\texttt{uX}          & $\uX$          & \texttt{uXX}         & $\uXX$       \\
+	\texttt{uY}          & $\uY$          & \texttt{uYY}         & $\uYY$       \\
+	\texttt{uZ}          & $\uZ$          & \texttt{uZZ}         & $\uZZ$       \\
+	\hline
+\end{tabular}
+\begin{tabular}{|ll|ll|}
+	\hline
+	\texttt{ualpha}      & $\ualpha$      & \texttt{usigma}      & $\usigma$    \\
+	\texttt{ubeta}       & $\ubeta$       & \texttt{uvarsigma}   & $\uvarsigma$ \\
+	\texttt{ugamma}      & $\ugamma$      & \texttt{utau}        & $\utau$      \\
+	\texttt{udelta}      & $\udelta$      & \texttt{uupsilon}    & $\uupsilon$  \\
+	\texttt{uvarepsilon} & $\uvarepsilon$ & \texttt{uphi}        & $\uphi$      \\
+	\texttt{uepsilon}    & $\uepsilon$    & \texttt{uvarphi}     & $\uvarphi$   \\
+	\texttt{uzeta}       & $\uzeta$       & \texttt{uchi}        & $\uchi$      \\
+	\texttt{ueta}        & $\ueta$        & \texttt{upsi}        & $\upsi$      \\
+	\texttt{utheta}      & $\utheta$      & \texttt{uomega}      & $\uomega$    \\
+	\texttt{uvartheta}   & $\uvartheta$   & \texttt{uGamma}      & $\uGamma$    \\
+	\texttt{uiota}       & $\uiota$       & \texttt{uDelta}      & $\uDelta$    \\
+	\texttt{ukappa}      & $\ukappa$      & \texttt{uTheta}      & $\uTheta$    \\
+	\texttt{ulambda}     & $\ulambda$     & \texttt{uLambda}     & $\uLambda$   \\
+	\texttt{umu}         & $\umu$         & \texttt{uXi}         & $\uXi$       \\
+	\texttt{unu}         & $\unu$         & \texttt{uPi}         & $\uPi$       \\
+	\texttt{uxi}         & $\uxi$         & \texttt{uSigma}      & $\uSigma$    \\
+	\texttt{upi}         & $\upi$         & \texttt{uUpsilon}    & $\uUpsilon$  \\
+	\texttt{uvarpi}      & $\uvarpi$      & \texttt{uPhi}        & $\uPhi$      \\
+	\texttt{urho}        & $\urho$        & \texttt{uPsi}        & $\uPsi$      \\
+	\texttt{uvarrho}     & $\uvarrho$     & \texttt{uOmega}      & $\uOmega$    \\
+	\hline
+\end{tabular} \end{center}
+
+\subsection{\texttt{uu}}
+
+\begin{center} \begin{tabular}{|ll|ll|}
+	\hline
+	\texttt{uuA}          & $\uuA$          & \texttt{uuAA}         & $\uuAA$       \\
+	\texttt{uuB}          & $\uuB$          & \texttt{uuBB}         & $\uuBB$       \\
+	\texttt{uuC}          & $\uuC$          & \texttt{uuCC}         & $\uuCC$       \\
+	\texttt{uuD}          & $\uuD$          & \texttt{uuDD}         & $\uuDD$       \\
+	\texttt{uuE}          & $\uuE$          & \texttt{uuEE}         & $\uuEE$       \\
+	\texttt{uuF}          & $\uuF$          & \texttt{uuFF}         & $\uuFF$       \\
+	\texttt{uuG}          & $\uuG$          & \texttt{uuGG}         & $\uuGG$       \\
+	\texttt{uuH}          & $\uuH$          & \texttt{uuHH}         & $\uuHH$       \\
+	\texttt{uuI}          & $\uuI$          & \texttt{uuII}         & $\uuII$       \\
+	\texttt{uuJ}          & $\uuJ$          & \texttt{uuJJ}         & $\uuJJ$       \\
+	\texttt{uuK}          & $\uuK$          & \texttt{uuKK}         & $\uuKK$       \\
+	\texttt{uuL}          & $\uuL$          & \texttt{uuLL}         & $\uuLL$       \\
+	\texttt{uuM}          & $\uuM$          & \texttt{uuMM}         & $\uuMM$       \\
+	\texttt{uuN}          & $\uuN$          & \texttt{uuNN}         & $\uuNN$       \\
+	\texttt{uuO}          & $\uuO$          & \texttt{uuOO}         & $\uuOO$       \\
+	\texttt{uuP}          & $\uuP$          & \texttt{uuPP}         & $\uuPP$       \\
+	\texttt{uuQ}          & $\uuQ$          & \texttt{uuQQ}         & $\uuQQ$       \\
+	\texttt{uuR}          & $\uuR$          & \texttt{uuRR}         & $\uuRR$       \\
+	\texttt{uuS}          & $\uuS$          & \texttt{uuSS}         & $\uuSS$       \\
+	\texttt{uuT}          & $\uuT$          & \texttt{uuTT}         & $\uuTT$       \\
+	\texttt{uuU}          & $\uuU$          & \texttt{uuUU}         & $\uuUU$       \\
+	\texttt{uuV}          & $\uuV$          & \texttt{uuVV}         & $\uuVV$       \\
+	\texttt{uuW}          & $\uuW$          & \texttt{uuWW}         & $\uuWW$       \\
+	\texttt{uuX}          & $\uuX$          & \texttt{uuXX}         & $\uuXX$       \\
+	\texttt{uuY}          & $\uuY$          & \texttt{uuYY}         & $\uuYY$       \\
+	\texttt{uuZ}          & $\uuZ$          & \texttt{uuZZ}         & $\uuZZ$       \\
+	\hline
+\end{tabular}
+\begin{tabular}{|ll|ll|}
+	\hline
+	\texttt{uualpha}      & $\uualpha$      & \texttt{uusigma}      & $\uusigma$    \\
+	\texttt{uubeta}       & $\uubeta$       & \texttt{uuvarsigma}   & $\uuvarsigma$ \\
+	\texttt{uugamma}      & $\uugamma$      & \texttt{uutau}        & $\uutau$      \\
+	\texttt{uudelta}      & $\uudelta$      & \texttt{uuupsilon}    & $\uuupsilon$  \\
+	\texttt{uuvarepsilon} & $\uuvarepsilon$ & \texttt{uuphi}        & $\uuphi$      \\
+	\texttt{uuepsilon}    & $\uuepsilon$    & \texttt{uuvarphi}     & $\uuvarphi$   \\
+	\texttt{uuzeta}       & $\uuzeta$       & \texttt{uuchi}        & $\uuchi$      \\
+	\texttt{uueta}        & $\uueta$        & \texttt{uupsi}        & $\uupsi$      \\
+	\texttt{uutheta}      & $\uutheta$      & \texttt{uuomega}      & $\uuomega$    \\
+	\texttt{uuvartheta}   & $\uuvartheta$   & \texttt{uuGamma}      & $\uuGamma$    \\
+	\texttt{uuiota}       & $\uuiota$       & \texttt{uuDelta}      & $\uuDelta$    \\
+	\texttt{uukappa}      & $\uukappa$      & \texttt{uuTheta}      & $\uuTheta$    \\
+	\texttt{uulambda}     & $\uulambda$     & \texttt{uuLambda}     & $\uuLambda$   \\
+	\texttt{uumu}         & $\uumu$         & \texttt{uuXi}         & $\uuXi$       \\
+	\texttt{uunu}         & $\uunu$         & \texttt{uuPi}         & $\uuPi$       \\
+	\texttt{uuxi}         & $\uuxi$         & \texttt{uuSigma}      & $\uuSigma$    \\
+	\texttt{uupi}         & $\uupi$         & \texttt{uuUpsilon}    & $\uuUpsilon$  \\
+	\texttt{uuvarpi}      & $\uuvarpi$      & \texttt{uuPhi}        & $\uuPhi$      \\
+	\texttt{uurho}        & $\uurho$        & \texttt{uuPsi}        & $\uuPsi$      \\
+	\texttt{uuvarrho}     & $\uuvarrho$     & \texttt{uuOmega}      & $\uuOmega$    \\
+	\hline
+\end{tabular} \end{center}
+
+\subsection{\texttt{vec}}
+
+\begin{center} \begin{tabular}{|ll|ll|}
+	\hline
+	\texttt{vecA}          & $\vecA$          & \texttt{vecAA}         & $\vecAA$       \\
+	\texttt{vecB}          & $\vecB$          & \texttt{vecBB}         & $\vecBB$       \\
+	\texttt{vecC}          & $\vecC$          & \texttt{vecCC}         & $\vecCC$       \\
+	\texttt{vecD}          & $\vecD$          & \texttt{vecDD}         & $\vecDD$       \\
+	\texttt{vecE}          & $\vecE$          & \texttt{vecEE}         & $\vecEE$       \\
+	\texttt{vecF}          & $\vecF$          & \texttt{vecFF}         & $\vecFF$       \\
+	\texttt{vecG}          & $\vecG$          & \texttt{vecGG}         & $\vecGG$       \\
+	\texttt{vecH}          & $\vecH$          & \texttt{vecHH}         & $\vecHH$       \\
+	\texttt{vecI}          & $\vecI$          & \texttt{vecII}         & $\vecII$       \\
+	\texttt{vecJ}          & $\vecJ$          & \texttt{vecJJ}         & $\vecJJ$       \\
+	\texttt{vecK}          & $\vecK$          & \texttt{vecKK}         & $\vecKK$       \\
+	\texttt{vecL}          & $\vecL$          & \texttt{vecLL}         & $\vecLL$       \\
+	\texttt{vecM}          & $\vecM$          & \texttt{vecMM}         & $\vecMM$       \\
+	\texttt{vecN}          & $\vecN$          & \texttt{vecNN}         & $\vecNN$       \\
+	\texttt{vecO}          & $\vecO$          & \texttt{vecOO}         & $\vecOO$       \\
+	\texttt{vecP}          & $\vecP$          & \texttt{vecPP}         & $\vecPP$       \\
+	\texttt{vecQ}          & $\vecQ$          & \texttt{vecQQ}         & $\vecQQ$       \\
+	\texttt{vecR}          & $\vecR$          & \texttt{vecRR}         & $\vecRR$       \\
+	\texttt{vecS}          & $\vecS$          & \texttt{vecSS}         & $\vecSS$       \\
+	\texttt{vecT}          & $\vecT$          & \texttt{vecTT}         & $\vecTT$       \\
+	\texttt{vecU}          & $\vecU$          & \texttt{vecUU}         & $\vecUU$       \\
+	\texttt{vecV}          & $\vecV$          & \texttt{vecVV}         & $\vecVV$       \\
+	\texttt{vecW}          & $\vecW$          & \texttt{vecWW}         & $\vecWW$       \\
+	\texttt{vecX}          & $\vecX$          & \texttt{vecXX}         & $\vecXX$       \\
+	\texttt{vecY}          & $\vecY$          & \texttt{vecYY}         & $\vecYY$       \\
+	\texttt{vecZ}          & $\vecZ$          & \texttt{vecZZ}         & $\vecZZ$       \\
+	\hline
+\end{tabular}
+\begin{tabular}{|ll|ll|}
+	\hline
+	\texttt{vecalpha}      & $\vecalpha$      & \texttt{vecsigma}      & $\vecsigma$    \\
+	\texttt{vecbeta}       & $\vecbeta$       & \texttt{vecvarsigma}   & $\vecvarsigma$ \\
+	\texttt{vecgamma}      & $\vecgamma$      & \texttt{vectau}        & $\vectau$      \\
+	\texttt{vecdelta}      & $\vecdelta$      & \texttt{vecupsilon}    & $\vecupsilon$  \\
+	\texttt{vecvarepsilon} & $\vecvarepsilon$ & \texttt{vecphi}        & $\vecphi$      \\
+	\texttt{vecepsilon}    & $\vecepsilon$    & \texttt{vecvarphi}     & $\vecvarphi$   \\
+	\texttt{veczeta}       & $\veczeta$       & \texttt{vecchi}        & $\vecchi$      \\
+	\texttt{veceta}        & $\veceta$        & \texttt{vecpsi}        & $\vecpsi$      \\
+	\texttt{vectheta}      & $\vectheta$      & \texttt{vecomega}      & $\vecomega$    \\
+	\texttt{vecvartheta}   & $\vecvartheta$   & \texttt{vecGamma}      & $\vecGamma$    \\
+	\texttt{veciota}       & $\veciota$       & \texttt{vecDelta}      & $\vecDelta$    \\
+	\texttt{veckappa}      & $\veckappa$      & \texttt{vecTheta}      & $\vecTheta$    \\
+	\texttt{veclambda}     & $\veclambda$     & \texttt{vecLambda}     & $\vecLambda$   \\
+	\texttt{vecmu}         & $\vecmu$         & \texttt{vecXi}         & $\vecXi$       \\
+	\texttt{vecnu}         & $\vecnu$         & \texttt{vecPi}         & $\vecPi$       \\
+	\texttt{vecxi}         & $\vecxi$         & \texttt{vecSigma}      & $\vecSigma$    \\
+	\texttt{vecpi}         & $\vecpi$         & \texttt{vecUpsilon}    & $\vecUpsilon$  \\
+	\texttt{vecvarpi}      & $\vecvarpi$      & \texttt{vecPhi}        & $\vecPhi$      \\
+	\texttt{vecrho}        & $\vecrho$        & \texttt{vecPsi}        & $\vecPsi$      \\
+	\texttt{vecvarrho}     & $\vecvarrho$     & \texttt{vecOmega}      & $\vecOmega$    \\
+	\hline
+\end{tabular} \end{center}
+
+\end{kdocument}
