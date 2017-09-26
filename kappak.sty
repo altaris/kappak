@@ -141,6 +141,15 @@
 		\bibliographystyle{\@bibliographyStyle}
 		\bibliography{bibliography}    
     }
+    
+    \newenvironment{kdocument}{
+		\document
+	    \maketitle
+	    \tableofcontents
+	}{
+		\kbibliography
+	    \enddocument
+	}
 
 }{} % \ifthenelse{\boolean{@b_use_misc}}{
 
