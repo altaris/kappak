@@ -5,6 +5,8 @@ kappak
 
 This is a homemade LaTeX package regrouping functionalities I deem handy. It is provided under the [MIT](http://opensource.org/licenses/MIT) license.
 
+# [Wiki](https://github.com/altaris/kappak/wiki)
+
 # Installation
 
 ## Linux (texlive)
@@ -39,10 +41,18 @@ The Python script `autocompletion/generate.py` reads through kappak sources and 
 
 ### Linux
 
-Copy `autocompletion/kappak.sublime-completions` in `~/.config/sublime-text-VERSION/Packages/User/`.
+Copy `autocompletion/kappak.sublime-completions` to `~/.config/sublime-text-<VERSION>/Packages/User/`.
 
 ### Windows
 
-Copy `autocompletion/kappak.sublime-completions` in `%APPDATA%/Sublime Text 3/Packages`
+Copy `autocompletion/kappak.sublime-completions` to `%APPDATA%/Sublime Text <VERSION>/Packages/User/`
 
-# [Wiki](https://github.com/altaris/kappak/wiki)
+## In TeXstudio
+
+### Linux
+
+Copy `autocompletion/kappak.cwl` to `~/.config/texstudio/completion/user/`
+
+### Windows
+
+Copy `autocompletion/kappak.cwl` to `%APPDATA%/TeXstudio/completion/user/`
