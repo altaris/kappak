@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import os
 import re
 import sys
@@ -73,6 +75,20 @@ def generateSublime(symbols):
     with open('kappak.sublime-completions', 'w', encoding = 'utf-8') as file:
         file.write('{{\n\t\"scope\": \"text.tex.latex\",\n\t\"completions\":\n\t[ {} ]\n}}'.format(", ".join(gen())))
 
+def generateTexstudio(symbols):
+
+    def placeholder(n):
+        return ''.join(('{{arg{}%plain}}'.format(i + 1) for i in range(n)))
+
+    def gen():
+        for s in symbols:
+            if type(s) == Command:
+                yield '\\{name}{args}'.format(name = s.name, args = placeholder(s.argc))
+            elif type(s) == Environment:
+                yield '\\begin{{{name}}}{args}\n\\end{{{name}}}'.format(name = s.name, args = placeholder(s.argc))
+
+    with open('kappak.cwl', 'w', encoding = 'utf-8') as file:
+        file.write('\n'.join(gen()))
 
 # ==============================================================================
 # ==============================================================================
@@ -81,7 +97,7 @@ def generateSublime(symbols):
 # ==============================================================================
 
 fileNames = ["kappak.sty", "kappak-environments.tex", "kappak-letters.tex", "kappak-maths.tex", "kappak-styles.tex", "kappak-tikz.tex"]
-targets = [generateTexmaker, generateSublime]
+targets = [generateTexmaker, generateSublime, generateTexstudio]
 
 def generateSymbols():
     for fn in fileNames:
