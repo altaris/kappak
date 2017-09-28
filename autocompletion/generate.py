@@ -55,7 +55,7 @@ def generateTexmaker(symbols):
                 yield '\\\\{name}{args}'.format(name = s.name, args = '{\\x2022}' * s.argc)
             elif type(s) == Environment:
                 yield '\\\\begin{{{name}}}{args}'.format(name = s.name, args = '{\\x2022}' * s.argc)
-                yield  '\\\\end{{{name}}}'.format(name = s.name)
+                yield '\\\\end{{{name}}}'.format(name = s.name)
 
     with open('texmaker.txt', 'w', encoding = 'utf-8') as file:
         file.write("Editor\\UserCompletion=" + ", ".join(gen()))
@@ -86,6 +86,7 @@ def generateTexstudio(symbols):
                 yield '\\{name}{args}'.format(name = s.name, args = placeholder(s.argc))
             elif type(s) == Environment:
                 yield '\\begin{{{name}}}{args}\n\\end{{{name}}}'.format(name = s.name, args = placeholder(s.argc))
+                yield '\\end{{{name}}}'.format(name = s.name)
 
     with open('kappak.cwl', 'w', encoding = 'utf-8') as file:
         file.write('\n'.join(gen()))
