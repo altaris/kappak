@@ -189,19 +189,14 @@
     \def\@chapterStyle{#1}
 }
 
-%% encoding
-\define@key{kappak}{encoding}[utf8]{
-    \def\@encoding{#1}
-}
-
-%% encoding
-\define@key{kappak}{headerFooterStyle}[normal]{
-    \def\@headerFooterStyle{#1}
-}
-
 %% fontset
 \define@key{kappak}{fontSet}[normal]{
     \def\@fontSet{#1}
+}
+
+%% headerFooterStyle
+\define@key{kappak}{headerFooterStyle}[normal]{
+    \def\@headerFooterStyle{#1}
 }
 
 %% language
@@ -243,7 +238,6 @@
 %% ----------------------------------------
 
 \RequirePackage[\@language]{babel}
-\RequirePackage[\@encoding]{inputenc}
 \RequirePackage[T1]{fontenc}
 
 \RequirePackage{amsfonts}
