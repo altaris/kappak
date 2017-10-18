@@ -287,6 +287,9 @@
     \RequirePackage{mathrsfs}
     \renewcommand{\@cal}{\mathscr}
 }{}
+\ifthenelse{\equal{\@scriptStyle}{rsfso}}{
+    \RequirePackage{rsfso}
+}{}
 
 \ifthenelse{\equal{\@fontSet}{alternate}}{
     \RequirePackage{mathptmx}       % selects Times Roman as basic font
