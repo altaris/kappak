@@ -288,8 +288,21 @@
 
 \ifthenelse{\equal{\@headerFooterStyle}{classic}}{
     \pagestyle{fancy}
-    \rhead{}
-    \lfoot{} \cfoot{\thepage}
+    \renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
+    \fancypagestyle{firstpage}{
+        \fancyhf{}
+    }
+    \renewcommand{\headrulewidth}{0.0pt}
+    \renewcommand{\footrulewidth}{0.0pt}
+    \fancyhead{}
+    \fancyhead[CE]{\thetitle}
+    \fancyhead[CO]{\rightmark}
+    \fancyfoot{}
+    \ifthenelse{\equal{\@language}{english}}{
+        \cfoot{\footnotesize Page \thepage\ of \pageref{LastPage}}
+    }{
+        \cfoot{\footnotesize Page \thepage\ sur \pageref{LastPage}}
+    }
 }{}
 
 %% --------------------
@@ -299,8 +312,8 @@
 \ifthenelse{\equal{\@headerFooterStyle}{cb}}{
     \pagestyle{fancy}
     \lhead{} \chead{} \rhead{}
-    \lfoot{} \cfoot{\@title \\ \thepage} \rfoot{}
-    \renewcommand{\headrulewidth}{0.4pt}
+    \lfoot{} \cfoot{\thetitle \\ \thepage} \rfoot{}
+    \renewcommand{\headrulewidth}{0.0pt}
     \renewcommand{\footrulewidth}{0.4pt}
 }{}
 

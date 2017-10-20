@@ -251,13 +251,16 @@
 \RequirePackage{graphicx}
 \RequirePackage{hyperref}
 \RequirePackage{makeidx}
+\RequirePackage{microtype}
 \RequirePackage{multicol}
 \RequirePackage{subfig}
+\RequirePackage{titling}
 
 \hypersetup{ % See https://en.wikibooks.org/wiki/LaTeX/Hyperlinks#Customization
-    colorlinks=true,
-    hidelinks,
-    linktoc=all
+    colorlinks=false,
+    hidelinks=true,
+    linktoc=all,
+    unicode=true
 }
 
 \newcommand{\@bb}{\mathbb}
@@ -278,6 +281,11 @@
     \RequirePackage{titlesec}
 }
 
+\ifthenelse{\equal{\@headerFooterStyle}{normal}}{}{
+    \RequirePackage{fancyhdr}
+    \RequirePackage{lastpage}
+}
+
 \newcommand{\@cal}{\mathcal}
 \ifthenelse{\equal{\@scriptStyle}{euler}}{
     \RequirePackage[mathscr]{euscript}
@@ -295,6 +303,9 @@
     \RequirePackage{mathptmx}       % selects Times Roman as basic font
     \RequirePackage{helvet}         % selects Helvetica as sans-serif font
     \RequirePackage{courier}        % selects Courier as typewriter font
+}{}
+\ifthenelse{\equal{\@fontSet}{xcharter}}{
+    \RequirePackage{XCharter}
 }{}
 
 \ifthenelse{\equal{\@margins}{reduced}}{
