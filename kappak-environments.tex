@@ -120,26 +120,28 @@
         
     }{} % \ifthenelse{\equal{\@language}{french}}{
     
+    \numberwithin{equation}{section}
+    
     \theoremstyle{definition}
         
-    \newtheorem{axiom}                      {\@axiomName}       [section]
-    \newtheorem{axioms}         [axiom]     {\@axiomsName}
+    \newtheorem{axiom}          [equation]  {\@axiomName}
+    \newtheorem{axioms}         [equation]  {\@axiomsName}
     \newtheorem*{axiom*}                    {\@axiomName}
     \newtheorem*{axioms*}                   {\@axiomsName}
-    \newtheorem{definition}     [axiom]     {\@definitionName}
-    \newtheorem{definitions}    [axiom]     {\@definitionsName}
+    \newtheorem{definition}     [equation]  {\@definitionName}
+    \newtheorem{definitions}    [equation]  {\@definitionsName}
     \newtheorem*{definition*}               {\@definitionName}
     \newtheorem*{definitions*}              {\@definitionsName}
-    \newtheorem{example}        [axiom]     {\@exampleName}
-    \newtheorem{examples}       [axiom]     {\@examplesName}
+    \newtheorem{example}        [equation]  {\@exampleName}
+    \newtheorem{examples}       [equation]  {\@examplesName}
     \newtheorem*{example*}                  {\@exampleName}
     \newtheorem*{examples*}                 {\@examplesName}
-    \newtheorem{exercise}       [axiom]     {\@exerciseName}
-    \newtheorem{exercises}      [axiom]     {\@exercisesName}
+    \newtheorem{exercise}       [equation]  {\@exerciseName}
+    \newtheorem{exercises}      [equation]  {\@exercisesName}
     \newtheorem*{exercise*}                 {\@exerciseName}
     \newtheorem*{exercises*}                {\@exercisesName}
-    \newtheorem{question}       [axiom]     {\@questionName}
-    \newtheorem{questions}      [axiom]     {\@questionsName}
+    \newtheorem{question}       [equation]  {\@questionName}
+    \newtheorem{questions}      [equation]  {\@questionsName}
     \newtheorem*{question*}                 {\@questionName}
     \newtheorem*{questions*}                {\@questionsName}
         
@@ -147,36 +149,36 @@
          \theoremstyle{plain}
     }{}
         
-    \newtheorem{assertion}      [axiom]     {\@assertionName}
-    \newtheorem{assertions}     [axiom]     {\@assertionsName}
+    \newtheorem{assertion}      [equation]  {\@assertionName}
+    \newtheorem{assertions}     [equation]  {\@assertionsName}
     \newtheorem*{assertion*}                {\@assertionName}
     \newtheorem*{assertions*}               {\@assertionsName}
-    \newtheorem{conjecture}     [axiom]     {\@conjectureName}
-    \newtheorem{conjectures}    [axiom]     {\@conjecturesName}
+    \newtheorem{conjecture}     [equation]  {\@conjectureName}
+    \newtheorem{conjectures}    [equation]  {\@conjecturesName}
     \newtheorem*{conjecture*}               {\@conjectureName}
     \newtheorem*{conjectures*}              {\@conjecturesName}
-    \newtheorem{corollary}      [axiom]     {\@corollaryName}
-    \newtheorem{corollaries}    [axiom]     {\@corollariesName}
+    \newtheorem{corollary}      [equation]  {\@corollaryName}
+    \newtheorem{corollaries}    [equation]  {\@corollariesName}
     \newtheorem*{corollary*}                {\@corollaryName}
     \newtheorem*{corollaries*}              {\@corollariesName}
-    \newtheorem{lemma}          [axiom]     {\@lemmaName}
-    \newtheorem{lemmas}         [axiom]     {\@lemmasName}
+    \newtheorem{lemma}          [equation]  {\@lemmaName}
+    \newtheorem{lemmas}         [equation]  {\@lemmasName}
     \newtheorem*{lemma*}                    {\@lemmaName}
     \newtheorem*{lemmas*}                   {\@lemmasName}
-    \newtheorem{property}       [axiom]     {\@propertyName}
-    \newtheorem{properties}     [axiom]     {\@propertiesName}
+    \newtheorem{property}       [equation]  {\@propertyName}
+    \newtheorem{properties}     [equation]  {\@propertiesName}
     \newtheorem*{property*}                 {\@propertyName}
     \newtheorem*{properties*}               {\@propertiesName}
-    \newtheorem{proposition}    [axiom]     {\@propositionName}
-    \newtheorem{propositions}   [axiom]     {\@propositionsName}
+    \newtheorem{proposition}    [equation]  {\@propositionName}
+    \newtheorem{propositions}   [equation]  {\@propositionsName}
     \newtheorem*{proposition*}              {\@propositionName}
     \newtheorem*{propositions*}             {\@propositionsName}
-    \newtheorem{scholia}        [axiom]     {\@scholiaName}
-    \newtheorem{scholias}       [axiom]     {\@scholiasName}
+    \newtheorem{scholia}        [equation]  {\@scholiaName}
+    \newtheorem{scholias}       [equation]  {\@scholiasName}
     \newtheorem{scholia*}                   {\@scholiaName}
     \newtheorem{scholias*}                  {\@scholiasName}
-    \newtheorem{theorem}        [axiom]     {\@theoremName}
-    \newtheorem{theorems}       [axiom]     {\@theoremsName}
+    \newtheorem{theorem}        [equation]  {\@theoremName}
+    \newtheorem{theorems}       [equation]  {\@theoremsName}
     \newtheorem*{theorem*}                  {\@theoremName}
     \newtheorem*{theorems*}                 {\@theoremsName}
         
@@ -184,24 +186,24 @@
         \theoremstyle{remark}
     }{}
         
-    \newtheorem{convention}     [axiom]     {\@conventionName}
-    \newtheorem{conventions}    [axiom]     {\@conventionsName}
+    \newtheorem{convention}     [equation]  {\@conventionName}
+    \newtheorem{conventions}    [equation]  {\@conventionsName}
     \newtheorem*{convention*}               {\@conventionName}
     \newtheorem*{conventions*}              {\@conventionsName}
-    \newtheorem{notation}       [axiom]     {\@notationName}
-    \newtheorem{notations}      [axiom]     {\@notationsName}
+    \newtheorem{notation}       [equation]  {\@notationName}
+    \newtheorem{notations}      [equation]  {\@notationsName}
     \newtheorem*{notation*}                 {\@notationName}
     \newtheorem*{notations*}                {\@notationsName}
-    \newtheorem{remark}         [axiom]     {\@remarkName}
-    \newtheorem{remarks}        [axiom]     {\@remarksName}
+    \newtheorem{remark}         [equation]  {\@remarkName}
+    \newtheorem{remarks}        [equation]  {\@remarksName}
     \newtheorem*{remark*}                   {\@remarkName}
     \newtheorem*{remarks*}                  {\@remarksName}
-    \newtheorem{reminder}       [axiom]     {\@reminderName}
-    \newtheorem{reminders}      [axiom]     {\@remindersName}
+    \newtheorem{reminder}       [equation]  {\@reminderName}
+    \newtheorem{reminders}      [equation]  {\@remindersName}
     \newtheorem*{reminder*}                 {\@reminderName}
     \newtheorem*{reminders*}                {\@remindersName}
-    \newtheorem{terminology}    [axiom]     {\@terminologyName}
-    \newtheorem{terminologies}  [axiom]     {\@terminologiesName}
+    \newtheorem{terminology}    [equation]  {\@terminologyName}
+    \newtheorem{terminologies}  [equation]  {\@terminologiesName}
     \newtheorem*{terminology*}              {\@terminologyName}
     \newtheorem*{terminologies*}            {\@terminologiesName}
     
