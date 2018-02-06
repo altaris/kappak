@@ -165,6 +165,11 @@
     \setboolean{@b_extpack_use_tikz}{true}
 }
 
+%% tikz.externalize
+\DeclareOption{tikz.externalize}{
+	\setboolean{@b_extpack_tikz_externalize}{true}
+}
+
 %% --------------------
 %% Keyval
 %% --------------------
@@ -268,7 +273,12 @@
 
 \ifthenelse{\boolean{@b_extpack_use_tikz}}{
     \RequirePackage{tikz}
-    \usetikzlibrary{matrix, arrows, calc}
+    \usetikzlibrary{arrows, calc, matrix}
+}{}
+
+\ifthenelse{\boolean{@b_extpack_tikz_externalize}}{
+	\usetikzlibrary{external}
+	\tikzexternalize
 }{}
 
 \ifthenelse{\boolean{@b_maths_use_misc}}{
