@@ -160,6 +160,11 @@
     \setboolean{@b_use_misc}{false}
 }
 
+%% +stix
+\DeclareOption{+stix}{
+	\setboolean{@b_extpack_use_stix}{true}	
+}
+
 %% +tikz
 \DeclareOption{+tikz}{
     \setboolean{@b_extpack_use_tikz}{true}
@@ -244,6 +249,13 @@
 
 \RequirePackage[\@language]{babel}
 
+% stix must be loaded before amsmath if amsmath version is > 2.14
+% http://distrib-coffee.ipsl.jussieu.fr/pub/mirrors/ctan/fonts/stix/doc/stix.pdf
+\ifthenelse{\boolean{@b_extpack_use_stix}}{
+	\RequirePackage[notext]{stix}
+	\let\barV\relax
+}{}
+
 \RequirePackage{amsfonts}
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}
@@ -258,6 +270,9 @@
 \RequirePackage{multicol}
 \RequirePackage{subfig}
 \RequirePackage{titling}
+
+%\RequirePackage[notext]{stix}
+%\let\barV\relax
 
 \hypersetup{ % See https://en.wikibooks.org/wiki/LaTeX/Hyperlinks#Customization
     colorlinks=false,
@@ -282,7 +297,7 @@
 }{}
 
 \ifthenelse{\boolean{@b_maths_use_misc}}{
-    \RequirePackage{xeCJK}
+    %\RequirePackage{xeCJK}
 }{}
 
 \ifthenelse{\equal{\@chapterStyle}{normal}}{}{
