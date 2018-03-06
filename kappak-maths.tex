@@ -250,4 +250,17 @@
     
     \newcommand{\yoneda}{\mathsf{y}} %\newcommand{\yoneda}{\text{よ}}
     
+    % Define custom big operators, whose size are that of \sum
+    % 9000+ thanks to egreg, https://tex.stackexchange.com/questions/23432/how-to-create-my-own-math-operator-with-limits
+    \DeclareRobustCommand\@bigop[1]{
+    	\mathop{\vphantom{\sum}\mathpalette\@bigop@{#1}}\slimits@
+    }
+    \newcommand{\@bigop@}[2]{
+    	\vcenter{
+    		\sbox\z@{$#1\sum$}
+    		\hbox{\resizebox{\ifx#1\displaystyle.9\fi\dimexpr\ht\z@+\dp\z@}{!}{$\m@th#2$}}
+    	}
+    }
+    \newcommand{\DeclareBigOperator}[2]{\newcommand{#1}{\DOTSB\@bigop{#2}}}
+    
 }{} % \ifthenelse{\boolean{@b_maths_use_misc}}{

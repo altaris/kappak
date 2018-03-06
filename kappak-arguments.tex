@@ -252,7 +252,7 @@
 % stix must be loaded before amsmath if amsmath version is > 2.14
 % http://distrib-coffee.ipsl.jussieu.fr/pub/mirrors/ctan/fonts/stix/doc/stix.pdf
 \ifthenelse{\boolean{@b_extpack_use_stix}}{
-	\RequirePackage[notext]{stix}
+	\RequirePackage[notext, not1, notextcomp]{stix}
 	\let\barV\relax
 }{}
 
