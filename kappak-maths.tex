@@ -267,4 +267,19 @@
     }
     \newcommand{\DeclareBigOperator}[2]{\newcommand{#1}{\DOTSB\@bigop{#2}}}
     
+    % Defines a rotated symbol that sizes properly
+    \newcommand{\DeclareRotatedSymbol}[3]{
+    	\newcommand{#1}{{
+    		\mathchoice{
+    			\rotatebox[origin=c]{#2}{$\displaystyle{#3}$}
+    		}{
+    			\rotatebox[origin=c]{#2}{$\textstyle{#3}$}
+    		}{
+	    		\rotatebox[origin=c]{#2}{$\scriptstyle{#3}$}
+	    	}{
+		    	\rotatebox[origin=c]{#2}{$\scriptscriptstyle{#3}$}
+		    }}
+		}
+	}
+    
 }{} % \ifthenelse{\boolean{@b_maths_use_misc}}{
