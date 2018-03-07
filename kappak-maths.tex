@@ -248,7 +248,11 @@
     
     \renewcommand{\epsilon}{\varepsilon}
     
-    \newcommand{\yoneda}{\mathsf{y}} %\newcommand{\yoneda}{\text{よ}}
+    \ifthenelse{\boolean{@b_extpack_use_xecjk}}{
+    	\newcommand{\yoneda}{\text{よ}}
+    }{
+	    \newcommand{\yoneda}{\mathsf{y}}
+    }
     
     % Define custom big operators, whose size are that of \sum
     % 9000+ thanks to egreg, https://tex.stackexchange.com/questions/23432/how-to-create-my-own-math-operator-with-limits

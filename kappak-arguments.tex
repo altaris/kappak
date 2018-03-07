@@ -175,6 +175,10 @@
 	\setboolean{@b_extpack_tikz_externalize}{true}
 }
 
+\DeclareOption{+xecjk}{
+	\setboolean{@b_extpack_use_xecjk}{true}
+}
+
 %% --------------------
 %% Keyval
 %% --------------------
@@ -297,7 +301,6 @@
 }{}
 
 \ifthenelse{\boolean{@b_maths_use_misc}}{
-    %\RequirePackage{xeCJK}
 }{}
 
 \ifthenelse{\equal{\@chapterStyle}{normal}}{}{
@@ -339,6 +342,10 @@
 \ifthenelse{\equal{\@margins}{minimal}}{
     \RequirePackage{geometry}
     \geometry{margin = 0.5in, centering}
+}{}
+
+\ifthenelse{\boolean{@b_extpack_use_xecjk}}{
+	\RequirePackage{xeCJK}
 }{}
 
 \ifthenelse{\@usedVersion < \@kappakVersion}{
