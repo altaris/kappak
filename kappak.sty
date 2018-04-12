@@ -20,8 +20,6 @@
 %% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 %% SOFTWARE.
 
-%% This is the main file of kappak. It declares globals and includes other files.
-
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{kappak}[2013/05/01 kappak]
 \makeatletter
@@ -34,13 +32,32 @@
 \def\@usedVersion{0406}     % Default version. 0406 is the version where \@kappakVersion started to be taken into account.
 \PackageInfo{kappak-v4}{This is kappak, v\@kappakVersion}
 
-%% ----------------------------------------
+%% -----------------------------------------------------------------------------
 %%
 %% Internal commands and required packages.
 %%
+%% -----------------------------------------------------------------------------
+
+%% ----------------------------------------
+%% Required packages
 %% ----------------------------------------
 
-\input{kappak-utilities}
+\RequirePackage{ifthen}
+
+%% ----------------------------------------
+%% Definitions
+%% ----------------------------------------
+
+\newcommand{\@tryNewCommand}[2]{ % #1 cmd, #2 code
+
+    \ifthenelse{\isundefined{#1}}{
+        \newcommand{#1}{#2}
+    }{
+        \PackageWarning{kappak-v4}{Warning : command \protect#1 already defined. Skipping definition, errors may occur later !}
+    } % \ifthenelse{\isundefined{#2}}
+
+} % \newcommand{\@tryNewCommand}[2]{
+
 
 %% ----------------------------------------
 %%
@@ -109,29 +126,605 @@
 \def\@titlePageStyle    {normal}
 \def\@categoryStyle     {script}
 
-%% ----------------------------------------
+%% -----------------------------------------------------------------------------
 %%
-%% Arguments processing
+%% Arguments processing.
 %%
-%% ----------------------------------------
-
-\input{kappak-arguments.tex}
+%% -----------------------------------------------------------------------------
 
 %% ----------------------------------------
-%%
-%% Commands
-%%
+%% Loading required packages.
 %% ----------------------------------------
 
+\RequirePackage{keyval}
+
 %% ----------------------------------------
+%% Preparing keyval arguments processing.
+%% Code taken from
+%% http://www.tuteurs.ens.fr/logiciels/latex/nouveau_package.html .
+%% ----------------------------------------
+
+\@ifundefined{my@unusedlist}{
+  \let\my@unusedlist\@empty}{}
+\@ifundefined{my@extractkey}{%
+  \def\my@extractkey#1=#2\my@extractkey{#1}}{}
+\newcommand{\ProcessUnusedOptions}[1]{%
+  \let\my@tempa\@empty
+  \let\my@tempb\@empty
+  \@for\CurrentOption:=\my@unusedlist\do{%
+    \expandafter\expandafter\expandafter\def
+    \expandafter\expandafter\expandafter\my@key
+    \expandafter\expandafter\expandafter{%
+      \expandafter\my@extractkey\CurrentOption=\my@extractkey}%
+    \@ifundefined{KV@#1@\my@key}{%
+      \edef\my@tempa{\my@tempa,\CurrentOption,}}{%
+      \edef\my@tempb{\my@tempb,\CurrentOption,}}}%
+  \@for\CurrentOption:=\my@tempa\do{%
+    \ifx\CurrentOption\@empty\else
+      \PackageWarning{mypack}{`\CurrentOption' not defined.}\fi}%
+  \edef\my@tempb{%
+    \noexpand\setkeys{#1}{\my@tempb}}%
+  \my@tempb
+  \AtEndOfPackage{\let\@unprocessedoptions\relax}}
+
+\DeclareOption*{%
+  \expandafter\expandafter\expandafter\def
+  \expandafter\expandafter\expandafter\my@unusedlist
+  \expandafter\expandafter\expandafter{%
+    \expandafter\my@unusedlist\expandafter,%
+    \CurrentOption}}
+
+%% ----------------------------------------
+%% Recieving options
+%% ----------------------------------------
+
+%% --------------------
+%% Version
+%% --------------------
+
+\DeclareOption{alpha}{
+    \def\@usedVersion{0407}
+}
+
+\DeclareOption{bellatrix}{
+    \def\@usedVersion{0409}
+}
+
+\DeclareOption{cortana}{
+    \def\@usedVersion{0410}
+}
+
+\DeclareOption{durotan}{
+    \def\@usedVersion{0411}
+}
+
+\DeclareOption{eientei}{
+    \def\@usedVersion{0412}
+}
+
+%% --------------------
+%% Simple
+%% --------------------
+
+%% +maths
+\DeclareOption{+maths}{
+    \setboolean{@b_maths_use_arrows}{true}
+    \setboolean{@b_maths_use_categories}{true}
+    \setboolean{@b_maths_use_characterAccents}{true}
+    \setboolean{@b_maths_use_characterStyles}{true}
+    \setboolean{@b_maths_use_misc}{true}
+    \setboolean{@b_maths_use_operators}{true}
+    \setboolean{@b_maths_use_theoremEnvs}{true}
+}
+
+%% +maths.arrows
+\DeclareOption{+maths.arrows}{
+    \setboolean{@b_maths_use_arrows}{true}
+}
+
+%% +maths.categories
+\DeclareOption{+maths.categories}{
+    \setboolean{@b_maths_use_categories}{true}
+}
+
+%% +maths.characterAccents
+\DeclareOption{+maths.characterAccents}{
+    \setboolean{@b_maths_use_characterAccents}{true}
+}
+
+%% +maths.characterStyles
+\DeclareOption{+maths.characterStyles}{
+    \setboolean{@b_maths_use_characterStyles}{true}
+}
+
+%% +maths.misc
+\DeclareOption{+maths.misc}{
+    \setboolean{@b_maths_use_misc}{true}
+}
+
+%% +maths.operators
+\DeclareOption{+maths.operators}{
+    \setboolean{@b_maths_use_operators}{true}
+}
+
+%% +maths.theoremEnvs
+\DeclareOption{+maths.theoremEnvs}{
+    \setboolean{@b_maths_use_theoremEnvs}{true}
+}
+
+%% +maths.theoremStyles
+\DeclareOption{-maths.theoremStyles}{
+    \setboolean{@b_maths_use_theoremStyles}{false}
+}
+
+%% +misc
+\DeclareOption{-misc}{
+    \setboolean{@b_use_misc}{false}
+}
+
+%% +stix
+\DeclareOption{+stix}{
+	\setboolean{@b_extpack_use_stix}{true}	
+}
+
+%% +tikz
+\DeclareOption{+tikz}{
+    \setboolean{@b_extpack_use_tikz}{true}
+}
+
+%% tikz.externalize
+\DeclareOption{tikz.externalize}{
+	\setboolean{@b_extpack_tikz_externalize}{true}
+}
+
+\DeclareOption{+xecjk}{
+	\setboolean{@b_extpack_use_xecjk}{true}
+}
+
+%% --------------------
+%% Keyval
+%% --------------------
+
+%% bbStyle
+\define@key{kappak}{bbStyle}[normal]{
+    \def\@bbStyle{#1}
+}
+
+%% bibliographyStyle
+\define@key{kappak}{bibliographyStyle}[normal]{
+    \def\@bibliographyStyle{#1}
+}
+
+%% categoryStyle
+\define@key{kappak}{categoryStyle}[script]{
+    \def\@categoryStyle{#1}
+}
+
+%% chapterStyle
+\define@key{kappak}{chapterStyle}[normal]{
+    \def\@chapterStyle{#1}
+}
+
+%% fontset
+\define@key{kappak}{fontSet}[normal]{
+    \def\@fontSet{#1}
+}
+
+%% headerFooterStyle
+\define@key{kappak}{headerFooterStyle}[normal]{
+    \def\@headerFooterStyle{#1}
+}
+
+%% language
+\define@key{kappak}{language}[english]{
+    \def\@language{#1}
+}
+
+%% lineSpacing
+\define@key{kappak}{lineSpacing}[1]{
+    \renewcommand{\baselinestretch}{#1} 
+}
+
+%% margins
+\define@key{kappak}{margins}[normal]{
+    \def\@margins{#1}
+}
+
+%% scriptStyle
+\define@key{kappak}{scriptStyle}[normal]{
+    \def\@scriptStyle{#1}
+}
+
+%% titlePageStyle
+\define@key{kappak}{titlePageStyle}[normal]{
+    \def\@titlePageStyle{#1}
+}
+
+%% version
+\define@key{kappak}{version}[0406]{
+    % 0406 is the version where \@kappakVersion started to be taken into account.
+    \def\@usedVersion{#1}
+}
+
+\ProcessOptions
+\ProcessUnusedOptions{kappak}
+
+%% ----------------------------------------
+%% Processing
+%% ----------------------------------------
+
+\RequirePackage[\@language]{babel}
+
+% stix must be loaded before amsmath if amsmath version is > 2.14
+% http://distrib-coffee.ipsl.jussieu.fr/pub/mirrors/ctan/fonts/stix/doc/stix.pdf
+\ifthenelse{\boolean{@b_extpack_use_stix}}{
+	\RequirePackage[notext, not1, notextcomp]{stix}
+	\let\barV\relax
+}{}
+
+\RequirePackage{amsfonts}
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{amsthm}
+\RequirePackage{mathtools}
+
+\RequirePackage{color}
+\RequirePackage{enumerate}
+\RequirePackage{graphicx}
+\RequirePackage{hyperref}
+\RequirePackage{makeidx}
+\RequirePackage{multicol}
+\RequirePackage{subfig}
+\RequirePackage{titling}
+
+%\RequirePackage[notext]{stix}
+%\let\barV\relax
+
+\hypersetup{ % See https://en.wikibooks.org/wiki/LaTeX/Hyperlinks#Customization
+    colorlinks=false,
+    hidelinks,
+    linktoc=all,
+    unicode=true
+}
+
+\newcommand{\@bb}{\mathbb}
+\ifthenelse{\equal{\@bbStyle}{bbold}}{
+    \RequirePackage{bbold}
+}{}
+
+\ifthenelse{\boolean{@b_extpack_use_tikz}}{
+    \RequirePackage{tikz}
+    \usetikzlibrary{arrows, calc, matrix}
+}{}
+
+\ifthenelse{\boolean{@b_extpack_tikz_externalize}}{
+	\usetikzlibrary{external}
+	\tikzexternalize
+}{}
+
+\ifthenelse{\boolean{@b_maths_use_misc}}{
+}{}
+
+\ifthenelse{\equal{\@chapterStyle}{normal}}{}{
+    \RequirePackage{titlesec}
+}
+
+\ifthenelse{\equal{\@headerFooterStyle}{normal}}{}{
+    \RequirePackage{fancyhdr}
+    \RequirePackage{lastpage}
+}
+
+\newcommand{\@cal}{\mathcal}
+\ifthenelse{\equal{\@scriptStyle}{euler}}{
+    \RequirePackage[mathscr]{euscript}
+    \renewcommand{\@cal}{\mathscr}
+}{}
+\ifthenelse{\equal{\@scriptStyle}{rsfs}}{
+    \RequirePackage{mathrsfs}
+    \renewcommand{\@cal}{\mathscr}
+}{}
+\ifthenelse{\equal{\@scriptStyle}{rsfso}}{
+    \RequirePackage{rsfso}
+}{}
+
+\ifthenelse{\equal{\@fontSet}{alternate}}{
+    \RequirePackage{mathptmx}       % selects Times Roman as basic font
+    \RequirePackage{helvet}         % selects Helvetica as sans-serif font
+    \RequirePackage{courier}        % selects Courier as typewriter font
+}{}
+\ifthenelse{\equal{\@fontSet}{xcharter}}{
+    \RequirePackage{XCharter}
+}{}
+
+\ifthenelse{\equal{\@margins}{reduced}}{
+    \RequirePackage{geometry}
+    \geometry{hscale = 0.8, vscale = 0.8, centering}
+}{}
+
+\ifthenelse{\equal{\@margins}{minimal}}{
+    \RequirePackage{geometry}
+    \geometry{margin = 0.5in, centering}
+}{}
+
+\ifthenelse{\boolean{@b_extpack_use_xecjk}}{
+	\RequirePackage{xeCJK}
+}{}
+
+\ifthenelse{\@usedVersion < \@kappakVersion}{
+    \PackageWarning{kappak-v4}{You are using an older version of kappak (v\@usedVersion, actual is v\@kappakVersion).}
+}{}
+
+%% -----------------------------------------------------------------------------
+%%
 %% Math
+%%
+%% -----------------------------------------------------------------------------
+
+%% ----------------------------------------
+%% Operators
 %% ----------------------------------------
 
-\input{kappak-maths.tex}
+\ifthenelse{\boolean{@b_maths_use_operators}}{
+
+    \DeclareMathOperator {\Ann}   {Ann}
+    \DeclareMathOperator {\Aut}   {Aut}
+    \DeclareMathOperator {\Bil}   {Bil}
+    \DeclareMathOperator {\car}   {char}
+    \DeclareMathOperator {\card}  {card}
+    \DeclareMathOperator {\Card}  {Card}
+    \DeclareMathOperator {\codom} {codom}
+    \DeclareMathOperator {\coker} {coker}
+    \DeclareMathOperator*{\colim} {colim}
+    \DeclareMathOperator {\dom}   {dom}
+    \DeclareMathOperator {\Dom}   {Dom}
+    \DeclareMathOperator {\End}   {end}
+    \DeclareMathOperator {\END}   {End}
+    \DeclareMathOperator {\Ext}   {Ext}
+    \DeclareMathOperator {\ev}    {ev}
+    \DeclareMathOperator {\Frac}  {Frac}
+    \DeclareMathOperator {\GL}    {GL}
+    \DeclareMathOperator {\Hom}   {Hom}
+    \DeclareMathOperator {\id}    {id}
+    \DeclareMathOperator {\Id}    {Id}
+    \DeclareMathOperator {\im}    {im}
+    \DeclareMathOperator {\Ind}   {Ind}
+    \DeclareMathOperator {\Ker}   {Ker}
+    \DeclareMathOperator {\Map}   {Map}
+    \DeclareMathOperator {\Mor}   {Mor}
+    \DeclareMathOperator {\ob}    {ob}
+    \DeclareMathOperator {\Ob}    {Ob}
+    \DeclareMathOperator {\Orb}   {Orb}
+    \DeclareMathOperator {\proj}  {proj}
+    \DeclareMathOperator {\rk}    {rk}
+    \DeclareMathOperator {\SL}    {SL}
+    \DeclareMathOperator {\Stab}  {Stab}
+    \DeclareMathOperator {\Spec}  {Spec}
+    \DeclareMathOperator {\Sym}   {Sym}
+    \DeclareMathOperator {\Tor}   {Tor}
+    \DeclareMathOperator {\tr}    {tr}
+    
+}{} % \ifthenelse{\boolean{@b_maths_use_operators}}{
+
+%% ----------------------------------------
+%% Categories
+%% ----------------------------------------
+
+\ifthenelse{\boolean{@b_maths_use_categories}}{
+
+    \ifthenelse{\equal{\@categoryStyle}{bf}}{
+        \newcommand{\@cat}{\mathbf}
+    }{}
+
+    \ifthenelse{\equal{\@categoryStyle}{script}}{
+        \newcommand{\@cat}{\@cal}
+    }{}
+
+    \ifthenelse{\equal{\@categoryStyle}{rm}}{
+        \newcommand{\@cat}{\mathrm}
+    }{}
+
+    \ifthenelse{\equal{\@categoryStyle}{sf}}{
+        \newcommand{\@cat}{\mathsf}
+    }{}
+
+    \ifthenelse{\equal{\@categoryStyle}{tt}}{
+        \newcommand{\@cat}{\mathtt}
+    }{}
+
+    \ifthenelse{\equal{\@categoryStyle}{script}}{
+        \newcommand{\op}{\mathrm{op}}
+        \newcommand{\newcategory}[4]{
+            \newcommand{#1}{#2\@cat{#3}\!#4}
+        }
+    }{
+        \newcommand{\op}{\@cat{op}}
+        \newcommand{\newcategory}[4]{
+            \newcommand{#1}{\@cat{#2#3#4}}
+        }
+    } % \ifthenelse{\equal{\@categoryStyle}{script}}{
+
+%% --------------------
+%% Some categories
+%% --------------------
+    
+    \newcategory{\Ab}    {}{A}{b}
+    \newcategory{\Alg}   {}{A}{lg}
+    \newcategory{\Cat}   {}{C}{at}
+    \newcategory{\CAT}   {}{C}{AT}
+    \newcategory{\Ch}    {}{C}{h}
+    \newcategory{\Fin}   {}{F}{in}
+    \newcategory{\Graph} {}{G}{raph}
+    \newcategory{\Grp}   {}{G}{rp}
+    \newcategory{\Mod}   {}{M}{od}
+    \newcategory{\Mon}   {}{M}{on}
+    \newcategory{\Op}    {}{O}{p}
+    \newcategory{\Pos}   {}{P}{os}
+    \newcategory{\pSh}   {p}{S}{h}
+    \newcategory{\Ring}  {}{R}{ing}
+    \newcategory{\Set}   {}{S}{et}
+    \newcategory{\SET}   {}{S}{ET}
+    \newcategory{\Sh}    {}{S}{h}
+    \newcategory{\sSet}  {s}{S}{et}
+    \newcategory{\Top}   {}{T}{op}
+    \newcategory{\Vect}  {}{V}{ect}
+    
+%% --------------------
+%% cat style
+%% --------------------
+
+    \newcommand{\catA}{\@cat{a}}
+    \newcommand{\catB}{\@cat{b}}
+    \newcommand{\catC}{\@cat{c}}
+    \newcommand{\catD}{\@cat{d}}
+    \newcommand{\catE}{\@cat{e}}
+    \newcommand{\catF}{\@cat{f}}
+    \newcommand{\catG}{\@cat{g}}
+    \newcommand{\catH}{\@cat{h}}
+    \newcommand{\catI}{\@cat{i}}
+    \newcommand{\catJ}{\@cat{j}}
+    \newcommand{\catK}{\@cat{k}}
+    \newcommand{\catL}{\@cat{l}}
+    \newcommand{\catM}{\@cat{m}}
+    \newcommand{\catN}{\@cat{n}}
+    \newcommand{\catO}{\@cat{o}}
+    \newcommand{\catP}{\@cat{p}}
+    \newcommand{\catQ}{\@cat{q}}
+    \newcommand{\catR}{\@cat{r}}
+    \newcommand{\catS}{\@cat{s}}
+    \newcommand{\catT}{\@cat{t}}
+    \newcommand{\catU}{\@cat{u}}
+    \newcommand{\catV}{\@cat{v}}
+    \newcommand{\catW}{\@cat{w}}
+    \newcommand{\catX}{\@cat{x}}
+    \newcommand{\catY}{\@cat{y}}
+    \newcommand{\catZ}{\@cat{z}}
+    \newcommand{\catAA}{\@cat{A}}
+    \newcommand{\catBB}{\@cat{B}}
+    \newcommand{\catCC}{\@cat{C}}
+    \newcommand{\catDD}{\@cat{D}}
+    \newcommand{\catEE}{\@cat{E}}
+    \newcommand{\catFF}{\@cat{F}}
+    \newcommand{\catGG}{\@cat{G}}
+    \newcommand{\catHH}{\@cat{H}}
+    \newcommand{\catII}{\@cat{I}}
+    \newcommand{\catJJ}{\@cat{J}}
+    \newcommand{\catKK}{\@cat{K}}
+    \newcommand{\catLL}{\@cat{L}}
+    \newcommand{\catMM}{\@cat{M}}
+    \newcommand{\catNN}{\@cat{N}}
+    \newcommand{\catOO}{\@cat{O}}
+    \newcommand{\catPP}{\@cat{P}}
+    \newcommand{\catQQ}{\@cat{Q}}
+    \newcommand{\catRR}{\@cat{R}}
+    \newcommand{\catSS}{\@cat{S}}
+    \newcommand{\catTT}{\@cat{T}}
+    \newcommand{\catUU}{\@cat{U}}
+    \newcommand{\catVV}{\@cat{V}}
+    \newcommand{\catWW}{\@cat{W}}
+    \newcommand{\catXX}{\@cat{X}}
+    \newcommand{\catYY}{\@cat{Y}}
+    \newcommand{\catZZ}{\@cat{Z}}
+    
+}{} % \ifthenelse{\boolean{@b_maths_use_categories}}{
+
+%% ----------------------------------------
+%% Arrows
+%% ----------------------------------------
+
+\ifthenelse{\boolean{@b_maths_use_arrows}}{
+
+    \newcommand{\incl}{\hookrightarrow}
+    \newcommand{\leftincl}{\hookleftarrow}
+    \newcommand{\longincl}{\lhook\joinrel\relbar\joinrel\rightarrow}
+    \newcommand{\longleftincl}{\leftarrow\joinrel\relbar\joinrel\rhook}
+	\newcommand{\xincl}{\xhookrightarrow}
+	\newcommand{\xleftincl}{\xhookleftarrow}    
+    
+	\renewcommand{\twoheadrightarrow}{\rightarrow\mathrel{\mkern-14mu}\rightarrow}
+	\renewcommand{\twoheadleftarrow}{\leftarrow\mathrel{\mkern-14mu}\leftarrow}	
+	\newcommand{\longtwoheadrightarrow}{\relbar\joinrel\twoheadrightarrow}
+	\newcommand{\longtwoheadleftarrow}{\twoheadleftarrow\joinrel\relbar}	
+	\newcommand{\xtwoheadrightarrow}[2][]{
+	  \xrightarrow[#1]{#2}\mathrel{\mkern-14mu}\rightarrow
+	}
+	\newcommand{\xtwoheadleftarrow}[2][]{
+	  \leftarrow\mathrel{\mkern-14mu}\xleftarrow[#1]{#2}
+	}    
+    
+    \newcommand{\epi}{\twoheadrightarrow}
+    \newcommand{\leftepi}{\twoheadleftarrow}
+    \newcommand{\longepi}{\longtwoheadrightarrow}
+    \newcommand{\longleftepi}{\longtwoheadleftarrow}
+    \newcommand{\xepi}{\xtwoheadrightarrow}
+    \newcommand{\xleftepi}{\xtwoheadleftarrow}
+    
+    \newcommand{\mono}{\rightarrowtail}
+    \newcommand{\longmono}{
+        \stackrel{
+            \begin{tikzpicture}
+                \draw[>->] (0, 0) -- (0.55, 0);
+            \end{tikzpicture}
+        }{}
+    }
+    
+    \newcommand{\longmultimap}{\relbar\joinrel\multimap}
+    
+}{} % \ifthenelse{\boolean{@b_maths_use_arrows}}{
 
 %% ----------------------------------------
 %% Other / handy
 %% ----------------------------------------
+
+\ifthenelse{\boolean{@b_maths_use_misc}}{
+
+    \newcommand{\bs}{\setminus}
+    \newcommand{\es}{\emptyset}
+    \newcommand{\ox}{\otimes}
+    \newcommand{\x}{\times}
+    
+    \renewcommand{\epsilon}{\varepsilon}
+    
+    \ifthenelse{\boolean{@b_extpack_use_xecjk}}{
+    	\newcommand{\yoneda}{\text{よ}}
+    }{
+	    \newcommand{\yoneda}{\mathsf{y}}
+    }
+    
+    % Define custom big operators, whose size are that of \sum
+    % 9000+ thanks to egreg, https://tex.stackexchange.com/questions/23432/how-to-create-my-own-math-operator-with-limits
+    \DeclareRobustCommand\@bigop[1]{
+    	\mathop{\vphantom{\sum}\mathpalette\@bigop@{#1}}\slimits@
+    }
+    \newcommand{\@bigop@}[2]{
+    	\vcenter{
+    		\sbox\z@{$#1\sum$}
+    		\hbox{\resizebox{\ifx#1\displaystyle.9\fi\dimexpr\ht\z@+\dp\z@}{!}{$\m@th#2$}}
+    	}
+    }
+    \newcommand{\DeclareBigOperator}[2]{\newcommand{#1}{\DOTSB\@bigop{#2}}}
+    
+    % Defines a rotated symbol that sizes properly
+    \newcommand{\DeclareRotatedSymbol}[3]{
+    	\newcommand{#1}{{
+    		\mathchoice{
+    			\rotatebox[origin=c]{#2}{$\displaystyle{#3}$}
+    		}{
+    			\rotatebox[origin=c]{#2}{$\textstyle{#3}$}
+    		}{
+	    		\rotatebox[origin=c]{#2}{$\scriptstyle{#3}$}
+	    	}{
+		    	\rotatebox[origin=c]{#2}{$\scriptscriptstyle{#3}$}
+		    }}
+		}
+	}
+    
+}{} % \ifthenelse{\boolean{@b_maths_use_misc}}{
+
+%% -----------------------------------------------------------------------------
+%%
+%% Misc.
+%%
+%% -----------------------------------------------------------------------------
 
 \ifthenelse{\boolean{@b_use_misc}}{
 
@@ -156,31 +749,2583 @@
 
 }{} % \ifthenelse{\boolean{@b_use_misc}}{
 
-%% ----------------------------------------
+%% -----------------------------------------------------------------------------
+%%
 %% Letter styles
+%%
+%% -----------------------------------------------------------------------------
+
+\ifthenelse{\boolean{@b_maths_use_characterStyles}}{
+
+%% --------------------
+%% cal
+%% --------------------
+
+    \newcommand{\calA}{\@cal{a}}
+    \newcommand{\calB}{\@cal{b}}
+    \newcommand{\calC}{\@cal{c}}
+    \newcommand{\calD}{\@cal{d}}
+    \newcommand{\calE}{\@cal{e}}
+    \newcommand{\calF}{\@cal{f}}
+    \newcommand{\calG}{\@cal{g}}
+    \newcommand{\calH}{\@cal{h}}
+    \newcommand{\calI}{\@cal{i}}
+    \newcommand{\calJ}{\@cal{j}}
+    \newcommand{\calK}{\@cal{k}}
+    \newcommand{\calL}{\@cal{l}}
+    \newcommand{\calM}{\@cal{m}}
+    \newcommand{\calN}{\@cal{n}}
+    \newcommand{\calO}{\@cal{o}}
+    \newcommand{\calP}{\@cal{p}}
+    \newcommand{\calQ}{\@cal{q}}
+    \newcommand{\calR}{\@cal{r}}
+    \newcommand{\calS}{\@cal{s}}
+    \newcommand{\calT}{\@cal{t}}
+    \newcommand{\calU}{\@cal{u}}
+    \newcommand{\calV}{\@cal{v}}
+    \newcommand{\calW}{\@cal{w}}
+    \newcommand{\calX}{\@cal{x}}
+    \newcommand{\calY}{\@cal{y}}
+    \newcommand{\calZ}{\@cal{z}}
+    \newcommand{\calAA}{\@cal{A}}
+    \newcommand{\calBB}{\@cal{B}}
+    \newcommand{\calCC}{\@cal{C}}
+    \newcommand{\calDD}{\@cal{D}}
+    \newcommand{\calEE}{\@cal{E}}
+    \newcommand{\calFF}{\@cal{F}}
+    \newcommand{\calGG}{\@cal{G}}
+    \newcommand{\calHH}{\@cal{H}}
+    \newcommand{\calII}{\@cal{I}}
+    \newcommand{\calJJ}{\@cal{J}}
+    \newcommand{\calKK}{\@cal{K}}
+    \newcommand{\calLL}{\@cal{L}}
+    \newcommand{\calMM}{\@cal{M}}
+    \newcommand{\calNN}{\@cal{N}}
+    \newcommand{\calOO}{\@cal{O}}
+    \newcommand{\calPP}{\@cal{P}}
+    \newcommand{\calQQ}{\@cal{Q}}
+    \newcommand{\calRR}{\@cal{R}}
+    \newcommand{\calSS}{\@cal{S}}
+    \newcommand{\calTT}{\@cal{T}}
+    \newcommand{\calUU}{\@cal{U}}
+    \newcommand{\calVV}{\@cal{V}}
+    \newcommand{\calWW}{\@cal{W}}
+    \newcommand{\calXX}{\@cal{X}}
+    \newcommand{\calYY}{\@cal{Y}}
+    \newcommand{\calZZ}{\@cal{Z}}
+    
+%% --------------------
+%% frak
+%% --------------------
+
+    \newcommand{\frakA}{\mathfrak{a}}
+    \newcommand{\frakB}{\mathfrak{b}}
+    \newcommand{\frakC}{\mathfrak{c}}
+    \newcommand{\frakD}{\mathfrak{d}}
+    \newcommand{\frakE}{\mathfrak{e}}
+    \newcommand{\frakF}{\mathfrak{f}}
+    \newcommand{\frakG}{\mathfrak{g}}
+    \newcommand{\frakH}{\mathfrak{h}}
+    \newcommand{\frakI}{\mathfrak{i}}
+    \newcommand{\frakJ}{\mathfrak{j}}
+    \newcommand{\frakK}{\mathfrak{k}}
+    \newcommand{\frakL}{\mathfrak{l}}
+    \newcommand{\frakM}{\mathfrak{m}}
+    \newcommand{\frakN}{\mathfrak{n}}
+    \newcommand{\frakO}{\mathfrak{o}}
+    \newcommand{\frakP}{\mathfrak{p}}
+    \newcommand{\frakQ}{\mathfrak{q}}
+    \newcommand{\frakR}{\mathfrak{r}}
+    \newcommand{\frakS}{\mathfrak{s}}
+    \newcommand{\frakT}{\mathfrak{t}}
+    \newcommand{\frakU}{\mathfrak{u}}
+    \newcommand{\frakV}{\mathfrak{v}}
+    \newcommand{\frakW}{\mathfrak{w}}
+    \newcommand{\frakX}{\mathfrak{x}}
+    \newcommand{\frakY}{\mathfrak{y}}
+    \newcommand{\frakZ}{\mathfrak{z}}
+    \newcommand{\frakAA}{\mathfrak{A}}
+    \newcommand{\frakBB}{\mathfrak{B}}
+    \newcommand{\frakCC}{\mathfrak{C}}
+    \newcommand{\frakDD}{\mathfrak{D}}
+    \newcommand{\frakEE}{\mathfrak{E}}
+    \newcommand{\frakFF}{\mathfrak{F}}
+    \newcommand{\frakGG}{\mathfrak{G}}
+    \newcommand{\frakHH}{\mathfrak{H}}
+    \newcommand{\frakII}{\mathfrak{I}}
+    \newcommand{\frakJJ}{\mathfrak{J}}
+    \newcommand{\frakKK}{\mathfrak{K}}
+    \newcommand{\frakLL}{\mathfrak{L}}
+    \newcommand{\frakMM}{\mathfrak{M}}
+    \newcommand{\frakNN}{\mathfrak{N}}
+    \newcommand{\frakOO}{\mathfrak{O}}
+    \newcommand{\frakPP}{\mathfrak{P}}
+    \newcommand{\frakQQ}{\mathfrak{Q}}
+    \newcommand{\frakRR}{\mathfrak{R}}
+    \newcommand{\frakSS}{\mathfrak{S}}
+    \newcommand{\frakTT}{\mathfrak{T}}
+    \newcommand{\frakUU}{\mathfrak{U}}
+    \newcommand{\frakVV}{\mathfrak{V}}
+    \newcommand{\frakWW}{\mathfrak{W}}
+    \newcommand{\frakXX}{\mathfrak{X}}
+    \newcommand{\frakYY}{\mathfrak{Y}}
+    \newcommand{\frakZZ}{\mathfrak{Z}}
+    
+%% --------------------
+%% bb
+%% --------------------
+
+\ifthenelse{\equal{\@bbStyle}{bbold}}{
+    \newcommand{\bbA}{\@bb{a}}
+    \newcommand{\bbB}{\@bb{b}}
+    \newcommand{\bbC}{\@bb{c}}
+    \newcommand{\bbD}{\@bb{d}}
+    \newcommand{\bbE}{\@bb{e}}
+    \newcommand{\bbF}{\@bb{f}}
+    \newcommand{\bbG}{\@bb{g}}
+    \newcommand{\bbH}{\@bb{h}}
+    \newcommand{\bbI}{\@bb{i}}
+    \newcommand{\bbJ}{\@bb{j}}
+    \newcommand{\bbK}{\@bb{k}}
+    \newcommand{\bbL}{\@bb{l}}
+    \newcommand{\bbM}{\@bb{m}}
+    \newcommand{\bbN}{\@bb{n}}
+    \newcommand{\bbO}{\@bb{o}}
+    \newcommand{\bbP}{\@bb{p}}
+    \newcommand{\bbQ}{\@bb{q}}
+    \newcommand{\bbR}{\@bb{r}}
+    \newcommand{\bbS}{\@bb{s}}
+    \newcommand{\bbT}{\@bb{t}}
+    \newcommand{\bbU}{\@bb{u}}
+    \newcommand{\bbV}{\@bb{v}}
+    \newcommand{\bbW}{\@bb{w}}
+    \newcommand{\bbX}{\@bb{x}}
+    \newcommand{\bbY}{\@bb{y}}
+    \newcommand{\bbZ}{\@bb{z}}
+}{
+    \newcommand{\bbK}{\Bbbk}
+} % \ifthenelse{\equal{\@bbStyle}{bbold}}{
+    \newcommand{\bbAA}{\@bb{A}}
+    \newcommand{\bbBB}{\@bb{B}}
+    \newcommand{\bbCC}{\@bb{C}}
+    \newcommand{\bbDD}{\@bb{D}}
+    \newcommand{\bbEE}{\@bb{E}}
+    \newcommand{\bbFF}{\@bb{F}}
+    \newcommand{\bbGG}{\@bb{G}}
+    \newcommand{\bbHH}{\@bb{H}}
+    \newcommand{\bbII}{\@bb{I}}
+    \newcommand{\bbJJ}{\@bb{J}}
+    \newcommand{\bbKK}{\@bb{K}}
+    \newcommand{\bbLL}{\@bb{L}}
+    \newcommand{\bbMM}{\@bb{M}}
+    \newcommand{\bbNN}{\@bb{N}}
+    \newcommand{\bbOO}{\@bb{O}}
+    \newcommand{\bbPP}{\@bb{P}}
+    \newcommand{\bbQQ}{\@bb{Q}}
+    \newcommand{\bbRR}{\@bb{R}}
+    \newcommand{\bbSS}{\@bb{S}}
+    \newcommand{\bbTT}{\@bb{T}}
+    \newcommand{\bbUU}{\@bb{U}}
+    \newcommand{\bbVV}{\@bb{V}}
+    \newcommand{\bbWW}{\@bb{W}}
+    \newcommand{\bbXX}{\@bb{X}}
+    \newcommand{\bbYY}{\@bb{Y}}
+    \newcommand{\bbZZ}{\@bb{Z}}
+    
+%% --------------------
+%% bf
+%% --------------------
+
+    \newcommand{\bfA}{\mathbf{a}}
+    \newcommand{\bfB}{\mathbf{b}}
+    \newcommand{\bfC}{\mathbf{c}}
+    \newcommand{\bfD}{\mathbf{d}}
+    \newcommand{\bfE}{\mathbf{e}}
+    \newcommand{\bfF}{\mathbf{f}}
+    \newcommand{\bfG}{\mathbf{g}}
+    \newcommand{\bfH}{\mathbf{h}}
+    \newcommand{\bfI}{\mathbf{i}}
+    \newcommand{\bfJ}{\mathbf{j}}
+    \newcommand{\bfK}{\mathbf{k}}
+    \newcommand{\bfL}{\mathbf{l}}
+    \newcommand{\bfM}{\mathbf{m}}
+    \newcommand{\bfN}{\mathbf{n}}
+    \newcommand{\bfO}{\mathbf{o}}
+    \newcommand{\bfP}{\mathbf{p}}
+    \newcommand{\bfQ}{\mathbf{q}}
+    \newcommand{\bfR}{\mathbf{r}}
+    \newcommand{\bfS}{\mathbf{s}}
+    \newcommand{\bfT}{\mathbf{t}}
+    \newcommand{\bfU}{\mathbf{u}}
+    \newcommand{\bfV}{\mathbf{v}}
+    \newcommand{\bfW}{\mathbf{w}}
+    \newcommand{\bfX}{\mathbf{x}}
+    \newcommand{\bfY}{\mathbf{y}}
+    \newcommand{\bfZ}{\mathbf{z}}
+    \newcommand{\bfAA}{\mathbf{A}}
+    \newcommand{\bfBB}{\mathbf{B}}
+    \newcommand{\bfCC}{\mathbf{C}}
+    \newcommand{\bfDD}{\mathbf{D}}
+    \newcommand{\bfEE}{\mathbf{E}}
+    \newcommand{\bfFF}{\mathbf{F}}
+    \newcommand{\bfGG}{\mathbf{G}}
+    \newcommand{\bfHH}{\mathbf{H}}
+    \newcommand{\bfII}{\mathbf{I}}
+    \newcommand{\bfJJ}{\mathbf{J}}
+    \newcommand{\bfKK}{\mathbf{K}}
+    \newcommand{\bfLL}{\mathbf{L}}
+    \newcommand{\bfMM}{\mathbf{M}}
+    \newcommand{\bfNN}{\mathbf{N}}
+    \newcommand{\bfOO}{\mathbf{O}}
+    \newcommand{\bfPP}{\mathbf{P}}
+    \newcommand{\bfQQ}{\mathbf{Q}}
+    \newcommand{\bfRR}{\mathbf{R}}
+    \newcommand{\bfSS}{\mathbf{S}}
+    \newcommand{\bfTT}{\mathbf{T}}
+    \newcommand{\bfUU}{\mathbf{U}}
+    \newcommand{\bfVV}{\mathbf{V}}
+    \newcommand{\bfWW}{\mathbf{W}}
+    \newcommand{\bfXX}{\mathbf{X}}
+    \newcommand{\bfYY}{\mathbf{Y}}
+    \newcommand{\bfZZ}{\mathbf{Z}}
+    
+%% --------------------
+%% it
+%% --------------------
+
+    \newcommand{\itA}{\mathit{a}}
+    \newcommand{\itB}{\mathit{b}}
+    \newcommand{\itC}{\mathit{c}}
+    \newcommand{\itD}{\mathit{d}}
+    \newcommand{\itE}{\mathit{e}}
+    \newcommand{\itF}{\mathit{f}}
+    \newcommand{\itG}{\mathit{g}}
+    \newcommand{\itH}{\mathit{h}}
+    \newcommand{\itI}{\mathit{i}}
+    \newcommand{\itJ}{\mathit{j}}
+    \newcommand{\itK}{\mathit{k}}
+    \newcommand{\itL}{\mathit{l}}
+    \newcommand{\itM}{\mathit{m}}
+    \newcommand{\itN}{\mathit{n}}
+    \newcommand{\itO}{\mathit{o}}
+    \newcommand{\itP}{\mathit{p}}
+    \newcommand{\itQ}{\mathit{q}}
+    \newcommand{\itR}{\mathit{r}}
+    \newcommand{\itS}{\mathit{s}}
+    \newcommand{\itT}{\mathit{t}}
+    \newcommand{\itU}{\mathit{u}}
+    \newcommand{\itV}{\mathit{v}}
+    \newcommand{\itW}{\mathit{w}}
+    \newcommand{\itX}{\mathit{x}}
+    \newcommand{\itY}{\mathit{y}}
+    \newcommand{\itZ}{\mathit{z}}
+    \newcommand{\itAA}{\mathit{A}}
+    \newcommand{\itBB}{\mathit{B}}
+    \newcommand{\itCC}{\mathit{C}}
+    \newcommand{\itDD}{\mathit{D}}
+    \newcommand{\itEE}{\mathit{E}}
+    \newcommand{\itFF}{\mathit{F}}
+    \newcommand{\itGG}{\mathit{G}}
+    \newcommand{\itHH}{\mathit{H}}
+    \newcommand{\itII}{\mathit{I}}
+    \newcommand{\itJJ}{\mathit{J}}
+    \newcommand{\itKK}{\mathit{K}}
+    \newcommand{\itLL}{\mathit{L}}
+    \newcommand{\itMM}{\mathit{M}}
+    \newcommand{\itNN}{\mathit{N}}
+    \newcommand{\itOO}{\mathit{O}}
+    \newcommand{\itPP}{\mathit{P}}
+    \newcommand{\itQQ}{\mathit{Q}}
+    \newcommand{\itRR}{\mathit{R}}
+    \newcommand{\itSS}{\mathit{S}}
+    \newcommand{\itTT}{\mathit{T}}
+    \newcommand{\itUU}{\mathit{U}}
+    \newcommand{\itVV}{\mathit{V}}
+    \newcommand{\itWW}{\mathit{W}}
+    \newcommand{\itXX}{\mathit{X}}
+    \newcommand{\itYY}{\mathit{Y}}
+    \newcommand{\itZZ}{\mathit{Z}}
+    
+%% --------------------
+%% rm
+%% --------------------
+
+    \newcommand{\rmA}{\mathrm{a}}
+    \newcommand{\rmB}{\mathrm{b}}
+    \newcommand{\rmC}{\mathrm{c}}
+    \newcommand{\rmD}{\mathrm{d}}
+    \newcommand{\rmE}{\mathrm{e}}
+    \newcommand{\rmF}{\mathrm{f}}
+    \newcommand{\rmG}{\mathrm{g}}
+    \newcommand{\rmH}{\mathrm{h}}
+    \newcommand{\rmI}{\mathrm{i}}
+    \newcommand{\rmJ}{\mathrm{j}}
+    \newcommand{\rmK}{\mathrm{k}}
+    \newcommand{\rmL}{\mathrm{l}}
+    \newcommand{\rmM}{\mathrm{m}}
+    \newcommand{\rmN}{\mathrm{n}}
+    \newcommand{\rmO}{\mathrm{o}}
+    \newcommand{\rmP}{\mathrm{p}}
+    \newcommand{\rmQ}{\mathrm{q}}
+    \newcommand{\rmR}{\mathrm{r}}
+    \newcommand{\rmS}{\mathrm{s}}
+    \newcommand{\rmT}{\mathrm{t}}
+    \newcommand{\rmU}{\mathrm{u}}
+    \newcommand{\rmV}{\mathrm{v}}
+    \newcommand{\rmW}{\mathrm{w}}
+    \newcommand{\rmX}{\mathrm{x}}
+    \newcommand{\rmY}{\mathrm{y}}
+    \newcommand{\rmZ}{\mathrm{z}}
+    \newcommand{\rmAA}{\mathrm{A}}
+    \newcommand{\rmBB}{\mathrm{B}}
+    \newcommand{\rmCC}{\mathrm{C}}
+    \newcommand{\rmDD}{\mathrm{D}}
+    \newcommand{\rmEE}{\mathrm{E}}
+    \newcommand{\rmFF}{\mathrm{F}}
+    \newcommand{\rmGG}{\mathrm{G}}
+    \newcommand{\rmHH}{\mathrm{H}}
+    \newcommand{\rmII}{\mathrm{I}}
+    \newcommand{\rmJJ}{\mathrm{J}}
+    \newcommand{\rmKK}{\mathrm{K}}
+    \newcommand{\rmLL}{\mathrm{L}}
+    \newcommand{\rmMM}{\mathrm{M}}
+    \newcommand{\rmNN}{\mathrm{N}}
+    \newcommand{\rmOO}{\mathrm{O}}
+    \newcommand{\rmPP}{\mathrm{P}}
+    \newcommand{\rmQQ}{\mathrm{Q}}
+    \newcommand{\rmRR}{\mathrm{R}}
+    \newcommand{\rmSS}{\mathrm{S}}
+    \newcommand{\rmTT}{\mathrm{T}}
+    \newcommand{\rmUU}{\mathrm{U}}
+    \newcommand{\rmVV}{\mathrm{V}}
+    \newcommand{\rmWW}{\mathrm{W}}
+    \newcommand{\rmXX}{\mathrm{X}}
+    \newcommand{\rmYY}{\mathrm{Y}}
+    \newcommand{\rmZZ}{\mathrm{Z}}
+    
+%% --------------------
+%% sf
+%% --------------------
+
+    \newcommand{\sfA}{\mathsf{a}}
+    \newcommand{\sfB}{\mathsf{b}}
+    \newcommand{\sfC}{\mathsf{c}}
+    \newcommand{\sfD}{\mathsf{d}}
+    \newcommand{\sfE}{\mathsf{e}}
+    \newcommand{\sfF}{\mathsf{f}}
+    \newcommand{\sfG}{\mathsf{g}}
+    \newcommand{\sfH}{\mathsf{h}}
+    \newcommand{\sfI}{\mathsf{i}}
+    \newcommand{\sfJ}{\mathsf{j}}
+    \newcommand{\sfK}{\mathsf{k}}
+    \newcommand{\sfL}{\mathsf{l}}
+    \newcommand{\sfM}{\mathsf{m}}
+    \newcommand{\sfN}{\mathsf{n}}
+    \newcommand{\sfO}{\mathsf{o}}
+    \newcommand{\sfP}{\mathsf{p}}
+    \newcommand{\sfQ}{\mathsf{q}}
+    \newcommand{\sfR}{\mathsf{r}}
+    \newcommand{\sfS}{\mathsf{s}}
+    \newcommand{\sfT}{\mathsf{t}}
+    \newcommand{\sfU}{\mathsf{u}}
+    \newcommand{\sfV}{\mathsf{v}}
+    \newcommand{\sfW}{\mathsf{w}}
+    \newcommand{\sfX}{\mathsf{x}}
+    \newcommand{\sfY}{\mathsf{y}}
+    \newcommand{\sfZ}{\mathsf{z}}
+    \newcommand{\sfAA}{\mathsf{A}}
+    \newcommand{\sfBB}{\mathsf{B}}
+    \newcommand{\sfCC}{\mathsf{C}}
+    \newcommand{\sfDD}{\mathsf{D}}
+    \newcommand{\sfEE}{\mathsf{E}}
+    \newcommand{\sfFF}{\mathsf{F}}
+    \newcommand{\sfGG}{\mathsf{G}}
+    \newcommand{\sfHH}{\mathsf{H}}
+    \newcommand{\sfII}{\mathsf{I}}
+    \newcommand{\sfJJ}{\mathsf{J}}
+    \newcommand{\sfKK}{\mathsf{K}}
+    \newcommand{\sfLL}{\mathsf{L}}
+    \newcommand{\sfMM}{\mathsf{M}}
+    \newcommand{\sfNN}{\mathsf{N}}
+    \newcommand{\sfOO}{\mathsf{O}}
+    \newcommand{\sfPP}{\mathsf{P}}
+    \newcommand{\sfQQ}{\mathsf{Q}}
+    \newcommand{\sfRR}{\mathsf{R}}
+    \newcommand{\sfSS}{\mathsf{S}}
+    \newcommand{\sfTT}{\mathsf{T}}
+    \newcommand{\sfUU}{\mathsf{U}}
+    \newcommand{\sfVV}{\mathsf{V}}
+    \newcommand{\sfWW}{\mathsf{W}}
+    \newcommand{\sfXX}{\mathsf{X}}
+    \newcommand{\sfYY}{\mathsf{Y}}
+    \newcommand{\sfZZ}{\mathsf{Z}}
+    
+}{} % \ifthenelse{\boolean{@b_maths_use_characterStyles}}{
+
+%% --------------------
+%% Styles des lettres greques
+%% --------------------
+
+%% --------------------
+%% bb
+%% --------------------
+
+    \newcommand{\bbalpha}{\@bb{\alpha}}
+    \newcommand{\bbbeta}{\@bb{\beta}}
+    \newcommand{\bbgamma}{\@bb{\gamma}}
+    \newcommand{\bbdelta}{\@bb{\delta}}
+    \newcommand{\bbvarepsilon}{\@bb{\varepsilon}}
+    \newcommand{\bbepsilon}{\@bb{\epsilon}}
+    \newcommand{\bbzeta}{\@bb{\zeta}}
+    \newcommand{\bbeta}{\@bb{\eta}}
+    \newcommand{\bbtheta}{\@bb{\theta}}
+    \newcommand{\bbvartheta}{\@bb{\vartheta}}
+    \newcommand{\bbiota}{\@bb{\iota}}
+    \newcommand{\bbkappa}{\@bb{\kappa}}
+    \newcommand{\bblambda}{\@bb{\lambda}}
+    \newcommand{\bbmu}{\@bb{\mu}}
+    \newcommand{\bbnu}{\@bb{\nu}}
+    \newcommand{\bbxi}{\@bb{\xi}}
+    \newcommand{\bbpi}{\@bb{\pi}}
+    \newcommand{\bbvarpi}{\@bb{\varpi}}
+    \newcommand{\bbrho}{\@bb{\rho}}
+    \newcommand{\bbvarrho}{\@bb{\varrho}}
+    \newcommand{\bbsigma}{\@bb{\sigma}}
+    \newcommand{\bbvarsigma}{\@bb{\varsigma}}
+    \newcommand{\bbtau}{\@bb{\tau}}
+    \newcommand{\bbupsilon}{\@bb{\upsilon}}
+    \newcommand{\bbphi}{\@bb{\phi}}
+    \newcommand{\bbvarphi}{\@bb{\varphi}}
+    \newcommand{\bbchi}{\@bb{\chi}}
+    \newcommand{\bbpsi}{\@bb{\psi}}
+    \newcommand{\bbomega}{\@bb{\omega}}
+    \newcommand{\bbGamma}{\@bb{\Gamma}}
+    \newcommand{\bbDelta}{\@bb{\Delta}}
+    \newcommand{\bbTheta}{\@bb{\Theta}}
+    \newcommand{\bbLambda}{\@bb{\Lambda}}
+    \newcommand{\bbXi}{\@bb{\Xi}}
+    \newcommand{\bbPi}{\@bb{\Pi}}
+    \newcommand{\bbSigma}{\@bb{\Sigma}}
+    \newcommand{\bbUpsilon}{\@bb{\Upsilon}}
+    \newcommand{\bbPhi}{\@bb{\Phi}}
+    \newcommand{\bbPsi}{\@bb{\Psi}}
+    \newcommand{\bbOmega}{\@bb{\Omega}}
+
+%% --------------------
+%% bf
+%% --------------------
+
+    \newcommand{\bfalpha}{\boldsymbol{\alpha}}
+    \newcommand{\bfbeta}{\boldsymbol{\beta}}
+    \newcommand{\bfgamma}{\boldsymbol{\gamma}}
+    \newcommand{\bfdelta}{\boldsymbol{\delta}}
+    \newcommand{\bfvarepsilon}{\boldsymbol{\varepsilon}}
+    \newcommand{\bfepsilon}{\boldsymbol{\epsilon}}
+    \newcommand{\bfzeta}{\boldsymbol{\zeta}}
+    \newcommand{\bfeta}{\boldsymbol{\eta}}
+    \newcommand{\bftheta}{\boldsymbol{\theta}}
+    \newcommand{\bfvartheta}{\boldsymbol{\vartheta}}
+    \newcommand{\bfiota}{\boldsymbol{\iota}}
+    \newcommand{\bfkappa}{\boldsymbol{\kappa}}
+    \newcommand{\bflambda}{\boldsymbol{\lambda}}
+    \newcommand{\bfmu}{\boldsymbol{\mu}}
+    \newcommand{\bfnu}{\boldsymbol{\nu}}
+    \newcommand{\bfxi}{\boldsymbol{\xi}}
+    \newcommand{\bfpi}{\boldsymbol{\pi}}
+    \newcommand{\bfvarpi}{\boldsymbol{\varpi}}
+    \newcommand{\bfrho}{\boldsymbol{\rho}}
+    \newcommand{\bfvarrho}{\boldsymbol{\varrho}}
+    \newcommand{\bfsigma}{\boldsymbol{\sigma}}
+    \newcommand{\bfvarsigma}{\boldsymbol{\varsigma}}
+    \newcommand{\bftau}{\boldsymbol{\tau}}
+    \newcommand{\bfupsilon}{\boldsymbol{\upsilon}}
+    \newcommand{\bfphi}{\boldsymbol{\phi}}
+    \newcommand{\bfvarphi}{\boldsymbol{\varphi}}
+    \newcommand{\bfchi}{\boldsymbol{\chi}}
+    \newcommand{\bfpsi}{\boldsymbol{\psi}}
+    \newcommand{\bfomega}{\boldsymbol{\omega}}
+    \newcommand{\bfGamma}{\boldsymbol{\Gamma}}
+    \newcommand{\bfDelta}{\boldsymbol{\Delta}}
+    \newcommand{\bfTheta}{\boldsymbol{\Theta}}
+    \newcommand{\bfLambda}{\boldsymbol{\Lambda}}
+    \newcommand{\bfXi}{\boldsymbol{\Xi}}
+    \newcommand{\bfPi}{\boldsymbol{\Pi}}
+    \newcommand{\bfSigma}{\boldsymbol{\Sigma}}
+    \newcommand{\bfUpsilon}{\boldsymbol{\Upsilon}}
+    \newcommand{\bfPhi}{\boldsymbol{\Phi}}
+    \newcommand{\bfPsi}{\boldsymbol{\Psi}}
+    \newcommand{\bfOmega}{\boldsymbol{\Omega}}
+
+%% ----------------------------------------
+%% Accents
 %% ----------------------------------------
 
-\input{kappak-letters.tex}
+\ifthenelse{\boolean{@b_maths_use_characterAccents}}{
+    
+%% --------------------
+%% vec
+%% --------------------
 
-%% ----------------------------------------
+    \newcommand{\vecA}{\vec{a}}
+    \newcommand{\vecB}{\vec{b}}
+    \newcommand{\vecC}{\vec{c}}
+    \newcommand{\vecD}{\vec{d}}
+    \newcommand{\vecE}{\vec{e}}
+    \newcommand{\vecF}{\vec{f}}
+    \newcommand{\vecG}{\vec{g}}
+    \newcommand{\vecH}{\vec{h}}
+    \newcommand{\vecI}{\vec{i}}
+    \newcommand{\vecJ}{\vec{j}}
+    \newcommand{\vecK}{\vec{k}}
+    \newcommand{\vecL}{\vec{l}}
+    \newcommand{\vecM}{\vec{m}}
+    \newcommand{\vecN}{\vec{n}}
+    \newcommand{\vecO}{\vec{o}}
+    \newcommand{\vecP}{\vec{p}}
+    \newcommand{\vecQ}{\vec{q}}
+    \newcommand{\vecR}{\vec{r}}
+    \newcommand{\vecS}{\vec{s}}
+    \newcommand{\vecT}{\vec{t}}
+    \newcommand{\vecU}{\vec{u}}
+    \newcommand{\vecV}{\vec{v}}
+    \newcommand{\vecW}{\vec{w}}
+    \newcommand{\vecX}{\vec{x}}
+    \newcommand{\vecY}{\vec{y}}
+    \newcommand{\vecZ}{\vec{z}}
+    \newcommand{\vecAA}{\vec{A}}
+    \newcommand{\vecBB}{\vec{B}}
+    \newcommand{\vecCC}{\vec{C}}
+    \newcommand{\vecDD}{\vec{D}}
+    \newcommand{\vecEE}{\vec{E}}
+    \newcommand{\vecFF}{\vec{F}}
+    \newcommand{\vecGG}{\vec{G}}
+    \newcommand{\vecHH}{\vec{H}}
+    \newcommand{\vecII}{\vec{I}}
+    \newcommand{\vecJJ}{\vec{J}}
+    \newcommand{\vecKK}{\vec{K}}
+    \newcommand{\vecLL}{\vec{L}}
+    \newcommand{\vecMM}{\vec{M}}
+    \newcommand{\vecNN}{\vec{N}}
+    \newcommand{\vecOO}{\vec{O}}
+    \newcommand{\vecPP}{\vec{P}}
+    \newcommand{\vecQQ}{\vec{Q}}
+    \newcommand{\vecRR}{\vec{R}}
+    \newcommand{\vecSS}{\vec{S}}
+    \newcommand{\vecTT}{\vec{T}}
+    \newcommand{\vecUU}{\vec{U}}
+    \newcommand{\vecVV}{\vec{V}}
+    \newcommand{\vecWW}{\vec{W}}
+    \newcommand{\vecXX}{\vec{X}}
+    \newcommand{\vecYY}{\vec{Y}}
+    \newcommand{\vecZZ}{\vec{Z}}
+    
+%% --------------------
+%% hat
+%% --------------------
+
+    \newcommand{\hatA}{\hat{a}}
+    \newcommand{\hatB}{\hat{b}}
+    \newcommand{\hatC}{\hat{c}}
+    \newcommand{\hatD}{\hat{d}}
+    \newcommand{\hatE}{\hat{e}}
+    \newcommand{\hatF}{\hat{f}}
+    \newcommand{\hatG}{\hat{g}}
+    \newcommand{\hatH}{\hat{h}}
+    \newcommand{\hatI}{\hat{i}}
+    \newcommand{\hatJ}{\hat{j}}
+    \newcommand{\hatK}{\hat{k}}
+    \newcommand{\hatL}{\hat{l}}
+    \newcommand{\hatM}{\hat{m}}
+    \newcommand{\hatN}{\hat{n}}
+    \newcommand{\hatO}{\hat{o}}
+    \newcommand{\hatP}{\hat{p}}
+    \newcommand{\hatQ}{\hat{q}}
+    \newcommand{\hatR}{\hat{r}}
+    \newcommand{\hatS}{\hat{s}}
+    \newcommand{\hatT}{\hat{t}}
+    \newcommand{\hatU}{\hat{u}}
+    \newcommand{\hatV}{\hat{v}}
+    \newcommand{\hatW}{\hat{w}}
+    \newcommand{\hatX}{\hat{x}}
+    \newcommand{\hatY}{\hat{y}}
+    \newcommand{\hatZ}{\hat{z}}
+    \newcommand{\hatAA}{\hat{A}}
+    \newcommand{\hatBB}{\hat{B}}
+    \newcommand{\hatCC}{\hat{C}}
+    \newcommand{\hatDD}{\hat{D}}
+    \newcommand{\hatEE}{\hat{E}}
+    \newcommand{\hatFF}{\hat{F}}
+    \newcommand{\hatGG}{\hat{G}}
+    \newcommand{\hatHH}{\hat{H}}
+    \newcommand{\hatII}{\hat{I}}
+    \newcommand{\hatJJ}{\hat{J}}
+    \newcommand{\hatKK}{\hat{K}}
+    \newcommand{\hatLL}{\hat{L}}
+    \newcommand{\hatMM}{\hat{M}}
+    \newcommand{\hatNN}{\hat{N}}
+    \newcommand{\hatOO}{\hat{O}}
+    \newcommand{\hatPP}{\hat{P}}
+    \newcommand{\hatQQ}{\hat{Q}}
+    \newcommand{\hatRR}{\hat{R}}
+    \newcommand{\hatSS}{\hat{S}}
+    \newcommand{\hatTT}{\hat{T}}
+    \newcommand{\hatUU}{\hat{U}}
+    \newcommand{\hatVV}{\hat{V}}
+    \newcommand{\hatWW}{\hat{W}}
+    \newcommand{\hatXX}{\hat{X}}
+    \newcommand{\hatYY}{\hat{Y}}
+    \newcommand{\hatZZ}{\hat{Z}}
+    
+%% --------------------
+%% ch
+%% --------------------
+
+    \newcommand{\chA}{\check{a}}
+    \newcommand{\chB}{\check{b}}
+    \newcommand{\chC}{\check{c}}
+    \newcommand{\chD}{\check{d}}
+    \newcommand{\chE}{\check{e}}
+    \newcommand{\chF}{\check{f}}
+    \newcommand{\chG}{\check{g}}
+    \newcommand{\chH}{\check{h}}
+    \newcommand{\chI}{\check{i}}
+    \newcommand{\chJ}{\check{j}}
+    \newcommand{\chK}{\check{k}}
+    \newcommand{\chL}{\check{l}}
+    \newcommand{\chM}{\check{m}}
+    \newcommand{\chN}{\check{n}}
+    \newcommand{\chO}{\check{o}}
+    \newcommand{\chP}{\check{p}}
+    \newcommand{\chQ}{\check{q}}
+    \newcommand{\chR}{\check{r}}
+    \newcommand{\chS}{\check{s}}
+    \newcommand{\chT}{\check{t}}
+    \newcommand{\chU}{\check{u}}
+    \newcommand{\chV}{\check{v}}
+    \newcommand{\chW}{\check{w}}
+    \newcommand{\chX}{\check{x}}
+    \newcommand{\chY}{\check{y}}
+    \newcommand{\chZ}{\check{z}}
+    \newcommand{\chAA}{\check{A}}
+    \newcommand{\chBB}{\check{B}}
+    \newcommand{\chCC}{\check{C}}
+    \newcommand{\chDD}{\check{D}}
+    \newcommand{\chEE}{\check{E}}
+    \newcommand{\chFF}{\check{F}}
+    \newcommand{\chGG}{\check{G}}
+    \newcommand{\chHH}{\check{H}}
+    \newcommand{\chII}{\check{I}}
+    \newcommand{\chJJ}{\check{J}}
+    \newcommand{\chKK}{\check{K}}
+    \newcommand{\chLL}{\check{L}}
+    \newcommand{\chMM}{\check{M}}
+    \newcommand{\chNN}{\check{N}}
+    \newcommand{\chOO}{\check{O}}
+    \newcommand{\chPP}{\check{P}}
+    \newcommand{\chQQ}{\check{Q}}
+    \newcommand{\chRR}{\check{R}}
+    \newcommand{\chSS}{\check{S}}
+    \newcommand{\chTT}{\check{T}}
+    \newcommand{\chUU}{\check{U}}
+    \newcommand{\chVV}{\check{V}}
+    \newcommand{\chWW}{\check{W}}
+    \newcommand{\chXX}{\check{X}}
+    \newcommand{\chYY}{\check{Y}}
+    \newcommand{\chZZ}{\check{Z}}
+
+%% --------------------
+%% dot
+%% --------------------
+
+    \newcommand{\dotA}{\dot{a}}
+    \newcommand{\dotB}{\dot{b}}
+    \newcommand{\dotC}{\dot{c}}
+    \newcommand{\dotD}{\dot{d}}
+    \newcommand{\dotE}{\dot{e}}
+    \newcommand{\dotF}{\dot{f}}
+    \newcommand{\dotG}{\dot{g}}
+    \newcommand{\dotH}{\dot{h}}
+    \newcommand{\dotI}{\dot{i}}
+    \newcommand{\dotJ}{\dot{j}}
+    \newcommand{\dotK}{\dot{k}}
+    \newcommand{\dotL}{\dot{l}}
+    \newcommand{\dotM}{\dot{m}}
+    \newcommand{\dotN}{\dot{n}}
+    \newcommand{\dotO}{\dot{o}}
+    \newcommand{\dotP}{\dot{p}}
+    \newcommand{\dotQ}{\dot{q}}
+    \newcommand{\dotR}{\dot{r}}
+    \newcommand{\dotS}{\dot{s}}
+    \newcommand{\dotT}{\dot{t}}
+    \newcommand{\dotU}{\dot{u}}
+    \newcommand{\dotV}{\dot{v}}
+    \newcommand{\dotW}{\dot{w}}
+    \newcommand{\dotX}{\dot{x}}
+    \newcommand{\dotY}{\dot{y}}
+    \newcommand{\dotZ}{\dot{z}}
+    \newcommand{\dotAA}{\dot{A}}
+    \newcommand{\dotBB}{\dot{B}}
+    \newcommand{\dotCC}{\dot{C}}
+    \newcommand{\dotDD}{\dot{D}}
+    \newcommand{\dotEE}{\dot{E}}
+    \newcommand{\dotFF}{\dot{F}}
+    \newcommand{\dotGG}{\dot{G}}
+    \newcommand{\dotHH}{\dot{H}}
+    \newcommand{\dotII}{\dot{I}}
+    \newcommand{\dotJJ}{\dot{J}}
+    \newcommand{\dotKK}{\dot{K}}
+    \newcommand{\dotLL}{\dot{L}}
+    \newcommand{\dotMM}{\dot{M}}
+    \newcommand{\dotNN}{\dot{N}}
+    \newcommand{\dotOO}{\dot{O}}
+    \newcommand{\dotPP}{\dot{P}}
+    \newcommand{\dotQQ}{\dot{Q}}
+    \newcommand{\dotRR}{\dot{R}}
+    \newcommand{\dotSS}{\dot{S}}
+    \newcommand{\dotTT}{\dot{T}}
+    \newcommand{\dotUU}{\dot{U}}
+    \newcommand{\dotVV}{\dot{V}}
+    \newcommand{\dotWW}{\dot{W}}
+    \newcommand{\dotXX}{\dot{X}}
+    \newcommand{\dotYY}{\dot{Y}}
+    \newcommand{\dotZZ}{\dot{Z}}
+    
+%% --------------------
+%% ddot
+%% --------------------
+
+    \newcommand{\ddotA}{\ddot{a}}
+    \newcommand{\ddotB}{\ddot{b}}
+    \newcommand{\ddotC}{\ddot{c}}
+    \newcommand{\ddotD}{\ddot{d}}
+    \newcommand{\ddotE}{\ddot{e}}
+    \newcommand{\ddotF}{\ddot{f}}
+    \newcommand{\ddotG}{\ddot{g}}
+    \newcommand{\ddotH}{\ddot{h}}
+    \newcommand{\ddotI}{\ddot{i}}
+    \newcommand{\ddotJ}{\ddot{j}}
+    \newcommand{\ddotK}{\ddot{k}}
+    \newcommand{\ddotL}{\ddot{l}}
+    \newcommand{\ddotM}{\ddot{m}}
+    \newcommand{\ddotN}{\ddot{n}}
+    \newcommand{\ddotO}{\ddot{o}}
+    \newcommand{\ddotP}{\ddot{p}}
+    \newcommand{\ddotQ}{\ddot{q}}
+    \newcommand{\ddotR}{\ddot{r}}
+    \newcommand{\ddotS}{\ddot{s}}
+    \newcommand{\ddotT}{\ddot{t}}
+    \newcommand{\ddotU}{\ddot{u}}
+    \newcommand{\ddotV}{\ddot{v}}
+    \newcommand{\ddotW}{\ddot{w}}
+    \newcommand{\ddotX}{\ddot{x}}
+    \newcommand{\ddotY}{\ddot{y}}
+    \newcommand{\ddotZ}{\ddot{z}}
+    \newcommand{\ddotAA}{\ddot{A}}
+    \newcommand{\ddotBB}{\ddot{B}}
+    \newcommand{\ddotCC}{\ddot{C}}
+    \newcommand{\ddotDD}{\ddot{D}}
+    \newcommand{\ddotEE}{\ddot{E}}
+    \newcommand{\ddotFF}{\ddot{F}}
+    \newcommand{\ddotGG}{\ddot{G}}
+    \newcommand{\ddotHH}{\ddot{H}}
+    \newcommand{\ddotII}{\ddot{I}}
+    \newcommand{\ddotJJ}{\ddot{J}}
+    \newcommand{\ddotKK}{\ddot{K}}
+    \newcommand{\ddotLL}{\ddot{L}}
+    \newcommand{\ddotMM}{\ddot{M}}
+    \newcommand{\ddotNN}{\ddot{N}}
+    \newcommand{\ddotOO}{\ddot{O}}
+    \newcommand{\ddotPP}{\ddot{P}}
+    \newcommand{\ddotQQ}{\ddot{Q}}
+    \newcommand{\ddotRR}{\ddot{R}}
+    \newcommand{\ddotSS}{\ddot{S}}
+    \newcommand{\ddotTT}{\ddot{T}}
+    \newcommand{\ddotUU}{\ddot{U}}
+    \newcommand{\ddotVV}{\ddot{V}}
+    \newcommand{\ddotWW}{\ddot{W}}
+    \newcommand{\ddotXX}{\ddot{X}}
+    \newcommand{\ddotYY}{\ddot{Y}}
+    \newcommand{\ddotZZ}{\ddot{Z}}
+    
+%% --------------------
+%% tild
+%% --------------------
+
+    \newcommand{\tildA}{\tilde{a}}
+    \newcommand{\tildB}{\tilde{b}}
+    \newcommand{\tildC}{\tilde{c}}
+    \newcommand{\tildD}{\tilde{d}}
+    \newcommand{\tildE}{\tilde{e}}
+    \newcommand{\tildF}{\tilde{f}}
+    \newcommand{\tildG}{\tilde{g}}
+    \newcommand{\tildH}{\tilde{h}}
+    \newcommand{\tildI}{\tilde{i}}
+    \newcommand{\tildJ}{\tilde{j}}
+    \newcommand{\tildK}{\tilde{k}}
+    \newcommand{\tildL}{\tilde{l}}
+    \newcommand{\tildM}{\tilde{m}}
+    \newcommand{\tildN}{\tilde{n}}
+    \newcommand{\tildO}{\tilde{o}}
+    \newcommand{\tildP}{\tilde{p}}
+    \newcommand{\tildQ}{\tilde{q}}
+    \newcommand{\tildR}{\tilde{r}}
+    \newcommand{\tildS}{\tilde{s}}
+    \newcommand{\tildT}{\tilde{t}}
+    \newcommand{\tildU}{\tilde{u}}
+    \newcommand{\tildV}{\tilde{v}}
+    \newcommand{\tildW}{\tilde{w}}
+    \newcommand{\tildX}{\tilde{x}}
+    \newcommand{\tildY}{\tilde{y}}
+    \newcommand{\tildZ}{\tilde{z}}
+    \newcommand{\tildAA}{\tilde{A}}
+    \newcommand{\tildBB}{\tilde{B}}
+    \newcommand{\tildCC}{\tilde{C}}
+    \newcommand{\tildDD}{\tilde{D}}
+    \newcommand{\tildEE}{\tilde{E}}
+    \newcommand{\tildFF}{\tilde{F}}
+    \newcommand{\tildGG}{\tilde{G}}
+    \newcommand{\tildHH}{\tilde{H}}
+    \newcommand{\tildII}{\tilde{I}}
+    \newcommand{\tildJJ}{\tilde{J}}
+    \newcommand{\tildKK}{\tilde{K}}
+    \newcommand{\tildLL}{\tilde{L}}
+    \newcommand{\tildMM}{\tilde{M}}
+    \newcommand{\tildNN}{\tilde{N}}
+    \newcommand{\tildOO}{\tilde{O}}
+    \newcommand{\tildPP}{\tilde{P}}
+    \newcommand{\tildQQ}{\tilde{Q}}
+    \newcommand{\tildRR}{\tilde{R}}
+    \newcommand{\tildSS}{\tilde{S}}
+    \newcommand{\tildTT}{\tilde{T}}
+    \newcommand{\tildUU}{\tilde{U}}
+    \newcommand{\tildVV}{\tilde{V}}
+    \newcommand{\tildWW}{\tilde{W}}
+    \newcommand{\tildXX}{\tilde{X}}
+    \newcommand{\tildYY}{\tilde{Y}}
+    \newcommand{\tildZZ}{\tilde{Z}}
+    
+%% --------------------
+%% bar
+%% --------------------
+
+    \newcommand{\barA}{\bar{a}}
+    \newcommand{\barB}{\bar{b}}
+    \newcommand{\barC}{\bar{c}}
+    \newcommand{\barD}{\bar{d}}
+    \newcommand{\barE}{\bar{e}}
+    \newcommand{\barF}{\bar{f}}
+    \newcommand{\barG}{\bar{g}}
+    \newcommand{\barH}{\bar{h}}
+    \newcommand{\barI}{\bar{i}}
+    \newcommand{\barJ}{\bar{j}}
+    \newcommand{\barK}{\bar{k}}
+    \newcommand{\barL}{\bar{l}}
+    \newcommand{\barM}{\bar{m}}
+    \newcommand{\barN}{\bar{n}}
+    \newcommand{\barO}{\bar{o}}
+    \newcommand{\barP}{\bar{p}}
+    \newcommand{\barQ}{\bar{q}}
+    \newcommand{\barR}{\bar{r}}
+    \newcommand{\barS}{\bar{s}}
+    \newcommand{\barT}{\bar{t}}
+    \newcommand{\barU}{\bar{u}}
+    \newcommand{\barV}{\bar{v}}
+    \newcommand{\barW}{\bar{w}}
+    \newcommand{\barX}{\bar{x}}
+    \newcommand{\barY}{\bar{y}}
+    \newcommand{\barZ}{\bar{z}}
+    \newcommand{\barAA}{\bar{A}}
+    \newcommand{\barBB}{\bar{B}}
+    \newcommand{\barCC}{\bar{C}}
+    \newcommand{\barDD}{\bar{D}}
+    \newcommand{\barEE}{\bar{E}}
+    \newcommand{\barFF}{\bar{F}}
+    \newcommand{\barGG}{\bar{G}}
+    \newcommand{\barHH}{\bar{H}}
+    \newcommand{\barII}{\bar{I}}
+    \newcommand{\barJJ}{\bar{J}}
+    \newcommand{\barKK}{\bar{K}}
+    \newcommand{\barLL}{\bar{L}}
+    \newcommand{\barMM}{\bar{M}}
+    \newcommand{\barNN}{\bar{N}}
+    \newcommand{\barOO}{\bar{O}}
+    \newcommand{\barPP}{\bar{P}}
+    \newcommand{\barQQ}{\bar{Q}}
+    \newcommand{\barRR}{\bar{R}}
+    \newcommand{\barSS}{\bar{S}}
+    \newcommand{\barTT}{\bar{T}}
+    \newcommand{\barUU}{\bar{U}}
+    \newcommand{\barVV}{\bar{V}}
+    \newcommand{\barWW}{\bar{W}}
+    \newcommand{\barXX}{\bar{X}}
+    \newcommand{\barYY}{\bar{Y}}
+    \newcommand{\barZZ}{\bar{Z}}
+    
+%% --------------------
+%% bbar
+%% --------------------
+
+    \newcommand{\bbarA}{\bar{\bar{a}}}
+    \newcommand{\bbarB}{\bar{\bar{b}}}
+    \newcommand{\bbarC}{\bar{\bar{c}}}
+    \newcommand{\bbarD}{\bar{\bar{d}}}
+    \newcommand{\bbarE}{\bar{\bar{e}}}
+    \newcommand{\bbarF}{\bar{\bar{f}}}
+    \newcommand{\bbarG}{\bar{\bar{g}}}
+    \newcommand{\bbarH}{\bar{\bar{h}}}
+    \newcommand{\bbarI}{\bar{\bar{i}}}
+    \newcommand{\bbarJ}{\bar{\bar{j}}}
+    \newcommand{\bbarK}{\bar{\bar{k}}}
+    \newcommand{\bbarL}{\bar{\bar{l}}}
+    \newcommand{\bbarM}{\bar{\bar{m}}}
+    \newcommand{\bbarN}{\bar{\bar{n}}}
+    \newcommand{\bbarO}{\bar{\bar{o}}}
+    \newcommand{\bbarP}{\bar{\bar{p}}}
+    \newcommand{\bbarQ}{\bar{\bar{q}}}
+    \newcommand{\bbarR}{\bar{\bar{r}}}
+    \newcommand{\bbarS}{\bar{\bar{s}}}
+    \newcommand{\bbarT}{\bar{\bar{t}}}
+    \newcommand{\bbarU}{\bar{\bar{u}}}
+    \newcommand{\bbarV}{\bar{\bar{v}}}
+    \newcommand{\bbarW}{\bar{\bar{w}}}
+    \newcommand{\bbarX}{\bar{\bar{x}}}
+    \newcommand{\bbarY}{\bar{\bar{y}}}
+    \newcommand{\bbarZ}{\bar{\bar{z}}}
+    \newcommand{\bbarAA}{\bar{\bar{A}}}
+    \newcommand{\bbarBB}{\bar{\bar{B}}}
+    \newcommand{\bbarCC}{\bar{\bar{C}}}
+    \newcommand{\bbarDD}{\bar{\bar{D}}}
+    \newcommand{\bbarEE}{\bar{\bar{E}}}
+    \newcommand{\bbarFF}{\bar{\bar{F}}}
+    \newcommand{\bbarGG}{\bar{\bar{G}}}
+    \newcommand{\bbarHH}{\bar{\bar{H}}}
+    \newcommand{\bbarII}{\bar{\bar{I}}}
+    \newcommand{\bbarJJ}{\bar{\bar{J}}}
+    \newcommand{\bbarKK}{\bar{\bar{K}}}
+    \newcommand{\bbarLL}{\bar{\bar{L}}}
+    \newcommand{\bbarMM}{\bar{\bar{M}}}
+    \newcommand{\bbarNN}{\bar{\bar{N}}}
+    \newcommand{\bbarOO}{\bar{\bar{O}}}
+    \newcommand{\bbarPP}{\bar{\bar{P}}}
+    \newcommand{\bbarQQ}{\bar{\bar{Q}}}
+    \newcommand{\bbarRR}{\bar{\bar{R}}}
+    \newcommand{\bbarSS}{\bar{\bar{S}}}
+    \newcommand{\bbarTT}{\bar{\bar{T}}}
+    \newcommand{\bbarUU}{\bar{\bar{U}}}
+    \newcommand{\bbarVV}{\bar{\bar{V}}}
+    \newcommand{\bbarWW}{\bar{\bar{W}}}
+    \newcommand{\bbarXX}{\bar{\bar{X}}}
+    \newcommand{\bbarYY}{\bar{\bar{Y}}}
+    \newcommand{\bbarZZ}{\bar{\bar{Z}}}
+    
+%% --------------------
+%% u
+%% --------------------
+
+    \newcommand{\uA}{\underline{a}}
+    \newcommand{\uB}{\underline{b}}
+    \newcommand{\uC}{\underline{c}}
+    \newcommand{\uD}{\underline{d}}
+    \newcommand{\uE}{\underline{e}}
+    \newcommand{\uF}{\underline{f}}
+    \newcommand{\uG}{\underline{g}}
+    \newcommand{\uH}{\underline{h}}
+    \newcommand{\uI}{\underline{i}}
+    \newcommand{\uJ}{\underline{j}}
+    \newcommand{\uK}{\underline{k}}
+    \newcommand{\uL}{\underline{l}}
+    \newcommand{\uM}{\underline{m}}
+    \newcommand{\uN}{\underline{n}}
+    \newcommand{\uO}{\underline{o}}
+    \newcommand{\uP}{\underline{p}}
+    \newcommand{\uQ}{\underline{q}}
+    \newcommand{\uR}{\underline{r}}
+    \newcommand{\uS}{\underline{s}}
+    \newcommand{\uT}{\underline{t}}
+    \newcommand{\uU}{\underline{u}}
+    \newcommand{\uV}{\underline{v}}
+    \newcommand{\uW}{\underline{w}}
+    \newcommand{\uX}{\underline{x}}
+    \newcommand{\uY}{\underline{y}}
+    \newcommand{\uZ}{\underline{z}}
+    \newcommand{\uAA}{\underline{A}}
+    \newcommand{\uBB}{\underline{B}}
+    \newcommand{\uCC}{\underline{C}}
+    \newcommand{\uDD}{\underline{D}}
+    \newcommand{\uEE}{\underline{E}}
+    \newcommand{\uFF}{\underline{F}}
+    \newcommand{\uGG}{\underline{G}}
+    \newcommand{\uHH}{\underline{H}}
+    \newcommand{\uII}{\underline{I}}
+    \newcommand{\uJJ}{\underline{J}}
+    \newcommand{\uKK}{\underline{K}}
+    \newcommand{\uLL}{\underline{L}}
+    \newcommand{\uMM}{\underline{M}}
+    \newcommand{\uNN}{\underline{N}}
+    \newcommand{\uOO}{\underline{O}}
+    \newcommand{\uPP}{\underline{P}}
+    \newcommand{\uQQ}{\underline{Q}}
+    \newcommand{\uRR}{\underline{R}}
+    \newcommand{\uSS}{\underline{S}}
+    \newcommand{\uTT}{\underline{T}}
+    \newcommand{\uUU}{\underline{U}}
+    \newcommand{\uVV}{\underline{V}}
+    \newcommand{\uWW}{\underline{W}}
+    \newcommand{\uXX}{\underline{X}}
+    \newcommand{\uYY}{\underline{Y}}
+    \newcommand{\uZZ}{\underline{Z}}
+    
+%% --------------------
+%% uu
+%% --------------------
+
+    \newcommand{\uuA}{\underline{\underline{a}}}
+    \newcommand{\uuB}{\underline{\underline{b}}}
+    \newcommand{\uuC}{\underline{\underline{c}}}
+    \newcommand{\uuD}{\underline{\underline{d}}}
+    \newcommand{\uuE}{\underline{\underline{e}}}
+    \newcommand{\uuF}{\underline{\underline{f}}}
+    \newcommand{\uuG}{\underline{\underline{g}}}
+    \newcommand{\uuH}{\underline{\underline{h}}}
+    \newcommand{\uuI}{\underline{\underline{i}}}
+    \newcommand{\uuJ}{\underline{\underline{j}}}
+    \newcommand{\uuK}{\underline{\underline{k}}}
+    \newcommand{\uuL}{\underline{\underline{l}}}
+    \newcommand{\uuM}{\underline{\underline{m}}}
+    \newcommand{\uuN}{\underline{\underline{n}}}
+    \newcommand{\uuO}{\underline{\underline{o}}}
+    \newcommand{\uuP}{\underline{\underline{p}}}
+    \newcommand{\uuQ}{\underline{\underline{q}}}
+    \newcommand{\uuR}{\underline{\underline{r}}}
+    \newcommand{\uuS}{\underline{\underline{s}}}
+    \newcommand{\uuT}{\underline{\underline{t}}}
+    \newcommand{\uuU}{\underline{\underline{u}}}
+    \newcommand{\uuV}{\underline{\underline{v}}}
+    \newcommand{\uuW}{\underline{\underline{w}}}
+    \newcommand{\uuX}{\underline{\underline{x}}}
+    \newcommand{\uuY}{\underline{\underline{y}}}
+    \newcommand{\uuZ}{\underline{\underline{z}}}
+    \newcommand{\uuAA}{\underline{\underline{A}}}
+    \newcommand{\uuBB}{\underline{\underline{B}}}
+    \newcommand{\uuCC}{\underline{\underline{C}}}
+    \newcommand{\uuDD}{\underline{\underline{D}}}
+    \newcommand{\uuEE}{\underline{\underline{E}}}
+    \newcommand{\uuFF}{\underline{\underline{F}}}
+    \newcommand{\uuGG}{\underline{\underline{G}}}
+    \newcommand{\uuHH}{\underline{\underline{H}}}
+    \newcommand{\uuII}{\underline{\underline{I}}}
+    \newcommand{\uuJJ}{\underline{\underline{J}}}
+    \newcommand{\uuKK}{\underline{\underline{K}}}
+    \newcommand{\uuLL}{\underline{\underline{L}}}
+    \newcommand{\uuMM}{\underline{\underline{M}}}
+    \newcommand{\uuNN}{\underline{\underline{N}}}
+    \newcommand{\uuOO}{\underline{\underline{O}}}
+    \newcommand{\uuPP}{\underline{\underline{P}}}
+    \newcommand{\uuQQ}{\underline{\underline{Q}}}
+    \newcommand{\uuRR}{\underline{\underline{R}}}
+    \newcommand{\uuSS}{\underline{\underline{S}}}
+    \newcommand{\uuTT}{\underline{\underline{T}}}
+    \newcommand{\uuUU}{\underline{\underline{U}}}
+    \newcommand{\uuVV}{\underline{\underline{V}}}
+    \newcommand{\uuWW}{\underline{\underline{W}}}
+    \newcommand{\uuXX}{\underline{\underline{X}}}
+    \newcommand{\uuYY}{\underline{\underline{Y}}}
+    \newcommand{\uuZZ}{\underline{\underline{Z}}}
+    
+%% --------------------
+%% o
+%% --------------------
+
+    \newcommand{\oA}{\mathring{a}}
+    \newcommand{\oB}{\mathring{b}}
+    \newcommand{\oC}{\mathring{c}}
+    \newcommand{\oD}{\mathring{d}}
+    \newcommand{\oE}{\mathring{e}}
+    \newcommand{\oF}{\mathring{f}}
+    \newcommand{\oG}{\mathring{g}}
+    \newcommand{\oH}{\mathring{h}}
+    \newcommand{\oI}{\mathring{i}}
+    \newcommand{\oJ}{\mathring{j}}
+    \newcommand{\oK}{\mathring{k}}
+    \newcommand{\oL}{\mathring{l}}
+    \newcommand{\oM}{\mathring{m}}
+    \newcommand{\oN}{\mathring{n}}
+    \newcommand{\oO}{\mathring{o}}
+    \newcommand{\oP}{\mathring{p}}
+    \newcommand{\oQ}{\mathring{q}}
+    \newcommand{\oR}{\mathring{r}}
+    \newcommand{\oS}{\mathring{s}}
+    \newcommand{\oT}{\mathring{t}}
+    \newcommand{\oU}{\mathring{u}}
+    \newcommand{\oV}{\mathring{v}}
+    \newcommand{\oW}{\mathring{w}}
+    \newcommand{\oX}{\mathring{x}}
+    \newcommand{\oY}{\mathring{y}}
+    \newcommand{\oZ}{\mathring{z}}
+    \newcommand{\oAA}{\mathring{A}}
+    \newcommand{\oBB}{\mathring{B}}
+    \newcommand{\oCC}{\mathring{C}}
+    \newcommand{\oDD}{\mathring{D}}
+    \newcommand{\oEE}{\mathring{E}}
+    \newcommand{\oFF}{\mathring{F}}
+    \newcommand{\oGG}{\mathring{G}}
+    \newcommand{\oHH}{\mathring{H}}
+    \newcommand{\oII}{\mathring{I}}
+    \newcommand{\oJJ}{\mathring{J}}
+    \newcommand{\oKK}{\mathring{K}}
+    \newcommand{\oLL}{\mathring{L}}
+    \newcommand{\oMM}{\mathring{M}}
+    \newcommand{\oNN}{\mathring{N}}
+    \newcommand{\oOO}{\mathring{O}}
+    \newcommand{\oPP}{\mathring{P}}
+    \newcommand{\oQQ}{\mathring{Q}}
+    \newcommand{\oRR}{\mathring{R}}
+    \newcommand{\oSS}{\mathring{S}}
+    \newcommand{\oTT}{\mathring{T}}
+    \newcommand{\oUU}{\mathring{U}}
+    \newcommand{\oVV}{\mathring{V}}
+    \newcommand{\oWW}{\mathring{W}}
+    \newcommand{\oXX}{\mathring{X}}
+    \newcommand{\oYY}{\mathring{Y}}
+    \newcommand{\oZZ}{\mathring{Z}}
+    
+%% --------------------
+%% Greek letters accents
+%% --------------------
+    
+%% --------------------
+%% ch
+%% --------------------
+
+    \newcommand{\chalpha}{\check{\alpha}}
+    \newcommand{\chbeta}{\check{\beta}}
+    \newcommand{\chgamma}{\check{\gamma}}
+    \newcommand{\chdelta}{\check{\delta}}
+    \newcommand{\chvarepsilon}{\check{\varepsilon}}
+    \newcommand{\chepsilon}{\check{\epsilon}}
+    \newcommand{\chzeta}{\check{\zeta}}
+    \newcommand{\cheta}{\check{\eta}}
+    \newcommand{\chtheta}{\check{\theta}}
+    \newcommand{\chvartheta}{\check{\vartheta}}
+    \newcommand{\chiota}{\check{\iota}}
+    \newcommand{\chkappa}{\check{\kappa}}
+    \newcommand{\chlambda}{\check{\lambda}}
+    \newcommand{\chmu}{\check{\mu}}
+    \newcommand{\chnu}{\check{\nu}}
+    \newcommand{\chxi}{\check{\xi}}
+    \newcommand{\chpi}{\check{\pi}}
+    \newcommand{\chvarpi}{\check{\varpi}}
+    \newcommand{\chrho}{\check{\rho}}
+    \newcommand{\chvarrho}{\check{\varrho}}
+    \newcommand{\chsigma}{\check{\sigma}}
+    \newcommand{\chvarsigma}{\check{\varsigma}}
+    \newcommand{\chtau}{\check{\tau}}
+    \newcommand{\chupsilon}{\check{\upsilon}}
+    \newcommand{\chphi}{\check{\phi}}
+    \newcommand{\chvarphi}{\check{\varphi}}
+    \newcommand{\chchi}{\check{\chi}}
+    \newcommand{\chpsi}{\check{\psi}}
+    \newcommand{\chomega}{\check{\omega}}
+    \newcommand{\chGamma}{\check{\Gamma}}
+    \newcommand{\chDelta}{\check{\Delta}}
+    \newcommand{\chTheta}{\check{\Theta}}
+    \newcommand{\chLambda}{\check{\Lambda}}
+    \newcommand{\chXi}{\check{\Xi}}
+    \newcommand{\chPi}{\check{\Pi}}
+    \newcommand{\chSigma}{\check{\Sigma}}
+    \newcommand{\chUpsilon}{\check{\Upsilon}}
+    \newcommand{\chPhi}{\check{\Phi}}
+    \newcommand{\chPsi}{\check{\Psi}}
+    \newcommand{\chOmega}{\check{\Omega}}
+
+%% --------------------
+%% vec
+%% --------------------
+
+    \newcommand{\vecalpha}{\vec{\alpha}}
+    \newcommand{\vecbeta}{\vec{\beta}}
+    \newcommand{\vecgamma}{\vec{\gamma}}
+    \newcommand{\vecdelta}{\vec{\delta}}
+    \newcommand{\vecvarepsilon}{\vec{\varepsilon}}
+    \newcommand{\vecepsilon}{\vec{\epsilon}}
+    \newcommand{\veczeta}{\vec{\zeta}}
+    \newcommand{\veceta}{\vec{\eta}}
+    \newcommand{\vectheta}{\vec{\theta}}
+    \newcommand{\vecvartheta}{\vec{\vartheta}}
+    \newcommand{\veciota}{\vec{\iota}}
+    \newcommand{\veckappa}{\vec{\kappa}}
+    \newcommand{\veclambda}{\vec{\lambda}}
+    \newcommand{\vecmu}{\vec{\mu}}
+    \newcommand{\vecnu}{\vec{\nu}}
+    \newcommand{\vecxi}{\vec{\xi}}
+    \newcommand{\vecpi}{\vec{\pi}}
+    \newcommand{\vecvarpi}{\vec{\varpi}}
+    \newcommand{\vecrho}{\vec{\rho}}
+    \newcommand{\vecvarrho}{\vec{\varrho}}
+    \newcommand{\vecsigma}{\vec{\sigma}}
+    \newcommand{\vecvarsigma}{\vec{\varsigma}}
+    \newcommand{\vectau}{\vec{\tau}}
+    \newcommand{\vecupsilon}{\vec{\upsilon}}
+    \newcommand{\vecphi}{\vec{\phi}}
+    \newcommand{\vecvarphi}{\vec{\varphi}}
+    \newcommand{\vecchi}{\vec{\chi}}
+    \newcommand{\vecpsi}{\vec{\psi}}
+    \newcommand{\vecomega}{\vec{\omega}}
+    \newcommand{\vecGamma}{\vec{\Gamma}}
+    \newcommand{\vecDelta}{\vec{\Delta}}
+    \newcommand{\vecTheta}{\vec{\Theta}}
+    \newcommand{\vecLambda}{\vec{\Lambda}}
+    \newcommand{\vecXi}{\vec{\Xi}}
+    \newcommand{\vecPi}{\vec{\Pi}}
+    \newcommand{\vecSigma}{\vec{\Sigma}}
+    \newcommand{\vecUpsilon}{\vec{\Upsilon}}
+    \newcommand{\vecPhi}{\vec{\Phi}}
+    \newcommand{\vecPsi}{\vec{\Psi}}
+    \newcommand{\vecOmega}{\vec{\Omega}}
+    
+%% --------------------
+%% hat
+%% --------------------
+
+    \newcommand{\hatalpha}{\hat{\alpha}}
+    \newcommand{\hatbeta}{\hat{\beta}}
+    \newcommand{\hatgamma}{\hat{\gamma}}
+    \newcommand{\hatdelta}{\hat{\delta}}
+    \newcommand{\hatvarepsilon}{\hat{\varepsilon}}
+    \newcommand{\hatepsilon}{\hat{\epsilon}}
+    \newcommand{\hatzeta}{\hat{\zeta}}
+    \newcommand{\hateta}{\hat{\eta}}
+    \newcommand{\hattheta}{\hat{\theta}}
+    \newcommand{\hatvartheta}{\hat{\vartheta}}
+    \newcommand{\hatiota}{\hat{\iota}}
+    \newcommand{\hatkappa}{\hat{\kappa}}
+    \newcommand{\hatlambda}{\hat{\lambda}}
+    \newcommand{\hatmu}{\hat{\mu}}
+    \newcommand{\hatnu}{\hat{\nu}}
+    \newcommand{\hatxi}{\hat{\xi}}
+    \newcommand{\hatpi}{\hat{\pi}}
+    \newcommand{\hatvarpi}{\hat{\varpi}}
+    \newcommand{\hatrho}{\hat{\rho}}
+    \newcommand{\hatvarrho}{\hat{\varrho}}
+    \newcommand{\hatsigma}{\hat{\sigma}}
+    \newcommand{\hatvarsigma}{\hat{\varsigma}}
+    \newcommand{\hattau}{\hat{\tau}}
+    \newcommand{\hatupsilon}{\hat{\upsilon}}
+    \newcommand{\hatphi}{\hat{\phi}}
+    \newcommand{\hatvarphi}{\hat{\varphi}}
+    \newcommand{\hatchi}{\hat{\chi}}
+    \newcommand{\hatpsi}{\hat{\psi}}
+    \newcommand{\hatomega}{\hat{\omega}}
+    \newcommand{\hatGamma}{\hat{\Gamma}}
+    \newcommand{\hatDelta}{\hat{\Delta}}
+    \newcommand{\hatTheta}{\hat{\Theta}}
+    \newcommand{\hatLambda}{\hat{\Lambda}}
+    \newcommand{\hatXi}{\hat{\Xi}}
+    \newcommand{\hatPi}{\hat{\Pi}}
+    \newcommand{\hatSigma}{\hat{\Sigma}}
+    \newcommand{\hatUpsilon}{\hat{\Upsilon}}
+    \newcommand{\hatPhi}{\hat{\Phi}}
+    \newcommand{\hatPsi}{\hat{\Psi}}
+    \newcommand{\hatOmega}{\hat{\Omega}}
+    
+%% --------------------
+%% dot
+%% --------------------
+
+    \newcommand{\dotalpha}{\dot{\alpha}}
+    \newcommand{\dotbeta}{\dot{\beta}}
+    \newcommand{\dotgamma}{\dot{\gamma}}
+    \newcommand{\dotdelta}{\dot{\delta}}
+    \newcommand{\dotvarepsilon}{\dot{\varepsilon}}
+    \newcommand{\dotepsilon}{\dot{\epsilon}}
+    \newcommand{\dotzeta}{\dot{\zeta}}
+    \newcommand{\doteta}{\dot{\eta}}
+    \newcommand{\dottheta}{\dot{\theta}}
+    \newcommand{\dotvartheta}{\dot{\vartheta}}
+    \newcommand{\dotiota}{\dot{\iota}}
+    \newcommand{\dotkappa}{\dot{\kappa}}
+    \newcommand{\dotlambda}{\dot{\lambda}}
+    \newcommand{\dotmu}{\dot{\mu}}
+    \newcommand{\dotnu}{\dot{\nu}}
+    \newcommand{\dotxi}{\dot{\xi}}
+    \newcommand{\dotpi}{\dot{\pi}}
+    \newcommand{\dotvarpi}{\dot{\varpi}}
+    \newcommand{\dotrho}{\dot{\rho}}
+    \newcommand{\dotvarrho}{\dot{\varrho}}
+    \newcommand{\dotsigma}{\dot{\sigma}}
+    \newcommand{\dotvarsigma}{\dot{\varsigma}}
+    \newcommand{\dottau}{\dot{\tau}}
+    \newcommand{\dotupsilon}{\dot{\upsilon}}
+    \newcommand{\dotphi}{\dot{\phi}}
+    \newcommand{\dotvarphi}{\dot{\varphi}}
+    \newcommand{\dotchi}{\dot{\chi}}
+    \newcommand{\dotpsi}{\dot{\psi}}
+    \newcommand{\dotomega}{\dot{\omega}}
+    \newcommand{\dotGamma}{\dot{\Gamma}}
+    \newcommand{\dotDelta}{\dot{\Delta}}
+    \newcommand{\dotTheta}{\dot{\Theta}}
+    \newcommand{\dotLambda}{\dot{\Lambda}}
+    \newcommand{\dotXi}{\dot{\Xi}}
+    \newcommand{\dotPi}{\dot{\Pi}}
+    \newcommand{\dotSigma}{\dot{\Sigma}}
+    \newcommand{\dotUpsilon}{\dot{\Upsilon}}
+    \newcommand{\dotPhi}{\dot{\Phi}}
+    \newcommand{\dotPsi}{\dot{\Psi}}
+    \newcommand{\dotOmega}{\dot{\Omega}}
+    
+%% --------------------
+%% ddot
+%% --------------------
+
+    \newcommand{\ddotalpha}{\ddot{\alpha}}
+    \newcommand{\ddotbeta}{\ddot{\beta}}
+    \newcommand{\ddotgamma}{\ddot{\gamma}}
+    \newcommand{\ddotdelta}{\ddot{\delta}}
+    \newcommand{\ddotvarepsilon}{\ddot{\varepsilon}}
+    \newcommand{\ddotepsilon}{\ddot{\epsilon}}
+    \newcommand{\ddotzeta}{\ddot{\zeta}}
+    \newcommand{\ddoteta}{\ddot{\eta}}
+    \newcommand{\ddottheta}{\ddot{\theta}}
+    \newcommand{\ddotvartheta}{\ddot{\vartheta}}
+    \newcommand{\ddotiota}{\ddot{\iota}}
+    \newcommand{\ddotkappa}{\ddot{\kappa}}
+    \newcommand{\ddotlambda}{\ddot{\lambda}}
+    \newcommand{\ddotmu}{\ddot{\mu}}
+    \newcommand{\ddotnu}{\ddot{\nu}}
+    \newcommand{\ddotxi}{\ddot{\xi}}
+    \newcommand{\ddotpi}{\ddot{\pi}}
+    \newcommand{\ddotvarpi}{\ddot{\varpi}}
+    \newcommand{\ddotrho}{\ddot{\rho}}
+    \newcommand{\ddotvarrho}{\ddot{\varrho}}
+    \newcommand{\ddotsigma}{\ddot{\sigma}}
+    \newcommand{\ddotvarsigma}{\ddot{\varsigma}}
+    \newcommand{\ddottau}{\ddot{\tau}}
+    \newcommand{\ddotupsilon}{\ddot{\upsilon}}
+    \newcommand{\ddotphi}{\ddot{\phi}}
+    \newcommand{\ddotvarphi}{\ddot{\varphi}}
+    \newcommand{\ddotchi}{\ddot{\chi}}
+    \newcommand{\ddotpsi}{\ddot{\psi}}
+    \newcommand{\ddotomega}{\ddot{\omega}}
+    \newcommand{\ddotGamma}{\ddot{\Gamma}}
+    \newcommand{\ddotDelta}{\ddot{\Delta}}
+    \newcommand{\ddotTheta}{\ddot{\Theta}}
+    \newcommand{\ddotLambda}{\ddot{\Lambda}}
+    \newcommand{\ddotXi}{\ddot{\Xi}}
+    \newcommand{\ddotPi}{\ddot{\Pi}}
+    \newcommand{\ddotSigma}{\ddot{\Sigma}}
+    \newcommand{\ddotUpsilon}{\ddot{\Upsilon}}
+    \newcommand{\ddotPhi}{\ddot{\Phi}}
+    \newcommand{\ddotPsi}{\ddot{\Psi}}
+    \newcommand{\ddotOmega}{\ddot{\Omega}}
+    
+%% --------------------
+%% tild
+%% --------------------
+
+    \newcommand{\tildalpha}{\tilde{\alpha}}
+    \newcommand{\tildbeta}{\tilde{\beta}}
+    \newcommand{\tildgamma}{\tilde{\gamma}}
+    \newcommand{\tilddelta}{\tilde{\delta}}
+    \newcommand{\tildvarepsilon}{\tilde{\varepsilon}}
+    \newcommand{\tildepsilon}{\tilde{\epsilon}}
+    \newcommand{\tildzeta}{\tilde{\zeta}}
+    \newcommand{\tildeta}{\tilde{\eta}}
+    \newcommand{\tildtheta}{\tilde{\theta}}
+    \newcommand{\tildvartheta}{\tilde{\vartheta}}
+    \newcommand{\tildiota}{\tilde{\iota}}
+    \newcommand{\tildkappa}{\tilde{\kappa}}
+    \newcommand{\tildlambda}{\tilde{\lambda}}
+    \newcommand{\tildmu}{\tilde{\mu}}
+    \newcommand{\tildnu}{\tilde{\nu}}
+    \newcommand{\tildxi}{\tilde{\xi}}
+    \newcommand{\tildpi}{\tilde{\pi}}
+    \newcommand{\tildvarpi}{\tilde{\varpi}}
+    \newcommand{\tildrho}{\tilde{\rho}}
+    \newcommand{\tildvarrho}{\tilde{\varrho}}
+    \newcommand{\tildsigma}{\tilde{\sigma}}
+    \newcommand{\tildvarsigma}{\tilde{\varsigma}}
+    \newcommand{\tildtau}{\tilde{\tau}}
+    \newcommand{\tildupsilon}{\tilde{\upsilon}}
+    \newcommand{\tildphi}{\tilde{\phi}}
+    \newcommand{\tildvarphi}{\tilde{\varphi}}
+    \newcommand{\tildchi}{\tilde{\chi}}
+    \newcommand{\tildpsi}{\tilde{\psi}}
+    \newcommand{\tildomega}{\tilde{\omega}}
+    \newcommand{\tildGamma}{\tilde{\Gamma}}
+    \newcommand{\tildDelta}{\tilde{\Delta}}
+    \newcommand{\tildTheta}{\tilde{\Theta}}
+    \newcommand{\tildLambda}{\tilde{\Lambda}}
+    \newcommand{\tildXi}{\tilde{\Xi}}
+    \newcommand{\tildPi}{\tilde{\Pi}}
+    \newcommand{\tildSigma}{\tilde{\Sigma}}
+    \newcommand{\tildUpsilon}{\tilde{\Upsilon}}
+    \newcommand{\tildPhi}{\tilde{\Phi}}
+    \newcommand{\tildPsi}{\tilde{\Psi}}
+    \newcommand{\tildOmega}{\tilde{\Omega}}
+    
+%% --------------------
+%% bar
+%% --------------------
+
+    \newcommand{\baralpha}{\bar{\alpha}}
+    \newcommand{\barbeta}{\bar{\beta}}
+    \newcommand{\bargamma}{\bar{\gamma}}
+    \newcommand{\bardelta}{\bar{\delta}}
+    \newcommand{\barvarepsilon}{\bar{\varepsilon}}
+    \newcommand{\barepsilon}{\bar{\epsilon}}
+    \newcommand{\barzeta}{\bar{\zeta}}
+    \newcommand{\bareta}{\bar{\eta}}
+    \newcommand{\bartheta}{\bar{\theta}}
+    \newcommand{\barvartheta}{\bar{\vartheta}}
+    \newcommand{\bariota}{\bar{\iota}}
+    \newcommand{\barkappa}{\bar{\kappa}}
+    \newcommand{\barlambda}{\bar{\lambda}}
+    \newcommand{\barmu}{\bar{\mu}}
+    \newcommand{\barnu}{\bar{\nu}}
+    \newcommand{\barxi}{\bar{\xi}}
+    \newcommand{\barpi}{\bar{\pi}}
+    \newcommand{\barvarpi}{\bar{\varpi}}
+    \newcommand{\barrho}{\bar{\rho}}
+    \newcommand{\barvarrho}{\bar{\varrho}}
+    \newcommand{\barsigma}{\bar{\sigma}}
+    \newcommand{\barvarsigma}{\bar{\varsigma}}
+    \newcommand{\bartau}{\bar{\tau}}
+    \newcommand{\barupsilon}{\bar{\upsilon}}
+    \newcommand{\barphi}{\bar{\phi}}
+    \newcommand{\barvarphi}{\bar{\varphi}}
+    \newcommand{\barchi}{\bar{\chi}}
+    \newcommand{\barpsi}{\bar{\psi}}
+    \newcommand{\baromega}{\bar{\omega}}
+    \newcommand{\barGamma}{\bar{\Gamma}}
+    \newcommand{\barDelta}{\bar{\Delta}}
+    \newcommand{\barTheta}{\bar{\Theta}}
+    \newcommand{\barLambda}{\bar{\Lambda}}
+    \newcommand{\barXi}{\bar{\Xi}}
+    \newcommand{\barPi}{\bar{\Pi}}
+    \newcommand{\barSigma}{\bar{\Sigma}}
+    \newcommand{\barUpsilon}{\bar{\Upsilon}}
+    \newcommand{\barPhi}{\bar{\Phi}}
+    \newcommand{\barPsi}{\bar{\Psi}}
+    \newcommand{\barOmega}{\bar{\Omega}}
+    
+%% --------------------
+%% bbar
+%% --------------------
+
+    \newcommand{\bbaralpha}{\bar{\bar{\alpha}}}
+    \newcommand{\bbarbeta}{\bar{\bar{\beta}}}
+    \newcommand{\bbargamma}{\bar{\bar{\gamma}}}
+    \newcommand{\bbardelta}{\bar{\bar{\delta}}}
+    \newcommand{\bbarvarepsilon}{\bar{\bar{\varepsilon}}}
+    \newcommand{\bbarepsilon}{\bar{\bar{\epsilon}}}
+    \newcommand{\bbarzeta}{\bar{\bar{\zeta}}}
+    \newcommand{\bbareta}{\bar{\bar{\eta}}}
+    \newcommand{\bbartheta}{\bar{\bar{\theta}}}
+    \newcommand{\bbarvartheta}{\bar{\bar{\vartheta}}}
+    \newcommand{\bbariota}{\bar{\bar{\iota}}}
+    \newcommand{\bbarkappa}{\bar{\bar{\kappa}}}
+    \newcommand{\bbarlambda}{\bar{\bar{\lambda}}}
+    \newcommand{\bbarmu}{\bar{\bar{\mu}}}
+    \newcommand{\bbarnu}{\bar{\bar{\nu}}}
+    \newcommand{\bbarxi}{\bar{\bar{\xi}}}
+    \newcommand{\bbarpi}{\bar{\bar{\pi}}}
+    \newcommand{\bbarvarpi}{\bar{\bar{\varpi}}}
+    \newcommand{\bbarrho}{\bar{\bar{\rho}}}
+    \newcommand{\bbarvarrho}{\bar{\bar{\varrho}}}
+    \newcommand{\bbarsigma}{\bar{\bar{\sigma}}}
+    \newcommand{\bbarvarsigma}{\bar{\bar{\varsigma}}}
+    \newcommand{\bbartau}{\bar{\bar{\tau}}}
+    \newcommand{\bbarupsilon}{\bar{\bar{\upsilon}}}
+    \newcommand{\bbarphi}{\bar{\bar{\phi}}}
+    \newcommand{\bbarvarphi}{\bar{\bar{\varphi}}}
+    \newcommand{\bbarchi}{\bar{\bar{\chi}}}
+    \newcommand{\bbarpsi}{\bar{\bar{\psi}}}
+    \newcommand{\bbaromega}{\bar{\bar{\omega}}}
+    \newcommand{\bbarGamma}{\bar{\bar{\Gamma}}}
+    \newcommand{\bbarDelta}{\bar{\bar{\Delta}}}
+    \newcommand{\bbarTheta}{\bar{\bar{\Theta}}}
+    \newcommand{\bbarLambda}{\bar{\bar{\Lambda}}}
+    \newcommand{\bbarXi}{\bar{\bar{\Xi}}}
+    \newcommand{\bbarPi}{\bar{\bar{\Pi}}}
+    \newcommand{\bbarSigma}{\bar{\bar{\Sigma}}}
+    \newcommand{\bbarUpsilon}{\bar{\bar{\Upsilon}}}
+    \newcommand{\bbarPhi}{\bar{\bar{\Phi}}}
+    \newcommand{\bbarPsi}{\bar{\bar{\Psi}}}
+    \newcommand{\bbarOmega}{\bar{\bar{\Omega}}}
+    
+%% --------------------
+%% u
+%% --------------------
+
+    \newcommand{\ualpha}{\underline{\alpha}}
+    \newcommand{\ubeta}{\underline{\beta}}
+    \newcommand{\ugamma}{\underline{\gamma}}
+    \newcommand{\udelta}{\underline{\delta}}
+    \newcommand{\uvarepsilon}{\underline{\varepsilon}}
+    \newcommand{\uepsilon}{\underline{\epsilon}}
+    \newcommand{\uzeta}{\underline{\zeta}}
+    \newcommand{\ueta}{\underline{\eta}}
+    \newcommand{\utheta}{\underline{\theta}}
+    \newcommand{\uvartheta}{\underline{\vartheta}}
+    \newcommand{\uiota}{\underline{\iota}}
+    \newcommand{\ukappa}{\underline{\kappa}}
+    \newcommand{\ulambda}{\underline{\lambda}}
+    \newcommand{\umu}{\underline{\mu}}
+    \newcommand{\unu}{\underline{\nu}}
+    \newcommand{\uxi}{\underline{\xi}}
+    \newcommand{\upi}{\underline{\pi}}
+    \newcommand{\uvarpi}{\underline{\varpi}}
+    \newcommand{\urho}{\underline{\rho}}
+    \newcommand{\uvarrho}{\underline{\varrho}}
+    \newcommand{\usigma}{\underline{\sigma}}
+    \newcommand{\uvarsigma}{\underline{\varsigma}}
+    \newcommand{\utau}{\underline{\tau}}
+    \newcommand{\uupsilon}{\underline{\upsilon}}
+    \newcommand{\uphi}{\underline{\phi}}
+    \newcommand{\uvarphi}{\underline{\varphi}}
+    \newcommand{\uchi}{\underline{\chi}}
+    \newcommand{\upsi}{\underline{\psi}}
+    \newcommand{\uomega}{\underline{\omega}}
+    \newcommand{\uGamma}{\underline{\Gamma}}
+    \newcommand{\uDelta}{\underline{\Delta}}
+    \newcommand{\uTheta}{\underline{\Theta}}
+    \newcommand{\uLambda}{\underline{\Lambda}}
+    \newcommand{\uXi}{\underline{\Xi}}
+    \newcommand{\uPi}{\underline{\Pi}}
+    \newcommand{\uSigma}{\underline{\Sigma}}
+    \newcommand{\uUpsilon}{\underline{\Upsilon}}
+    \newcommand{\uPhi}{\underline{\Phi}}
+    \newcommand{\uPsi}{\underline{\Psi}}
+    \newcommand{\uOmega}{\underline{\Omega}}
+    
+%% --------------------
+%% uu
+%% --------------------
+
+    \newcommand{\uualpha}{\underline{\underline{\alpha}}}
+    \newcommand{\uubeta}{\underline{\underline{\beta}}}
+    \newcommand{\uugamma}{\underline{\underline{\gamma}}}
+    \newcommand{\uudelta}{\underline{\underline{\delta}}}
+    \newcommand{\uuvarepsilon}{\underline{\underline{\varepsilon}}}
+    \newcommand{\uuepsilon}{\underline{\underline{\epsilon}}}
+    \newcommand{\uuzeta}{\underline{\underline{\zeta}}}
+    \newcommand{\uueta}{\underline{\underline{\eta}}}
+    \newcommand{\uutheta}{\underline{\underline{\theta}}}
+    \newcommand{\uuvartheta}{\underline{\underline{\vartheta}}}
+    \newcommand{\uuiota}{\underline{\underline{\iota}}}
+    \newcommand{\uukappa}{\underline{\underline{\kappa}}}
+    \newcommand{\uulambda}{\underline{\underline{\lambda}}}
+    \newcommand{\uumu}{\underline{\underline{\mu}}}
+    \newcommand{\uunu}{\underline{\underline{\nu}}}
+    \newcommand{\uuxi}{\underline{\underline{\xi}}}
+    \newcommand{\uupi}{\underline{\underline{\pi}}}
+    \newcommand{\uuvarpi}{\underline{\underline{\varpi}}}
+    \newcommand{\uurho}{\underline{\underline{\rho}}}
+    \newcommand{\uuvarrho}{\underline{\underline{\varrho}}}
+    \newcommand{\uusigma}{\underline{\underline{\sigma}}}
+    \newcommand{\uuvarsigma}{\underline{\underline{\varsigma}}}
+    \newcommand{\uutau}{\underline{\underline{\tau}}}
+    \newcommand{\uuupsilon}{\underline{\underline{\upsilon}}}
+    \newcommand{\uuphi}{\underline{\underline{\phi}}}
+    \newcommand{\uuvarphi}{\underline{\underline{\varphi}}}
+    \newcommand{\uuchi}{\underline{\underline{\chi}}}
+    \newcommand{\uupsi}{\underline{\underline{\psi}}}
+    \newcommand{\uuomega}{\underline{\underline{\omega}}}
+    \newcommand{\uuGamma}{\underline{\underline{\Gamma}}}
+    \newcommand{\uuDelta}{\underline{\underline{\Delta}}}
+    \newcommand{\uuTheta}{\underline{\underline{\Theta}}}
+    \newcommand{\uuLambda}{\underline{\underline{\Lambda}}}
+    \newcommand{\uuXi}{\underline{\underline{\Xi}}}
+    \newcommand{\uuPi}{\underline{\underline{\Pi}}}
+    \newcommand{\uuSigma}{\underline{\underline{\Sigma}}}
+    \newcommand{\uuUpsilon}{\underline{\underline{\Upsilon}}}
+    \newcommand{\uuPhi}{\underline{\underline{\Phi}}}
+    \newcommand{\uuPsi}{\underline{\underline{\Psi}}}
+    \newcommand{\uuOmega}{\underline{\underline{\Omega}}}
+    
+%% --------------------
+%% o
+%% --------------------
+
+    \newcommand{\oalpha}{\mathring{\alpha}}
+    \newcommand{\obeta}{\mathring{\beta}}
+    \newcommand{\ogamma}{\mathring{\gamma}}
+    \newcommand{\odelta}{\mathring{\delta}}
+    \newcommand{\ovarepsilon}{\mathring{\varepsilon}}
+    \newcommand{\oepsilon}{\mathring{\epsilon}}
+    \newcommand{\ozeta}{\mathring{\zeta}}
+    \newcommand{\oeta}{\mathring{\eta}}
+    \newcommand{\otheta}{\mathring{\theta}}
+    \newcommand{\ovartheta}{\mathring{\vartheta}}
+    \newcommand{\oiota}{\mathring{\iota}}
+    \newcommand{\okappa}{\mathring{\kappa}}
+    \newcommand{\olambda}{\mathring{\lambda}}
+    \newcommand{\omu}{\mathring{\mu}}
+    \newcommand{\onu}{\mathring{\nu}}
+    \newcommand{\oxi}{\mathring{\xi}}
+    \newcommand{\opi}{\mathring{\pi}}
+    \newcommand{\ovarpi}{\mathring{\varpi}}
+    \newcommand{\orho}{\mathring{\rho}}
+    \newcommand{\ovarrho}{\mathring{\varrho}}
+    \newcommand{\osigma}{\mathring{\sigma}}
+    \newcommand{\ovarsigma}{\mathring{\varsigma}}
+    \newcommand{\otau}{\mathring{\tau}}
+    \newcommand{\oupsilon}{\mathring{\upsilon}}
+    \newcommand{\ophi}{\mathring{\phi}}
+    \newcommand{\ovarphi}{\mathring{\varphi}}
+    \newcommand{\ochi}{\mathring{\chi}}
+    \newcommand{\opsi}{\mathring{\psi}}
+    \newcommand{\oomega}{\mathring{\omega}}
+    \newcommand{\oGamma}{\mathring{\Gamma}}
+    \newcommand{\oDelta}{\mathring{\Delta}}
+    \newcommand{\oTheta}{\mathring{\Theta}}
+    \newcommand{\oLambda}{\mathring{\Lambda}}
+    \newcommand{\oXi}{\mathring{\Xi}}
+    \newcommand{\oPi}{\mathring{\Pi}}
+    \newcommand{\oSigma}{\mathring{\Sigma}}
+    \newcommand{\oUpsilon}{\mathring{\Upsilon}}
+    \newcommand{\oPhi}{\mathring{\Phi}}
+    \newcommand{\oPsi}{\mathring{\Psi}}
+    \newcommand{\oOmega}{\mathring{\Omega}}
+    
+}{} % \ifthenelse{\boolean{@b_maths_use_characterAccents}}{
+
+%% -----------------------------------------------------------------------------
+%%
 %% tikz
-%% ----------------------------------------
+%%
+%% -----------------------------------------------------------------------------
 
-\input{kappak-tikz.tex}
+\ifthenelse{\boolean{@b_extpack_use_tikz}}{
 
-%% ----------------------------------------
+%% --------------------
+%% Alignment
+%% --------------------
+    
+    \tikzset{baseline=(current bounding box.center)}
+
+%% --------------------
+%% Size
+%% --------------------
+
+    \newcommand{\diagramsize}[2]{
+        \ifthenelse{\equal{#1}{}}{\def\@tRowsep{3}}{\def\@tRowsep{#1}}
+        \ifthenelse{\equal{#2}{}}{\def\@tColsep{4}}{\def\@tColsep{#2}}
+    }
+    \diagramsize{}{}
+    
+%% --------------------
+%% Styles
+%% --------------------
+
+    \newcommand{\diagramarrows}[4]{
+        \ifthenelse{\equal{#1}{}}{\def\@diagAA{->}}{}
+        \ifthenelse{\equal{#1}{-}}{\def\@diagAA{-}}{}
+        \ifthenelse{\equal{#1}{->}}{\def\@diagAA{->}}{}
+        \ifthenelse{\equal{#1}{<-}}{\def\@diagAA{<-}}{}
+        \ifthenelse{\equal{#1}{<->}}{\def\@diagAA{<->}}{}
+        \ifthenelse{\equal{#1}{->>}}{\def\@diagAA{->>}}{}
+        \ifthenelse{\equal{#1}{<<-}}{\def\@diagAA{<<-}}{}
+        \ifthenelse{\equal{#1}{>->}}{\def\@diagAA{>->}}{}
+        \ifthenelse{\equal{#1}{<-<}}{\def\@diagAA{<-<}}{}
+        \ifthenelse{\equal{#1}{c->}}{\def\@diagAA{right hook->}}{}
+        \ifthenelse{\equal{#1}{<-c}}{\def\@diagAA{<-left hook}}{}
+        \ifthenelse{\equal{#1}{|->}}{\def\@diagAA{|->}}{}
+        \ifthenelse{\equal{#1}{<-|}}{\def\@diagAA{<-|}}{}
+        \ifthenelse{\equal{#2}{}}{\def\@diagAB{->}}{}
+        \ifthenelse{\equal{#2}{-}}{\def\@diagAB{-}}{}
+        \ifthenelse{\equal{#2}{->}}{\def\@diagAB{->}}{}
+        \ifthenelse{\equal{#2}{<-}}{\def\@diagAB{<-}}{}
+        \ifthenelse{\equal{#2}{<->}}{\def\@diagAB{<->}}{}
+        \ifthenelse{\equal{#2}{->>}}{\def\@diagAB{->>}}{}
+        \ifthenelse{\equal{#2}{<<-}}{\def\@diagAB{<<-}}{}
+        \ifthenelse{\equal{#2}{>->}}{\def\@diagAB{>->}}{}
+        \ifthenelse{\equal{#2}{<-<}}{\def\@diagAB{<-<}}{}
+        \ifthenelse{\equal{#2}{c->}}{\def\@diagAB{right hook->}}{}
+        \ifthenelse{\equal{#2}{<-c}}{\def\@diagAB{<-left hook}}{}
+        \ifthenelse{\equal{#2}{|->}}{\def\@diagAB{|->}}{}
+        \ifthenelse{\equal{#2}{<-|}}{\def\@diagAB{<-|}}{}
+        \ifthenelse{\equal{#3}{}}{\def\@diagAC{->}}{}
+        \ifthenelse{\equal{#3}{-}}{\def\@diagAC{-}}{}
+        \ifthenelse{\equal{#3}{->}}{\def\@diagAC{->}}{}
+        \ifthenelse{\equal{#3}{<-}}{\def\@diagAC{<-}}{}
+        \ifthenelse{\equal{#3}{<->}}{\def\@diagAC{<->}}{}
+        \ifthenelse{\equal{#3}{->>}}{\def\@diagAC{->>}}{}
+        \ifthenelse{\equal{#3}{<<-}}{\def\@diagAC{<<-}}{}
+        \ifthenelse{\equal{#3}{>->}}{\def\@diagAC{>->}}{}
+        \ifthenelse{\equal{#3}{<-<}}{\def\@diagAC{<-<}}{}
+        \ifthenelse{\equal{#3}{c->}}{\def\@diagAC{right hook->}}{}
+        \ifthenelse{\equal{#3}{<-c}}{\def\@diagAC{<-left hook}}{}
+        \ifthenelse{\equal{#3}{|->}}{\def\@diagAC{|->}}{}
+        \ifthenelse{\equal{#3}{<-|}}{\def\@diagAC{<-|}}{}
+        \ifthenelse{\equal{#4}{}}{\def\@diagAD{->}}{}
+        \ifthenelse{\equal{#4}{-}}{\def\@diagAD{-}}{}
+        \ifthenelse{\equal{#4}{->}}{\def\@diagAD{->}}{}
+        \ifthenelse{\equal{#4}{<-}}{\def\@diagAD{<-}}{}
+        \ifthenelse{\equal{#4}{<->}}{\def\@diagAD{<->}}{}
+        \ifthenelse{\equal{#4}{->>}}{\def\@diagAD{->>}}{}
+        \ifthenelse{\equal{#4}{<<-}}{\def\@diagAD{<<-}}{}
+        \ifthenelse{\equal{#4}{>->}}{\def\@diagAD{>->}}{}
+        \ifthenelse{\equal{#4}{<-<}}{\def\@diagAD{<-<}}{}
+        \ifthenelse{\equal{#4}{c->}}{\def\@diagAD{right hook->}}{}
+        \ifthenelse{\equal{#4}{<-c}}{\def\@diagAD{<-left hook}}{}
+        \ifthenelse{\equal{#4}{|->}}{\def\@diagAD{|->}}{}
+        \ifthenelse{\equal{#4}{<-|}}{\def\@diagAD{<-|}}{}
+    } % \newcommand{\diagramarrows}[4]{
+    
+    \newcommand{\diagramlines}[4]{
+        \ifthenelse{\equal{#1}{}}{\def\@diagLA{solid}}{}
+        \ifthenelse{\equal{#1}{=}}{\def\@diagLA{double}}{}
+        \ifthenelse{\equal{#1}{-}}{\def\@diagLA{solid}}{}
+        \ifthenelse{\equal{#1}{..}}{\def\@diagLA{dotted}}{}
+        \ifthenelse{\equal{#1}{--}}{\def\@diagLA{dashed}}{}
+        \ifthenelse{\equal{#2}{}}{\def\@diagLB{solid}}{}
+        \ifthenelse{\equal{#2}{=}}{\def\@diagLB{double}}{}
+        \ifthenelse{\equal{#2}{-}}{\def\@diagLB{solid}}{}
+        \ifthenelse{\equal{#2}{..}}{\def\@diagLB{dotted}}{}
+        \ifthenelse{\equal{#2}{--}}{\def\@diagLB{dashed}}{}
+        \ifthenelse{\equal{#3}{}}{\def\@diagLC{solid}}{}
+        \ifthenelse{\equal{#3}{=}}{\def\@diagLC{double}}{}
+        \ifthenelse{\equal{#3}{-}}{\def\@diagLC{solid}}{}
+        \ifthenelse{\equal{#3}{..}}{\def\@diagLC{dotted}}{}
+        \ifthenelse{\equal{#3}{--}}{\def\@diagLC{dashed}}{}
+        \ifthenelse{\equal{#4}{}}{\def\@diagLD{solid}}{}
+        \ifthenelse{\equal{#4}{=}}{\def\@diagLD{double}}{}
+        \ifthenelse{\equal{#4}{-}}{\def\@diagLD{solid}}{}
+        \ifthenelse{\equal{#4}{..}}{\def\@diagLD{dotted}}{}
+        \ifthenelse{\equal{#4}{--}}{\def\@diagLD{dashed}}{}
+    } % \newcommand{\diagramlines}[4]{
+
+%% --------------------
+%% Reset styles
+%% --------------------
+
+    \newcommand{\rds}{
+        \diagramarrows{}{}{}{}
+        \diagramlines{}{}{}{}
+    }
+    \rds
+    
+%% --------------------
+%% Simple square
+%% --------------------
+
+    \newcommand{\squarediagram}[8]{
+        \begin{tikzpicture}
+            \matrix (m) [matrix of math nodes,
+                    row sep = \@tRowsep em,
+                    column sep = \@tColsep em,
+                    text height = 1.5 ex,
+                    text depth = 0.25 ex,
+                    ampersand replacement = \@ampersand] {
+                \displaystyle{#1} \@ampersand \displaystyle{#2} \\
+                \displaystyle{#3} \@ampersand \displaystyle{#4} \\
+            };
+            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [above] {$#5$} (m-1-2);
+            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [left]  {$#6$} (m-2-1);
+            \path [\@diagAC] (m-1-2) edge [\@diagLC] node [right] {$#7$} (m-2-2);
+            \path [\@diagAD] (m-2-1) edge [\@diagLD] node [above] {$#8$} (m-2-2);
+        \end{tikzpicture}
+    }
+    
+%% --------------------
+%% Pushout
+%% --------------------
+
+    \newcommand{\pushoutdiagram}[8]{
+        \begin{tikzpicture}[inline/.style = {fill = white, inner sep = 2.5pt}]
+            \matrix (m) [matrix of math nodes,
+                    row sep = \@tRowsep em,
+                    column sep = \@tColsep em,
+                    text height = 1.5 ex,
+                    text depth = 0.25 ex,
+                    ampersand replacement = \@ampersand] {
+                \displaystyle{#1} \@ampersand \displaystyle{#2} \\
+                \displaystyle{#3} \@ampersand \displaystyle{#4} \\
+            };
+            \path (m-1-1) edge [-, draw = white] node [inline] {\mbox{\LARGE{$\ulcorner$}}} (m-2-2);
+            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [above] {$#5$} (m-1-2);
+            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [left]  {$#6$} (m-2-1);
+            \path [\@diagAC] (m-1-2) edge [\@diagLC] node [right] {$#7$} (m-2-2);
+            \path [\@diagAD] (m-2-1) edge [\@diagLD] node [above] {$#8$} (m-2-2);
+        \end{tikzpicture}
+    }
+    
+%% --------------------
+%% Pullback
+%% --------------------
+
+    \newcommand{\pullbackdiagram}[8]{
+        \begin{tikzpicture}[inline/.style = {fill = white, inner sep = 2.5pt}]
+            \matrix (m) [matrix of math nodes,
+                    row sep = \@tRowsep em,
+                    column sep = \@tColsep em,
+                    text height = 1.5 ex,
+                    text depth = 0.25ex,
+                    ampersand replacement = \@ampersand] {
+                \displaystyle{#1} \@ampersand \displaystyle{#2} \\
+                \displaystyle{#3} \@ampersand \displaystyle{#4} \\
+            };
+            \path (m-1-1) edge [-, draw = white] node [inline] {\mbox{\LARGE{$\lrcorner$}}} (m-2-2);
+            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [above] {$#5$} (m-1-2);
+            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [left]  {$#6$} (m-2-1);
+            \path [\@diagAC] (m-1-2) edge [\@diagLC] node [right] {$#7$} (m-2-2);
+            \path [\@diagAD] (m-2-1) edge [\@diagLD] node [above] {$#8$} (m-2-2);
+        \end{tikzpicture}
+    }
+    
+%% --------------------
+%% Triangular UL : Up left
+%% --------------------
+
+    \newcommand{\triangleULdiagram}[6]{
+        \begin{tikzpicture}
+            \matrix (m) [matrix of math nodes,
+                    row sep = \@tRowsep em,
+                    column sep = \@tColsep em,
+                    text height = 1.5 ex,
+                    text depth = 0.25 ex,
+                    ampersand replacement = \@ampersand] {
+                \displaystyle{#1} \@ampersand \displaystyle{#2} \\
+                \displaystyle{#3} \@ampersand \\
+            };
+            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [above]       {$#4$} (m-1-2);
+            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [left]        {$#5$} (m-2-1);
+            \path [\@diagAC] (m-2-1) edge [\@diagLC] node [below right] {$#6$} (m-1-2);
+        \end{tikzpicture}
+    }
+    
+%% --------------------
+%% Triangular UR : Up right
+%% --------------------
+
+    \newcommand{\triangleURdiagram}[6]{
+        \begin{tikzpicture}
+            \matrix (m) [matrix of math nodes,
+                    row sep = \@tRowsep em,
+                    column sep = \@tColsep em,
+                    text height = 1.5ex,
+                    text depth = 0.25ex,
+                    ampersand replacement = \@ampersand] {
+                \displaystyle{#1} \@ampersand \displaystyle{#2} \\
+                \@ampersand \displaystyle{#3} \\
+            };
+            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [above]      {$#4$} (m-1-2);
+            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [below left] {$#5$} (m-2-2);
+            \path [\@diagAC] (m-1-2) edge [\@diagLC] node [right]      {$#6$} (m-2-2);
+        \end{tikzpicture}
+    }
+    
+%% --------------------
+%% Triangular DL : Down left
+%% --------------------
+
+    \newcommand{\triangleDLdiagram}[6]{
+        \begin{tikzpicture}
+            \matrix (m) [matrix of math nodes,
+                    row sep = \@tRowsep em,
+                    column sep = \@tColsep em,
+                    text height = 1.5ex,
+                    text depth = 0.25ex,
+                    ampersand replacement = \@ampersand] {
+                \displaystyle{#1} \@ampersand \\
+                \displaystyle{#2} \@ampersand \displaystyle{#3} \\
+            };
+            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [left]        {$#4$} (m-2-1);
+            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [above right] {$#5$} (m-2-2);
+            \path [\@diagAC] (m-2-1) edge [\@diagLC] node [below]       {$#6$} (m-2-2);
+        \end{tikzpicture}
+    }
+    
+%% --------------------
+%% Triangular DR : Down right
+%% --------------------
+
+    \newcommand{\triangleDRdiagram}[6]{
+        \begin{tikzpicture}
+            \matrix (m) [matrix of math nodes,
+                    row sep = \@tRowsep em,
+                    column sep = \@tColsep em,
+                    text height = 1.5ex,
+                    text depth = 0.25ex,
+                    ampersand replacement = \@ampersand] {
+                \@ampersand \displaystyle{#1} \\
+                \displaystyle{#2} \@ampersand \displaystyle{#3} \\
+            };
+            \path [\@diagAA] (m-2-1) edge [\@diagLA] node [above left] {$#4$} (m-1-2);
+            \path [\@diagAB] (m-1-2) edge [\@diagLB] node [right]      {$#5$} (m-2-2);
+            \path [\@diagAC] (m-2-1) edge [\@diagLC] node [above]      {$#6$} (m-2-2);
+        \end{tikzpicture}
+    }
+        
+%% --------------------
+%% Triangular U : Up
+%% --------------------
+
+    \newcommand{\triangleUdiagram}[6]{
+        \begin{tikzpicture}
+            \matrix (m) [matrix of math nodes,
+                    row sep = \@tRowsep em,
+                    column sep = \@tColsep em,
+                    text height = 1.5ex,
+                    text depth = 0.25ex,
+                    ampersand replacement = \@ampersand] {
+                \@ampersand \displaystyle{#1} \@ampersand \\
+                \displaystyle{#2} \@ampersand \@ampersand \displaystyle{#3} \\
+            };
+            \path [\@diagAA] (m-1-2) edge [\@diagLA] node [above left]  {$#4$} (m-2-1);
+            \path [\@diagAB] (m-1-2) edge [\@diagLB] node [above right] {$#5$} (m-2-3);
+            \path [\@diagAC] (m-2-1) edge [\@diagLC] node [above]       {$#6$} (m-2-3);
+        \end{tikzpicture}
+    }
+    
+%% --------------------
+%% Triangular L : Left
+%% --------------------
+    \newcommand{\triangleLdiagram}[6]{
+        \begin{tikzpicture}
+            \matrix (m) [matrix of math nodes,
+                    row sep = \@tRowsep em,
+                    column sep = \@tColsep em,
+                    text height = 1.5ex,
+                    text depth = 0.25ex,
+                    ampersand replacement = \@ampersand] {
+                \@ampersand \displaystyle{#1} \\
+                \displaystyle{#2} \@ampersand \\
+                \@ampersand \displaystyle{#3} \\
+            };
+            \path [\@diagAA] (m-2-1) edge [\@diagLA] node [above left] {$#4$} (m-1-2);
+            \path [\@diagAB] (m-1-2) edge [\@diagLB] node [right]      {$#5$} (m-3-2);
+            \path [\@diagAC] (m-2-1) edge [\@diagLC] node [below left] {$#6$} (m-3-2);
+        \end{tikzpicture}
+    }
+        
+%% --------------------
+%% Triangular R : Right
+%% --------------------
+
+    \newcommand{\triangleRdiagram}[6]{
+        \begin{tikzpicture}
+            \matrix (m) [matrix of math nodes,
+                    row sep = \@tRowsep em,
+                    column sep = \@tColsep em,
+                    text height = 1.5ex,
+                    text depth = 0.25ex,
+                    ampersand replacement = \@ampersand] {
+                \displaystyle{#1} \@ampersand \\
+                \@ampersand \displaystyle{#2} \\
+                \displaystyle{#3} \@ampersand \\
+            };
+            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [left]        {$#4$} (m-3-1);
+            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [above right] {$#5$} (m-2-2);
+            \path [\@diagAC] (m-3-1) edge [\@diagLC] node [below right] {$#6$} (m-2-2);
+        \end{tikzpicture}
+    }
+    
+%% --------------------
+%% Triangular D : Down
+%% --------------------
+
+    \newcommand{\triangleDdiagram}[6]{
+        \begin{tikzpicture}
+            \matrix (m) [matrix of math nodes,
+                    row sep = \@tRowsep em,
+                    column sep = \@tColsep em,
+                    text height = 1.5ex,
+                    text depth = 0.25ex,
+                    ampersand replacement = \@ampersand] {
+                \displaystyle{#1} \@ampersand \@ampersand \displaystyle{#2} \\
+                \@ampersand \displaystyle{#3} \@ampersand \\
+            };
+            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [above]       {$#4$} (m-1-3);
+            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [below left]  {$#5$} (m-2-2);
+            \path [\@diagAC] (m-1-3) edge [\@diagLC] node [below right] {$#6$} (m-2-2);
+        \end{tikzpicture}
+    }
+    
+%% --------------------
+%% Equalizer
+%% --------------------
+    
+    \newcommand{\eqdiagram}[6]{
+        \begin{tikzpicture}[inline/.style = {fill = white, inner sep = 2.5pt}]
+            \matrix (m) [matrix of math nodes,
+                    row sep = \@tRowsep em,
+                    column sep = \@tColsep em,
+                    text height = 1.5ex,
+                    text depth = 0.25ex,
+                    ampersand replacement = \@ampersand] {
+                \displaystyle{#1} \@ampersand \displaystyle{#2} \@ampersand \displaystyle{#3} \\
+            };
+            \path [\@diagAA] (m-1-1)                    edge [\@diagLA] node [above] {$#4$} (m-1-2);
+            \path [\@diagAB] ($(m-1-2.east) + (0,0.1)$) edge [\@diagLB] node [above] {$#5$} ($(m-1-3.west) + (0,0.1)$);
+            \path [\@diagAC] ($(m-1-2.east) - (0,0.1)$) edge [\@diagLC] node [below] {$#6$} ($(m-1-3.west) - (0,0.1)$);
+        \end{tikzpicture}
+    }
+    
+%% --------------------
+%% Coequalizer
+%% --------------------
+    
+    \newcommand{\coeqdiagram}[6]{
+        \begin{tikzpicture}[inline/.style = {fill = white, inner sep = 2.5pt}]
+            \matrix (m) [matrix of math nodes,
+                    row sep = \@tRowsep em,
+                    column sep = \@tColsep em,
+                    text height = 1.5ex,
+                    text depth = 0.25ex,
+                    ampersand replacement = \@ampersand] {
+                \displaystyle{#1} \@ampersand \displaystyle{#2} \@ampersand \displaystyle{#3} \\
+            };
+            \path [\@diagAA] ($(m-1-1.east) + (0,0.1)$) edge [\@diagLA] node [above] {$#4$} ($(m-1-2.west) + (0,0.1)$);
+            \path [\@diagAB] ($(m-1-1.east) - (0,0.1)$) edge [\@diagLB] node [below] {$#5$} ($(m-1-2.west) - (0,0.1)$);
+            \path [\@diagAC] (m-1-2)                    edge [\@diagLC] node [above] {$#6$} (m-1-3);
+        \end{tikzpicture}
+    }
+    
+}{} % \ifthenelse{\boolean{@b_extpack_use_tikz}}{
+
+%% -----------------------------------------------------------------------------
 %%
 %% Document styles
 %%
+%% -----------------------------------------------------------------------------
+
+\ifthenelse{\equal{\@titlePageStyle}{normal}}{}{
+
+%% --------------------
+%% Metadatas
+%% --------------------
+
+    \newcommand{\editor}    [1]{\def\@editor{#1}}       \editor{}
+    \newcommand{\email}     [1]{\def\@email{#1}}        \email{}
+    \newcommand{\image}     [2]{\def\@image{#1}         \def\@imagescale{#2}}   \image{}{}
+    \newcommand{\logo}      [2]{\def\@logo{#1}          \def\@logoscale{#2}}    \logo{}{}
+    \newcommand{\publisher} [1]{\def\@publisher{#1}}    \publisher{}
+    \newcommand{\subauthor} [1]{\def\@subauthor{#1}}    \subauthor{}
+    \newcommand{\subtitle}  [1]{\def\@subtitle{#1}}     \subtitle{}
+    
+%% --------------------
+%% Insertions
+%% --------------------
+
+    \newcommand{\authorshere}{
+        \ifthenelse{\equal{\@subauthor}{}}{
+            \@author
+        }{
+            \@author \\ \@subauthor
+        }
+    }
+
+    \newcommand{\imagehere}[1]{
+        \ifthenelse{\equal{\@image}{}}{}{
+            \ifthenelse{\equal{#1}{centeredFigure}}{
+                \begin{figure}[h]
+                    \center
+                    \includegraphics[scale = \@imagescale]{\@image}
+                \end{figure}
+            }{
+                \includegraphics[scale = \@imagescale]{\@image}
+            }
+        }
+    }
+    
+    \newcommand{\logohere}[1]{
+        \ifthenelse{\equal{\@logo}{}}{}{
+            \ifthenelse{\equal{#1}{centeredFigure}}{
+                \begin{figure}[h]
+                    \center
+                    \includegraphics[scale = \@logoscale]{\@logo}
+                \end{figure}
+            }{
+                \includegraphics[scale = \@logoscale]{\@logo}
+            }
+        }
+    }
+
+} % \ifthenelse{\equal{\@titlePageStyle}{normal}}{}{
+
+
+%% ----------------------------------------
+%% Front page
 %% ----------------------------------------
 
-\input{kappak-styles.tex}
+%% --------------------
+%% classic
+%% --------------------
+
+\ifthenelse{\equal{\@titlePageStyle}{classic}}{
+    \renewcommand{\maketitle}{
+        \begin{titlepage}
+            \begin{center}
+                \logohere{centeredFigure} ~ \\ [2cm]
+                \huge{\textsc{\@title}} \\ [1.5cm]      
+                \begin{center} \large
+                    \authorshere \\ [0.25cm]
+                \end{center}
+                {\large \@date} \\ [4cm]
+                \imagehere{centeredFigure}
+                \vfill
+            \end{center}
+        \end{titlepage}
+    }
+}{} % \ifthenelse{\equal{\@titlePageStyle}{classic}}{
+
+%% --------------------
+%% bar
+%% --------------------
+
+\ifthenelse{\equal{\@titlePageStyle}{bar}}{
+    \renewcommand{\maketitle}{
+        \begin{titlepage}
+            \begin{center}
+                \logohere{centeredFigure} ~ \\ [1.5cm]
+                \textsc{\Large \@subtitle} \\ [1.5cm]
+                \rule{\linewidth}{0.5mm} \\ [0.4cm]
+                \huge{\bfseries{\@title}} \\
+                \rule{\linewidth}{0.5mm} \\ [1cm]           
+                \begin{center}
+                    {\large \authorshere}
+                \end{center}
+                \vfill 
+                \imagehere{centeredFigure}
+                \vfill
+                {\large \@date}
+            \end{center}
+        \end{titlepage}
+    }
+}{} % \ifthenelse{\equal{\@titlePageStyle}{bar}}{
+
+%% --------------------
+%% gm : Gentle madness
+%% --------------------
+
+\ifthenelse{\equal{\@titlePageStyle}{gm}}{
+    \renewcommand{\maketitle}{
+        \begin{titlepage}
+            \vfill
+            \hbox{
+                \rule{2pt}{\textheight}
+                \hspace*{0.05 \textwidth}
+                \parbox[b]{0.75\textwidth}{
+                    \vbox{%
+                        {\noindent\Huge\bfseries \@title} \\ [2\baselineskip]
+                        {\Large\itshape \@subtitle} \\ [4\baselineskip]
+                        {\Large \authorshere}\par
+                        \vspace{0.5\textheight}
+                        {\noindent \@publisher} \\ [\baselineskip]
+                        {\large \@date}
+                    }
+                }
+            }
+            \vfill
+        \end{titlepage}
+    }
+}{} % \ifthenelse{\equal{\@titlePageStyle}{gm}}{
+
+%% --------------------
+%% gb : grey box
+%% --------------------
+
+\ifthenelse{\equal{\@titlePageStyle}{gb}}{
+    \definecolor{grey}{rgb}{0.9, 0.9, 0.9}
+    \renewcommand{\maketitle}{
+        \begin{titlepage}
+            \logohere{centeredFigure}
+            \colorbox{grey}{
+                \parbox[t]{1.0\linewidth}{
+                    \vspace*{0.5cm}
+                    \centering \fontsize{50pt}{50pt}\selectfont \@title \\
+                    \vspace*{0.5cm}
+                    \centering \fontsize{25pt}{40pt}\selectfont \@subtitle
+                    \vspace*{0.5cm}
+                }
+            }
+            \vfill
+            \begin{flushright}
+                {\huge \authorshere}
+            \end{flushright}
+            \vfill
+            \begin{flushright}
+                {\Large \@date}
+            \end{flushright}
+        \end{titlepage}
+    }
+}{} % \ifthenelse{\equal{\@titlePageStyle}{gb}}{
 
 %% ----------------------------------------
+%% Titles styles
+%% ----------------------------------------
+
+%% --------------------
+%% Language handling
+%% --------------------
+
+\ifthenelse{\equal{\@chapterStyle}{normal}}{}{
+
+    \ifthenelse{\equal{\@language}{french}}{
+        \def\@chapterName{Chapitre}
+        \def\@sectionName{Section}
+    }{}
+    
+    \ifthenelse{\equal{\@language}{english}}{
+        \def\@chapterName{Chapter}
+        \def\@sectionName{Section}
+    }{}
+    
+}
+
+%% --------------------
+%% cb : Center bar
+%% --------------------
+
+\ifthenelse{\equal{\@chapterStyle}{cb}}{
+
+    \titleformat{\chapter}[display]
+        {\Large\filcenter\bfseries}
+        {
+            \titlerule[1pt]
+            \vspace{1pt}
+            \titlerule
+            \vspace{1pc}
+            \LARGE\MakeUppercase{\@chapterName} \thechapter
+        }
+        {1pc}
+        {
+            \titlerule
+            \vspace{1pc}
+            \Huge
+        }
+        
+}{} % \ifthenelse{\equal{\@chapterStyle}{cb}}{
+
+%% --------------------
+%% rb : Right bar
+%% --------------------
+
+\ifthenelse{\equal{\@chapterStyle}{rb}}{
+
+    \titleformat{\chapter}[display]
+        {\LARGE\filleft\bfseries}
+        {\huge{\chaptertitlename} \thechapter}
+        {4.5pc}
+        {
+            \titlerule
+            \vspace{1pc}
+            \Huge
+            \filleft
+        }
+        [
+            \vspace{1pc}
+            \titlerule
+        ]
+    
+    \titleformat{\section}
+        {\normalfont\large\bfseries\filcenter}
+        {\thesection}
+        {1em}
+        {}
+        [\vspace{0.5pc}]
+    
+    \titleformat{\subsection}
+        {\normalfont\bfseries\filcenter}
+        {\thesubsection}
+        {0.5em}
+        {}
+        
+}{} % \ifthenelse{\equal{\@chapterStyle}{rb}}{
+
+%% ----------------------------------------
+%% Header / footer style
+%% ----------------------------------------
+
+%% --------------------
+%% classic
+%% --------------------
+
+\ifthenelse{\equal{\@headerFooterStyle}{classic}}{
+    \pagestyle{fancy}
+    \renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
+    \fancypagestyle{firstpage}{
+        \fancyhf{}
+    }
+    \renewcommand{\headrulewidth}{0.0pt}
+    \renewcommand{\footrulewidth}{0.0pt}
+    \fancyhead{}
+    \fancyhead[CE]{\thetitle}
+    \fancyhead[CO]{\rightmark}
+    \fancyfoot{}
+    \ifthenelse{\equal{\@language}{english}}{
+        \cfoot{\footnotesize Page \thepage\ of \pageref{LastPage}}
+    }{
+        \cfoot{\footnotesize Page \thepage\ sur \pageref{LastPage}}
+    }
+}{}
+
+%% --------------------
+%% cb : center bar
+%% --------------------
+
+\ifthenelse{\equal{\@headerFooterStyle}{cb}}{
+    \pagestyle{fancy}
+    \lhead{} \chead{} \rhead{}
+    \lfoot{} \cfoot{\thetitle \\ \thepage} \rfoot{}
+    \renewcommand{\headrulewidth}{0.0pt}
+    \renewcommand{\footrulewidth}{0.4pt}
+}{}
+
+%% --------------------
+%% empty
+%% --------------------
+
+\ifthenelse{\equal{\@headerFooterStyle}{empty}}{
+    \pagestyle{empty}
+}{}
+
+%% -----------------------------------------------------------------------------
+%%
 %% Environments
-%% ----------------------------------------
+%%
+%% -----------------------------------------------------------------------------
 
-\input{kappak-environments.tex}
+\ifthenelse{\boolean{@b_maths_use_theoremEnvs}}{
+
+    \ifthenelse{\equal{\@language}{english}}{
+    
+        \def\@assertionName         {Assertion}
+        \def\@assertionsName        {Assertions}
+        \def\@axiomName             {Axiom}
+        \def\@axiomsName            {Axioms}
+        \def\@conjectureName        {Conjecture}
+        \def\@conjecturesName       {Conjectures}
+        \def\@conventionName        {Convention}
+        \def\@conventionsName       {Conventions}
+        \def\@corollaryName         {Corollary}
+        \def\@corollariesName       {Corollaries}
+        \def\@definitionName        {Definition}
+        \def\@definitionsName       {Definitions}
+        \def\@exampleName           {Example}
+        \def\@examplesName          {Examples}
+        \def\@exerciseName          {Exercise}
+        \def\@exercisesName         {Exercises}
+        \def\@lemmaName             {Lemma}
+        \def\@lemmasName            {Lemmas}
+        \def\@notationName          {Notation}
+        \def\@notationsName         {Notations}
+        \def\@proofName             {Proof}
+        \def\@proofsName            {Proofs}
+        \def\@propertyName          {Property}
+        \def\@propertiesName        {Properties}
+        \def\@propositionName       {Proposition}
+        \def\@propositionsName      {Propositions}
+        \def\@questionName          {Question}
+        \def\@questionsName         {Questions}
+        \def\@remarkName            {Remark}
+        \def\@remarksName           {Remarks}
+        \def\@reminderName          {Reminder}
+        \def\@remindersName         {Reminders}
+        \def\@scholiaName           {Scholia}
+        \def\@scholiasName          {Scholias}
+        \def\@solutionName          {Solution}
+        \def\@solutionsName         {Solutions}
+        \def\@theoremName           {Theorem}
+        \def\@theoremsName          {Theorems}
+        \def\@terminologyName       {Terminology}
+        \def\@terminologiesName     {Terminologies}
+
+    }{} % \ifthenelse{\equal{\@language}{english}}{
+
+    \ifthenelse{\equal{\@language}{french}}{
+    
+        \def\@assertionName         {Assertion}
+        \def\@assertionsName        {Assertions}
+        \def\@axiomName             {Axiome}
+        \def\@axiomsName            {Axiomes}
+        \def\@conjectureName        {Conjecture}
+        \def\@conjecturesName       {Conjectures}
+        \def\@conventionName        {Convention}
+        \def\@conventionsName       {Conventions}
+        \def\@corollaryName         {Corollaire}
+        \def\@corollariesName       {Corollaires}
+        \def\@definitionName        {Définition}
+        \def\@definitionsName       {Définitions}
+        \def\@exampleName           {Exemple}
+        \def\@examplesName          {Exemples}
+        \def\@exerciseName          {Exercice}
+        \def\@exercisesName         {Exercices}
+        \def\@lemmaName             {Lemme}
+        \def\@lemmasName            {Lemmes}
+        \def\@notationName          {Notation}
+        \def\@notationsName         {Notations}
+        \def\@proofName             {Démonstration}
+        \def\@proofsName            {Démonstrations}
+        \def\@propertyName          {Propriété}
+        \def\@propertiesName        {Propriétés}
+        \def\@propositionName       {Proposition}
+        \def\@propositionsName      {Propositions}
+        \def\@questionName          {Question}
+        \def\@questionsName         {Questions}
+        \def\@remarkName            {Remarque}
+        \def\@remarksName           {Remarques}
+        \def\@reminderName          {Rappel}
+        \def\@remindersName         {Rappels}
+        \def\@scholiaName           {Scholie}
+        \def\@scholiasName          {Scholies}
+        \def\@solutionName          {Solution}
+        \def\@solutionsName         {Solutions}
+        \def\@terminologyName       {Terminologie}
+        \def\@terminologiesName     {Terminologies}
+        \def\@theoremName           {Théorème}
+        \def\@theoremsName          {Théorèmes}
+        
+    }{} % \ifthenelse{\equal{\@language}{french}}{
+    
+    \numberwithin{equation}{section}
+    
+    \theoremstyle{definition}
+        
+    \newtheorem{axiom}          [equation]  {\@axiomName}
+    \newtheorem{axioms}         [equation]  {\@axiomsName}
+    \newtheorem*{axiom*}                    {\@axiomName}
+    \newtheorem*{axioms*}                   {\@axiomsName}
+    \newtheorem{definition}     [equation]  {\@definitionName}
+    \newtheorem{definitions}    [equation]  {\@definitionsName}
+    \newtheorem*{definition*}               {\@definitionName}
+    \newtheorem*{definitions*}              {\@definitionsName}
+    \newtheorem{example}        [equation]  {\@exampleName}
+    \newtheorem{examples}       [equation]  {\@examplesName}
+    \newtheorem*{example*}                  {\@exampleName}
+    \newtheorem*{examples*}                 {\@examplesName}
+    \newtheorem{exercise}       [equation]  {\@exerciseName}
+    \newtheorem{exercises}      [equation]  {\@exercisesName}
+    \newtheorem*{exercise*}                 {\@exerciseName}
+    \newtheorem*{exercises*}                {\@exercisesName}
+    \newtheorem{question}       [equation]  {\@questionName}
+    \newtheorem{questions}      [equation]  {\@questionsName}
+    \newtheorem*{question*}                 {\@questionName}
+    \newtheorem*{questions*}                {\@questionsName}
+        
+    \ifthenelse{\boolean{@b_maths_use_theoremStyles}}{
+         \theoremstyle{plain}
+    }{}
+        
+    \newtheorem{assertion}      [equation]  {\@assertionName}
+    \newtheorem{assertions}     [equation]  {\@assertionsName}
+    \newtheorem*{assertion*}                {\@assertionName}
+    \newtheorem*{assertions*}               {\@assertionsName}
+    \newtheorem{conjecture}     [equation]  {\@conjectureName}
+    \newtheorem{conjectures}    [equation]  {\@conjecturesName}
+    \newtheorem*{conjecture*}               {\@conjectureName}
+    \newtheorem*{conjectures*}              {\@conjecturesName}
+    \newtheorem{corollary}      [equation]  {\@corollaryName}
+    \newtheorem{corollaries}    [equation]  {\@corollariesName}
+    \newtheorem*{corollary*}                {\@corollaryName}
+    \newtheorem*{corollaries*}              {\@corollariesName}
+    \newtheorem{lemma}          [equation]  {\@lemmaName}
+    \newtheorem{lemmas}         [equation]  {\@lemmasName}
+    \newtheorem*{lemma*}                    {\@lemmaName}
+    \newtheorem*{lemmas*}                   {\@lemmasName}
+    \newtheorem{property}       [equation]  {\@propertyName}
+    \newtheorem{properties}     [equation]  {\@propertiesName}
+    \newtheorem*{property*}                 {\@propertyName}
+    \newtheorem*{properties*}               {\@propertiesName}
+    \newtheorem{proposition}    [equation]  {\@propositionName}
+    \newtheorem{propositions}   [equation]  {\@propositionsName}
+    \newtheorem*{proposition*}              {\@propositionName}
+    \newtheorem*{propositions*}             {\@propositionsName}
+    \newtheorem{scholia}        [equation]  {\@scholiaName}
+    \newtheorem{scholias}       [equation]  {\@scholiasName}
+    \newtheorem{scholia*}                   {\@scholiaName}
+    \newtheorem{scholias*}                  {\@scholiasName}
+    \newtheorem{theorem}        [equation]  {\@theoremName}
+    \newtheorem{theorems}       [equation]  {\@theoremsName}
+    \newtheorem*{theorem*}                  {\@theoremName}
+    \newtheorem*{theorems*}                 {\@theoremsName}
+        
+    \ifthenelse{\boolean{@b_maths_use_theoremStyles}}{
+        \theoremstyle{remark}
+    }{}
+        
+    \newtheorem{convention}     [equation]  {\@conventionName}
+    \newtheorem{conventions}    [equation]  {\@conventionsName}
+    \newtheorem*{convention*}               {\@conventionName}
+    \newtheorem*{conventions*}              {\@conventionsName}
+    \newtheorem{notation}       [equation]  {\@notationName}
+    \newtheorem{notations}      [equation]  {\@notationsName}
+    \newtheorem*{notation*}                 {\@notationName}
+    \newtheorem*{notations*}                {\@notationsName}
+    \newtheorem{remark}         [equation]  {\@remarkName}
+    \newtheorem{remarks}        [equation]  {\@remarksName}
+    \newtheorem*{remark*}                   {\@remarkName}
+    \newtheorem*{remarks*}                  {\@remarksName}
+    \newtheorem{reminder}       [equation]  {\@reminderName}
+    \newtheorem{reminders}      [equation]  {\@remindersName}
+    \newtheorem*{reminder*}                 {\@reminderName}
+    \newtheorem*{reminders*}                {\@remindersName}
+    \newtheorem{terminology}    [equation]  {\@terminologyName}
+    \newtheorem{terminologies}  [equation]  {\@terminologiesName}
+    \newtheorem*{terminology*}              {\@terminologyName}
+    \newtheorem*{terminologies*}            {\@terminologiesName}
+    
+        %% solution(s) and proof(s)
+    \renewenvironment{proof}[1][\@proofName]{
+        \par
+        \pushQED{\qed}
+        \normalfont \topsep6\p@\@plus6\p@\relax
+        \trivlist
+        \item[\hskip\labelsep
+            \itshape
+        #1\@addpunct{.}]\ignorespaces
+    }{
+        \popQED\endtrivlist\@endpefalse
+    }
+    \newenvironment{proofs}[1][\@proofsName]{
+        \par
+        \pushQED{\qed}
+        \normalfont \topsep6\p@\@plus6\p@\relax
+        \trivlist
+        \item[\hskip\labelsep
+            \itshape
+        #1\@addpunct{.}]\ignorespaces
+    }{
+        \popQED\endtrivlist\@endpefalse
+    }
+    \newenvironment{solution}[1][\@solutionName]{
+        \par
+        \pushQED{\qed}
+        \normalfont \topsep6\p@\@plus6\p@\relax
+        \trivlist
+        \item[\hskip\labelsep
+            \itshape
+        #1\@addpunct{.}]\ignorespaces
+    }{
+        \hfill\ensuremath{\blacksquare}\endtrivlist\@endpefalse
+    }
+    \newenvironment{solutions}[1][\@solutionsName]{
+        \par
+        \pushQED{\qed}
+        \normalfont \topsep6\p@\@plus6\p@\relax
+        \trivlist
+        \item[\hskip\labelsep
+            \itshape
+        #1\@addpunct{.}]\ignorespaces
+    }{
+        \hfill\ensuremath{\blacksquare}\endtrivlist\@endpefalse
+    }
+    
+}{} % \ifthenelse{\boolean{@b_maths_use_theoremEnvs}}{
+
+\newenvironment{dedication}{
+    \cleardoublepage
+    \thispagestyle{empty}
+    \vspace*{\stretch{1}}
+    \hfill\begin{minipage}[t]{0.66\textwidth}
+    \raggedright
+}{
+    \end{minipage}
+    \vspace*{\stretch{3}}
+    \clearpage
+} % \newenvironment{dedication}{
 
 %% ----------------------------------------
 
