@@ -76,6 +76,8 @@
 %% extpack
 %% ----------------------------------------
 
+\newboolean{@b_extpack_auto}     			\setboolean{@b_extpack_auto}				{true}
+
 \newboolean{@b_extpack_use_stix}			\setboolean{@b_extpack_use_stix}			{false}
 
 \newboolean{@b_extpack_use_tikz}            \setboolean{@b_extpack_use_tikz}            {false}
@@ -205,6 +207,11 @@
 %% --------------------
 %% Simple
 %% --------------------
+
+%% -autopackages
+\DeclareOption{-autopackages}{
+    \setboolean{@b_extpack_auto}{false}
+}
 
 %% +maths
 \DeclareOption{+maths}{
@@ -353,7 +360,9 @@
 %% Processing
 %% ----------------------------------------
 
-\RequirePackage[\@language]{babel}
+\ifthenelse{\boolean{@b_extpack_auto}}{
+	\RequirePackage[\@language]{babel}
+}{}
 
 % stix must be loaded before amsmath if amsmath version is > 2.14
 % http://distrib-coffee.ipsl.jussieu.fr/pub/mirrors/ctan/fonts/stix/doc/stix.pdf
@@ -362,30 +371,32 @@
 	\let\barV\relax
 }{}
 
-\RequirePackage{amsfonts}
-\RequirePackage{amsmath}
-\RequirePackage{amssymb}
-\RequirePackage{amsthm}
-\RequirePackage{mathtools}
-
-\RequirePackage{color}
-\RequirePackage{enumerate}
-\RequirePackage{graphicx}
-\RequirePackage{hyperref}
-\RequirePackage{makeidx}
-\RequirePackage{multicol}
-\RequirePackage{subfig}
-\RequirePackage{titling}
+\ifthenelse{\boolean{@b_extpack_auto}}{
+	\RequirePackage{amsfonts}
+	\RequirePackage{amsmath}
+	\RequirePackage{amssymb}
+	\RequirePackage{amsthm}
+	\RequirePackage{mathtools}
+	
+	\RequirePackage{color}
+	\RequirePackage{enumerate}
+	\RequirePackage{graphicx}
+	\RequirePackage{hyperref}
+	\RequirePackage{makeidx}
+	\RequirePackage{multicol}
+	\RequirePackage{subfig}
+	\RequirePackage{titling}
+	
+	\hypersetup{ % See https://en.wikibooks.org/wiki/LaTeX/Hyperlinks#Customization
+	    colorlinks=false,
+	    hidelinks,
+	    linktoc=all,
+	    unicode=true
+	}
+}{}
 
 %\RequirePackage[notext]{stix}
 %\let\barV\relax
-
-\hypersetup{ % See https://en.wikibooks.org/wiki/LaTeX/Hyperlinks#Customization
-    colorlinks=false,
-    hidelinks,
-    linktoc=all,
-    unicode=true
-}
 
 \newcommand{\@bb}{\mathbb}
 \ifthenelse{\equal{\@bbStyle}{bbold}}{
