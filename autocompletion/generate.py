@@ -97,7 +97,7 @@ def generateTexstudio(symbols):
 # ==============================================================================
 # ==============================================================================
 
-fileNames = ["kappak.sty", "kappak-environments.tex", "kappak-letters.tex", "kappak-maths.tex", "kappak-styles.tex", "kappak-tikz.tex"]
+fileNames = ["kappak.sty"]
 targets = [generateTexmaker, generateSublime, generateTexstudio]
 
 def generateSymbols():
