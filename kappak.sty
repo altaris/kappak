@@ -2544,7 +2544,7 @@
 %% --------------------
 
     \newcommand{\pushoutdiagram}[8]{
-        \begin{tikzpicture}[inline/.style = {fill = white, inner sep = 2.5pt}]
+        \begin{tikzpicture}
             \matrix (m) [matrix of math nodes,
                     row sep = \@tRowsep em,
                     column sep = \@tColsep em,
@@ -2554,7 +2554,7 @@
                 \displaystyle{#1} \@ampersand \displaystyle{#2} \\
                 \displaystyle{#3} \@ampersand \displaystyle{#4} \\
             };
-            \path (m-1-1) edge [-, draw = white] node [inline] {\mbox{\LARGE{$\ulcorner$}}} (m-2-2);
+            \path (m-1-1) edge [-, draw = white] node [anchor = north west] {\LARGE $\ulcorner$} (m-2-2);
             \path [\@diagAA] (m-1-1) edge [\@diagLA] node [above] {$#5$} (m-1-2);
             \path [\@diagAB] (m-1-1) edge [\@diagLB] node [left]  {$#6$} (m-2-1);
             \path [\@diagAC] (m-1-2) edge [\@diagLC] node [right] {$#7$} (m-2-2);
@@ -2567,7 +2567,7 @@
 %% --------------------
 
     \newcommand{\pullbackdiagram}[8]{
-        \begin{tikzpicture}[inline/.style = {fill = white, inner sep = 2.5pt}]
+        \begin{tikzpicture}
             \matrix (m) [matrix of math nodes,
                     row sep = \@tRowsep em,
                     column sep = \@tColsep em,
@@ -2577,7 +2577,7 @@
                 \displaystyle{#1} \@ampersand \displaystyle{#2} \\
                 \displaystyle{#3} \@ampersand \displaystyle{#4} \\
             };
-            \path (m-1-1) edge [-, draw = white] node [inline] {\mbox{\LARGE{$\lrcorner$}}} (m-2-2);
+            \path (m-1-1) edge [-, draw = white] node [anchor = south east] {\LARGE $\lrcorner$} (m-2-2);
             \path [\@diagAA] (m-1-1) edge [\@diagLA] node [above] {$#5$} (m-1-2);
             \path [\@diagAB] (m-1-1) edge [\@diagLB] node [left]  {$#6$} (m-2-1);
             \path [\@diagAC] (m-1-2) edge [\@diagLC] node [right] {$#7$} (m-2-2);
@@ -2759,7 +2759,7 @@
 %% --------------------
     
     \newcommand{\eqdiagram}[6]{
-        \begin{tikzpicture}[inline/.style = {fill = white, inner sep = 2.5pt}]
+        \begin{tikzpicture}
             \matrix (m) [matrix of math nodes,
                     row sep = \@tRowsep em,
                     column sep = \@tColsep em,
@@ -2779,7 +2779,7 @@
 %% --------------------
     
     \newcommand{\coeqdiagram}[6]{
-        \begin{tikzpicture}[inline/.style = {fill = white, inner sep = 2.5pt}]
+        \begin{tikzpicture}
             \matrix (m) [matrix of math nodes,
                     row sep = \@tRowsep em,
                     column sep = \@tColsep em,
