@@ -543,7 +543,7 @@
     \ifthenelse{\equal{\@categoryStyle}{script}}{
         \newcommand{\op}{\mathrm{op}}
         \newcommand{\newcategory}[4]{
-            \newcommand{#1}{#2\@cat{#3}\!#4}
+            \newcommand{#1}{#2\@cat{#3}\mathrm{#4}}
         }
     }{
         \newcommand{\op}{\@cat{op}}
