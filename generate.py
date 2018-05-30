@@ -102,7 +102,7 @@ targets = [generateTexmaker, generateSublime, generateTexstudio]
 
 def generateSymbols():
     for fn in fileNames:
-        with open("../" + fn, encoding = 'utf-8') as file:
+        with open("src/" + fn, encoding = 'utf-8') as file:
             for line in file:
                 for t in [Command, Environment]:
                     c = t.match(line)

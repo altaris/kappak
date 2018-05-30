@@ -13,9 +13,9 @@ This is a homemade LaTeX package regrouping functionalities I deem handy. It is 
 
 Execute the following commands in your favorite terminal :
 
-    mkdir -p ~/texmf/tex/latex
-    cd ~/texmf/tex/latex
     git clone https://github.com/altaris/kappak.git
+    cd kappak
+    make install
 
 ## Windows (MiKTex)
 
