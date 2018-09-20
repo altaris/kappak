@@ -378,10 +378,13 @@
 	\RequirePackage{amsthm}
 	\RequirePackage{mathtools}
 	
+	\RequirePackage{aliascnt} % must be loaded before cleveref
+	\RequirePackage{hyperref} % must be loaded before cleveref
+	\RequirePackage[noabbrev]{cleveref}
+	
 	\RequirePackage{color}
 	\RequirePackage{enumerate}
 	\RequirePackage{graphicx}
-	\RequirePackage{hyperref}
 	\RequirePackage{multicol}
 	\RequirePackage{subfig}
 	
@@ -3093,180 +3096,201 @@
 
     \ifthenelse{\equal{\@language}{english}}{
     
-        \def\@assertionName         {Assertion}
-        \def\@assertionsName        {Assertions}
-        \def\@axiomName             {Axiom}
-        \def\@axiomsName            {Axioms}
-        \def\@conjectureName        {Conjecture}
-        \def\@conjecturesName       {Conjectures}
-        \def\@conventionName        {Convention}
-        \def\@conventionsName       {Conventions}
-        \def\@corollaryName         {Corollary}
-        \def\@corollariesName       {Corollaries}
-        \def\@definitionName        {Definition}
-        \def\@definitionsName       {Definitions}
-        \def\@exampleName           {Example}
-        \def\@examplesName          {Examples}
-        \def\@exerciseName          {Exercise}
-        \def\@exercisesName         {Exercises}
-        \def\@lemmaName             {Lemma}
-        \def\@lemmasName            {Lemmas}
-        \def\@notationName          {Notation}
-        \def\@notationsName         {Notations}
-        \def\@proofName             {Proof}
-        \def\@proofsName            {Proofs}
-        \def\@propertyName          {Property}
-        \def\@propertiesName        {Properties}
-        \def\@propositionName       {Proposition}
-        \def\@propositionsName      {Propositions}
-        \def\@questionName          {Question}
-        \def\@questionsName         {Questions}
-        \def\@remarkName            {Remark}
-        \def\@remarksName           {Remarks}
-        \def\@reminderName          {Reminder}
-        \def\@remindersName         {Reminders}
-        \def\@scholiaName           {Scholia}
-        \def\@scholiasName          {Scholias}
-        \def\@solutionName          {Solution}
-        \def\@solutionsName         {Solutions}
-        \def\@theoremName           {Theorem}
-        \def\@theoremsName          {Theorems}
-        \def\@terminologyName       {Terminology}
-        \def\@terminologiesName     {Terminologies}
+        \def\@assertionName         {assertion}
+        \def\@assertionsName        {assertions}
+        \def\@axiomName             {axiom}
+        \def\@axiomsName            {axioms}
+        \def\@conjectureName        {conjecture}
+        \def\@conjecturesName       {conjectures}
+        \def\@conventionName        {convention}
+        \def\@conventionsName       {conventions}
+        \def\@corollaryName         {corollary}
+        \def\@corollariesName       {corollaries}
+        \def\@definitionName        {definition}
+        \def\@definitionsName       {definitions}
+        \def\@exampleName           {example}
+        \def\@examplesName          {examples}
+        \def\@exerciseName          {exercise}
+        \def\@exercisesName         {exercises}
+        \def\@lemmaName             {lemma}
+        \def\@lemmasName            {lemmas}
+        \def\@notationName          {notation}
+        \def\@notationsName         {notations}
+        \def\@proofName             {proof}
+        \def\@proofsName            {proofs}
+        \def\@propertyName          {property}
+        \def\@propertiesName        {properties}
+        \def\@propositionName       {proposition}
+        \def\@propositionsName      {propositions}
+        \def\@questionName          {question}
+        \def\@questionsName         {questions}
+        \def\@remarkName            {remark}
+        \def\@remarksName           {remarks}
+        \def\@reminderName          {reminder}
+        \def\@remindersName         {reminders}
+        \def\@scholiaName           {scholia}
+        \def\@scholiasName          {scholias}
+        \def\@solutionName          {solution}
+        \def\@solutionsName         {solutions}
+        \def\@theoremName           {theorem}
+        \def\@theoremsName          {theorems}
+        \def\@terminologyName       {terminology}
+        \def\@terminologiesName     {terminologies}
 
     }{} % \ifthenelse{\equal{\@language}{english}}{
 
     \ifthenelse{\equal{\@language}{french}}{
     
-        \def\@assertionName         {Assertion}
-        \def\@assertionsName        {Assertions}
-        \def\@axiomName             {Axiome}
-        \def\@axiomsName            {Axiomes}
-        \def\@conjectureName        {Conjecture}
-        \def\@conjecturesName       {Conjectures}
-        \def\@conventionName        {Convention}
-        \def\@conventionsName       {Conventions}
-        \def\@corollaryName         {Corollaire}
-        \def\@corollariesName       {Corollaires}
-        \def\@definitionName        {Définition}
-        \def\@definitionsName       {Définitions}
-        \def\@exampleName           {Exemple}
-        \def\@examplesName          {Exemples}
-        \def\@exerciseName          {Exercice}
-        \def\@exercisesName         {Exercices}
-        \def\@lemmaName             {Lemme}
-        \def\@lemmasName            {Lemmes}
-        \def\@notationName          {Notation}
-        \def\@notationsName         {Notations}
-        \def\@proofName             {Démonstration}
-        \def\@proofsName            {Démonstrations}
-        \def\@propertyName          {Propriété}
-        \def\@propertiesName        {Propriétés}
-        \def\@propositionName       {Proposition}
-        \def\@propositionsName      {Propositions}
-        \def\@questionName          {Question}
-        \def\@questionsName         {Questions}
-        \def\@remarkName            {Remarque}
-        \def\@remarksName           {Remarques}
-        \def\@reminderName          {Rappel}
-        \def\@remindersName         {Rappels}
-        \def\@scholiaName           {Scholie}
-        \def\@scholiasName          {Scholies}
-        \def\@solutionName          {Solution}
-        \def\@solutionsName         {Solutions}
-        \def\@terminologyName       {Terminologie}
-        \def\@terminologiesName     {Terminologies}
-        \def\@theoremName           {Théorème}
-        \def\@theoremsName          {Théorèmes}
+        \def\@assertionName         {assertion}
+        \def\@assertionsName        {assertions}
+        \def\@axiomName             {axiome}
+        \def\@axiomsName            {axiomes}
+        \def\@conjectureName        {conjecture}
+        \def\@conjecturesName       {conjectures}
+        \def\@conventionName        {convention}
+        \def\@conventionsName       {conventions}
+        \def\@corollaryName         {corollaire}
+        \def\@corollariesName       {corollaires}
+        \def\@definitionName        {d\'{e}finition}
+        \def\@definitionsName       {d\'{e}finitions}
+        \def\@exampleName           {exemple}
+        \def\@examplesName          {exemples}
+        \def\@exerciseName          {exercice}
+        \def\@exercisesName         {exercices}
+        \def\@lemmaName             {lemme}
+        \def\@lemmasName            {lemmes}
+        \def\@notationName          {notation}
+        \def\@notationsName         {notations}
+        \def\@proofName             {d\'{e}monstration}
+        \def\@proofsName            {d\'{e}monstrations}
+        \def\@propertyName          {propri\'{e}t\'{e}}
+        \def\@propertiesName        {propri\'{e}t\'{e}s}
+        \def\@propositionName       {proposition}
+        \def\@propositionsName      {propositions}
+        \def\@questionName          {question}
+        \def\@questionsName         {questions}
+        \def\@remarkName            {remarque}
+        \def\@remarksName           {remarques}
+        \def\@reminderName          {rappel}
+        \def\@remindersName         {rappels}
+        \def\@scholiaName           {scholie}
+        \def\@scholiasName          {scholies}
+        \def\@solutionName          {solution}
+        \def\@solutionsName         {solutions}
+        \def\@terminologyName       {terminologie}
+        \def\@terminologiesName     {terminologies}
+        \def\@theoremName           {th\'{e}or\`{e}me}
+        \def\@theoremsName          {th\'{e}or\`{e}mes}
         
     }{} % \ifthenelse{\equal{\@language}{french}}{
     
     \numberwithin{equation}{section}
+    \newaliascnt{assertion}{equation}
+    \newaliascnt{axiom}{equation}
+    \newaliascnt{conjecture}{equation}
+    \newaliascnt{convention}{equation}
+    \newaliascnt{corollary}{equation}
+    \newaliascnt{definition}{equation}
+    \newaliascnt{example}{equation}
+    \newaliascnt{exercise}{equation}
+    \newaliascnt{lemma}{equation}
+    \newaliascnt{notation}{equation}
+    \newaliascnt{property}{equation}
+    \newaliascnt{proposition}{equation}
+    \newaliascnt{question}{equation}
+    \newaliascnt{remark}{equation}
+    \newaliascnt{reminder}{equation}
+    \newaliascnt{scholia}{equation}
+    \newaliascnt{terminology}{equation}
+    \newaliascnt{theorem}{equation}
+    
+    \def\@makeupcase#1{\uppercase{#1}}     % https://groups.google.com/forum/#!topic/comp.text.tex/YpzYtAqJ_QQ
+    \def\@upcase{\expandafter\@makeupcase} %
     
     \theoremstyle{definition}
         
-    \newtheorem{axiom}          [equation]  {\@axiomName}
-    \newtheorem{axioms}         [equation]  {\@axiomsName}
-    \newtheorem*{axiom*}                    {\@axiomName}
-    \newtheorem*{axioms*}                   {\@axiomsName}
-    \newtheorem{definition}     [equation]  {\@definitionName}
-    \newtheorem{definitions}    [equation]  {\@definitionsName}
-    \newtheorem*{definition*}               {\@definitionName}
-    \newtheorem*{definitions*}              {\@definitionsName}
-    \newtheorem{example}        [equation]  {\@exampleName}
-    \newtheorem{examples}       [equation]  {\@examplesName}
-    \newtheorem*{example*}                  {\@exampleName}
-    \newtheorem*{examples*}                 {\@examplesName}
-    \newtheorem{exercise}       [equation]  {\@exerciseName}
-    \newtheorem{exercises}      [equation]  {\@exercisesName}
-    \newtheorem*{exercise*}                 {\@exerciseName}
-    \newtheorem*{exercises*}                {\@exercisesName}
-    \newtheorem{question}       [equation]  {\@questionName}
-    \newtheorem{questions}      [equation]  {\@questionsName}
-    \newtheorem*{question*}                 {\@questionName}
-    \newtheorem*{questions*}                {\@questionsName}
+    \newtheorem{axiom}          [axiom]         {\@upcase \@axiomName}
+    \newtheorem{axioms}         [axiom]         {\@upcase \@axiomsName}
+    \newtheorem*{axiom*}                        {\@upcase \@axiomName}
+    \newtheorem*{axioms*}                       {\@upcase \@axiomsName}
+    \newtheorem{definition}     [definition]    {\@upcase \@definitionName}
+    \newtheorem{definitions}    [definition]    {\@upcase \@definitionsName}
+    \newtheorem*{definition*}                   {\@upcase \@definitionName}
+    \newtheorem*{definitions*}                  {\@upcase \@definitionsName}
+    \newtheorem{example}        [example]       {\@upcase \@exampleName}
+    \newtheorem{examples}       [example]       {\@upcase \@examplesName}
+    \newtheorem*{example*}                      {\@upcase \@exampleName}
+    \newtheorem*{examples*}                     {\@upcase \@examplesName}
+    \newtheorem{exercise}       [exercise]      {\@upcase \@exerciseName}
+    \newtheorem{exercises}      [exercise]      {\@upcase \@exercisesName}
+    \newtheorem*{exercise*}                     {\@upcase \@exerciseName}
+    \newtheorem*{exercises*}                    {\@upcase \@exercisesName}
+    \newtheorem{question}       [question]      {\@upcase \@questionName}
+    \newtheorem{questions}      [question]      {\@upcase \@questionsName}
+    \newtheorem*{question*}                     {\@upcase \@questionName}
+    \newtheorem*{questions*}                    {\@upcase \@questionsName}
         
     \ifthenelse{\boolean{@b_maths_use_theoremStyles}}{
          \theoremstyle{plain}
     }{}
         
-    \newtheorem{assertion}      [equation]  {\@assertionName}
-    \newtheorem{assertions}     [equation]  {\@assertionsName}
-    \newtheorem*{assertion*}                {\@assertionName}
-    \newtheorem*{assertions*}               {\@assertionsName}
-    \newtheorem{conjecture}     [equation]  {\@conjectureName}
-    \newtheorem{conjectures}    [equation]  {\@conjecturesName}
-    \newtheorem*{conjecture*}               {\@conjectureName}
-    \newtheorem*{conjectures*}              {\@conjecturesName}
-    \newtheorem{corollary}      [equation]  {\@corollaryName}
-    \newtheorem{corollaries}    [equation]  {\@corollariesName}
-    \newtheorem*{corollary*}                {\@corollaryName}
-    \newtheorem*{corollaries*}              {\@corollariesName}
-    \newtheorem{lemma}          [equation]  {\@lemmaName}
-    \newtheorem{lemmas}         [equation]  {\@lemmasName}
-    \newtheorem*{lemma*}                    {\@lemmaName}
-    \newtheorem*{lemmas*}                   {\@lemmasName}
-    \newtheorem{property}       [equation]  {\@propertyName}
-    \newtheorem{properties}     [equation]  {\@propertiesName}
-    \newtheorem*{property*}                 {\@propertyName}
-    \newtheorem*{properties*}               {\@propertiesName}
-    \newtheorem{proposition}    [equation]  {\@propositionName}
-    \newtheorem{propositions}   [equation]  {\@propositionsName}
-    \newtheorem*{proposition*}              {\@propositionName}
-    \newtheorem*{propositions*}             {\@propositionsName}
-    \newtheorem{scholia}        [equation]  {\@scholiaName}
-    \newtheorem{scholias}       [equation]  {\@scholiasName}
-    \newtheorem{scholia*}                   {\@scholiaName}
-    \newtheorem{scholias*}                  {\@scholiasName}
-    \newtheorem{theorem}        [equation]  {\@theoremName}
-    \newtheorem{theorems}       [equation]  {\@theoremsName}
-    \newtheorem*{theorem*}                  {\@theoremName}
-    \newtheorem*{theorems*}                 {\@theoremsName}
+    \newtheorem{assertion}      [assertion]     {\@upcase \@assertionName}
+    \newtheorem{assertions}     [assertion]     {\@upcase \@assertionsName}
+    \newtheorem*{assertion*}                    {\@upcase \@assertionName}
+    \newtheorem*{assertions*}                   {\@upcase \@assertionsName}
+    \newtheorem{conjecture}     [conjecture]    {\@upcase \@conjectureName}
+    \newtheorem{conjectures}    [conjecture]    {\@upcase \@conjecturesName}
+    \newtheorem*{conjecture*}                   {\@upcase \@conjectureName}
+    \newtheorem*{conjectures*}                  {\@upcase \@conjecturesName}
+    \newtheorem{corollary}      [corollary]     {\@upcase \@corollaryName}
+    \newtheorem{corollaries}    [corollary]     {\@upcase \@corollariesName}
+    \newtheorem*{corollary*}                    {\@upcase \@corollaryName}
+    \newtheorem*{corollaries*}                  {\@upcase \@corollariesName}
+    \newtheorem{lemma}          [lemma]         {\@upcase \@lemmaName}
+    \newtheorem{lemmas}         [lemma]         {\@upcase \@lemmasName}
+    \newtheorem*{lemma*}                        {\@upcase \@lemmaName}
+    \newtheorem*{lemmas*}                       {\@upcase \@lemmasName}
+    \newtheorem{property}       [property]      {\@upcase \@propertyName}
+    \newtheorem{properties}     [property]      {\@upcase \@propertiesName}
+    \newtheorem*{property*}                     {\@upcase \@propertyName}
+    \newtheorem*{properties*}                   {\@upcase \@propertiesName}
+    \newtheorem{proposition}    [proposition]   {\@upcase \@propositionName}
+    \newtheorem{propositions}   [proposition]   {\@upcase \@propositionsName}
+    \newtheorem*{proposition*}                  {\@upcase \@propositionName}
+    \newtheorem*{propositions*}                 {\@upcase \@propositionsName}
+    \newtheorem{scholia}        [scholia]       {\@upcase \@scholiaName}
+    \newtheorem{scholias}       [scholia]       {\@upcase \@scholiasName}
+    \newtheorem{scholia*}                       {\@upcase \@scholiaName}
+    \newtheorem{scholias*}                      {\@upcase \@scholiasName}
+    \newtheorem{theorem}        [theorem]       {\@upcase \@theoremName}
+    \newtheorem{theorems}       [theorem]       {\@upcase \@theoremsName}
+    \newtheorem*{theorem*}                      {\@upcase \@theoremName}
+    \newtheorem*{theorems*}                     {\@upcase \@theoremsName}
         
     \ifthenelse{\boolean{@b_maths_use_theoremStyles}}{
         \theoremstyle{remark}
     }{}
         
-    \newtheorem{convention}     [equation]  {\@conventionName}
-    \newtheorem{conventions}    [equation]  {\@conventionsName}
-    \newtheorem*{convention*}               {\@conventionName}
-    \newtheorem*{conventions*}              {\@conventionsName}
-    \newtheorem{notation}       [equation]  {\@notationName}
-    \newtheorem{notations}      [equation]  {\@notationsName}
-    \newtheorem*{notation*}                 {\@notationName}
-    \newtheorem*{notations*}                {\@notationsName}
-    \newtheorem{remark}         [equation]  {\@remarkName}
-    \newtheorem{remarks}        [equation]  {\@remarksName}
-    \newtheorem*{remark*}                   {\@remarkName}
-    \newtheorem*{remarks*}                  {\@remarksName}
-    \newtheorem{reminder}       [equation]  {\@reminderName}
-    \newtheorem{reminders}      [equation]  {\@remindersName}
-    \newtheorem*{reminder*}                 {\@reminderName}
-    \newtheorem*{reminders*}                {\@remindersName}
-    \newtheorem{terminology}    [equation]  {\@terminologyName}
-    \newtheorem{terminologies}  [equation]  {\@terminologiesName}
-    \newtheorem*{terminology*}              {\@terminologyName}
-    \newtheorem*{terminologies*}            {\@terminologiesName}
+    \newtheorem{convention}     [convention]    {\@upcase \@conventionName}
+    \newtheorem{conventions}    [convention]    {\@upcase \@conventionsName}
+    \newtheorem*{convention*}                   {\@upcase \@conventionName}
+    \newtheorem*{conventions*}                  {\@upcase \@conventionsName}
+    \newtheorem{notation}       [notation]      {\@upcase \@notationName}
+    \newtheorem{notations}      [notation]      {\@upcase \@notationsName}
+    \newtheorem*{notation*}                     {\@upcase \@notationName}
+    \newtheorem*{notations*}                    {\@upcase \@notationsName}
+    \newtheorem{remark}         [remark]        {\@upcase \@remarkName}
+    \newtheorem{remarks}        [remark]        {\@upcase \@remarksName}
+    \newtheorem*{remark*}                       {\@upcase \@remarkName}
+    \newtheorem*{remarks*}                      {\@upcase \@remarksName}
+    \newtheorem{reminder}       [reminder]      {\@upcase \@reminderName}
+    \newtheorem{reminders}      [reminder]      {\@upcase \@remindersName}
+    \newtheorem*{reminder*}                     {\@upcase \@reminderName}
+    \newtheorem*{reminders*}                    {\@upcase \@remindersName}
+    \newtheorem{terminology}    [terminology]   {\@upcase \@terminologyName}
+    \newtheorem{terminologies}  [terminology]   {\@upcase \@terminologiesName}
+    \newtheorem*{terminology*}                  {\@upcase \@terminologyName}
+    \newtheorem*{terminologies*}                {\@upcase \@terminologiesName}
     
         %% solution(s) and proof(s)
     \renewenvironment{proof}[1][\@proofName]{
@@ -3325,6 +3349,44 @@
         \vspace*{\stretch{3}}
         \clearpage
     } % \newenvironment{dedication}{
+    
+    \aliascntresetthe{assertion}
+    \aliascntresetthe{axiom}
+    \aliascntresetthe{conjecture}
+    \aliascntresetthe{convention}
+    \aliascntresetthe{corollary}
+    \aliascntresetthe{definition}
+    \aliascntresetthe{example}
+    \aliascntresetthe{exercise}
+    \aliascntresetthe{lemma}
+    \aliascntresetthe{notation}
+    \aliascntresetthe{property}
+    \aliascntresetthe{proposition}
+    \aliascntresetthe{question}
+    \aliascntresetthe{remark}
+    \aliascntresetthe{reminder}
+    \aliascntresetthe{scholia}
+    \aliascntresetthe{terminology}
+    \aliascntresetthe{theorem}
+    
+    \crefname{assertion}{\@assertionName}{\@assertionsName}
+    \crefname{axiom}{\@axiomName}{\@axiomsName}
+    \crefname{conjecture}{\@conjectureName}{\@conjecturesName}
+    \crefname{convention}{\@conventionName}{\@conventionsName}
+    \crefname{corollary}{\@corollaryName}{\@corollariesName}
+    \crefname{definition}{\@definitionName}{\@definitionsName}
+    \crefname{example}{\@exampleName}{\@examplesName}
+    \crefname{exercise}{\@exerciseName}{\@exercisesName}
+    \crefname{lemma}{\@lemmaName}{\@lemmasName}
+    \crefname{notation}{\@notationName}{\@notationsName}
+    \crefname{property}{\@propertyName}{\@propertiesName}
+    \crefname{proposition}{\@propositionName}{\@propositionsName}
+    \crefname{question}{\@questionName}{\@questionsName}
+    \crefname{remark}{\@remarkName}{\@remarksName}
+    \crefname{reminder}{\@reminderName}{\@remindersName}
+    \crefname{scholia}{\@scholiaName}{\@scholiasName}
+    \crefname{terminology}{\@terminologyName}{\@terminologiesName}
+    \crefname{theorem}{\@theoremName}{\@theoremsName}
     
 }{} % \ifthenelse{\boolean{@b_maths_use_theoremEnvs}}{
 
