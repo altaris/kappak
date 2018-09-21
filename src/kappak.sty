@@ -3293,7 +3293,7 @@
     \newtheorem*{terminologies*}                {\@upcase \@terminologiesName}
     
         %% solution(s) and proof(s)
-    \renewenvironment{proof}[1][\@proofName]{
+    \renewenvironment{proof}[1][{\@upcase \@proofName}]{
         \par
         \pushQED{\qed}
         \normalfont \topsep6\p@\@plus6\p@\relax
@@ -3304,7 +3304,7 @@
     }{
         \popQED\endtrivlist\@endpefalse
     }
-    \newenvironment{proofs}[1][\@proofsName]{
+    \newenvironment{proofs}[1][{\@upcase \@proofsName}]{
         \par
         \pushQED{\qed}
         \normalfont \topsep6\p@\@plus6\p@\relax
@@ -3315,7 +3315,7 @@
     }{
         \popQED\endtrivlist\@endpefalse
     }
-    \newenvironment{solution}[1][\@solutionName]{
+    \newenvironment{solution}[1][{\@upcase \@solutionName}]{
         \par
         \pushQED{\qed}
         \normalfont \topsep6\p@\@plus6\p@\relax
@@ -3326,7 +3326,7 @@
     }{
         \hfill\ensuremath{\blacksquare}\endtrivlist\@endpefalse
     }
-    \newenvironment{solutions}[1][\@solutionsName]{
+    \newenvironment{solutions}[1][{\@upcase \@solutionsName}]{
         \par
         \pushQED{\qed}
         \normalfont \topsep6\p@\@plus6\p@\relax
