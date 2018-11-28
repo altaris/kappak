@@ -7,52 +7,45 @@ This is a homemade LaTeX package regrouping functionalities I deem handy. It is 
 
 # [Wiki](https://github.com/altaris/kappak/wiki)
 
-# Installation
+Reasonably:tm: up to date.
 
-## Linux (texlive)
+# Installation :package:
 
-Execute the following commands in your favorite terminal :
+* On Linux, execute the following commands in your favorite terminal:
+```sh
+git clone https://github.com/altaris/kappak.git
+cd kappak
+make install
+```
+You're all set!
 
-    git clone https://github.com/altaris/kappak.git
-    cd kappak
-    make install
-
-## Windows (MiKTex)
-
-Create a folder `this/is/a/path/tex/latex` and clone the repository using git bash :
-    
-    git clone https://github.com/altaris/kappak.git
-    
-Alternatively, you can download a zip of this repository, create a folder `this/is/a/path/tex/latex/kappak` and unzip in it.
-
-Lanch the `Settings(Admin)` program. Under the `Roots` tab, add `this/is/a/path`. Under the `General` tab, click on `Refresh FNDB` then on `Update Formats`.
+* On Winslows, create a folder `this/is/a/path/tex/latex` and clone the repository using git:
+```sh 
+git clone https://github.com/altaris/kappak.git
+```
+Alternatively, you can download a zip of this repository, create a folder `this/is/a/path/tex/latex/kappak` and unzip in it. Then, lanch the `Settings(Admin)` program. Under the `Roots` tab, add `this/is/a/path`. Under the `General` tab, click on `Refresh FNDB` then on `Update Formats`.
 
 # Autocomplete
 
-The Python script `autocompletion/generate.py` reads through kappak sources and generates autocompletion files.
+To generate autocompletion files, run
+```sh
+make autocompletion
+```
+and follow the instructions relevant to you.
+
+## In TeXstudio
+
+* On Linux, copy `kappak.cwl` to `~/.config/texstudio/completion/user/`.
+* On Windows, copy `kappak.cwl` to `%APPDATA%/TeXstudio/completion/user/`.
 
 ## In TexMaker
 
 1. TexMaker -> Options -> Settings File -> Save a copy of the settings file.
-2. Append the content of the `texmaker-autocompletion.txt` file to the saved TexMaker configuration file, of merge it if the key `Editor\UserCompletion` already exists.
+2. Append the content of the `texmaker.txt` file to the saved TexMaker configuration file, of merge it if the key `Editor\UserCompletion` already exists.
 3. TexMaker -> Options -> Settings File -> Replace the settings file by a new one.
 
 ## In Sublime-Text
 
-### Linux
+* On Linux, copy `kappak.sublime-completions` to `~/.config/sublime-text-<VERSION>/Packages/User/`.
+* On Windows, copy `kappak.sublime-completions` to `%APPDATA%/Sublime Text <VERSION>/Packages/User/`.
 
-Copy `autocompletion/kappak.sublime-completions` to `~/.config/sublime-text-<VERSION>/Packages/User/`.
-
-### Windows
-
-Copy `autocompletion/kappak.sublime-completions` to `%APPDATA%/Sublime Text <VERSION>/Packages/User/`
-
-## In TeXstudio
-
-### Linux
-
-Copy `autocompletion/kappak.cwl` to `~/.config/texstudio/completion/user/`
-
-### Windows
-
-Copy `autocompletion/kappak.cwl` to `%APPDATA%/TeXstudio/completion/user/`
