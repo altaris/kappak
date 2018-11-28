@@ -1,14 +1,11 @@
 #!/usr/bin/python3
 
-import os
 import re
-import sys
 
-# ==============================================================================
-# ==============================================================================
-# ========== Classes ===========================================================
-# ==============================================================================
-# ==============================================================================
+# =============================================================================
+# Classes
+# =============================================================================
+
 
 class Command:
 
@@ -16,18 +13,18 @@ class Command:
         self.name = name
         try:
             self.argc = int(argc)
-        except:
+        except (ValueError, TypeError):
             self.argc = 0
 
-    def __bool__(self):
-        return True
-
     def match(line):
-        match = re.search(r'\\(?:newcommand|newcategory|DeclareMathOperator)\s*\*?\s*\{\\(\w+)\}(?:\[(\d)\])?', line, re.I)
+        match = re.search(
+            r'\\(?:newcommand|newcategory|DeclareMathOperator)' +
+            r'\s*\*?\s*\{\\(\w+)\}(?:\[(\d)\])?', line, re.I)
         if match:
             return Command(match.group(1), match.group(2))
         else:
             return None
+
 
 class Environment(Command):
 
@@ -35,30 +32,34 @@ class Environment(Command):
         Command.__init__(self, name, argc)
 
     def match(line):
-        match = re.search(r'\\(?:newenvironment|newtheorem)\*?\s*\{(\w+\*?)\}(?:\[(\d)\])?', line, re.I)
+        match = re.search(
+            r'\\(?:newenvironment|newtheorem)\*?\s*\{(\w+\*?)\}(?:\[(\d)\])?',
+            line, re.I)
         if match:
             return Environment(match.group(1), match.group(2))
         else:
             return None
 
-# ==============================================================================
-# ==============================================================================
-# ========== Generators ========================================================
-# ==============================================================================
-# ==============================================================================
+# =============================================================================
+# Generators
+# =============================================================================
+
 
 def generateTexmaker(symbols):
 
     def gen():
         for s in symbols:
             if type(s) == Command:
-                yield '\\\\{name}{args}'.format(name = s.name, args = '{\\x2022}' * s.argc)
+                yield '\\\\{name}{args}'.format(
+                    name = s.name, args = '{\\x2022}' * s.argc)
             elif type(s) == Environment:
-                yield '\\\\begin{{{name}}}{args}'.format(name = s.name, args = '{\\x2022}' * s.argc)
+                yield '\\\\begin{{{name}}}{args}'.format(
+                    name = s.name, args = '{\\x2022}' * s.argc)
                 yield '\\\\end{{{name}}}'.format(name = s.name)
 
     with open('texmaker.txt', 'w', encoding = 'utf-8') as file:
         file.write("Editor\\UserCompletion=" + ", ".join(gen()))
+
 
 def generateSublime(symbols):
 
@@ -68,12 +69,20 @@ def generateSublime(symbols):
     def gen():
         for s in symbols:
             if type(s) == Command:
-                yield '\"\\\\{name}{args}\"'.format(name = s.name, args = placeholder(s.argc))
+                yield '\"\\\\{name}{args}\"'.format(
+                    name = s.name, args = placeholder(s.argc))
             elif type(s) == Environment:
-                yield '\"\\\\begin{{{name}}}{args}\\n\\t${num}\\n\\\\end{{{name}}}\"'.format(name = s.name, args = placeholder(s.argc), num = s.argc + 1)
+                string = "\"\\\\begin{{{name}}}{args}\\n\\t${num}\\n" + \
+                    "\\\\end{{{name}}}\""
+                yield string.format(
+                    name = s.name, args = placeholder(s.argc),
+                    num = s.argc + 1)
 
     with open('kappak.sublime-completions', 'w', encoding = 'utf-8') as file:
-        file.write('{{\n\t\"scope\": \"text.tex.latex\",\n\t\"completions\":\n\t[ {} ]\n}}'.format(", ".join(gen())))
+        file.write(
+            '{{\n\t\"scope\": \"text.tex.latex\",'
+            '\n\t\"completions\":\n\t[ {} ]\n}}'.format(", ".join(gen())))
+
 
 def generateTexstudio(symbols):
 
@@ -83,22 +92,24 @@ def generateTexstudio(symbols):
     def gen():
         for s in symbols:
             if type(s) == Command:
-                yield '\\{name}{args}'.format(name = s.name, args = placeholder(s.argc))
+                yield '\\{name}{args}'.format(
+                    name = s.name, args = placeholder(s.argc))
             elif type(s) == Environment:
-                yield '\\begin{{{name}}}{args}\n\\end{{{name}}}'.format(name = s.name, args = placeholder(s.argc))
+                yield '\\begin{{{name}}}{args}\n\\end{{{name}}}'.format(
+                    name = s.name, args = placeholder(s.argc))
                 yield '\\end{{{name}}}'.format(name = s.name)
 
     with open('kappak.cwl', 'w', encoding = 'utf-8') as file:
         file.write('\n'.join(gen()))
 
-# ==============================================================================
-# ==============================================================================
-# ========== Main ==============================================================
-# ==============================================================================
-# ==============================================================================
+# =============================================================================
+# Main
+# =============================================================================
+
 
 fileNames = ["kappak.sty"]
 targets = [generateTexmaker, generateSublime, generateTexstudio]
+
 
 def generateSymbols():
     for fn in fileNames:
@@ -109,6 +120,8 @@ def generateSymbols():
                     if c:
                         yield c
 
-symbols = list(generateSymbols())
-for target in targets:
-    target(symbols)
+
+if __name__ == "__main__":
+    symbols = list(generateSymbols())
+    for target in targets:
+        target(symbols)
