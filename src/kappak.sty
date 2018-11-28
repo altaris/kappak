@@ -416,7 +416,7 @@
 
 \ifthenelse{\boolean{@b_extpack_tikz_externalize}}{
 	\usetikzlibrary{external}
-	\tikzexternalize
+	\tikzexternalize[prefix = _tikz/, up to date check = diff]
 }{}
 
 \ifthenelse{\boolean{@b_maths_use_misc}}{
