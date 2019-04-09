@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[draft]{article}
 
 \usepackage[
 	eientei,	
@@ -18,15 +18,18 @@
 
 \section{Math wubba lubba dub dub}
 
-\begin{lemma}[Yoneda]
+\begin{lemma}[Yoneda] \label{lemma:yoneda}
 For $\catCC$ a locally small category, and $\pSh (\catCC) = [ \catCC^\op, \Set ]$ we have an isomorphism natural in $F \in \pSh (\catCC)$ and $C \in \catCC$:
 \[ \pSh (\catCC) (\yoneda_C, F) \cong FC . \]
 \end{lemma}
 
-\begin{corollary}
+\begin{corollary} \label{corollary:yoneda}
 We have an embedding:
 \[ \yoneda : \catCC \longincl \pSh (\catCC) \]
 \end{corollary}
+
+We see that \cref{lemma:yoneda} is very useful, and so is
+\cref{corollary:yoneda}.
 
 \section{Diagrams: a friendly tour}
 
@@ -1178,3 +1181,5 @@ Continuing the exibition:
 \end{tabular} \end{center}
 
 \end{kdocument}
+
+% !TEX root = ./test.tex

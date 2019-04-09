@@ -55,6 +55,19 @@
 \RequirePackage{ifthen}
 
 %% ----------------------------------------
+%% Draft mode
+%% ----------------------------------------
+
+\usepackage{ifdraft}
+\ifdraft{
+    \RequirePackage{draftwatermark}
+    \RequirePackage[mathlines]{lineno}
+    \RequirePackage{showkeys}
+    \SetWatermarkLightness{0.95}
+    \linenumbers
+}{}
+
+%% ----------------------------------------
 %% Definitions
 %% ----------------------------------------
 
