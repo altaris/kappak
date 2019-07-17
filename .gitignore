@@ -1,3 +1,7 @@
+## VS Code
+*.code-workspace
+.vscode/
+
 ## autocompletion files
 kappak.cwl
 kappak.sublime-completions
