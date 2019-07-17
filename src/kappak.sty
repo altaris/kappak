@@ -1,17 +1,17 @@
 %% The MIT License (MIT)
-%% 
+%%
 %% Copyright (c) 2014 Cédric Ho Thanh
-%% 
+%%
 %% Permission is hereby granted, free of charge, to any person obtaining a copy
 %% of this software and associated documentation files (the "Software"), to deal
 %% in the Software without restriction, including without limitation the rights
 %% to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 %% copies of the Software, and to permit persons to whom the Software is
 %% furnished to do so, subject to the following conditions:
-%% 
+%%
 %% The above copyright notice and this permission notice shall be included in all
 %% copies or substantial portions of the Software.
-%% 
+%%
 %% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 %% IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 %% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -28,9 +28,9 @@
 %% Metadatas
 %% ----------------------------------------
 
-% int @kappakVersion{0412}: 
+% int @kappakVersion{0412}:
 \def\@kappakVersion{0412}   % Current version of kappak
-% int @usedVersion{0406}: 
+% int @usedVersion{0406}:
 \def\@usedVersion{0406}     % Default version. 0406 is the version where \@kappakVersion started to be taken into account.
 \PackageInfo{kappak-v4}{This is kappak, v\@kappakVersion}
 
@@ -92,7 +92,7 @@
 %% core
 %% ----------------------------------------
 
-% wheaver kappak should automatically include packages. ifthen will always be included 
+% wheaver kappak should automatically include packages. ifthen will always be included
 % int @b_core_use_autoPackInclusion: Wether \texttt{kappak} should automatically include core packages or not.
 \newboolean{@b_core_use_autoPackInclusion}  \setboolean{@b_core_use_autoPackInclusion}  {true}
 
@@ -119,28 +119,28 @@
 %% ----------------------------------------
 
 % arrows definitions
-% int @b_maths_use_arrows: 
+% int @b_maths_use_arrows:
 \newboolean{@b_maths_use_arrows}            \setboolean{@b_maths_use_arrows}            {false}
 % categories definitions
-% int @b_maths_use_categories: 
+% int @b_maths_use_categories:
 \newboolean{@b_maths_use_categories}        \setboolean{@b_maths_use_categories}        {false}
 % character accent definitions
-% int @b_maths_use_characterAccents: 
+% int @b_maths_use_characterAccents:
 \newboolean{@b_maths_use_characterAccents}  \setboolean{@b_maths_use_characterAccents}  {false}
 % character styles definitions
-% int @b_maths_use_characterStyles: 
+% int @b_maths_use_characterStyles:
 \newboolean{@b_maths_use_characterStyles}   \setboolean{@b_maths_use_characterStyles}   {false}
 % some stuff
-% int @b_maths_use_misc: 
+% int @b_maths_use_misc:
 \newboolean{@b_maths_use_misc}              \setboolean{@b_maths_use_misc}              {false}
 % opertor definitions
-% int @b_maths_use_operators: 
+% int @b_maths_use_operators:
 \newboolean{@b_maths_use_operators}         \setboolean{@b_maths_use_operators}         {false}
 % theorem environment definition
-% int @b_maths_use_theoremEnvs: 
+% int @b_maths_use_theoremEnvs:
 \newboolean{@b_maths_use_theoremEnvs}       \setboolean{@b_maths_use_theoremEnvs}       {false}
 % styles inside theorem envs, e.g. italic for theorems, roman for definitions
-% int @b_maths_use_theoremStyles: 
+% int @b_maths_use_theoremStyles:
 \newboolean{@b_maths_use_theoremStyles}     \setboolean{@b_maths_use_theoremStyles}     {true}
 
 %% ----------------------------------------
@@ -148,32 +148,32 @@
 %% ----------------------------------------
 
 % some stuff
-% int @b_use_misc: 
+% int @b_use_misc:
 \newboolean{@b_use_misc}                    \setboolean{@b_use_misc}                    {true}
 
 %% ----------------------------------------
 %% variables declarations
 %% ----------------------------------------
 
-% int @bbStyle: 
+% int @bbStyle:
 \def\@bbStyle           {normal}
-% int @bibliographyStyle: 
+% int @bibliographyStyle:
 \def\@bibliographyStyle {plain}
-% int @chapterStyle: 
+% int @chapterStyle:
 \def\@chapterStyle      {normal}
-% int @fontSet: 
+% int @fontSet:
 \def\@fontSet           {normal}
-% int @headerFooterStyle: 
+% int @headerFooterStyle:
 \def\@headerFooterStyle {normal}
-% int @language: 
+% int @language:
 \def\@language          {english}
-% int @margins: 
+% int @margins:
 \def\@margins           {normal}
-% int @scriptStyle: 
+% int @scriptStyle:
 \def\@scriptStyle       {normal}
-% int @titlePageStyle: 
+% int @titlePageStyle:
 \def\@titlePageStyle    {normal}
-% int @categoryStyle: 
+% int @categoryStyle:
 \def\@categoryStyle     {script}
 
 %% -----------------------------------------------------------------------------
@@ -197,7 +197,7 @@
 \@ifundefined{my@unusedlist}{
   \let\my@unusedlist\@empty}{}
 \@ifundefined{my@extractkey}{%
-  % int my@extractkey#1=#2\my@extractkey{#1}}{}: 
+  % int my@extractkey#1=#2\my@extractkey{#1}}{}:
 \def\my@extractkey#1=#2\my@extractkey{#1}}{}
 \newcommand{\ProcessUnusedOptions}[1]{%
   \let\my@tempa\@empty
@@ -235,31 +235,31 @@
 
 % opt alpha: Do not use.
 \DeclareOption{alpha}{
-    % int @usedVersion{0407}: 
+    % int @usedVersion{0407}:
     \def\@usedVersion{0407}
 }
 
 % opt bellatrix: Do not use.
 \DeclareOption{bellatrix}{
-    % int @usedVersion{0409}: 
+    % int @usedVersion{0409}:
     \def\@usedVersion{0409}
 }
 
 % opt cortana: Do not use.
 \DeclareOption{cortana}{
-    % int @usedVersion{0410}: 
+    % int @usedVersion{0410}:
     \def\@usedVersion{0410}
 }
 
 % opt durotan: Do not use.
 \DeclareOption{durotan}{
-    % int @usedVersion{0411}: 
+    % int @usedVersion{0411}:
     \def\@usedVersion{0411}
 }
 
 % opt eientei: Mandatory option.
 \DeclareOption{eientei}{
-    % int @usedVersion{0412}: 
+    % int @usedVersion{0412}:
     \def\@usedVersion{0412}
 }
 
@@ -342,7 +342,7 @@
 %% +stix
 % opt +stix: Use \texttt{stix}.
 \DeclareOption{+stix}{
-	\setboolean{@b_extpack_use_stix}{true}	
+	\setboolean{@b_extpack_use_stix}{true}
 }
 
 %% +tikz
@@ -369,76 +369,76 @@
 %% bbStyle
 % opt bbStyle: Sets the mathematical blackboard letter style. Supports \texttt{normal} (default), and \texttt{bbold}.
 \define@key{kappak}{bbStyle}[normal]{
-    % int @bbStyle: 
+    % int @bbStyle:
     \def\@bbStyle{#1}
 }
 
 %% bibliographyStyle
 % opt bibliographyStyle: Sets the bibliography style. Only relevant if you use \texttt{kdocument} instead of the standard \texttt{document} environment.
 \define@key{kappak}{bibliographyStyle}[normal]{
-    % int @bibliographyStyle: 
+    % int @bibliographyStyle:
     \def\@bibliographyStyle{#1}
 }
 
 %% categoryStyle
 % opt categoryStyle: Sets the category style for category theory. Supports \texttt{script} (default), \texttt{bf}, \texttt{rm}, \texttt{sf}, and \texttt{tt}.
 \define@key{kappak}{categoryStyle}[script]{
-    % int @categoryStyle:  
+    % int @categoryStyle:
     \def\@categoryStyle{#1}
 }
 
 %% chapterStyle
 % opt chapterStyle: Sets the chapter style. Supports \texttt{normal} (default), \texttt{cb}, and \texttt{rb}.
 \define@key{kappak}{chapterStyle}[normal]{
-    % int @chapterStyle: 
+    % int @chapterStyle:
     \def\@chapterStyle{#1}
 }
 
 %% fontset
 % opt fontSet: Sets the font set. Supports \texttt{normal} (default), \texttt{alternate}, and \texttt{xcharter}.
 \define@key{kappak}{fontSet}[normal]{
-    % int @fontSet: 
+    % int @fontSet:
     \def\@fontSet{#1}
 }
 
 %% headerFooterStyle
 % opt headerFooterStyle: Sets the header and footer style. Supports \texttt{normal} (default), \texttt{classic}, \texttt{cb}, and \texttt{empty}.
 \define@key{kappak}{headerFooterStyle}[normal]{
-    % int @headerFooterStyle: 
+    % int @headerFooterStyle:
     \def\@headerFooterStyle{#1}
 }
 
 %% language
 % opt language: Sets the language of the document. Supports \texttt{english} (default), and \texttt{french}.
 \define@key{kappak}{language}[english]{
-    % int @language: 
+    % int @language:
     \def\@language{#1}
 }
 
 %% lineSpacing
 % opt lineSpacing: Sets the line spacing.
 \define@key{kappak}{lineSpacing}[1]{
-    \renewcommand{\baselinestretch}{#1} 
+    \renewcommand{\baselinestretch}{#1}
 }
 
 %% margins
 % opt margins: Sets the margins. Supports \texttt{normal} (default), \texttt{reduced}, and \texttt{minimal}.
 \define@key{kappak}{margins}[normal]{
-    % int @margins: 
+    % int @margins:
     \def\@margins{#1}
 }
 
 %% scriptStyle
 % opt scriptStyle: Sets the mathematical script style. Supports \texttt{normal} (default), \texttt{euler}, and \texttt{rsfs}.
 \define@key{kappak}{scriptStyle}[normal]{
-    % int @scriptStyle: 
+    % int @scriptStyle:
     \def\@scriptStyle{#1}
 }
 
 %% titlePageStyle
 % opt titlePageStyle: Sets the title page style. Supports \texttt{normal} (default), \texttt{classic}, \texttt{bar}, \texttt{gm}, and \texttt{gb}.
 \define@key{kappak}{titlePageStyle}[normal]{
-    % int @titlePageStyle: 
+    % int @titlePageStyle:
     \def\@titlePageStyle{#1}
 }
 
@@ -446,7 +446,7 @@
 % opt version: Sets the kappan version to use. Use explicit names instead.
 \define@key{kappak}{version}[0406]{
     % 0406 is the version where \@kappakVersion started to be taken into account.
-    % int @usedVersion{#1}: 
+    % int @usedVersion{#1}:
     \def\@usedVersion{#1}
 }
 
@@ -474,17 +474,17 @@
 	\RequirePackage{amssymb}
 	\RequirePackage{amsthm}
 	\RequirePackage{mathtools}
-	
+
 	\RequirePackage{aliascnt} % must be loaded before cleveref
 	\RequirePackage{hyperref} % must be loaded before cleveref
 	\RequirePackage[noabbrev]{cleveref}
-	
+
 	\RequirePackage{color}
 	\RequirePackage{enumerate}
 	\RequirePackage{graphicx}
 	\RequirePackage{multicol}
 	\RequirePackage{subfig}
-	
+
 	\hypersetup{ % See https://en.wikibooks.org/wiki/LaTeX/Hyperlinks#Customization
 	    colorlinks=false,
 	    hidelinks,
@@ -644,7 +644,7 @@
     \DeclareMathOperator {\Tor}   {Tor}
     % cmd.op tr: The $\tr$ math operator
     \DeclareMathOperator {\tr}    {tr}
-    
+
 }{} % \ifthenelse{\boolean{@b_maths_use_operators}}{
 
 %% ----------------------------------------
@@ -688,7 +688,7 @@
 %% --------------------
 %% Some categories
 %% --------------------
-    
+
     % cmd.cat Ab: The $\Ab$ category
     \newcategory{\Ab}    {}{A}{b}
     % cmd.cat Alg: The $\Alg$ category
@@ -729,7 +729,7 @@
     \newcategory{\Top}   {}{T}{op}
     % cmd.cat Vect: The $\Vect$ category
     \newcategory{\Vect}  {}{V}{ect}
-    
+
 %% --------------------
 %% cat style
 %% --------------------
@@ -838,7 +838,7 @@
     \newcommand{\catYY}{\@cat{Y}}
     % cmd.cat catZZ: $\catZZ$.
     \newcommand{\catZZ}{\@cat{Z}}
-    
+
 }{} % \ifthenelse{\boolean{@b_maths_use_categories}}{
 
 %% ----------------------------------------
@@ -852,26 +852,26 @@
     \newcommand{\longincl}{\lhook\joinrel\relbar\joinrel\rightarrow}
     \newcommand{\longleftincl}{\leftarrow\joinrel\relbar\joinrel\rhook}
 	\newcommand{\xincl}{\xhookrightarrow}
-	\newcommand{\xleftincl}{\xhookleftarrow}    
-    
+	\newcommand{\xleftincl}{\xhookleftarrow}
+
 	\renewcommand{\twoheadrightarrow}{\rightarrow\mathrel{\mkern-14mu}\rightarrow}
-	\renewcommand{\twoheadleftarrow}{\leftarrow\mathrel{\mkern-14mu}\leftarrow}	
+	\renewcommand{\twoheadleftarrow}{\leftarrow\mathrel{\mkern-14mu}\leftarrow}
 	\newcommand{\longtwoheadrightarrow}{\relbar\joinrel\twoheadrightarrow}
-	\newcommand{\longtwoheadleftarrow}{\twoheadleftarrow\joinrel\relbar}	
+	\newcommand{\longtwoheadleftarrow}{\twoheadleftarrow\joinrel\relbar}
 	\newcommand{\xtwoheadrightarrow}[2][]{
 	  \xrightarrow[#1]{#2}\mathrel{\mkern-14mu}\rightarrow
 	}
 	\newcommand{\xtwoheadleftarrow}[2][]{
 	  \leftarrow\mathrel{\mkern-14mu}\xleftarrow[#1]{#2}
-	}    
-    
+	}
+
     \newcommand{\epi}{\twoheadrightarrow}
     \newcommand{\leftepi}{\twoheadleftarrow}
     \newcommand{\longepi}{\longtwoheadrightarrow}
     \newcommand{\longleftepi}{\longtwoheadleftarrow}
     \newcommand{\xepi}{\xtwoheadrightarrow}
     \newcommand{\xleftepi}{\xtwoheadleftarrow}
-    
+
     \newcommand{\mono}{\rightarrowtail}
     \newcommand{\longmono}{
         \stackrel{
@@ -880,9 +880,9 @@
             \end{tikzpicture}
         }{}
     }
-    
+
     \newcommand{\longmultimap}{\relbar\joinrel\multimap}
-    
+
 }{} % \ifthenelse{\boolean{@b_maths_use_arrows}}{
 
 %% ----------------------------------------
@@ -892,13 +892,13 @@
 \ifthenelse{\boolean{@b_maths_use_misc}}{
 
     \renewcommand{\epsilon}{\varepsilon}
-    
+
     \ifthenelse{\boolean{@b_extpack_use_xecjk}}{
     	\newcommand{\yoneda}{\text{よ}}
     }{
 	    \newcommand{\yoneda}{\mathsf{y}}
     }
-    
+
     % Define custom big operators, whose size are that of \sum
     % 9000+ thanks to egreg, https://tex.stackexchange.com/questions/23432/how-to-create-my-own-math-operator-with-limits
     \DeclareRobustCommand\@bigop[1]{
@@ -912,7 +912,7 @@
     }
     % cmd DeclareBigOperator: Declares a new big operator, akin to \texttt{sum} or \texttt{prod}.
     \newcommand{\DeclareBigOperator}[2]{\newcommand{#1}{\DOTSB\@bigop{#2}}}
-    
+
     % Defines a rotated symbol that sizes properly
     % cmd DeclareRotatedSymbol: Declares a new symbol that is a rotation of another existing one.
     \newcommand{\DeclareRotatedSymbol}[3]{
@@ -928,7 +928,7 @@
 		    }}
 		}
 	}
-    
+
 }{} % \ifthenelse{\boolean{@b_maths_use_misc}}{
 
 %% -----------------------------------------------------------------------------
@@ -941,15 +941,15 @@
 
     % Prevents annoying errors upon non printable chars
     % \DeclareUnicodeCharacter{00A0}{ }
-    
+
     % I never remember that thing so here's a command
     % cmd kbibliography: Inserts the bibliography from file \texttt{bibliography.bib}.
     \newcommand{\kbibliography}{
 		\nocite{*}
 		\bibliographystyle{\@bibliographyStyle}
-		\bibliography{bibliography}    
+		\bibliography{bibliography}
     }
-    
+
     % env kdocument: The \texttt{kdocument} environment.
     \newenvironment{kdocument}{
 		\document
@@ -1078,7 +1078,7 @@
     \newcommand{\calYY}{\@cal{Y}}
     % cmd.char calZZ: $\calZZ$
     \newcommand{\calZZ}{\@cal{Z}}
-    
+
 %% --------------------
 %% frak
 %% --------------------
@@ -1187,7 +1187,7 @@
     \newcommand{\frakYY}{\mathfrak{Y}}
     % cmd.char frakZZ: $\frakZZ$
     \newcommand{\frakZZ}{\mathfrak{Z}}
-    
+
 %% --------------------
 %% bb
 %% --------------------
@@ -1301,7 +1301,7 @@
     \newcommand{\bbYY}{\@bb{Y}}
     % cmd.char bbZZ: $\bbZZ$
     \newcommand{\bbZZ}{\@bb{Z}}
-    
+
 %% --------------------
 %% bf
 %% --------------------
@@ -1410,7 +1410,7 @@
     \newcommand{\bfYY}{\mathbf{Y}}
     % cmd.char bfZZ: $\bfZZ$
     \newcommand{\bfZZ}{\mathbf{Z}}
-    
+
 %% --------------------
 %% it
 %% --------------------
@@ -1519,7 +1519,7 @@
     \newcommand{\itYY}{\mathit{Y}}
     % cmd.char itZZ: $\itZZ$
     \newcommand{\itZZ}{\mathit{Z}}
-    
+
 %% --------------------
 %% rm
 %% --------------------
@@ -1628,7 +1628,7 @@
     \newcommand{\rmYY}{\mathrm{Y}}
     % cmd.char rmZZ: $\rmZZ$
     \newcommand{\rmZZ}{\mathrm{Z}}
-    
+
 %% --------------------
 %% sf
 %% --------------------
@@ -1737,7 +1737,7 @@
     \newcommand{\sfYY}{\mathsf{Y}}
     % cmd.char sfZZ: $\sfZZ$
     \newcommand{\sfZZ}{\mathsf{Z}}
-    
+
 }{} % \ifthenelse{\boolean{@b_maths_use_characterStyles}}{
 
 %% --------------------
@@ -1919,7 +1919,7 @@
 %% ----------------------------------------
 
 \ifthenelse{\boolean{@b_maths_use_characterAccents}}{
-    
+
 %% --------------------
 %% vec
 %% --------------------
@@ -2028,7 +2028,7 @@
     \newcommand{\vecYY}{\vec{Y}}
     % cmd.char vecZZ: $\vecZZ$
     \newcommand{\vecZZ}{\vec{Z}}
-    
+
 %% --------------------
 %% hat
 %% --------------------
@@ -2137,7 +2137,7 @@
     \newcommand{\hatYY}{\hat{Y}}
     % cmd.char hatZZ: $\hatZZ$
     \newcommand{\hatZZ}{\hat{Z}}
-    
+
 %% --------------------
 %% ch
 %% --------------------
@@ -2355,7 +2355,7 @@
     \newcommand{\dotYY}{\dot{Y}}
     % cmd.char dotZZ: $\dotZZ$
     \newcommand{\dotZZ}{\dot{Z}}
-    
+
 %% --------------------
 %% ddot
 %% --------------------
@@ -2464,7 +2464,7 @@
     \newcommand{\ddotYY}{\ddot{Y}}
     % cmd.char ddotZZ: $\ddotZZ$
     \newcommand{\ddotZZ}{\ddot{Z}}
-    
+
 %% --------------------
 %% tild
 %% --------------------
@@ -2573,7 +2573,7 @@
     \newcommand{\tildYY}{\tilde{Y}}
     % cmd.char tildZZ: $\tildZZ$
     \newcommand{\tildZZ}{\tilde{Z}}
-    
+
 %% --------------------
 %% bar
 %% --------------------
@@ -2682,7 +2682,7 @@
     \newcommand{\barYY}{\bar{Y}}
     % cmd.char barZZ: $\barZZ$
     \newcommand{\barZZ}{\bar{Z}}
-    
+
 %% --------------------
 %% bbar
 %% --------------------
@@ -2791,7 +2791,7 @@
     \newcommand{\bbarYY}{\bar{\bar{Y}}}
     % cmd.char bbarZZ: $\bbarZZ$
     \newcommand{\bbarZZ}{\bar{\bar{Z}}}
-    
+
 %% --------------------
 %% u
 %% --------------------
@@ -2900,7 +2900,7 @@
     \newcommand{\uYY}{\underline{Y}}
     % cmd.char uZZ: $\uZZ$
     \newcommand{\uZZ}{\underline{Z}}
-    
+
 %% --------------------
 %% uu
 %% --------------------
@@ -3009,7 +3009,7 @@
     \newcommand{\uuYY}{\underline{\underline{Y}}}
     % cmd.char uuZZ: $\uuZZ$
     \newcommand{\uuZZ}{\underline{\underline{Z}}}
-    
+
 %% --------------------
 %% o
 %% --------------------
@@ -3118,11 +3118,11 @@
     \newcommand{\oYY}{\mathring{Y}}
     % cmd.char oZZ: $\oZZ$
     \newcommand{\oZZ}{\mathring{Z}}
-    
+
 %% --------------------
 %% Greek letters accents
 %% --------------------
-    
+
 %% --------------------
 %% ch
 %% --------------------
@@ -3292,7 +3292,7 @@
     \newcommand{\vecPsi}{\vec{\Psi}}
     % cmd.char vecOmega: $\vecOmega$
     \newcommand{\vecOmega}{\vec{\Omega}}
-    
+
 %% --------------------
 %% hat
 %% --------------------
@@ -3377,7 +3377,7 @@
     \newcommand{\hatPsi}{\hat{\Psi}}
     % cmd.char hatOmega: $\hatOmega$
     \newcommand{\hatOmega}{\hat{\Omega}}
-    
+
 %% --------------------
 %% dot
 %% --------------------
@@ -3462,7 +3462,7 @@
     \newcommand{\dotPsi}{\dot{\Psi}}
     % cmd.char dotOmega: $\dotOmega$
     \newcommand{\dotOmega}{\dot{\Omega}}
-    
+
 %% --------------------
 %% ddot
 %% --------------------
@@ -3547,7 +3547,7 @@
     \newcommand{\ddotPsi}{\ddot{\Psi}}
     % cmd.char ddotOmega: $\ddotOmega$
     \newcommand{\ddotOmega}{\ddot{\Omega}}
-    
+
 %% --------------------
 %% tild
 %% --------------------
@@ -3632,7 +3632,7 @@
     \newcommand{\tildPsi}{\tilde{\Psi}}
     % cmd.char tildOmega: $\tildOmega$
     \newcommand{\tildOmega}{\tilde{\Omega}}
-    
+
 %% --------------------
 %% bar
 %% --------------------
@@ -3717,7 +3717,7 @@
     \newcommand{\barPsi}{\bar{\Psi}}
     % cmd.char barOmega: $\barOmega$
     \newcommand{\barOmega}{\bar{\Omega}}
-    
+
 %% --------------------
 %% bbar
 %% --------------------
@@ -3802,7 +3802,7 @@
     \newcommand{\bbarPsi}{\bar{\bar{\Psi}}}
     % cmd.char bbarOmega: $\bbarOmega$
     \newcommand{\bbarOmega}{\bar{\bar{\Omega}}}
-    
+
 %% --------------------
 %% u
 %% --------------------
@@ -3887,7 +3887,7 @@
     \newcommand{\uPsi}{\underline{\Psi}}
     % cmd.char uOmega: $\uOmega$
     \newcommand{\uOmega}{\underline{\Omega}}
-    
+
 %% --------------------
 %% uu
 %% --------------------
@@ -3972,7 +3972,7 @@
     \newcommand{\uuPsi}{\underline{\underline{\Psi}}}
     % cmd.char uuOmega: $\uuOmega$
     \newcommand{\uuOmega}{\underline{\underline{\Omega}}}
-    
+
 %% --------------------
 %% o
 %% --------------------
@@ -4057,7 +4057,7 @@
     \newcommand{\oPsi}{\mathring{\Psi}}
     % cmd.char oOmega: $\oOmega$
     \newcommand{\oOmega}{\mathring{\Omega}}
-    
+
 }{} % \ifthenelse{\boolean{@b_maths_use_characterAccents}}{
 
 %% -----------------------------------------------------------------------------
@@ -4071,20 +4071,20 @@
 %% --------------------
 %% Alignment
 %% --------------------
-    
+
     \tikzset{baseline=(current bounding box.center)}
 
 %% --------------------
 %% Size
 %% --------------------
 
-    % cmd diagramsize: 
+    % cmd diagramsize:
     \newcommand{\diagramsize}[2]{
         \ifthenelse{\equal{#1}{}}{\def\@tRowsep{3}}{\def\@tRowsep{#1}}
         \ifthenelse{\equal{#2}{}}{\def\@tColsep{4}}{\def\@tColsep{#2}}
     }
     \diagramsize{}{}
-    
+
 %% --------------------
 %% Styles
 %% --------------------
@@ -4144,7 +4144,7 @@
         \ifthenelse{\equal{#4}{|->}}{\def\@diagAD{|->}}{}
         \ifthenelse{\equal{#4}{<-|}}{\def\@diagAD{<-|}}{}
     } % \newcommand{\diagramarrows}[4]{
-    
+
     % cmd diagramlines: Sets the arrow line styles for commutative diagrams. Takes 4 arguments, among \texttt{-} (default), \texttt{=}, \texttt{..}, \texttt{--}.
     \newcommand{\diagramlines}[4]{
         \ifthenelse{\equal{#1}{}}{\def\@diagLA{solid}}{}
@@ -4179,7 +4179,7 @@
         \diagramlines{}{}{}{}
     }
     \rds
-    
+
 %% --------------------
 %% Simple square
 %% --------------------
@@ -4196,13 +4196,13 @@
                 \displaystyle{#1} \@ampersand \displaystyle{#2} \\
                 \displaystyle{#3} \@ampersand \displaystyle{#4} \\
             };
-            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [above] {$#5$} (m-1-2);
-            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [left]  {$#6$} (m-2-1);
-            \path [\@diagAC] (m-1-2) edge [\@diagLC] node [right] {$#7$} (m-2-2);
-            \path [\@diagAD] (m-2-1) edge [\@diagLD] node [above] {$#8$} (m-2-2);
+            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [above] {$\scriptstyle{#5}$} (m-1-2);
+            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [left]  {$\scriptstyle{#6}$} (m-2-1);
+            \path [\@diagAC] (m-1-2) edge [\@diagLC] node [right] {$\scriptstyle{#7}$} (m-2-2);
+            \path [\@diagAD] (m-2-1) edge [\@diagLD] node [above] {$\scriptstyle{#8}$} (m-2-2);
         \end{tikzpicture}
     }
-    
+
 %% --------------------
 %% Pushout
 %% --------------------
@@ -4220,13 +4220,13 @@
                 \displaystyle{#3} \@ampersand \displaystyle{#4} \\
             };
             \path (m-1-1) edge [-, draw = white] node [very near end] {$\ulcorner$} (m-2-2);
-            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [above] {$#5$} (m-1-2);
-            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [left]  {$#6$} (m-2-1);
-            \path [\@diagAC] (m-1-2) edge [\@diagLC] node [right] {$#7$} (m-2-2);
-            \path [\@diagAD] (m-2-1) edge [\@diagLD] node [below] {$#8$} (m-2-2);
+            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [above] {$\scriptstyle{#5}$} (m-1-2);
+            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [left]  {$\scriptstyle{#6}$} (m-2-1);
+            \path [\@diagAC] (m-1-2) edge [\@diagLC] node [right] {$\scriptstyle{#7}$} (m-2-2);
+            \path [\@diagAD] (m-2-1) edge [\@diagLD] node [below] {$\scriptstyle{#8}$} (m-2-2);
         \end{tikzpicture}
     }
-    
+
 %% --------------------
 %% Pullback
 %% --------------------
@@ -4244,18 +4244,18 @@
                 \displaystyle{#3} \@ampersand \displaystyle{#4} \\
             };
             \path (m-1-1) edge [-, draw = white] node [very near start] {$\lrcorner$} (m-2-2);
-            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [above] {$#5$} (m-1-2);
-            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [left]  {$#6$} (m-2-1);
-            \path [\@diagAC] (m-1-2) edge [\@diagLC] node [right] {$#7$} (m-2-2);
-            \path [\@diagAD] (m-2-1) edge [\@diagLD] node [below] {$#8$} (m-2-2);
+            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [above] {$\scriptstyle{#5}$} (m-1-2);
+            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [left]  {$\scriptstyle{#6}$} (m-2-1);
+            \path [\@diagAC] (m-1-2) edge [\@diagLC] node [right] {$\scriptstyle{#7}$} (m-2-2);
+            \path [\@diagAD] (m-2-1) edge [\@diagLD] node [below] {$\scriptstyle{#8}$} (m-2-2);
         \end{tikzpicture}
     }
-    
+
 %% --------------------
 %% Triangular UL : Up left
 %% --------------------
 
-    % cmd triangleULdiagram: 
+    % cmd triangleULdiagram:
     \newcommand{\triangleULdiagram}[6]{
         \begin{tikzpicture}
             \matrix (m) [matrix of math nodes,
@@ -4267,17 +4267,17 @@
                 \displaystyle{#1} \@ampersand \displaystyle{#2} \\
                 \displaystyle{#3} \@ampersand \\
             };
-            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [above]       {$#4$} (m-1-2);
-            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [left]        {$#5$} (m-2-1);
-            \path [\@diagAC] (m-2-1) edge [\@diagLC] node [below right] {$#6$} (m-1-2);
+            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [above]       {$\scriptstyle{#4}$} (m-1-2);
+            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [left]        {$\scriptstyle{#5}$} (m-2-1);
+            \path [\@diagAC] (m-2-1) edge [\@diagLC] node [below right] {$\scriptstyle{#6}$} (m-1-2);
         \end{tikzpicture}
     }
-    
+
 %% --------------------
 %% Triangular UR : Up right
 %% --------------------
 
-    % cmd triangleURdiagram: 
+    % cmd triangleURdiagram:
     \newcommand{\triangleURdiagram}[6]{
         \begin{tikzpicture}
             \matrix (m) [matrix of math nodes,
@@ -4289,17 +4289,17 @@
                 \displaystyle{#1} \@ampersand \displaystyle{#2} \\
                 \@ampersand \displaystyle{#3} \\
             };
-            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [above]      {$#4$} (m-1-2);
-            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [below left] {$#5$} (m-2-2);
-            \path [\@diagAC] (m-1-2) edge [\@diagLC] node [right]      {$#6$} (m-2-2);
+            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [above]      {$\scriptstyle{#4}$} (m-1-2);
+            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [below left] {$\scriptstyle{#5}$} (m-2-2);
+            \path [\@diagAC] (m-1-2) edge [\@diagLC] node [right]      {$\scriptstyle{#6}$} (m-2-2);
         \end{tikzpicture}
     }
-    
+
 %% --------------------
 %% Triangular DL : Down left
 %% --------------------
 
-    % cmd triangleDLdiagram: 
+    % cmd triangleDLdiagram:
     \newcommand{\triangleDLdiagram}[6]{
         \begin{tikzpicture}
             \matrix (m) [matrix of math nodes,
@@ -4311,17 +4311,17 @@
                 \displaystyle{#1} \@ampersand \\
                 \displaystyle{#2} \@ampersand \displaystyle{#3} \\
             };
-            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [left]        {$#4$} (m-2-1);
-            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [above right] {$#5$} (m-2-2);
-            \path [\@diagAC] (m-2-1) edge [\@diagLC] node [below]       {$#6$} (m-2-2);
+            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [left]        {$\scriptstyle{#4}$} (m-2-1);
+            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [above right] {$\scriptstyle{#5}$} (m-2-2);
+            \path [\@diagAC] (m-2-1) edge [\@diagLC] node [below]       {$\scriptstyle{#6}$} (m-2-2);
         \end{tikzpicture}
     }
-    
+
 %% --------------------
 %% Triangular DR : Down right
 %% --------------------
 
-    % cmd triangleDRdiagram: 
+    % cmd triangleDRdiagram:
     \newcommand{\triangleDRdiagram}[6]{
         \begin{tikzpicture}
             \matrix (m) [matrix of math nodes,
@@ -4333,17 +4333,17 @@
                 \@ampersand \displaystyle{#1} \\
                 \displaystyle{#2} \@ampersand \displaystyle{#3} \\
             };
-            \path [\@diagAA] (m-2-1) edge [\@diagLA] node [above left] {$#4$} (m-1-2);
-            \path [\@diagAB] (m-1-2) edge [\@diagLB] node [right]      {$#5$} (m-2-2);
-            \path [\@diagAC] (m-2-1) edge [\@diagLC] node [above]      {$#6$} (m-2-2);
+            \path [\@diagAA] (m-2-1) edge [\@diagLA] node [above left] {$\scriptstyle{#4}$} (m-1-2);
+            \path [\@diagAB] (m-1-2) edge [\@diagLB] node [right]      {$\scriptstyle{#5}$} (m-2-2);
+            \path [\@diagAC] (m-2-1) edge [\@diagLC] node [above]      {$\scriptstyle{#6}$} (m-2-2);
         \end{tikzpicture}
     }
-        
+
 %% --------------------
 %% Triangular U : Up
 %% --------------------
 
-    % cmd triangleUdiagram: 
+    % cmd triangleUdiagram:
     \newcommand{\triangleUdiagram}[6]{
         \begin{tikzpicture}
             \matrix (m) [matrix of math nodes,
@@ -4355,16 +4355,16 @@
                 \@ampersand \displaystyle{#1} \@ampersand \\
                 \displaystyle{#2} \@ampersand \@ampersand \displaystyle{#3} \\
             };
-            \path [\@diagAA] (m-1-2) edge [\@diagLA] node [above left]  {$#4$} (m-2-1);
-            \path [\@diagAB] (m-1-2) edge [\@diagLB] node [above right] {$#5$} (m-2-3);
-            \path [\@diagAC] (m-2-1) edge [\@diagLC] node [above]       {$#6$} (m-2-3);
+            \path [\@diagAA] (m-1-2) edge [\@diagLA] node [above left]  {$\scriptstyle{#4}$} (m-2-1);
+            \path [\@diagAB] (m-1-2) edge [\@diagLB] node [above right] {$\scriptstyle{#5}$} (m-2-3);
+            \path [\@diagAC] (m-2-1) edge [\@diagLC] node [above]       {$\scriptstyle{#6}$} (m-2-3);
         \end{tikzpicture}
     }
-    
+
 %% --------------------
 %% Triangular L : Left
 %% --------------------
-    % cmd triangleLdiagram: 
+    % cmd triangleLdiagram:
     \newcommand{\triangleLdiagram}[6]{
         \begin{tikzpicture}
             \matrix (m) [matrix of math nodes,
@@ -4377,17 +4377,17 @@
                 \displaystyle{#2} \@ampersand \\
                 \@ampersand \displaystyle{#3} \\
             };
-            \path [\@diagAA] (m-2-1) edge [\@diagLA] node [above left] {$#4$} (m-1-2);
-            \path [\@diagAB] (m-1-2) edge [\@diagLB] node [right]      {$#5$} (m-3-2);
-            \path [\@diagAC] (m-2-1) edge [\@diagLC] node [below left] {$#6$} (m-3-2);
+            \path [\@diagAA] (m-2-1) edge [\@diagLA] node [above left] {$\scriptstyle{#4}$} (m-1-2);
+            \path [\@diagAB] (m-1-2) edge [\@diagLB] node [right]      {$\scriptstyle{#5}$} (m-3-2);
+            \path [\@diagAC] (m-2-1) edge [\@diagLC] node [below left] {$\scriptstyle{#6}$} (m-3-2);
         \end{tikzpicture}
     }
-        
+
 %% --------------------
 %% Triangular R : Right
 %% --------------------
 
-    % cmd triangleRdiagram: 
+    % cmd triangleRdiagram:
     \newcommand{\triangleRdiagram}[6]{
         \begin{tikzpicture}
             \matrix (m) [matrix of math nodes,
@@ -4400,17 +4400,17 @@
                 \@ampersand \displaystyle{#2} \\
                 \displaystyle{#3} \@ampersand \\
             };
-            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [left]        {$#4$} (m-3-1);
-            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [above right] {$#5$} (m-2-2);
-            \path [\@diagAC] (m-3-1) edge [\@diagLC] node [below right] {$#6$} (m-2-2);
+            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [left]        {$\scriptstyle{#4}$} (m-3-1);
+            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [above right] {$\scriptstyle{#5}$} (m-2-2);
+            \path [\@diagAC] (m-3-1) edge [\@diagLC] node [below right] {$\scriptstyle{#6}$} (m-2-2);
         \end{tikzpicture}
     }
-    
+
 %% --------------------
 %% Triangular D : Down
 %% --------------------
 
-    % cmd triangleDdiagram: 
+    % cmd triangleDdiagram:
     \newcommand{\triangleDdiagram}[6]{
         \begin{tikzpicture}
             \matrix (m) [matrix of math nodes,
@@ -4422,17 +4422,17 @@
                 \displaystyle{#1} \@ampersand \@ampersand \displaystyle{#2} \\
                 \@ampersand \displaystyle{#3} \@ampersand \\
             };
-            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [above]       {$#4$} (m-1-3);
-            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [below left]  {$#5$} (m-2-2);
-            \path [\@diagAC] (m-1-3) edge [\@diagLC] node [below right] {$#6$} (m-2-2);
+            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [above]       {$\scriptstyle{#4}$} (m-1-3);
+            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [below left]  {$\scriptstyle{#5}$} (m-2-2);
+            \path [\@diagAC] (m-1-3) edge [\@diagLC] node [below right] {$\scriptstyle{#6}$} (m-2-2);
         \end{tikzpicture}
     }
-    
+
 %% --------------------
 %% Equalizer
 %% --------------------
-    
-    % cmd eqdiagram: 
+
+    % cmd eqdiagram:
     \newcommand{\eqdiagram}[6]{
         \begin{tikzpicture}
             \matrix (m) [matrix of math nodes,
@@ -4443,17 +4443,17 @@
                     ampersand replacement = \@ampersand] {
                 \displaystyle{#1} \@ampersand \displaystyle{#2} \@ampersand \displaystyle{#3} \\
             };
-            \path [\@diagAA] (m-1-1)                    edge [\@diagLA] node [above] {$#4$} (m-1-2);
-            \path [\@diagAB] ($(m-1-2.east) + (0,0.1)$) edge [\@diagLB] node [above] {$#5$} ($(m-1-3.west) + (0,0.1)$);
-            \path [\@diagAC] ($(m-1-2.east) - (0,0.1)$) edge [\@diagLC] node [below] {$#6$} ($(m-1-3.west) - (0,0.1)$);
+            \path [\@diagAA] (m-1-1)                    edge [\@diagLA] node [above] {$\scriptstyle{#4}$} (m-1-2);
+            \path [\@diagAB] ($(m-1-2.east) + (0,0.1)$) edge [\@diagLB] node [above] {$\scriptstyle{#5}$} ($(m-1-3.west) + (0,0.1)$);
+            \path [\@diagAC] ($(m-1-2.east) - (0,0.1)$) edge [\@diagLC] node [below] {$\scriptstyle{#6}$} ($(m-1-3.west) - (0,0.1)$);
         \end{tikzpicture}
     }
-    
+
 %% --------------------
 %% Coequalizer
 %% --------------------
-    
-    % cmd coeqdiagram: 
+
+    % cmd coeqdiagram:
     \newcommand{\coeqdiagram}[6]{
         \begin{tikzpicture}
             \matrix (m) [matrix of math nodes,
@@ -4464,12 +4464,12 @@
                     ampersand replacement = \@ampersand] {
                 \displaystyle{#1} \@ampersand \displaystyle{#2} \@ampersand \displaystyle{#3} \\
             };
-            \path [\@diagAA] ($(m-1-1.east) + (0,0.1)$) edge [\@diagLA] node [above] {$#4$} ($(m-1-2.west) + (0,0.1)$);
-            \path [\@diagAB] ($(m-1-1.east) - (0,0.1)$) edge [\@diagLB] node [below] {$#5$} ($(m-1-2.west) - (0,0.1)$);
-            \path [\@diagAC] (m-1-2)                    edge [\@diagLC] node [above] {$#6$} (m-1-3);
+            \path [\@diagAA] ($(m-1-1.east) + (0,0.1)$) edge [\@diagLA] node [above] {$\scriptstyle{#4}$} ($(m-1-2.west) + (0,0.1)$);
+            \path [\@diagAB] ($(m-1-1.east) - (0,0.1)$) edge [\@diagLB] node [below] {$\scriptstyle{#5}$} ($(m-1-2.west) - (0,0.1)$);
+            \path [\@diagAC] (m-1-2)                    edge [\@diagLC] node [above] {$\scriptstyle{#6}$} (m-1-3);
         \end{tikzpicture}
     }
-    
+
 }{} % \ifthenelse{\boolean{@b_extpack_use_tikz}}{
 
 %% -----------------------------------------------------------------------------
@@ -4498,7 +4498,7 @@
     \newcommand{\subauthor} [1]{\def\@subauthor{#1}}    \subauthor{}
     % cmd subtitle: For custome title pages.
     \newcommand{\subtitle}  [1]{\def\@subtitle{#1}}     \subtitle{}
-    
+
 %% --------------------
 %% Insertions
 %% --------------------
@@ -4525,7 +4525,7 @@
             }
         }
     }
-    
+
     % cmd logohere: Inserts the logo. See the \texttt{\\logo} command.
     \newcommand{\logohere}[1]{
         \ifthenelse{\equal{\@logo}{}}{}{
@@ -4556,7 +4556,7 @@
         \begin{titlepage}
             \begin{center}
                 \logohere{centeredFigure} ~ \\ [2cm]
-                \huge{\textsc{\@title}} \\ [1.5cm]      
+                \huge{\textsc{\@title}} \\ [1.5cm]
                 \begin{center} \large
                     \authorshere \\ [0.25cm]
                 \end{center}
@@ -4580,11 +4580,11 @@
                 \textsc{\Large \@subtitle} \\ [1.5cm]
                 \rule{\linewidth}{0.5mm} \\ [0.4cm]
                 \huge{\bfseries{\@title}} \\
-                \rule{\linewidth}{0.5mm} \\ [1cm]           
+                \rule{\linewidth}{0.5mm} \\ [1cm]
                 \begin{center}
                     {\large \authorshere}
                 \end{center}
-                \vfill 
+                \vfill
                 \imagehere{centeredFigure}
                 \vfill
                 {\large \@date}
@@ -4664,12 +4664,12 @@
         \def\@chapterName{Chapitre}
         \def\@sectionName{Section}
     }{}
-    
+
     \ifthenelse{\equal{\@language}{english}}{
         \def\@chapterName{Chapter}
         \def\@sectionName{Section}
     }{}
-    
+
 }
 
 %% --------------------
@@ -4693,7 +4693,7 @@
             \vspace{1pc}
             \Huge
         }
-        
+
 }{} % \ifthenelse{\equal{\@chapterStyle}{cb}}{
 
 %% --------------------
@@ -4716,20 +4716,20 @@
             \vspace{1pc}
             \titlerule
         ]
-    
+
     \titleformat{\section}
         {\normalfont\large\bfseries\filcenter}
         {\thesection}
         {1em}
         {}
         [\vspace{0.5pc}]
-    
+
     \titleformat{\subsection}
         {\normalfont\bfseries\filcenter}
         {\thesubsection}
         {0.5em}
         {}
-        
+
 }{} % \ifthenelse{\equal{\@chapterStyle}{rb}}{
 
 %% ----------------------------------------
@@ -4788,7 +4788,7 @@
 \ifthenelse{\boolean{@b_maths_use_theoremEnvs}}{
 
     \ifthenelse{\equal{\@language}{english}}{
-    
+
         \def\@assertionName         {assertion}
         \def\@assertionsName        {assertions}
         \def\@axiomName             {axiom}
@@ -4833,7 +4833,7 @@
     }{} % \ifthenelse{\equal{\@language}{english}}{
 
     \ifthenelse{\equal{\@language}{french}}{
-    
+
         \def\@assertionName         {assertion}
         \def\@assertionsName        {assertions}
         \def\@axiomName             {axiome}
@@ -4874,9 +4874,9 @@
         \def\@terminologiesName     {terminologies}
         \def\@theoremName           {th\'{e}or\`{e}me}
         \def\@theoremsName          {th\'{e}or\`{e}mes}
-        
+
     }{} % \ifthenelse{\equal{\@language}{french}}{
-    
+
     \numberwithin{equation}{section}
     \newaliascnt{assertion}{equation}
     \newaliascnt{axiom}{equation}
@@ -4896,12 +4896,12 @@
     \newaliascnt{scholia}{equation}
     \newaliascnt{terminology}{equation}
     \newaliascnt{theorem}{equation}
-    
+
     \def\@makeupcase#1{\uppercase{#1}}     % https://groups.google.com/forum/#!topic/comp.text.tex/YpzYtAqJ_QQ
     \def\@upcase{\expandafter\@makeupcase} %
-    
+
     \theoremstyle{definition}
-        
+
     % env.th axiom: The \texttt{axiom} theorem environment.
     \newtheorem{axiom}          [axiom]         {\@upcase \@axiomName}
     % env.th axioms: The \texttt{axioms} theorem environment.
@@ -4942,11 +4942,11 @@
     \newtheorem*{question*}                     {\@upcase \@questionName}
     % env.th questions*: The \texttt{questions*} theorem environment.
     \newtheorem*{questions*}                    {\@upcase \@questionsName}
-        
+
     \ifthenelse{\boolean{@b_maths_use_theoremStyles}}{
          \theoremstyle{plain}
     }{}
-        
+
     % env.th assertion: The \texttt{assertion} theorem environment.
     \newtheorem{assertion}      [assertion]     {\@upcase \@assertionName}
     % env.th assertions: The \texttt{assertions} theorem environment.
@@ -5011,11 +5011,11 @@
     \newtheorem*{theorem*}                      {\@upcase \@theoremName}
     % env.th theorems*: The \texttt{theorems*} theorem environment.
     \newtheorem*{theorems*}                     {\@upcase \@theoremsName}
-        
+
     \ifthenelse{\boolean{@b_maths_use_theoremStyles}}{
         \theoremstyle{remark}
     }{}
-        
+
     % env.th convention: The \texttt{convention} theorem environment.
     \newtheorem{convention}     [convention]    {\@upcase \@conventionName}
     % env.th conventions: The \texttt{conventions} theorem environment.
@@ -5056,7 +5056,7 @@
     \newtheorem*{terminology*}                  {\@upcase \@terminologyName}
     % env.th terminologies*: The \texttt{terminologies*} theorem environment.
     \newtheorem*{terminologies*}                {\@upcase \@terminologiesName}
-    
+
         %% solution(s) and proof(s)
     % env proof: The \texttt{proof} environment.
     \renewenvironment{proof}[1][{\@upcase \@proofName}]{
@@ -5106,7 +5106,7 @@
     }{
         \hfill\ensuremath{\blacksquare}\endtrivlist\@endpefalse
     }
-    
+
     % env dedication: The \texttt{dedication} environment.
     \newenvironment{dedication}{
         \cleardoublepage
@@ -5119,7 +5119,7 @@
         \vspace*{\stretch{3}}
         \clearpage
     } % \newenvironment{dedication}{
-    
+
     \aliascntresetthe{assertion}
     \aliascntresetthe{axiom}
     \aliascntresetthe{conjecture}
@@ -5138,7 +5138,7 @@
     \aliascntresetthe{scholia}
     \aliascntresetthe{terminology}
     \aliascntresetthe{theorem}
-    
+
     \crefname{assertion}{\@assertionName}{\@assertionsName}
     \crefname{axiom}{\@axiomName}{\@axiomsName}
     \crefname{conjecture}{\@conjectureName}{\@conjecturesName}
@@ -5157,7 +5157,7 @@
     \crefname{scholia}{\@scholiaName}{\@scholiasName}
     \crefname{terminology}{\@terminologyName}{\@terminologiesName}
     \crefname{theorem}{\@theoremName}{\@theoremsName}
-    
+
 }{} % \ifthenelse{\boolean{@b_maths_use_theoremEnvs}}{
 
 %% ----------------------------------------
