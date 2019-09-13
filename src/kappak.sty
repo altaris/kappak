@@ -428,6 +428,14 @@
     \def\@margins{#1}
 }
 
+%% numberTheoremsWithin
+% opt numberTheoremsWithin: Any counter, defaults to \texttt{section}.
+\define@key{kappak}{numberTheoremsWithin}[section]{
+    % int @numberTheoremsWithin:
+    \def\@numberTheoremsWithin{#1}
+}
+
+
 %% scriptStyle
 % opt scriptStyle: Sets the mathematical script style. Supports \texttt{normal} (default), \texttt{euler}, and \texttt{rsfs}.
 \define@key{kappak}{scriptStyle}[normal]{
@@ -4876,7 +4884,7 @@
 
     }{} % \ifthenelse{\equal{\@language}{french}}{
 
-    \numberwithin{equation}{section}
+    \numberwithin{equation}{\@numberTheoremsWithin}
     \newaliascnt{assertion}{equation}
     \newaliascnt{axiom}{equation}
     \newaliascnt{conjecture}{equation}
