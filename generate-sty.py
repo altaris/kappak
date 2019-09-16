@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+"""Main file."""
+
 from enum import (
     auto,
     Enum,
@@ -15,12 +17,16 @@ OUTPUT_DIRECTORY = 'texmf/tex/latex/kappak'
 
 @unique
 class IncludePolicy(BaseException, Enum):
+    """Weather the current record should be included (or excluded, or ignored)
+    from the current target."""
     DONT_INCLUDE = auto()
     IGNORE = auto()
     INCLUDE = auto()
 
 
 def check_has_requirements(record: dict, default_record: dict, context: dict):
+    """Checks if the requirements of a record are all present in the current
+    template context."""
     requirements = get_value_or_default('requires', record, default_record)
     for requirement in requirements:
         if not context.get(f'pkg_{requirement}', False):
@@ -28,22 +34,26 @@ def check_has_requirements(record: dict, default_record: dict, context: dict):
 
 
 def check_not_excluded(record: dict, default_record: dict, target: str) -> None:
+    """Checks if the current record should be excluded from the target"""
     exclude_list = get_value_or_default('exclude', record, default_record)
     if target in exclude_list:
         raise IncludePolicy.DONT_INCLUDE
 
 
 def check_not_special(record_key: str) -> None:
+    """Checks if the current record is a special one, i.e. if its name starts with an underscore."""
     if record_key.startswith('_'):
         raise IncludePolicy.IGNORE
 
 
 def datetime() -> str:
+    """Gets the current date in YYYY/MM/DD format."""
     from time import gmtime, strftime
     return strftime("%Y/%m/%d", gmtime())
 
 
 def main():
+    """Main function."""
     environment = Environment(
         block_end_string='%}',
         block_start_string='%{%',
@@ -131,13 +141,14 @@ def main():
             output_file.write(template.render(context))
 
 
-def get_value_or_default(key: str, data: dict, default_dict: dict):
-    if key in data:
-        return data[key]
-    elif key in default_dict:
-        return default_dict[key]
+def get_value_or_default(key: str, record: dict, default_record: dict):
+    """Gets a value from a record, or a provided default record."""
+    if key in record:
+        return record[key]
+    elif key in default_record:
+        return default_record[key]
     else:
-        print(f'[WARNING] key {key} not found')
+        print(f'[WARNING] Key {key} not found')
         return None
 
 
