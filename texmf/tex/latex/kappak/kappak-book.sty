@@ -21,7 +21,7 @@
 %% SOFTWARE.
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{%{{ package_name %}}}[%{{ date %}} %{{ package_name %}}]
+\ProvidesPackage{kappak-book}[2019/09/16 kappak-book]
 \makeatletter
 
 %% ----------------------------------------
@@ -52,9 +52,7 @@
 %% Required packages
 %% ----------------------------------------
 
-%{% if pkg_ifthen %}
 \RequirePackage{ifthen}
-%{% endif %}
 
 %% ----------------------------------------
 %% Draft mode
@@ -62,15 +60,9 @@
 
 \usepackage{ifdraft}
 \ifdraft{
-%{% if pkg_draftwatermark %}
     \RequirePackage{draftwatermark}
-%{% endif %}
-%{% if pkg_lineno %}
     \RequirePackage[mathlines]{lineno}
-%{% endif %}
-%{% if pkg_showkeys %}
     \RequirePackage[notcite, notref]{showkeys}
-%{% endif %}
     \SetWatermarkLightness{0.95}
     \linenumbers
 }{}
@@ -194,9 +186,7 @@
 %% Loading required packages.
 %% ----------------------------------------
 
-%{% if pkg_keyval %}
 \RequirePackage{keyval}
-%{% endif %}
 
 %% ----------------------------------------
 %% Preparing keyval arguments processing.
@@ -378,149 +368,121 @@
 
 %% bbStyle
 % opt bbStyle: Sets the mathematical blackboard letter style. Supports \texttt{normal} (default), and \texttt{bbold}.
-\define@key{%{{ package_name %}}}{bbStyle}[normal]{
+\define@key{kappak-book}{bbStyle}[normal]{
     % int @bbStyle:
     \def\@bbStyle{#1}
 }
 
 %% bibliographyStyle
 % opt bibliographyStyle: Sets the bibliography style. Only relevant if you use \texttt{kdocument} instead of the standard \texttt{document} environment.
-\define@key{%{{ package_name %}}}{bibliographyStyle}[normal]{
+\define@key{kappak-book}{bibliographyStyle}[normal]{
     % int @bibliographyStyle:
     \def\@bibliographyStyle{#1}
 }
 
 %% categoryStyle
 % opt categoryStyle: Sets the category style for category theory. Supports \texttt{script} (default), \texttt{bf}, \texttt{rm}, \texttt{sf}, and \texttt{tt}.
-\define@key{%{{ package_name %}}}{categoryStyle}[script]{
+\define@key{kappak-book}{categoryStyle}[script]{
     % int @categoryStyle:
     \def\@categoryStyle{#1}
 }
 
 %% chapterStyle
 % opt chapterStyle: Sets the chapter style. Supports \texttt{normal} (default), \texttt{cb}, and \texttt{rb}.
-\define@key{%{{ package_name %}}}{chapterStyle}[normal]{
+\define@key{kappak-book}{chapterStyle}[normal]{
     % int @chapterStyle:
     \def\@chapterStyle{#1}
 }
 
 %% fontset
 % opt fontSet: Sets the font set. Supports \texttt{normal} (default), \texttt{alternate}, and \texttt{xcharter}.
-\define@key{%{{ package_name %}}}{fontSet}[normal]{
+\define@key{kappak-book}{fontSet}[normal]{
     % int @fontSet:
     \def\@fontSet{#1}
 }
 
 %% headerFooterStyle
 % opt headerFooterStyle: Sets the header and footer style. Supports \texttt{normal} (default), \texttt{classic}, \texttt{cb}, and \texttt{empty}.
-\define@key{%{{ package_name %}}}{headerFooterStyle}[normal]{
+\define@key{kappak-book}{headerFooterStyle}[normal]{
     % int @headerFooterStyle:
     \def\@headerFooterStyle{#1}
 }
 
 %% language
 % opt language: Sets the language of the document. Supports \texttt{english} (default), and \texttt{french}.
-\define@key{%{{ package_name %}}}{language}[english]{
+\define@key{kappak-book}{language}[english]{
     % int @language:
     \def\@language{#1}
 }
 
 %% lineSpacing
 % opt lineSpacing: Sets the line spacing.
-\define@key{%{{ package_name %}}}{lineSpacing}[1]{
+\define@key{kappak-book}{lineSpacing}[1]{
     \renewcommand{\baselinestretch}{#1}
 }
 
 %% margins
 % opt margins: Sets the margins. Supports \texttt{normal} (default), \texttt{reduced}, and \texttt{minimal}.
-\define@key{%{{ package_name %}}}{margins}[normal]{
+\define@key{kappak-book}{margins}[normal]{
     % int @margins:
     \def\@margins{#1}
 }
 
 %% scriptStyle
 % opt scriptStyle: Sets the mathematical script style. Supports \texttt{normal} (default), \texttt{euler}, and \texttt{rsfs}.
-\define@key{%{{ package_name %}}}{scriptStyle}[normal]{
+\define@key{kappak-book}{scriptStyle}[normal]{
     % int @scriptStyle:
     \def\@scriptStyle{#1}
 }
 
 %% titlePageStyle
 % opt titlePageStyle: Sets the title page style. Supports \texttt{normal} (default), \texttt{classic}, \texttt{bar}, \texttt{gm}, and \texttt{gb}.
-\define@key{%{{ package_name %}}}{titlePageStyle}[normal]{
+\define@key{kappak-book}{titlePageStyle}[normal]{
     % int @titlePageStyle:
     \def\@titlePageStyle{#1}
 }
 
 %% version
 % opt version: Sets the kappan version to use. Use explicit names instead.
-\define@key{%{{ package_name %}}}{version}[0406]{
+\define@key{kappak-book}{version}[0406]{
     % 0406 is the version where \@kappakVersion started to be taken into account.
     % int @usedVersion{#1}:
     \def\@usedVersion{#1}
 }
 
 \ProcessOptions
-\ProcessUnusedOptions{%{{ package_name %}}}
+\ProcessUnusedOptions{kappak-book}
 
 %% ----------------------------------------
 %% Processing
 %% ----------------------------------------
 
 \ifthenelse{\boolean{@b_extpack_auto}}{
-%{% if pkg_babel %}
 	\RequirePackage[\@language]{babel}
-%{% endif %}
 }{}
 
 % stix must be loaded before amsmath if amsmath version is > 2.14
 % http://distrib-coffee.ipsl.jussieu.fr/pub/mirrors/ctan/fonts/stix/doc/stix.pdf
 \ifthenelse{\boolean{@b_extpack_use_stix}}{
-%{% if pkg_stix %}
 	\RequirePackage[notext, not1, notextcomp]{stix}
-%{% endif %}
 	\let\barV\relax
 }{}
 
 \ifthenelse{\boolean{@b_extpack_auto}}{
-%{% if pkg_amsfonts %}
 	\RequirePackage{amsfonts}
-%{% endif %}
-%{% if pkg_amsmath %}
 	\RequirePackage{amsmath}
-%{% endif %}
-%{% if pkg_amssymb %}
 	\RequirePackage{amssymb}
-%{% endif %}
-%{% if pkg_amsthm %}
 	\RequirePackage{amsthm}
-%{% endif %}
-%{% if pkg_mathtools %}
 	\RequirePackage{mathtools}
-%{% endif %}
 
-%{% if pkg_aliascnt %}
     \RequirePackage{aliascnt} % must be loaded before cleveref
-%{% endif %}
-%{% if pkg_hyperref %}
 	\RequirePackage{hyperref}
-%{% endif %}
-%{% if pkg_cleveref %}
 	\RequirePackage[noabbrev]{cleveref} % must be loaded before cleveref
-%{% endif %}
 
-%{% if pkg_color %}
 	\RequirePackage{color}
-%{% endif %}
-%{% if pkg_enumerate %}
 	\RequirePackage{enumerate}
-%{% endif %}
-%{% if pkg_graphicx %}
 	\RequirePackage{graphicx}
-%{% endif %}
-%{% if pkg_multicol %}
 	\RequirePackage{multicol}
-%{% endif %}
 
 	\hypersetup{ % See https://en.wikibooks.org/wiki/LaTeX/Hyperlinks#Customization
 	    colorlinks=false,
@@ -532,15 +494,11 @@
 
 \newcommand{\@bb}{\mathbb}
 \ifthenelse{\equal{\@bbStyle}{bbold}}{
-%{% if pkg_bbold %}
     \RequirePackage{bbold}
-%{% endif %}
 }{}
 
 \ifthenelse{\boolean{@b_extpack_use_tikz}}{
-%{% if pkg_tikz %}
     \RequirePackage{tikz}
-%{% endif %}
     \usetikzlibrary{arrows, calc, matrix}
 }{}
 
@@ -553,37 +511,25 @@
 }{}
 
 \ifthenelse{\equal{\@chapterStyle}{normal}}{}{
-%{% if pkg_titlesec %}
     \RequirePackage{titlesec}
-%{% endif %}
 }
 
 \ifthenelse{\equal{\@headerFooterStyle}{normal}}{}{
-%{% if pkg_fancyhdr %}
     \RequirePackage{fancyhdr}
-%{% endif %}
-%{% if pkg_lastpage %}
     \RequirePackage{lastpage}
-%{% endif %}
 }
 
 \newcommand{\@cal}{\mathcal}
 \ifthenelse{\equal{\@scriptStyle}{euler}}{
-%{% if pkg_euscript %}
     \RequirePackage[mathscr]{euscript}
-%{% endif %}
     \renewcommand{\@cal}{\mathscr}
 }{}
 \ifthenelse{\equal{\@scriptStyle}{rsfs}}{
-%{% if pkg_mathrsfs %}
     \RequirePackage{mathrsfs}
-%{% endif %}
     \renewcommand{\@cal}{\mathscr}
 }{}
 \ifthenelse{\equal{\@scriptStyle}{rsfso}}{
-%{% if pkg_rsfso %}
     \RequirePackage{rsfso}
-%{% endif %}
 }{}
 
 \ifthenelse{\equal{\@fontSet}{alternate}}{
@@ -592,29 +538,21 @@
     \RequirePackage{courier}  % selects Courier as typewriter font
 }{}
 \ifthenelse{\equal{\@fontSet}{xcharter}}{
-%{% if pkg_XCharter %}
     \RequirePackage{XCharter}
-%{% endif %}
 }{}
 
 \ifthenelse{\equal{\@margins}{reduced}}{
-%{% if pkg_geometry %}
     \RequirePackage{geometry}
-%{% endif %}
     \geometry{hscale = 0.8, vscale = 0.8, centering}
 }{}
 
 \ifthenelse{\equal{\@margins}{minimal}}{
-%{% if pkg_geometry %}
     \RequirePackage{geometry}
-%{% endif %}
     \geometry{margin = 0.5in, centering}
 }{}
 
 \ifthenelse{\boolean{@b_extpack_use_xecjk}}{
-%{% if pkg_xeCJK %}
 	\RequirePackage{xeCJK}
-%{% endif %}
 }{}
 
 \ifthenelse{\@usedVersion < \@kappakVersion}{

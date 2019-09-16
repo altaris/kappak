@@ -15,7 +15,7 @@ documentation:
 
 install:
 	@mkdir -p $(DIRECTORY)
-	@[ -d $(TARGET) ] || ln -s "$(realpath src)" $(TARGET)
+	@[ -d $(TARGET) ] || ln -s "$(realpath texmf/tex/latex/kappak)" $(TARGET)
 
 uninstall:
 	@rm -rf $(TARGET)
