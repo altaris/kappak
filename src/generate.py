@@ -129,41 +129,24 @@ def generate_target(
             elif policy == IncludePolicy.INCLUDE:
                 context[f'pkg_{package}'] = True
 
-    for command in parameters['commands']:
+    for definition in parameters['definitions']:
+        def_type = parameters['definitions'].get('_type')
         try:
-            check_not_special(command)
-            cmd_record = parameters['commands'][command]
-            cmd_default = parameters['commands']['_default']
-            check_not_excluded(cmd_record, cmd_default, target)
-            check_has_requirements(cmd_record, cmd_default, context)
+            check_not_special(definition)
+            def_record = parameters['definitions'][definition]
+            def_default = parameters['definitions']['_default']
+            check_not_excluded(def_record, def_default, target)
+            check_has_requirements(def_record, def_default, context)
             raise IncludePolicy.INCLUDE
         except IncludePolicy as policy:
             if policy == IncludePolicy.DONT_INCLUDE:
-                context[f'cmd_{command}'] = False
+                context[f'{def_type}_{definition}'] = False
                 print(
-                    f'[INFO] Target \"{target}\": excluded command '
-                    f'\"{command}\"'
+                    f'[INFO] Target \"{target}\": excluded definition '
+                    f'\"{definition}\"'
                 )
             elif policy == IncludePolicy.INCLUDE:
-                context[f'cmd_{command}'] = True
-
-    for environment in parameters['environments']:
-        try:
-            check_not_special(environment)
-            env_record = parameters['environments'][environment]
-            env_default = parameters['environments']['_default']
-            check_not_excluded(env_record, env_default, target)
-            check_has_requirements(env_record, env_default, context)
-            raise IncludePolicy.INCLUDE
-        except IncludePolicy as policy:
-            if policy == IncludePolicy.DONT_INCLUDE:
-                context[f'env_{environment}'] = False
-                print(
-                    f'[INFO] Target \"{target}\": excluded environment '
-                    f'\"{environment}\"'
-                )
-            elif policy == IncludePolicy.INCLUDE:
-                context[f'env_{environment}'] = True
+                context[f'{def_type}_{definition}'] = True
 
     output_file_path = f'{OUTPUT_DIRECTORY}/{package_name}.sty'
     with open(f'{output_file_path}', 'w') as output_file:
