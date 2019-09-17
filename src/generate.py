@@ -12,7 +12,10 @@ import json
 from jinja2 import Environment, FileSystemLoader
 
 
-OUTPUT_DIRECTORY = 'texmf/tex/latex/kappak'
+TEMPLATE_DIRECTORY = 'templates'
+MAIN_TEMPLATE = 'kappak.sty'
+PARAMETER_FILE = 'kappak.json'
+OUTPUT_DIRECTORY = '../texmf/tex/latex/kappak'
 
 
 @unique
@@ -61,15 +64,15 @@ def main():
         comment_start_string='<JINJA2 comment_start_string>',
         line_statement_prefix='<JINJA2 line_statement_prefix>',
         line_comment_prefix='<JINJA2 line_comment_prefix>',
-        loader=FileSystemLoader('src/'),
+        loader=FileSystemLoader(TEMPLATE_DIRECTORY + '/'),
         lstrip_blocks=True,
         trim_blocks=True,
         variable_end_string='%}}',
         variable_start_string='%{{'
     )
-    template = environment.get_template('kappak.sty')
+    template = environment.get_template(MAIN_TEMPLATE)
 
-    with open('src/kappak.json', 'r') as parameters_file:
+    with open(PARAMETER_FILE, 'r') as parameters_file:
         parameters = json.loads(parameters_file.read())
 
     for target in parameters['targets']:
