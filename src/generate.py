@@ -12,10 +12,10 @@ import json
 from jinja2 import Environment, FileSystemLoader
 
 
-TEMPLATE_DIRECTORY = 'templates'
 MAIN_TEMPLATE = 'kappak.sty'
-PARAMETER_FILE = 'kappak.json'
 OUTPUT_DIRECTORY = '../texmf/tex/latex/kappak'
+PARAMETER_FILE = 'kappak.json'
+TEMPLATE_DIRECTORY = 'templates'
 
 
 @unique
