@@ -130,7 +130,7 @@ def generate_target(
                 context[f'pkg_{package}'] = True
 
     for definition in parameters['definitions']:
-        def_type = parameters['definitions'].get('_type')
+        def_type = parameters['definitions'][definition].get('_type')
         try:
             check_not_special(definition)
             def_record = parameters['definitions'][definition]

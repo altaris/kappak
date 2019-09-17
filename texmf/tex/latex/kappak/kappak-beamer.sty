@@ -199,7 +199,6 @@
 \@ifundefined{my@extractkey}{%
   % int my@extractkey#1=#2\my@extractkey{#1}}{}:
 \def\my@extractkey#1=#2\my@extractkey{#1}}{}
-\newcommand{\ProcessUnusedOptions}[1]{%
   \let\my@tempa\@empty
   \let\my@tempb\@empty
   \@for\CurrentOption:=\my@unusedlist\do{%
@@ -862,7 +861,7 @@
 	}
 	\newcommand{\xtwoheadleftarrow}[2][]{
 	  \leftarrow\mathrel{\mkern-14mu}\xleftarrow[#1]{#2}
-	}
+    }
 
     \newcommand{\epi}{\twoheadrightarrow}
     \newcommand{\leftepi}{\twoheadleftarrow}
@@ -926,7 +925,7 @@
 		    	\rotatebox[origin=c]{#2}{$\scriptscriptstyle{#3}$}
 		    }}
 		}
-	}
+    }
 
 }{} % \ifthenelse{\boolean{@b_maths_use_misc}}{
 
@@ -950,14 +949,6 @@
     }
 
     % env kdocument: The \texttt{kdocument} environment.
-    \newenvironment{kdocument}{
-		\document
-	    \maketitle
-	    \tableofcontents
-	}{
-		\kbibliography
-	    \enddocument
-	}
 
 }{} % \ifthenelse{\boolean{@b_use_misc}}{
 
@@ -4078,396 +4069,97 @@
 %% --------------------
 
     % cmd diagramsize:
-    \newcommand{\diagramsize}[2]{
-        \ifthenelse{\equal{#1}{}}{\def\@tRowsep{2}}{\def\@tRowsep{#1}}
-        \ifthenelse{\equal{#2}{}}{\def\@tColsep{3}}{\def\@tColsep{#2}}
-    }
-    \diagramsize{}{}
 
 %% --------------------
 %% Styles
 %% --------------------
 
     % cmd diagramarrows: Sets the arrow type for commutative diagrams. Takes 4 arguments among \texttt{->} (default), \texttt{-}, \texttt{<-}, \texttt{<->}, \texttt{->>}, \texttt{<<-}, \texttt{>->}, \texttt{<-<}, \texttt{right hook->}, \texttt{<-left hook}, \texttt{|->}, \texttt{<-|}.
-    \newcommand{\diagramarrows}[4]{
-        \ifthenelse{\equal{#1}{}}{\def\@diagAA{->}}{}
-        \ifthenelse{\equal{#1}{-}}{\def\@diagAA{-}}{}
-        \ifthenelse{\equal{#1}{->}}{\def\@diagAA{->}}{}
-        \ifthenelse{\equal{#1}{<-}}{\def\@diagAA{<-}}{}
-        \ifthenelse{\equal{#1}{<->}}{\def\@diagAA{<->}}{}
-        \ifthenelse{\equal{#1}{->>}}{\def\@diagAA{->>}}{}
-        \ifthenelse{\equal{#1}{<<-}}{\def\@diagAA{<<-}}{}
-        \ifthenelse{\equal{#1}{>->}}{\def\@diagAA{>->}}{}
-        \ifthenelse{\equal{#1}{<-<}}{\def\@diagAA{<-<}}{}
-        \ifthenelse{\equal{#1}{c->}}{\def\@diagAA{right hook->}}{}
-        \ifthenelse{\equal{#1}{<-c}}{\def\@diagAA{<-left hook}}{}
-        \ifthenelse{\equal{#1}{|->}}{\def\@diagAA{|->}}{}
-        \ifthenelse{\equal{#1}{<-|}}{\def\@diagAA{<-|}}{}
-        \ifthenelse{\equal{#2}{}}{\def\@diagAB{->}}{}
-        \ifthenelse{\equal{#2}{-}}{\def\@diagAB{-}}{}
-        \ifthenelse{\equal{#2}{->}}{\def\@diagAB{->}}{}
-        \ifthenelse{\equal{#2}{<-}}{\def\@diagAB{<-}}{}
-        \ifthenelse{\equal{#2}{<->}}{\def\@diagAB{<->}}{}
-        \ifthenelse{\equal{#2}{->>}}{\def\@diagAB{->>}}{}
-        \ifthenelse{\equal{#2}{<<-}}{\def\@diagAB{<<-}}{}
-        \ifthenelse{\equal{#2}{>->}}{\def\@diagAB{>->}}{}
-        \ifthenelse{\equal{#2}{<-<}}{\def\@diagAB{<-<}}{}
-        \ifthenelse{\equal{#2}{c->}}{\def\@diagAB{right hook->}}{}
-        \ifthenelse{\equal{#2}{<-c}}{\def\@diagAB{<-left hook}}{}
-        \ifthenelse{\equal{#2}{|->}}{\def\@diagAB{|->}}{}
-        \ifthenelse{\equal{#2}{<-|}}{\def\@diagAB{<-|}}{}
-        \ifthenelse{\equal{#3}{}}{\def\@diagAC{->}}{}
-        \ifthenelse{\equal{#3}{-}}{\def\@diagAC{-}}{}
-        \ifthenelse{\equal{#3}{->}}{\def\@diagAC{->}}{}
-        \ifthenelse{\equal{#3}{<-}}{\def\@diagAC{<-}}{}
-        \ifthenelse{\equal{#3}{<->}}{\def\@diagAC{<->}}{}
-        \ifthenelse{\equal{#3}{->>}}{\def\@diagAC{->>}}{}
-        \ifthenelse{\equal{#3}{<<-}}{\def\@diagAC{<<-}}{}
-        \ifthenelse{\equal{#3}{>->}}{\def\@diagAC{>->}}{}
-        \ifthenelse{\equal{#3}{<-<}}{\def\@diagAC{<-<}}{}
-        \ifthenelse{\equal{#3}{c->}}{\def\@diagAC{right hook->}}{}
-        \ifthenelse{\equal{#3}{<-c}}{\def\@diagAC{<-left hook}}{}
-        \ifthenelse{\equal{#3}{|->}}{\def\@diagAC{|->}}{}
-        \ifthenelse{\equal{#3}{<-|}}{\def\@diagAC{<-|}}{}
-        \ifthenelse{\equal{#4}{}}{\def\@diagAD{->}}{}
-        \ifthenelse{\equal{#4}{-}}{\def\@diagAD{-}}{}
-        \ifthenelse{\equal{#4}{->}}{\def\@diagAD{->}}{}
-        \ifthenelse{\equal{#4}{<-}}{\def\@diagAD{<-}}{}
-        \ifthenelse{\equal{#4}{<->}}{\def\@diagAD{<->}}{}
-        \ifthenelse{\equal{#4}{->>}}{\def\@diagAD{->>}}{}
-        \ifthenelse{\equal{#4}{<<-}}{\def\@diagAD{<<-}}{}
-        \ifthenelse{\equal{#4}{>->}}{\def\@diagAD{>->}}{}
-        \ifthenelse{\equal{#4}{<-<}}{\def\@diagAD{<-<}}{}
-        \ifthenelse{\equal{#4}{c->}}{\def\@diagAD{right hook->}}{}
-        \ifthenelse{\equal{#4}{<-c}}{\def\@diagAD{<-left hook}}{}
-        \ifthenelse{\equal{#4}{|->}}{\def\@diagAD{|->}}{}
-        \ifthenelse{\equal{#4}{<-|}}{\def\@diagAD{<-|}}{}
-    } % \newcommand{\diagramarrows}[4]{
 
     % cmd diagramlines: Sets the arrow line styles for commutative diagrams. Takes 4 arguments, among \texttt{-} (default), \texttt{=}, \texttt{..}, \texttt{--}.
-    \newcommand{\diagramlines}[4]{
-        \ifthenelse{\equal{#1}{}}{\def\@diagLA{solid}}{}
-        \ifthenelse{\equal{#1}{=}}{\def\@diagLA{double}}{}
-        \ifthenelse{\equal{#1}{-}}{\def\@diagLA{solid}}{}
-        \ifthenelse{\equal{#1}{..}}{\def\@diagLA{dotted}}{}
-        \ifthenelse{\equal{#1}{--}}{\def\@diagLA{dashed}}{}
-        \ifthenelse{\equal{#2}{}}{\def\@diagLB{solid}}{}
-        \ifthenelse{\equal{#2}{=}}{\def\@diagLB{double}}{}
-        \ifthenelse{\equal{#2}{-}}{\def\@diagLB{solid}}{}
-        \ifthenelse{\equal{#2}{..}}{\def\@diagLB{dotted}}{}
-        \ifthenelse{\equal{#2}{--}}{\def\@diagLB{dashed}}{}
-        \ifthenelse{\equal{#3}{}}{\def\@diagLC{solid}}{}
-        \ifthenelse{\equal{#3}{=}}{\def\@diagLC{double}}{}
-        \ifthenelse{\equal{#3}{-}}{\def\@diagLC{solid}}{}
-        \ifthenelse{\equal{#3}{..}}{\def\@diagLC{dotted}}{}
-        \ifthenelse{\equal{#3}{--}}{\def\@diagLC{dashed}}{}
-        \ifthenelse{\equal{#4}{}}{\def\@diagLD{solid}}{}
-        \ifthenelse{\equal{#4}{=}}{\def\@diagLD{double}}{}
-        \ifthenelse{\equal{#4}{-}}{\def\@diagLD{solid}}{}
-        \ifthenelse{\equal{#4}{..}}{\def\@diagLD{dotted}}{}
-        \ifthenelse{\equal{#4}{--}}{\def\@diagLD{dashed}}{}
-    } % \newcommand{\diagramlines}[4]{
 
 %% --------------------
 %% Reset styles
 %% --------------------
 
     % cmd rds: Resets diagram styles.
-    \newcommand{\rds}{
-        \diagramarrows{}{}{}{}
-        \diagramlines{}{}{}{}
-    }
-    \rds
 
 %% --------------------
 %% Simple square
 %% --------------------
 
     % cmd squarediagram: Square diagram.
-    \newcommand{\squarediagram}[8]{
-        \begin{tikzpicture}
-            \matrix (m) [matrix of math nodes,
-                    row sep = \@tRowsep em,
-                    column sep = \@tColsep em,
-                    text height = 1.5 ex,
-                    text depth = 0.25 ex,
-                    ampersand replacement = \@ampersand] {
-                \displaystyle{#1} \@ampersand \displaystyle{#2} \\
-                \displaystyle{#3} \@ampersand \displaystyle{#4} \\
-            };
-            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [above] {$\scriptstyle{#5}$} (m-1-2);
-            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [left]  {$\scriptstyle{#6}$} (m-2-1);
-            \path [\@diagAC] (m-1-2) edge [\@diagLC] node [right] {$\scriptstyle{#7}$} (m-2-2);
-            \path [\@diagAD] (m-2-1) edge [\@diagLD] node [above] {$\scriptstyle{#8}$} (m-2-2);
-        \end{tikzpicture}
-    }
 
 %% --------------------
 %% Pushout
 %% --------------------
 
     % cmd pushoutdiagram: Pushout diagram.
-    \newcommand{\pushoutdiagram}[8]{
-        \begin{tikzpicture}
-            \matrix (m) [matrix of math nodes,
-                    row sep = \@tRowsep em,
-                    column sep = \@tColsep em,
-                    text height = 1.5 ex,
-                    text depth = 0.25 ex,
-                    ampersand replacement = \@ampersand] {
-                \displaystyle{#1} \@ampersand \displaystyle{#2} \\
-                \displaystyle{#3} \@ampersand \displaystyle{#4} \\
-            };
-            \path (m-1-1) edge [-, draw = white] node [very near end] {$\ulcorner$} (m-2-2);
-            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [above] {$\scriptstyle{#5}$} (m-1-2);
-            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [left]  {$\scriptstyle{#6}$} (m-2-1);
-            \path [\@diagAC] (m-1-2) edge [\@diagLC] node [right] {$\scriptstyle{#7}$} (m-2-2);
-            \path [\@diagAD] (m-2-1) edge [\@diagLD] node [above] {$\scriptstyle{#8}$} (m-2-2);
-        \end{tikzpicture}
-    }
 
 %% --------------------
 %% Pullback
 %% --------------------
 
     % cmd pullbackdiagram: Pullback diagram.
-    \newcommand{\pullbackdiagram}[8]{
-        \begin{tikzpicture}
-            \matrix (m) [matrix of math nodes,
-                    row sep = \@tRowsep em,
-                    column sep = \@tColsep em,
-                    text height = 1.5 ex,
-                    text depth = 0.25ex,
-                    ampersand replacement = \@ampersand] {
-                \displaystyle{#1} \@ampersand \displaystyle{#2} \\
-                \displaystyle{#3} \@ampersand \displaystyle{#4} \\
-            };
-            \path (m-1-1) edge [-, draw = white] node [very near start] {$\lrcorner$} (m-2-2);
-            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [above] {$\scriptstyle{#5}$} (m-1-2);
-            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [left]  {$\scriptstyle{#6}$} (m-2-1);
-            \path [\@diagAC] (m-1-2) edge [\@diagLC] node [right] {$\scriptstyle{#7}$} (m-2-2);
-            \path [\@diagAD] (m-2-1) edge [\@diagLD] node [above] {$\scriptstyle{#8}$} (m-2-2);
-        \end{tikzpicture}
-    }
 
 %% --------------------
 %% Triangular UL : Up left
 %% --------------------
 
     % cmd triangleULdiagram:
-    \newcommand{\triangleULdiagram}[6]{
-        \begin{tikzpicture}
-            \matrix (m) [matrix of math nodes,
-                    row sep = \@tRowsep em,
-                    column sep = \@tColsep em,
-                    text height = 1.5 ex,
-                    text depth = 0.25 ex,
-                    ampersand replacement = \@ampersand] {
-                \displaystyle{#1} \@ampersand \displaystyle{#2} \\
-                \displaystyle{#3} \@ampersand \\
-            };
-            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [above]       {$\scriptstyle{#4}$} (m-1-2);
-            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [left]        {$\scriptstyle{#5}$} (m-2-1);
-            \path [\@diagAC] (m-2-1) edge [\@diagLC] node [below right] {$\scriptstyle{#6}$} (m-1-2);
-        \end{tikzpicture}
-    }
 
 %% --------------------
 %% Triangular UR : Up right
 %% --------------------
 
     % cmd triangleURdiagram:
-    \newcommand{\triangleURdiagram}[6]{
-        \begin{tikzpicture}
-            \matrix (m) [matrix of math nodes,
-                    row sep = \@tRowsep em,
-                    column sep = \@tColsep em,
-                    text height = 1.5ex,
-                    text depth = 0.25ex,
-                    ampersand replacement = \@ampersand] {
-                \displaystyle{#1} \@ampersand \displaystyle{#2} \\
-                \@ampersand \displaystyle{#3} \\
-            };
-            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [above]      {$\scriptstyle{#4}$} (m-1-2);
-            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [below left] {$\scriptstyle{#5}$} (m-2-2);
-            \path [\@diagAC] (m-1-2) edge [\@diagLC] node [right]      {$\scriptstyle{#6}$} (m-2-2);
-        \end{tikzpicture}
-    }
 
 %% --------------------
 %% Triangular DL : Down left
 %% --------------------
 
     % cmd triangleDLdiagram:
-    \newcommand{\triangleDLdiagram}[6]{
-        \begin{tikzpicture}
-            \matrix (m) [matrix of math nodes,
-                    row sep = \@tRowsep em,
-                    column sep = \@tColsep em,
-                    text height = 1.5ex,
-                    text depth = 0.25ex,
-                    ampersand replacement = \@ampersand] {
-                \displaystyle{#1} \@ampersand \\
-                \displaystyle{#2} \@ampersand \displaystyle{#3} \\
-            };
-            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [left]        {$\scriptstyle{#4}$} (m-2-1);
-            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [above right] {$\scriptstyle{#5}$} (m-2-2);
-            \path [\@diagAC] (m-2-1) edge [\@diagLC] node [below]       {$\scriptstyle{#6}$} (m-2-2);
-        \end{tikzpicture}
-    }
 
 %% --------------------
 %% Triangular DR : Down right
 %% --------------------
 
     % cmd triangleDRdiagram:
-    \newcommand{\triangleDRdiagram}[6]{
-        \begin{tikzpicture}
-            \matrix (m) [matrix of math nodes,
-                    row sep = \@tRowsep em,
-                    column sep = \@tColsep em,
-                    text height = 1.5ex,
-                    text depth = 0.25ex,
-                    ampersand replacement = \@ampersand] {
-                \@ampersand \displaystyle{#1} \\
-                \displaystyle{#2} \@ampersand \displaystyle{#3} \\
-            };
-            \path [\@diagAA] (m-2-1) edge [\@diagLA] node [above left] {$\scriptstyle{#4}$} (m-1-2);
-            \path [\@diagAB] (m-1-2) edge [\@diagLB] node [right]      {$\scriptstyle{#5}$} (m-2-2);
-            \path [\@diagAC] (m-2-1) edge [\@diagLC] node [above]      {$\scriptstyle{#6}$} (m-2-2);
-        \end{tikzpicture}
-    }
 
 %% --------------------
 %% Triangular U : Up
 %% --------------------
 
     % cmd triangleUdiagram:
-    \newcommand{\triangleUdiagram}[6]{
-        \begin{tikzpicture}
-            \matrix (m) [matrix of math nodes,
-                    row sep = \@tRowsep em,
-                    column sep = \@tColsep em,
-                    text height = 1.5ex,
-                    text depth = 0.25ex,
-                    ampersand replacement = \@ampersand] {
-                \@ampersand \displaystyle{#1} \@ampersand \\
-                \displaystyle{#2} \@ampersand \@ampersand \displaystyle{#3} \\
-            };
-            \path [\@diagAA] (m-1-2) edge [\@diagLA] node [above left]  {$\scriptstyle{#4}$} (m-2-1);
-            \path [\@diagAB] (m-1-2) edge [\@diagLB] node [above right] {$\scriptstyle{#5}$} (m-2-3);
-            \path [\@diagAC] (m-2-1) edge [\@diagLC] node [above]       {$\scriptstyle{#6}$} (m-2-3);
-        \end{tikzpicture}
-    }
 
 %% --------------------
 %% Triangular L : Left
 %% --------------------
     % cmd triangleLdiagram:
-    \newcommand{\triangleLdiagram}[6]{
-        \begin{tikzpicture}
-            \matrix (m) [matrix of math nodes,
-                    row sep = \@tRowsep em,
-                    column sep = \@tColsep em,
-                    text height = 1.5ex,
-                    text depth = 0.25ex,
-                    ampersand replacement = \@ampersand] {
-                \@ampersand \displaystyle{#1} \\
-                \displaystyle{#2} \@ampersand \\
-                \@ampersand \displaystyle{#3} \\
-            };
-            \path [\@diagAA] (m-2-1) edge [\@diagLA] node [above left] {$\scriptstyle{#4}$} (m-1-2);
-            \path [\@diagAB] (m-1-2) edge [\@diagLB] node [right]      {$\scriptstyle{#5}$} (m-3-2);
-            \path [\@diagAC] (m-2-1) edge [\@diagLC] node [below left] {$\scriptstyle{#6}$} (m-3-2);
-        \end{tikzpicture}
-    }
 
 %% --------------------
 %% Triangular R : Right
 %% --------------------
 
     % cmd triangleRdiagram:
-    \newcommand{\triangleRdiagram}[6]{
-        \begin{tikzpicture}
-            \matrix (m) [matrix of math nodes,
-                    row sep = \@tRowsep em,
-                    column sep = \@tColsep em,
-                    text height = 1.5ex,
-                    text depth = 0.25ex,
-                    ampersand replacement = \@ampersand] {
-                \displaystyle{#1} \@ampersand \\
-                \@ampersand \displaystyle{#2} \\
-                \displaystyle{#3} \@ampersand \\
-            };
-            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [left]        {$\scriptstyle{#4}$} (m-3-1);
-            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [above right] {$\scriptstyle{#5}$} (m-2-2);
-            \path [\@diagAC] (m-3-1) edge [\@diagLC] node [below right] {$\scriptstyle{#6}$} (m-2-2);
-        \end{tikzpicture}
-    }
 
 %% --------------------
 %% Triangular D : Down
 %% --------------------
 
     % cmd triangleDdiagram:
-    \newcommand{\triangleDdiagram}[6]{
-        \begin{tikzpicture}
-            \matrix (m) [matrix of math nodes,
-                    row sep = \@tRowsep em,
-                    column sep = \@tColsep em,
-                    text height = 1.5ex,
-                    text depth = 0.25ex,
-                    ampersand replacement = \@ampersand] {
-                \displaystyle{#1} \@ampersand \@ampersand \displaystyle{#2} \\
-                \@ampersand \displaystyle{#3} \@ampersand \\
-            };
-            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [above]       {$\scriptstyle{#4}$} (m-1-3);
-            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [below left]  {$\scriptstyle{#5}$} (m-2-2);
-            \path [\@diagAC] (m-1-3) edge [\@diagLC] node [below right] {$\scriptstyle{#6}$} (m-2-2);
-        \end{tikzpicture}
-    }
 
 %% --------------------
 %% Equalizer
 %% --------------------
 
     % cmd eqdiagram:
-    \newcommand{\eqdiagram}[6]{
-        \begin{tikzpicture}
-            \matrix (m) [matrix of math nodes,
-                    row sep = \@tRowsep em,
-                    column sep = \@tColsep em,
-                    text height = 1.5ex,
-                    text depth = 0.25ex,
-                    ampersand replacement = \@ampersand] {
-                \displaystyle{#1} \@ampersand \displaystyle{#2} \@ampersand \displaystyle{#3} \\
-            };
-            \path [\@diagAA] (m-1-1)                    edge [\@diagLA] node [above] {$\scriptstyle{#4}$} (m-1-2);
-            \path [\@diagAB] ($(m-1-2.east) + (0,0.1)$) edge [\@diagLB] node [above] {$\scriptstyle{#5}$} ($(m-1-3.west) + (0,0.1)$);
-            \path [\@diagAC] ($(m-1-2.east) - (0,0.1)$) edge [\@diagLC] node [below] {$\scriptstyle{#6}$} ($(m-1-3.west) - (0,0.1)$);
-        \end{tikzpicture}
-    }
 
 %% --------------------
 %% Coequalizer
 %% --------------------
 
     % cmd coeqdiagram:
-    \newcommand{\coeqdiagram}[6]{
-        \begin{tikzpicture}
-            \matrix (m) [matrix of math nodes,
-                    row sep = \@tRowsep em,
-                    column sep = \@tColsep em,
-                    text height = 1.5ex,
-                    text depth = 0.25ex,
-                    ampersand replacement = \@ampersand] {
-                \displaystyle{#1} \@ampersand \displaystyle{#2} \@ampersand \displaystyle{#3} \\
-            };
-            \path [\@diagAA] ($(m-1-1.east) + (0,0.1)$) edge [\@diagLA] node [above] {$\scriptstyle{#4}$} ($(m-1-2.west) + (0,0.1)$);
-            \path [\@diagAB] ($(m-1-1.east) - (0,0.1)$) edge [\@diagLB] node [below] {$\scriptstyle{#5}$} ($(m-1-2.west) - (0,0.1)$);
-            \path [\@diagAC] (m-1-2)                    edge [\@diagLC] node [above] {$\scriptstyle{#6}$} (m-1-3);
-        \end{tikzpicture}
-    }
 
 }{} % \ifthenelse{\boolean{@b_extpack_use_tikz}}{
 
@@ -4788,113 +4480,13 @@
 
     \ifthenelse{\equal{\@language}{english}}{
 
-        \def\@assertionName         {assertion}
-        \def\@assertionsName        {assertions}
-        \def\@axiomName             {axiom}
-        \def\@axiomsName            {axioms}
-        \def\@conjectureName        {conjecture}
-        \def\@conjecturesName       {conjectures}
-        \def\@conventionName        {convention}
-        \def\@conventionsName       {conventions}
-        \def\@corollaryName         {corollary}
-        \def\@corollariesName       {corollaries}
-        \def\@definitionName        {definition}
-        \def\@definitionsName       {definitions}
-        \def\@exampleName           {example}
-        \def\@examplesName          {examples}
-        \def\@exerciseName          {exercise}
-        \def\@exercisesName         {exercises}
-        \def\@lemmaName             {lemma}
-        \def\@lemmasName            {lemmas}
-        \def\@notationName          {notation}
-        \def\@notationsName         {notations}
-        \def\@proofName             {proof}
-        \def\@proofsName            {proofs}
-        \def\@propertyName          {property}
-        \def\@propertiesName        {properties}
-        \def\@propositionName       {proposition}
-        \def\@propositionsName      {propositions}
-        \def\@questionName          {question}
-        \def\@questionsName         {questions}
-        \def\@remarkName            {remark}
-        \def\@remarksName           {remarks}
-        \def\@reminderName          {reminder}
-        \def\@remindersName         {reminders}
-        \def\@scholiaName           {scholia}
-        \def\@scholiasName          {scholias}
-        \def\@solutionName          {solution}
-        \def\@solutionsName         {solutions}
-        \def\@theoremName           {theorem}
-        \def\@theoremsName          {theorems}
-        \def\@terminologyName       {terminology}
-        \def\@terminologiesName     {terminologies}
-
     }{} % \ifthenelse{\equal{\@language}{english}}{
 
     \ifthenelse{\equal{\@language}{french}}{
 
-        \def\@assertionName         {assertion}
-        \def\@assertionsName        {assertions}
-        \def\@axiomName             {axiome}
-        \def\@axiomsName            {axiomes}
-        \def\@conjectureName        {conjecture}
-        \def\@conjecturesName       {conjectures}
-        \def\@conventionName        {convention}
-        \def\@conventionsName       {conventions}
-        \def\@corollaryName         {corollaire}
-        \def\@corollariesName       {corollaires}
-        \def\@definitionName        {d\'{e}finition}
-        \def\@definitionsName       {d\'{e}finitions}
-        \def\@exampleName           {exemple}
-        \def\@examplesName          {exemples}
-        \def\@exerciseName          {exercice}
-        \def\@exercisesName         {exercices}
-        \def\@lemmaName             {lemme}
-        \def\@lemmasName            {lemmes}
-        \def\@notationName          {notation}
-        \def\@notationsName         {notations}
-        \def\@proofName             {d\'{e}monstration}
-        \def\@proofsName            {d\'{e}monstrations}
-        \def\@propertyName          {propri\'{e}t\'{e}}
-        \def\@propertiesName        {propri\'{e}t\'{e}s}
-        \def\@propositionName       {proposition}
-        \def\@propositionsName      {propositions}
-        \def\@questionName          {question}
-        \def\@questionsName         {questions}
-        \def\@remarkName            {remarque}
-        \def\@remarksName           {remarques}
-        \def\@reminderName          {rappel}
-        \def\@remindersName         {rappels}
-        \def\@scholiaName           {scholie}
-        \def\@scholiasName          {scholies}
-        \def\@solutionName          {solution}
-        \def\@solutionsName         {solutions}
-        \def\@terminologyName       {terminologie}
-        \def\@terminologiesName     {terminologies}
-        \def\@theoremName           {th\'{e}or\`{e}me}
-        \def\@theoremsName          {th\'{e}or\`{e}mes}
-
     }{} % \ifthenelse{\equal{\@language}{french}}{
 
     \numberwithin{equation}{section}
-    \newaliascnt{assertion}{equation}
-    \newaliascnt{axiom}{equation}
-    \newaliascnt{conjecture}{equation}
-    \newaliascnt{convention}{equation}
-    \newaliascnt{corollary}{equation}
-    \newaliascnt{definition}{equation}
-    \newaliascnt{example}{equation}
-    \newaliascnt{exercise}{equation}
-    \newaliascnt{lemma}{equation}
-    \newaliascnt{notation}{equation}
-    \newaliascnt{property}{equation}
-    \newaliascnt{proposition}{equation}
-    \newaliascnt{question}{equation}
-    \newaliascnt{remark}{equation}
-    \newaliascnt{reminder}{equation}
-    \newaliascnt{scholia}{equation}
-    \newaliascnt{terminology}{equation}
-    \newaliascnt{theorem}{equation}
 
     \def\@makeupcase#1{\uppercase{#1}}     % https://groups.google.com/forum/#!topic/comp.text.tex/YpzYtAqJ_QQ
     \def\@upcase{\expandafter\@makeupcase} %
@@ -4902,260 +4494,94 @@
     \theoremstyle{definition}
 
     % env.th axiom: The \texttt{axiom} theorem environment.
-    \newtheorem{axiom}          [axiom]         {\@upcase \@axiomName}
     % env.th axioms: The \texttt{axioms} theorem environment.
-    \newtheorem{axioms}         [axiom]         {\@upcase \@axiomsName}
     % env.th axiom*: The \texttt{axiom*} theorem environment.
-    \newtheorem*{axiom*}                        {\@upcase \@axiomName}
     % env.th axioms*: The \texttt{axioms*} theorem environment.
-    \newtheorem*{axioms*}                       {\@upcase \@axiomsName}
     % env.th definition: The \texttt{definition} theorem environment.
-    \newtheorem{definition}     [definition]    {\@upcase \@definitionName}
     % env.th definitions: The \texttt{definitions} theorem environment.
-    \newtheorem{definitions}    [definition]    {\@upcase \@definitionsName}
     % env.th definition*: The \texttt{definition*} theorem environment.
-    \newtheorem*{definition*}                   {\@upcase \@definitionName}
     % env.th definitions*: The \texttt{definitions*} theorem environment.
-    \newtheorem*{definitions*}                  {\@upcase \@definitionsName}
     % env.th example: The \texttt{example} theorem environment.
-    \newtheorem{example}        [example]       {\@upcase \@exampleName}
     % env.th examples: The \texttt{examples} theorem environment.
-    \newtheorem{examples}       [example]       {\@upcase \@examplesName}
     % env.th example*: The \texttt{example*} theorem environment.
-    \newtheorem*{example*}                      {\@upcase \@exampleName}
     % env.th examples*: The \texttt{examples*} theorem environment.
-    \newtheorem*{examples*}                     {\@upcase \@examplesName}
     % env.th exercise: The \texttt{exercise} theorem environment.
-    \newtheorem{exercise}       [exercise]      {\@upcase \@exerciseName}
     % env.th exercises: The \texttt{exercises} theorem environment.
-    \newtheorem{exercises}      [exercise]      {\@upcase \@exercisesName}
     % env.th exercise*: The \texttt{exercise*} theorem environment.
-    \newtheorem*{exercise*}                     {\@upcase \@exerciseName}
     % env.th exercises*: The \texttt{exercises*} theorem environment.
-    \newtheorem*{exercises*}                    {\@upcase \@exercisesName}
     % env.th question: The \texttt{question} theorem environment.
-    \newtheorem{question}       [question]      {\@upcase \@questionName}
     % env.th questions: The \texttt{questions} theorem environment.
-    \newtheorem{questions}      [question]      {\@upcase \@questionsName}
     % env.th question*: The \texttt{question*} theorem environment.
-    \newtheorem*{question*}                     {\@upcase \@questionName}
     % env.th questions*: The \texttt{questions*} theorem environment.
-    \newtheorem*{questions*}                    {\@upcase \@questionsName}
 
     \ifthenelse{\boolean{@b_maths_use_theoremStyles}}{
          \theoremstyle{plain}
     }{}
 
     % env.th assertion: The \texttt{assertion} theorem environment.
-    \newtheorem{assertion}      [assertion]     {\@upcase \@assertionName}
     % env.th assertions: The \texttt{assertions} theorem environment.
-    \newtheorem{assertions}     [assertion]     {\@upcase \@assertionsName}
     % env.th assertion*: The \texttt{assertion*} theorem environment.
-    \newtheorem*{assertion*}                    {\@upcase \@assertionName}
     % env.th assertions*: The \texttt{assertions*} theorem environment.
-    \newtheorem*{assertions*}                   {\@upcase \@assertionsName}
     % env.th conjecture: The \texttt{conjecture} theorem environment.
-    \newtheorem{conjecture}     [conjecture]    {\@upcase \@conjectureName}
     % env.th conjectures: The \texttt{conjectures} theorem environment.
-    \newtheorem{conjectures}    [conjecture]    {\@upcase \@conjecturesName}
     % env.th conjecture*: The \texttt{conjecture*} theorem environment.
-    \newtheorem*{conjecture*}                   {\@upcase \@conjectureName}
     % env.th conjectures*: The \texttt{conjectures*} theorem environment.
-    \newtheorem*{conjectures*}                  {\@upcase \@conjecturesName}
     % env.th corollary: The \texttt{corollary} theorem environment.
-    \newtheorem{corollary}      [corollary]     {\@upcase \@corollaryName}
     % env.th corollaries: The \texttt{corollaries} theorem environment.
-    \newtheorem{corollaries}    [corollary]     {\@upcase \@corollariesName}
     % env.th corollary*: The \texttt{corollary*} theorem environment.
-    \newtheorem*{corollary*}                    {\@upcase \@corollaryName}
     % env.th corollaries*: The \texttt{corollaries*} theorem environment.
-    \newtheorem*{corollaries*}                  {\@upcase \@corollariesName}
     % env.th lemma: The \texttt{lemma} theorem environment.
-    \newtheorem{lemma}          [lemma]         {\@upcase \@lemmaName}
     % env.th lemmas: The \texttt{lemmas} theorem environment.
-    \newtheorem{lemmas}         [lemma]         {\@upcase \@lemmasName}
     % env.th lemma*: The \texttt{lemma*} theorem environment.
-    \newtheorem*{lemma*}                        {\@upcase \@lemmaName}
     % env.th lemmas*: The \texttt{lemmas*} theorem environment.
-    \newtheorem*{lemmas*}                       {\@upcase \@lemmasName}
     % env.th property: The \texttt{property} theorem environment.
-    \newtheorem{property}       [property]      {\@upcase \@propertyName}
     % env.th properties: The \texttt{properties} theorem environment.
-    \newtheorem{properties}     [property]      {\@upcase \@propertiesName}
     % env.th property*: The \texttt{property*} theorem environment.
-    \newtheorem*{property*}                     {\@upcase \@propertyName}
     % env.th properties*: The \texttt{properties*} theorem environment.
-    \newtheorem*{properties*}                   {\@upcase \@propertiesName}
     % env.th proposition: The \texttt{proposition} theorem environment.
-    \newtheorem{proposition}    [proposition]   {\@upcase \@propositionName}
     % env.th propositions: The \texttt{propositions} theorem environment.
-    \newtheorem{propositions}   [proposition]   {\@upcase \@propositionsName}
     % env.th proposition*: The \texttt{proposition*} theorem environment.
-    \newtheorem*{proposition*}                  {\@upcase \@propositionName}
     % env.th propositions*: The \texttt{propositions*} theorem environment.
-    \newtheorem*{propositions*}                 {\@upcase \@propositionsName}
     % env.th scholia: The \texttt{scholia} theorem environment.
-    \newtheorem{scholia}        [scholia]       {\@upcase \@scholiaName}
     % env.th scholias: The \texttt{scholias} theorem environment.
-    \newtheorem{scholias}       [scholia]       {\@upcase \@scholiasName}
     % env.th scholia*: The \texttt{scholia*} theorem environment.
-    \newtheorem{scholia*}                       {\@upcase \@scholiaName}
     % env.th scholias*: The \texttt{scholias*} theorem environment.
-    \newtheorem{scholias*}                      {\@upcase \@scholiasName}
     % env.th theorem: The \texttt{theorem} theorem environment.
-    \newtheorem{theorem}        [theorem]       {\@upcase \@theoremName}
     % env.th theorems: The \texttt{theorems} theorem environment.
-    \newtheorem{theorems}       [theorem]       {\@upcase \@theoremsName}
     % env.th theorem*: The \texttt{theorem*} theorem environment.
-    \newtheorem*{theorem*}                      {\@upcase \@theoremName}
     % env.th theorems*: The \texttt{theorems*} theorem environment.
-    \newtheorem*{theorems*}                     {\@upcase \@theoremsName}
 
     \ifthenelse{\boolean{@b_maths_use_theoremStyles}}{
         \theoremstyle{remark}
     }{}
 
     % env.th convention: The \texttt{convention} theorem environment.
-    \newtheorem{convention}     [convention]    {\@upcase \@conventionName}
     % env.th conventions: The \texttt{conventions} theorem environment.
-    \newtheorem{conventions}    [convention]    {\@upcase \@conventionsName}
     % env.th convention*: The \texttt{convention*} theorem environment.
-    \newtheorem*{convention*}                   {\@upcase \@conventionName}
     % env.th conventions*: The \texttt{conventions*} theorem environment.
-    \newtheorem*{conventions*}                  {\@upcase \@conventionsName}
     % env.th notation: The \texttt{notation} theorem environment.
-    \newtheorem{notation}       [notation]      {\@upcase \@notationName}
     % env.th notations: The \texttt{notations} theorem environment.
-    \newtheorem{notations}      [notation]      {\@upcase \@notationsName}
     % env.th notation*: The \texttt{notation*} theorem environment.
-    \newtheorem*{notation*}                     {\@upcase \@notationName}
     % env.th notations*: The \texttt{notations*} theorem environment.
-    \newtheorem*{notations*}                    {\@upcase \@notationsName}
     % env.th remark: The \texttt{remark} theorem environment.
-    \newtheorem{remark}         [remark]        {\@upcase \@remarkName}
     % env.th remarks: The \texttt{remarks} theorem environment.
-    \newtheorem{remarks}        [remark]        {\@upcase \@remarksName}
     % env.th remark*: The \texttt{remark*} theorem environment.
-    \newtheorem*{remark*}                       {\@upcase \@remarkName}
     % env.th remarks*: The \texttt{remarks*} theorem environment.
-    \newtheorem*{remarks*}                      {\@upcase \@remarksName}
     % env.th reminder: The \texttt{reminder} theorem environment.
-    \newtheorem{reminder}       [reminder]      {\@upcase \@reminderName}
     % env.th reminders: The \texttt{reminders} theorem environment.
-    \newtheorem{reminders}      [reminder]      {\@upcase \@remindersName}
     % env.th reminder*: The \texttt{reminder*} theorem environment.
-    \newtheorem*{reminder*}                     {\@upcase \@reminderName}
     % env.th reminders*: The \texttt{reminders*} theorem environment.
-    \newtheorem*{reminders*}                    {\@upcase \@remindersName}
     % env.th terminology: The \texttt{terminology} theorem environment.
-    \newtheorem{terminology}    [terminology]   {\@upcase \@terminologyName}
     % env.th terminologies: The \texttt{terminologies} theorem environment.
-    \newtheorem{terminologies}  [terminology]   {\@upcase \@terminologiesName}
     % env.th terminology*: The \texttt{terminology*} theorem environment.
-    \newtheorem*{terminology*}                  {\@upcase \@terminologyName}
     % env.th terminologies*: The \texttt{terminologies*} theorem environment.
-    \newtheorem*{terminologies*}                {\@upcase \@terminologiesName}
 
         %% solution(s) and proof(s)
     % env proof: The \texttt{proof} environment.
-    \renewenvironment{proof}[1][{\@upcase \@proofName}]{
-        \par
-        \pushQED{\qed}
-        \normalfont \topsep6\p@\@plus6\p@\relax
-        \trivlist
-        \item[\hskip\labelsep
-            \itshape
-        #1\@addpunct{.}]\ignorespaces
-    }{
-        \popQED\endtrivlist\@endpefalse
-    }
-    % env proofs: The \texttt{proofs} environment.
-    \newenvironment{proofs}[1][{\@upcase \@proofsName}]{
-        \par
-        \pushQED{\qed}
-        \normalfont \topsep6\p@\@plus6\p@\relax
-        \trivlist
-        \item[\hskip\labelsep
-            \itshape
-        #1\@addpunct{.}]\ignorespaces
-    }{
-        \popQED\endtrivlist\@endpefalse
-    }
-    % env solution: The \texttt{solution} environment.
-    \newenvironment{solution}[1][{\@upcase \@solutionName}]{
-        \par
-        \pushQED{\qed}
-        \normalfont \topsep6\p@\@plus6\p@\relax
-        \trivlist
-        \item[\hskip\labelsep
-            \itshape
-        #1\@addpunct{.}]\ignorespaces
-    }{
-        \hfill\ensuremath{\blacksquare}\endtrivlist\@endpefalse
-    }
-    % env solutions: The \texttt{solutions} environment.
-    \newenvironment{solutions}[1][{\@upcase \@solutionsName}]{
-        \par
-        \pushQED{\qed}
-        \normalfont \topsep6\p@\@plus6\p@\relax
-        \trivlist
-        \item[\hskip\labelsep
-            \itshape
-        #1\@addpunct{.}]\ignorespaces
-    }{
-        \hfill\ensuremath{\blacksquare}\endtrivlist\@endpefalse
-    }
 
-    % % env dedication: The \texttt{dedication} environment.
-    % \newenvironment{dedication}{
-    %     \cleardoublepage
-    %     \thispagestyle{empty}
-    %     \vspace*{\stretch{1}}
-    %     \hfill\begin{minipage}[t]{0.66\textwidth}
-    %     \raggedright
-    % }{
-    %     \end{minipage}
-    %     \vspace*{\stretch{3}}
-    %     \clearpage
-    % } % \newenvironment{dedication}{
+    % env dedication: The \texttt{dedication} environment.
 
-    \aliascntresetthe{assertion}
-    \aliascntresetthe{axiom}
-    \aliascntresetthe{conjecture}
-    \aliascntresetthe{convention}
-    \aliascntresetthe{corollary}
-    \aliascntresetthe{definition}
-    \aliascntresetthe{example}
-    \aliascntresetthe{exercise}
-    \aliascntresetthe{lemma}
-    \aliascntresetthe{notation}
-    \aliascntresetthe{property}
-    \aliascntresetthe{proposition}
-    \aliascntresetthe{question}
-    \aliascntresetthe{remark}
-    \aliascntresetthe{reminder}
-    \aliascntresetthe{scholia}
-    \aliascntresetthe{terminology}
-    \aliascntresetthe{theorem}
 
-    \crefname{assertion}{\@assertionName}{\@assertionsName}
-    \crefname{axiom}{\@axiomName}{\@axiomsName}
-    \crefname{conjecture}{\@conjectureName}{\@conjecturesName}
-    \crefname{convention}{\@conventionName}{\@conventionsName}
-    \crefname{corollary}{\@corollaryName}{\@corollariesName}
-    \crefname{definition}{\@definitionName}{\@definitionsName}
-    \crefname{example}{\@exampleName}{\@examplesName}
-    \crefname{exercise}{\@exerciseName}{\@exercisesName}
-    \crefname{lemma}{\@lemmaName}{\@lemmasName}
-    \crefname{notation}{\@notationName}{\@notationsName}
-    \crefname{property}{\@propertyName}{\@propertiesName}
-    \crefname{proposition}{\@propositionName}{\@propositionsName}
-    \crefname{question}{\@questionName}{\@questionsName}
-    \crefname{remark}{\@remarkName}{\@remarksName}
-    \crefname{reminder}{\@reminderName}{\@remindersName}
-    \crefname{scholia}{\@scholiaName}{\@scholiasName}
-    \crefname{terminology}{\@terminologyName}{\@terminologiesName}
-    \crefname{theorem}{\@theoremName}{\@theoremsName}
 
 }{} % \ifthenelse{\boolean{@b_maths_use_theoremEnvs}}{
 

@@ -199,7 +199,6 @@
 \@ifundefined{my@extractkey}{%
   % int my@extractkey#1=#2\my@extractkey{#1}}{}:
 \def\my@extractkey#1=#2\my@extractkey{#1}}{}
-\newcommand{\ProcessUnusedOptions}[1]{%
   \let\my@tempa\@empty
   \let\my@tempb\@empty
   \@for\CurrentOption:=\my@unusedlist\do{%
@@ -862,7 +861,7 @@
 	}
 	\newcommand{\xtwoheadleftarrow}[2][]{
 	  \leftarrow\mathrel{\mkern-14mu}\xleftarrow[#1]{#2}
-	}
+    }
 
     \newcommand{\epi}{\twoheadrightarrow}
     \newcommand{\leftepi}{\twoheadleftarrow}
@@ -926,7 +925,7 @@
 		    	\rotatebox[origin=c]{#2}{$\scriptscriptstyle{#3}$}
 		    }}
 		}
-	}
+    }
 
 }{} % \ifthenelse{\boolean{@b_maths_use_misc}}{
 
@@ -950,14 +949,6 @@
     }
 
     % env kdocument: The \texttt{kdocument} environment.
-    \newenvironment{kdocument}{
-		\document
-	    \maketitle
-	    \tableofcontents
-	}{
-		\kbibliography
-	    \enddocument
-	}
 
 }{} % \ifthenelse{\boolean{@b_use_misc}}{
 
@@ -4078,396 +4069,97 @@
 %% --------------------
 
     % cmd diagramsize:
-    \newcommand{\diagramsize}[2]{
-        \ifthenelse{\equal{#1}{}}{\def\@tRowsep{2}}{\def\@tRowsep{#1}}
-        \ifthenelse{\equal{#2}{}}{\def\@tColsep{3}}{\def\@tColsep{#2}}
-    }
-    \diagramsize{}{}
 
 %% --------------------
 %% Styles
 %% --------------------
 
     % cmd diagramarrows: Sets the arrow type for commutative diagrams. Takes 4 arguments among \texttt{->} (default), \texttt{-}, \texttt{<-}, \texttt{<->}, \texttt{->>}, \texttt{<<-}, \texttt{>->}, \texttt{<-<}, \texttt{right hook->}, \texttt{<-left hook}, \texttt{|->}, \texttt{<-|}.
-    \newcommand{\diagramarrows}[4]{
-        \ifthenelse{\equal{#1}{}}{\def\@diagAA{->}}{}
-        \ifthenelse{\equal{#1}{-}}{\def\@diagAA{-}}{}
-        \ifthenelse{\equal{#1}{->}}{\def\@diagAA{->}}{}
-        \ifthenelse{\equal{#1}{<-}}{\def\@diagAA{<-}}{}
-        \ifthenelse{\equal{#1}{<->}}{\def\@diagAA{<->}}{}
-        \ifthenelse{\equal{#1}{->>}}{\def\@diagAA{->>}}{}
-        \ifthenelse{\equal{#1}{<<-}}{\def\@diagAA{<<-}}{}
-        \ifthenelse{\equal{#1}{>->}}{\def\@diagAA{>->}}{}
-        \ifthenelse{\equal{#1}{<-<}}{\def\@diagAA{<-<}}{}
-        \ifthenelse{\equal{#1}{c->}}{\def\@diagAA{right hook->}}{}
-        \ifthenelse{\equal{#1}{<-c}}{\def\@diagAA{<-left hook}}{}
-        \ifthenelse{\equal{#1}{|->}}{\def\@diagAA{|->}}{}
-        \ifthenelse{\equal{#1}{<-|}}{\def\@diagAA{<-|}}{}
-        \ifthenelse{\equal{#2}{}}{\def\@diagAB{->}}{}
-        \ifthenelse{\equal{#2}{-}}{\def\@diagAB{-}}{}
-        \ifthenelse{\equal{#2}{->}}{\def\@diagAB{->}}{}
-        \ifthenelse{\equal{#2}{<-}}{\def\@diagAB{<-}}{}
-        \ifthenelse{\equal{#2}{<->}}{\def\@diagAB{<->}}{}
-        \ifthenelse{\equal{#2}{->>}}{\def\@diagAB{->>}}{}
-        \ifthenelse{\equal{#2}{<<-}}{\def\@diagAB{<<-}}{}
-        \ifthenelse{\equal{#2}{>->}}{\def\@diagAB{>->}}{}
-        \ifthenelse{\equal{#2}{<-<}}{\def\@diagAB{<-<}}{}
-        \ifthenelse{\equal{#2}{c->}}{\def\@diagAB{right hook->}}{}
-        \ifthenelse{\equal{#2}{<-c}}{\def\@diagAB{<-left hook}}{}
-        \ifthenelse{\equal{#2}{|->}}{\def\@diagAB{|->}}{}
-        \ifthenelse{\equal{#2}{<-|}}{\def\@diagAB{<-|}}{}
-        \ifthenelse{\equal{#3}{}}{\def\@diagAC{->}}{}
-        \ifthenelse{\equal{#3}{-}}{\def\@diagAC{-}}{}
-        \ifthenelse{\equal{#3}{->}}{\def\@diagAC{->}}{}
-        \ifthenelse{\equal{#3}{<-}}{\def\@diagAC{<-}}{}
-        \ifthenelse{\equal{#3}{<->}}{\def\@diagAC{<->}}{}
-        \ifthenelse{\equal{#3}{->>}}{\def\@diagAC{->>}}{}
-        \ifthenelse{\equal{#3}{<<-}}{\def\@diagAC{<<-}}{}
-        \ifthenelse{\equal{#3}{>->}}{\def\@diagAC{>->}}{}
-        \ifthenelse{\equal{#3}{<-<}}{\def\@diagAC{<-<}}{}
-        \ifthenelse{\equal{#3}{c->}}{\def\@diagAC{right hook->}}{}
-        \ifthenelse{\equal{#3}{<-c}}{\def\@diagAC{<-left hook}}{}
-        \ifthenelse{\equal{#3}{|->}}{\def\@diagAC{|->}}{}
-        \ifthenelse{\equal{#3}{<-|}}{\def\@diagAC{<-|}}{}
-        \ifthenelse{\equal{#4}{}}{\def\@diagAD{->}}{}
-        \ifthenelse{\equal{#4}{-}}{\def\@diagAD{-}}{}
-        \ifthenelse{\equal{#4}{->}}{\def\@diagAD{->}}{}
-        \ifthenelse{\equal{#4}{<-}}{\def\@diagAD{<-}}{}
-        \ifthenelse{\equal{#4}{<->}}{\def\@diagAD{<->}}{}
-        \ifthenelse{\equal{#4}{->>}}{\def\@diagAD{->>}}{}
-        \ifthenelse{\equal{#4}{<<-}}{\def\@diagAD{<<-}}{}
-        \ifthenelse{\equal{#4}{>->}}{\def\@diagAD{>->}}{}
-        \ifthenelse{\equal{#4}{<-<}}{\def\@diagAD{<-<}}{}
-        \ifthenelse{\equal{#4}{c->}}{\def\@diagAD{right hook->}}{}
-        \ifthenelse{\equal{#4}{<-c}}{\def\@diagAD{<-left hook}}{}
-        \ifthenelse{\equal{#4}{|->}}{\def\@diagAD{|->}}{}
-        \ifthenelse{\equal{#4}{<-|}}{\def\@diagAD{<-|}}{}
-    } % \newcommand{\diagramarrows}[4]{
 
     % cmd diagramlines: Sets the arrow line styles for commutative diagrams. Takes 4 arguments, among \texttt{-} (default), \texttt{=}, \texttt{..}, \texttt{--}.
-    \newcommand{\diagramlines}[4]{
-        \ifthenelse{\equal{#1}{}}{\def\@diagLA{solid}}{}
-        \ifthenelse{\equal{#1}{=}}{\def\@diagLA{double}}{}
-        \ifthenelse{\equal{#1}{-}}{\def\@diagLA{solid}}{}
-        \ifthenelse{\equal{#1}{..}}{\def\@diagLA{dotted}}{}
-        \ifthenelse{\equal{#1}{--}}{\def\@diagLA{dashed}}{}
-        \ifthenelse{\equal{#2}{}}{\def\@diagLB{solid}}{}
-        \ifthenelse{\equal{#2}{=}}{\def\@diagLB{double}}{}
-        \ifthenelse{\equal{#2}{-}}{\def\@diagLB{solid}}{}
-        \ifthenelse{\equal{#2}{..}}{\def\@diagLB{dotted}}{}
-        \ifthenelse{\equal{#2}{--}}{\def\@diagLB{dashed}}{}
-        \ifthenelse{\equal{#3}{}}{\def\@diagLC{solid}}{}
-        \ifthenelse{\equal{#3}{=}}{\def\@diagLC{double}}{}
-        \ifthenelse{\equal{#3}{-}}{\def\@diagLC{solid}}{}
-        \ifthenelse{\equal{#3}{..}}{\def\@diagLC{dotted}}{}
-        \ifthenelse{\equal{#3}{--}}{\def\@diagLC{dashed}}{}
-        \ifthenelse{\equal{#4}{}}{\def\@diagLD{solid}}{}
-        \ifthenelse{\equal{#4}{=}}{\def\@diagLD{double}}{}
-        \ifthenelse{\equal{#4}{-}}{\def\@diagLD{solid}}{}
-        \ifthenelse{\equal{#4}{..}}{\def\@diagLD{dotted}}{}
-        \ifthenelse{\equal{#4}{--}}{\def\@diagLD{dashed}}{}
-    } % \newcommand{\diagramlines}[4]{
 
 %% --------------------
 %% Reset styles
 %% --------------------
 
     % cmd rds: Resets diagram styles.
-    \newcommand{\rds}{
-        \diagramarrows{}{}{}{}
-        \diagramlines{}{}{}{}
-    }
-    \rds
 
 %% --------------------
 %% Simple square
 %% --------------------
 
     % cmd squarediagram: Square diagram.
-    \newcommand{\squarediagram}[8]{
-        \begin{tikzpicture}
-            \matrix (m) [matrix of math nodes,
-                    row sep = \@tRowsep em,
-                    column sep = \@tColsep em,
-                    text height = 1.5 ex,
-                    text depth = 0.25 ex,
-                    ampersand replacement = \@ampersand] {
-                \displaystyle{#1} \@ampersand \displaystyle{#2} \\
-                \displaystyle{#3} \@ampersand \displaystyle{#4} \\
-            };
-            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [above] {$\scriptstyle{#5}$} (m-1-2);
-            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [left]  {$\scriptstyle{#6}$} (m-2-1);
-            \path [\@diagAC] (m-1-2) edge [\@diagLC] node [right] {$\scriptstyle{#7}$} (m-2-2);
-            \path [\@diagAD] (m-2-1) edge [\@diagLD] node [above] {$\scriptstyle{#8}$} (m-2-2);
-        \end{tikzpicture}
-    }
 
 %% --------------------
 %% Pushout
 %% --------------------
 
     % cmd pushoutdiagram: Pushout diagram.
-    \newcommand{\pushoutdiagram}[8]{
-        \begin{tikzpicture}
-            \matrix (m) [matrix of math nodes,
-                    row sep = \@tRowsep em,
-                    column sep = \@tColsep em,
-                    text height = 1.5 ex,
-                    text depth = 0.25 ex,
-                    ampersand replacement = \@ampersand] {
-                \displaystyle{#1} \@ampersand \displaystyle{#2} \\
-                \displaystyle{#3} \@ampersand \displaystyle{#4} \\
-            };
-            \path (m-1-1) edge [-, draw = white] node [very near end] {$\ulcorner$} (m-2-2);
-            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [above] {$\scriptstyle{#5}$} (m-1-2);
-            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [left]  {$\scriptstyle{#6}$} (m-2-1);
-            \path [\@diagAC] (m-1-2) edge [\@diagLC] node [right] {$\scriptstyle{#7}$} (m-2-2);
-            \path [\@diagAD] (m-2-1) edge [\@diagLD] node [above] {$\scriptstyle{#8}$} (m-2-2);
-        \end{tikzpicture}
-    }
 
 %% --------------------
 %% Pullback
 %% --------------------
 
     % cmd pullbackdiagram: Pullback diagram.
-    \newcommand{\pullbackdiagram}[8]{
-        \begin{tikzpicture}
-            \matrix (m) [matrix of math nodes,
-                    row sep = \@tRowsep em,
-                    column sep = \@tColsep em,
-                    text height = 1.5 ex,
-                    text depth = 0.25ex,
-                    ampersand replacement = \@ampersand] {
-                \displaystyle{#1} \@ampersand \displaystyle{#2} \\
-                \displaystyle{#3} \@ampersand \displaystyle{#4} \\
-            };
-            \path (m-1-1) edge [-, draw = white] node [very near start] {$\lrcorner$} (m-2-2);
-            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [above] {$\scriptstyle{#5}$} (m-1-2);
-            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [left]  {$\scriptstyle{#6}$} (m-2-1);
-            \path [\@diagAC] (m-1-2) edge [\@diagLC] node [right] {$\scriptstyle{#7}$} (m-2-2);
-            \path [\@diagAD] (m-2-1) edge [\@diagLD] node [above] {$\scriptstyle{#8}$} (m-2-2);
-        \end{tikzpicture}
-    }
 
 %% --------------------
 %% Triangular UL : Up left
 %% --------------------
 
     % cmd triangleULdiagram:
-    \newcommand{\triangleULdiagram}[6]{
-        \begin{tikzpicture}
-            \matrix (m) [matrix of math nodes,
-                    row sep = \@tRowsep em,
-                    column sep = \@tColsep em,
-                    text height = 1.5 ex,
-                    text depth = 0.25 ex,
-                    ampersand replacement = \@ampersand] {
-                \displaystyle{#1} \@ampersand \displaystyle{#2} \\
-                \displaystyle{#3} \@ampersand \\
-            };
-            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [above]       {$\scriptstyle{#4}$} (m-1-2);
-            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [left]        {$\scriptstyle{#5}$} (m-2-1);
-            \path [\@diagAC] (m-2-1) edge [\@diagLC] node [below right] {$\scriptstyle{#6}$} (m-1-2);
-        \end{tikzpicture}
-    }
 
 %% --------------------
 %% Triangular UR : Up right
 %% --------------------
 
     % cmd triangleURdiagram:
-    \newcommand{\triangleURdiagram}[6]{
-        \begin{tikzpicture}
-            \matrix (m) [matrix of math nodes,
-                    row sep = \@tRowsep em,
-                    column sep = \@tColsep em,
-                    text height = 1.5ex,
-                    text depth = 0.25ex,
-                    ampersand replacement = \@ampersand] {
-                \displaystyle{#1} \@ampersand \displaystyle{#2} \\
-                \@ampersand \displaystyle{#3} \\
-            };
-            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [above]      {$\scriptstyle{#4}$} (m-1-2);
-            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [below left] {$\scriptstyle{#5}$} (m-2-2);
-            \path [\@diagAC] (m-1-2) edge [\@diagLC] node [right]      {$\scriptstyle{#6}$} (m-2-2);
-        \end{tikzpicture}
-    }
 
 %% --------------------
 %% Triangular DL : Down left
 %% --------------------
 
     % cmd triangleDLdiagram:
-    \newcommand{\triangleDLdiagram}[6]{
-        \begin{tikzpicture}
-            \matrix (m) [matrix of math nodes,
-                    row sep = \@tRowsep em,
-                    column sep = \@tColsep em,
-                    text height = 1.5ex,
-                    text depth = 0.25ex,
-                    ampersand replacement = \@ampersand] {
-                \displaystyle{#1} \@ampersand \\
-                \displaystyle{#2} \@ampersand \displaystyle{#3} \\
-            };
-            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [left]        {$\scriptstyle{#4}$} (m-2-1);
-            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [above right] {$\scriptstyle{#5}$} (m-2-2);
-            \path [\@diagAC] (m-2-1) edge [\@diagLC] node [below]       {$\scriptstyle{#6}$} (m-2-2);
-        \end{tikzpicture}
-    }
 
 %% --------------------
 %% Triangular DR : Down right
 %% --------------------
 
     % cmd triangleDRdiagram:
-    \newcommand{\triangleDRdiagram}[6]{
-        \begin{tikzpicture}
-            \matrix (m) [matrix of math nodes,
-                    row sep = \@tRowsep em,
-                    column sep = \@tColsep em,
-                    text height = 1.5ex,
-                    text depth = 0.25ex,
-                    ampersand replacement = \@ampersand] {
-                \@ampersand \displaystyle{#1} \\
-                \displaystyle{#2} \@ampersand \displaystyle{#3} \\
-            };
-            \path [\@diagAA] (m-2-1) edge [\@diagLA] node [above left] {$\scriptstyle{#4}$} (m-1-2);
-            \path [\@diagAB] (m-1-2) edge [\@diagLB] node [right]      {$\scriptstyle{#5}$} (m-2-2);
-            \path [\@diagAC] (m-2-1) edge [\@diagLC] node [above]      {$\scriptstyle{#6}$} (m-2-2);
-        \end{tikzpicture}
-    }
 
 %% --------------------
 %% Triangular U : Up
 %% --------------------
 
     % cmd triangleUdiagram:
-    \newcommand{\triangleUdiagram}[6]{
-        \begin{tikzpicture}
-            \matrix (m) [matrix of math nodes,
-                    row sep = \@tRowsep em,
-                    column sep = \@tColsep em,
-                    text height = 1.5ex,
-                    text depth = 0.25ex,
-                    ampersand replacement = \@ampersand] {
-                \@ampersand \displaystyle{#1} \@ampersand \\
-                \displaystyle{#2} \@ampersand \@ampersand \displaystyle{#3} \\
-            };
-            \path [\@diagAA] (m-1-2) edge [\@diagLA] node [above left]  {$\scriptstyle{#4}$} (m-2-1);
-            \path [\@diagAB] (m-1-2) edge [\@diagLB] node [above right] {$\scriptstyle{#5}$} (m-2-3);
-            \path [\@diagAC] (m-2-1) edge [\@diagLC] node [above]       {$\scriptstyle{#6}$} (m-2-3);
-        \end{tikzpicture}
-    }
 
 %% --------------------
 %% Triangular L : Left
 %% --------------------
     % cmd triangleLdiagram:
-    \newcommand{\triangleLdiagram}[6]{
-        \begin{tikzpicture}
-            \matrix (m) [matrix of math nodes,
-                    row sep = \@tRowsep em,
-                    column sep = \@tColsep em,
-                    text height = 1.5ex,
-                    text depth = 0.25ex,
-                    ampersand replacement = \@ampersand] {
-                \@ampersand \displaystyle{#1} \\
-                \displaystyle{#2} \@ampersand \\
-                \@ampersand \displaystyle{#3} \\
-            };
-            \path [\@diagAA] (m-2-1) edge [\@diagLA] node [above left] {$\scriptstyle{#4}$} (m-1-2);
-            \path [\@diagAB] (m-1-2) edge [\@diagLB] node [right]      {$\scriptstyle{#5}$} (m-3-2);
-            \path [\@diagAC] (m-2-1) edge [\@diagLC] node [below left] {$\scriptstyle{#6}$} (m-3-2);
-        \end{tikzpicture}
-    }
 
 %% --------------------
 %% Triangular R : Right
 %% --------------------
 
     % cmd triangleRdiagram:
-    \newcommand{\triangleRdiagram}[6]{
-        \begin{tikzpicture}
-            \matrix (m) [matrix of math nodes,
-                    row sep = \@tRowsep em,
-                    column sep = \@tColsep em,
-                    text height = 1.5ex,
-                    text depth = 0.25ex,
-                    ampersand replacement = \@ampersand] {
-                \displaystyle{#1} \@ampersand \\
-                \@ampersand \displaystyle{#2} \\
-                \displaystyle{#3} \@ampersand \\
-            };
-            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [left]        {$\scriptstyle{#4}$} (m-3-1);
-            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [above right] {$\scriptstyle{#5}$} (m-2-2);
-            \path [\@diagAC] (m-3-1) edge [\@diagLC] node [below right] {$\scriptstyle{#6}$} (m-2-2);
-        \end{tikzpicture}
-    }
 
 %% --------------------
 %% Triangular D : Down
 %% --------------------
 
     % cmd triangleDdiagram:
-    \newcommand{\triangleDdiagram}[6]{
-        \begin{tikzpicture}
-            \matrix (m) [matrix of math nodes,
-                    row sep = \@tRowsep em,
-                    column sep = \@tColsep em,
-                    text height = 1.5ex,
-                    text depth = 0.25ex,
-                    ampersand replacement = \@ampersand] {
-                \displaystyle{#1} \@ampersand \@ampersand \displaystyle{#2} \\
-                \@ampersand \displaystyle{#3} \@ampersand \\
-            };
-            \path [\@diagAA] (m-1-1) edge [\@diagLA] node [above]       {$\scriptstyle{#4}$} (m-1-3);
-            \path [\@diagAB] (m-1-1) edge [\@diagLB] node [below left]  {$\scriptstyle{#5}$} (m-2-2);
-            \path [\@diagAC] (m-1-3) edge [\@diagLC] node [below right] {$\scriptstyle{#6}$} (m-2-2);
-        \end{tikzpicture}
-    }
 
 %% --------------------
 %% Equalizer
 %% --------------------
 
     % cmd eqdiagram:
-    \newcommand{\eqdiagram}[6]{
-        \begin{tikzpicture}
-            \matrix (m) [matrix of math nodes,
-                    row sep = \@tRowsep em,
-                    column sep = \@tColsep em,
-                    text height = 1.5ex,
-                    text depth = 0.25ex,
-                    ampersand replacement = \@ampersand] {
-                \displaystyle{#1} \@ampersand \displaystyle{#2} \@ampersand \displaystyle{#3} \\
-            };
-            \path [\@diagAA] (m-1-1)                    edge [\@diagLA] node [above] {$\scriptstyle{#4}$} (m-1-2);
-            \path [\@diagAB] ($(m-1-2.east) + (0,0.1)$) edge [\@diagLB] node [above] {$\scriptstyle{#5}$} ($(m-1-3.west) + (0,0.1)$);
-            \path [\@diagAC] ($(m-1-2.east) - (0,0.1)$) edge [\@diagLC] node [below] {$\scriptstyle{#6}$} ($(m-1-3.west) - (0,0.1)$);
-        \end{tikzpicture}
-    }
 
 %% --------------------
 %% Coequalizer
 %% --------------------
 
     % cmd coeqdiagram:
-    \newcommand{\coeqdiagram}[6]{
-        \begin{tikzpicture}
-            \matrix (m) [matrix of math nodes,
-                    row sep = \@tRowsep em,
-                    column sep = \@tColsep em,
-                    text height = 1.5ex,
-                    text depth = 0.25ex,
-                    ampersand replacement = \@ampersand] {
-                \displaystyle{#1} \@ampersand \displaystyle{#2} \@ampersand \displaystyle{#3} \\
-            };
-            \path [\@diagAA] ($(m-1-1.east) + (0,0.1)$) edge [\@diagLA] node [above] {$\scriptstyle{#4}$} ($(m-1-2.west) + (0,0.1)$);
-            \path [\@diagAB] ($(m-1-1.east) - (0,0.1)$) edge [\@diagLB] node [below] {$\scriptstyle{#5}$} ($(m-1-2.west) - (0,0.1)$);
-            \path [\@diagAC] (m-1-2)                    edge [\@diagLC] node [above] {$\scriptstyle{#6}$} (m-1-3);
-        \end{tikzpicture}
-    }
 
 }{} % \ifthenelse{\boolean{@b_extpack_use_tikz}}{
 
@@ -4787,7 +4479,6 @@
 \ifthenelse{\boolean{@b_maths_use_theoremEnvs}}{
 
     \ifthenelse{\equal{\@language}{english}}{
-
         \def\@assertionName         {assertion}
         \def\@assertionsName        {assertions}
         \def\@axiomName             {axiom}
@@ -4824,15 +4515,14 @@
         \def\@scholiasName          {scholias}
         \def\@solutionName          {solution}
         \def\@solutionsName         {solutions}
-        \def\@theoremName           {theorem}
-        \def\@theoremsName          {theorems}
         \def\@terminologyName       {terminology}
         \def\@terminologiesName     {terminologies}
+        \def\@theoremName           {theorem}
+        \def\@theoremsName          {theorems}
 
     }{} % \ifthenelse{\equal{\@language}{english}}{
 
     \ifthenelse{\equal{\@language}{french}}{
-
         \def\@assertionName         {assertion}
         \def\@assertionsName        {assertions}
         \def\@axiomName             {axiome}
@@ -5106,18 +4796,18 @@
         \hfill\ensuremath{\blacksquare}\endtrivlist\@endpefalse
     }
 
-    % % env dedication: The \texttt{dedication} environment.
-    % \newenvironment{dedication}{
-    %     \cleardoublepage
-    %     \thispagestyle{empty}
-    %     \vspace*{\stretch{1}}
-    %     \hfill\begin{minipage}[t]{0.66\textwidth}
-    %     \raggedright
-    % }{
-    %     \end{minipage}
-    %     \vspace*{\stretch{3}}
-    %     \clearpage
-    % } % \newenvironment{dedication}{
+    % env dedication: The \texttt{dedication} environment.
+    \newenvironment{dedication}{
+        \cleardoublepage
+        \thispagestyle{empty}
+        \vspace*{\stretch{1}}
+        \hfill\begin{minipage}[t]{0.66\textwidth}
+        \raggedright
+    }{
+        \end{minipage}
+        \vspace*{\stretch{3}}
+        \clearpage
+    } % \newenvironment{dedication}{
 
     \aliascntresetthe{assertion}
     \aliascntresetthe{axiom}
