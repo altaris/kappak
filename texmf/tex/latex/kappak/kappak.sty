@@ -28,9 +28,7 @@
 %% Metadatas
 %% ----------------------------------------
 
-% int @kappakVersion{0412}:
 \def\@kappakVersion{0412}   % Current version of kappak
-% int @usedVersion{0406}:
 \def\@usedVersion{0406}     % Default version. 0406 is the version where \@kappakVersion started to be taken into account.
 \PackageInfo{kappak-v4}{This is kappak, v\@kappakVersion}
 
@@ -92,26 +90,20 @@
 %% core
 %% ----------------------------------------
 
-% wheaver kappak should automatically include packages. ifthen will always be included
-% int @b_core_use_autoPackInclusion: Wether \texttt{kappak} should automatically include core packages or not.
+% wether kappak should automatically include packages. ifthen will always be included
 \newboolean{@b_core_use_autoPackInclusion}  \setboolean{@b_core_use_autoPackInclusion}  {true}
 
 %% ----------------------------------------
 %% extpack
 %% ----------------------------------------
 
-% int @b_extpack_auto: Wether \texttt{kappak} should automatically include non core packages or not.
 \newboolean{@b_extpack_auto}     			\setboolean{@b_extpack_auto}				{true}
 
-% int @b_extpack_use_stix: Wether \texttt{kappak} should use \texttt{stix} or not.
 \newboolean{@b_extpack_use_stix}			\setboolean{@b_extpack_use_stix}			{false}
 
-% int @b_extpack_use_tikz: Wether \texttt{kappak} should use \texttt{tikz} or not.
 \newboolean{@b_extpack_use_tikz}            \setboolean{@b_extpack_use_tikz}            {false}
-% int @b_extpack_tikz_externalize: Wether \texttt{kappak} should set the  \texttt{tikz} compilation cache or not. (doesn't work)
 \newboolean{@b_extpack_tikz_externalize}    \setboolean{@b_extpack_tikz_externalize}    {false}
 
-% int @b_extpack_use_xecjk: Wether \texttt{kappak} should use \texttt{xecjk} or not.
 \newboolean{@b_extpack_use_xecjk}			\setboolean{@b_extpack_use_xecjk}			{false}
 
 %% ----------------------------------------
@@ -119,28 +111,20 @@
 %% ----------------------------------------
 
 % arrows definitions
-% int @b_maths_use_arrows:
 \newboolean{@b_maths_use_arrows}            \setboolean{@b_maths_use_arrows}            {false}
 % categories definitions
-% int @b_maths_use_categories:
 \newboolean{@b_maths_use_categories}        \setboolean{@b_maths_use_categories}        {false}
 % character accent definitions
-% int @b_maths_use_characterAccents:
 \newboolean{@b_maths_use_characterAccents}  \setboolean{@b_maths_use_characterAccents}  {false}
 % character styles definitions
-% int @b_maths_use_characterStyles:
 \newboolean{@b_maths_use_characterStyles}   \setboolean{@b_maths_use_characterStyles}   {false}
 % some stuff
-% int @b_maths_use_misc:
 \newboolean{@b_maths_use_misc}              \setboolean{@b_maths_use_misc}              {false}
 % opertor definitions
-% int @b_maths_use_operators:
 \newboolean{@b_maths_use_operators}         \setboolean{@b_maths_use_operators}         {false}
 % theorem environment definition
-% int @b_maths_use_theoremEnvs:
 \newboolean{@b_maths_use_theoremEnvs}       \setboolean{@b_maths_use_theoremEnvs}       {false}
 % styles inside theorem envs, e.g. italic for theorems, roman for definitions
-% int @b_maths_use_theoremStyles:
 \newboolean{@b_maths_use_theoremStyles}     \setboolean{@b_maths_use_theoremStyles}     {true}
 
 %% ----------------------------------------
@@ -148,32 +132,21 @@
 %% ----------------------------------------
 
 % some stuff
-% int @b_use_misc:
 \newboolean{@b_use_misc}                    \setboolean{@b_use_misc}                    {true}
 
 %% ----------------------------------------
 %% variables declarations
 %% ----------------------------------------
 
-% int @bbStyle:
 \def\@bbStyle           {normal}
-% int @bibliographyStyle:
 \def\@bibliographyStyle {plain}
-% int @chapterStyle:
 \def\@chapterStyle      {normal}
-% int @fontSet:
 \def\@fontSet           {normal}
-% int @headerFooterStyle:
 \def\@headerFooterStyle {normal}
-% int @language:
 \def\@language          {english}
-% int @margins:
 \def\@margins           {normal}
-% int @scriptStyle:
 \def\@scriptStyle       {normal}
-% int @titlePageStyle:
 \def\@titlePageStyle    {normal}
-% int @categoryStyle:
 \def\@categoryStyle     {script}
 
 %% -----------------------------------------------------------------------------
@@ -197,8 +170,8 @@
 \@ifundefined{my@unusedlist}{
   \let\my@unusedlist\@empty}{}
 \@ifundefined{my@extractkey}{%
-  % int my@extractkey#1=#2\my@extractkey{#1}}{}:
 \def\my@extractkey#1=#2\my@extractkey{#1}}{}
+\newcommand{\ProcessUnusedOptions}[1]{%
   \let\my@tempa\@empty
   \let\my@tempb\@empty
   \@for\CurrentOption:=\my@unusedlist\do{%
@@ -234,31 +207,26 @@
 
 % opt alpha: Do not use.
 \DeclareOption{alpha}{
-    % int @usedVersion{0407}:
     \def\@usedVersion{0407}
 }
 
 % opt bellatrix: Do not use.
 \DeclareOption{bellatrix}{
-    % int @usedVersion{0409}:
     \def\@usedVersion{0409}
 }
 
 % opt cortana: Do not use.
 \DeclareOption{cortana}{
-    % int @usedVersion{0410}:
     \def\@usedVersion{0410}
 }
 
 % opt durotan: Do not use.
 \DeclareOption{durotan}{
-    % int @usedVersion{0411}:
     \def\@usedVersion{0411}
 }
 
 % opt eientei: Mandatory option.
 \DeclareOption{eientei}{
-    % int @usedVersion{0412}:
     \def\@usedVersion{0412}
 }
 
@@ -368,49 +336,42 @@
 %% bbStyle
 % opt bbStyle: Sets the mathematical blackboard letter style. Supports \texttt{normal} (default), and \texttt{bbold}.
 \define@key{kappak}{bbStyle}[normal]{
-    % int @bbStyle:
     \def\@bbStyle{#1}
 }
 
 %% bibliographyStyle
 % opt bibliographyStyle: Sets the bibliography style. Only relevant if you use \texttt{kdocument} instead of the standard \texttt{document} environment.
 \define@key{kappak}{bibliographyStyle}[normal]{
-    % int @bibliographyStyle:
     \def\@bibliographyStyle{#1}
 }
 
 %% categoryStyle
 % opt categoryStyle: Sets the category style for category theory. Supports \texttt{script} (default), \texttt{bf}, \texttt{rm}, \texttt{sf}, and \texttt{tt}.
 \define@key{kappak}{categoryStyle}[script]{
-    % int @categoryStyle:
     \def\@categoryStyle{#1}
 }
 
 %% chapterStyle
 % opt chapterStyle: Sets the chapter style. Supports \texttt{normal} (default), \texttt{cb}, and \texttt{rb}.
 \define@key{kappak}{chapterStyle}[normal]{
-    % int @chapterStyle:
     \def\@chapterStyle{#1}
 }
 
 %% fontset
 % opt fontSet: Sets the font set. Supports \texttt{normal} (default), \texttt{alternate}, and \texttt{xcharter}.
 \define@key{kappak}{fontSet}[normal]{
-    % int @fontSet:
     \def\@fontSet{#1}
 }
 
 %% headerFooterStyle
 % opt headerFooterStyle: Sets the header and footer style. Supports \texttt{normal} (default), \texttt{classic}, \texttt{cb}, and \texttt{empty}.
 \define@key{kappak}{headerFooterStyle}[normal]{
-    % int @headerFooterStyle:
     \def\@headerFooterStyle{#1}
 }
 
 %% language
 % opt language: Sets the language of the document. Supports \texttt{english} (default), and \texttt{french}.
 \define@key{kappak}{language}[english]{
-    % int @language:
     \def\@language{#1}
 }
 
@@ -423,21 +384,18 @@
 %% margins
 % opt margins: Sets the margins. Supports \texttt{normal} (default), \texttt{reduced}, and \texttt{minimal}.
 \define@key{kappak}{margins}[normal]{
-    % int @margins:
     \def\@margins{#1}
 }
 
 %% scriptStyle
 % opt scriptStyle: Sets the mathematical script style. Supports \texttt{normal} (default), \texttt{euler}, and \texttt{rsfs}.
 \define@key{kappak}{scriptStyle}[normal]{
-    % int @scriptStyle:
     \def\@scriptStyle{#1}
 }
 
 %% titlePageStyle
 % opt titlePageStyle: Sets the title page style. Supports \texttt{normal} (default), \texttt{classic}, \texttt{bar}, \texttt{gm}, and \texttt{gb}.
 \define@key{kappak}{titlePageStyle}[normal]{
-    % int @titlePageStyle:
     \def\@titlePageStyle{#1}
 }
 
@@ -445,7 +403,6 @@
 % opt version: Sets the kappan version to use. Use explicit names instead.
 \define@key{kappak}{version}[0406]{
     % 0406 is the version where \@kappakVersion started to be taken into account.
-    % int @usedVersion{#1}:
     \def\@usedVersion{#1}
 }
 
@@ -570,77 +527,41 @@
 
 \ifthenelse{\boolean{@b_maths_use_operators}}{
 
-    % cmd.op Ann: The $\Ann$ math operator
     \DeclareMathOperator {\Ann}   {Ann}
-    % cmd.op Aut: The $\Aut$ math operator
     \DeclareMathOperator {\Aut}   {Aut}
-    % cmd.op Bil: The $\Bil$ math operator
     \DeclareMathOperator {\Bil}   {Bil}
-    % cmd.op car: The $\car$ math operator
     \DeclareMathOperator {\car}   {char}
-    % cmd.op card: The $\card$ math operator
     \DeclareMathOperator {\card}  {card}
-    % cmd.op Card: The $\Card$ math operator
     \DeclareMathOperator {\Card}  {Card}
-    % cmd.op codom: The $\codom$ math operator
     \DeclareMathOperator {\codom} {codom}
-    % cmd.op coker: The $\coker$ math operator
     \DeclareMathOperator {\coker} {coker}
-    % cmd.op colim: The $\colim$ math operator
     \DeclareMathOperator*{\colim} {colim}
-    % cmd.op dom: The $\dom$ math operator
     \DeclareMathOperator {\dom}   {dom}
-    % cmd.op Dom: The $\Dom$ math operator
     \DeclareMathOperator {\Dom}   {Dom}
-    % cmd.op End: The $\End$ math operator
     \DeclareMathOperator {\End}   {end}
-    % cmd.op END: The $\END$ math operator
     \DeclareMathOperator {\END}   {End}
-    % cmd.op Ext: The $\Ext$ math operator
     \DeclareMathOperator {\Ext}   {Ext}
-    % cmd.op ev: The $\ev$ math operator
     \DeclareMathOperator {\ev}    {ev}
-    % cmd.op Frac: The $\Frac$ math operator
     \DeclareMathOperator {\Frac}  {Frac}
-    % cmd.op GL: The $\GL$ math operator
     \DeclareMathOperator {\GL}    {GL}
-    % cmd.op Hom: The $\Hom$ math operator
     \DeclareMathOperator {\Hom}   {Hom}
-    % cmd.op id: The $\id$ math operator
     \DeclareMathOperator {\id}    {id}
-    % cmd.op Id: The $\Id$ math operator
     \DeclareMathOperator {\Id}    {Id}
-    % cmd.op im: The $\im$ math operator
     \DeclareMathOperator {\im}    {im}
-    % cmd.op Ind: The $\Ind$ math operator
     \DeclareMathOperator {\Ind}   {Ind}
-    % cmd.op Ker: The $\Ker$ math operator
     \DeclareMathOperator {\Ker}   {Ker}
-    % cmd.op Map: The $\Map$ math operator
     \DeclareMathOperator {\Map}   {Map}
-    % cmd.op Mor: The $\Mor$ math operator
     \DeclareMathOperator {\Mor}   {Mor}
-    % cmd.op ob: The $\ob$ math operator
     \DeclareMathOperator {\ob}    {ob}
-    % cmd.op Ob: The $\Ob$ math operator
     \DeclareMathOperator {\Ob}    {Ob}
-    % cmd.op Orb: The $\Orb$ math operator
     \DeclareMathOperator {\Orb}   {Orb}
-    % cmd.op proj: The $\proj$ math operator
     \DeclareMathOperator {\proj}  {proj}
-    % cmd.op rk: The $\rk$ math operator
     \DeclareMathOperator {\rk}    {rk}
-    % cmd.op SL: The $\SL$ math operator
     \DeclareMathOperator {\SL}    {SL}
-    % cmd.op Stab: The $\Stab$ math operator
     \DeclareMathOperator {\Stab}  {Stab}
-    % cmd.op Spec: The $\Spec$ math operator
     \DeclareMathOperator {\Spec}  {Spec}
-    % cmd.op Sym: The $\Sym$ math operator
     \DeclareMathOperator {\Sym}   {Sym}
-    % cmd.op Tor: The $\Tor$ math operator
     \DeclareMathOperator {\Tor}   {Tor}
-    % cmd.op tr: The $\tr$ math operator
     \DeclareMathOperator {\tr}    {tr}
 
 }{} % \ifthenelse{\boolean{@b_maths_use_operators}}{
@@ -687,154 +608,82 @@
 %% Some categories
 %% --------------------
 
-    % cmd.cat Ab: The $\Ab$ category
     \newcategory{\Ab}    {}{A}{b}
-    % cmd.cat Alg: The $\Alg$ category
     \newcategory{\Alg}   {}{A}{lg}
-    % cmd.cat Cat: The $\Cat$ category
     \newcategory{\Cat}   {}{C}{at}
-    % cmd.cat CAT: The $\CAT$ category
     \newcategory{\CAT}   {}{C}{AT}
-    % cmd.cat Ch: The $\Ch$ category
     \newcategory{\Ch}    {}{C}{h}
-    % cmd.cat Fin: The $\Fin$ category
     \newcategory{\Fin}   {}{F}{in}
-    % cmd.cat Graph: The $\Graph$ category
     \newcategory{\Graph} {}{G}{raph}
-    % cmd.cat Grp: The $\Grp$ category
     \newcategory{\Grp}   {}{G}{rp}
-    % cmd.cat Mod: The $\Mod$ category
     \newcategory{\Mod}   {}{M}{od}
-    % cmd.cat Mon: The $\Mon$ category
     \newcategory{\Mon}   {}{M}{on}
-    % cmd.cat Op: The $\Op$ category
     \newcategory{\Op}    {}{O}{p}
-    % cmd.cat Pos: The $\Pos$ category
     \newcategory{\Pos}   {}{P}{os}
-    % cmd.cat pSh: The $\pSh$ category
     \newcategory{\pSh}   {p}{S}{h}
-    % cmd.cat Ring: The $\Ring$ category
     \newcategory{\Ring}  {}{R}{ing}
-    % cmd.cat Set: The $\Set$ category
     \newcategory{\Set}   {}{S}{et}
-    % cmd.cat SET: The $\SET$ category
     \newcategory{\SET}   {}{S}{ET}
-    % cmd.cat Sh: The $\Sh$ category
     \newcategory{\Sh}    {}{S}{h}
-    % cmd.cat sSet: The $\sSet$ category
     \newcategory{\sSet}  {s}{S}{et}
-    % cmd.cat Top: The $\Top$ category
     \newcategory{\Top}   {}{T}{op}
-    % cmd.cat Vect: The $\Vect$ category
     \newcategory{\Vect}  {}{V}{ect}
 
 %% --------------------
 %% cat style
 %% --------------------
 
-    % cmd.cat catA: $\catA$.
     \newcommand{\catA}{\@cat{a}}
-    % cmd.cat catB: $\catB$.
     \newcommand{\catB}{\@cat{b}}
-    % cmd.cat catC: $\catC$.
     \newcommand{\catC}{\@cat{c}}
-    % cmd.cat catD: $\catD$.
     \newcommand{\catD}{\@cat{d}}
-    % cmd.cat catE: $\catE$.
     \newcommand{\catE}{\@cat{e}}
-    % cmd.cat catF: $\catF$.
     \newcommand{\catF}{\@cat{f}}
-    % cmd.cat catG: $\catG$.
     \newcommand{\catG}{\@cat{g}}
-    % cmd.cat catH: $\catH$.
     \newcommand{\catH}{\@cat{h}}
-    % cmd.cat catI: $\catI$.
     \newcommand{\catI}{\@cat{i}}
-    % cmd.cat catJ: $\catJ$.
     \newcommand{\catJ}{\@cat{j}}
-    % cmd.cat catK: $\catK$.
     \newcommand{\catK}{\@cat{k}}
-    % cmd.cat catL: $\catL$.
     \newcommand{\catL}{\@cat{l}}
-    % cmd.cat catM: $\catM$.
     \newcommand{\catM}{\@cat{m}}
-    % cmd.cat catN: $\catN$.
     \newcommand{\catN}{\@cat{n}}
-    % cmd.cat catO: $\catO$.
     \newcommand{\catO}{\@cat{o}}
-    % cmd.cat catP: $\catP$.
     \newcommand{\catP}{\@cat{p}}
-    % cmd.cat catQ: $\catQ$.
     \newcommand{\catQ}{\@cat{q}}
-    % cmd.cat catR: $\catR$.
     \newcommand{\catR}{\@cat{r}}
-    % cmd.cat catS: $\catS$.
     \newcommand{\catS}{\@cat{s}}
-    % cmd.cat catT: $\catT$.
     \newcommand{\catT}{\@cat{t}}
-    % cmd.cat catU: $\catU$.
     \newcommand{\catU}{\@cat{u}}
-    % cmd.cat catV: $\catV$.
     \newcommand{\catV}{\@cat{v}}
-    % cmd.cat catW: $\catW$.
     \newcommand{\catW}{\@cat{w}}
-    % cmd.cat catX: $\catX$.
     \newcommand{\catX}{\@cat{x}}
-    % cmd.cat catY: $\catY$.
     \newcommand{\catY}{\@cat{y}}
-    % cmd.cat catZ: $\catZ$.
     \newcommand{\catZ}{\@cat{z}}
-    % cmd.cat catAA: $\catAA$.
     \newcommand{\catAA}{\@cat{A}}
-    % cmd.cat catBB: $\catBB$.
     \newcommand{\catBB}{\@cat{B}}
-    % cmd.cat catCC: $\catCC$.
     \newcommand{\catCC}{\@cat{C}}
-    % cmd.cat catDD: $\catDD$.
     \newcommand{\catDD}{\@cat{D}}
-    % cmd.cat catEE: $\catEE$.
     \newcommand{\catEE}{\@cat{E}}
-    % cmd.cat catFF: $\catFF$.
     \newcommand{\catFF}{\@cat{F}}
-    % cmd.cat catGG: $\catGG$.
     \newcommand{\catGG}{\@cat{G}}
-    % cmd.cat catHH: $\catHH$.
     \newcommand{\catHH}{\@cat{H}}
-    % cmd.cat catII: $\catII$.
     \newcommand{\catII}{\@cat{I}}
-    % cmd.cat catJJ: $\catJJ$.
     \newcommand{\catJJ}{\@cat{J}}
-    % cmd.cat catKK: $\catKK$.
     \newcommand{\catKK}{\@cat{K}}
-    % cmd.cat catLL: $\catLL$.
     \newcommand{\catLL}{\@cat{L}}
-    % cmd.cat catMM: $\catMM$.
     \newcommand{\catMM}{\@cat{M}}
-    % cmd.cat catNN: $\catNN$.
     \newcommand{\catNN}{\@cat{N}}
-    % cmd.cat catOO: $\catOO$.
     \newcommand{\catOO}{\@cat{O}}
-    % cmd.cat catPP: $\catPP$.
     \newcommand{\catPP}{\@cat{P}}
-    % cmd.cat catQQ: $\catQQ$.
     \newcommand{\catQQ}{\@cat{Q}}
-    % cmd.cat catRR: $\catRR$.
     \newcommand{\catRR}{\@cat{R}}
-    % cmd.cat catSS: $\catSS$.
     \newcommand{\catSS}{\@cat{S}}
-    % cmd.cat catTT: $\catTT$.
     \newcommand{\catTT}{\@cat{T}}
-    % cmd.cat catUU: $\catUU$.
     \newcommand{\catUU}{\@cat{U}}
-    % cmd.cat catVV: $\catVV$.
     \newcommand{\catVV}{\@cat{V}}
-    % cmd.cat catWW: $\catWW$.
     \newcommand{\catWW}{\@cat{W}}
-    % cmd.cat catXX: $\catXX$.
     \newcommand{\catXX}{\@cat{X}}
-    % cmd.cat catYY: $\catYY$.
     \newcommand{\catYY}{\@cat{Y}}
-    % cmd.cat catZZ: $\catZZ$.
     \newcommand{\catZZ}{\@cat{Z}}
 
 }{} % \ifthenelse{\boolean{@b_maths_use_categories}}{
@@ -908,11 +757,9 @@
     		\hbox{\resizebox{\ifx#1\displaystyle.9\fi\dimexpr\ht\z@+\dp\z@}{!}{$\m@th#2$}}
     	}
     }
-    % cmd DeclareBigOperator: Declares a new big operator, akin to \texttt{sum} or \texttt{prod}.
     \newcommand{\DeclareBigOperator}[2]{\newcommand{#1}{\DOTSB\@bigop{#2}}}
 
     % Defines a rotated symbol that sizes properly
-    % cmd DeclareRotatedSymbol: Declares a new symbol that is a rotation of another existing one.
     \newcommand{\DeclareRotatedSymbol}[3]{
     	\newcommand{#1}{{
     		\mathchoice{
@@ -941,14 +788,12 @@
     % \DeclareUnicodeCharacter{00A0}{ }
 
     % I never remember that thing so here's a command
-    % cmd kbibliography: Inserts the bibliography from file \texttt{bibliography.bib}.
     \newcommand{\kbibliography}{
 		\nocite{*}
 		\bibliographystyle{\@bibliographyStyle}
 		\bibliography{bibliography}
     }
 
-    % env kdocument: The \texttt{kdocument} environment.
 
 }{} % \ifthenelse{\boolean{@b_use_misc}}{
 
@@ -964,218 +809,114 @@
 %% cal
 %% --------------------
 
-    % cmd.char calA: $\calA$
     \newcommand{\calA}{\@cal{a}}
-    % cmd.char calB: $\calB$
     \newcommand{\calB}{\@cal{b}}
-    % cmd.char calC: $\calC$
     \newcommand{\calC}{\@cal{c}}
-    % cmd.char calD: $\calD$
     \newcommand{\calD}{\@cal{d}}
-    % cmd.char calE: $\calE$
     \newcommand{\calE}{\@cal{e}}
-    % cmd.char calF: $\calF$
     \newcommand{\calF}{\@cal{f}}
-    % cmd.char calG: $\calG$
     \newcommand{\calG}{\@cal{g}}
-    % cmd.char calH: $\calH$
     \newcommand{\calH}{\@cal{h}}
-    % cmd.char calI: $\calI$
     \newcommand{\calI}{\@cal{i}}
-    % cmd.char calJ: $\calJ$
     \newcommand{\calJ}{\@cal{j}}
-    % cmd.char calK: $\calK$
     \newcommand{\calK}{\@cal{k}}
-    % cmd.char calL: $\calL$
     \newcommand{\calL}{\@cal{l}}
-    % cmd.char calM: $\calM$
     \newcommand{\calM}{\@cal{m}}
-    % cmd.char calN: $\calN$
     \newcommand{\calN}{\@cal{n}}
-    % cmd.char calO: $\calO$
     \newcommand{\calO}{\@cal{o}}
-    % cmd.char calP: $\calP$
     \newcommand{\calP}{\@cal{p}}
-    % cmd.char calQ: $\calQ$
     \newcommand{\calQ}{\@cal{q}}
-    % cmd.char calR: $\calR$
     \newcommand{\calR}{\@cal{r}}
-    % cmd.char calS: $\calS$
     \newcommand{\calS}{\@cal{s}}
-    % cmd.char calT: $\calT$
     \newcommand{\calT}{\@cal{t}}
-    % cmd.char calU: $\calU$
     \newcommand{\calU}{\@cal{u}}
-    % cmd.char calV: $\calV$
     \newcommand{\calV}{\@cal{v}}
-    % cmd.char calW: $\calW$
     \newcommand{\calW}{\@cal{w}}
-    % cmd.char calX: $\calX$
     \newcommand{\calX}{\@cal{x}}
-    % cmd.char calY: $\calY$
     \newcommand{\calY}{\@cal{y}}
-    % cmd.char calZ: $\calZ$
     \newcommand{\calZ}{\@cal{z}}
-    % cmd.char calAA: $\calAA$
     \newcommand{\calAA}{\@cal{A}}
-    % cmd.char calBB: $\calBB$
     \newcommand{\calBB}{\@cal{B}}
-    % cmd.char calCC: $\calCC$
     \newcommand{\calCC}{\@cal{C}}
-    % cmd.char calDD: $\calDD$
     \newcommand{\calDD}{\@cal{D}}
-    % cmd.char calEE: $\calEE$
     \newcommand{\calEE}{\@cal{E}}
-    % cmd.char calFF: $\calFF$
     \newcommand{\calFF}{\@cal{F}}
-    % cmd.char calGG: $\calGG$
     \newcommand{\calGG}{\@cal{G}}
-    % cmd.char calHH: $\calHH$
     \newcommand{\calHH}{\@cal{H}}
-    % cmd.char calII: $\calII$
     \newcommand{\calII}{\@cal{I}}
-    % cmd.char calJJ: $\calJJ$
     \newcommand{\calJJ}{\@cal{J}}
-    % cmd.char calKK: $\calKK$
     \newcommand{\calKK}{\@cal{K}}
-    % cmd.char calLL: $\calLL$
     \newcommand{\calLL}{\@cal{L}}
-    % cmd.char calMM: $\calMM$
     \newcommand{\calMM}{\@cal{M}}
-    % cmd.char calNN: $\calNN$
     \newcommand{\calNN}{\@cal{N}}
-    % cmd.char calOO: $\calOO$
     \newcommand{\calOO}{\@cal{O}}
-    % cmd.char calPP: $\calPP$
     \newcommand{\calPP}{\@cal{P}}
-    % cmd.char calQQ: $\calQQ$
     \newcommand{\calQQ}{\@cal{Q}}
-    % cmd.char calRR: $\calRR$
     \newcommand{\calRR}{\@cal{R}}
-    % cmd.char calSS: $\calSS$
     \newcommand{\calSS}{\@cal{S}}
-    % cmd.char calTT: $\calTT$
     \newcommand{\calTT}{\@cal{T}}
-    % cmd.char calUU: $\calUU$
     \newcommand{\calUU}{\@cal{U}}
-    % cmd.char calVV: $\calVV$
     \newcommand{\calVV}{\@cal{V}}
-    % cmd.char calWW: $\calWW$
     \newcommand{\calWW}{\@cal{W}}
-    % cmd.char calXX: $\calXX$
     \newcommand{\calXX}{\@cal{X}}
-    % cmd.char calYY: $\calYY$
     \newcommand{\calYY}{\@cal{Y}}
-    % cmd.char calZZ: $\calZZ$
     \newcommand{\calZZ}{\@cal{Z}}
 
 %% --------------------
 %% frak
 %% --------------------
 
-    % cmd.char frakA: $\frakA$
     \newcommand{\frakA}{\mathfrak{a}}
-    % cmd.char frakB: $\frakB$
     \newcommand{\frakB}{\mathfrak{b}}
-    % cmd.char frakC: $\frakC$
     \newcommand{\frakC}{\mathfrak{c}}
-    % cmd.char frakD: $\frakD$
     \newcommand{\frakD}{\mathfrak{d}}
-    % cmd.char frakE: $\frakE$
     \newcommand{\frakE}{\mathfrak{e}}
-    % cmd.char frakF: $\frakF$
     \newcommand{\frakF}{\mathfrak{f}}
-    % cmd.char frakG: $\frakG$
     \newcommand{\frakG}{\mathfrak{g}}
-    % cmd.char frakH: $\frakH$
     \newcommand{\frakH}{\mathfrak{h}}
-    % cmd.char frakI: $\frakI$
     \newcommand{\frakI}{\mathfrak{i}}
-    % cmd.char frakJ: $\frakJ$
     \newcommand{\frakJ}{\mathfrak{j}}
-    % cmd.char frakK: $\frakK$
     \newcommand{\frakK}{\mathfrak{k}}
-    % cmd.char frakL: $\frakL$
     \newcommand{\frakL}{\mathfrak{l}}
-    % cmd.char frakM: $\frakM$
     \newcommand{\frakM}{\mathfrak{m}}
-    % cmd.char frakN: $\frakN$
     \newcommand{\frakN}{\mathfrak{n}}
-    % cmd.char frakO: $\frakO$
     \newcommand{\frakO}{\mathfrak{o}}
-    % cmd.char frakP: $\frakP$
     \newcommand{\frakP}{\mathfrak{p}}
-    % cmd.char frakQ: $\frakQ$
     \newcommand{\frakQ}{\mathfrak{q}}
-    % cmd.char frakR: $\frakR$
     \newcommand{\frakR}{\mathfrak{r}}
-    % cmd.char frakS: $\frakS$
     \newcommand{\frakS}{\mathfrak{s}}
-    % cmd.char frakT: $\frakT$
     \newcommand{\frakT}{\mathfrak{t}}
-    % cmd.char frakU: $\frakU$
     \newcommand{\frakU}{\mathfrak{u}}
-    % cmd.char frakV: $\frakV$
     \newcommand{\frakV}{\mathfrak{v}}
-    % cmd.char frakW: $\frakW$
     \newcommand{\frakW}{\mathfrak{w}}
-    % cmd.char frakX: $\frakX$
     \newcommand{\frakX}{\mathfrak{x}}
-    % cmd.char frakY: $\frakY$
     \newcommand{\frakY}{\mathfrak{y}}
-    % cmd.char frakZ: $\frakZ$
     \newcommand{\frakZ}{\mathfrak{z}}
-    % cmd.char frakAA: $\frakAA$
     \newcommand{\frakAA}{\mathfrak{A}}
-    % cmd.char frakBB: $\frakBB$
     \newcommand{\frakBB}{\mathfrak{B}}
-    % cmd.char frakCC: $\frakCC$
     \newcommand{\frakCC}{\mathfrak{C}}
-    % cmd.char frakDD: $\frakDD$
     \newcommand{\frakDD}{\mathfrak{D}}
-    % cmd.char frakEE: $\frakEE$
     \newcommand{\frakEE}{\mathfrak{E}}
-    % cmd.char frakFF: $\frakFF$
     \newcommand{\frakFF}{\mathfrak{F}}
-    % cmd.char frakGG: $\frakGG$
     \newcommand{\frakGG}{\mathfrak{G}}
-    % cmd.char frakHH: $\frakHH$
     \newcommand{\frakHH}{\mathfrak{H}}
-    % cmd.char frakII: $\frakII$
     \newcommand{\frakII}{\mathfrak{I}}
-    % cmd.char frakJJ: $\frakJJ$
     \newcommand{\frakJJ}{\mathfrak{J}}
-    % cmd.char frakKK: $\frakKK$
     \newcommand{\frakKK}{\mathfrak{K}}
-    % cmd.char frakLL: $\frakLL$
     \newcommand{\frakLL}{\mathfrak{L}}
-    % cmd.char frakMM: $\frakMM$
     \newcommand{\frakMM}{\mathfrak{M}}
-    % cmd.char frakNN: $\frakNN$
     \newcommand{\frakNN}{\mathfrak{N}}
-    % cmd.char frakOO: $\frakOO$
     \newcommand{\frakOO}{\mathfrak{O}}
-    % cmd.char frakPP: $\frakPP$
     \newcommand{\frakPP}{\mathfrak{P}}
-    % cmd.char frakQQ: $\frakQQ$
     \newcommand{\frakQQ}{\mathfrak{Q}}
-    % cmd.char frakRR: $\frakRR$
     \newcommand{\frakRR}{\mathfrak{R}}
-    % cmd.char frakSS: $\frakSS$
     \newcommand{\frakSS}{\mathfrak{S}}
-    % cmd.char frakTT: $\frakTT$
     \newcommand{\frakTT}{\mathfrak{T}}
-    % cmd.char frakUU: $\frakUU$
     \newcommand{\frakUU}{\mathfrak{U}}
-    % cmd.char frakVV: $\frakVV$
     \newcommand{\frakVV}{\mathfrak{V}}
-    % cmd.char frakWW: $\frakWW$
     \newcommand{\frakWW}{\mathfrak{W}}
-    % cmd.char frakXX: $\frakXX$
     \newcommand{\frakXX}{\mathfrak{X}}
-    % cmd.char frakYY: $\frakYY$
     \newcommand{\frakYY}{\mathfrak{Y}}
-    % cmd.char frakZZ: $\frakZZ$
     \newcommand{\frakZZ}{\mathfrak{Z}}
 
 %% --------------------
@@ -1183,549 +924,288 @@
 %% --------------------
 
 \ifthenelse{\equal{\@bbStyle}{bbold}}{
-    % cmd.char bbA: $\bbA$
     \newcommand{\bbA}{\@bb{a}}
-    % cmd.char bbB: $\bbB$
     \newcommand{\bbB}{\@bb{b}}
-    % cmd.char bbC: $\bbC$
     \newcommand{\bbC}{\@bb{c}}
-    % cmd.char bbD: $\bbD$
     \newcommand{\bbD}{\@bb{d}}
-    % cmd.char bbE: $\bbE$
     \newcommand{\bbE}{\@bb{e}}
-    % cmd.char bbF: $\bbF$
     \newcommand{\bbF}{\@bb{f}}
-    % cmd.char bbG: $\bbG$
     \newcommand{\bbG}{\@bb{g}}
-    % cmd.char bbH: $\bbH$
     \newcommand{\bbH}{\@bb{h}}
-    % cmd.char bbI: $\bbI$
     \newcommand{\bbI}{\@bb{i}}
-    % cmd.char bbJ: $\bbJ$
     \newcommand{\bbJ}{\@bb{j}}
-    % cmd.char bbK: $\bbK$
     \newcommand{\bbK}{\@bb{k}}
-    % cmd.char bbL: $\bbL$
     \newcommand{\bbL}{\@bb{l}}
-    % cmd.char bbM: $\bbM$
     \newcommand{\bbM}{\@bb{m}}
-    % cmd.char bbN: $\bbN$
     \newcommand{\bbN}{\@bb{n}}
-    % cmd.char bbO: $\bbO$
     \newcommand{\bbO}{\@bb{o}}
-    % cmd.char bbP: $\bbP$
     \newcommand{\bbP}{\@bb{p}}
-    % cmd.char bbQ: $\bbQ$
     \newcommand{\bbQ}{\@bb{q}}
-    % cmd.char bbR: $\bbR$
     \newcommand{\bbR}{\@bb{r}}
-    % cmd.char bbS: $\bbS$
     \newcommand{\bbS}{\@bb{s}}
-    % cmd.char bbT: $\bbT$
     \newcommand{\bbT}{\@bb{t}}
-    % cmd.char bbU: $\bbU$
     \newcommand{\bbU}{\@bb{u}}
-    % cmd.char bbV: $\bbV$
     \newcommand{\bbV}{\@bb{v}}
-    % cmd.char bbW: $\bbW$
     \newcommand{\bbW}{\@bb{w}}
-    % cmd.char bbX: $\bbX$
     \newcommand{\bbX}{\@bb{x}}
-    % cmd.char bbY: $\bbY$
     \newcommand{\bbY}{\@bb{y}}
-    % cmd.char bbZ: $\bbZ$
     \newcommand{\bbZ}{\@bb{z}}
 }{
-    % cmd.char bbK: $\bbK$
     \newcommand{\bbK}{\Bbbk}
 } % \ifthenelse{\equal{\@bbStyle}{bbold}}{
-    % cmd.char bbAA: $\bbAA$
     \newcommand{\bbAA}{\@bb{A}}
-    % cmd.char bbBB: $\bbBB$
     \newcommand{\bbBB}{\@bb{B}}
-    % cmd.char bbCC: $\bbCC$
     \newcommand{\bbCC}{\@bb{C}}
-    % cmd.char bbDD: $\bbDD$
     \newcommand{\bbDD}{\@bb{D}}
-    % cmd.char bbEE: $\bbEE$
     \newcommand{\bbEE}{\@bb{E}}
-    % cmd.char bbFF: $\bbFF$
     \newcommand{\bbFF}{\@bb{F}}
-    % cmd.char bbGG: $\bbGG$
     \newcommand{\bbGG}{\@bb{G}}
-    % cmd.char bbHH: $\bbHH$
     \newcommand{\bbHH}{\@bb{H}}
-    % cmd.char bbII: $\bbII$
     \newcommand{\bbII}{\@bb{I}}
-    % cmd.char bbJJ: $\bbJJ$
     \newcommand{\bbJJ}{\@bb{J}}
-    % cmd.char bbKK: $\bbKK$
     \newcommand{\bbKK}{\@bb{K}}
-    % cmd.char bbLL: $\bbLL$
     \newcommand{\bbLL}{\@bb{L}}
-    % cmd.char bbMM: $\bbMM$
     \newcommand{\bbMM}{\@bb{M}}
-    % cmd.char bbNN: $\bbNN$
     \newcommand{\bbNN}{\@bb{N}}
-    % cmd.char bbOO: $\bbOO$
     \newcommand{\bbOO}{\@bb{O}}
-    % cmd.char bbPP: $\bbPP$
     \newcommand{\bbPP}{\@bb{P}}
-    % cmd.char bbQQ: $\bbQQ$
     \newcommand{\bbQQ}{\@bb{Q}}
-    % cmd.char bbRR: $\bbRR$
     \newcommand{\bbRR}{\@bb{R}}
-    % cmd.char bbSS: $\bbSS$
     \newcommand{\bbSS}{\@bb{S}}
-    % cmd.char bbTT: $\bbTT$
     \newcommand{\bbTT}{\@bb{T}}
-    % cmd.char bbUU: $\bbUU$
     \newcommand{\bbUU}{\@bb{U}}
-    % cmd.char bbVV: $\bbVV$
     \newcommand{\bbVV}{\@bb{V}}
-    % cmd.char bbWW: $\bbWW$
     \newcommand{\bbWW}{\@bb{W}}
-    % cmd.char bbXX: $\bbXX$
     \newcommand{\bbXX}{\@bb{X}}
-    % cmd.char bbYY: $\bbYY$
     \newcommand{\bbYY}{\@bb{Y}}
-    % cmd.char bbZZ: $\bbZZ$
     \newcommand{\bbZZ}{\@bb{Z}}
 
 %% --------------------
 %% bf
 %% --------------------
 
-    % cmd.char bfA: $\bfA$
     \newcommand{\bfA}{\mathbf{a}}
-    % cmd.char bfB: $\bfB$
     \newcommand{\bfB}{\mathbf{b}}
-    % cmd.char bfC: $\bfC$
     \newcommand{\bfC}{\mathbf{c}}
-    % cmd.char bfD: $\bfD$
     \newcommand{\bfD}{\mathbf{d}}
-    % cmd.char bfE: $\bfE$
     \newcommand{\bfE}{\mathbf{e}}
-    % cmd.char bfF: $\bfF$
     \newcommand{\bfF}{\mathbf{f}}
-    % cmd.char bfG: $\bfG$
     \newcommand{\bfG}{\mathbf{g}}
-    % cmd.char bfH: $\bfH$
     \newcommand{\bfH}{\mathbf{h}}
-    % cmd.char bfI: $\bfI$
     \newcommand{\bfI}{\mathbf{i}}
-    % cmd.char bfJ: $\bfJ$
     \newcommand{\bfJ}{\mathbf{j}}
-    % cmd.char bfK: $\bfK$
     \newcommand{\bfK}{\mathbf{k}}
-    % cmd.char bfL: $\bfL$
     \newcommand{\bfL}{\mathbf{l}}
-    % cmd.char bfM: $\bfM$
     \newcommand{\bfM}{\mathbf{m}}
-    % cmd.char bfN: $\bfN$
     \newcommand{\bfN}{\mathbf{n}}
-    % cmd.char bfO: $\bfO$
     \newcommand{\bfO}{\mathbf{o}}
-    % cmd.char bfP: $\bfP$
     \newcommand{\bfP}{\mathbf{p}}
-    % cmd.char bfQ: $\bfQ$
     \newcommand{\bfQ}{\mathbf{q}}
-    % cmd.char bfR: $\bfR$
     \newcommand{\bfR}{\mathbf{r}}
-    % cmd.char bfS: $\bfS$
     \newcommand{\bfS}{\mathbf{s}}
-    % cmd.char bfT: $\bfT$
     \newcommand{\bfT}{\mathbf{t}}
-    % cmd.char bfU: $\bfU$
     \newcommand{\bfU}{\mathbf{u}}
-    % cmd.char bfV: $\bfV$
     \newcommand{\bfV}{\mathbf{v}}
-    % cmd.char bfW: $\bfW$
     \newcommand{\bfW}{\mathbf{w}}
-    % cmd.char bfX: $\bfX$
     \newcommand{\bfX}{\mathbf{x}}
-    % cmd.char bfY: $\bfY$
     \newcommand{\bfY}{\mathbf{y}}
-    % cmd.char bfZ: $\bfZ$
     \newcommand{\bfZ}{\mathbf{z}}
-    % cmd.char bfAA: $\bfAA$
     \newcommand{\bfAA}{\mathbf{A}}
-    % cmd.char bfBB: $\bfBB$
     \newcommand{\bfBB}{\mathbf{B}}
-    % cmd.char bfCC: $\bfCC$
     \newcommand{\bfCC}{\mathbf{C}}
-    % cmd.char bfDD: $\bfDD$
     \newcommand{\bfDD}{\mathbf{D}}
-    % cmd.char bfEE: $\bfEE$
     \newcommand{\bfEE}{\mathbf{E}}
-    % cmd.char bfFF: $\bfFF$
     \newcommand{\bfFF}{\mathbf{F}}
-    % cmd.char bfGG: $\bfGG$
     \newcommand{\bfGG}{\mathbf{G}}
-    % cmd.char bfHH: $\bfHH$
     \newcommand{\bfHH}{\mathbf{H}}
-    % cmd.char bfII: $\bfII$
     \newcommand{\bfII}{\mathbf{I}}
-    % cmd.char bfJJ: $\bfJJ$
     \newcommand{\bfJJ}{\mathbf{J}}
-    % cmd.char bfKK: $\bfKK$
     \newcommand{\bfKK}{\mathbf{K}}
-    % cmd.char bfLL: $\bfLL$
     \newcommand{\bfLL}{\mathbf{L}}
-    % cmd.char bfMM: $\bfMM$
     \newcommand{\bfMM}{\mathbf{M}}
-    % cmd.char bfNN: $\bfNN$
     \newcommand{\bfNN}{\mathbf{N}}
-    % cmd.char bfOO: $\bfOO$
     \newcommand{\bfOO}{\mathbf{O}}
-    % cmd.char bfPP: $\bfPP$
     \newcommand{\bfPP}{\mathbf{P}}
-    % cmd.char bfQQ: $\bfQQ$
     \newcommand{\bfQQ}{\mathbf{Q}}
-    % cmd.char bfRR: $\bfRR$
     \newcommand{\bfRR}{\mathbf{R}}
-    % cmd.char bfSS: $\bfSS$
     \newcommand{\bfSS}{\mathbf{S}}
-    % cmd.char bfTT: $\bfTT$
     \newcommand{\bfTT}{\mathbf{T}}
-    % cmd.char bfUU: $\bfUU$
     \newcommand{\bfUU}{\mathbf{U}}
-    % cmd.char bfVV: $\bfVV$
     \newcommand{\bfVV}{\mathbf{V}}
-    % cmd.char bfWW: $\bfWW$
     \newcommand{\bfWW}{\mathbf{W}}
-    % cmd.char bfXX: $\bfXX$
     \newcommand{\bfXX}{\mathbf{X}}
-    % cmd.char bfYY: $\bfYY$
     \newcommand{\bfYY}{\mathbf{Y}}
-    % cmd.char bfZZ: $\bfZZ$
     \newcommand{\bfZZ}{\mathbf{Z}}
 
 %% --------------------
 %% it
 %% --------------------
 
-    % cmd.char itA: $\itA$
     \newcommand{\itA}{\mathit{a}}
-    % cmd.char itB: $\itB$
     \newcommand{\itB}{\mathit{b}}
-    % cmd.char itC: $\itC$
     \newcommand{\itC}{\mathit{c}}
-    % cmd.char itD: $\itD$
     \newcommand{\itD}{\mathit{d}}
-    % cmd.char itE: $\itE$
     \newcommand{\itE}{\mathit{e}}
-    % cmd.char itF: $\itF$
     \newcommand{\itF}{\mathit{f}}
-    % cmd.char itG: $\itG$
     \newcommand{\itG}{\mathit{g}}
-    % cmd.char itH: $\itH$
     \newcommand{\itH}{\mathit{h}}
-    % cmd.char itI: $\itI$
     \newcommand{\itI}{\mathit{i}}
-    % cmd.char itJ: $\itJ$
     \newcommand{\itJ}{\mathit{j}}
-    % cmd.char itK: $\itK$
     \newcommand{\itK}{\mathit{k}}
-    % cmd.char itL: $\itL$
     \newcommand{\itL}{\mathit{l}}
-    % cmd.char itM: $\itM$
     \newcommand{\itM}{\mathit{m}}
-    % cmd.char itN: $\itN$
     \newcommand{\itN}{\mathit{n}}
-    % cmd.char itO: $\itO$
     \newcommand{\itO}{\mathit{o}}
-    % cmd.char itP: $\itP$
     \newcommand{\itP}{\mathit{p}}
-    % cmd.char itQ: $\itQ$
     \newcommand{\itQ}{\mathit{q}}
-    % cmd.char itR: $\itR$
     \newcommand{\itR}{\mathit{r}}
-    % cmd.char itS: $\itS$
     \newcommand{\itS}{\mathit{s}}
-    % cmd.char itT: $\itT$
     \newcommand{\itT}{\mathit{t}}
-    % cmd.char itU: $\itU$
     \newcommand{\itU}{\mathit{u}}
-    % cmd.char itV: $\itV$
     \newcommand{\itV}{\mathit{v}}
-    % cmd.char itW: $\itW$
     \newcommand{\itW}{\mathit{w}}
-    % cmd.char itX: $\itX$
     \newcommand{\itX}{\mathit{x}}
-    % cmd.char itY: $\itY$
     \newcommand{\itY}{\mathit{y}}
-    % cmd.char itZ: $\itZ$
     \newcommand{\itZ}{\mathit{z}}
-    % cmd.char itAA: $\itAA$
     \newcommand{\itAA}{\mathit{A}}
-    % cmd.char itBB: $\itBB$
     \newcommand{\itBB}{\mathit{B}}
-    % cmd.char itCC: $\itCC$
     \newcommand{\itCC}{\mathit{C}}
-    % cmd.char itDD: $\itDD$
     \newcommand{\itDD}{\mathit{D}}
-    % cmd.char itEE: $\itEE$
     \newcommand{\itEE}{\mathit{E}}
-    % cmd.char itFF: $\itFF$
     \newcommand{\itFF}{\mathit{F}}
-    % cmd.char itGG: $\itGG$
     \newcommand{\itGG}{\mathit{G}}
-    % cmd.char itHH: $\itHH$
     \newcommand{\itHH}{\mathit{H}}
-    % cmd.char itII: $\itII$
     \newcommand{\itII}{\mathit{I}}
-    % cmd.char itJJ: $\itJJ$
     \newcommand{\itJJ}{\mathit{J}}
-    % cmd.char itKK: $\itKK$
     \newcommand{\itKK}{\mathit{K}}
-    % cmd.char itLL: $\itLL$
     \newcommand{\itLL}{\mathit{L}}
-    % cmd.char itMM: $\itMM$
     \newcommand{\itMM}{\mathit{M}}
-    % cmd.char itNN: $\itNN$
     \newcommand{\itNN}{\mathit{N}}
-    % cmd.char itOO: $\itOO$
     \newcommand{\itOO}{\mathit{O}}
-    % cmd.char itPP: $\itPP$
     \newcommand{\itPP}{\mathit{P}}
-    % cmd.char itQQ: $\itQQ$
     \newcommand{\itQQ}{\mathit{Q}}
-    % cmd.char itRR: $\itRR$
     \newcommand{\itRR}{\mathit{R}}
-    % cmd.char itSS: $\itSS$
     \newcommand{\itSS}{\mathit{S}}
-    % cmd.char itTT: $\itTT$
     \newcommand{\itTT}{\mathit{T}}
-    % cmd.char itUU: $\itUU$
     \newcommand{\itUU}{\mathit{U}}
-    % cmd.char itVV: $\itVV$
     \newcommand{\itVV}{\mathit{V}}
-    % cmd.char itWW: $\itWW$
     \newcommand{\itWW}{\mathit{W}}
-    % cmd.char itXX: $\itXX$
     \newcommand{\itXX}{\mathit{X}}
-    % cmd.char itYY: $\itYY$
     \newcommand{\itYY}{\mathit{Y}}
-    % cmd.char itZZ: $\itZZ$
     \newcommand{\itZZ}{\mathit{Z}}
 
 %% --------------------
 %% rm
 %% --------------------
 
-    % cmd.char rmA: $\rmA$
     \newcommand{\rmA}{\mathrm{a}}
-    % cmd.char rmB: $\rmB$
     \newcommand{\rmB}{\mathrm{b}}
-    % cmd.char rmC: $\rmC$
     \newcommand{\rmC}{\mathrm{c}}
-    % cmd.char rmD: $\rmD$
     \newcommand{\rmD}{\mathrm{d}}
-    % cmd.char rmE: $\rmE$
     \newcommand{\rmE}{\mathrm{e}}
-    % cmd.char rmF: $\rmF$
     \newcommand{\rmF}{\mathrm{f}}
-    % cmd.char rmG: $\rmG$
     \newcommand{\rmG}{\mathrm{g}}
-    % cmd.char rmH: $\rmH$
     \newcommand{\rmH}{\mathrm{h}}
-    % cmd.char rmI: $\rmI$
     \newcommand{\rmI}{\mathrm{i}}
-    % cmd.char rmJ: $\rmJ$
     \newcommand{\rmJ}{\mathrm{j}}
-    % cmd.char rmK: $\rmK$
     \newcommand{\rmK}{\mathrm{k}}
-    % cmd.char rmL: $\rmL$
     \newcommand{\rmL}{\mathrm{l}}
-    % cmd.char rmM: $\rmM$
     \newcommand{\rmM}{\mathrm{m}}
-    % cmd.char rmN: $\rmN$
     \newcommand{\rmN}{\mathrm{n}}
-    % cmd.char rmO: $\rmO$
     \newcommand{\rmO}{\mathrm{o}}
-    % cmd.char rmP: $\rmP$
     \newcommand{\rmP}{\mathrm{p}}
-    % cmd.char rmQ: $\rmQ$
     \newcommand{\rmQ}{\mathrm{q}}
-    % cmd.char rmR: $\rmR$
     \newcommand{\rmR}{\mathrm{r}}
-    % cmd.char rmS: $\rmS$
     \newcommand{\rmS}{\mathrm{s}}
-    % cmd.char rmT: $\rmT$
     \newcommand{\rmT}{\mathrm{t}}
-    % cmd.char rmU: $\rmU$
     \newcommand{\rmU}{\mathrm{u}}
-    % cmd.char rmV: $\rmV$
     \newcommand{\rmV}{\mathrm{v}}
-    % cmd.char rmW: $\rmW$
     \newcommand{\rmW}{\mathrm{w}}
-    % cmd.char rmX: $\rmX$
     \newcommand{\rmX}{\mathrm{x}}
-    % cmd.char rmY: $\rmY$
     \newcommand{\rmY}{\mathrm{y}}
-    % cmd.char rmZ: $\rmZ$
     \newcommand{\rmZ}{\mathrm{z}}
-    % cmd.char rmAA: $\rmAA$
     \newcommand{\rmAA}{\mathrm{A}}
-    % cmd.char rmBB: $\rmBB$
     \newcommand{\rmBB}{\mathrm{B}}
-    % cmd.char rmCC: $\rmCC$
     \newcommand{\rmCC}{\mathrm{C}}
-    % cmd.char rmDD: $\rmDD$
     \newcommand{\rmDD}{\mathrm{D}}
-    % cmd.char rmEE: $\rmEE$
     \newcommand{\rmEE}{\mathrm{E}}
-    % cmd.char rmFF: $\rmFF$
     \newcommand{\rmFF}{\mathrm{F}}
-    % cmd.char rmGG: $\rmGG$
     \newcommand{\rmGG}{\mathrm{G}}
-    % cmd.char rmHH: $\rmHH$
     \newcommand{\rmHH}{\mathrm{H}}
-    % cmd.char rmII: $\rmII$
     \newcommand{\rmII}{\mathrm{I}}
-    % cmd.char rmJJ: $\rmJJ$
     \newcommand{\rmJJ}{\mathrm{J}}
-    % cmd.char rmKK: $\rmKK$
     \newcommand{\rmKK}{\mathrm{K}}
-    % cmd.char rmLL: $\rmLL$
     \newcommand{\rmLL}{\mathrm{L}}
-    % cmd.char rmMM: $\rmMM$
     \newcommand{\rmMM}{\mathrm{M}}
-    % cmd.char rmNN: $\rmNN$
     \newcommand{\rmNN}{\mathrm{N}}
-    % cmd.char rmOO: $\rmOO$
     \newcommand{\rmOO}{\mathrm{O}}
-    % cmd.char rmPP: $\rmPP$
     \newcommand{\rmPP}{\mathrm{P}}
-    % cmd.char rmQQ: $\rmQQ$
     \newcommand{\rmQQ}{\mathrm{Q}}
-    % cmd.char rmRR: $\rmRR$
     \newcommand{\rmRR}{\mathrm{R}}
-    % cmd.char rmSS: $\rmSS$
     \newcommand{\rmSS}{\mathrm{S}}
-    % cmd.char rmTT: $\rmTT$
     \newcommand{\rmTT}{\mathrm{T}}
-    % cmd.char rmUU: $\rmUU$
     \newcommand{\rmUU}{\mathrm{U}}
-    % cmd.char rmVV: $\rmVV$
     \newcommand{\rmVV}{\mathrm{V}}
-    % cmd.char rmWW: $\rmWW$
     \newcommand{\rmWW}{\mathrm{W}}
-    % cmd.char rmXX: $\rmXX$
     \newcommand{\rmXX}{\mathrm{X}}
-    % cmd.char rmYY: $\rmYY$
     \newcommand{\rmYY}{\mathrm{Y}}
-    % cmd.char rmZZ: $\rmZZ$
     \newcommand{\rmZZ}{\mathrm{Z}}
 
 %% --------------------
 %% sf
 %% --------------------
 
-    % cmd.char sfA: $\sfA$
     \newcommand{\sfA}{\mathsf{a}}
-    % cmd.char sfB: $\sfB$
     \newcommand{\sfB}{\mathsf{b}}
-    % cmd.char sfC: $\sfC$
     \newcommand{\sfC}{\mathsf{c}}
-    % cmd.char sfD: $\sfD$
     \newcommand{\sfD}{\mathsf{d}}
-    % cmd.char sfE: $\sfE$
     \newcommand{\sfE}{\mathsf{e}}
-    % cmd.char sfF: $\sfF$
     \newcommand{\sfF}{\mathsf{f}}
-    % cmd.char sfG: $\sfG$
     \newcommand{\sfG}{\mathsf{g}}
-    % cmd.char sfH: $\sfH$
     \newcommand{\sfH}{\mathsf{h}}
-    % cmd.char sfI: $\sfI$
     \newcommand{\sfI}{\mathsf{i}}
-    % cmd.char sfJ: $\sfJ$
     \newcommand{\sfJ}{\mathsf{j}}
-    % cmd.char sfK: $\sfK$
     \newcommand{\sfK}{\mathsf{k}}
-    % cmd.char sfL: $\sfL$
     \newcommand{\sfL}{\mathsf{l}}
-    % cmd.char sfM: $\sfM$
     \newcommand{\sfM}{\mathsf{m}}
-    % cmd.char sfN: $\sfN$
     \newcommand{\sfN}{\mathsf{n}}
-    % cmd.char sfO: $\sfO$
     \newcommand{\sfO}{\mathsf{o}}
-    % cmd.char sfP: $\sfP$
     \newcommand{\sfP}{\mathsf{p}}
-    % cmd.char sfQ: $\sfQ$
     \newcommand{\sfQ}{\mathsf{q}}
-    % cmd.char sfR: $\sfR$
     \newcommand{\sfR}{\mathsf{r}}
-    % cmd.char sfS: $\sfS$
     \newcommand{\sfS}{\mathsf{s}}
-    % cmd.char sfT: $\sfT$
     \newcommand{\sfT}{\mathsf{t}}
-    % cmd.char sfU: $\sfU$
     \newcommand{\sfU}{\mathsf{u}}
-    % cmd.char sfV: $\sfV$
     \newcommand{\sfV}{\mathsf{v}}
-    % cmd.char sfW: $\sfW$
     \newcommand{\sfW}{\mathsf{w}}
-    % cmd.char sfX: $\sfX$
     \newcommand{\sfX}{\mathsf{x}}
-    % cmd.char sfY: $\sfY$
     \newcommand{\sfY}{\mathsf{y}}
-    % cmd.char sfZ: $\sfZ$
     \newcommand{\sfZ}{\mathsf{z}}
-    % cmd.char sfAA: $\sfAA$
     \newcommand{\sfAA}{\mathsf{A}}
-    % cmd.char sfBB: $\sfBB$
     \newcommand{\sfBB}{\mathsf{B}}
-    % cmd.char sfCC: $\sfCC$
     \newcommand{\sfCC}{\mathsf{C}}
-    % cmd.char sfDD: $\sfDD$
     \newcommand{\sfDD}{\mathsf{D}}
-    % cmd.char sfEE: $\sfEE$
     \newcommand{\sfEE}{\mathsf{E}}
-    % cmd.char sfFF: $\sfFF$
     \newcommand{\sfFF}{\mathsf{F}}
-    % cmd.char sfGG: $\sfGG$
     \newcommand{\sfGG}{\mathsf{G}}
-    % cmd.char sfHH: $\sfHH$
     \newcommand{\sfHH}{\mathsf{H}}
-    % cmd.char sfII: $\sfII$
     \newcommand{\sfII}{\mathsf{I}}
-    % cmd.char sfJJ: $\sfJJ$
     \newcommand{\sfJJ}{\mathsf{J}}
-    % cmd.char sfKK: $\sfKK$
     \newcommand{\sfKK}{\mathsf{K}}
-    % cmd.char sfLL: $\sfLL$
     \newcommand{\sfLL}{\mathsf{L}}
-    % cmd.char sfMM: $\sfMM$
     \newcommand{\sfMM}{\mathsf{M}}
-    % cmd.char sfNN: $\sfNN$
     \newcommand{\sfNN}{\mathsf{N}}
-    % cmd.char sfOO: $\sfOO$
     \newcommand{\sfOO}{\mathsf{O}}
-    % cmd.char sfPP: $\sfPP$
     \newcommand{\sfPP}{\mathsf{P}}
-    % cmd.char sfQQ: $\sfQQ$
     \newcommand{\sfQQ}{\mathsf{Q}}
-    % cmd.char sfRR: $\sfRR$
     \newcommand{\sfRR}{\mathsf{R}}
-    % cmd.char sfSS: $\sfSS$
     \newcommand{\sfSS}{\mathsf{S}}
-    % cmd.char sfTT: $\sfTT$
     \newcommand{\sfTT}{\mathsf{T}}
-    % cmd.char sfUU: $\sfUU$
     \newcommand{\sfUU}{\mathsf{U}}
-    % cmd.char sfVV: $\sfVV$
     \newcommand{\sfVV}{\mathsf{V}}
-    % cmd.char sfWW: $\sfWW$
     \newcommand{\sfWW}{\mathsf{W}}
-    % cmd.char sfXX: $\sfXX$
     \newcommand{\sfXX}{\mathsf{X}}
-    % cmd.char sfYY: $\sfYY$
     \newcommand{\sfYY}{\mathsf{Y}}
-    % cmd.char sfZZ: $\sfZZ$
     \newcommand{\sfZZ}{\mathsf{Z}}
 
 }{} % \ifthenelse{\boolean{@b_maths_use_characterStyles}}{
@@ -1738,170 +1218,90 @@
 %% bb
 %% --------------------
 
-    % cmd.char bbalpha: $\bbalpha$
     \newcommand{\bbalpha}{\@bb{\alpha}}
-    % cmd.char bbbeta: $\bbbeta$
     \newcommand{\bbbeta}{\@bb{\beta}}
-    % cmd.char bbgamma: $\bbgamma$
     \newcommand{\bbgamma}{\@bb{\gamma}}
-    % cmd.char bbdelta: $\bbdelta$
     \newcommand{\bbdelta}{\@bb{\delta}}
-    % cmd.char bbvarepsilon: $\bbvarepsilon$
     \newcommand{\bbvarepsilon}{\@bb{\varepsilon}}
-    % cmd.char bbepsilon: $\bbepsilon$
     \newcommand{\bbepsilon}{\@bb{\epsilon}}
-    % cmd.char bbzeta: $\bbzeta$
     \newcommand{\bbzeta}{\@bb{\zeta}}
-    % cmd.char bbeta: $\bbeta$
     \newcommand{\bbeta}{\@bb{\eta}}
-    % cmd.char bbtheta: $\bbtheta$
     \newcommand{\bbtheta}{\@bb{\theta}}
-    % cmd.char bbvartheta: $\bbvartheta$
     \newcommand{\bbvartheta}{\@bb{\vartheta}}
-    % cmd.char bbiota: $\bbiota$
     \newcommand{\bbiota}{\@bb{\iota}}
-    % cmd.char bbkappa: $\bbkappa$
     \newcommand{\bbkappa}{\@bb{\kappa}}
-    % cmd.char bblambda: $\bblambda$
     \newcommand{\bblambda}{\@bb{\lambda}}
-    % cmd.char bbmu: $\bbmu$
     \newcommand{\bbmu}{\@bb{\mu}}
-    % cmd.char bbnu: $\bbnu$
     \newcommand{\bbnu}{\@bb{\nu}}
-    % cmd.char bbxi: $\bbxi$
     \newcommand{\bbxi}{\@bb{\xi}}
-    % cmd.char bbpi: $\bbpi$
     \newcommand{\bbpi}{\@bb{\pi}}
-    % cmd.char bbvarpi: $\bbvarpi$
     \newcommand{\bbvarpi}{\@bb{\varpi}}
-    % cmd.char bbrho: $\bbrho$
     \newcommand{\bbrho}{\@bb{\rho}}
-    % cmd.char bbvarrho: $\bbvarrho$
     \newcommand{\bbvarrho}{\@bb{\varrho}}
-    % cmd.char bbsigma: $\bbsigma$
     \newcommand{\bbsigma}{\@bb{\sigma}}
-    % cmd.char bbvarsigma: $\bbvarsigma$
     \newcommand{\bbvarsigma}{\@bb{\varsigma}}
-    % cmd.char bbtau: $\bbtau$
     \newcommand{\bbtau}{\@bb{\tau}}
-    % cmd.char bbupsilon: $\bbupsilon$
     \newcommand{\bbupsilon}{\@bb{\upsilon}}
-    % cmd.char bbphi: $\bbphi$
     \newcommand{\bbphi}{\@bb{\phi}}
-    % cmd.char bbvarphi: $\bbvarphi$
     \newcommand{\bbvarphi}{\@bb{\varphi}}
-    % cmd.char bbchi: $\bbchi$
     \newcommand{\bbchi}{\@bb{\chi}}
-    % cmd.char bbpsi: $\bbpsi$
     \newcommand{\bbpsi}{\@bb{\psi}}
-    % cmd.char bbomega: $\bbomega$
     \newcommand{\bbomega}{\@bb{\omega}}
-    % cmd.char bbGamma: $\bbGamma$
     \newcommand{\bbGamma}{\@bb{\Gamma}}
-    % cmd.char bbDelta: $\bbDelta$
     \newcommand{\bbDelta}{\@bb{\Delta}}
-    % cmd.char bbTheta: $\bbTheta$
     \newcommand{\bbTheta}{\@bb{\Theta}}
-    % cmd.char bbLambda: $\bbLambda$
     \newcommand{\bbLambda}{\@bb{\Lambda}}
-    % cmd.char bbXi: $\bbXi$
     \newcommand{\bbXi}{\@bb{\Xi}}
-    % cmd.char bbPi: $\bbPi$
     \newcommand{\bbPi}{\@bb{\Pi}}
-    % cmd.char bbSigma: $\bbSigma$
     \newcommand{\bbSigma}{\@bb{\Sigma}}
-    % cmd.char bbUpsilon: $\bbUpsilon$
     \newcommand{\bbUpsilon}{\@bb{\Upsilon}}
-    % cmd.char bbPhi: $\bbPhi$
     \newcommand{\bbPhi}{\@bb{\Phi}}
-    % cmd.char bbPsi: $\bbPsi$
     \newcommand{\bbPsi}{\@bb{\Psi}}
-    % cmd.char bbOmega: $\bbOmega$
     \newcommand{\bbOmega}{\@bb{\Omega}}
 
 %% --------------------
 %% bf
 %% --------------------
 
-    % cmd.char bfalpha: $\bfalpha$
     \newcommand{\bfalpha}{\boldsymbol{\alpha}}
-    % cmd.char bfbeta: $\bfbeta$
     \newcommand{\bfbeta}{\boldsymbol{\beta}}
-    % cmd.char bfgamma: $\bfgamma$
     \newcommand{\bfgamma}{\boldsymbol{\gamma}}
-    % cmd.char bfdelta: $\bfdelta$
     \newcommand{\bfdelta}{\boldsymbol{\delta}}
-    % cmd.char bfvarepsilon: $\bfvarepsilon$
     \newcommand{\bfvarepsilon}{\boldsymbol{\varepsilon}}
-    % cmd.char bfepsilon: $\bfepsilon$
     \newcommand{\bfepsilon}{\boldsymbol{\epsilon}}
-    % cmd.char bfzeta: $\bfzeta$
     \newcommand{\bfzeta}{\boldsymbol{\zeta}}
-    % cmd.char bfeta: $\bfeta$
     \newcommand{\bfeta}{\boldsymbol{\eta}}
-    % cmd.char bftheta: $\bftheta$
     \newcommand{\bftheta}{\boldsymbol{\theta}}
-    % cmd.char bfvartheta: $\bfvartheta$
     \newcommand{\bfvartheta}{\boldsymbol{\vartheta}}
-    % cmd.char bfiota: $\bfiota$
     \newcommand{\bfiota}{\boldsymbol{\iota}}
-    % cmd.char bfkappa: $\bfkappa$
     \newcommand{\bfkappa}{\boldsymbol{\kappa}}
-    % cmd.char bflambda: $\bflambda$
     \newcommand{\bflambda}{\boldsymbol{\lambda}}
-    % cmd.char bfmu: $\bfmu$
     \newcommand{\bfmu}{\boldsymbol{\mu}}
-    % cmd.char bfnu: $\bfnu$
     \newcommand{\bfnu}{\boldsymbol{\nu}}
-    % cmd.char bfxi: $\bfxi$
     \newcommand{\bfxi}{\boldsymbol{\xi}}
-    % cmd.char bfpi: $\bfpi$
     \newcommand{\bfpi}{\boldsymbol{\pi}}
-    % cmd.char bfvarpi: $\bfvarpi$
     \newcommand{\bfvarpi}{\boldsymbol{\varpi}}
-    % cmd.char bfrho: $\bfrho$
     \newcommand{\bfrho}{\boldsymbol{\rho}}
-    % cmd.char bfvarrho: $\bfvarrho$
     \newcommand{\bfvarrho}{\boldsymbol{\varrho}}
-    % cmd.char bfsigma: $\bfsigma$
     \newcommand{\bfsigma}{\boldsymbol{\sigma}}
-    % cmd.char bfvarsigma: $\bfvarsigma$
     \newcommand{\bfvarsigma}{\boldsymbol{\varsigma}}
-    % cmd.char bftau: $\bftau$
     \newcommand{\bftau}{\boldsymbol{\tau}}
-    % cmd.char bfupsilon: $\bfupsilon$
     \newcommand{\bfupsilon}{\boldsymbol{\upsilon}}
-    % cmd.char bfphi: $\bfphi$
     \newcommand{\bfphi}{\boldsymbol{\phi}}
-    % cmd.char bfvarphi: $\bfvarphi$
     \newcommand{\bfvarphi}{\boldsymbol{\varphi}}
-    % cmd.char bfchi: $\bfchi$
     \newcommand{\bfchi}{\boldsymbol{\chi}}
-    % cmd.char bfpsi: $\bfpsi$
     \newcommand{\bfpsi}{\boldsymbol{\psi}}
-    % cmd.char bfomega: $\bfomega$
     \newcommand{\bfomega}{\boldsymbol{\omega}}
-    % cmd.char bfGamma: $\bfGamma$
     \newcommand{\bfGamma}{\boldsymbol{\Gamma}}
-    % cmd.char bfDelta: $\bfDelta$
     \newcommand{\bfDelta}{\boldsymbol{\Delta}}
-    % cmd.char bfTheta: $\bfTheta$
     \newcommand{\bfTheta}{\boldsymbol{\Theta}}
-    % cmd.char bfLambda: $\bfLambda$
     \newcommand{\bfLambda}{\boldsymbol{\Lambda}}
-    % cmd.char bfXi: $\bfXi$
     \newcommand{\bfXi}{\boldsymbol{\Xi}}
-    % cmd.char bfPi: $\bfPi$
     \newcommand{\bfPi}{\boldsymbol{\Pi}}
-    % cmd.char bfSigma: $\bfSigma$
     \newcommand{\bfSigma}{\boldsymbol{\Sigma}}
-    % cmd.char bfUpsilon: $\bfUpsilon$
     \newcommand{\bfUpsilon}{\boldsymbol{\Upsilon}}
-    % cmd.char bfPhi: $\bfPhi$
     \newcommand{\bfPhi}{\boldsymbol{\Phi}}
-    % cmd.char bfPsi: $\bfPsi$
     \newcommand{\bfPsi}{\boldsymbol{\Psi}}
-    % cmd.char bfOmega: $\bfOmega$
     \newcommand{\bfOmega}{\boldsymbol{\Omega}}
 
 %% ----------------------------------------
@@ -1914,1199 +1314,627 @@
 %% vec
 %% --------------------
 
-    % cmd.char vecA: $\vecA$
     \newcommand{\vecA}{\vec{a}}
-    % cmd.char vecB: $\vecB$
     \newcommand{\vecB}{\vec{b}}
-    % cmd.char vecC: $\vecC$
     \newcommand{\vecC}{\vec{c}}
-    % cmd.char vecD: $\vecD$
     \newcommand{\vecD}{\vec{d}}
-    % cmd.char vecE: $\vecE$
     \newcommand{\vecE}{\vec{e}}
-    % cmd.char vecF: $\vecF$
     \newcommand{\vecF}{\vec{f}}
-    % cmd.char vecG: $\vecG$
     \newcommand{\vecG}{\vec{g}}
-    % cmd.char vecH: $\vecH$
     \newcommand{\vecH}{\vec{h}}
-    % cmd.char vecI: $\vecI$
     \newcommand{\vecI}{\vec{i}}
-    % cmd.char vecJ: $\vecJ$
     \newcommand{\vecJ}{\vec{j}}
-    % cmd.char vecK: $\vecK$
     \newcommand{\vecK}{\vec{k}}
-    % cmd.char vecL: $\vecL$
     \newcommand{\vecL}{\vec{l}}
-    % cmd.char vecM: $\vecM$
     \newcommand{\vecM}{\vec{m}}
-    % cmd.char vecN: $\vecN$
     \newcommand{\vecN}{\vec{n}}
-    % cmd.char vecO: $\vecO$
     \newcommand{\vecO}{\vec{o}}
-    % cmd.char vecP: $\vecP$
     \newcommand{\vecP}{\vec{p}}
-    % cmd.char vecQ: $\vecQ$
     \newcommand{\vecQ}{\vec{q}}
-    % cmd.char vecR: $\vecR$
     \newcommand{\vecR}{\vec{r}}
-    % cmd.char vecS: $\vecS$
     \newcommand{\vecS}{\vec{s}}
-    % cmd.char vecT: $\vecT$
     \newcommand{\vecT}{\vec{t}}
-    % cmd.char vecU: $\vecU$
     \newcommand{\vecU}{\vec{u}}
-    % cmd.char vecV: $\vecV$
     \newcommand{\vecV}{\vec{v}}
-    % cmd.char vecW: $\vecW$
     \newcommand{\vecW}{\vec{w}}
-    % cmd.char vecX: $\vecX$
     \newcommand{\vecX}{\vec{x}}
-    % cmd.char vecY: $\vecY$
     \newcommand{\vecY}{\vec{y}}
-    % cmd.char vecZ: $\vecZ$
     \newcommand{\vecZ}{\vec{z}}
-    % cmd.char vecAA: $\vecAA$
     \newcommand{\vecAA}{\vec{A}}
-    % cmd.char vecBB: $\vecBB$
     \newcommand{\vecBB}{\vec{B}}
-    % cmd.char vecCC: $\vecCC$
     \newcommand{\vecCC}{\vec{C}}
-    % cmd.char vecDD: $\vecDD$
     \newcommand{\vecDD}{\vec{D}}
-    % cmd.char vecEE: $\vecEE$
     \newcommand{\vecEE}{\vec{E}}
-    % cmd.char vecFF: $\vecFF$
     \newcommand{\vecFF}{\vec{F}}
-    % cmd.char vecGG: $\vecGG$
     \newcommand{\vecGG}{\vec{G}}
-    % cmd.char vecHH: $\vecHH$
     \newcommand{\vecHH}{\vec{H}}
-    % cmd.char vecII: $\vecII$
     \newcommand{\vecII}{\vec{I}}
-    % cmd.char vecJJ: $\vecJJ$
     \newcommand{\vecJJ}{\vec{J}}
-    % cmd.char vecKK: $\vecKK$
     \newcommand{\vecKK}{\vec{K}}
-    % cmd.char vecLL: $\vecLL$
     \newcommand{\vecLL}{\vec{L}}
-    % cmd.char vecMM: $\vecMM$
     \newcommand{\vecMM}{\vec{M}}
-    % cmd.char vecNN: $\vecNN$
     \newcommand{\vecNN}{\vec{N}}
-    % cmd.char vecOO: $\vecOO$
     \newcommand{\vecOO}{\vec{O}}
-    % cmd.char vecPP: $\vecPP$
     \newcommand{\vecPP}{\vec{P}}
-    % cmd.char vecQQ: $\vecQQ$
     \newcommand{\vecQQ}{\vec{Q}}
-    % cmd.char vecRR: $\vecRR$
     \newcommand{\vecRR}{\vec{R}}
-    % cmd.char vecSS: $\vecSS$
     \newcommand{\vecSS}{\vec{S}}
-    % cmd.char vecTT: $\vecTT$
     \newcommand{\vecTT}{\vec{T}}
-    % cmd.char vecUU: $\vecUU$
     \newcommand{\vecUU}{\vec{U}}
-    % cmd.char vecVV: $\vecVV$
     \newcommand{\vecVV}{\vec{V}}
-    % cmd.char vecWW: $\vecWW$
     \newcommand{\vecWW}{\vec{W}}
-    % cmd.char vecXX: $\vecXX$
     \newcommand{\vecXX}{\vec{X}}
-    % cmd.char vecYY: $\vecYY$
     \newcommand{\vecYY}{\vec{Y}}
-    % cmd.char vecZZ: $\vecZZ$
     \newcommand{\vecZZ}{\vec{Z}}
 
 %% --------------------
 %% hat
 %% --------------------
 
-    % cmd.char hatA: $\hatA$
     \newcommand{\hatA}{\hat{a}}
-    % cmd.char hatB: $\hatB$
     \newcommand{\hatB}{\hat{b}}
-    % cmd.char hatC: $\hatC$
     \newcommand{\hatC}{\hat{c}}
-    % cmd.char hatD: $\hatD$
     \newcommand{\hatD}{\hat{d}}
-    % cmd.char hatE: $\hatE$
     \newcommand{\hatE}{\hat{e}}
-    % cmd.char hatF: $\hatF$
     \newcommand{\hatF}{\hat{f}}
-    % cmd.char hatG: $\hatG$
     \newcommand{\hatG}{\hat{g}}
-    % cmd.char hatH: $\hatH$
     \newcommand{\hatH}{\hat{h}}
-    % cmd.char hatI: $\hatI$
     \newcommand{\hatI}{\hat{i}}
-    % cmd.char hatJ: $\hatJ$
     \newcommand{\hatJ}{\hat{j}}
-    % cmd.char hatK: $\hatK$
     \newcommand{\hatK}{\hat{k}}
-    % cmd.char hatL: $\hatL$
     \newcommand{\hatL}{\hat{l}}
-    % cmd.char hatM: $\hatM$
     \newcommand{\hatM}{\hat{m}}
-    % cmd.char hatN: $\hatN$
     \newcommand{\hatN}{\hat{n}}
-    % cmd.char hatO: $\hatO$
     \newcommand{\hatO}{\hat{o}}
-    % cmd.char hatP: $\hatP$
     \newcommand{\hatP}{\hat{p}}
-    % cmd.char hatQ: $\hatQ$
     \newcommand{\hatQ}{\hat{q}}
-    % cmd.char hatR: $\hatR$
     \newcommand{\hatR}{\hat{r}}
-    % cmd.char hatS: $\hatS$
     \newcommand{\hatS}{\hat{s}}
-    % cmd.char hatT: $\hatT$
     \newcommand{\hatT}{\hat{t}}
-    % cmd.char hatU: $\hatU$
     \newcommand{\hatU}{\hat{u}}
-    % cmd.char hatV: $\hatV$
     \newcommand{\hatV}{\hat{v}}
-    % cmd.char hatW: $\hatW$
     \newcommand{\hatW}{\hat{w}}
-    % cmd.char hatX: $\hatX$
     \newcommand{\hatX}{\hat{x}}
-    % cmd.char hatY: $\hatY$
     \newcommand{\hatY}{\hat{y}}
-    % cmd.char hatZ: $\hatZ$
     \newcommand{\hatZ}{\hat{z}}
-    % cmd.char hatAA: $\hatAA$
     \newcommand{\hatAA}{\hat{A}}
-    % cmd.char hatBB: $\hatBB$
     \newcommand{\hatBB}{\hat{B}}
-    % cmd.char hatCC: $\hatCC$
     \newcommand{\hatCC}{\hat{C}}
-    % cmd.char hatDD: $\hatDD$
     \newcommand{\hatDD}{\hat{D}}
-    % cmd.char hatEE: $\hatEE$
     \newcommand{\hatEE}{\hat{E}}
-    % cmd.char hatFF: $\hatFF$
     \newcommand{\hatFF}{\hat{F}}
-    % cmd.char hatGG: $\hatGG$
     \newcommand{\hatGG}{\hat{G}}
-    % cmd.char hatHH: $\hatHH$
     \newcommand{\hatHH}{\hat{H}}
-    % cmd.char hatII: $\hatII$
     \newcommand{\hatII}{\hat{I}}
-    % cmd.char hatJJ: $\hatJJ$
     \newcommand{\hatJJ}{\hat{J}}
-    % cmd.char hatKK: $\hatKK$
     \newcommand{\hatKK}{\hat{K}}
-    % cmd.char hatLL: $\hatLL$
     \newcommand{\hatLL}{\hat{L}}
-    % cmd.char hatMM: $\hatMM$
     \newcommand{\hatMM}{\hat{M}}
-    % cmd.char hatNN: $\hatNN$
     \newcommand{\hatNN}{\hat{N}}
-    % cmd.char hatOO: $\hatOO$
     \newcommand{\hatOO}{\hat{O}}
-    % cmd.char hatPP: $\hatPP$
     \newcommand{\hatPP}{\hat{P}}
-    % cmd.char hatQQ: $\hatQQ$
     \newcommand{\hatQQ}{\hat{Q}}
-    % cmd.char hatRR: $\hatRR$
     \newcommand{\hatRR}{\hat{R}}
-    % cmd.char hatSS: $\hatSS$
     \newcommand{\hatSS}{\hat{S}}
-    % cmd.char hatTT: $\hatTT$
     \newcommand{\hatTT}{\hat{T}}
-    % cmd.char hatUU: $\hatUU$
     \newcommand{\hatUU}{\hat{U}}
-    % cmd.char hatVV: $\hatVV$
     \newcommand{\hatVV}{\hat{V}}
-    % cmd.char hatWW: $\hatWW$
     \newcommand{\hatWW}{\hat{W}}
-    % cmd.char hatXX: $\hatXX$
     \newcommand{\hatXX}{\hat{X}}
-    % cmd.char hatYY: $\hatYY$
     \newcommand{\hatYY}{\hat{Y}}
-    % cmd.char hatZZ: $\hatZZ$
     \newcommand{\hatZZ}{\hat{Z}}
 
 %% --------------------
 %% ch
 %% --------------------
 
-    % cmd.char chA: $\chA$
     \newcommand{\chA}{\check{a}}
-    % cmd.char chB: $\chB$
     \newcommand{\chB}{\check{b}}
-    % cmd.char chC: $\chC$
     \newcommand{\chC}{\check{c}}
-    % cmd.char chD: $\chD$
     \newcommand{\chD}{\check{d}}
-    % cmd.char chE: $\chE$
     \newcommand{\chE}{\check{e}}
-    % cmd.char chF: $\chF$
     \newcommand{\chF}{\check{f}}
-    % cmd.char chG: $\chG$
     \newcommand{\chG}{\check{g}}
-    % cmd.char chH: $\chH$
     \newcommand{\chH}{\check{h}}
-    % cmd.char chI: $\chI$
     \newcommand{\chI}{\check{i}}
-    % cmd.char chJ: $\chJ$
     \newcommand{\chJ}{\check{j}}
-    % cmd.char chK: $\chK$
     \newcommand{\chK}{\check{k}}
-    % cmd.char chL: $\chL$
     \newcommand{\chL}{\check{l}}
-    % cmd.char chM: $\chM$
     \newcommand{\chM}{\check{m}}
-    % cmd.char chN: $\chN$
     \newcommand{\chN}{\check{n}}
-    % cmd.char chO: $\chO$
     \newcommand{\chO}{\check{o}}
-    % cmd.char chP: $\chP$
     \newcommand{\chP}{\check{p}}
-    % cmd.char chQ: $\chQ$
     \newcommand{\chQ}{\check{q}}
-    % cmd.char chR: $\chR$
     \newcommand{\chR}{\check{r}}
-    % cmd.char chS: $\chS$
     \newcommand{\chS}{\check{s}}
-    % cmd.char chT: $\chT$
     \newcommand{\chT}{\check{t}}
-    % cmd.char chU: $\chU$
     \newcommand{\chU}{\check{u}}
-    % cmd.char chV: $\chV$
     \newcommand{\chV}{\check{v}}
-    % cmd.char chW: $\chW$
     \newcommand{\chW}{\check{w}}
-    % cmd.char chX: $\chX$
     \newcommand{\chX}{\check{x}}
-    % cmd.char chY: $\chY$
     \newcommand{\chY}{\check{y}}
-    % cmd.char chZ: $\chZ$
     \newcommand{\chZ}{\check{z}}
-    % cmd.char chAA: $\chAA$
     \newcommand{\chAA}{\check{A}}
-    % cmd.char chBB: $\chBB$
     \newcommand{\chBB}{\check{B}}
-    % cmd.char chCC: $\chCC$
     \newcommand{\chCC}{\check{C}}
-    % cmd.char chDD: $\chDD$
     \newcommand{\chDD}{\check{D}}
-    % cmd.char chEE: $\chEE$
     \newcommand{\chEE}{\check{E}}
-    % cmd.char chFF: $\chFF$
     \newcommand{\chFF}{\check{F}}
-    % cmd.char chGG: $\chGG$
     \newcommand{\chGG}{\check{G}}
-    % cmd.char chHH: $\chHH$
     \newcommand{\chHH}{\check{H}}
-    % cmd.char chII: $\chII$
     \newcommand{\chII}{\check{I}}
-    % cmd.char chJJ: $\chJJ$
     \newcommand{\chJJ}{\check{J}}
-    % cmd.char chKK: $\chKK$
     \newcommand{\chKK}{\check{K}}
-    % cmd.char chLL: $\chLL$
     \newcommand{\chLL}{\check{L}}
-    % cmd.char chMM: $\chMM$
     \newcommand{\chMM}{\check{M}}
-    % cmd.char chNN: $\chNN$
     \newcommand{\chNN}{\check{N}}
-    % cmd.char chOO: $\chOO$
     \newcommand{\chOO}{\check{O}}
-    % cmd.char chPP: $\chPP$
     \newcommand{\chPP}{\check{P}}
-    % cmd.char chQQ: $\chQQ$
     \newcommand{\chQQ}{\check{Q}}
-    % cmd.char chRR: $\chRR$
     \newcommand{\chRR}{\check{R}}
-    % cmd.char chSS: $\chSS$
     \newcommand{\chSS}{\check{S}}
-    % cmd.char chTT: $\chTT$
     \newcommand{\chTT}{\check{T}}
-    % cmd.char chUU: $\chUU$
     \newcommand{\chUU}{\check{U}}
-    % cmd.char chVV: $\chVV$
     \newcommand{\chVV}{\check{V}}
-    % cmd.char chWW: $\chWW$
     \newcommand{\chWW}{\check{W}}
-    % cmd.char chXX: $\chXX$
     \newcommand{\chXX}{\check{X}}
-    % cmd.char chYY: $\chYY$
     \newcommand{\chYY}{\check{Y}}
-    % cmd.char chZZ: $\chZZ$
     \newcommand{\chZZ}{\check{Z}}
 
 %% --------------------
 %% dot
 %% --------------------
 
-    % cmd.char dotA: $\dotA$
     \newcommand{\dotA}{\dot{a}}
-    % cmd.char dotB: $\dotB$
     \newcommand{\dotB}{\dot{b}}
-    % cmd.char dotC: $\dotC$
     \newcommand{\dotC}{\dot{c}}
-    % cmd.char dotD: $\dotD$
     \newcommand{\dotD}{\dot{d}}
-    % cmd.char dotE: $\dotE$
     \newcommand{\dotE}{\dot{e}}
-    % cmd.char dotF: $\dotF$
     \newcommand{\dotF}{\dot{f}}
-    % cmd.char dotG: $\dotG$
     \newcommand{\dotG}{\dot{g}}
-    % cmd.char dotH: $\dotH$
     \newcommand{\dotH}{\dot{h}}
-    % cmd.char dotI: $\dotI$
     \newcommand{\dotI}{\dot{i}}
-    % cmd.char dotJ: $\dotJ$
     \newcommand{\dotJ}{\dot{j}}
-    % cmd.char dotK: $\dotK$
     \newcommand{\dotK}{\dot{k}}
-    % cmd.char dotL: $\dotL$
     \newcommand{\dotL}{\dot{l}}
-    % cmd.char dotM: $\dotM$
     \newcommand{\dotM}{\dot{m}}
-    % cmd.char dotN: $\dotN$
     \newcommand{\dotN}{\dot{n}}
-    % cmd.char dotO: $\dotO$
     \newcommand{\dotO}{\dot{o}}
-    % cmd.char dotP: $\dotP$
     \newcommand{\dotP}{\dot{p}}
-    % cmd.char dotQ: $\dotQ$
     \newcommand{\dotQ}{\dot{q}}
-    % cmd.char dotR: $\dotR$
     \newcommand{\dotR}{\dot{r}}
-    % cmd.char dotS: $\dotS$
     \newcommand{\dotS}{\dot{s}}
-    % cmd.char dotT: $\dotT$
     \newcommand{\dotT}{\dot{t}}
-    % cmd.char dotU: $\dotU$
     \newcommand{\dotU}{\dot{u}}
-    % cmd.char dotV: $\dotV$
     \newcommand{\dotV}{\dot{v}}
-    % cmd.char dotW: $\dotW$
     \newcommand{\dotW}{\dot{w}}
-    % cmd.char dotX: $\dotX$
     \newcommand{\dotX}{\dot{x}}
-    % cmd.char dotY: $\dotY$
     \newcommand{\dotY}{\dot{y}}
-    % cmd.char dotZ: $\dotZ$
     \newcommand{\dotZ}{\dot{z}}
-    % cmd.char dotAA: $\dotAA$
     \newcommand{\dotAA}{\dot{A}}
-    % cmd.char dotBB: $\dotBB$
     \newcommand{\dotBB}{\dot{B}}
-    % cmd.char dotCC: $\dotCC$
     \newcommand{\dotCC}{\dot{C}}
-    % cmd.char dotDD: $\dotDD$
     \newcommand{\dotDD}{\dot{D}}
-    % cmd.char dotEE: $\dotEE$
     \newcommand{\dotEE}{\dot{E}}
-    % cmd.char dotFF: $\dotFF$
     \newcommand{\dotFF}{\dot{F}}
-    % cmd.char dotGG: $\dotGG$
     \newcommand{\dotGG}{\dot{G}}
-    % cmd.char dotHH: $\dotHH$
     \newcommand{\dotHH}{\dot{H}}
-    % cmd.char dotII: $\dotII$
     \newcommand{\dotII}{\dot{I}}
-    % cmd.char dotJJ: $\dotJJ$
     \newcommand{\dotJJ}{\dot{J}}
-    % cmd.char dotKK: $\dotKK$
     \newcommand{\dotKK}{\dot{K}}
-    % cmd.char dotLL: $\dotLL$
     \newcommand{\dotLL}{\dot{L}}
-    % cmd.char dotMM: $\dotMM$
     \newcommand{\dotMM}{\dot{M}}
-    % cmd.char dotNN: $\dotNN$
     \newcommand{\dotNN}{\dot{N}}
-    % cmd.char dotOO: $\dotOO$
     \newcommand{\dotOO}{\dot{O}}
-    % cmd.char dotPP: $\dotPP$
     \newcommand{\dotPP}{\dot{P}}
-    % cmd.char dotQQ: $\dotQQ$
     \newcommand{\dotQQ}{\dot{Q}}
-    % cmd.char dotRR: $\dotRR$
     \newcommand{\dotRR}{\dot{R}}
-    % cmd.char dotSS: $\dotSS$
     \newcommand{\dotSS}{\dot{S}}
-    % cmd.char dotTT: $\dotTT$
     \newcommand{\dotTT}{\dot{T}}
-    % cmd.char dotUU: $\dotUU$
     \newcommand{\dotUU}{\dot{U}}
-    % cmd.char dotVV: $\dotVV$
     \newcommand{\dotVV}{\dot{V}}
-    % cmd.char dotWW: $\dotWW$
     \newcommand{\dotWW}{\dot{W}}
-    % cmd.char dotXX: $\dotXX$
     \newcommand{\dotXX}{\dot{X}}
-    % cmd.char dotYY: $\dotYY$
     \newcommand{\dotYY}{\dot{Y}}
-    % cmd.char dotZZ: $\dotZZ$
     \newcommand{\dotZZ}{\dot{Z}}
 
 %% --------------------
 %% ddot
 %% --------------------
 
-    % cmd.char ddotA: $\ddotA$
     \newcommand{\ddotA}{\ddot{a}}
-    % cmd.char ddotB: $\ddotB$
     \newcommand{\ddotB}{\ddot{b}}
-    % cmd.char ddotC: $\ddotC$
     \newcommand{\ddotC}{\ddot{c}}
-    % cmd.char ddotD: $\ddotD$
     \newcommand{\ddotD}{\ddot{d}}
-    % cmd.char ddotE: $\ddotE$
     \newcommand{\ddotE}{\ddot{e}}
-    % cmd.char ddotF: $\ddotF$
     \newcommand{\ddotF}{\ddot{f}}
-    % cmd.char ddotG: $\ddotG$
     \newcommand{\ddotG}{\ddot{g}}
-    % cmd.char ddotH: $\ddotH$
     \newcommand{\ddotH}{\ddot{h}}
-    % cmd.char ddotI: $\ddotI$
     \newcommand{\ddotI}{\ddot{i}}
-    % cmd.char ddotJ: $\ddotJ$
     \newcommand{\ddotJ}{\ddot{j}}
-    % cmd.char ddotK: $\ddotK$
     \newcommand{\ddotK}{\ddot{k}}
-    % cmd.char ddotL: $\ddotL$
     \newcommand{\ddotL}{\ddot{l}}
-    % cmd.char ddotM: $\ddotM$
     \newcommand{\ddotM}{\ddot{m}}
-    % cmd.char ddotN: $\ddotN$
     \newcommand{\ddotN}{\ddot{n}}
-    % cmd.char ddotO: $\ddotO$
     \newcommand{\ddotO}{\ddot{o}}
-    % cmd.char ddotP: $\ddotP$
     \newcommand{\ddotP}{\ddot{p}}
-    % cmd.char ddotQ: $\ddotQ$
     \newcommand{\ddotQ}{\ddot{q}}
-    % cmd.char ddotR: $\ddotR$
     \newcommand{\ddotR}{\ddot{r}}
-    % cmd.char ddotS: $\ddotS$
     \newcommand{\ddotS}{\ddot{s}}
-    % cmd.char ddotT: $\ddotT$
     \newcommand{\ddotT}{\ddot{t}}
-    % cmd.char ddotU: $\ddotU$
     \newcommand{\ddotU}{\ddot{u}}
-    % cmd.char ddotV: $\ddotV$
     \newcommand{\ddotV}{\ddot{v}}
-    % cmd.char ddotW: $\ddotW$
     \newcommand{\ddotW}{\ddot{w}}
-    % cmd.char ddotX: $\ddotX$
     \newcommand{\ddotX}{\ddot{x}}
-    % cmd.char ddotY: $\ddotY$
     \newcommand{\ddotY}{\ddot{y}}
-    % cmd.char ddotZ: $\ddotZ$
     \newcommand{\ddotZ}{\ddot{z}}
-    % cmd.char ddotAA: $\ddotAA$
     \newcommand{\ddotAA}{\ddot{A}}
-    % cmd.char ddotBB: $\ddotBB$
     \newcommand{\ddotBB}{\ddot{B}}
-    % cmd.char ddotCC: $\ddotCC$
     \newcommand{\ddotCC}{\ddot{C}}
-    % cmd.char ddotDD: $\ddotDD$
     \newcommand{\ddotDD}{\ddot{D}}
-    % cmd.char ddotEE: $\ddotEE$
     \newcommand{\ddotEE}{\ddot{E}}
-    % cmd.char ddotFF: $\ddotFF$
     \newcommand{\ddotFF}{\ddot{F}}
-    % cmd.char ddotGG: $\ddotGG$
     \newcommand{\ddotGG}{\ddot{G}}
-    % cmd.char ddotHH: $\ddotHH$
     \newcommand{\ddotHH}{\ddot{H}}
-    % cmd.char ddotII: $\ddotII$
     \newcommand{\ddotII}{\ddot{I}}
-    % cmd.char ddotJJ: $\ddotJJ$
     \newcommand{\ddotJJ}{\ddot{J}}
-    % cmd.char ddotKK: $\ddotKK$
     \newcommand{\ddotKK}{\ddot{K}}
-    % cmd.char ddotLL: $\ddotLL$
     \newcommand{\ddotLL}{\ddot{L}}
-    % cmd.char ddotMM: $\ddotMM$
     \newcommand{\ddotMM}{\ddot{M}}
-    % cmd.char ddotNN: $\ddotNN$
     \newcommand{\ddotNN}{\ddot{N}}
-    % cmd.char ddotOO: $\ddotOO$
     \newcommand{\ddotOO}{\ddot{O}}
-    % cmd.char ddotPP: $\ddotPP$
     \newcommand{\ddotPP}{\ddot{P}}
-    % cmd.char ddotQQ: $\ddotQQ$
     \newcommand{\ddotQQ}{\ddot{Q}}
-    % cmd.char ddotRR: $\ddotRR$
     \newcommand{\ddotRR}{\ddot{R}}
-    % cmd.char ddotSS: $\ddotSS$
     \newcommand{\ddotSS}{\ddot{S}}
-    % cmd.char ddotTT: $\ddotTT$
     \newcommand{\ddotTT}{\ddot{T}}
-    % cmd.char ddotUU: $\ddotUU$
     \newcommand{\ddotUU}{\ddot{U}}
-    % cmd.char ddotVV: $\ddotVV$
     \newcommand{\ddotVV}{\ddot{V}}
-    % cmd.char ddotWW: $\ddotWW$
     \newcommand{\ddotWW}{\ddot{W}}
-    % cmd.char ddotXX: $\ddotXX$
     \newcommand{\ddotXX}{\ddot{X}}
-    % cmd.char ddotYY: $\ddotYY$
     \newcommand{\ddotYY}{\ddot{Y}}
-    % cmd.char ddotZZ: $\ddotZZ$
     \newcommand{\ddotZZ}{\ddot{Z}}
 
 %% --------------------
 %% tild
 %% --------------------
 
-    % cmd.char tildA: $\tildA$
     \newcommand{\tildA}{\tilde{a}}
-    % cmd.char tildB: $\tildB$
     \newcommand{\tildB}{\tilde{b}}
-    % cmd.char tildC: $\tildC$
     \newcommand{\tildC}{\tilde{c}}
-    % cmd.char tildD: $\tildD$
     \newcommand{\tildD}{\tilde{d}}
-    % cmd.char tildE: $\tildE$
     \newcommand{\tildE}{\tilde{e}}
-    % cmd.char tildF: $\tildF$
     \newcommand{\tildF}{\tilde{f}}
-    % cmd.char tildG: $\tildG$
     \newcommand{\tildG}{\tilde{g}}
-    % cmd.char tildH: $\tildH$
     \newcommand{\tildH}{\tilde{h}}
-    % cmd.char tildI: $\tildI$
     \newcommand{\tildI}{\tilde{i}}
-    % cmd.char tildJ: $\tildJ$
     \newcommand{\tildJ}{\tilde{j}}
-    % cmd.char tildK: $\tildK$
     \newcommand{\tildK}{\tilde{k}}
-    % cmd.char tildL: $\tildL$
     \newcommand{\tildL}{\tilde{l}}
-    % cmd.char tildM: $\tildM$
     \newcommand{\tildM}{\tilde{m}}
-    % cmd.char tildN: $\tildN$
     \newcommand{\tildN}{\tilde{n}}
-    % cmd.char tildO: $\tildO$
     \newcommand{\tildO}{\tilde{o}}
-    % cmd.char tildP: $\tildP$
     \newcommand{\tildP}{\tilde{p}}
-    % cmd.char tildQ: $\tildQ$
     \newcommand{\tildQ}{\tilde{q}}
-    % cmd.char tildR: $\tildR$
     \newcommand{\tildR}{\tilde{r}}
-    % cmd.char tildS: $\tildS$
     \newcommand{\tildS}{\tilde{s}}
-    % cmd.char tildT: $\tildT$
     \newcommand{\tildT}{\tilde{t}}
-    % cmd.char tildU: $\tildU$
     \newcommand{\tildU}{\tilde{u}}
-    % cmd.char tildV: $\tildV$
     \newcommand{\tildV}{\tilde{v}}
-    % cmd.char tildW: $\tildW$
     \newcommand{\tildW}{\tilde{w}}
-    % cmd.char tildX: $\tildX$
     \newcommand{\tildX}{\tilde{x}}
-    % cmd.char tildY: $\tildY$
     \newcommand{\tildY}{\tilde{y}}
-    % cmd.char tildZ: $\tildZ$
     \newcommand{\tildZ}{\tilde{z}}
-    % cmd.char tildAA: $\tildAA$
     \newcommand{\tildAA}{\tilde{A}}
-    % cmd.char tildBB: $\tildBB$
     \newcommand{\tildBB}{\tilde{B}}
-    % cmd.char tildCC: $\tildCC$
     \newcommand{\tildCC}{\tilde{C}}
-    % cmd.char tildDD: $\tildDD$
     \newcommand{\tildDD}{\tilde{D}}
-    % cmd.char tildEE: $\tildEE$
     \newcommand{\tildEE}{\tilde{E}}
-    % cmd.char tildFF: $\tildFF$
     \newcommand{\tildFF}{\tilde{F}}
-    % cmd.char tildGG: $\tildGG$
     \newcommand{\tildGG}{\tilde{G}}
-    % cmd.char tildHH: $\tildHH$
     \newcommand{\tildHH}{\tilde{H}}
-    % cmd.char tildII: $\tildII$
     \newcommand{\tildII}{\tilde{I}}
-    % cmd.char tildJJ: $\tildJJ$
     \newcommand{\tildJJ}{\tilde{J}}
-    % cmd.char tildKK: $\tildKK$
     \newcommand{\tildKK}{\tilde{K}}
-    % cmd.char tildLL: $\tildLL$
     \newcommand{\tildLL}{\tilde{L}}
-    % cmd.char tildMM: $\tildMM$
     \newcommand{\tildMM}{\tilde{M}}
-    % cmd.char tildNN: $\tildNN$
     \newcommand{\tildNN}{\tilde{N}}
-    % cmd.char tildOO: $\tildOO$
     \newcommand{\tildOO}{\tilde{O}}
-    % cmd.char tildPP: $\tildPP$
     \newcommand{\tildPP}{\tilde{P}}
-    % cmd.char tildQQ: $\tildQQ$
     \newcommand{\tildQQ}{\tilde{Q}}
-    % cmd.char tildRR: $\tildRR$
     \newcommand{\tildRR}{\tilde{R}}
-    % cmd.char tildSS: $\tildSS$
     \newcommand{\tildSS}{\tilde{S}}
-    % cmd.char tildTT: $\tildTT$
     \newcommand{\tildTT}{\tilde{T}}
-    % cmd.char tildUU: $\tildUU$
     \newcommand{\tildUU}{\tilde{U}}
-    % cmd.char tildVV: $\tildVV$
     \newcommand{\tildVV}{\tilde{V}}
-    % cmd.char tildWW: $\tildWW$
     \newcommand{\tildWW}{\tilde{W}}
-    % cmd.char tildXX: $\tildXX$
     \newcommand{\tildXX}{\tilde{X}}
-    % cmd.char tildYY: $\tildYY$
     \newcommand{\tildYY}{\tilde{Y}}
-    % cmd.char tildZZ: $\tildZZ$
     \newcommand{\tildZZ}{\tilde{Z}}
 
 %% --------------------
 %% bar
 %% --------------------
 
-    % cmd.char barA: $\barA$
     \newcommand{\barA}{\bar{a}}
-    % cmd.char barB: $\barB$
     \newcommand{\barB}{\bar{b}}
-    % cmd.char barC: $\barC$
     \newcommand{\barC}{\bar{c}}
-    % cmd.char barD: $\barD$
     \newcommand{\barD}{\bar{d}}
-    % cmd.char barE: $\barE$
     \newcommand{\barE}{\bar{e}}
-    % cmd.char barF: $\barF$
     \newcommand{\barF}{\bar{f}}
-    % cmd.char barG: $\barG$
     \newcommand{\barG}{\bar{g}}
-    % cmd.char barH: $\barH$
     \newcommand{\barH}{\bar{h}}
-    % cmd.char barI: $\barI$
     \newcommand{\barI}{\bar{i}}
-    % cmd.char barJ: $\barJ$
     \newcommand{\barJ}{\bar{j}}
-    % cmd.char barK: $\barK$
     \newcommand{\barK}{\bar{k}}
-    % cmd.char barL: $\barL$
     \newcommand{\barL}{\bar{l}}
-    % cmd.char barM: $\barM$
     \newcommand{\barM}{\bar{m}}
-    % cmd.char barN: $\barN$
     \newcommand{\barN}{\bar{n}}
-    % cmd.char barO: $\barO$
     \newcommand{\barO}{\bar{o}}
-    % cmd.char barP: $\barP$
     \newcommand{\barP}{\bar{p}}
-    % cmd.char barQ: $\barQ$
     \newcommand{\barQ}{\bar{q}}
-    % cmd.char barR: $\barR$
     \newcommand{\barR}{\bar{r}}
-    % cmd.char barS: $\barS$
     \newcommand{\barS}{\bar{s}}
-    % cmd.char barT: $\barT$
     \newcommand{\barT}{\bar{t}}
-    % cmd.char barU: $\barU$
     \newcommand{\barU}{\bar{u}}
-    % cmd.char barV: $\barV$
     \newcommand{\barV}{\bar{v}}
-    % cmd.char barW: $\barW$
     \newcommand{\barW}{\bar{w}}
-    % cmd.char barX: $\barX$
     \newcommand{\barX}{\bar{x}}
-    % cmd.char barY: $\barY$
     \newcommand{\barY}{\bar{y}}
-    % cmd.char barZ: $\barZ$
     \newcommand{\barZ}{\bar{z}}
-    % cmd.char barAA: $\barAA$
     \newcommand{\barAA}{\bar{A}}
-    % cmd.char barBB: $\barBB$
     \newcommand{\barBB}{\bar{B}}
-    % cmd.char barCC: $\barCC$
     \newcommand{\barCC}{\bar{C}}
-    % cmd.char barDD: $\barDD$
     \newcommand{\barDD}{\bar{D}}
-    % cmd.char barEE: $\barEE$
     \newcommand{\barEE}{\bar{E}}
-    % cmd.char barFF: $\barFF$
     \newcommand{\barFF}{\bar{F}}
-    % cmd.char barGG: $\barGG$
     \newcommand{\barGG}{\bar{G}}
-    % cmd.char barHH: $\barHH$
     \newcommand{\barHH}{\bar{H}}
-    % cmd.char barII: $\barII$
     \newcommand{\barII}{\bar{I}}
-    % cmd.char barJJ: $\barJJ$
     \newcommand{\barJJ}{\bar{J}}
-    % cmd.char barKK: $\barKK$
     \newcommand{\barKK}{\bar{K}}
-    % cmd.char barLL: $\barLL$
     \newcommand{\barLL}{\bar{L}}
-    % cmd.char barMM: $\barMM$
     \newcommand{\barMM}{\bar{M}}
-    % cmd.char barNN: $\barNN$
     \newcommand{\barNN}{\bar{N}}
-    % cmd.char barOO: $\barOO$
     \newcommand{\barOO}{\bar{O}}
-    % cmd.char barPP: $\barPP$
     \newcommand{\barPP}{\bar{P}}
-    % cmd.char barQQ: $\barQQ$
     \newcommand{\barQQ}{\bar{Q}}
-    % cmd.char barRR: $\barRR$
     \newcommand{\barRR}{\bar{R}}
-    % cmd.char barSS: $\barSS$
     \newcommand{\barSS}{\bar{S}}
-    % cmd.char barTT: $\barTT$
     \newcommand{\barTT}{\bar{T}}
-    % cmd.char barUU: $\barUU$
     \newcommand{\barUU}{\bar{U}}
-    % cmd.char barVV: $\barVV$
     \newcommand{\barVV}{\bar{V}}
-    % cmd.char barWW: $\barWW$
     \newcommand{\barWW}{\bar{W}}
-    % cmd.char barXX: $\barXX$
     \newcommand{\barXX}{\bar{X}}
-    % cmd.char barYY: $\barYY$
     \newcommand{\barYY}{\bar{Y}}
-    % cmd.char barZZ: $\barZZ$
     \newcommand{\barZZ}{\bar{Z}}
 
 %% --------------------
 %% bbar
 %% --------------------
 
-    % cmd.char bbarA: $\bbarA$
     \newcommand{\bbarA}{\bar{\bar{a}}}
-    % cmd.char bbarB: $\bbarB$
     \newcommand{\bbarB}{\bar{\bar{b}}}
-    % cmd.char bbarC: $\bbarC$
     \newcommand{\bbarC}{\bar{\bar{c}}}
-    % cmd.char bbarD: $\bbarD$
     \newcommand{\bbarD}{\bar{\bar{d}}}
-    % cmd.char bbarE: $\bbarE$
     \newcommand{\bbarE}{\bar{\bar{e}}}
-    % cmd.char bbarF: $\bbarF$
     \newcommand{\bbarF}{\bar{\bar{f}}}
-    % cmd.char bbarG: $\bbarG$
     \newcommand{\bbarG}{\bar{\bar{g}}}
-    % cmd.char bbarH: $\bbarH$
     \newcommand{\bbarH}{\bar{\bar{h}}}
-    % cmd.char bbarI: $\bbarI$
     \newcommand{\bbarI}{\bar{\bar{i}}}
-    % cmd.char bbarJ: $\bbarJ$
     \newcommand{\bbarJ}{\bar{\bar{j}}}
-    % cmd.char bbarK: $\bbarK$
     \newcommand{\bbarK}{\bar{\bar{k}}}
-    % cmd.char bbarL: $\bbarL$
     \newcommand{\bbarL}{\bar{\bar{l}}}
-    % cmd.char bbarM: $\bbarM$
     \newcommand{\bbarM}{\bar{\bar{m}}}
-    % cmd.char bbarN: $\bbarN$
     \newcommand{\bbarN}{\bar{\bar{n}}}
-    % cmd.char bbarO: $\bbarO$
     \newcommand{\bbarO}{\bar{\bar{o}}}
-    % cmd.char bbarP: $\bbarP$
     \newcommand{\bbarP}{\bar{\bar{p}}}
-    % cmd.char bbarQ: $\bbarQ$
     \newcommand{\bbarQ}{\bar{\bar{q}}}
-    % cmd.char bbarR: $\bbarR$
     \newcommand{\bbarR}{\bar{\bar{r}}}
-    % cmd.char bbarS: $\bbarS$
     \newcommand{\bbarS}{\bar{\bar{s}}}
-    % cmd.char bbarT: $\bbarT$
     \newcommand{\bbarT}{\bar{\bar{t}}}
-    % cmd.char bbarU: $\bbarU$
     \newcommand{\bbarU}{\bar{\bar{u}}}
-    % cmd.char bbarV: $\bbarV$
     \newcommand{\bbarV}{\bar{\bar{v}}}
-    % cmd.char bbarW: $\bbarW$
     \newcommand{\bbarW}{\bar{\bar{w}}}
-    % cmd.char bbarX: $\bbarX$
     \newcommand{\bbarX}{\bar{\bar{x}}}
-    % cmd.char bbarY: $\bbarY$
     \newcommand{\bbarY}{\bar{\bar{y}}}
-    % cmd.char bbarZ: $\bbarZ$
     \newcommand{\bbarZ}{\bar{\bar{z}}}
-    % cmd.char bbarAA: $\bbarAA$
     \newcommand{\bbarAA}{\bar{\bar{A}}}
-    % cmd.char bbarBB: $\bbarBB$
     \newcommand{\bbarBB}{\bar{\bar{B}}}
-    % cmd.char bbarCC: $\bbarCC$
     \newcommand{\bbarCC}{\bar{\bar{C}}}
-    % cmd.char bbarDD: $\bbarDD$
     \newcommand{\bbarDD}{\bar{\bar{D}}}
-    % cmd.char bbarEE: $\bbarEE$
     \newcommand{\bbarEE}{\bar{\bar{E}}}
-    % cmd.char bbarFF: $\bbarFF$
     \newcommand{\bbarFF}{\bar{\bar{F}}}
-    % cmd.char bbarGG: $\bbarGG$
     \newcommand{\bbarGG}{\bar{\bar{G}}}
-    % cmd.char bbarHH: $\bbarHH$
     \newcommand{\bbarHH}{\bar{\bar{H}}}
-    % cmd.char bbarII: $\bbarII$
     \newcommand{\bbarII}{\bar{\bar{I}}}
-    % cmd.char bbarJJ: $\bbarJJ$
     \newcommand{\bbarJJ}{\bar{\bar{J}}}
-    % cmd.char bbarKK: $\bbarKK$
     \newcommand{\bbarKK}{\bar{\bar{K}}}
-    % cmd.char bbarLL: $\bbarLL$
     \newcommand{\bbarLL}{\bar{\bar{L}}}
-    % cmd.char bbarMM: $\bbarMM$
     \newcommand{\bbarMM}{\bar{\bar{M}}}
-    % cmd.char bbarNN: $\bbarNN$
     \newcommand{\bbarNN}{\bar{\bar{N}}}
-    % cmd.char bbarOO: $\bbarOO$
     \newcommand{\bbarOO}{\bar{\bar{O}}}
-    % cmd.char bbarPP: $\bbarPP$
     \newcommand{\bbarPP}{\bar{\bar{P}}}
-    % cmd.char bbarQQ: $\bbarQQ$
     \newcommand{\bbarQQ}{\bar{\bar{Q}}}
-    % cmd.char bbarRR: $\bbarRR$
     \newcommand{\bbarRR}{\bar{\bar{R}}}
-    % cmd.char bbarSS: $\bbarSS$
     \newcommand{\bbarSS}{\bar{\bar{S}}}
-    % cmd.char bbarTT: $\bbarTT$
     \newcommand{\bbarTT}{\bar{\bar{T}}}
-    % cmd.char bbarUU: $\bbarUU$
     \newcommand{\bbarUU}{\bar{\bar{U}}}
-    % cmd.char bbarVV: $\bbarVV$
     \newcommand{\bbarVV}{\bar{\bar{V}}}
-    % cmd.char bbarWW: $\bbarWW$
     \newcommand{\bbarWW}{\bar{\bar{W}}}
-    % cmd.char bbarXX: $\bbarXX$
     \newcommand{\bbarXX}{\bar{\bar{X}}}
-    % cmd.char bbarYY: $\bbarYY$
     \newcommand{\bbarYY}{\bar{\bar{Y}}}
-    % cmd.char bbarZZ: $\bbarZZ$
     \newcommand{\bbarZZ}{\bar{\bar{Z}}}
 
 %% --------------------
 %% u
 %% --------------------
 
-    % cmd.char uA: $\uA$
     \newcommand{\uA}{\underline{a}}
-    % cmd.char uB: $\uB$
     \newcommand{\uB}{\underline{b}}
-    % cmd.char uC: $\uC$
     \newcommand{\uC}{\underline{c}}
-    % cmd.char uD: $\uD$
     \newcommand{\uD}{\underline{d}}
-    % cmd.char uE: $\uE$
     \newcommand{\uE}{\underline{e}}
-    % cmd.char uF: $\uF$
     \newcommand{\uF}{\underline{f}}
-    % cmd.char uG: $\uG$
     \newcommand{\uG}{\underline{g}}
-    % cmd.char uH: $\uH$
     \newcommand{\uH}{\underline{h}}
-    % cmd.char uI: $\uI$
     \newcommand{\uI}{\underline{i}}
-    % cmd.char uJ: $\uJ$
     \newcommand{\uJ}{\underline{j}}
-    % cmd.char uK: $\uK$
     \newcommand{\uK}{\underline{k}}
-    % cmd.char uL: $\uL$
     \newcommand{\uL}{\underline{l}}
-    % cmd.char uM: $\uM$
     \newcommand{\uM}{\underline{m}}
-    % cmd.char uN: $\uN$
     \newcommand{\uN}{\underline{n}}
-    % cmd.char uO: $\uO$
     \newcommand{\uO}{\underline{o}}
-    % cmd.char uP: $\uP$
     \newcommand{\uP}{\underline{p}}
-    % cmd.char uQ: $\uQ$
     \newcommand{\uQ}{\underline{q}}
-    % cmd.char uR: $\uR$
     \newcommand{\uR}{\underline{r}}
-    % cmd.char uS: $\uS$
     \newcommand{\uS}{\underline{s}}
-    % cmd.char uT: $\uT$
     \newcommand{\uT}{\underline{t}}
-    % cmd.char uU: $\uU$
     \newcommand{\uU}{\underline{u}}
-    % cmd.char uV: $\uV$
     \newcommand{\uV}{\underline{v}}
-    % cmd.char uW: $\uW$
     \newcommand{\uW}{\underline{w}}
-    % cmd.char uX: $\uX$
     \newcommand{\uX}{\underline{x}}
-    % cmd.char uY: $\uY$
     \newcommand{\uY}{\underline{y}}
-    % cmd.char uZ: $\uZ$
     \newcommand{\uZ}{\underline{z}}
-    % cmd.char uAA: $\uAA$
     \newcommand{\uAA}{\underline{A}}
-    % cmd.char uBB: $\uBB$
     \newcommand{\uBB}{\underline{B}}
-    % cmd.char uCC: $\uCC$
     \newcommand{\uCC}{\underline{C}}
-    % cmd.char uDD: $\uDD$
     \newcommand{\uDD}{\underline{D}}
-    % cmd.char uEE: $\uEE$
     \newcommand{\uEE}{\underline{E}}
-    % cmd.char uFF: $\uFF$
     \newcommand{\uFF}{\underline{F}}
-    % cmd.char uGG: $\uGG$
     \newcommand{\uGG}{\underline{G}}
-    % cmd.char uHH: $\uHH$
     \newcommand{\uHH}{\underline{H}}
-    % cmd.char uII: $\uII$
     \newcommand{\uII}{\underline{I}}
-    % cmd.char uJJ: $\uJJ$
     \newcommand{\uJJ}{\underline{J}}
-    % cmd.char uKK: $\uKK$
     \newcommand{\uKK}{\underline{K}}
-    % cmd.char uLL: $\uLL$
     \newcommand{\uLL}{\underline{L}}
-    % cmd.char uMM: $\uMM$
     \newcommand{\uMM}{\underline{M}}
-    % cmd.char uNN: $\uNN$
     \newcommand{\uNN}{\underline{N}}
-    % cmd.char uOO: $\uOO$
     \newcommand{\uOO}{\underline{O}}
-    % cmd.char uPP: $\uPP$
     \newcommand{\uPP}{\underline{P}}
-    % cmd.char uQQ: $\uQQ$
     \newcommand{\uQQ}{\underline{Q}}
-    % cmd.char uRR: $\uRR$
     \newcommand{\uRR}{\underline{R}}
-    % cmd.char uSS: $\uSS$
     \newcommand{\uSS}{\underline{S}}
-    % cmd.char uTT: $\uTT$
     \newcommand{\uTT}{\underline{T}}
-    % cmd.char uUU: $\uUU$
     \newcommand{\uUU}{\underline{U}}
-    % cmd.char uVV: $\uVV$
     \newcommand{\uVV}{\underline{V}}
-    % cmd.char uWW: $\uWW$
     \newcommand{\uWW}{\underline{W}}
-    % cmd.char uXX: $\uXX$
     \newcommand{\uXX}{\underline{X}}
-    % cmd.char uYY: $\uYY$
     \newcommand{\uYY}{\underline{Y}}
-    % cmd.char uZZ: $\uZZ$
     \newcommand{\uZZ}{\underline{Z}}
 
 %% --------------------
 %% uu
 %% --------------------
 
-    % cmd.char uuA: $\uuA$
     \newcommand{\uuA}{\underline{\underline{a}}}
-    % cmd.char uuB: $\uuB$
     \newcommand{\uuB}{\underline{\underline{b}}}
-    % cmd.char uuC: $\uuC$
     \newcommand{\uuC}{\underline{\underline{c}}}
-    % cmd.char uuD: $\uuD$
     \newcommand{\uuD}{\underline{\underline{d}}}
-    % cmd.char uuE: $\uuE$
     \newcommand{\uuE}{\underline{\underline{e}}}
-    % cmd.char uuF: $\uuF$
     \newcommand{\uuF}{\underline{\underline{f}}}
-    % cmd.char uuG: $\uuG$
     \newcommand{\uuG}{\underline{\underline{g}}}
-    % cmd.char uuH: $\uuH$
     \newcommand{\uuH}{\underline{\underline{h}}}
-    % cmd.char uuI: $\uuI$
     \newcommand{\uuI}{\underline{\underline{i}}}
-    % cmd.char uuJ: $\uuJ$
     \newcommand{\uuJ}{\underline{\underline{j}}}
-    % cmd.char uuK: $\uuK$
     \newcommand{\uuK}{\underline{\underline{k}}}
-    % cmd.char uuL: $\uuL$
     \newcommand{\uuL}{\underline{\underline{l}}}
-    % cmd.char uuM: $\uuM$
     \newcommand{\uuM}{\underline{\underline{m}}}
-    % cmd.char uuN: $\uuN$
     \newcommand{\uuN}{\underline{\underline{n}}}
-    % cmd.char uuO: $\uuO$
     \newcommand{\uuO}{\underline{\underline{o}}}
-    % cmd.char uuP: $\uuP$
     \newcommand{\uuP}{\underline{\underline{p}}}
-    % cmd.char uuQ: $\uuQ$
     \newcommand{\uuQ}{\underline{\underline{q}}}
-    % cmd.char uuR: $\uuR$
     \newcommand{\uuR}{\underline{\underline{r}}}
-    % cmd.char uuS: $\uuS$
     \newcommand{\uuS}{\underline{\underline{s}}}
-    % cmd.char uuT: $\uuT$
     \newcommand{\uuT}{\underline{\underline{t}}}
-    % cmd.char uuU: $\uuU$
     \newcommand{\uuU}{\underline{\underline{u}}}
-    % cmd.char uuV: $\uuV$
     \newcommand{\uuV}{\underline{\underline{v}}}
-    % cmd.char uuW: $\uuW$
     \newcommand{\uuW}{\underline{\underline{w}}}
-    % cmd.char uuX: $\uuX$
     \newcommand{\uuX}{\underline{\underline{x}}}
-    % cmd.char uuY: $\uuY$
     \newcommand{\uuY}{\underline{\underline{y}}}
-    % cmd.char uuZ: $\uuZ$
     \newcommand{\uuZ}{\underline{\underline{z}}}
-    % cmd.char uuAA: $\uuAA$
     \newcommand{\uuAA}{\underline{\underline{A}}}
-    % cmd.char uuBB: $\uuBB$
     \newcommand{\uuBB}{\underline{\underline{B}}}
-    % cmd.char uuCC: $\uuCC$
     \newcommand{\uuCC}{\underline{\underline{C}}}
-    % cmd.char uuDD: $\uuDD$
     \newcommand{\uuDD}{\underline{\underline{D}}}
-    % cmd.char uuEE: $\uuEE$
     \newcommand{\uuEE}{\underline{\underline{E}}}
-    % cmd.char uuFF: $\uuFF$
     \newcommand{\uuFF}{\underline{\underline{F}}}
-    % cmd.char uuGG: $\uuGG$
     \newcommand{\uuGG}{\underline{\underline{G}}}
-    % cmd.char uuHH: $\uuHH$
     \newcommand{\uuHH}{\underline{\underline{H}}}
-    % cmd.char uuII: $\uuII$
     \newcommand{\uuII}{\underline{\underline{I}}}
-    % cmd.char uuJJ: $\uuJJ$
     \newcommand{\uuJJ}{\underline{\underline{J}}}
-    % cmd.char uuKK: $\uuKK$
     \newcommand{\uuKK}{\underline{\underline{K}}}
-    % cmd.char uuLL: $\uuLL$
     \newcommand{\uuLL}{\underline{\underline{L}}}
-    % cmd.char uuMM: $\uuMM$
     \newcommand{\uuMM}{\underline{\underline{M}}}
-    % cmd.char uuNN: $\uuNN$
     \newcommand{\uuNN}{\underline{\underline{N}}}
-    % cmd.char uuOO: $\uuOO$
     \newcommand{\uuOO}{\underline{\underline{O}}}
-    % cmd.char uuPP: $\uuPP$
     \newcommand{\uuPP}{\underline{\underline{P}}}
-    % cmd.char uuQQ: $\uuQQ$
     \newcommand{\uuQQ}{\underline{\underline{Q}}}
-    % cmd.char uuRR: $\uuRR$
     \newcommand{\uuRR}{\underline{\underline{R}}}
-    % cmd.char uuSS: $\uuSS$
     \newcommand{\uuSS}{\underline{\underline{S}}}
-    % cmd.char uuTT: $\uuTT$
     \newcommand{\uuTT}{\underline{\underline{T}}}
-    % cmd.char uuUU: $\uuUU$
     \newcommand{\uuUU}{\underline{\underline{U}}}
-    % cmd.char uuVV: $\uuVV$
     \newcommand{\uuVV}{\underline{\underline{V}}}
-    % cmd.char uuWW: $\uuWW$
     \newcommand{\uuWW}{\underline{\underline{W}}}
-    % cmd.char uuXX: $\uuXX$
     \newcommand{\uuXX}{\underline{\underline{X}}}
-    % cmd.char uuYY: $\uuYY$
     \newcommand{\uuYY}{\underline{\underline{Y}}}
-    % cmd.char uuZZ: $\uuZZ$
     \newcommand{\uuZZ}{\underline{\underline{Z}}}
 
 %% --------------------
 %% o
 %% --------------------
 
-    % cmd.char oA: $\oA$
     \newcommand{\oA}{\mathring{a}}
-    % cmd.char oB: $\oB$
     \newcommand{\oB}{\mathring{b}}
-    % cmd.char oC: $\oC$
     \newcommand{\oC}{\mathring{c}}
-    % cmd.char oD: $\oD$
     \newcommand{\oD}{\mathring{d}}
-    % cmd.char oE: $\oE$
     \newcommand{\oE}{\mathring{e}}
-    % cmd.char oF: $\oF$
     \newcommand{\oF}{\mathring{f}}
-    % cmd.char oG: $\oG$
     \newcommand{\oG}{\mathring{g}}
-    % cmd.char oH: $\oH$
     \newcommand{\oH}{\mathring{h}}
-    % cmd.char oI: $\oI$
     \newcommand{\oI}{\mathring{i}}
-    % cmd.char oJ: $\oJ$
     \newcommand{\oJ}{\mathring{j}}
-    % cmd.char oK: $\oK$
     \newcommand{\oK}{\mathring{k}}
-    % cmd.char oL: $\oL$
     \newcommand{\oL}{\mathring{l}}
-    % cmd.char oM: $\oM$
     \newcommand{\oM}{\mathring{m}}
-    % cmd.char oN: $\oN$
     \newcommand{\oN}{\mathring{n}}
-    % cmd.char oO: $\oO$
     \newcommand{\oO}{\mathring{o}}
-    % cmd.char oP: $\oP$
     \newcommand{\oP}{\mathring{p}}
-    % cmd.char oQ: $\oQ$
     \newcommand{\oQ}{\mathring{q}}
-    % cmd.char oR: $\oR$
     \newcommand{\oR}{\mathring{r}}
-    % cmd.char oS: $\oS$
     \newcommand{\oS}{\mathring{s}}
-    % cmd.char oT: $\oT$
     \newcommand{\oT}{\mathring{t}}
-    % cmd.char oU: $\oU$
     \newcommand{\oU}{\mathring{u}}
-    % cmd.char oV: $\oV$
     \newcommand{\oV}{\mathring{v}}
-    % cmd.char oW: $\oW$
     \newcommand{\oW}{\mathring{w}}
-    % cmd.char oX: $\oX$
     \newcommand{\oX}{\mathring{x}}
-    % cmd.char oY: $\oY$
     \newcommand{\oY}{\mathring{y}}
-    % cmd.char oZ: $\oZ$
     \newcommand{\oZ}{\mathring{z}}
-    % cmd.char oAA: $\oAA$
     \newcommand{\oAA}{\mathring{A}}
-    % cmd.char oBB: $\oBB$
     \newcommand{\oBB}{\mathring{B}}
-    % cmd.char oCC: $\oCC$
     \newcommand{\oCC}{\mathring{C}}
-    % cmd.char oDD: $\oDD$
     \newcommand{\oDD}{\mathring{D}}
-    % cmd.char oEE: $\oEE$
     \newcommand{\oEE}{\mathring{E}}
-    % cmd.char oFF: $\oFF$
     \newcommand{\oFF}{\mathring{F}}
-    % cmd.char oGG: $\oGG$
     \newcommand{\oGG}{\mathring{G}}
-    % cmd.char oHH: $\oHH$
     \newcommand{\oHH}{\mathring{H}}
-    % cmd.char oII: $\oII$
     \newcommand{\oII}{\mathring{I}}
-    % cmd.char oJJ: $\oJJ$
     \newcommand{\oJJ}{\mathring{J}}
-    % cmd.char oKK: $\oKK$
     \newcommand{\oKK}{\mathring{K}}
-    % cmd.char oLL: $\oLL$
     \newcommand{\oLL}{\mathring{L}}
-    % cmd.char oMM: $\oMM$
     \newcommand{\oMM}{\mathring{M}}
-    % cmd.char oNN: $\oNN$
     \newcommand{\oNN}{\mathring{N}}
-    % cmd.char oOO: $\oOO$
     \newcommand{\oOO}{\mathring{O}}
-    % cmd.char oPP: $\oPP$
     \newcommand{\oPP}{\mathring{P}}
-    % cmd.char oQQ: $\oQQ$
     \newcommand{\oQQ}{\mathring{Q}}
-    % cmd.char oRR: $\oRR$
     \newcommand{\oRR}{\mathring{R}}
-    % cmd.char oSS: $\oSS$
     \newcommand{\oSS}{\mathring{S}}
-    % cmd.char oTT: $\oTT$
     \newcommand{\oTT}{\mathring{T}}
-    % cmd.char oUU: $\oUU$
     \newcommand{\oUU}{\mathring{U}}
-    % cmd.char oVV: $\oVV$
     \newcommand{\oVV}{\mathring{V}}
-    % cmd.char oWW: $\oWW$
     \newcommand{\oWW}{\mathring{W}}
-    % cmd.char oXX: $\oXX$
     \newcommand{\oXX}{\mathring{X}}
-    % cmd.char oYY: $\oYY$
     \newcommand{\oYY}{\mathring{Y}}
-    % cmd.char oZZ: $\oZZ$
     \newcommand{\oZZ}{\mathring{Z}}
 
 %% --------------------
@@ -3117,935 +1945,495 @@
 %% ch
 %% --------------------
 
-    % cmd.char chalpha: $\chalpha$
     \newcommand{\chalpha}{\check{\alpha}}
-    % cmd.char chbeta: $\chbeta$
     \newcommand{\chbeta}{\check{\beta}}
-    % cmd.char chgamma: $\chgamma$
     \newcommand{\chgamma}{\check{\gamma}}
-    % cmd.char chdelta: $\chdelta$
     \newcommand{\chdelta}{\check{\delta}}
-    % cmd.char chvarepsilon: $\chvarepsilon$
     \newcommand{\chvarepsilon}{\check{\varepsilon}}
-    % cmd.char chepsilon: $\chepsilon$
     \newcommand{\chepsilon}{\check{\epsilon}}
-    % cmd.char chzeta: $\chzeta$
     \newcommand{\chzeta}{\check{\zeta}}
-    % cmd.char cheta: $\cheta$
     \newcommand{\cheta}{\check{\eta}}
-    % cmd.char chtheta: $\chtheta$
     \newcommand{\chtheta}{\check{\theta}}
-    % cmd.char chvartheta: $\chvartheta$
     \newcommand{\chvartheta}{\check{\vartheta}}
-    % cmd.char chiota: $\chiota$
     \newcommand{\chiota}{\check{\iota}}
-    % cmd.char chkappa: $\chkappa$
     \newcommand{\chkappa}{\check{\kappa}}
-    % cmd.char chlambda: $\chlambda$
     \newcommand{\chlambda}{\check{\lambda}}
-    % cmd.char chmu: $\chmu$
     \newcommand{\chmu}{\check{\mu}}
-    % cmd.char chnu: $\chnu$
     \newcommand{\chnu}{\check{\nu}}
-    % cmd.char chxi: $\chxi$
     \newcommand{\chxi}{\check{\xi}}
-    % cmd.char chpi: $\chpi$
     \newcommand{\chpi}{\check{\pi}}
-    % cmd.char chvarpi: $\chvarpi$
     \newcommand{\chvarpi}{\check{\varpi}}
-    % cmd.char chrho: $\chrho$
     \newcommand{\chrho}{\check{\rho}}
-    % cmd.char chvarrho: $\chvarrho$
     \newcommand{\chvarrho}{\check{\varrho}}
-    % cmd.char chsigma: $\chsigma$
     \newcommand{\chsigma}{\check{\sigma}}
-    % cmd.char chvarsigma: $\chvarsigma$
     \newcommand{\chvarsigma}{\check{\varsigma}}
-    % cmd.char chtau: $\chtau$
     \newcommand{\chtau}{\check{\tau}}
-    % cmd.char chupsilon: $\chupsilon$
     \newcommand{\chupsilon}{\check{\upsilon}}
-    % cmd.char chphi: $\chphi$
     \newcommand{\chphi}{\check{\phi}}
-    % cmd.char chvarphi: $\chvarphi$
     \newcommand{\chvarphi}{\check{\varphi}}
-    % cmd.char chchi: $\chchi$
     \newcommand{\chchi}{\check{\chi}}
-    % cmd.char chpsi: $\chpsi$
     \newcommand{\chpsi}{\check{\psi}}
-    % cmd.char chomega: $\chomega$
     \newcommand{\chomega}{\check{\omega}}
-    % cmd.char chGamma: $\chGamma$
     \newcommand{\chGamma}{\check{\Gamma}}
-    % cmd.char chDelta: $\chDelta$
     \newcommand{\chDelta}{\check{\Delta}}
-    % cmd.char chTheta: $\chTheta$
     \newcommand{\chTheta}{\check{\Theta}}
-    % cmd.char chLambda: $\chLambda$
     \newcommand{\chLambda}{\check{\Lambda}}
-    % cmd.char chXi: $\chXi$
     \newcommand{\chXi}{\check{\Xi}}
-    % cmd.char chPi: $\chPi$
     \newcommand{\chPi}{\check{\Pi}}
-    % cmd.char chSigma: $\chSigma$
     \newcommand{\chSigma}{\check{\Sigma}}
-    % cmd.char chUpsilon: $\chUpsilon$
     \newcommand{\chUpsilon}{\check{\Upsilon}}
-    % cmd.char chPhi: $\chPhi$
     \newcommand{\chPhi}{\check{\Phi}}
-    % cmd.char chPsi: $\chPsi$
     \newcommand{\chPsi}{\check{\Psi}}
-    % cmd.char chOmega: $\chOmega$
     \newcommand{\chOmega}{\check{\Omega}}
 
 %% --------------------
 %% vec
 %% --------------------
 
-    % cmd.char vecalpha: $\vecalpha$
     \newcommand{\vecalpha}{\vec{\alpha}}
-    % cmd.char vecbeta: $\vecbeta$
     \newcommand{\vecbeta}{\vec{\beta}}
-    % cmd.char vecgamma: $\vecgamma$
     \newcommand{\vecgamma}{\vec{\gamma}}
-    % cmd.char vecdelta: $\vecdelta$
     \newcommand{\vecdelta}{\vec{\delta}}
-    % cmd.char vecvarepsilon: $\vecvarepsilon$
     \newcommand{\vecvarepsilon}{\vec{\varepsilon}}
-    % cmd.char vecepsilon: $\vecepsilon$
     \newcommand{\vecepsilon}{\vec{\epsilon}}
-    % cmd.char veczeta: $\veczeta$
     \newcommand{\veczeta}{\vec{\zeta}}
-    % cmd.char veceta: $\veceta$
     \newcommand{\veceta}{\vec{\eta}}
-    % cmd.char vectheta: $\vectheta$
     \newcommand{\vectheta}{\vec{\theta}}
-    % cmd.char vecvartheta: $\vecvartheta$
     \newcommand{\vecvartheta}{\vec{\vartheta}}
-    % cmd.char veciota: $\veciota$
     \newcommand{\veciota}{\vec{\iota}}
-    % cmd.char veckappa: $\veckappa$
     \newcommand{\veckappa}{\vec{\kappa}}
-    % cmd.char veclambda: $\veclambda$
     \newcommand{\veclambda}{\vec{\lambda}}
-    % cmd.char vecmu: $\vecmu$
     \newcommand{\vecmu}{\vec{\mu}}
-    % cmd.char vecnu: $\vecnu$
     \newcommand{\vecnu}{\vec{\nu}}
-    % cmd.char vecxi: $\vecxi$
     \newcommand{\vecxi}{\vec{\xi}}
-    % cmd.char vecpi: $\vecpi$
     \newcommand{\vecpi}{\vec{\pi}}
-    % cmd.char vecvarpi: $\vecvarpi$
     \newcommand{\vecvarpi}{\vec{\varpi}}
-    % cmd.char vecrho: $\vecrho$
     \newcommand{\vecrho}{\vec{\rho}}
-    % cmd.char vecvarrho: $\vecvarrho$
     \newcommand{\vecvarrho}{\vec{\varrho}}
-    % cmd.char vecsigma: $\vecsigma$
     \newcommand{\vecsigma}{\vec{\sigma}}
-    % cmd.char vecvarsigma: $\vecvarsigma$
     \newcommand{\vecvarsigma}{\vec{\varsigma}}
-    % cmd.char vectau: $\vectau$
     \newcommand{\vectau}{\vec{\tau}}
-    % cmd.char vecupsilon: $\vecupsilon$
     \newcommand{\vecupsilon}{\vec{\upsilon}}
-    % cmd.char vecphi: $\vecphi$
     \newcommand{\vecphi}{\vec{\phi}}
-    % cmd.char vecvarphi: $\vecvarphi$
     \newcommand{\vecvarphi}{\vec{\varphi}}
-    % cmd.char vecchi: $\vecchi$
     \newcommand{\vecchi}{\vec{\chi}}
-    % cmd.char vecpsi: $\vecpsi$
     \newcommand{\vecpsi}{\vec{\psi}}
-    % cmd.char vecomega: $\vecomega$
     \newcommand{\vecomega}{\vec{\omega}}
-    % cmd.char vecGamma: $\vecGamma$
     \newcommand{\vecGamma}{\vec{\Gamma}}
-    % cmd.char vecDelta: $\vecDelta$
     \newcommand{\vecDelta}{\vec{\Delta}}
-    % cmd.char vecTheta: $\vecTheta$
     \newcommand{\vecTheta}{\vec{\Theta}}
-    % cmd.char vecLambda: $\vecLambda$
     \newcommand{\vecLambda}{\vec{\Lambda}}
-    % cmd.char vecXi: $\vecXi$
     \newcommand{\vecXi}{\vec{\Xi}}
-    % cmd.char vecPi: $\vecPi$
     \newcommand{\vecPi}{\vec{\Pi}}
-    % cmd.char vecSigma: $\vecSigma$
     \newcommand{\vecSigma}{\vec{\Sigma}}
-    % cmd.char vecUpsilon: $\vecUpsilon$
     \newcommand{\vecUpsilon}{\vec{\Upsilon}}
-    % cmd.char vecPhi: $\vecPhi$
     \newcommand{\vecPhi}{\vec{\Phi}}
-    % cmd.char vecPsi: $\vecPsi$
     \newcommand{\vecPsi}{\vec{\Psi}}
-    % cmd.char vecOmega: $\vecOmega$
     \newcommand{\vecOmega}{\vec{\Omega}}
 
 %% --------------------
 %% hat
 %% --------------------
 
-    % cmd.char hatalpha: $\hatalpha$
     \newcommand{\hatalpha}{\hat{\alpha}}
-    % cmd.char hatbeta: $\hatbeta$
     \newcommand{\hatbeta}{\hat{\beta}}
-    % cmd.char hatgamma: $\hatgamma$
     \newcommand{\hatgamma}{\hat{\gamma}}
-    % cmd.char hatdelta: $\hatdelta$
     \newcommand{\hatdelta}{\hat{\delta}}
-    % cmd.char hatvarepsilon: $\hatvarepsilon$
     \newcommand{\hatvarepsilon}{\hat{\varepsilon}}
-    % cmd.char hatepsilon: $\hatepsilon$
     \newcommand{\hatepsilon}{\hat{\epsilon}}
-    % cmd.char hatzeta: $\hatzeta$
     \newcommand{\hatzeta}{\hat{\zeta}}
-    % cmd.char hateta: $\hateta$
     \newcommand{\hateta}{\hat{\eta}}
-    % cmd.char hattheta: $\hattheta$
     \newcommand{\hattheta}{\hat{\theta}}
-    % cmd.char hatvartheta: $\hatvartheta$
     \newcommand{\hatvartheta}{\hat{\vartheta}}
-    % cmd.char hatiota: $\hatiota$
     \newcommand{\hatiota}{\hat{\iota}}
-    % cmd.char hatkappa: $\hatkappa$
     \newcommand{\hatkappa}{\hat{\kappa}}
-    % cmd.char hatlambda: $\hatlambda$
     \newcommand{\hatlambda}{\hat{\lambda}}
-    % cmd.char hatmu: $\hatmu$
     \newcommand{\hatmu}{\hat{\mu}}
-    % cmd.char hatnu: $\hatnu$
     \newcommand{\hatnu}{\hat{\nu}}
-    % cmd.char hatxi: $\hatxi$
     \newcommand{\hatxi}{\hat{\xi}}
-    % cmd.char hatpi: $\hatpi$
     \newcommand{\hatpi}{\hat{\pi}}
-    % cmd.char hatvarpi: $\hatvarpi$
     \newcommand{\hatvarpi}{\hat{\varpi}}
-    % cmd.char hatrho: $\hatrho$
     \newcommand{\hatrho}{\hat{\rho}}
-    % cmd.char hatvarrho: $\hatvarrho$
     \newcommand{\hatvarrho}{\hat{\varrho}}
-    % cmd.char hatsigma: $\hatsigma$
     \newcommand{\hatsigma}{\hat{\sigma}}
-    % cmd.char hatvarsigma: $\hatvarsigma$
     \newcommand{\hatvarsigma}{\hat{\varsigma}}
-    % cmd.char hattau: $\hattau$
     \newcommand{\hattau}{\hat{\tau}}
-    % cmd.char hatupsilon: $\hatupsilon$
     \newcommand{\hatupsilon}{\hat{\upsilon}}
-    % cmd.char hatphi: $\hatphi$
     \newcommand{\hatphi}{\hat{\phi}}
-    % cmd.char hatvarphi: $\hatvarphi$
     \newcommand{\hatvarphi}{\hat{\varphi}}
-    % cmd.char hatchi: $\hatchi$
     \newcommand{\hatchi}{\hat{\chi}}
-    % cmd.char hatpsi: $\hatpsi$
     \newcommand{\hatpsi}{\hat{\psi}}
-    % cmd.char hatomega: $\hatomega$
     \newcommand{\hatomega}{\hat{\omega}}
-    % cmd.char hatGamma: $\hatGamma$
     \newcommand{\hatGamma}{\hat{\Gamma}}
-    % cmd.char hatDelta: $\hatDelta$
     \newcommand{\hatDelta}{\hat{\Delta}}
-    % cmd.char hatTheta: $\hatTheta$
     \newcommand{\hatTheta}{\hat{\Theta}}
-    % cmd.char hatLambda: $\hatLambda$
     \newcommand{\hatLambda}{\hat{\Lambda}}
-    % cmd.char hatXi: $\hatXi$
     \newcommand{\hatXi}{\hat{\Xi}}
-    % cmd.char hatPi: $\hatPi$
     \newcommand{\hatPi}{\hat{\Pi}}
-    % cmd.char hatSigma: $\hatSigma$
     \newcommand{\hatSigma}{\hat{\Sigma}}
-    % cmd.char hatUpsilon: $\hatUpsilon$
     \newcommand{\hatUpsilon}{\hat{\Upsilon}}
-    % cmd.char hatPhi: $\hatPhi$
     \newcommand{\hatPhi}{\hat{\Phi}}
-    % cmd.char hatPsi: $\hatPsi$
     \newcommand{\hatPsi}{\hat{\Psi}}
-    % cmd.char hatOmega: $\hatOmega$
     \newcommand{\hatOmega}{\hat{\Omega}}
 
 %% --------------------
 %% dot
 %% --------------------
 
-    % cmd.char dotalpha: $\dotalpha$
     \newcommand{\dotalpha}{\dot{\alpha}}
-    % cmd.char dotbeta: $\dotbeta$
     \newcommand{\dotbeta}{\dot{\beta}}
-    % cmd.char dotgamma: $\dotgamma$
     \newcommand{\dotgamma}{\dot{\gamma}}
-    % cmd.char dotdelta: $\dotdelta$
     \newcommand{\dotdelta}{\dot{\delta}}
-    % cmd.char dotvarepsilon: $\dotvarepsilon$
     \newcommand{\dotvarepsilon}{\dot{\varepsilon}}
-    % cmd.char dotepsilon: $\dotepsilon$
     \newcommand{\dotepsilon}{\dot{\epsilon}}
-    % cmd.char dotzeta: $\dotzeta$
     \newcommand{\dotzeta}{\dot{\zeta}}
-    % cmd.char doteta: $\doteta$
     \newcommand{\doteta}{\dot{\eta}}
-    % cmd.char dottheta: $\dottheta$
     \newcommand{\dottheta}{\dot{\theta}}
-    % cmd.char dotvartheta: $\dotvartheta$
     \newcommand{\dotvartheta}{\dot{\vartheta}}
-    % cmd.char dotiota: $\dotiota$
     \newcommand{\dotiota}{\dot{\iota}}
-    % cmd.char dotkappa: $\dotkappa$
     \newcommand{\dotkappa}{\dot{\kappa}}
-    % cmd.char dotlambda: $\dotlambda$
     \newcommand{\dotlambda}{\dot{\lambda}}
-    % cmd.char dotmu: $\dotmu$
     \newcommand{\dotmu}{\dot{\mu}}
-    % cmd.char dotnu: $\dotnu$
     \newcommand{\dotnu}{\dot{\nu}}
-    % cmd.char dotxi: $\dotxi$
     \newcommand{\dotxi}{\dot{\xi}}
-    % cmd.char dotpi: $\dotpi$
     \newcommand{\dotpi}{\dot{\pi}}
-    % cmd.char dotvarpi: $\dotvarpi$
     \newcommand{\dotvarpi}{\dot{\varpi}}
-    % cmd.char dotrho: $\dotrho$
     \newcommand{\dotrho}{\dot{\rho}}
-    % cmd.char dotvarrho: $\dotvarrho$
     \newcommand{\dotvarrho}{\dot{\varrho}}
-    % cmd.char dotsigma: $\dotsigma$
     \newcommand{\dotsigma}{\dot{\sigma}}
-    % cmd.char dotvarsigma: $\dotvarsigma$
     \newcommand{\dotvarsigma}{\dot{\varsigma}}
-    % cmd.char dottau: $\dottau$
     \newcommand{\dottau}{\dot{\tau}}
-    % cmd.char dotupsilon: $\dotupsilon$
     \newcommand{\dotupsilon}{\dot{\upsilon}}
-    % cmd.char dotphi: $\dotphi$
     \newcommand{\dotphi}{\dot{\phi}}
-    % cmd.char dotvarphi: $\dotvarphi$
     \newcommand{\dotvarphi}{\dot{\varphi}}
-    % cmd.char dotchi: $\dotchi$
     \newcommand{\dotchi}{\dot{\chi}}
-    % cmd.char dotpsi: $\dotpsi$
     \newcommand{\dotpsi}{\dot{\psi}}
-    % cmd.char dotomega: $\dotomega$
     \newcommand{\dotomega}{\dot{\omega}}
-    % cmd.char dotGamma: $\dotGamma$
     \newcommand{\dotGamma}{\dot{\Gamma}}
-    % cmd.char dotDelta: $\dotDelta$
     \newcommand{\dotDelta}{\dot{\Delta}}
-    % cmd.char dotTheta: $\dotTheta$
     \newcommand{\dotTheta}{\dot{\Theta}}
-    % cmd.char dotLambda: $\dotLambda$
     \newcommand{\dotLambda}{\dot{\Lambda}}
-    % cmd.char dotXi: $\dotXi$
     \newcommand{\dotXi}{\dot{\Xi}}
-    % cmd.char dotPi: $\dotPi$
     \newcommand{\dotPi}{\dot{\Pi}}
-    % cmd.char dotSigma: $\dotSigma$
     \newcommand{\dotSigma}{\dot{\Sigma}}
-    % cmd.char dotUpsilon: $\dotUpsilon$
     \newcommand{\dotUpsilon}{\dot{\Upsilon}}
-    % cmd.char dotPhi: $\dotPhi$
     \newcommand{\dotPhi}{\dot{\Phi}}
-    % cmd.char dotPsi: $\dotPsi$
     \newcommand{\dotPsi}{\dot{\Psi}}
-    % cmd.char dotOmega: $\dotOmega$
     \newcommand{\dotOmega}{\dot{\Omega}}
 
 %% --------------------
 %% ddot
 %% --------------------
 
-    % cmd.char ddotalpha: $\ddotalpha$
     \newcommand{\ddotalpha}{\ddot{\alpha}}
-    % cmd.char ddotbeta: $\ddotbeta$
     \newcommand{\ddotbeta}{\ddot{\beta}}
-    % cmd.char ddotgamma: $\ddotgamma$
     \newcommand{\ddotgamma}{\ddot{\gamma}}
-    % cmd.char ddotdelta: $\ddotdelta$
     \newcommand{\ddotdelta}{\ddot{\delta}}
-    % cmd.char ddotvarepsilon: $\ddotvarepsilon$
     \newcommand{\ddotvarepsilon}{\ddot{\varepsilon}}
-    % cmd.char ddotepsilon: $\ddotepsilon$
     \newcommand{\ddotepsilon}{\ddot{\epsilon}}
-    % cmd.char ddotzeta: $\ddotzeta$
     \newcommand{\ddotzeta}{\ddot{\zeta}}
-    % cmd.char ddoteta: $\ddoteta$
     \newcommand{\ddoteta}{\ddot{\eta}}
-    % cmd.char ddottheta: $\ddottheta$
     \newcommand{\ddottheta}{\ddot{\theta}}
-    % cmd.char ddotvartheta: $\ddotvartheta$
     \newcommand{\ddotvartheta}{\ddot{\vartheta}}
-    % cmd.char ddotiota: $\ddotiota$
     \newcommand{\ddotiota}{\ddot{\iota}}
-    % cmd.char ddotkappa: $\ddotkappa$
     \newcommand{\ddotkappa}{\ddot{\kappa}}
-    % cmd.char ddotlambda: $\ddotlambda$
     \newcommand{\ddotlambda}{\ddot{\lambda}}
-    % cmd.char ddotmu: $\ddotmu$
     \newcommand{\ddotmu}{\ddot{\mu}}
-    % cmd.char ddotnu: $\ddotnu$
     \newcommand{\ddotnu}{\ddot{\nu}}
-    % cmd.char ddotxi: $\ddotxi$
     \newcommand{\ddotxi}{\ddot{\xi}}
-    % cmd.char ddotpi: $\ddotpi$
     \newcommand{\ddotpi}{\ddot{\pi}}
-    % cmd.char ddotvarpi: $\ddotvarpi$
     \newcommand{\ddotvarpi}{\ddot{\varpi}}
-    % cmd.char ddotrho: $\ddotrho$
     \newcommand{\ddotrho}{\ddot{\rho}}
-    % cmd.char ddotvarrho: $\ddotvarrho$
     \newcommand{\ddotvarrho}{\ddot{\varrho}}
-    % cmd.char ddotsigma: $\ddotsigma$
     \newcommand{\ddotsigma}{\ddot{\sigma}}
-    % cmd.char ddotvarsigma: $\ddotvarsigma$
     \newcommand{\ddotvarsigma}{\ddot{\varsigma}}
-    % cmd.char ddottau: $\ddottau$
     \newcommand{\ddottau}{\ddot{\tau}}
-    % cmd.char ddotupsilon: $\ddotupsilon$
     \newcommand{\ddotupsilon}{\ddot{\upsilon}}
-    % cmd.char ddotphi: $\ddotphi$
     \newcommand{\ddotphi}{\ddot{\phi}}
-    % cmd.char ddotvarphi: $\ddotvarphi$
     \newcommand{\ddotvarphi}{\ddot{\varphi}}
-    % cmd.char ddotchi: $\ddotchi$
     \newcommand{\ddotchi}{\ddot{\chi}}
-    % cmd.char ddotpsi: $\ddotpsi$
     \newcommand{\ddotpsi}{\ddot{\psi}}
-    % cmd.char ddotomega: $\ddotomega$
     \newcommand{\ddotomega}{\ddot{\omega}}
-    % cmd.char ddotGamma: $\ddotGamma$
     \newcommand{\ddotGamma}{\ddot{\Gamma}}
-    % cmd.char ddotDelta: $\ddotDelta$
     \newcommand{\ddotDelta}{\ddot{\Delta}}
-    % cmd.char ddotTheta: $\ddotTheta$
     \newcommand{\ddotTheta}{\ddot{\Theta}}
-    % cmd.char ddotLambda: $\ddotLambda$
     \newcommand{\ddotLambda}{\ddot{\Lambda}}
-    % cmd.char ddotXi: $\ddotXi$
     \newcommand{\ddotXi}{\ddot{\Xi}}
-    % cmd.char ddotPi: $\ddotPi$
     \newcommand{\ddotPi}{\ddot{\Pi}}
-    % cmd.char ddotSigma: $\ddotSigma$
     \newcommand{\ddotSigma}{\ddot{\Sigma}}
-    % cmd.char ddotUpsilon: $\ddotUpsilon$
     \newcommand{\ddotUpsilon}{\ddot{\Upsilon}}
-    % cmd.char ddotPhi: $\ddotPhi$
     \newcommand{\ddotPhi}{\ddot{\Phi}}
-    % cmd.char ddotPsi: $\ddotPsi$
     \newcommand{\ddotPsi}{\ddot{\Psi}}
-    % cmd.char ddotOmega: $\ddotOmega$
     \newcommand{\ddotOmega}{\ddot{\Omega}}
 
 %% --------------------
 %% tild
 %% --------------------
 
-    % cmd.char tildalpha: $\tildalpha$
     \newcommand{\tildalpha}{\tilde{\alpha}}
-    % cmd.char tildbeta: $\tildbeta$
     \newcommand{\tildbeta}{\tilde{\beta}}
-    % cmd.char tildgamma: $\tildgamma$
     \newcommand{\tildgamma}{\tilde{\gamma}}
-    % cmd.char tilddelta: $\tilddelta$
     \newcommand{\tilddelta}{\tilde{\delta}}
-    % cmd.char tildvarepsilon: $\tildvarepsilon$
     \newcommand{\tildvarepsilon}{\tilde{\varepsilon}}
-    % cmd.char tildepsilon: $\tildepsilon$
     \newcommand{\tildepsilon}{\tilde{\epsilon}}
-    % cmd.char tildzeta: $\tildzeta$
     \newcommand{\tildzeta}{\tilde{\zeta}}
-    % cmd.char tildeta: $\tildeta$
     \newcommand{\tildeta}{\tilde{\eta}}
-    % cmd.char tildtheta: $\tildtheta$
     \newcommand{\tildtheta}{\tilde{\theta}}
-    % cmd.char tildvartheta: $\tildvartheta$
     \newcommand{\tildvartheta}{\tilde{\vartheta}}
-    % cmd.char tildiota: $\tildiota$
     \newcommand{\tildiota}{\tilde{\iota}}
-    % cmd.char tildkappa: $\tildkappa$
     \newcommand{\tildkappa}{\tilde{\kappa}}
-    % cmd.char tildlambda: $\tildlambda$
     \newcommand{\tildlambda}{\tilde{\lambda}}
-    % cmd.char tildmu: $\tildmu$
     \newcommand{\tildmu}{\tilde{\mu}}
-    % cmd.char tildnu: $\tildnu$
     \newcommand{\tildnu}{\tilde{\nu}}
-    % cmd.char tildxi: $\tildxi$
     \newcommand{\tildxi}{\tilde{\xi}}
-    % cmd.char tildpi: $\tildpi$
     \newcommand{\tildpi}{\tilde{\pi}}
-    % cmd.char tildvarpi: $\tildvarpi$
     \newcommand{\tildvarpi}{\tilde{\varpi}}
-    % cmd.char tildrho: $\tildrho$
     \newcommand{\tildrho}{\tilde{\rho}}
-    % cmd.char tildvarrho: $\tildvarrho$
     \newcommand{\tildvarrho}{\tilde{\varrho}}
-    % cmd.char tildsigma: $\tildsigma$
     \newcommand{\tildsigma}{\tilde{\sigma}}
-    % cmd.char tildvarsigma: $\tildvarsigma$
     \newcommand{\tildvarsigma}{\tilde{\varsigma}}
-    % cmd.char tildtau: $\tildtau$
     \newcommand{\tildtau}{\tilde{\tau}}
-    % cmd.char tildupsilon: $\tildupsilon$
     \newcommand{\tildupsilon}{\tilde{\upsilon}}
-    % cmd.char tildphi: $\tildphi$
     \newcommand{\tildphi}{\tilde{\phi}}
-    % cmd.char tildvarphi: $\tildvarphi$
     \newcommand{\tildvarphi}{\tilde{\varphi}}
-    % cmd.char tildchi: $\tildchi$
     \newcommand{\tildchi}{\tilde{\chi}}
-    % cmd.char tildpsi: $\tildpsi$
     \newcommand{\tildpsi}{\tilde{\psi}}
-    % cmd.char tildomega: $\tildomega$
     \newcommand{\tildomega}{\tilde{\omega}}
-    % cmd.char tildGamma: $\tildGamma$
     \newcommand{\tildGamma}{\tilde{\Gamma}}
-    % cmd.char tildDelta: $\tildDelta$
     \newcommand{\tildDelta}{\tilde{\Delta}}
-    % cmd.char tildTheta: $\tildTheta$
     \newcommand{\tildTheta}{\tilde{\Theta}}
-    % cmd.char tildLambda: $\tildLambda$
     \newcommand{\tildLambda}{\tilde{\Lambda}}
-    % cmd.char tildXi: $\tildXi$
     \newcommand{\tildXi}{\tilde{\Xi}}
-    % cmd.char tildPi: $\tildPi$
     \newcommand{\tildPi}{\tilde{\Pi}}
-    % cmd.char tildSigma: $\tildSigma$
     \newcommand{\tildSigma}{\tilde{\Sigma}}
-    % cmd.char tildUpsilon: $\tildUpsilon$
     \newcommand{\tildUpsilon}{\tilde{\Upsilon}}
-    % cmd.char tildPhi: $\tildPhi$
     \newcommand{\tildPhi}{\tilde{\Phi}}
-    % cmd.char tildPsi: $\tildPsi$
     \newcommand{\tildPsi}{\tilde{\Psi}}
-    % cmd.char tildOmega: $\tildOmega$
     \newcommand{\tildOmega}{\tilde{\Omega}}
 
 %% --------------------
 %% bar
 %% --------------------
 
-    % cmd.char baralpha: $\baralpha$
     \newcommand{\baralpha}{\bar{\alpha}}
-    % cmd.char barbeta: $\barbeta$
     \newcommand{\barbeta}{\bar{\beta}}
-    % cmd.char bargamma: $\bargamma$
     \newcommand{\bargamma}{\bar{\gamma}}
-    % cmd.char bardelta: $\bardelta$
     \newcommand{\bardelta}{\bar{\delta}}
-    % cmd.char barvarepsilon: $\barvarepsilon$
     \newcommand{\barvarepsilon}{\bar{\varepsilon}}
-    % cmd.char barepsilon: $\barepsilon$
     \newcommand{\barepsilon}{\bar{\epsilon}}
-    % cmd.char barzeta: $\barzeta$
     \newcommand{\barzeta}{\bar{\zeta}}
-    % cmd.char bareta: $\bareta$
     \newcommand{\bareta}{\bar{\eta}}
-    % cmd.char bartheta: $\bartheta$
     \newcommand{\bartheta}{\bar{\theta}}
-    % cmd.char barvartheta: $\barvartheta$
     \newcommand{\barvartheta}{\bar{\vartheta}}
-    % cmd.char bariota: $\bariota$
     \newcommand{\bariota}{\bar{\iota}}
-    % cmd.char barkappa: $\barkappa$
     \newcommand{\barkappa}{\bar{\kappa}}
-    % cmd.char barlambda: $\barlambda$
     \newcommand{\barlambda}{\bar{\lambda}}
-    % cmd.char barmu: $\barmu$
     \newcommand{\barmu}{\bar{\mu}}
-    % cmd.char barnu: $\barnu$
     \newcommand{\barnu}{\bar{\nu}}
-    % cmd.char barxi: $\barxi$
     \newcommand{\barxi}{\bar{\xi}}
-    % cmd.char barpi: $\barpi$
     \newcommand{\barpi}{\bar{\pi}}
-    % cmd.char barvarpi: $\barvarpi$
     \newcommand{\barvarpi}{\bar{\varpi}}
-    % cmd.char barrho: $\barrho$
     \newcommand{\barrho}{\bar{\rho}}
-    % cmd.char barvarrho: $\barvarrho$
     \newcommand{\barvarrho}{\bar{\varrho}}
-    % cmd.char barsigma: $\barsigma$
     \newcommand{\barsigma}{\bar{\sigma}}
-    % cmd.char barvarsigma: $\barvarsigma$
     \newcommand{\barvarsigma}{\bar{\varsigma}}
-    % cmd.char bartau: $\bartau$
     \newcommand{\bartau}{\bar{\tau}}
-    % cmd.char barupsilon: $\barupsilon$
     \newcommand{\barupsilon}{\bar{\upsilon}}
-    % cmd.char barphi: $\barphi$
     \newcommand{\barphi}{\bar{\phi}}
-    % cmd.char barvarphi: $\barvarphi$
     \newcommand{\barvarphi}{\bar{\varphi}}
-    % cmd.char barchi: $\barchi$
     \newcommand{\barchi}{\bar{\chi}}
-    % cmd.char barpsi: $\barpsi$
     \newcommand{\barpsi}{\bar{\psi}}
-    % cmd.char baromega: $\baromega$
     \newcommand{\baromega}{\bar{\omega}}
-    % cmd.char barGamma: $\barGamma$
     \newcommand{\barGamma}{\bar{\Gamma}}
-    % cmd.char barDelta: $\barDelta$
     \newcommand{\barDelta}{\bar{\Delta}}
-    % cmd.char barTheta: $\barTheta$
     \newcommand{\barTheta}{\bar{\Theta}}
-    % cmd.char barLambda: $\barLambda$
     \newcommand{\barLambda}{\bar{\Lambda}}
-    % cmd.char barXi: $\barXi$
     \newcommand{\barXi}{\bar{\Xi}}
-    % cmd.char barPi: $\barPi$
     \newcommand{\barPi}{\bar{\Pi}}
-    % cmd.char barSigma: $\barSigma$
     \newcommand{\barSigma}{\bar{\Sigma}}
-    % cmd.char barUpsilon: $\barUpsilon$
     \newcommand{\barUpsilon}{\bar{\Upsilon}}
-    % cmd.char barPhi: $\barPhi$
     \newcommand{\barPhi}{\bar{\Phi}}
-    % cmd.char barPsi: $\barPsi$
     \newcommand{\barPsi}{\bar{\Psi}}
-    % cmd.char barOmega: $\barOmega$
     \newcommand{\barOmega}{\bar{\Omega}}
 
 %% --------------------
 %% bbar
 %% --------------------
 
-    % cmd.char bbaralpha: $\bbaralpha$
     \newcommand{\bbaralpha}{\bar{\bar{\alpha}}}
-    % cmd.char bbarbeta: $\bbarbeta$
     \newcommand{\bbarbeta}{\bar{\bar{\beta}}}
-    % cmd.char bbargamma: $\bbargamma$
     \newcommand{\bbargamma}{\bar{\bar{\gamma}}}
-    % cmd.char bbardelta: $\bbardelta$
     \newcommand{\bbardelta}{\bar{\bar{\delta}}}
-    % cmd.char bbarvarepsilon: $\bbarvarepsilon$
     \newcommand{\bbarvarepsilon}{\bar{\bar{\varepsilon}}}
-    % cmd.char bbarepsilon: $\bbarepsilon$
     \newcommand{\bbarepsilon}{\bar{\bar{\epsilon}}}
-    % cmd.char bbarzeta: $\bbarzeta$
     \newcommand{\bbarzeta}{\bar{\bar{\zeta}}}
-    % cmd.char bbareta: $\bbareta$
     \newcommand{\bbareta}{\bar{\bar{\eta}}}
-    % cmd.char bbartheta: $\bbartheta$
     \newcommand{\bbartheta}{\bar{\bar{\theta}}}
-    % cmd.char bbarvartheta: $\bbarvartheta$
     \newcommand{\bbarvartheta}{\bar{\bar{\vartheta}}}
-    % cmd.char bbariota: $\bbariota$
     \newcommand{\bbariota}{\bar{\bar{\iota}}}
-    % cmd.char bbarkappa: $\bbarkappa$
     \newcommand{\bbarkappa}{\bar{\bar{\kappa}}}
-    % cmd.char bbarlambda: $\bbarlambda$
     \newcommand{\bbarlambda}{\bar{\bar{\lambda}}}
-    % cmd.char bbarmu: $\bbarmu$
     \newcommand{\bbarmu}{\bar{\bar{\mu}}}
-    % cmd.char bbarnu: $\bbarnu$
     \newcommand{\bbarnu}{\bar{\bar{\nu}}}
-    % cmd.char bbarxi: $\bbarxi$
     \newcommand{\bbarxi}{\bar{\bar{\xi}}}
-    % cmd.char bbarpi: $\bbarpi$
     \newcommand{\bbarpi}{\bar{\bar{\pi}}}
-    % cmd.char bbarvarpi: $\bbarvarpi$
     \newcommand{\bbarvarpi}{\bar{\bar{\varpi}}}
-    % cmd.char bbarrho: $\bbarrho$
     \newcommand{\bbarrho}{\bar{\bar{\rho}}}
-    % cmd.char bbarvarrho: $\bbarvarrho$
     \newcommand{\bbarvarrho}{\bar{\bar{\varrho}}}
-    % cmd.char bbarsigma: $\bbarsigma$
     \newcommand{\bbarsigma}{\bar{\bar{\sigma}}}
-    % cmd.char bbarvarsigma: $\bbarvarsigma$
     \newcommand{\bbarvarsigma}{\bar{\bar{\varsigma}}}
-    % cmd.char bbartau: $\bbartau$
     \newcommand{\bbartau}{\bar{\bar{\tau}}}
-    % cmd.char bbarupsilon: $\bbarupsilon$
     \newcommand{\bbarupsilon}{\bar{\bar{\upsilon}}}
-    % cmd.char bbarphi: $\bbarphi$
     \newcommand{\bbarphi}{\bar{\bar{\phi}}}
-    % cmd.char bbarvarphi: $\bbarvarphi$
     \newcommand{\bbarvarphi}{\bar{\bar{\varphi}}}
-    % cmd.char bbarchi: $\bbarchi$
     \newcommand{\bbarchi}{\bar{\bar{\chi}}}
-    % cmd.char bbarpsi: $\bbarpsi$
     \newcommand{\bbarpsi}{\bar{\bar{\psi}}}
-    % cmd.char bbaromega: $\bbaromega$
     \newcommand{\bbaromega}{\bar{\bar{\omega}}}
-    % cmd.char bbarGamma: $\bbarGamma$
     \newcommand{\bbarGamma}{\bar{\bar{\Gamma}}}
-    % cmd.char bbarDelta: $\bbarDelta$
     \newcommand{\bbarDelta}{\bar{\bar{\Delta}}}
-    % cmd.char bbarTheta: $\bbarTheta$
     \newcommand{\bbarTheta}{\bar{\bar{\Theta}}}
-    % cmd.char bbarLambda: $\bbarLambda$
     \newcommand{\bbarLambda}{\bar{\bar{\Lambda}}}
-    % cmd.char bbarXi: $\bbarXi$
     \newcommand{\bbarXi}{\bar{\bar{\Xi}}}
-    % cmd.char bbarPi: $\bbarPi$
     \newcommand{\bbarPi}{\bar{\bar{\Pi}}}
-    % cmd.char bbarSigma: $\bbarSigma$
     \newcommand{\bbarSigma}{\bar{\bar{\Sigma}}}
-    % cmd.char bbarUpsilon: $\bbarUpsilon$
     \newcommand{\bbarUpsilon}{\bar{\bar{\Upsilon}}}
-    % cmd.char bbarPhi: $\bbarPhi$
     \newcommand{\bbarPhi}{\bar{\bar{\Phi}}}
-    % cmd.char bbarPsi: $\bbarPsi$
     \newcommand{\bbarPsi}{\bar{\bar{\Psi}}}
-    % cmd.char bbarOmega: $\bbarOmega$
     \newcommand{\bbarOmega}{\bar{\bar{\Omega}}}
 
 %% --------------------
 %% u
 %% --------------------
 
-    % cmd.char ualpha: $\ualpha$
     \newcommand{\ualpha}{\underline{\alpha}}
-    % cmd.char ubeta: $\ubeta$
     \newcommand{\ubeta}{\underline{\beta}}
-    % cmd.char ugamma: $\ugamma$
     \newcommand{\ugamma}{\underline{\gamma}}
-    % cmd.char udelta: $\udelta$
     \newcommand{\udelta}{\underline{\delta}}
-    % cmd.char uvarepsilon: $\uvarepsilon$
     \newcommand{\uvarepsilon}{\underline{\varepsilon}}
-    % cmd.char uepsilon: $\uepsilon$
     \newcommand{\uepsilon}{\underline{\epsilon}}
-    % cmd.char uzeta: $\uzeta$
     \newcommand{\uzeta}{\underline{\zeta}}
-    % cmd.char ueta: $\ueta$
     \newcommand{\ueta}{\underline{\eta}}
-    % cmd.char utheta: $\utheta$
     \newcommand{\utheta}{\underline{\theta}}
-    % cmd.char uvartheta: $\uvartheta$
     \newcommand{\uvartheta}{\underline{\vartheta}}
-    % cmd.char uiota: $\uiota$
     \newcommand{\uiota}{\underline{\iota}}
-    % cmd.char ukappa: $\ukappa$
     \newcommand{\ukappa}{\underline{\kappa}}
-    % cmd.char ulambda: $\ulambda$
     \newcommand{\ulambda}{\underline{\lambda}}
-    % cmd.char umu: $\umu$
     \newcommand{\umu}{\underline{\mu}}
-    % cmd.char unu: $\unu$
     \newcommand{\unu}{\underline{\nu}}
-    % cmd.char uxi: $\uxi$
     \newcommand{\uxi}{\underline{\xi}}
-    % cmd.char upi: $\upi$
     \newcommand{\upi}{\underline{\pi}}
-    % cmd.char uvarpi: $\uvarpi$
     \newcommand{\uvarpi}{\underline{\varpi}}
-    % cmd.char urho: $\urho$
     \newcommand{\urho}{\underline{\rho}}
-    % cmd.char uvarrho: $\uvarrho$
     \newcommand{\uvarrho}{\underline{\varrho}}
-    % cmd.char usigma: $\usigma$
     \newcommand{\usigma}{\underline{\sigma}}
-    % cmd.char uvarsigma: $\uvarsigma$
     \newcommand{\uvarsigma}{\underline{\varsigma}}
-    % cmd.char utau: $\utau$
     \newcommand{\utau}{\underline{\tau}}
-    % cmd.char uupsilon: $\uupsilon$
     \newcommand{\uupsilon}{\underline{\upsilon}}
-    % cmd.char uphi: $\uphi$
     \newcommand{\uphi}{\underline{\phi}}
-    % cmd.char uvarphi: $\uvarphi$
     \newcommand{\uvarphi}{\underline{\varphi}}
-    % cmd.char uchi: $\uchi$
     \newcommand{\uchi}{\underline{\chi}}
-    % cmd.char upsi: $\upsi$
     \newcommand{\upsi}{\underline{\psi}}
-    % cmd.char uomega: $\uomega$
     \newcommand{\uomega}{\underline{\omega}}
-    % cmd.char uGamma: $\uGamma$
     \newcommand{\uGamma}{\underline{\Gamma}}
-    % cmd.char uDelta: $\uDelta$
     \newcommand{\uDelta}{\underline{\Delta}}
-    % cmd.char uTheta: $\uTheta$
     \newcommand{\uTheta}{\underline{\Theta}}
-    % cmd.char uLambda: $\uLambda$
     \newcommand{\uLambda}{\underline{\Lambda}}
-    % cmd.char uXi: $\uXi$
     \newcommand{\uXi}{\underline{\Xi}}
-    % cmd.char uPi: $\uPi$
     \newcommand{\uPi}{\underline{\Pi}}
-    % cmd.char uSigma: $\uSigma$
     \newcommand{\uSigma}{\underline{\Sigma}}
-    % cmd.char uUpsilon: $\uUpsilon$
     \newcommand{\uUpsilon}{\underline{\Upsilon}}
-    % cmd.char uPhi: $\uPhi$
     \newcommand{\uPhi}{\underline{\Phi}}
-    % cmd.char uPsi: $\uPsi$
     \newcommand{\uPsi}{\underline{\Psi}}
-    % cmd.char uOmega: $\uOmega$
     \newcommand{\uOmega}{\underline{\Omega}}
 
 %% --------------------
 %% uu
 %% --------------------
 
-    % cmd.char uualpha: $\uualpha$
     \newcommand{\uualpha}{\underline{\underline{\alpha}}}
-    % cmd.char uubeta: $\uubeta$
     \newcommand{\uubeta}{\underline{\underline{\beta}}}
-    % cmd.char uugamma: $\uugamma$
     \newcommand{\uugamma}{\underline{\underline{\gamma}}}
-    % cmd.char uudelta: $\uudelta$
     \newcommand{\uudelta}{\underline{\underline{\delta}}}
-    % cmd.char uuvarepsilon: $\uuvarepsilon$
     \newcommand{\uuvarepsilon}{\underline{\underline{\varepsilon}}}
-    % cmd.char uuepsilon: $\uuepsilon$
     \newcommand{\uuepsilon}{\underline{\underline{\epsilon}}}
-    % cmd.char uuzeta: $\uuzeta$
     \newcommand{\uuzeta}{\underline{\underline{\zeta}}}
-    % cmd.char uueta: $\uueta$
     \newcommand{\uueta}{\underline{\underline{\eta}}}
-    % cmd.char uutheta: $\uutheta$
     \newcommand{\uutheta}{\underline{\underline{\theta}}}
-    % cmd.char uuvartheta: $\uuvartheta$
     \newcommand{\uuvartheta}{\underline{\underline{\vartheta}}}
-    % cmd.char uuiota: $\uuiota$
     \newcommand{\uuiota}{\underline{\underline{\iota}}}
-    % cmd.char uukappa: $\uukappa$
     \newcommand{\uukappa}{\underline{\underline{\kappa}}}
-    % cmd.char uulambda: $\uulambda$
     \newcommand{\uulambda}{\underline{\underline{\lambda}}}
-    % cmd.char uumu: $\uumu$
     \newcommand{\uumu}{\underline{\underline{\mu}}}
-    % cmd.char uunu: $\uunu$
     \newcommand{\uunu}{\underline{\underline{\nu}}}
-    % cmd.char uuxi: $\uuxi$
     \newcommand{\uuxi}{\underline{\underline{\xi}}}
-    % cmd.char uupi: $\uupi$
     \newcommand{\uupi}{\underline{\underline{\pi}}}
-    % cmd.char uuvarpi: $\uuvarpi$
     \newcommand{\uuvarpi}{\underline{\underline{\varpi}}}
-    % cmd.char uurho: $\uurho$
     \newcommand{\uurho}{\underline{\underline{\rho}}}
-    % cmd.char uuvarrho: $\uuvarrho$
     \newcommand{\uuvarrho}{\underline{\underline{\varrho}}}
-    % cmd.char uusigma: $\uusigma$
     \newcommand{\uusigma}{\underline{\underline{\sigma}}}
-    % cmd.char uuvarsigma: $\uuvarsigma$
     \newcommand{\uuvarsigma}{\underline{\underline{\varsigma}}}
-    % cmd.char uutau: $\uutau$
     \newcommand{\uutau}{\underline{\underline{\tau}}}
-    % cmd.char uuupsilon: $\uuupsilon$
     \newcommand{\uuupsilon}{\underline{\underline{\upsilon}}}
-    % cmd.char uuphi: $\uuphi$
     \newcommand{\uuphi}{\underline{\underline{\phi}}}
-    % cmd.char uuvarphi: $\uuvarphi$
     \newcommand{\uuvarphi}{\underline{\underline{\varphi}}}
-    % cmd.char uuchi: $\uuchi$
     \newcommand{\uuchi}{\underline{\underline{\chi}}}
-    % cmd.char uupsi: $\uupsi$
     \newcommand{\uupsi}{\underline{\underline{\psi}}}
-    % cmd.char uuomega: $\uuomega$
     \newcommand{\uuomega}{\underline{\underline{\omega}}}
-    % cmd.char uuGamma: $\uuGamma$
     \newcommand{\uuGamma}{\underline{\underline{\Gamma}}}
-    % cmd.char uuDelta: $\uuDelta$
     \newcommand{\uuDelta}{\underline{\underline{\Delta}}}
-    % cmd.char uuTheta: $\uuTheta$
     \newcommand{\uuTheta}{\underline{\underline{\Theta}}}
-    % cmd.char uuLambda: $\uuLambda$
     \newcommand{\uuLambda}{\underline{\underline{\Lambda}}}
-    % cmd.char uuXi: $\uuXi$
     \newcommand{\uuXi}{\underline{\underline{\Xi}}}
-    % cmd.char uuPi: $\uuPi$
     \newcommand{\uuPi}{\underline{\underline{\Pi}}}
-    % cmd.char uuSigma: $\uuSigma$
     \newcommand{\uuSigma}{\underline{\underline{\Sigma}}}
-    % cmd.char uuUpsilon: $\uuUpsilon$
     \newcommand{\uuUpsilon}{\underline{\underline{\Upsilon}}}
-    % cmd.char uuPhi: $\uuPhi$
     \newcommand{\uuPhi}{\underline{\underline{\Phi}}}
-    % cmd.char uuPsi: $\uuPsi$
     \newcommand{\uuPsi}{\underline{\underline{\Psi}}}
-    % cmd.char uuOmega: $\uuOmega$
     \newcommand{\uuOmega}{\underline{\underline{\Omega}}}
 
 %% --------------------
 %% o
 %% --------------------
 
-    % cmd.char oalpha: $\oalpha$
     \newcommand{\oalpha}{\mathring{\alpha}}
-    % cmd.char obeta: $\obeta$
     \newcommand{\obeta}{\mathring{\beta}}
-    % cmd.char ogamma: $\ogamma$
     \newcommand{\ogamma}{\mathring{\gamma}}
-    % cmd.char odelta: $\odelta$
     \newcommand{\odelta}{\mathring{\delta}}
-    % cmd.char ovarepsilon: $\ovarepsilon$
     \newcommand{\ovarepsilon}{\mathring{\varepsilon}}
-    % cmd.char oepsilon: $\oepsilon$
     \newcommand{\oepsilon}{\mathring{\epsilon}}
-    % cmd.char ozeta: $\ozeta$
     \newcommand{\ozeta}{\mathring{\zeta}}
-    % cmd.char oeta: $\oeta$
     \newcommand{\oeta}{\mathring{\eta}}
-    % cmd.char otheta: $\otheta$
     \newcommand{\otheta}{\mathring{\theta}}
-    % cmd.char ovartheta: $\ovartheta$
     \newcommand{\ovartheta}{\mathring{\vartheta}}
-    % cmd.char oiota: $\oiota$
     \newcommand{\oiota}{\mathring{\iota}}
-    % cmd.char okappa: $\okappa$
     \newcommand{\okappa}{\mathring{\kappa}}
-    % cmd.char olambda: $\olambda$
     \newcommand{\olambda}{\mathring{\lambda}}
-    % cmd.char omu: $\omu$
     \newcommand{\omu}{\mathring{\mu}}
-    % cmd.char onu: $\onu$
     \newcommand{\onu}{\mathring{\nu}}
-    % cmd.char oxi: $\oxi$
     \newcommand{\oxi}{\mathring{\xi}}
-    % cmd.char opi: $\opi$
     \newcommand{\opi}{\mathring{\pi}}
-    % cmd.char ovarpi: $\ovarpi$
     \newcommand{\ovarpi}{\mathring{\varpi}}
-    % cmd.char orho: $\orho$
     \newcommand{\orho}{\mathring{\rho}}
-    % cmd.char ovarrho: $\ovarrho$
     \newcommand{\ovarrho}{\mathring{\varrho}}
-    % cmd.char osigma: $\osigma$
     \newcommand{\osigma}{\mathring{\sigma}}
-    % cmd.char ovarsigma: $\ovarsigma$
     \newcommand{\ovarsigma}{\mathring{\varsigma}}
-    % cmd.char otau: $\otau$
     \newcommand{\otau}{\mathring{\tau}}
-    % cmd.char oupsilon: $\oupsilon$
     \newcommand{\oupsilon}{\mathring{\upsilon}}
-    % cmd.char ophi: $\ophi$
     \newcommand{\ophi}{\mathring{\phi}}
-    % cmd.char ovarphi: $\ovarphi$
     \newcommand{\ovarphi}{\mathring{\varphi}}
-    % cmd.char ochi: $\ochi$
     \newcommand{\ochi}{\mathring{\chi}}
-    % cmd.char opsi: $\opsi$
     \newcommand{\opsi}{\mathring{\psi}}
-    % cmd.char oomega: $\oomega$
     \newcommand{\oomega}{\mathring{\omega}}
-    % cmd.char oGamma: $\oGamma$
     \newcommand{\oGamma}{\mathring{\Gamma}}
-    % cmd.char oDelta: $\oDelta$
     \newcommand{\oDelta}{\mathring{\Delta}}
-    % cmd.char oTheta: $\oTheta$
     \newcommand{\oTheta}{\mathring{\Theta}}
-    % cmd.char oLambda: $\oLambda$
     \newcommand{\oLambda}{\mathring{\Lambda}}
-    % cmd.char oXi: $\oXi$
     \newcommand{\oXi}{\mathring{\Xi}}
-    % cmd.char oPi: $\oPi$
     \newcommand{\oPi}{\mathring{\Pi}}
-    % cmd.char oSigma: $\oSigma$
     \newcommand{\oSigma}{\mathring{\Sigma}}
-    % cmd.char oUpsilon: $\oUpsilon$
     \newcommand{\oUpsilon}{\mathring{\Upsilon}}
-    % cmd.char oPhi: $\oPhi$
     \newcommand{\oPhi}{\mathring{\Phi}}
-    % cmd.char oPsi: $\oPsi$
     \newcommand{\oPsi}{\mathring{\Psi}}
-    % cmd.char oOmega: $\oOmega$
     \newcommand{\oOmega}{\mathring{\Omega}}
 
 }{} % \ifthenelse{\boolean{@b_maths_use_characterAccents}}{
@@ -4068,98 +2456,81 @@
 %% Size
 %% --------------------
 
-    % cmd diagramsize:
 
 %% --------------------
 %% Styles
 %% --------------------
 
-    % cmd diagramarrows: Sets the arrow type for commutative diagrams. Takes 4 arguments among \texttt{->} (default), \texttt{-}, \texttt{<-}, \texttt{<->}, \texttt{->>}, \texttt{<<-}, \texttt{>->}, \texttt{<-<}, \texttt{right hook->}, \texttt{<-left hook}, \texttt{|->}, \texttt{<-|}.
 
-    % cmd diagramlines: Sets the arrow line styles for commutative diagrams. Takes 4 arguments, among \texttt{-} (default), \texttt{=}, \texttt{..}, \texttt{--}.
 
 %% --------------------
 %% Reset styles
 %% --------------------
 
-    % cmd rds: Resets diagram styles.
 
 %% --------------------
 %% Simple square
 %% --------------------
 
-    % cmd squarediagram: Square diagram.
 
 %% --------------------
 %% Pushout
 %% --------------------
 
-    % cmd pushoutdiagram: Pushout diagram.
 
 %% --------------------
 %% Pullback
 %% --------------------
 
-    % cmd pullbackdiagram: Pullback diagram.
 
 %% --------------------
 %% Triangular UL : Up left
 %% --------------------
 
-    % cmd triangleULdiagram:
 
 %% --------------------
 %% Triangular UR : Up right
 %% --------------------
 
-    % cmd triangleURdiagram:
 
 %% --------------------
 %% Triangular DL : Down left
 %% --------------------
 
-    % cmd triangleDLdiagram:
 
 %% --------------------
 %% Triangular DR : Down right
 %% --------------------
 
-    % cmd triangleDRdiagram:
 
 %% --------------------
 %% Triangular U : Up
 %% --------------------
 
-    % cmd triangleUdiagram:
 
 %% --------------------
 %% Triangular L : Left
 %% --------------------
-    % cmd triangleLdiagram:
 
 %% --------------------
 %% Triangular R : Right
 %% --------------------
 
-    % cmd triangleRdiagram:
 
 %% --------------------
 %% Triangular D : Down
 %% --------------------
 
-    % cmd triangleDdiagram:
 
 %% --------------------
 %% Equalizer
 %% --------------------
 
-    % cmd eqdiagram:
 
 %% --------------------
 %% Coequalizer
 %% --------------------
 
-    % cmd coeqdiagram:
 
 }{} % \ifthenelse{\boolean{@b_extpack_use_tikz}}{
 
@@ -4175,26 +2546,18 @@
 %% Metadatas
 %% --------------------
 
-    % cmd editor: For custome title pages.
     \newcommand{\editor}    [1]{\def\@editor{#1}}       \editor{}
-    % cmd email: For custome title pages.
     \newcommand{\email}     [1]{\def\@email{#1}}        \email{}
-    % cmd image: For custome title pages.
     \newcommand{\image}     [2]{\def\@image{#1}         \def\@imagescale{#2}}   \image{}{}
-    % cmd logo: For custome title pages.
     \newcommand{\logo}      [2]{\def\@logo{#1}          \def\@logoscale{#2}}    \logo{}{}
-    % cmd publisher: For custome title pages.
     \newcommand{\publisher} [1]{\def\@publisher{#1}}    \publisher{}
-    % cmd subauthor: For custome title pages.
     \newcommand{\subauthor} [1]{\def\@subauthor{#1}}    \subauthor{}
-    % cmd subtitle: For custome title pages.
     \newcommand{\subtitle}  [1]{\def\@subtitle{#1}}     \subtitle{}
 
 %% --------------------
 %% Insertions
 %% --------------------
 
-    % cmd authorshere: Inserts the author and the subauthor if it is set. See the \texttt{\\author} and \texttt{\\subauthor} commands.
     \newcommand{\authorshere}{
         \ifthenelse{\equal{\@subauthor}{}}{
             \@author
@@ -4203,7 +2566,6 @@
         }
     }
 
-    % cmd imagehere: Inserts the image. See the \texttt{\\image} command.
     \newcommand{\imagehere}[1]{
         \ifthenelse{\equal{\@image}{}}{}{
             \ifthenelse{\equal{#1}{centeredFigure}}{
@@ -4217,7 +2579,6 @@
         }
     }
 
-    % cmd logohere: Inserts the logo. See the \texttt{\\logo} command.
     \newcommand{\logohere}[1]{
         \ifthenelse{\equal{\@logo}{}}{}{
             \ifthenelse{\equal{#1}{centeredFigure}}{
@@ -4591,163 +2952,90 @@
 
     \theoremstyle{definition}
 
-    % env.th axiom: The \texttt{axiom} theorem environment.
     \newtheorem{axiom}          [axiom]         {\@upcase \@axiomName}
-    % env.th axioms: The \texttt{axioms} theorem environment.
     \newtheorem{axioms}         [axiom]         {\@upcase \@axiomsName}
-    % env.th axiom*: The \texttt{axiom*} theorem environment.
     \newtheorem*{axiom*}                        {\@upcase \@axiomName}
-    % env.th axioms*: The \texttt{axioms*} theorem environment.
     \newtheorem*{axioms*}                       {\@upcase \@axiomsName}
-    % env.th definition: The \texttt{definition} theorem environment.
     \newtheorem{definition}     [definition]    {\@upcase \@definitionName}
-    % env.th definitions: The \texttt{definitions} theorem environment.
     \newtheorem{definitions}    [definition]    {\@upcase \@definitionsName}
-    % env.th definition*: The \texttt{definition*} theorem environment.
     \newtheorem*{definition*}                   {\@upcase \@definitionName}
-    % env.th definitions*: The \texttt{definitions*} theorem environment.
     \newtheorem*{definitions*}                  {\@upcase \@definitionsName}
-    % env.th example: The \texttt{example} theorem environment.
     \newtheorem{example}        [example]       {\@upcase \@exampleName}
-    % env.th examples: The \texttt{examples} theorem environment.
     \newtheorem{examples}       [example]       {\@upcase \@examplesName}
-    % env.th example*: The \texttt{example*} theorem environment.
     \newtheorem*{example*}                      {\@upcase \@exampleName}
-    % env.th examples*: The \texttt{examples*} theorem environment.
     \newtheorem*{examples*}                     {\@upcase \@examplesName}
-    % env.th exercise: The \texttt{exercise} theorem environment.
     \newtheorem{exercise}       [exercise]      {\@upcase \@exerciseName}
-    % env.th exercises: The \texttt{exercises} theorem environment.
     \newtheorem{exercises}      [exercise]      {\@upcase \@exercisesName}
-    % env.th exercise*: The \texttt{exercise*} theorem environment.
     \newtheorem*{exercise*}                     {\@upcase \@exerciseName}
-    % env.th exercises*: The \texttt{exercises*} theorem environment.
     \newtheorem*{exercises*}                    {\@upcase \@exercisesName}
-    % env.th question: The \texttt{question} theorem environment.
     \newtheorem{question}       [question]      {\@upcase \@questionName}
-    % env.th questions: The \texttt{questions} theorem environment.
     \newtheorem{questions}      [question]      {\@upcase \@questionsName}
-    % env.th question*: The \texttt{question*} theorem environment.
     \newtheorem*{question*}                     {\@upcase \@questionName}
-    % env.th questions*: The \texttt{questions*} theorem environment.
     \newtheorem*{questions*}                    {\@upcase \@questionsName}
 
     \ifthenelse{\boolean{@b_maths_use_theoremStyles}}{
          \theoremstyle{plain}
     }{}
 
-    % env.th assertion: The \texttt{assertion} theorem environment.
     \newtheorem{assertion}      [assertion]     {\@upcase \@assertionName}
-    % env.th assertions: The \texttt{assertions} theorem environment.
     \newtheorem{assertions}     [assertion]     {\@upcase \@assertionsName}
-    % env.th assertion*: The \texttt{assertion*} theorem environment.
     \newtheorem*{assertion*}                    {\@upcase \@assertionName}
-    % env.th assertions*: The \texttt{assertions*} theorem environment.
     \newtheorem*{assertions*}                   {\@upcase \@assertionsName}
-    % env.th conjecture: The \texttt{conjecture} theorem environment.
     \newtheorem{conjecture}     [conjecture]    {\@upcase \@conjectureName}
-    % env.th conjectures: The \texttt{conjectures} theorem environment.
     \newtheorem{conjectures}    [conjecture]    {\@upcase \@conjecturesName}
-    % env.th conjecture*: The \texttt{conjecture*} theorem environment.
     \newtheorem*{conjecture*}                   {\@upcase \@conjectureName}
-    % env.th conjectures*: The \texttt{conjectures*} theorem environment.
     \newtheorem*{conjectures*}                  {\@upcase \@conjecturesName}
-    % env.th corollary: The \texttt{corollary} theorem environment.
     \newtheorem{corollary}      [corollary]     {\@upcase \@corollaryName}
-    % env.th corollaries: The \texttt{corollaries} theorem environment.
     \newtheorem{corollaries}    [corollary]     {\@upcase \@corollariesName}
-    % env.th corollary*: The \texttt{corollary*} theorem environment.
     \newtheorem*{corollary*}                    {\@upcase \@corollaryName}
-    % env.th corollaries*: The \texttt{corollaries*} theorem environment.
     \newtheorem*{corollaries*}                  {\@upcase \@corollariesName}
-    % env.th lemma: The \texttt{lemma} theorem environment.
     \newtheorem{lemma}          [lemma]         {\@upcase \@lemmaName}
-    % env.th lemmas: The \texttt{lemmas} theorem environment.
     \newtheorem{lemmas}         [lemma]         {\@upcase \@lemmasName}
-    % env.th lemma*: The \texttt{lemma*} theorem environment.
     \newtheorem*{lemma*}                        {\@upcase \@lemmaName}
-    % env.th lemmas*: The \texttt{lemmas*} theorem environment.
     \newtheorem*{lemmas*}                       {\@upcase \@lemmasName}
-    % env.th property: The \texttt{property} theorem environment.
     \newtheorem{property}       [property]      {\@upcase \@propertyName}
-    % env.th properties: The \texttt{properties} theorem environment.
     \newtheorem{properties}     [property]      {\@upcase \@propertiesName}
-    % env.th property*: The \texttt{property*} theorem environment.
     \newtheorem*{property*}                     {\@upcase \@propertyName}
-    % env.th properties*: The \texttt{properties*} theorem environment.
     \newtheorem*{properties*}                   {\@upcase \@propertiesName}
-    % env.th proposition: The \texttt{proposition} theorem environment.
     \newtheorem{proposition}    [proposition]   {\@upcase \@propositionName}
-    % env.th propositions: The \texttt{propositions} theorem environment.
     \newtheorem{propositions}   [proposition]   {\@upcase \@propositionsName}
-    % env.th proposition*: The \texttt{proposition*} theorem environment.
     \newtheorem*{proposition*}                  {\@upcase \@propositionName}
-    % env.th propositions*: The \texttt{propositions*} theorem environment.
     \newtheorem*{propositions*}                 {\@upcase \@propositionsName}
-    % env.th scholia: The \texttt{scholia} theorem environment.
     \newtheorem{scholia}        [scholia]       {\@upcase \@scholiaName}
-    % env.th scholias: The \texttt{scholias} theorem environment.
     \newtheorem{scholias}       [scholia]       {\@upcase \@scholiasName}
-    % env.th scholia*: The \texttt{scholia*} theorem environment.
     \newtheorem{scholia*}                       {\@upcase \@scholiaName}
-    % env.th scholias*: The \texttt{scholias*} theorem environment.
     \newtheorem{scholias*}                      {\@upcase \@scholiasName}
-    % env.th theorem: The \texttt{theorem} theorem environment.
     \newtheorem{theorem}        [theorem]       {\@upcase \@theoremName}
-    % env.th theorems: The \texttt{theorems} theorem environment.
     \newtheorem{theorems}       [theorem]       {\@upcase \@theoremsName}
-    % env.th theorem*: The \texttt{theorem*} theorem environment.
     \newtheorem*{theorem*}                      {\@upcase \@theoremName}
-    % env.th theorems*: The \texttt{theorems*} theorem environment.
     \newtheorem*{theorems*}                     {\@upcase \@theoremsName}
 
     \ifthenelse{\boolean{@b_maths_use_theoremStyles}}{
         \theoremstyle{remark}
     }{}
 
-    % env.th convention: The \texttt{convention} theorem environment.
     \newtheorem{convention}     [convention]    {\@upcase \@conventionName}
-    % env.th conventions: The \texttt{conventions} theorem environment.
     \newtheorem{conventions}    [convention]    {\@upcase \@conventionsName}
-    % env.th convention*: The \texttt{convention*} theorem environment.
     \newtheorem*{convention*}                   {\@upcase \@conventionName}
-    % env.th conventions*: The \texttt{conventions*} theorem environment.
     \newtheorem*{conventions*}                  {\@upcase \@conventionsName}
-    % env.th notation: The \texttt{notation} theorem environment.
     \newtheorem{notation}       [notation]      {\@upcase \@notationName}
-    % env.th notations: The \texttt{notations} theorem environment.
     \newtheorem{notations}      [notation]      {\@upcase \@notationsName}
-    % env.th notation*: The \texttt{notation*} theorem environment.
     \newtheorem*{notation*}                     {\@upcase \@notationName}
-    % env.th notations*: The \texttt{notations*} theorem environment.
     \newtheorem*{notations*}                    {\@upcase \@notationsName}
-    % env.th remark: The \texttt{remark} theorem environment.
     \newtheorem{remark}         [remark]        {\@upcase \@remarkName}
-    % env.th remarks: The \texttt{remarks} theorem environment.
     \newtheorem{remarks}        [remark]        {\@upcase \@remarksName}
-    % env.th remark*: The \texttt{remark*} theorem environment.
     \newtheorem*{remark*}                       {\@upcase \@remarkName}
-    % env.th remarks*: The \texttt{remarks*} theorem environment.
     \newtheorem*{remarks*}                      {\@upcase \@remarksName}
-    % env.th reminder: The \texttt{reminder} theorem environment.
     \newtheorem{reminder}       [reminder]      {\@upcase \@reminderName}
-    % env.th reminders: The \texttt{reminders} theorem environment.
     \newtheorem{reminders}      [reminder]      {\@upcase \@remindersName}
-    % env.th reminder*: The \texttt{reminder*} theorem environment.
     \newtheorem*{reminder*}                     {\@upcase \@reminderName}
-    % env.th reminders*: The \texttt{reminders*} theorem environment.
     \newtheorem*{reminders*}                    {\@upcase \@remindersName}
-    % env.th terminology: The \texttt{terminology} theorem environment.
     \newtheorem{terminology}    [terminology]   {\@upcase \@terminologyName}
-    % env.th terminologies: The \texttt{terminologies} theorem environment.
     \newtheorem{terminologies}  [terminology]   {\@upcase \@terminologiesName}
-    % env.th terminology*: The \texttt{terminology*} theorem environment.
     \newtheorem*{terminology*}                  {\@upcase \@terminologyName}
-    % env.th terminologies*: The \texttt{terminologies*} theorem environment.
     \newtheorem*{terminologies*}                {\@upcase \@terminologiesName}
 
         %% solution(s) and proof(s)
-    % env proof: The \texttt{proof} environment.
     \renewenvironment{proof}[1][{\@upcase \@proofName}]{
         \par
         \pushQED{\qed}
@@ -4759,7 +3047,6 @@
     }{
         \popQED\endtrivlist\@endpefalse
     }
-    % env proofs: The \texttt{proofs} environment.
     \newenvironment{proofs}[1][{\@upcase \@proofsName}]{
         \par
         \pushQED{\qed}
@@ -4771,7 +3058,6 @@
     }{
         \popQED\endtrivlist\@endpefalse
     }
-    % env solution: The \texttt{solution} environment.
     \newenvironment{solution}[1][{\@upcase \@solutionName}]{
         \par
         \pushQED{\qed}
@@ -4783,7 +3069,6 @@
     }{
         \hfill\ensuremath{\blacksquare}\endtrivlist\@endpefalse
     }
-    % env solutions: The \texttt{solutions} environment.
     \newenvironment{solutions}[1][{\@upcase \@solutionsName}]{
         \par
         \pushQED{\qed}
@@ -4796,7 +3081,6 @@
         \hfill\ensuremath{\blacksquare}\endtrivlist\@endpefalse
     }
 
-    % env dedication: The \texttt{dedication} environment.
     \newenvironment{dedication}{
         \cleardoublepage
         \thispagestyle{empty}

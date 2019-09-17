@@ -28,9 +28,7 @@
 %% Metadatas
 %% ----------------------------------------
 
-% int @kappakVersion{0412}:
 \def\@kappakVersion{0412}   % Current version of kappak
-% int @usedVersion{0406}:
 \def\@usedVersion{0406}     % Default version. 0406 is the version where \@kappakVersion started to be taken into account.
 \PackageInfo{kappak-v4}{This is kappak, v\@kappakVersion}
 
@@ -100,26 +98,20 @@
 %% core
 %% ----------------------------------------
 
-% wheaver kappak should automatically include packages. ifthen will always be included
-% int @b_core_use_autoPackInclusion: Wether \texttt{kappak} should automatically include core packages or not.
+% wether kappak should automatically include packages. ifthen will always be included
 \newboolean{@b_core_use_autoPackInclusion}  \setboolean{@b_core_use_autoPackInclusion}  {true}
 
 %% ----------------------------------------
 %% extpack
 %% ----------------------------------------
 
-% int @b_extpack_auto: Wether \texttt{kappak} should automatically include non core packages or not.
 \newboolean{@b_extpack_auto}     			\setboolean{@b_extpack_auto}				{true}
 
-% int @b_extpack_use_stix: Wether \texttt{kappak} should use \texttt{stix} or not.
 \newboolean{@b_extpack_use_stix}			\setboolean{@b_extpack_use_stix}			{false}
 
-% int @b_extpack_use_tikz: Wether \texttt{kappak} should use \texttt{tikz} or not.
 \newboolean{@b_extpack_use_tikz}            \setboolean{@b_extpack_use_tikz}            {false}
-% int @b_extpack_tikz_externalize: Wether \texttt{kappak} should set the  \texttt{tikz} compilation cache or not. (doesn't work)
 \newboolean{@b_extpack_tikz_externalize}    \setboolean{@b_extpack_tikz_externalize}    {false}
 
-% int @b_extpack_use_xecjk: Wether \texttt{kappak} should use \texttt{xecjk} or not.
 \newboolean{@b_extpack_use_xecjk}			\setboolean{@b_extpack_use_xecjk}			{false}
 
 %% ----------------------------------------
@@ -127,28 +119,20 @@
 %% ----------------------------------------
 
 % arrows definitions
-% int @b_maths_use_arrows:
 \newboolean{@b_maths_use_arrows}            \setboolean{@b_maths_use_arrows}            {false}
 % categories definitions
-% int @b_maths_use_categories:
 \newboolean{@b_maths_use_categories}        \setboolean{@b_maths_use_categories}        {false}
 % character accent definitions
-% int @b_maths_use_characterAccents:
 \newboolean{@b_maths_use_characterAccents}  \setboolean{@b_maths_use_characterAccents}  {false}
 % character styles definitions
-% int @b_maths_use_characterStyles:
 \newboolean{@b_maths_use_characterStyles}   \setboolean{@b_maths_use_characterStyles}   {false}
 % some stuff
-% int @b_maths_use_misc:
 \newboolean{@b_maths_use_misc}              \setboolean{@b_maths_use_misc}              {false}
 % opertor definitions
-% int @b_maths_use_operators:
 \newboolean{@b_maths_use_operators}         \setboolean{@b_maths_use_operators}         {false}
 % theorem environment definition
-% int @b_maths_use_theoremEnvs:
 \newboolean{@b_maths_use_theoremEnvs}       \setboolean{@b_maths_use_theoremEnvs}       {false}
 % styles inside theorem envs, e.g. italic for theorems, roman for definitions
-% int @b_maths_use_theoremStyles:
 \newboolean{@b_maths_use_theoremStyles}     \setboolean{@b_maths_use_theoremStyles}     {true}
 
 %% ----------------------------------------
@@ -156,32 +140,21 @@
 %% ----------------------------------------
 
 % some stuff
-% int @b_use_misc:
 \newboolean{@b_use_misc}                    \setboolean{@b_use_misc}                    {true}
 
 %% ----------------------------------------
 %% variables declarations
 %% ----------------------------------------
 
-% int @bbStyle:
 \def\@bbStyle           {normal}
-% int @bibliographyStyle:
 \def\@bibliographyStyle {plain}
-% int @chapterStyle:
 \def\@chapterStyle      {normal}
-% int @fontSet:
 \def\@fontSet           {normal}
-% int @headerFooterStyle:
 \def\@headerFooterStyle {normal}
-% int @language:
 \def\@language          {english}
-% int @margins:
 \def\@margins           {normal}
-% int @scriptStyle:
 \def\@scriptStyle       {normal}
-% int @titlePageStyle:
 \def\@titlePageStyle    {normal}
-% int @categoryStyle:
 \def\@categoryStyle     {script}
 
 %% -----------------------------------------------------------------------------
@@ -207,11 +180,8 @@
 \@ifundefined{my@unusedlist}{
   \let\my@unusedlist\@empty}{}
 \@ifundefined{my@extractkey}{%
-  % int my@extractkey#1=#2\my@extractkey{#1}}{}:
 \def\my@extractkey#1=#2\my@extractkey{#1}}{}
-%{% if cmd_ProcessUnusedOptions %}
 \newcommand{\ProcessUnusedOptions}[1]{%
-%{% endif %}
   \let\my@tempa\@empty
   \let\my@tempb\@empty
   \@for\CurrentOption:=\my@unusedlist\do{%
@@ -247,31 +217,26 @@
 
 % opt alpha: Do not use.
 \DeclareOption{alpha}{
-    % int @usedVersion{0407}:
     \def\@usedVersion{0407}
 }
 
 % opt bellatrix: Do not use.
 \DeclareOption{bellatrix}{
-    % int @usedVersion{0409}:
     \def\@usedVersion{0409}
 }
 
 % opt cortana: Do not use.
 \DeclareOption{cortana}{
-    % int @usedVersion{0410}:
     \def\@usedVersion{0410}
 }
 
 % opt durotan: Do not use.
 \DeclareOption{durotan}{
-    % int @usedVersion{0411}:
     \def\@usedVersion{0411}
 }
 
 % opt eientei: Mandatory option.
 \DeclareOption{eientei}{
-    % int @usedVersion{0412}:
     \def\@usedVersion{0412}
 }
 
@@ -381,49 +346,42 @@
 %% bbStyle
 % opt bbStyle: Sets the mathematical blackboard letter style. Supports \texttt{normal} (default), and \texttt{bbold}.
 \define@key{%{{ package_name %}}}{bbStyle}[normal]{
-    % int @bbStyle:
     \def\@bbStyle{#1}
 }
 
 %% bibliographyStyle
 % opt bibliographyStyle: Sets the bibliography style. Only relevant if you use \texttt{kdocument} instead of the standard \texttt{document} environment.
 \define@key{%{{ package_name %}}}{bibliographyStyle}[normal]{
-    % int @bibliographyStyle:
     \def\@bibliographyStyle{#1}
 }
 
 %% categoryStyle
 % opt categoryStyle: Sets the category style for category theory. Supports \texttt{script} (default), \texttt{bf}, \texttt{rm}, \texttt{sf}, and \texttt{tt}.
 \define@key{%{{ package_name %}}}{categoryStyle}[script]{
-    % int @categoryStyle:
     \def\@categoryStyle{#1}
 }
 
 %% chapterStyle
 % opt chapterStyle: Sets the chapter style. Supports \texttt{normal} (default), \texttt{cb}, and \texttt{rb}.
 \define@key{%{{ package_name %}}}{chapterStyle}[normal]{
-    % int @chapterStyle:
     \def\@chapterStyle{#1}
 }
 
 %% fontset
 % opt fontSet: Sets the font set. Supports \texttt{normal} (default), \texttt{alternate}, and \texttt{xcharter}.
 \define@key{%{{ package_name %}}}{fontSet}[normal]{
-    % int @fontSet:
     \def\@fontSet{#1}
 }
 
 %% headerFooterStyle
 % opt headerFooterStyle: Sets the header and footer style. Supports \texttt{normal} (default), \texttt{classic}, \texttt{cb}, and \texttt{empty}.
 \define@key{%{{ package_name %}}}{headerFooterStyle}[normal]{
-    % int @headerFooterStyle:
     \def\@headerFooterStyle{#1}
 }
 
 %% language
 % opt language: Sets the language of the document. Supports \texttt{english} (default), and \texttt{french}.
 \define@key{%{{ package_name %}}}{language}[english]{
-    % int @language:
     \def\@language{#1}
 }
 
@@ -436,21 +394,18 @@
 %% margins
 % opt margins: Sets the margins. Supports \texttt{normal} (default), \texttt{reduced}, and \texttt{minimal}.
 \define@key{%{{ package_name %}}}{margins}[normal]{
-    % int @margins:
     \def\@margins{#1}
 }
 
 %% scriptStyle
 % opt scriptStyle: Sets the mathematical script style. Supports \texttt{normal} (default), \texttt{euler}, and \texttt{rsfs}.
 \define@key{%{{ package_name %}}}{scriptStyle}[normal]{
-    % int @scriptStyle:
     \def\@scriptStyle{#1}
 }
 
 %% titlePageStyle
 % opt titlePageStyle: Sets the title page style. Supports \texttt{normal} (default), \texttt{classic}, \texttt{bar}, \texttt{gm}, and \texttt{gb}.
 \define@key{%{{ package_name %}}}{titlePageStyle}[normal]{
-    % int @titlePageStyle:
     \def\@titlePageStyle{#1}
 }
 
@@ -458,7 +413,6 @@
 % opt version: Sets the kappan version to use. Use explicit names instead.
 \define@key{%{{ package_name %}}}{version}[0406]{
     % 0406 is the version where \@kappakVersion started to be taken into account.
-    % int @usedVersion{#1}:
     \def\@usedVersion{#1}
 }
 
@@ -635,78 +589,114 @@
 
 \ifthenelse{\boolean{@b_maths_use_operators}}{
 
-    % cmd.op Ann: The $\Ann$ math operator
+%{% if cmd_Ann %}
     \DeclareMathOperator {\Ann}   {Ann}
-    % cmd.op Aut: The $\Aut$ math operator
+%{% endif %}
+%{% if cmd_Aut %}
     \DeclareMathOperator {\Aut}   {Aut}
-    % cmd.op Bil: The $\Bil$ math operator
+%{% endif %}
+%{% if cmd_Bil %}
     \DeclareMathOperator {\Bil}   {Bil}
-    % cmd.op car: The $\car$ math operator
+%{% endif %}
+%{% if cmd_car %}
     \DeclareMathOperator {\car}   {char}
-    % cmd.op card: The $\card$ math operator
+%{% endif %}
+%{% if cmd_card %}
     \DeclareMathOperator {\card}  {card}
-    % cmd.op Card: The $\Card$ math operator
+%{% endif %}
+%{% if cmd_Card %}
     \DeclareMathOperator {\Card}  {Card}
-    % cmd.op codom: The $\codom$ math operator
+%{% endif %}
+%{% if cmd_codom %}
     \DeclareMathOperator {\codom} {codom}
-    % cmd.op coker: The $\coker$ math operator
+%{% endif %}
+%{% if cmd_coker %}
     \DeclareMathOperator {\coker} {coker}
-    % cmd.op colim: The $\colim$ math operator
+%{% endif %}
+%{% if cmd_colim %}
     \DeclareMathOperator*{\colim} {colim}
-    % cmd.op dom: The $\dom$ math operator
+%{% endif %}
+%{% if cmd_dom %}
     \DeclareMathOperator {\dom}   {dom}
-    % cmd.op Dom: The $\Dom$ math operator
+%{% endif %}
+%{% if cmd_Dom %}
     \DeclareMathOperator {\Dom}   {Dom}
-    % cmd.op End: The $\End$ math operator
+%{% endif %}
+%{% if cmd_End %}
     \DeclareMathOperator {\End}   {end}
-    % cmd.op END: The $\END$ math operator
+%{% endif %}
+%{% if cmd_END %}
     \DeclareMathOperator {\END}   {End}
-    % cmd.op Ext: The $\Ext$ math operator
+%{% endif %}
+%{% if cmd_Ext %}
     \DeclareMathOperator {\Ext}   {Ext}
-    % cmd.op ev: The $\ev$ math operator
+%{% endif %}
+%{% if cmd_ev %}
     \DeclareMathOperator {\ev}    {ev}
-    % cmd.op Frac: The $\Frac$ math operator
+%{% endif %}
+%{% if cmd_Frac %}
     \DeclareMathOperator {\Frac}  {Frac}
-    % cmd.op GL: The $\GL$ math operator
+%{% endif %}
+%{% if cmd_GL %}
     \DeclareMathOperator {\GL}    {GL}
-    % cmd.op Hom: The $\Hom$ math operator
+%{% endif %}
+%{% if cmd_Hom %}
     \DeclareMathOperator {\Hom}   {Hom}
-    % cmd.op id: The $\id$ math operator
+%{% endif %}
+%{% if cmd_id %}
     \DeclareMathOperator {\id}    {id}
-    % cmd.op Id: The $\Id$ math operator
+%{% endif %}
+%{% if cmd_Id %}
     \DeclareMathOperator {\Id}    {Id}
-    % cmd.op im: The $\im$ math operator
+%{% endif %}
+%{% if cmd_im %}
     \DeclareMathOperator {\im}    {im}
-    % cmd.op Ind: The $\Ind$ math operator
+%{% endif %}
+%{% if cmd_Ind %}
     \DeclareMathOperator {\Ind}   {Ind}
-    % cmd.op Ker: The $\Ker$ math operator
+%{% endif %}
+%{% if cmd_Ker %}
     \DeclareMathOperator {\Ker}   {Ker}
-    % cmd.op Map: The $\Map$ math operator
+%{% endif %}
+%{% if cmd_Map %}
     \DeclareMathOperator {\Map}   {Map}
-    % cmd.op Mor: The $\Mor$ math operator
+%{% endif %}
+%{% if cmd_Mor %}
     \DeclareMathOperator {\Mor}   {Mor}
-    % cmd.op ob: The $\ob$ math operator
+%{% endif %}
+%{% if cmd_ob %}
     \DeclareMathOperator {\ob}    {ob}
-    % cmd.op Ob: The $\Ob$ math operator
+%{% endif %}
+%{% if cmd_Ob %}
     \DeclareMathOperator {\Ob}    {Ob}
-    % cmd.op Orb: The $\Orb$ math operator
+%{% endif %}
+%{% if cmd_Orb %}
     \DeclareMathOperator {\Orb}   {Orb}
-    % cmd.op proj: The $\proj$ math operator
+%{% endif %}
+%{% if cmd_proj %}
     \DeclareMathOperator {\proj}  {proj}
-    % cmd.op rk: The $\rk$ math operator
+%{% endif %}
+%{% if cmd_rk %}
     \DeclareMathOperator {\rk}    {rk}
-    % cmd.op SL: The $\SL$ math operator
+%{% endif %}
+%{% if cmd_SL %}
     \DeclareMathOperator {\SL}    {SL}
-    % cmd.op Stab: The $\Stab$ math operator
+%{% endif %}
+%{% if cmd_Stab %}
     \DeclareMathOperator {\Stab}  {Stab}
-    % cmd.op Spec: The $\Spec$ math operator
+%{% endif %}
+%{% if cmd_Spec %}
     \DeclareMathOperator {\Spec}  {Spec}
-    % cmd.op Sym: The $\Sym$ math operator
+%{% endif %}
+%{% if cmd_Sym %}
     \DeclareMathOperator {\Sym}   {Sym}
-    % cmd.op Tor: The $\Tor$ math operator
+%{% endif %}
+%{% if cmd_Tor %}
     \DeclareMathOperator {\Tor}   {Tor}
-    % cmd.op tr: The $\tr$ math operator
+%{% endif %}
+%{% if cmd_tr %}
     \DeclareMathOperator {\tr}    {tr}
+%{% endif %}
 
 }{} % \ifthenelse{\boolean{@b_maths_use_operators}}{
 
@@ -760,83 +750,63 @@
 %% Some categories
 %% --------------------
 
-    % cmd.cat Ab: The $\Ab$ category
 %{% if cmd_Ab %}
     \newcategory{\Ab}    {}{A}{b}
 %{% endif %}
-    % cmd.cat Alg: The $\Alg$ category
 %{% if cmd_Alg %}
     \newcategory{\Alg}   {}{A}{lg}
 %{% endif %}
-    % cmd.cat Cat: The $\Cat$ category
 %{% if cmd_Cat %}
     \newcategory{\Cat}   {}{C}{at}
 %{% endif %}
-    % cmd.cat CAT: The $\CAT$ category
 %{% if cmd_CAT %}
     \newcategory{\CAT}   {}{C}{AT}
 %{% endif %}
-    % cmd.cat Ch: The $\Ch$ category
 %{% if cmd_Ch %}
     \newcategory{\Ch}    {}{C}{h}
 %{% endif %}
-    % cmd.cat Fin: The $\Fin$ category
 %{% if cmd_Fin %}
     \newcategory{\Fin}   {}{F}{in}
 %{% endif %}
-    % cmd.cat Graph: The $\Graph$ category
 %{% if cmd_Graph %}
     \newcategory{\Graph} {}{G}{raph}
 %{% endif %}
-    % cmd.cat Grp: The $\Grp$ category
 %{% if cmd_Grp %}
     \newcategory{\Grp}   {}{G}{rp}
 %{% endif %}
-    % cmd.cat Mod: The $\Mod$ category
 %{% if cmd_Mod %}
     \newcategory{\Mod}   {}{M}{od}
 %{% endif %}
-    % cmd.cat Mon: The $\Mon$ category
 %{% if cmd_Mon %}
     \newcategory{\Mon}   {}{M}{on}
 %{% endif %}
-    % cmd.cat Op: The $\Op$ category
 %{% if cmd_Op %}
     \newcategory{\Op}    {}{O}{p}
 %{% endif %}
-    % cmd.cat Pos: The $\Pos$ category
 %{% if cmd_Pos %}
     \newcategory{\Pos}   {}{P}{os}
 %{% endif %}
-    % cmd.cat pSh: The $\pSh$ category
 %{% if cmd_pSh %}
     \newcategory{\pSh}   {p}{S}{h}
 %{% endif %}
-    % cmd.cat Ring: The $\Ring$ category
 %{% if cmd_Ring %}
     \newcategory{\Ring}  {}{R}{ing}
 %{% endif %}
-    % cmd.cat Set: The $\Set$ category
 %{% if cmd_Set %}
     \newcategory{\Set}   {}{S}{et}
 %{% endif %}
-    % cmd.cat SET: The $\SET$ category
 %{% if cmd_SET %}
     \newcategory{\SET}   {}{S}{ET}
 %{% endif %}
-    % cmd.cat Sh: The $\Sh$ category
 %{% if cmd_Sh %}
     \newcategory{\Sh}    {}{S}{h}
 %{% endif %}
-    % cmd.cat sSet: The $\sSet$ category
 %{% if cmd_sSet %}
     \newcategory{\sSet}  {s}{S}{et}
 %{% endif %}
-    % cmd.cat Top: The $\Top$ category
 %{% if cmd_Top %}
     \newcategory{\Top}   {}{T}{op}
 %{% endif %}
-    % cmd.cat Vect: The $\Vect$ category
 %{% if cmd_Vect %}
     \newcategory{\Vect}  {}{V}{ect}
 %{% endif %}
@@ -845,211 +815,159 @@
 %% cat style
 %% --------------------
 
-    % cmd.cat catA: $\catA$.
 %{% if cmd_catA %}
     \newcommand{\catA}{\@cat{a}}
 %{% endif %}
-    % cmd.cat catB: $\catB$.
 %{% if cmd_catB %}
     \newcommand{\catB}{\@cat{b}}
 %{% endif %}
-    % cmd.cat catC: $\catC$.
 %{% if cmd_catC %}
     \newcommand{\catC}{\@cat{c}}
 %{% endif %}
-    % cmd.cat catD: $\catD$.
 %{% if cmd_catD %}
     \newcommand{\catD}{\@cat{d}}
 %{% endif %}
-    % cmd.cat catE: $\catE$.
 %{% if cmd_catE %}
     \newcommand{\catE}{\@cat{e}}
 %{% endif %}
-    % cmd.cat catF: $\catF$.
 %{% if cmd_catF %}
     \newcommand{\catF}{\@cat{f}}
 %{% endif %}
-    % cmd.cat catG: $\catG$.
 %{% if cmd_catG %}
     \newcommand{\catG}{\@cat{g}}
 %{% endif %}
-    % cmd.cat catH: $\catH$.
 %{% if cmd_catH %}
     \newcommand{\catH}{\@cat{h}}
 %{% endif %}
-    % cmd.cat catI: $\catI$.
 %{% if cmd_catI %}
     \newcommand{\catI}{\@cat{i}}
 %{% endif %}
-    % cmd.cat catJ: $\catJ$.
 %{% if cmd_catJ %}
     \newcommand{\catJ}{\@cat{j}}
 %{% endif %}
-    % cmd.cat catK: $\catK$.
 %{% if cmd_catK %}
     \newcommand{\catK}{\@cat{k}}
 %{% endif %}
-    % cmd.cat catL: $\catL$.
 %{% if cmd_catL %}
     \newcommand{\catL}{\@cat{l}}
 %{% endif %}
-    % cmd.cat catM: $\catM$.
 %{% if cmd_catM %}
     \newcommand{\catM}{\@cat{m}}
 %{% endif %}
-    % cmd.cat catN: $\catN$.
 %{% if cmd_catN %}
     \newcommand{\catN}{\@cat{n}}
 %{% endif %}
-    % cmd.cat catO: $\catO$.
 %{% if cmd_catO %}
     \newcommand{\catO}{\@cat{o}}
 %{% endif %}
-    % cmd.cat catP: $\catP$.
 %{% if cmd_catP %}
     \newcommand{\catP}{\@cat{p}}
 %{% endif %}
-    % cmd.cat catQ: $\catQ$.
 %{% if cmd_catQ %}
     \newcommand{\catQ}{\@cat{q}}
 %{% endif %}
-    % cmd.cat catR: $\catR$.
 %{% if cmd_catR %}
     \newcommand{\catR}{\@cat{r}}
 %{% endif %}
-    % cmd.cat catS: $\catS$.
 %{% if cmd_catS %}
     \newcommand{\catS}{\@cat{s}}
 %{% endif %}
-    % cmd.cat catT: $\catT$.
 %{% if cmd_catT %}
     \newcommand{\catT}{\@cat{t}}
 %{% endif %}
-    % cmd.cat catU: $\catU$.
 %{% if cmd_catU %}
     \newcommand{\catU}{\@cat{u}}
 %{% endif %}
-    % cmd.cat catV: $\catV$.
 %{% if cmd_catV %}
     \newcommand{\catV}{\@cat{v}}
 %{% endif %}
-    % cmd.cat catW: $\catW$.
 %{% if cmd_catW %}
     \newcommand{\catW}{\@cat{w}}
 %{% endif %}
-    % cmd.cat catX: $\catX$.
 %{% if cmd_catX %}
     \newcommand{\catX}{\@cat{x}}
 %{% endif %}
-    % cmd.cat catY: $\catY$.
 %{% if cmd_catY %}
     \newcommand{\catY}{\@cat{y}}
 %{% endif %}
-    % cmd.cat catZ: $\catZ$.
 %{% if cmd_catZ %}
     \newcommand{\catZ}{\@cat{z}}
 %{% endif %}
-    % cmd.cat catAA: $\catAA$.
 %{% if cmd_catAA %}
     \newcommand{\catAA}{\@cat{A}}
 %{% endif %}
-    % cmd.cat catBB: $\catBB$.
 %{% if cmd_catBB %}
     \newcommand{\catBB}{\@cat{B}}
 %{% endif %}
-    % cmd.cat catCC: $\catCC$.
 %{% if cmd_catCC %}
     \newcommand{\catCC}{\@cat{C}}
 %{% endif %}
-    % cmd.cat catDD: $\catDD$.
 %{% if cmd_catDD %}
     \newcommand{\catDD}{\@cat{D}}
 %{% endif %}
-    % cmd.cat catEE: $\catEE$.
 %{% if cmd_catEE %}
     \newcommand{\catEE}{\@cat{E}}
 %{% endif %}
-    % cmd.cat catFF: $\catFF$.
 %{% if cmd_catFF %}
     \newcommand{\catFF}{\@cat{F}}
 %{% endif %}
-    % cmd.cat catGG: $\catGG$.
 %{% if cmd_catGG %}
     \newcommand{\catGG}{\@cat{G}}
 %{% endif %}
-    % cmd.cat catHH: $\catHH$.
 %{% if cmd_catHH %}
     \newcommand{\catHH}{\@cat{H}}
 %{% endif %}
-    % cmd.cat catII: $\catII$.
 %{% if cmd_catII %}
     \newcommand{\catII}{\@cat{I}}
 %{% endif %}
-    % cmd.cat catJJ: $\catJJ$.
 %{% if cmd_catJJ %}
     \newcommand{\catJJ}{\@cat{J}}
 %{% endif %}
-    % cmd.cat catKK: $\catKK$.
 %{% if cmd_catKK %}
     \newcommand{\catKK}{\@cat{K}}
 %{% endif %}
-    % cmd.cat catLL: $\catLL$.
 %{% if cmd_catLL %}
     \newcommand{\catLL}{\@cat{L}}
 %{% endif %}
-    % cmd.cat catMM: $\catMM$.
 %{% if cmd_catMM %}
     \newcommand{\catMM}{\@cat{M}}
 %{% endif %}
-    % cmd.cat catNN: $\catNN$.
 %{% if cmd_catNN %}
     \newcommand{\catNN}{\@cat{N}}
 %{% endif %}
-    % cmd.cat catOO: $\catOO$.
 %{% if cmd_catOO %}
     \newcommand{\catOO}{\@cat{O}}
 %{% endif %}
-    % cmd.cat catPP: $\catPP$.
 %{% if cmd_catPP %}
     \newcommand{\catPP}{\@cat{P}}
 %{% endif %}
-    % cmd.cat catQQ: $\catQQ$.
 %{% if cmd_catQQ %}
     \newcommand{\catQQ}{\@cat{Q}}
 %{% endif %}
-    % cmd.cat catRR: $\catRR$.
 %{% if cmd_catRR %}
     \newcommand{\catRR}{\@cat{R}}
 %{% endif %}
-    % cmd.cat catSS: $\catSS$.
 %{% if cmd_catSS %}
     \newcommand{\catSS}{\@cat{S}}
 %{% endif %}
-    % cmd.cat catTT: $\catTT$.
 %{% if cmd_catTT %}
     \newcommand{\catTT}{\@cat{T}}
 %{% endif %}
-    % cmd.cat catUU: $\catUU$.
 %{% if cmd_catUU %}
     \newcommand{\catUU}{\@cat{U}}
 %{% endif %}
-    % cmd.cat catVV: $\catVV$.
 %{% if cmd_catVV %}
     \newcommand{\catVV}{\@cat{V}}
 %{% endif %}
-    % cmd.cat catWW: $\catWW$.
 %{% if cmd_catWW %}
     \newcommand{\catWW}{\@cat{W}}
 %{% endif %}
-    % cmd.cat catXX: $\catXX$.
 %{% if cmd_catXX %}
     \newcommand{\catXX}{\@cat{X}}
 %{% endif %}
-    % cmd.cat catYY: $\catYY$.
 %{% if cmd_catYY %}
     \newcommand{\catYY}{\@cat{Y}}
 %{% endif %}
-    % cmd.cat catZZ: $\catZZ$.
 %{% if cmd_catZZ %}
     \newcommand{\catZZ}{\@cat{Z}}
 %{% endif %}
@@ -1167,13 +1085,11 @@
     		\hbox{\resizebox{\ifx#1\displaystyle.9\fi\dimexpr\ht\z@+\dp\z@}{!}{$\m@th#2$}}
     	}
     }
-    % cmd DeclareBigOperator: Declares a new big operator, akin to \texttt{sum} or \texttt{prod}.
 %{% if cmd_DeclareBigOperator %}
     \newcommand{\DeclareBigOperator}[2]{\newcommand{#1}{\DOTSB\@bigop{#2}}}
 %{% endif %}
 
     % Defines a rotated symbol that sizes properly
-    % cmd DeclareRotatedSymbol: Declares a new symbol that is a rotation of another existing one.
 %{% if cmd_DeclareRotatedSymbol %}
     \newcommand{\DeclareRotatedSymbol}[3]{
     	\newcommand{#1}{{
@@ -1204,7 +1120,6 @@
     % \DeclareUnicodeCharacter{00A0}{ }
 
     % I never remember that thing so here's a command
-    % cmd kbibliography: Inserts the bibliography from file \texttt{bibliography.bib}.
 %{% if cmd_kbibliography %}
     \newcommand{\kbibliography}{
 		\nocite{*}
@@ -1213,7 +1128,6 @@
     }
 %{% endif %}
 
-    % env kdocument: The \texttt{kdocument} environment.
 %{% if env_kdocument %}
     \newenvironment{kdocument}{
 		\document
@@ -1239,211 +1153,159 @@
 %% cal
 %% --------------------
 
-    % cmd.char calA: $\calA$
 %{% if cmd_calA %}
     \newcommand{\calA}{\@cal{a}}
 %{% endif %}
-    % cmd.char calB: $\calB$
 %{% if cmd_calB %}
     \newcommand{\calB}{\@cal{b}}
 %{% endif %}
-    % cmd.char calC: $\calC$
 %{% if cmd_calC %}
     \newcommand{\calC}{\@cal{c}}
 %{% endif %}
-    % cmd.char calD: $\calD$
 %{% if cmd_calD %}
     \newcommand{\calD}{\@cal{d}}
 %{% endif %}
-    % cmd.char calE: $\calE$
 %{% if cmd_calE %}
     \newcommand{\calE}{\@cal{e}}
 %{% endif %}
-    % cmd.char calF: $\calF$
 %{% if cmd_calF %}
     \newcommand{\calF}{\@cal{f}}
 %{% endif %}
-    % cmd.char calG: $\calG$
 %{% if cmd_calG %}
     \newcommand{\calG}{\@cal{g}}
 %{% endif %}
-    % cmd.char calH: $\calH$
 %{% if cmd_calH %}
     \newcommand{\calH}{\@cal{h}}
 %{% endif %}
-    % cmd.char calI: $\calI$
 %{% if cmd_calI %}
     \newcommand{\calI}{\@cal{i}}
 %{% endif %}
-    % cmd.char calJ: $\calJ$
 %{% if cmd_calJ %}
     \newcommand{\calJ}{\@cal{j}}
 %{% endif %}
-    % cmd.char calK: $\calK$
 %{% if cmd_calK %}
     \newcommand{\calK}{\@cal{k}}
 %{% endif %}
-    % cmd.char calL: $\calL$
 %{% if cmd_calL %}
     \newcommand{\calL}{\@cal{l}}
 %{% endif %}
-    % cmd.char calM: $\calM$
 %{% if cmd_calM %}
     \newcommand{\calM}{\@cal{m}}
 %{% endif %}
-    % cmd.char calN: $\calN$
 %{% if cmd_calN %}
     \newcommand{\calN}{\@cal{n}}
 %{% endif %}
-    % cmd.char calO: $\calO$
 %{% if cmd_calO %}
     \newcommand{\calO}{\@cal{o}}
 %{% endif %}
-    % cmd.char calP: $\calP$
 %{% if cmd_calP %}
     \newcommand{\calP}{\@cal{p}}
 %{% endif %}
-    % cmd.char calQ: $\calQ$
 %{% if cmd_calQ %}
     \newcommand{\calQ}{\@cal{q}}
 %{% endif %}
-    % cmd.char calR: $\calR$
 %{% if cmd_calR %}
     \newcommand{\calR}{\@cal{r}}
 %{% endif %}
-    % cmd.char calS: $\calS$
 %{% if cmd_calS %}
     \newcommand{\calS}{\@cal{s}}
 %{% endif %}
-    % cmd.char calT: $\calT$
 %{% if cmd_calT %}
     \newcommand{\calT}{\@cal{t}}
 %{% endif %}
-    % cmd.char calU: $\calU$
 %{% if cmd_calU %}
     \newcommand{\calU}{\@cal{u}}
 %{% endif %}
-    % cmd.char calV: $\calV$
 %{% if cmd_calV %}
     \newcommand{\calV}{\@cal{v}}
 %{% endif %}
-    % cmd.char calW: $\calW$
 %{% if cmd_calW %}
     \newcommand{\calW}{\@cal{w}}
 %{% endif %}
-    % cmd.char calX: $\calX$
 %{% if cmd_calX %}
     \newcommand{\calX}{\@cal{x}}
 %{% endif %}
-    % cmd.char calY: $\calY$
 %{% if cmd_calY %}
     \newcommand{\calY}{\@cal{y}}
 %{% endif %}
-    % cmd.char calZ: $\calZ$
 %{% if cmd_calZ %}
     \newcommand{\calZ}{\@cal{z}}
 %{% endif %}
-    % cmd.char calAA: $\calAA$
 %{% if cmd_calAA %}
     \newcommand{\calAA}{\@cal{A}}
 %{% endif %}
-    % cmd.char calBB: $\calBB$
 %{% if cmd_calBB %}
     \newcommand{\calBB}{\@cal{B}}
 %{% endif %}
-    % cmd.char calCC: $\calCC$
 %{% if cmd_calCC %}
     \newcommand{\calCC}{\@cal{C}}
 %{% endif %}
-    % cmd.char calDD: $\calDD$
 %{% if cmd_calDD %}
     \newcommand{\calDD}{\@cal{D}}
 %{% endif %}
-    % cmd.char calEE: $\calEE$
 %{% if cmd_calEE %}
     \newcommand{\calEE}{\@cal{E}}
 %{% endif %}
-    % cmd.char calFF: $\calFF$
 %{% if cmd_calFF %}
     \newcommand{\calFF}{\@cal{F}}
 %{% endif %}
-    % cmd.char calGG: $\calGG$
 %{% if cmd_calGG %}
     \newcommand{\calGG}{\@cal{G}}
 %{% endif %}
-    % cmd.char calHH: $\calHH$
 %{% if cmd_calHH %}
     \newcommand{\calHH}{\@cal{H}}
 %{% endif %}
-    % cmd.char calII: $\calII$
 %{% if cmd_calII %}
     \newcommand{\calII}{\@cal{I}}
 %{% endif %}
-    % cmd.char calJJ: $\calJJ$
 %{% if cmd_calJJ %}
     \newcommand{\calJJ}{\@cal{J}}
 %{% endif %}
-    % cmd.char calKK: $\calKK$
 %{% if cmd_calKK %}
     \newcommand{\calKK}{\@cal{K}}
 %{% endif %}
-    % cmd.char calLL: $\calLL$
 %{% if cmd_calLL %}
     \newcommand{\calLL}{\@cal{L}}
 %{% endif %}
-    % cmd.char calMM: $\calMM$
 %{% if cmd_calMM %}
     \newcommand{\calMM}{\@cal{M}}
 %{% endif %}
-    % cmd.char calNN: $\calNN$
 %{% if cmd_calNN %}
     \newcommand{\calNN}{\@cal{N}}
 %{% endif %}
-    % cmd.char calOO: $\calOO$
 %{% if cmd_calOO %}
     \newcommand{\calOO}{\@cal{O}}
 %{% endif %}
-    % cmd.char calPP: $\calPP$
 %{% if cmd_calPP %}
     \newcommand{\calPP}{\@cal{P}}
 %{% endif %}
-    % cmd.char calQQ: $\calQQ$
 %{% if cmd_calQQ %}
     \newcommand{\calQQ}{\@cal{Q}}
 %{% endif %}
-    % cmd.char calRR: $\calRR$
 %{% if cmd_calRR %}
     \newcommand{\calRR}{\@cal{R}}
 %{% endif %}
-    % cmd.char calSS: $\calSS$
 %{% if cmd_calSS %}
     \newcommand{\calSS}{\@cal{S}}
 %{% endif %}
-    % cmd.char calTT: $\calTT$
 %{% if cmd_calTT %}
     \newcommand{\calTT}{\@cal{T}}
 %{% endif %}
-    % cmd.char calUU: $\calUU$
 %{% if cmd_calUU %}
     \newcommand{\calUU}{\@cal{U}}
 %{% endif %}
-    % cmd.char calVV: $\calVV$
 %{% if cmd_calVV %}
     \newcommand{\calVV}{\@cal{V}}
 %{% endif %}
-    % cmd.char calWW: $\calWW$
 %{% if cmd_calWW %}
     \newcommand{\calWW}{\@cal{W}}
 %{% endif %}
-    % cmd.char calXX: $\calXX$
 %{% if cmd_calXX %}
     \newcommand{\calXX}{\@cal{X}}
 %{% endif %}
-    % cmd.char calYY: $\calYY$
 %{% if cmd_calYY %}
     \newcommand{\calYY}{\@cal{Y}}
 %{% endif %}
-    % cmd.char calZZ: $\calZZ$
 %{% if cmd_calZZ %}
     \newcommand{\calZZ}{\@cal{Z}}
 %{% endif %}
@@ -1452,211 +1314,159 @@
 %% frak
 %% --------------------
 
-    % cmd.char frakA: $\frakA$
 %{% if cmd_frakA %}
     \newcommand{\frakA}{\mathfrak{a}}
 %{% endif %}
-    % cmd.char frakB: $\frakB$
 %{% if cmd_frakB %}
     \newcommand{\frakB}{\mathfrak{b}}
 %{% endif %}
-    % cmd.char frakC: $\frakC$
 %{% if cmd_frakC %}
     \newcommand{\frakC}{\mathfrak{c}}
 %{% endif %}
-    % cmd.char frakD: $\frakD$
 %{% if cmd_frakD %}
     \newcommand{\frakD}{\mathfrak{d}}
 %{% endif %}
-    % cmd.char frakE: $\frakE$
 %{% if cmd_frakE %}
     \newcommand{\frakE}{\mathfrak{e}}
 %{% endif %}
-    % cmd.char frakF: $\frakF$
 %{% if cmd_frakF %}
     \newcommand{\frakF}{\mathfrak{f}}
 %{% endif %}
-    % cmd.char frakG: $\frakG$
 %{% if cmd_frakG %}
     \newcommand{\frakG}{\mathfrak{g}}
 %{% endif %}
-    % cmd.char frakH: $\frakH$
 %{% if cmd_frakH %}
     \newcommand{\frakH}{\mathfrak{h}}
 %{% endif %}
-    % cmd.char frakI: $\frakI$
 %{% if cmd_frakI %}
     \newcommand{\frakI}{\mathfrak{i}}
 %{% endif %}
-    % cmd.char frakJ: $\frakJ$
 %{% if cmd_frakJ %}
     \newcommand{\frakJ}{\mathfrak{j}}
 %{% endif %}
-    % cmd.char frakK: $\frakK$
 %{% if cmd_frakK %}
     \newcommand{\frakK}{\mathfrak{k}}
 %{% endif %}
-    % cmd.char frakL: $\frakL$
 %{% if cmd_frakL %}
     \newcommand{\frakL}{\mathfrak{l}}
 %{% endif %}
-    % cmd.char frakM: $\frakM$
 %{% if cmd_frakM %}
     \newcommand{\frakM}{\mathfrak{m}}
 %{% endif %}
-    % cmd.char frakN: $\frakN$
 %{% if cmd_frakN %}
     \newcommand{\frakN}{\mathfrak{n}}
 %{% endif %}
-    % cmd.char frakO: $\frakO$
 %{% if cmd_frakO %}
     \newcommand{\frakO}{\mathfrak{o}}
 %{% endif %}
-    % cmd.char frakP: $\frakP$
 %{% if cmd_frakP %}
     \newcommand{\frakP}{\mathfrak{p}}
 %{% endif %}
-    % cmd.char frakQ: $\frakQ$
 %{% if cmd_frakQ %}
     \newcommand{\frakQ}{\mathfrak{q}}
 %{% endif %}
-    % cmd.char frakR: $\frakR$
 %{% if cmd_frakR %}
     \newcommand{\frakR}{\mathfrak{r}}
 %{% endif %}
-    % cmd.char frakS: $\frakS$
 %{% if cmd_frakS %}
     \newcommand{\frakS}{\mathfrak{s}}
 %{% endif %}
-    % cmd.char frakT: $\frakT$
 %{% if cmd_frakT %}
     \newcommand{\frakT}{\mathfrak{t}}
 %{% endif %}
-    % cmd.char frakU: $\frakU$
 %{% if cmd_frakU %}
     \newcommand{\frakU}{\mathfrak{u}}
 %{% endif %}
-    % cmd.char frakV: $\frakV$
 %{% if cmd_frakV %}
     \newcommand{\frakV}{\mathfrak{v}}
 %{% endif %}
-    % cmd.char frakW: $\frakW$
 %{% if cmd_frakW %}
     \newcommand{\frakW}{\mathfrak{w}}
 %{% endif %}
-    % cmd.char frakX: $\frakX$
 %{% if cmd_frakX %}
     \newcommand{\frakX}{\mathfrak{x}}
 %{% endif %}
-    % cmd.char frakY: $\frakY$
 %{% if cmd_frakY %}
     \newcommand{\frakY}{\mathfrak{y}}
 %{% endif %}
-    % cmd.char frakZ: $\frakZ$
 %{% if cmd_frakZ %}
     \newcommand{\frakZ}{\mathfrak{z}}
 %{% endif %}
-    % cmd.char frakAA: $\frakAA$
 %{% if cmd_frakAA %}
     \newcommand{\frakAA}{\mathfrak{A}}
 %{% endif %}
-    % cmd.char frakBB: $\frakBB$
 %{% if cmd_frakBB %}
     \newcommand{\frakBB}{\mathfrak{B}}
 %{% endif %}
-    % cmd.char frakCC: $\frakCC$
 %{% if cmd_frakCC %}
     \newcommand{\frakCC}{\mathfrak{C}}
 %{% endif %}
-    % cmd.char frakDD: $\frakDD$
 %{% if cmd_frakDD %}
     \newcommand{\frakDD}{\mathfrak{D}}
 %{% endif %}
-    % cmd.char frakEE: $\frakEE$
 %{% if cmd_frakEE %}
     \newcommand{\frakEE}{\mathfrak{E}}
 %{% endif %}
-    % cmd.char frakFF: $\frakFF$
 %{% if cmd_frakFF %}
     \newcommand{\frakFF}{\mathfrak{F}}
 %{% endif %}
-    % cmd.char frakGG: $\frakGG$
 %{% if cmd_frakGG %}
     \newcommand{\frakGG}{\mathfrak{G}}
 %{% endif %}
-    % cmd.char frakHH: $\frakHH$
 %{% if cmd_frakHH %}
     \newcommand{\frakHH}{\mathfrak{H}}
 %{% endif %}
-    % cmd.char frakII: $\frakII$
 %{% if cmd_frakII %}
     \newcommand{\frakII}{\mathfrak{I}}
 %{% endif %}
-    % cmd.char frakJJ: $\frakJJ$
 %{% if cmd_frakJJ %}
     \newcommand{\frakJJ}{\mathfrak{J}}
 %{% endif %}
-    % cmd.char frakKK: $\frakKK$
 %{% if cmd_frakKK %}
     \newcommand{\frakKK}{\mathfrak{K}}
 %{% endif %}
-    % cmd.char frakLL: $\frakLL$
 %{% if cmd_frakLL %}
     \newcommand{\frakLL}{\mathfrak{L}}
 %{% endif %}
-    % cmd.char frakMM: $\frakMM$
 %{% if cmd_frakMM %}
     \newcommand{\frakMM}{\mathfrak{M}}
 %{% endif %}
-    % cmd.char frakNN: $\frakNN$
 %{% if cmd_frakNN %}
     \newcommand{\frakNN}{\mathfrak{N}}
 %{% endif %}
-    % cmd.char frakOO: $\frakOO$
 %{% if cmd_frakOO %}
     \newcommand{\frakOO}{\mathfrak{O}}
 %{% endif %}
-    % cmd.char frakPP: $\frakPP$
 %{% if cmd_frakPP %}
     \newcommand{\frakPP}{\mathfrak{P}}
 %{% endif %}
-    % cmd.char frakQQ: $\frakQQ$
 %{% if cmd_frakQQ %}
     \newcommand{\frakQQ}{\mathfrak{Q}}
 %{% endif %}
-    % cmd.char frakRR: $\frakRR$
 %{% if cmd_frakRR %}
     \newcommand{\frakRR}{\mathfrak{R}}
 %{% endif %}
-    % cmd.char frakSS: $\frakSS$
 %{% if cmd_frakSS %}
     \newcommand{\frakSS}{\mathfrak{S}}
 %{% endif %}
-    % cmd.char frakTT: $\frakTT$
 %{% if cmd_frakTT %}
     \newcommand{\frakTT}{\mathfrak{T}}
 %{% endif %}
-    % cmd.char frakUU: $\frakUU$
 %{% if cmd_frakUU %}
     \newcommand{\frakUU}{\mathfrak{U}}
 %{% endif %}
-    % cmd.char frakVV: $\frakVV$
 %{% if cmd_frakVV %}
     \newcommand{\frakVV}{\mathfrak{V}}
 %{% endif %}
-    % cmd.char frakWW: $\frakWW$
 %{% if cmd_frakWW %}
     \newcommand{\frakWW}{\mathfrak{W}}
 %{% endif %}
-    % cmd.char frakXX: $\frakXX$
 %{% if cmd_frakXX %}
     \newcommand{\frakXX}{\mathfrak{X}}
 %{% endif %}
-    % cmd.char frakYY: $\frakYY$
 %{% if cmd_frakYY %}
     \newcommand{\frakYY}{\mathfrak{Y}}
 %{% endif %}
-    % cmd.char frakZZ: $\frakZZ$
 %{% if cmd_frakZZ %}
     \newcommand{\frakZZ}{\mathfrak{Z}}
 %{% endif %}
@@ -1666,217 +1476,164 @@
 %% --------------------
 
 \ifthenelse{\equal{\@bbStyle}{bbold}}{
-    % cmd.char bbA: $\bbA$
 %{% if cmd_bbA %}
     \newcommand{\bbA}{\@bb{a}}
 %{% endif %}
-    % cmd.char bbB: $\bbB$
 %{% if cmd_bbB %}
     \newcommand{\bbB}{\@bb{b}}
 %{% endif %}
-    % cmd.char bbC: $\bbC$
 %{% if cmd_bbC %}
     \newcommand{\bbC}{\@bb{c}}
 %{% endif %}
-    % cmd.char bbD: $\bbD$
 %{% if cmd_bbD %}
     \newcommand{\bbD}{\@bb{d}}
 %{% endif %}
-    % cmd.char bbE: $\bbE$
 %{% if cmd_bbE %}
     \newcommand{\bbE}{\@bb{e}}
 %{% endif %}
-    % cmd.char bbF: $\bbF$
 %{% if cmd_bbF %}
     \newcommand{\bbF}{\@bb{f}}
 %{% endif %}
-    % cmd.char bbG: $\bbG$
 %{% if cmd_bbG %}
     \newcommand{\bbG}{\@bb{g}}
 %{% endif %}
-    % cmd.char bbH: $\bbH$
 %{% if cmd_bbH %}
     \newcommand{\bbH}{\@bb{h}}
 %{% endif %}
-    % cmd.char bbI: $\bbI$
 %{% if cmd_bbI %}
     \newcommand{\bbI}{\@bb{i}}
 %{% endif %}
-    % cmd.char bbJ: $\bbJ$
 %{% if cmd_bbJ %}
     \newcommand{\bbJ}{\@bb{j}}
 %{% endif %}
-    % cmd.char bbK: $\bbK$
 %{% if cmd_bbK %}
     \newcommand{\bbK}{\@bb{k}}
 %{% endif %}
-    % cmd.char bbL: $\bbL$
 %{% if cmd_bbL %}
     \newcommand{\bbL}{\@bb{l}}
 %{% endif %}
-    % cmd.char bbM: $\bbM$
 %{% if cmd_bbM %}
     \newcommand{\bbM}{\@bb{m}}
 %{% endif %}
-    % cmd.char bbN: $\bbN$
 %{% if cmd_bbN %}
     \newcommand{\bbN}{\@bb{n}}
 %{% endif %}
-    % cmd.char bbO: $\bbO$
 %{% if cmd_bbO %}
     \newcommand{\bbO}{\@bb{o}}
 %{% endif %}
-    % cmd.char bbP: $\bbP$
 %{% if cmd_bbP %}
     \newcommand{\bbP}{\@bb{p}}
 %{% endif %}
-    % cmd.char bbQ: $\bbQ$
 %{% if cmd_bbQ %}
     \newcommand{\bbQ}{\@bb{q}}
 %{% endif %}
-    % cmd.char bbR: $\bbR$
 %{% if cmd_bbR %}
     \newcommand{\bbR}{\@bb{r}}
 %{% endif %}
-    % cmd.char bbS: $\bbS$
 %{% if cmd_bbS %}
     \newcommand{\bbS}{\@bb{s}}
 %{% endif %}
-    % cmd.char bbT: $\bbT$
 %{% if cmd_bbT %}
     \newcommand{\bbT}{\@bb{t}}
 %{% endif %}
-    % cmd.char bbU: $\bbU$
 %{% if cmd_bbU %}
     \newcommand{\bbU}{\@bb{u}}
 %{% endif %}
-    % cmd.char bbV: $\bbV$
 %{% if cmd_bbV %}
     \newcommand{\bbV}{\@bb{v}}
 %{% endif %}
-    % cmd.char bbW: $\bbW$
 %{% if cmd_bbW %}
     \newcommand{\bbW}{\@bb{w}}
 %{% endif %}
-    % cmd.char bbX: $\bbX$
 %{% if cmd_bbX %}
     \newcommand{\bbX}{\@bb{x}}
 %{% endif %}
-    % cmd.char bbY: $\bbY$
 %{% if cmd_bbY %}
     \newcommand{\bbY}{\@bb{y}}
 %{% endif %}
-    % cmd.char bbZ: $\bbZ$
 %{% if cmd_bbZ %}
     \newcommand{\bbZ}{\@bb{z}}
 %{% endif %}
 }{
-    % cmd.char bbK: $\bbK$
 %{% if cmd_bbK %}
     \newcommand{\bbK}{\Bbbk}
 %{% endif %}
 } % \ifthenelse{\equal{\@bbStyle}{bbold}}{
-    % cmd.char bbAA: $\bbAA$
 %{% if cmd_bbAA %}
     \newcommand{\bbAA}{\@bb{A}}
 %{% endif %}
-    % cmd.char bbBB: $\bbBB$
 %{% if cmd_bbBB %}
     \newcommand{\bbBB}{\@bb{B}}
 %{% endif %}
-    % cmd.char bbCC: $\bbCC$
 %{% if cmd_bbCC %}
     \newcommand{\bbCC}{\@bb{C}}
 %{% endif %}
-    % cmd.char bbDD: $\bbDD$
 %{% if cmd_bbDD %}
     \newcommand{\bbDD}{\@bb{D}}
 %{% endif %}
-    % cmd.char bbEE: $\bbEE$
 %{% if cmd_bbEE %}
     \newcommand{\bbEE}{\@bb{E}}
 %{% endif %}
-    % cmd.char bbFF: $\bbFF$
 %{% if cmd_bbFF %}
     \newcommand{\bbFF}{\@bb{F}}
 %{% endif %}
-    % cmd.char bbGG: $\bbGG$
 %{% if cmd_bbGG %}
     \newcommand{\bbGG}{\@bb{G}}
 %{% endif %}
-    % cmd.char bbHH: $\bbHH$
 %{% if cmd_bbHH %}
     \newcommand{\bbHH}{\@bb{H}}
 %{% endif %}
-    % cmd.char bbII: $\bbII$
 %{% if cmd_bbII %}
     \newcommand{\bbII}{\@bb{I}}
 %{% endif %}
-    % cmd.char bbJJ: $\bbJJ$
 %{% if cmd_bbJJ %}
     \newcommand{\bbJJ}{\@bb{J}}
 %{% endif %}
-    % cmd.char bbKK: $\bbKK$
 %{% if cmd_bbKK %}
     \newcommand{\bbKK}{\@bb{K}}
 %{% endif %}
-    % cmd.char bbLL: $\bbLL$
 %{% if cmd_bbLL %}
     \newcommand{\bbLL}{\@bb{L}}
 %{% endif %}
-    % cmd.char bbMM: $\bbMM$
 %{% if cmd_bbMM %}
     \newcommand{\bbMM}{\@bb{M}}
 %{% endif %}
-    % cmd.char bbNN: $\bbNN$
 %{% if cmd_bbNN %}
     \newcommand{\bbNN}{\@bb{N}}
 %{% endif %}
-    % cmd.char bbOO: $\bbOO$
 %{% if cmd_bbOO %}
     \newcommand{\bbOO}{\@bb{O}}
 %{% endif %}
-    % cmd.char bbPP: $\bbPP$
 %{% if cmd_bbPP %}
     \newcommand{\bbPP}{\@bb{P}}
 %{% endif %}
-    % cmd.char bbQQ: $\bbQQ$
 %{% if cmd_bbQQ %}
     \newcommand{\bbQQ}{\@bb{Q}}
 %{% endif %}
-    % cmd.char bbRR: $\bbRR$
 %{% if cmd_bbRR %}
     \newcommand{\bbRR}{\@bb{R}}
 %{% endif %}
-    % cmd.char bbSS: $\bbSS$
 %{% if cmd_bbSS %}
     \newcommand{\bbSS}{\@bb{S}}
 %{% endif %}
-    % cmd.char bbTT: $\bbTT$
 %{% if cmd_bbTT %}
     \newcommand{\bbTT}{\@bb{T}}
 %{% endif %}
-    % cmd.char bbUU: $\bbUU$
 %{% if cmd_bbUU %}
     \newcommand{\bbUU}{\@bb{U}}
 %{% endif %}
-    % cmd.char bbVV: $\bbVV$
 %{% if cmd_bbVV %}
     \newcommand{\bbVV}{\@bb{V}}
 %{% endif %}
-    % cmd.char bbWW: $\bbWW$
 %{% if cmd_bbWW %}
     \newcommand{\bbWW}{\@bb{W}}
 %{% endif %}
-    % cmd.char bbXX: $\bbXX$
 %{% if cmd_bbXX %}
     \newcommand{\bbXX}{\@bb{X}}
 %{% endif %}
-    % cmd.char bbYY: $\bbYY$
 %{% if cmd_bbYY %}
     \newcommand{\bbYY}{\@bb{Y}}
 %{% endif %}
-    % cmd.char bbZZ: $\bbZZ$
 %{% if cmd_bbZZ %}
     \newcommand{\bbZZ}{\@bb{Z}}
 %{% endif %}
@@ -1885,211 +1642,159 @@
 %% bf
 %% --------------------
 
-    % cmd.char bfA: $\bfA$
 %{% if cmd_bfA %}
     \newcommand{\bfA}{\mathbf{a}}
 %{% endif %}
-    % cmd.char bfB: $\bfB$
 %{% if cmd_bfB %}
     \newcommand{\bfB}{\mathbf{b}}
 %{% endif %}
-    % cmd.char bfC: $\bfC$
 %{% if cmd_bfC %}
     \newcommand{\bfC}{\mathbf{c}}
 %{% endif %}
-    % cmd.char bfD: $\bfD$
 %{% if cmd_bfD %}
     \newcommand{\bfD}{\mathbf{d}}
 %{% endif %}
-    % cmd.char bfE: $\bfE$
 %{% if cmd_bfE %}
     \newcommand{\bfE}{\mathbf{e}}
 %{% endif %}
-    % cmd.char bfF: $\bfF$
 %{% if cmd_bfF %}
     \newcommand{\bfF}{\mathbf{f}}
 %{% endif %}
-    % cmd.char bfG: $\bfG$
 %{% if cmd_bfG %}
     \newcommand{\bfG}{\mathbf{g}}
 %{% endif %}
-    % cmd.char bfH: $\bfH$
 %{% if cmd_bfH %}
     \newcommand{\bfH}{\mathbf{h}}
 %{% endif %}
-    % cmd.char bfI: $\bfI$
 %{% if cmd_bfI %}
     \newcommand{\bfI}{\mathbf{i}}
 %{% endif %}
-    % cmd.char bfJ: $\bfJ$
 %{% if cmd_bfJ %}
     \newcommand{\bfJ}{\mathbf{j}}
 %{% endif %}
-    % cmd.char bfK: $\bfK$
 %{% if cmd_bfK %}
     \newcommand{\bfK}{\mathbf{k}}
 %{% endif %}
-    % cmd.char bfL: $\bfL$
 %{% if cmd_bfL %}
     \newcommand{\bfL}{\mathbf{l}}
 %{% endif %}
-    % cmd.char bfM: $\bfM$
 %{% if cmd_bfM %}
     \newcommand{\bfM}{\mathbf{m}}
 %{% endif %}
-    % cmd.char bfN: $\bfN$
 %{% if cmd_bfN %}
     \newcommand{\bfN}{\mathbf{n}}
 %{% endif %}
-    % cmd.char bfO: $\bfO$
 %{% if cmd_bfO %}
     \newcommand{\bfO}{\mathbf{o}}
 %{% endif %}
-    % cmd.char bfP: $\bfP$
 %{% if cmd_bfP %}
     \newcommand{\bfP}{\mathbf{p}}
 %{% endif %}
-    % cmd.char bfQ: $\bfQ$
 %{% if cmd_bfQ %}
     \newcommand{\bfQ}{\mathbf{q}}
 %{% endif %}
-    % cmd.char bfR: $\bfR$
 %{% if cmd_bfR %}
     \newcommand{\bfR}{\mathbf{r}}
 %{% endif %}
-    % cmd.char bfS: $\bfS$
 %{% if cmd_bfS %}
     \newcommand{\bfS}{\mathbf{s}}
 %{% endif %}
-    % cmd.char bfT: $\bfT$
 %{% if cmd_bfT %}
     \newcommand{\bfT}{\mathbf{t}}
 %{% endif %}
-    % cmd.char bfU: $\bfU$
 %{% if cmd_bfU %}
     \newcommand{\bfU}{\mathbf{u}}
 %{% endif %}
-    % cmd.char bfV: $\bfV$
 %{% if cmd_bfV %}
     \newcommand{\bfV}{\mathbf{v}}
 %{% endif %}
-    % cmd.char bfW: $\bfW$
 %{% if cmd_bfW %}
     \newcommand{\bfW}{\mathbf{w}}
 %{% endif %}
-    % cmd.char bfX: $\bfX$
 %{% if cmd_bfX %}
     \newcommand{\bfX}{\mathbf{x}}
 %{% endif %}
-    % cmd.char bfY: $\bfY$
 %{% if cmd_bfY %}
     \newcommand{\bfY}{\mathbf{y}}
 %{% endif %}
-    % cmd.char bfZ: $\bfZ$
 %{% if cmd_bfZ %}
     \newcommand{\bfZ}{\mathbf{z}}
 %{% endif %}
-    % cmd.char bfAA: $\bfAA$
 %{% if cmd_bfAA %}
     \newcommand{\bfAA}{\mathbf{A}}
 %{% endif %}
-    % cmd.char bfBB: $\bfBB$
 %{% if cmd_bfBB %}
     \newcommand{\bfBB}{\mathbf{B}}
 %{% endif %}
-    % cmd.char bfCC: $\bfCC$
 %{% if cmd_bfCC %}
     \newcommand{\bfCC}{\mathbf{C}}
 %{% endif %}
-    % cmd.char bfDD: $\bfDD$
 %{% if cmd_bfDD %}
     \newcommand{\bfDD}{\mathbf{D}}
 %{% endif %}
-    % cmd.char bfEE: $\bfEE$
 %{% if cmd_bfEE %}
     \newcommand{\bfEE}{\mathbf{E}}
 %{% endif %}
-    % cmd.char bfFF: $\bfFF$
 %{% if cmd_bfFF %}
     \newcommand{\bfFF}{\mathbf{F}}
 %{% endif %}
-    % cmd.char bfGG: $\bfGG$
 %{% if cmd_bfGG %}
     \newcommand{\bfGG}{\mathbf{G}}
 %{% endif %}
-    % cmd.char bfHH: $\bfHH$
 %{% if cmd_bfHH %}
     \newcommand{\bfHH}{\mathbf{H}}
 %{% endif %}
-    % cmd.char bfII: $\bfII$
 %{% if cmd_bfII %}
     \newcommand{\bfII}{\mathbf{I}}
 %{% endif %}
-    % cmd.char bfJJ: $\bfJJ$
 %{% if cmd_bfJJ %}
     \newcommand{\bfJJ}{\mathbf{J}}
 %{% endif %}
-    % cmd.char bfKK: $\bfKK$
 %{% if cmd_bfKK %}
     \newcommand{\bfKK}{\mathbf{K}}
 %{% endif %}
-    % cmd.char bfLL: $\bfLL$
 %{% if cmd_bfLL %}
     \newcommand{\bfLL}{\mathbf{L}}
 %{% endif %}
-    % cmd.char bfMM: $\bfMM$
 %{% if cmd_bfMM %}
     \newcommand{\bfMM}{\mathbf{M}}
 %{% endif %}
-    % cmd.char bfNN: $\bfNN$
 %{% if cmd_bfNN %}
     \newcommand{\bfNN}{\mathbf{N}}
 %{% endif %}
-    % cmd.char bfOO: $\bfOO$
 %{% if cmd_bfOO %}
     \newcommand{\bfOO}{\mathbf{O}}
 %{% endif %}
-    % cmd.char bfPP: $\bfPP$
 %{% if cmd_bfPP %}
     \newcommand{\bfPP}{\mathbf{P}}
 %{% endif %}
-    % cmd.char bfQQ: $\bfQQ$
 %{% if cmd_bfQQ %}
     \newcommand{\bfQQ}{\mathbf{Q}}
 %{% endif %}
-    % cmd.char bfRR: $\bfRR$
 %{% if cmd_bfRR %}
     \newcommand{\bfRR}{\mathbf{R}}
 %{% endif %}
-    % cmd.char bfSS: $\bfSS$
 %{% if cmd_bfSS %}
     \newcommand{\bfSS}{\mathbf{S}}
 %{% endif %}
-    % cmd.char bfTT: $\bfTT$
 %{% if cmd_bfTT %}
     \newcommand{\bfTT}{\mathbf{T}}
 %{% endif %}
-    % cmd.char bfUU: $\bfUU$
 %{% if cmd_bfUU %}
     \newcommand{\bfUU}{\mathbf{U}}
 %{% endif %}
-    % cmd.char bfVV: $\bfVV$
 %{% if cmd_bfVV %}
     \newcommand{\bfVV}{\mathbf{V}}
 %{% endif %}
-    % cmd.char bfWW: $\bfWW$
 %{% if cmd_bfWW %}
     \newcommand{\bfWW}{\mathbf{W}}
 %{% endif %}
-    % cmd.char bfXX: $\bfXX$
 %{% if cmd_bfXX %}
     \newcommand{\bfXX}{\mathbf{X}}
 %{% endif %}
-    % cmd.char bfYY: $\bfYY$
 %{% if cmd_bfYY %}
     \newcommand{\bfYY}{\mathbf{Y}}
 %{% endif %}
-    % cmd.char bfZZ: $\bfZZ$
 %{% if cmd_bfZZ %}
     \newcommand{\bfZZ}{\mathbf{Z}}
 %{% endif %}
@@ -2098,211 +1803,159 @@
 %% it
 %% --------------------
 
-    % cmd.char itA: $\itA$
 %{% if cmd_itA %}
     \newcommand{\itA}{\mathit{a}}
 %{% endif %}
-    % cmd.char itB: $\itB$
 %{% if cmd_itB %}
     \newcommand{\itB}{\mathit{b}}
 %{% endif %}
-    % cmd.char itC: $\itC$
 %{% if cmd_itC %}
     \newcommand{\itC}{\mathit{c}}
 %{% endif %}
-    % cmd.char itD: $\itD$
 %{% if cmd_itD %}
     \newcommand{\itD}{\mathit{d}}
 %{% endif %}
-    % cmd.char itE: $\itE$
 %{% if cmd_itE %}
     \newcommand{\itE}{\mathit{e}}
 %{% endif %}
-    % cmd.char itF: $\itF$
 %{% if cmd_itF %}
     \newcommand{\itF}{\mathit{f}}
 %{% endif %}
-    % cmd.char itG: $\itG$
 %{% if cmd_itG %}
     \newcommand{\itG}{\mathit{g}}
 %{% endif %}
-    % cmd.char itH: $\itH$
 %{% if cmd_itH %}
     \newcommand{\itH}{\mathit{h}}
 %{% endif %}
-    % cmd.char itI: $\itI$
 %{% if cmd_itI %}
     \newcommand{\itI}{\mathit{i}}
 %{% endif %}
-    % cmd.char itJ: $\itJ$
 %{% if cmd_itJ %}
     \newcommand{\itJ}{\mathit{j}}
 %{% endif %}
-    % cmd.char itK: $\itK$
 %{% if cmd_itK %}
     \newcommand{\itK}{\mathit{k}}
 %{% endif %}
-    % cmd.char itL: $\itL$
 %{% if cmd_itL %}
     \newcommand{\itL}{\mathit{l}}
 %{% endif %}
-    % cmd.char itM: $\itM$
 %{% if cmd_itM %}
     \newcommand{\itM}{\mathit{m}}
 %{% endif %}
-    % cmd.char itN: $\itN$
 %{% if cmd_itN %}
     \newcommand{\itN}{\mathit{n}}
 %{% endif %}
-    % cmd.char itO: $\itO$
 %{% if cmd_itO %}
     \newcommand{\itO}{\mathit{o}}
 %{% endif %}
-    % cmd.char itP: $\itP$
 %{% if cmd_itP %}
     \newcommand{\itP}{\mathit{p}}
 %{% endif %}
-    % cmd.char itQ: $\itQ$
 %{% if cmd_itQ %}
     \newcommand{\itQ}{\mathit{q}}
 %{% endif %}
-    % cmd.char itR: $\itR$
 %{% if cmd_itR %}
     \newcommand{\itR}{\mathit{r}}
 %{% endif %}
-    % cmd.char itS: $\itS$
 %{% if cmd_itS %}
     \newcommand{\itS}{\mathit{s}}
 %{% endif %}
-    % cmd.char itT: $\itT$
 %{% if cmd_itT %}
     \newcommand{\itT}{\mathit{t}}
 %{% endif %}
-    % cmd.char itU: $\itU$
 %{% if cmd_itU %}
     \newcommand{\itU}{\mathit{u}}
 %{% endif %}
-    % cmd.char itV: $\itV$
 %{% if cmd_itV %}
     \newcommand{\itV}{\mathit{v}}
 %{% endif %}
-    % cmd.char itW: $\itW$
 %{% if cmd_itW %}
     \newcommand{\itW}{\mathit{w}}
 %{% endif %}
-    % cmd.char itX: $\itX$
 %{% if cmd_itX %}
     \newcommand{\itX}{\mathit{x}}
 %{% endif %}
-    % cmd.char itY: $\itY$
 %{% if cmd_itY %}
     \newcommand{\itY}{\mathit{y}}
 %{% endif %}
-    % cmd.char itZ: $\itZ$
 %{% if cmd_itZ %}
     \newcommand{\itZ}{\mathit{z}}
 %{% endif %}
-    % cmd.char itAA: $\itAA$
 %{% if cmd_itAA %}
     \newcommand{\itAA}{\mathit{A}}
 %{% endif %}
-    % cmd.char itBB: $\itBB$
 %{% if cmd_itBB %}
     \newcommand{\itBB}{\mathit{B}}
 %{% endif %}
-    % cmd.char itCC: $\itCC$
 %{% if cmd_itCC %}
     \newcommand{\itCC}{\mathit{C}}
 %{% endif %}
-    % cmd.char itDD: $\itDD$
 %{% if cmd_itDD %}
     \newcommand{\itDD}{\mathit{D}}
 %{% endif %}
-    % cmd.char itEE: $\itEE$
 %{% if cmd_itEE %}
     \newcommand{\itEE}{\mathit{E}}
 %{% endif %}
-    % cmd.char itFF: $\itFF$
 %{% if cmd_itFF %}
     \newcommand{\itFF}{\mathit{F}}
 %{% endif %}
-    % cmd.char itGG: $\itGG$
 %{% if cmd_itGG %}
     \newcommand{\itGG}{\mathit{G}}
 %{% endif %}
-    % cmd.char itHH: $\itHH$
 %{% if cmd_itHH %}
     \newcommand{\itHH}{\mathit{H}}
 %{% endif %}
-    % cmd.char itII: $\itII$
 %{% if cmd_itII %}
     \newcommand{\itII}{\mathit{I}}
 %{% endif %}
-    % cmd.char itJJ: $\itJJ$
 %{% if cmd_itJJ %}
     \newcommand{\itJJ}{\mathit{J}}
 %{% endif %}
-    % cmd.char itKK: $\itKK$
 %{% if cmd_itKK %}
     \newcommand{\itKK}{\mathit{K}}
 %{% endif %}
-    % cmd.char itLL: $\itLL$
 %{% if cmd_itLL %}
     \newcommand{\itLL}{\mathit{L}}
 %{% endif %}
-    % cmd.char itMM: $\itMM$
 %{% if cmd_itMM %}
     \newcommand{\itMM}{\mathit{M}}
 %{% endif %}
-    % cmd.char itNN: $\itNN$
 %{% if cmd_itNN %}
     \newcommand{\itNN}{\mathit{N}}
 %{% endif %}
-    % cmd.char itOO: $\itOO$
 %{% if cmd_itOO %}
     \newcommand{\itOO}{\mathit{O}}
 %{% endif %}
-    % cmd.char itPP: $\itPP$
 %{% if cmd_itPP %}
     \newcommand{\itPP}{\mathit{P}}
 %{% endif %}
-    % cmd.char itQQ: $\itQQ$
 %{% if cmd_itQQ %}
     \newcommand{\itQQ}{\mathit{Q}}
 %{% endif %}
-    % cmd.char itRR: $\itRR$
 %{% if cmd_itRR %}
     \newcommand{\itRR}{\mathit{R}}
 %{% endif %}
-    % cmd.char itSS: $\itSS$
 %{% if cmd_itSS %}
     \newcommand{\itSS}{\mathit{S}}
 %{% endif %}
-    % cmd.char itTT: $\itTT$
 %{% if cmd_itTT %}
     \newcommand{\itTT}{\mathit{T}}
 %{% endif %}
-    % cmd.char itUU: $\itUU$
 %{% if cmd_itUU %}
     \newcommand{\itUU}{\mathit{U}}
 %{% endif %}
-    % cmd.char itVV: $\itVV$
 %{% if cmd_itVV %}
     \newcommand{\itVV}{\mathit{V}}
 %{% endif %}
-    % cmd.char itWW: $\itWW$
 %{% if cmd_itWW %}
     \newcommand{\itWW}{\mathit{W}}
 %{% endif %}
-    % cmd.char itXX: $\itXX$
 %{% if cmd_itXX %}
     \newcommand{\itXX}{\mathit{X}}
 %{% endif %}
-    % cmd.char itYY: $\itYY$
 %{% if cmd_itYY %}
     \newcommand{\itYY}{\mathit{Y}}
 %{% endif %}
-    % cmd.char itZZ: $\itZZ$
 %{% if cmd_itZZ %}
     \newcommand{\itZZ}{\mathit{Z}}
 %{% endif %}
@@ -2311,211 +1964,159 @@
 %% rm
 %% --------------------
 
-    % cmd.char rmA: $\rmA$
 %{% if cmd_rmA %}
     \newcommand{\rmA}{\mathrm{a}}
 %{% endif %}
-    % cmd.char rmB: $\rmB$
 %{% if cmd_rmB %}
     \newcommand{\rmB}{\mathrm{b}}
 %{% endif %}
-    % cmd.char rmC: $\rmC$
 %{% if cmd_rmC %}
     \newcommand{\rmC}{\mathrm{c}}
 %{% endif %}
-    % cmd.char rmD: $\rmD$
 %{% if cmd_rmD %}
     \newcommand{\rmD}{\mathrm{d}}
 %{% endif %}
-    % cmd.char rmE: $\rmE$
 %{% if cmd_rmE %}
     \newcommand{\rmE}{\mathrm{e}}
 %{% endif %}
-    % cmd.char rmF: $\rmF$
 %{% if cmd_rmF %}
     \newcommand{\rmF}{\mathrm{f}}
 %{% endif %}
-    % cmd.char rmG: $\rmG$
 %{% if cmd_rmG %}
     \newcommand{\rmG}{\mathrm{g}}
 %{% endif %}
-    % cmd.char rmH: $\rmH$
 %{% if cmd_rmH %}
     \newcommand{\rmH}{\mathrm{h}}
 %{% endif %}
-    % cmd.char rmI: $\rmI$
 %{% if cmd_rmI %}
     \newcommand{\rmI}{\mathrm{i}}
 %{% endif %}
-    % cmd.char rmJ: $\rmJ$
 %{% if cmd_rmJ %}
     \newcommand{\rmJ}{\mathrm{j}}
 %{% endif %}
-    % cmd.char rmK: $\rmK$
 %{% if cmd_rmK %}
     \newcommand{\rmK}{\mathrm{k}}
 %{% endif %}
-    % cmd.char rmL: $\rmL$
 %{% if cmd_rmL %}
     \newcommand{\rmL}{\mathrm{l}}
 %{% endif %}
-    % cmd.char rmM: $\rmM$
 %{% if cmd_rmM %}
     \newcommand{\rmM}{\mathrm{m}}
 %{% endif %}
-    % cmd.char rmN: $\rmN$
 %{% if cmd_rmN %}
     \newcommand{\rmN}{\mathrm{n}}
 %{% endif %}
-    % cmd.char rmO: $\rmO$
 %{% if cmd_rmO %}
     \newcommand{\rmO}{\mathrm{o}}
 %{% endif %}
-    % cmd.char rmP: $\rmP$
 %{% if cmd_rmP %}
     \newcommand{\rmP}{\mathrm{p}}
 %{% endif %}
-    % cmd.char rmQ: $\rmQ$
 %{% if cmd_rmQ %}
     \newcommand{\rmQ}{\mathrm{q}}
 %{% endif %}
-    % cmd.char rmR: $\rmR$
 %{% if cmd_rmR %}
     \newcommand{\rmR}{\mathrm{r}}
 %{% endif %}
-    % cmd.char rmS: $\rmS$
 %{% if cmd_rmS %}
     \newcommand{\rmS}{\mathrm{s}}
 %{% endif %}
-    % cmd.char rmT: $\rmT$
 %{% if cmd_rmT %}
     \newcommand{\rmT}{\mathrm{t}}
 %{% endif %}
-    % cmd.char rmU: $\rmU$
 %{% if cmd_rmU %}
     \newcommand{\rmU}{\mathrm{u}}
 %{% endif %}
-    % cmd.char rmV: $\rmV$
 %{% if cmd_rmV %}
     \newcommand{\rmV}{\mathrm{v}}
 %{% endif %}
-    % cmd.char rmW: $\rmW$
 %{% if cmd_rmW %}
     \newcommand{\rmW}{\mathrm{w}}
 %{% endif %}
-    % cmd.char rmX: $\rmX$
 %{% if cmd_rmX %}
     \newcommand{\rmX}{\mathrm{x}}
 %{% endif %}
-    % cmd.char rmY: $\rmY$
 %{% if cmd_rmY %}
     \newcommand{\rmY}{\mathrm{y}}
 %{% endif %}
-    % cmd.char rmZ: $\rmZ$
 %{% if cmd_rmZ %}
     \newcommand{\rmZ}{\mathrm{z}}
 %{% endif %}
-    % cmd.char rmAA: $\rmAA$
 %{% if cmd_rmAA %}
     \newcommand{\rmAA}{\mathrm{A}}
 %{% endif %}
-    % cmd.char rmBB: $\rmBB$
 %{% if cmd_rmBB %}
     \newcommand{\rmBB}{\mathrm{B}}
 %{% endif %}
-    % cmd.char rmCC: $\rmCC$
 %{% if cmd_rmCC %}
     \newcommand{\rmCC}{\mathrm{C}}
 %{% endif %}
-    % cmd.char rmDD: $\rmDD$
 %{% if cmd_rmDD %}
     \newcommand{\rmDD}{\mathrm{D}}
 %{% endif %}
-    % cmd.char rmEE: $\rmEE$
 %{% if cmd_rmEE %}
     \newcommand{\rmEE}{\mathrm{E}}
 %{% endif %}
-    % cmd.char rmFF: $\rmFF$
 %{% if cmd_rmFF %}
     \newcommand{\rmFF}{\mathrm{F}}
 %{% endif %}
-    % cmd.char rmGG: $\rmGG$
 %{% if cmd_rmGG %}
     \newcommand{\rmGG}{\mathrm{G}}
 %{% endif %}
-    % cmd.char rmHH: $\rmHH$
 %{% if cmd_rmHH %}
     \newcommand{\rmHH}{\mathrm{H}}
 %{% endif %}
-    % cmd.char rmII: $\rmII$
 %{% if cmd_rmII %}
     \newcommand{\rmII}{\mathrm{I}}
 %{% endif %}
-    % cmd.char rmJJ: $\rmJJ$
 %{% if cmd_rmJJ %}
     \newcommand{\rmJJ}{\mathrm{J}}
 %{% endif %}
-    % cmd.char rmKK: $\rmKK$
 %{% if cmd_rmKK %}
     \newcommand{\rmKK}{\mathrm{K}}
 %{% endif %}
-    % cmd.char rmLL: $\rmLL$
 %{% if cmd_rmLL %}
     \newcommand{\rmLL}{\mathrm{L}}
 %{% endif %}
-    % cmd.char rmMM: $\rmMM$
 %{% if cmd_rmMM %}
     \newcommand{\rmMM}{\mathrm{M}}
 %{% endif %}
-    % cmd.char rmNN: $\rmNN$
 %{% if cmd_rmNN %}
     \newcommand{\rmNN}{\mathrm{N}}
 %{% endif %}
-    % cmd.char rmOO: $\rmOO$
 %{% if cmd_rmOO %}
     \newcommand{\rmOO}{\mathrm{O}}
 %{% endif %}
-    % cmd.char rmPP: $\rmPP$
 %{% if cmd_rmPP %}
     \newcommand{\rmPP}{\mathrm{P}}
 %{% endif %}
-    % cmd.char rmQQ: $\rmQQ$
 %{% if cmd_rmQQ %}
     \newcommand{\rmQQ}{\mathrm{Q}}
 %{% endif %}
-    % cmd.char rmRR: $\rmRR$
 %{% if cmd_rmRR %}
     \newcommand{\rmRR}{\mathrm{R}}
 %{% endif %}
-    % cmd.char rmSS: $\rmSS$
 %{% if cmd_rmSS %}
     \newcommand{\rmSS}{\mathrm{S}}
 %{% endif %}
-    % cmd.char rmTT: $\rmTT$
 %{% if cmd_rmTT %}
     \newcommand{\rmTT}{\mathrm{T}}
 %{% endif %}
-    % cmd.char rmUU: $\rmUU$
 %{% if cmd_rmUU %}
     \newcommand{\rmUU}{\mathrm{U}}
 %{% endif %}
-    % cmd.char rmVV: $\rmVV$
 %{% if cmd_rmVV %}
     \newcommand{\rmVV}{\mathrm{V}}
 %{% endif %}
-    % cmd.char rmWW: $\rmWW$
 %{% if cmd_rmWW %}
     \newcommand{\rmWW}{\mathrm{W}}
 %{% endif %}
-    % cmd.char rmXX: $\rmXX$
 %{% if cmd_rmXX %}
     \newcommand{\rmXX}{\mathrm{X}}
 %{% endif %}
-    % cmd.char rmYY: $\rmYY$
 %{% if cmd_rmYY %}
     \newcommand{\rmYY}{\mathrm{Y}}
 %{% endif %}
-    % cmd.char rmZZ: $\rmZZ$
 %{% if cmd_rmZZ %}
     \newcommand{\rmZZ}{\mathrm{Z}}
 %{% endif %}
@@ -2524,211 +2125,159 @@
 %% sf
 %% --------------------
 
-    % cmd.char sfA: $\sfA$
 %{% if cmd_sfA %}
     \newcommand{\sfA}{\mathsf{a}}
 %{% endif %}
-    % cmd.char sfB: $\sfB$
 %{% if cmd_sfB %}
     \newcommand{\sfB}{\mathsf{b}}
 %{% endif %}
-    % cmd.char sfC: $\sfC$
 %{% if cmd_sfC %}
     \newcommand{\sfC}{\mathsf{c}}
 %{% endif %}
-    % cmd.char sfD: $\sfD$
 %{% if cmd_sfD %}
     \newcommand{\sfD}{\mathsf{d}}
 %{% endif %}
-    % cmd.char sfE: $\sfE$
 %{% if cmd_sfE %}
     \newcommand{\sfE}{\mathsf{e}}
 %{% endif %}
-    % cmd.char sfF: $\sfF$
 %{% if cmd_sfF %}
     \newcommand{\sfF}{\mathsf{f}}
 %{% endif %}
-    % cmd.char sfG: $\sfG$
 %{% if cmd_sfG %}
     \newcommand{\sfG}{\mathsf{g}}
 %{% endif %}
-    % cmd.char sfH: $\sfH$
 %{% if cmd_sfH %}
     \newcommand{\sfH}{\mathsf{h}}
 %{% endif %}
-    % cmd.char sfI: $\sfI$
 %{% if cmd_sfI %}
     \newcommand{\sfI}{\mathsf{i}}
 %{% endif %}
-    % cmd.char sfJ: $\sfJ$
 %{% if cmd_sfJ %}
     \newcommand{\sfJ}{\mathsf{j}}
 %{% endif %}
-    % cmd.char sfK: $\sfK$
 %{% if cmd_sfK %}
     \newcommand{\sfK}{\mathsf{k}}
 %{% endif %}
-    % cmd.char sfL: $\sfL$
 %{% if cmd_sfL %}
     \newcommand{\sfL}{\mathsf{l}}
 %{% endif %}
-    % cmd.char sfM: $\sfM$
 %{% if cmd_sfM %}
     \newcommand{\sfM}{\mathsf{m}}
 %{% endif %}
-    % cmd.char sfN: $\sfN$
 %{% if cmd_sfN %}
     \newcommand{\sfN}{\mathsf{n}}
 %{% endif %}
-    % cmd.char sfO: $\sfO$
 %{% if cmd_sfO %}
     \newcommand{\sfO}{\mathsf{o}}
 %{% endif %}
-    % cmd.char sfP: $\sfP$
 %{% if cmd_sfP %}
     \newcommand{\sfP}{\mathsf{p}}
 %{% endif %}
-    % cmd.char sfQ: $\sfQ$
 %{% if cmd_sfQ %}
     \newcommand{\sfQ}{\mathsf{q}}
 %{% endif %}
-    % cmd.char sfR: $\sfR$
 %{% if cmd_sfR %}
     \newcommand{\sfR}{\mathsf{r}}
 %{% endif %}
-    % cmd.char sfS: $\sfS$
 %{% if cmd_sfS %}
     \newcommand{\sfS}{\mathsf{s}}
 %{% endif %}
-    % cmd.char sfT: $\sfT$
 %{% if cmd_sfT %}
     \newcommand{\sfT}{\mathsf{t}}
 %{% endif %}
-    % cmd.char sfU: $\sfU$
 %{% if cmd_sfU %}
     \newcommand{\sfU}{\mathsf{u}}
 %{% endif %}
-    % cmd.char sfV: $\sfV$
 %{% if cmd_sfV %}
     \newcommand{\sfV}{\mathsf{v}}
 %{% endif %}
-    % cmd.char sfW: $\sfW$
 %{% if cmd_sfW %}
     \newcommand{\sfW}{\mathsf{w}}
 %{% endif %}
-    % cmd.char sfX: $\sfX$
 %{% if cmd_sfX %}
     \newcommand{\sfX}{\mathsf{x}}
 %{% endif %}
-    % cmd.char sfY: $\sfY$
 %{% if cmd_sfY %}
     \newcommand{\sfY}{\mathsf{y}}
 %{% endif %}
-    % cmd.char sfZ: $\sfZ$
 %{% if cmd_sfZ %}
     \newcommand{\sfZ}{\mathsf{z}}
 %{% endif %}
-    % cmd.char sfAA: $\sfAA$
 %{% if cmd_sfAA %}
     \newcommand{\sfAA}{\mathsf{A}}
 %{% endif %}
-    % cmd.char sfBB: $\sfBB$
 %{% if cmd_sfBB %}
     \newcommand{\sfBB}{\mathsf{B}}
 %{% endif %}
-    % cmd.char sfCC: $\sfCC$
 %{% if cmd_sfCC %}
     \newcommand{\sfCC}{\mathsf{C}}
 %{% endif %}
-    % cmd.char sfDD: $\sfDD$
 %{% if cmd_sfDD %}
     \newcommand{\sfDD}{\mathsf{D}}
 %{% endif %}
-    % cmd.char sfEE: $\sfEE$
 %{% if cmd_sfEE %}
     \newcommand{\sfEE}{\mathsf{E}}
 %{% endif %}
-    % cmd.char sfFF: $\sfFF$
 %{% if cmd_sfFF %}
     \newcommand{\sfFF}{\mathsf{F}}
 %{% endif %}
-    % cmd.char sfGG: $\sfGG$
 %{% if cmd_sfGG %}
     \newcommand{\sfGG}{\mathsf{G}}
 %{% endif %}
-    % cmd.char sfHH: $\sfHH$
 %{% if cmd_sfHH %}
     \newcommand{\sfHH}{\mathsf{H}}
 %{% endif %}
-    % cmd.char sfII: $\sfII$
 %{% if cmd_sfII %}
     \newcommand{\sfII}{\mathsf{I}}
 %{% endif %}
-    % cmd.char sfJJ: $\sfJJ$
 %{% if cmd_sfJJ %}
     \newcommand{\sfJJ}{\mathsf{J}}
 %{% endif %}
-    % cmd.char sfKK: $\sfKK$
 %{% if cmd_sfKK %}
     \newcommand{\sfKK}{\mathsf{K}}
 %{% endif %}
-    % cmd.char sfLL: $\sfLL$
 %{% if cmd_sfLL %}
     \newcommand{\sfLL}{\mathsf{L}}
 %{% endif %}
-    % cmd.char sfMM: $\sfMM$
 %{% if cmd_sfMM %}
     \newcommand{\sfMM}{\mathsf{M}}
 %{% endif %}
-    % cmd.char sfNN: $\sfNN$
 %{% if cmd_sfNN %}
     \newcommand{\sfNN}{\mathsf{N}}
 %{% endif %}
-    % cmd.char sfOO: $\sfOO$
 %{% if cmd_sfOO %}
     \newcommand{\sfOO}{\mathsf{O}}
 %{% endif %}
-    % cmd.char sfPP: $\sfPP$
 %{% if cmd_sfPP %}
     \newcommand{\sfPP}{\mathsf{P}}
 %{% endif %}
-    % cmd.char sfQQ: $\sfQQ$
 %{% if cmd_sfQQ %}
     \newcommand{\sfQQ}{\mathsf{Q}}
 %{% endif %}
-    % cmd.char sfRR: $\sfRR$
 %{% if cmd_sfRR %}
     \newcommand{\sfRR}{\mathsf{R}}
 %{% endif %}
-    % cmd.char sfSS: $\sfSS$
 %{% if cmd_sfSS %}
     \newcommand{\sfSS}{\mathsf{S}}
 %{% endif %}
-    % cmd.char sfTT: $\sfTT$
 %{% if cmd_sfTT %}
     \newcommand{\sfTT}{\mathsf{T}}
 %{% endif %}
-    % cmd.char sfUU: $\sfUU$
 %{% if cmd_sfUU %}
     \newcommand{\sfUU}{\mathsf{U}}
 %{% endif %}
-    % cmd.char sfVV: $\sfVV$
 %{% if cmd_sfVV %}
     \newcommand{\sfVV}{\mathsf{V}}
 %{% endif %}
-    % cmd.char sfWW: $\sfWW$
 %{% if cmd_sfWW %}
     \newcommand{\sfWW}{\mathsf{W}}
 %{% endif %}
-    % cmd.char sfXX: $\sfXX$
 %{% if cmd_sfXX %}
     \newcommand{\sfXX}{\mathsf{X}}
 %{% endif %}
-    % cmd.char sfYY: $\sfYY$
 %{% if cmd_sfYY %}
     \newcommand{\sfYY}{\mathsf{Y}}
 %{% endif %}
-    % cmd.char sfZZ: $\sfZZ$
 %{% if cmd_sfZZ %}
     \newcommand{\sfZZ}{\mathsf{Z}}
 %{% endif %}
@@ -2743,163 +2292,123 @@
 %% bb
 %% --------------------
 
-    % cmd.char bbalpha: $\bbalpha$
 %{% if cmd_bbalpha %}
     \newcommand{\bbalpha}{\@bb{\alpha}}
 %{% endif %}
-    % cmd.char bbbeta: $\bbbeta$
 %{% if cmd_bbbeta %}
     \newcommand{\bbbeta}{\@bb{\beta}}
 %{% endif %}
-    % cmd.char bbgamma: $\bbgamma$
 %{% if cmd_bbgamma %}
     \newcommand{\bbgamma}{\@bb{\gamma}}
 %{% endif %}
-    % cmd.char bbdelta: $\bbdelta$
 %{% if cmd_bbdelta %}
     \newcommand{\bbdelta}{\@bb{\delta}}
 %{% endif %}
-    % cmd.char bbvarepsilon: $\bbvarepsilon$
 %{% if cmd_bbvarepsilon %}
     \newcommand{\bbvarepsilon}{\@bb{\varepsilon}}
 %{% endif %}
-    % cmd.char bbepsilon: $\bbepsilon$
 %{% if cmd_bbepsilon %}
     \newcommand{\bbepsilon}{\@bb{\epsilon}}
 %{% endif %}
-    % cmd.char bbzeta: $\bbzeta$
 %{% if cmd_bbzeta %}
     \newcommand{\bbzeta}{\@bb{\zeta}}
 %{% endif %}
-    % cmd.char bbeta: $\bbeta$
 %{% if cmd_bbeta %}
     \newcommand{\bbeta}{\@bb{\eta}}
 %{% endif %}
-    % cmd.char bbtheta: $\bbtheta$
 %{% if cmd_bbtheta %}
     \newcommand{\bbtheta}{\@bb{\theta}}
 %{% endif %}
-    % cmd.char bbvartheta: $\bbvartheta$
 %{% if cmd_bbvartheta %}
     \newcommand{\bbvartheta}{\@bb{\vartheta}}
 %{% endif %}
-    % cmd.char bbiota: $\bbiota$
 %{% if cmd_bbiota %}
     \newcommand{\bbiota}{\@bb{\iota}}
 %{% endif %}
-    % cmd.char bbkappa: $\bbkappa$
 %{% if cmd_bbkappa %}
     \newcommand{\bbkappa}{\@bb{\kappa}}
 %{% endif %}
-    % cmd.char bblambda: $\bblambda$
 %{% if cmd_bblambda %}
     \newcommand{\bblambda}{\@bb{\lambda}}
 %{% endif %}
-    % cmd.char bbmu: $\bbmu$
 %{% if cmd_bbmu %}
     \newcommand{\bbmu}{\@bb{\mu}}
 %{% endif %}
-    % cmd.char bbnu: $\bbnu$
 %{% if cmd_bbnu %}
     \newcommand{\bbnu}{\@bb{\nu}}
 %{% endif %}
-    % cmd.char bbxi: $\bbxi$
 %{% if cmd_bbxi %}
     \newcommand{\bbxi}{\@bb{\xi}}
 %{% endif %}
-    % cmd.char bbpi: $\bbpi$
 %{% if cmd_bbpi %}
     \newcommand{\bbpi}{\@bb{\pi}}
 %{% endif %}
-    % cmd.char bbvarpi: $\bbvarpi$
 %{% if cmd_bbvarpi %}
     \newcommand{\bbvarpi}{\@bb{\varpi}}
 %{% endif %}
-    % cmd.char bbrho: $\bbrho$
 %{% if cmd_bbrho %}
     \newcommand{\bbrho}{\@bb{\rho}}
 %{% endif %}
-    % cmd.char bbvarrho: $\bbvarrho$
 %{% if cmd_bbvarrho %}
     \newcommand{\bbvarrho}{\@bb{\varrho}}
 %{% endif %}
-    % cmd.char bbsigma: $\bbsigma$
 %{% if cmd_bbsigma %}
     \newcommand{\bbsigma}{\@bb{\sigma}}
 %{% endif %}
-    % cmd.char bbvarsigma: $\bbvarsigma$
 %{% if cmd_bbvarsigma %}
     \newcommand{\bbvarsigma}{\@bb{\varsigma}}
 %{% endif %}
-    % cmd.char bbtau: $\bbtau$
 %{% if cmd_bbtau %}
     \newcommand{\bbtau}{\@bb{\tau}}
 %{% endif %}
-    % cmd.char bbupsilon: $\bbupsilon$
 %{% if cmd_bbupsilon %}
     \newcommand{\bbupsilon}{\@bb{\upsilon}}
 %{% endif %}
-    % cmd.char bbphi: $\bbphi$
 %{% if cmd_bbphi %}
     \newcommand{\bbphi}{\@bb{\phi}}
 %{% endif %}
-    % cmd.char bbvarphi: $\bbvarphi$
 %{% if cmd_bbvarphi %}
     \newcommand{\bbvarphi}{\@bb{\varphi}}
 %{% endif %}
-    % cmd.char bbchi: $\bbchi$
 %{% if cmd_bbchi %}
     \newcommand{\bbchi}{\@bb{\chi}}
 %{% endif %}
-    % cmd.char bbpsi: $\bbpsi$
 %{% if cmd_bbpsi %}
     \newcommand{\bbpsi}{\@bb{\psi}}
 %{% endif %}
-    % cmd.char bbomega: $\bbomega$
 %{% if cmd_bbomega %}
     \newcommand{\bbomega}{\@bb{\omega}}
 %{% endif %}
-    % cmd.char bbGamma: $\bbGamma$
 %{% if cmd_bbGamma %}
     \newcommand{\bbGamma}{\@bb{\Gamma}}
 %{% endif %}
-    % cmd.char bbDelta: $\bbDelta$
 %{% if cmd_bbDelta %}
     \newcommand{\bbDelta}{\@bb{\Delta}}
 %{% endif %}
-    % cmd.char bbTheta: $\bbTheta$
 %{% if cmd_bbTheta %}
     \newcommand{\bbTheta}{\@bb{\Theta}}
 %{% endif %}
-    % cmd.char bbLambda: $\bbLambda$
 %{% if cmd_bbLambda %}
     \newcommand{\bbLambda}{\@bb{\Lambda}}
 %{% endif %}
-    % cmd.char bbXi: $\bbXi$
 %{% if cmd_bbXi %}
     \newcommand{\bbXi}{\@bb{\Xi}}
 %{% endif %}
-    % cmd.char bbPi: $\bbPi$
 %{% if cmd_bbPi %}
     \newcommand{\bbPi}{\@bb{\Pi}}
 %{% endif %}
-    % cmd.char bbSigma: $\bbSigma$
 %{% if cmd_bbSigma %}
     \newcommand{\bbSigma}{\@bb{\Sigma}}
 %{% endif %}
-    % cmd.char bbUpsilon: $\bbUpsilon$
 %{% if cmd_bbUpsilon %}
     \newcommand{\bbUpsilon}{\@bb{\Upsilon}}
 %{% endif %}
-    % cmd.char bbPhi: $\bbPhi$
 %{% if cmd_bbPhi %}
     \newcommand{\bbPhi}{\@bb{\Phi}}
 %{% endif %}
-    % cmd.char bbPsi: $\bbPsi$
 %{% if cmd_bbPsi %}
     \newcommand{\bbPsi}{\@bb{\Psi}}
 %{% endif %}
-    % cmd.char bbOmega: $\bbOmega$
 %{% if cmd_bbOmega %}
     \newcommand{\bbOmega}{\@bb{\Omega}}
 %{% endif %}
@@ -2908,163 +2417,123 @@
 %% bf
 %% --------------------
 
-    % cmd.char bfalpha: $\bfalpha$
 %{% if cmd_bfalpha %}
     \newcommand{\bfalpha}{\boldsymbol{\alpha}}
 %{% endif %}
-    % cmd.char bfbeta: $\bfbeta$
 %{% if cmd_bfbeta %}
     \newcommand{\bfbeta}{\boldsymbol{\beta}}
 %{% endif %}
-    % cmd.char bfgamma: $\bfgamma$
 %{% if cmd_bfgamma %}
     \newcommand{\bfgamma}{\boldsymbol{\gamma}}
 %{% endif %}
-    % cmd.char bfdelta: $\bfdelta$
 %{% if cmd_bfdelta %}
     \newcommand{\bfdelta}{\boldsymbol{\delta}}
 %{% endif %}
-    % cmd.char bfvarepsilon: $\bfvarepsilon$
 %{% if cmd_bfvarepsilon %}
     \newcommand{\bfvarepsilon}{\boldsymbol{\varepsilon}}
 %{% endif %}
-    % cmd.char bfepsilon: $\bfepsilon$
 %{% if cmd_bfepsilon %}
     \newcommand{\bfepsilon}{\boldsymbol{\epsilon}}
 %{% endif %}
-    % cmd.char bfzeta: $\bfzeta$
 %{% if cmd_bfzeta %}
     \newcommand{\bfzeta}{\boldsymbol{\zeta}}
 %{% endif %}
-    % cmd.char bfeta: $\bfeta$
 %{% if cmd_bfeta %}
     \newcommand{\bfeta}{\boldsymbol{\eta}}
 %{% endif %}
-    % cmd.char bftheta: $\bftheta$
 %{% if cmd_bftheta %}
     \newcommand{\bftheta}{\boldsymbol{\theta}}
 %{% endif %}
-    % cmd.char bfvartheta: $\bfvartheta$
 %{% if cmd_bfvartheta %}
     \newcommand{\bfvartheta}{\boldsymbol{\vartheta}}
 %{% endif %}
-    % cmd.char bfiota: $\bfiota$
 %{% if cmd_bfiota %}
     \newcommand{\bfiota}{\boldsymbol{\iota}}
 %{% endif %}
-    % cmd.char bfkappa: $\bfkappa$
 %{% if cmd_bfkappa %}
     \newcommand{\bfkappa}{\boldsymbol{\kappa}}
 %{% endif %}
-    % cmd.char bflambda: $\bflambda$
 %{% if cmd_bflambda %}
     \newcommand{\bflambda}{\boldsymbol{\lambda}}
 %{% endif %}
-    % cmd.char bfmu: $\bfmu$
 %{% if cmd_bfmu %}
     \newcommand{\bfmu}{\boldsymbol{\mu}}
 %{% endif %}
-    % cmd.char bfnu: $\bfnu$
 %{% if cmd_bfnu %}
     \newcommand{\bfnu}{\boldsymbol{\nu}}
 %{% endif %}
-    % cmd.char bfxi: $\bfxi$
 %{% if cmd_bfxi %}
     \newcommand{\bfxi}{\boldsymbol{\xi}}
 %{% endif %}
-    % cmd.char bfpi: $\bfpi$
 %{% if cmd_bfpi %}
     \newcommand{\bfpi}{\boldsymbol{\pi}}
 %{% endif %}
-    % cmd.char bfvarpi: $\bfvarpi$
 %{% if cmd_bfvarpi %}
     \newcommand{\bfvarpi}{\boldsymbol{\varpi}}
 %{% endif %}
-    % cmd.char bfrho: $\bfrho$
 %{% if cmd_bfrho %}
     \newcommand{\bfrho}{\boldsymbol{\rho}}
 %{% endif %}
-    % cmd.char bfvarrho: $\bfvarrho$
 %{% if cmd_bfvarrho %}
     \newcommand{\bfvarrho}{\boldsymbol{\varrho}}
 %{% endif %}
-    % cmd.char bfsigma: $\bfsigma$
 %{% if cmd_bfsigma %}
     \newcommand{\bfsigma}{\boldsymbol{\sigma}}
 %{% endif %}
-    % cmd.char bfvarsigma: $\bfvarsigma$
 %{% if cmd_bfvarsigma %}
     \newcommand{\bfvarsigma}{\boldsymbol{\varsigma}}
 %{% endif %}
-    % cmd.char bftau: $\bftau$
 %{% if cmd_bftau %}
     \newcommand{\bftau}{\boldsymbol{\tau}}
 %{% endif %}
-    % cmd.char bfupsilon: $\bfupsilon$
 %{% if cmd_bfupsilon %}
     \newcommand{\bfupsilon}{\boldsymbol{\upsilon}}
 %{% endif %}
-    % cmd.char bfphi: $\bfphi$
 %{% if cmd_bfphi %}
     \newcommand{\bfphi}{\boldsymbol{\phi}}
 %{% endif %}
-    % cmd.char bfvarphi: $\bfvarphi$
 %{% if cmd_bfvarphi %}
     \newcommand{\bfvarphi}{\boldsymbol{\varphi}}
 %{% endif %}
-    % cmd.char bfchi: $\bfchi$
 %{% if cmd_bfchi %}
     \newcommand{\bfchi}{\boldsymbol{\chi}}
 %{% endif %}
-    % cmd.char bfpsi: $\bfpsi$
 %{% if cmd_bfpsi %}
     \newcommand{\bfpsi}{\boldsymbol{\psi}}
 %{% endif %}
-    % cmd.char bfomega: $\bfomega$
 %{% if cmd_bfomega %}
     \newcommand{\bfomega}{\boldsymbol{\omega}}
 %{% endif %}
-    % cmd.char bfGamma: $\bfGamma$
 %{% if cmd_bfGamma %}
     \newcommand{\bfGamma}{\boldsymbol{\Gamma}}
 %{% endif %}
-    % cmd.char bfDelta: $\bfDelta$
 %{% if cmd_bfDelta %}
     \newcommand{\bfDelta}{\boldsymbol{\Delta}}
 %{% endif %}
-    % cmd.char bfTheta: $\bfTheta$
 %{% if cmd_bfTheta %}
     \newcommand{\bfTheta}{\boldsymbol{\Theta}}
 %{% endif %}
-    % cmd.char bfLambda: $\bfLambda$
 %{% if cmd_bfLambda %}
     \newcommand{\bfLambda}{\boldsymbol{\Lambda}}
 %{% endif %}
-    % cmd.char bfXi: $\bfXi$
 %{% if cmd_bfXi %}
     \newcommand{\bfXi}{\boldsymbol{\Xi}}
 %{% endif %}
-    % cmd.char bfPi: $\bfPi$
 %{% if cmd_bfPi %}
     \newcommand{\bfPi}{\boldsymbol{\Pi}}
 %{% endif %}
-    % cmd.char bfSigma: $\bfSigma$
 %{% if cmd_bfSigma %}
     \newcommand{\bfSigma}{\boldsymbol{\Sigma}}
 %{% endif %}
-    % cmd.char bfUpsilon: $\bfUpsilon$
 %{% if cmd_bfUpsilon %}
     \newcommand{\bfUpsilon}{\boldsymbol{\Upsilon}}
 %{% endif %}
-    % cmd.char bfPhi: $\bfPhi$
 %{% if cmd_bfPhi %}
     \newcommand{\bfPhi}{\boldsymbol{\Phi}}
 %{% endif %}
-    % cmd.char bfPsi: $\bfPsi$
 %{% if cmd_bfPsi %}
     \newcommand{\bfPsi}{\boldsymbol{\Psi}}
 %{% endif %}
-    % cmd.char bfOmega: $\bfOmega$
 %{% if cmd_bfOmega %}
     \newcommand{\bfOmega}{\boldsymbol{\Omega}}
 %{% endif %}
@@ -3079,211 +2548,159 @@
 %% vec
 %% --------------------
 
-    % cmd.char vecA: $\vecA$
 %{% if cmd_vecA %}
     \newcommand{\vecA}{\vec{a}}
 %{% endif %}
-    % cmd.char vecB: $\vecB$
 %{% if cmd_vecB %}
     \newcommand{\vecB}{\vec{b}}
 %{% endif %}
-    % cmd.char vecC: $\vecC$
 %{% if cmd_vecC %}
     \newcommand{\vecC}{\vec{c}}
 %{% endif %}
-    % cmd.char vecD: $\vecD$
 %{% if cmd_vecD %}
     \newcommand{\vecD}{\vec{d}}
 %{% endif %}
-    % cmd.char vecE: $\vecE$
 %{% if cmd_vecE %}
     \newcommand{\vecE}{\vec{e}}
 %{% endif %}
-    % cmd.char vecF: $\vecF$
 %{% if cmd_vecF %}
     \newcommand{\vecF}{\vec{f}}
 %{% endif %}
-    % cmd.char vecG: $\vecG$
 %{% if cmd_vecG %}
     \newcommand{\vecG}{\vec{g}}
 %{% endif %}
-    % cmd.char vecH: $\vecH$
 %{% if cmd_vecH %}
     \newcommand{\vecH}{\vec{h}}
 %{% endif %}
-    % cmd.char vecI: $\vecI$
 %{% if cmd_vecI %}
     \newcommand{\vecI}{\vec{i}}
 %{% endif %}
-    % cmd.char vecJ: $\vecJ$
 %{% if cmd_vecJ %}
     \newcommand{\vecJ}{\vec{j}}
 %{% endif %}
-    % cmd.char vecK: $\vecK$
 %{% if cmd_vecK %}
     \newcommand{\vecK}{\vec{k}}
 %{% endif %}
-    % cmd.char vecL: $\vecL$
 %{% if cmd_vecL %}
     \newcommand{\vecL}{\vec{l}}
 %{% endif %}
-    % cmd.char vecM: $\vecM$
 %{% if cmd_vecM %}
     \newcommand{\vecM}{\vec{m}}
 %{% endif %}
-    % cmd.char vecN: $\vecN$
 %{% if cmd_vecN %}
     \newcommand{\vecN}{\vec{n}}
 %{% endif %}
-    % cmd.char vecO: $\vecO$
 %{% if cmd_vecO %}
     \newcommand{\vecO}{\vec{o}}
 %{% endif %}
-    % cmd.char vecP: $\vecP$
 %{% if cmd_vecP %}
     \newcommand{\vecP}{\vec{p}}
 %{% endif %}
-    % cmd.char vecQ: $\vecQ$
 %{% if cmd_vecQ %}
     \newcommand{\vecQ}{\vec{q}}
 %{% endif %}
-    % cmd.char vecR: $\vecR$
 %{% if cmd_vecR %}
     \newcommand{\vecR}{\vec{r}}
 %{% endif %}
-    % cmd.char vecS: $\vecS$
 %{% if cmd_vecS %}
     \newcommand{\vecS}{\vec{s}}
 %{% endif %}
-    % cmd.char vecT: $\vecT$
 %{% if cmd_vecT %}
     \newcommand{\vecT}{\vec{t}}
 %{% endif %}
-    % cmd.char vecU: $\vecU$
 %{% if cmd_vecU %}
     \newcommand{\vecU}{\vec{u}}
 %{% endif %}
-    % cmd.char vecV: $\vecV$
 %{% if cmd_vecV %}
     \newcommand{\vecV}{\vec{v}}
 %{% endif %}
-    % cmd.char vecW: $\vecW$
 %{% if cmd_vecW %}
     \newcommand{\vecW}{\vec{w}}
 %{% endif %}
-    % cmd.char vecX: $\vecX$
 %{% if cmd_vecX %}
     \newcommand{\vecX}{\vec{x}}
 %{% endif %}
-    % cmd.char vecY: $\vecY$
 %{% if cmd_vecY %}
     \newcommand{\vecY}{\vec{y}}
 %{% endif %}
-    % cmd.char vecZ: $\vecZ$
 %{% if cmd_vecZ %}
     \newcommand{\vecZ}{\vec{z}}
 %{% endif %}
-    % cmd.char vecAA: $\vecAA$
 %{% if cmd_vecAA %}
     \newcommand{\vecAA}{\vec{A}}
 %{% endif %}
-    % cmd.char vecBB: $\vecBB$
 %{% if cmd_vecBB %}
     \newcommand{\vecBB}{\vec{B}}
 %{% endif %}
-    % cmd.char vecCC: $\vecCC$
 %{% if cmd_vecCC %}
     \newcommand{\vecCC}{\vec{C}}
 %{% endif %}
-    % cmd.char vecDD: $\vecDD$
 %{% if cmd_vecDD %}
     \newcommand{\vecDD}{\vec{D}}
 %{% endif %}
-    % cmd.char vecEE: $\vecEE$
 %{% if cmd_vecEE %}
     \newcommand{\vecEE}{\vec{E}}
 %{% endif %}
-    % cmd.char vecFF: $\vecFF$
 %{% if cmd_vecFF %}
     \newcommand{\vecFF}{\vec{F}}
 %{% endif %}
-    % cmd.char vecGG: $\vecGG$
 %{% if cmd_vecGG %}
     \newcommand{\vecGG}{\vec{G}}
 %{% endif %}
-    % cmd.char vecHH: $\vecHH$
 %{% if cmd_vecHH %}
     \newcommand{\vecHH}{\vec{H}}
 %{% endif %}
-    % cmd.char vecII: $\vecII$
 %{% if cmd_vecII %}
     \newcommand{\vecII}{\vec{I}}
 %{% endif %}
-    % cmd.char vecJJ: $\vecJJ$
 %{% if cmd_vecJJ %}
     \newcommand{\vecJJ}{\vec{J}}
 %{% endif %}
-    % cmd.char vecKK: $\vecKK$
 %{% if cmd_vecKK %}
     \newcommand{\vecKK}{\vec{K}}
 %{% endif %}
-    % cmd.char vecLL: $\vecLL$
 %{% if cmd_vecLL %}
     \newcommand{\vecLL}{\vec{L}}
 %{% endif %}
-    % cmd.char vecMM: $\vecMM$
 %{% if cmd_vecMM %}
     \newcommand{\vecMM}{\vec{M}}
 %{% endif %}
-    % cmd.char vecNN: $\vecNN$
 %{% if cmd_vecNN %}
     \newcommand{\vecNN}{\vec{N}}
 %{% endif %}
-    % cmd.char vecOO: $\vecOO$
 %{% if cmd_vecOO %}
     \newcommand{\vecOO}{\vec{O}}
 %{% endif %}
-    % cmd.char vecPP: $\vecPP$
 %{% if cmd_vecPP %}
     \newcommand{\vecPP}{\vec{P}}
 %{% endif %}
-    % cmd.char vecQQ: $\vecQQ$
 %{% if cmd_vecQQ %}
     \newcommand{\vecQQ}{\vec{Q}}
 %{% endif %}
-    % cmd.char vecRR: $\vecRR$
 %{% if cmd_vecRR %}
     \newcommand{\vecRR}{\vec{R}}
 %{% endif %}
-    % cmd.char vecSS: $\vecSS$
 %{% if cmd_vecSS %}
     \newcommand{\vecSS}{\vec{S}}
 %{% endif %}
-    % cmd.char vecTT: $\vecTT$
 %{% if cmd_vecTT %}
     \newcommand{\vecTT}{\vec{T}}
 %{% endif %}
-    % cmd.char vecUU: $\vecUU$
 %{% if cmd_vecUU %}
     \newcommand{\vecUU}{\vec{U}}
 %{% endif %}
-    % cmd.char vecVV: $\vecVV$
 %{% if cmd_vecVV %}
     \newcommand{\vecVV}{\vec{V}}
 %{% endif %}
-    % cmd.char vecWW: $\vecWW$
 %{% if cmd_vecWW %}
     \newcommand{\vecWW}{\vec{W}}
 %{% endif %}
-    % cmd.char vecXX: $\vecXX$
 %{% if cmd_vecXX %}
     \newcommand{\vecXX}{\vec{X}}
 %{% endif %}
-    % cmd.char vecYY: $\vecYY$
 %{% if cmd_vecYY %}
     \newcommand{\vecYY}{\vec{Y}}
 %{% endif %}
-    % cmd.char vecZZ: $\vecZZ$
 %{% if cmd_vecZZ %}
     \newcommand{\vecZZ}{\vec{Z}}
 %{% endif %}
@@ -3292,211 +2709,159 @@
 %% hat
 %% --------------------
 
-    % cmd.char hatA: $\hatA$
 %{% if cmd_hatA %}
     \newcommand{\hatA}{\hat{a}}
 %{% endif %}
-    % cmd.char hatB: $\hatB$
 %{% if cmd_hatB %}
     \newcommand{\hatB}{\hat{b}}
 %{% endif %}
-    % cmd.char hatC: $\hatC$
 %{% if cmd_hatC %}
     \newcommand{\hatC}{\hat{c}}
 %{% endif %}
-    % cmd.char hatD: $\hatD$
 %{% if cmd_hatD %}
     \newcommand{\hatD}{\hat{d}}
 %{% endif %}
-    % cmd.char hatE: $\hatE$
 %{% if cmd_hatE %}
     \newcommand{\hatE}{\hat{e}}
 %{% endif %}
-    % cmd.char hatF: $\hatF$
 %{% if cmd_hatF %}
     \newcommand{\hatF}{\hat{f}}
 %{% endif %}
-    % cmd.char hatG: $\hatG$
 %{% if cmd_hatG %}
     \newcommand{\hatG}{\hat{g}}
 %{% endif %}
-    % cmd.char hatH: $\hatH$
 %{% if cmd_hatH %}
     \newcommand{\hatH}{\hat{h}}
 %{% endif %}
-    % cmd.char hatI: $\hatI$
 %{% if cmd_hatI %}
     \newcommand{\hatI}{\hat{i}}
 %{% endif %}
-    % cmd.char hatJ: $\hatJ$
 %{% if cmd_hatJ %}
     \newcommand{\hatJ}{\hat{j}}
 %{% endif %}
-    % cmd.char hatK: $\hatK$
 %{% if cmd_hatK %}
     \newcommand{\hatK}{\hat{k}}
 %{% endif %}
-    % cmd.char hatL: $\hatL$
 %{% if cmd_hatL %}
     \newcommand{\hatL}{\hat{l}}
 %{% endif %}
-    % cmd.char hatM: $\hatM$
 %{% if cmd_hatM %}
     \newcommand{\hatM}{\hat{m}}
 %{% endif %}
-    % cmd.char hatN: $\hatN$
 %{% if cmd_hatN %}
     \newcommand{\hatN}{\hat{n}}
 %{% endif %}
-    % cmd.char hatO: $\hatO$
 %{% if cmd_hatO %}
     \newcommand{\hatO}{\hat{o}}
 %{% endif %}
-    % cmd.char hatP: $\hatP$
 %{% if cmd_hatP %}
     \newcommand{\hatP}{\hat{p}}
 %{% endif %}
-    % cmd.char hatQ: $\hatQ$
 %{% if cmd_hatQ %}
     \newcommand{\hatQ}{\hat{q}}
 %{% endif %}
-    % cmd.char hatR: $\hatR$
 %{% if cmd_hatR %}
     \newcommand{\hatR}{\hat{r}}
 %{% endif %}
-    % cmd.char hatS: $\hatS$
 %{% if cmd_hatS %}
     \newcommand{\hatS}{\hat{s}}
 %{% endif %}
-    % cmd.char hatT: $\hatT$
 %{% if cmd_hatT %}
     \newcommand{\hatT}{\hat{t}}
 %{% endif %}
-    % cmd.char hatU: $\hatU$
 %{% if cmd_hatU %}
     \newcommand{\hatU}{\hat{u}}
 %{% endif %}
-    % cmd.char hatV: $\hatV$
 %{% if cmd_hatV %}
     \newcommand{\hatV}{\hat{v}}
 %{% endif %}
-    % cmd.char hatW: $\hatW$
 %{% if cmd_hatW %}
     \newcommand{\hatW}{\hat{w}}
 %{% endif %}
-    % cmd.char hatX: $\hatX$
 %{% if cmd_hatX %}
     \newcommand{\hatX}{\hat{x}}
 %{% endif %}
-    % cmd.char hatY: $\hatY$
 %{% if cmd_hatY %}
     \newcommand{\hatY}{\hat{y}}
 %{% endif %}
-    % cmd.char hatZ: $\hatZ$
 %{% if cmd_hatZ %}
     \newcommand{\hatZ}{\hat{z}}
 %{% endif %}
-    % cmd.char hatAA: $\hatAA$
 %{% if cmd_hatAA %}
     \newcommand{\hatAA}{\hat{A}}
 %{% endif %}
-    % cmd.char hatBB: $\hatBB$
 %{% if cmd_hatBB %}
     \newcommand{\hatBB}{\hat{B}}
 %{% endif %}
-    % cmd.char hatCC: $\hatCC$
 %{% if cmd_hatCC %}
     \newcommand{\hatCC}{\hat{C}}
 %{% endif %}
-    % cmd.char hatDD: $\hatDD$
 %{% if cmd_hatDD %}
     \newcommand{\hatDD}{\hat{D}}
 %{% endif %}
-    % cmd.char hatEE: $\hatEE$
 %{% if cmd_hatEE %}
     \newcommand{\hatEE}{\hat{E}}
 %{% endif %}
-    % cmd.char hatFF: $\hatFF$
 %{% if cmd_hatFF %}
     \newcommand{\hatFF}{\hat{F}}
 %{% endif %}
-    % cmd.char hatGG: $\hatGG$
 %{% if cmd_hatGG %}
     \newcommand{\hatGG}{\hat{G}}
 %{% endif %}
-    % cmd.char hatHH: $\hatHH$
 %{% if cmd_hatHH %}
     \newcommand{\hatHH}{\hat{H}}
 %{% endif %}
-    % cmd.char hatII: $\hatII$
 %{% if cmd_hatII %}
     \newcommand{\hatII}{\hat{I}}
 %{% endif %}
-    % cmd.char hatJJ: $\hatJJ$
 %{% if cmd_hatJJ %}
     \newcommand{\hatJJ}{\hat{J}}
 %{% endif %}
-    % cmd.char hatKK: $\hatKK$
 %{% if cmd_hatKK %}
     \newcommand{\hatKK}{\hat{K}}
 %{% endif %}
-    % cmd.char hatLL: $\hatLL$
 %{% if cmd_hatLL %}
     \newcommand{\hatLL}{\hat{L}}
 %{% endif %}
-    % cmd.char hatMM: $\hatMM$
 %{% if cmd_hatMM %}
     \newcommand{\hatMM}{\hat{M}}
 %{% endif %}
-    % cmd.char hatNN: $\hatNN$
 %{% if cmd_hatNN %}
     \newcommand{\hatNN}{\hat{N}}
 %{% endif %}
-    % cmd.char hatOO: $\hatOO$
 %{% if cmd_hatOO %}
     \newcommand{\hatOO}{\hat{O}}
 %{% endif %}
-    % cmd.char hatPP: $\hatPP$
 %{% if cmd_hatPP %}
     \newcommand{\hatPP}{\hat{P}}
 %{% endif %}
-    % cmd.char hatQQ: $\hatQQ$
 %{% if cmd_hatQQ %}
     \newcommand{\hatQQ}{\hat{Q}}
 %{% endif %}
-    % cmd.char hatRR: $\hatRR$
 %{% if cmd_hatRR %}
     \newcommand{\hatRR}{\hat{R}}
 %{% endif %}
-    % cmd.char hatSS: $\hatSS$
 %{% if cmd_hatSS %}
     \newcommand{\hatSS}{\hat{S}}
 %{% endif %}
-    % cmd.char hatTT: $\hatTT$
 %{% if cmd_hatTT %}
     \newcommand{\hatTT}{\hat{T}}
 %{% endif %}
-    % cmd.char hatUU: $\hatUU$
 %{% if cmd_hatUU %}
     \newcommand{\hatUU}{\hat{U}}
 %{% endif %}
-    % cmd.char hatVV: $\hatVV$
 %{% if cmd_hatVV %}
     \newcommand{\hatVV}{\hat{V}}
 %{% endif %}
-    % cmd.char hatWW: $\hatWW$
 %{% if cmd_hatWW %}
     \newcommand{\hatWW}{\hat{W}}
 %{% endif %}
-    % cmd.char hatXX: $\hatXX$
 %{% if cmd_hatXX %}
     \newcommand{\hatXX}{\hat{X}}
 %{% endif %}
-    % cmd.char hatYY: $\hatYY$
 %{% if cmd_hatYY %}
     \newcommand{\hatYY}{\hat{Y}}
 %{% endif %}
-    % cmd.char hatZZ: $\hatZZ$
 %{% if cmd_hatZZ %}
     \newcommand{\hatZZ}{\hat{Z}}
 %{% endif %}
@@ -3505,211 +2870,159 @@
 %% ch
 %% --------------------
 
-    % cmd.char chA: $\chA$
 %{% if cmd_chA %}
     \newcommand{\chA}{\check{a}}
 %{% endif %}
-    % cmd.char chB: $\chB$
 %{% if cmd_chB %}
     \newcommand{\chB}{\check{b}}
 %{% endif %}
-    % cmd.char chC: $\chC$
 %{% if cmd_chC %}
     \newcommand{\chC}{\check{c}}
 %{% endif %}
-    % cmd.char chD: $\chD$
 %{% if cmd_chD %}
     \newcommand{\chD}{\check{d}}
 %{% endif %}
-    % cmd.char chE: $\chE$
 %{% if cmd_chE %}
     \newcommand{\chE}{\check{e}}
 %{% endif %}
-    % cmd.char chF: $\chF$
 %{% if cmd_chF %}
     \newcommand{\chF}{\check{f}}
 %{% endif %}
-    % cmd.char chG: $\chG$
 %{% if cmd_chG %}
     \newcommand{\chG}{\check{g}}
 %{% endif %}
-    % cmd.char chH: $\chH$
 %{% if cmd_chH %}
     \newcommand{\chH}{\check{h}}
 %{% endif %}
-    % cmd.char chI: $\chI$
 %{% if cmd_chI %}
     \newcommand{\chI}{\check{i}}
 %{% endif %}
-    % cmd.char chJ: $\chJ$
 %{% if cmd_chJ %}
     \newcommand{\chJ}{\check{j}}
 %{% endif %}
-    % cmd.char chK: $\chK$
 %{% if cmd_chK %}
     \newcommand{\chK}{\check{k}}
 %{% endif %}
-    % cmd.char chL: $\chL$
 %{% if cmd_chL %}
     \newcommand{\chL}{\check{l}}
 %{% endif %}
-    % cmd.char chM: $\chM$
 %{% if cmd_chM %}
     \newcommand{\chM}{\check{m}}
 %{% endif %}
-    % cmd.char chN: $\chN$
 %{% if cmd_chN %}
     \newcommand{\chN}{\check{n}}
 %{% endif %}
-    % cmd.char chO: $\chO$
 %{% if cmd_chO %}
     \newcommand{\chO}{\check{o}}
 %{% endif %}
-    % cmd.char chP: $\chP$
 %{% if cmd_chP %}
     \newcommand{\chP}{\check{p}}
 %{% endif %}
-    % cmd.char chQ: $\chQ$
 %{% if cmd_chQ %}
     \newcommand{\chQ}{\check{q}}
 %{% endif %}
-    % cmd.char chR: $\chR$
 %{% if cmd_chR %}
     \newcommand{\chR}{\check{r}}
 %{% endif %}
-    % cmd.char chS: $\chS$
 %{% if cmd_chS %}
     \newcommand{\chS}{\check{s}}
 %{% endif %}
-    % cmd.char chT: $\chT$
 %{% if cmd_chT %}
     \newcommand{\chT}{\check{t}}
 %{% endif %}
-    % cmd.char chU: $\chU$
 %{% if cmd_chU %}
     \newcommand{\chU}{\check{u}}
 %{% endif %}
-    % cmd.char chV: $\chV$
 %{% if cmd_chV %}
     \newcommand{\chV}{\check{v}}
 %{% endif %}
-    % cmd.char chW: $\chW$
 %{% if cmd_chW %}
     \newcommand{\chW}{\check{w}}
 %{% endif %}
-    % cmd.char chX: $\chX$
 %{% if cmd_chX %}
     \newcommand{\chX}{\check{x}}
 %{% endif %}
-    % cmd.char chY: $\chY$
 %{% if cmd_chY %}
     \newcommand{\chY}{\check{y}}
 %{% endif %}
-    % cmd.char chZ: $\chZ$
 %{% if cmd_chZ %}
     \newcommand{\chZ}{\check{z}}
 %{% endif %}
-    % cmd.char chAA: $\chAA$
 %{% if cmd_chAA %}
     \newcommand{\chAA}{\check{A}}
 %{% endif %}
-    % cmd.char chBB: $\chBB$
 %{% if cmd_chBB %}
     \newcommand{\chBB}{\check{B}}
 %{% endif %}
-    % cmd.char chCC: $\chCC$
 %{% if cmd_chCC %}
     \newcommand{\chCC}{\check{C}}
 %{% endif %}
-    % cmd.char chDD: $\chDD$
 %{% if cmd_chDD %}
     \newcommand{\chDD}{\check{D}}
 %{% endif %}
-    % cmd.char chEE: $\chEE$
 %{% if cmd_chEE %}
     \newcommand{\chEE}{\check{E}}
 %{% endif %}
-    % cmd.char chFF: $\chFF$
 %{% if cmd_chFF %}
     \newcommand{\chFF}{\check{F}}
 %{% endif %}
-    % cmd.char chGG: $\chGG$
 %{% if cmd_chGG %}
     \newcommand{\chGG}{\check{G}}
 %{% endif %}
-    % cmd.char chHH: $\chHH$
 %{% if cmd_chHH %}
     \newcommand{\chHH}{\check{H}}
 %{% endif %}
-    % cmd.char chII: $\chII$
 %{% if cmd_chII %}
     \newcommand{\chII}{\check{I}}
 %{% endif %}
-    % cmd.char chJJ: $\chJJ$
 %{% if cmd_chJJ %}
     \newcommand{\chJJ}{\check{J}}
 %{% endif %}
-    % cmd.char chKK: $\chKK$
 %{% if cmd_chKK %}
     \newcommand{\chKK}{\check{K}}
 %{% endif %}
-    % cmd.char chLL: $\chLL$
 %{% if cmd_chLL %}
     \newcommand{\chLL}{\check{L}}
 %{% endif %}
-    % cmd.char chMM: $\chMM$
 %{% if cmd_chMM %}
     \newcommand{\chMM}{\check{M}}
 %{% endif %}
-    % cmd.char chNN: $\chNN$
 %{% if cmd_chNN %}
     \newcommand{\chNN}{\check{N}}
 %{% endif %}
-    % cmd.char chOO: $\chOO$
 %{% if cmd_chOO %}
     \newcommand{\chOO}{\check{O}}
 %{% endif %}
-    % cmd.char chPP: $\chPP$
 %{% if cmd_chPP %}
     \newcommand{\chPP}{\check{P}}
 %{% endif %}
-    % cmd.char chQQ: $\chQQ$
 %{% if cmd_chQQ %}
     \newcommand{\chQQ}{\check{Q}}
 %{% endif %}
-    % cmd.char chRR: $\chRR$
 %{% if cmd_chRR %}
     \newcommand{\chRR}{\check{R}}
 %{% endif %}
-    % cmd.char chSS: $\chSS$
 %{% if cmd_chSS %}
     \newcommand{\chSS}{\check{S}}
 %{% endif %}
-    % cmd.char chTT: $\chTT$
 %{% if cmd_chTT %}
     \newcommand{\chTT}{\check{T}}
 %{% endif %}
-    % cmd.char chUU: $\chUU$
 %{% if cmd_chUU %}
     \newcommand{\chUU}{\check{U}}
 %{% endif %}
-    % cmd.char chVV: $\chVV$
 %{% if cmd_chVV %}
     \newcommand{\chVV}{\check{V}}
 %{% endif %}
-    % cmd.char chWW: $\chWW$
 %{% if cmd_chWW %}
     \newcommand{\chWW}{\check{W}}
 %{% endif %}
-    % cmd.char chXX: $\chXX$
 %{% if cmd_chXX %}
     \newcommand{\chXX}{\check{X}}
 %{% endif %}
-    % cmd.char chYY: $\chYY$
 %{% if cmd_chYY %}
     \newcommand{\chYY}{\check{Y}}
 %{% endif %}
-    % cmd.char chZZ: $\chZZ$
 %{% if cmd_chZZ %}
     \newcommand{\chZZ}{\check{Z}}
 %{% endif %}
@@ -3718,211 +3031,159 @@
 %% dot
 %% --------------------
 
-    % cmd.char dotA: $\dotA$
 %{% if cmd_dotA %}
     \newcommand{\dotA}{\dot{a}}
 %{% endif %}
-    % cmd.char dotB: $\dotB$
 %{% if cmd_dotB %}
     \newcommand{\dotB}{\dot{b}}
 %{% endif %}
-    % cmd.char dotC: $\dotC$
 %{% if cmd_dotC %}
     \newcommand{\dotC}{\dot{c}}
 %{% endif %}
-    % cmd.char dotD: $\dotD$
 %{% if cmd_dotD %}
     \newcommand{\dotD}{\dot{d}}
 %{% endif %}
-    % cmd.char dotE: $\dotE$
 %{% if cmd_dotE %}
     \newcommand{\dotE}{\dot{e}}
 %{% endif %}
-    % cmd.char dotF: $\dotF$
 %{% if cmd_dotF %}
     \newcommand{\dotF}{\dot{f}}
 %{% endif %}
-    % cmd.char dotG: $\dotG$
 %{% if cmd_dotG %}
     \newcommand{\dotG}{\dot{g}}
 %{% endif %}
-    % cmd.char dotH: $\dotH$
 %{% if cmd_dotH %}
     \newcommand{\dotH}{\dot{h}}
 %{% endif %}
-    % cmd.char dotI: $\dotI$
 %{% if cmd_dotI %}
     \newcommand{\dotI}{\dot{i}}
 %{% endif %}
-    % cmd.char dotJ: $\dotJ$
 %{% if cmd_dotJ %}
     \newcommand{\dotJ}{\dot{j}}
 %{% endif %}
-    % cmd.char dotK: $\dotK$
 %{% if cmd_dotK %}
     \newcommand{\dotK}{\dot{k}}
 %{% endif %}
-    % cmd.char dotL: $\dotL$
 %{% if cmd_dotL %}
     \newcommand{\dotL}{\dot{l}}
 %{% endif %}
-    % cmd.char dotM: $\dotM$
 %{% if cmd_dotM %}
     \newcommand{\dotM}{\dot{m}}
 %{% endif %}
-    % cmd.char dotN: $\dotN$
 %{% if cmd_dotN %}
     \newcommand{\dotN}{\dot{n}}
 %{% endif %}
-    % cmd.char dotO: $\dotO$
 %{% if cmd_dotO %}
     \newcommand{\dotO}{\dot{o}}
 %{% endif %}
-    % cmd.char dotP: $\dotP$
 %{% if cmd_dotP %}
     \newcommand{\dotP}{\dot{p}}
 %{% endif %}
-    % cmd.char dotQ: $\dotQ$
 %{% if cmd_dotQ %}
     \newcommand{\dotQ}{\dot{q}}
 %{% endif %}
-    % cmd.char dotR: $\dotR$
 %{% if cmd_dotR %}
     \newcommand{\dotR}{\dot{r}}
 %{% endif %}
-    % cmd.char dotS: $\dotS$
 %{% if cmd_dotS %}
     \newcommand{\dotS}{\dot{s}}
 %{% endif %}
-    % cmd.char dotT: $\dotT$
 %{% if cmd_dotT %}
     \newcommand{\dotT}{\dot{t}}
 %{% endif %}
-    % cmd.char dotU: $\dotU$
 %{% if cmd_dotU %}
     \newcommand{\dotU}{\dot{u}}
 %{% endif %}
-    % cmd.char dotV: $\dotV$
 %{% if cmd_dotV %}
     \newcommand{\dotV}{\dot{v}}
 %{% endif %}
-    % cmd.char dotW: $\dotW$
 %{% if cmd_dotW %}
     \newcommand{\dotW}{\dot{w}}
 %{% endif %}
-    % cmd.char dotX: $\dotX$
 %{% if cmd_dotX %}
     \newcommand{\dotX}{\dot{x}}
 %{% endif %}
-    % cmd.char dotY: $\dotY$
 %{% if cmd_dotY %}
     \newcommand{\dotY}{\dot{y}}
 %{% endif %}
-    % cmd.char dotZ: $\dotZ$
 %{% if cmd_dotZ %}
     \newcommand{\dotZ}{\dot{z}}
 %{% endif %}
-    % cmd.char dotAA: $\dotAA$
 %{% if cmd_dotAA %}
     \newcommand{\dotAA}{\dot{A}}
 %{% endif %}
-    % cmd.char dotBB: $\dotBB$
 %{% if cmd_dotBB %}
     \newcommand{\dotBB}{\dot{B}}
 %{% endif %}
-    % cmd.char dotCC: $\dotCC$
 %{% if cmd_dotCC %}
     \newcommand{\dotCC}{\dot{C}}
 %{% endif %}
-    % cmd.char dotDD: $\dotDD$
 %{% if cmd_dotDD %}
     \newcommand{\dotDD}{\dot{D}}
 %{% endif %}
-    % cmd.char dotEE: $\dotEE$
 %{% if cmd_dotEE %}
     \newcommand{\dotEE}{\dot{E}}
 %{% endif %}
-    % cmd.char dotFF: $\dotFF$
 %{% if cmd_dotFF %}
     \newcommand{\dotFF}{\dot{F}}
 %{% endif %}
-    % cmd.char dotGG: $\dotGG$
 %{% if cmd_dotGG %}
     \newcommand{\dotGG}{\dot{G}}
 %{% endif %}
-    % cmd.char dotHH: $\dotHH$
 %{% if cmd_dotHH %}
     \newcommand{\dotHH}{\dot{H}}
 %{% endif %}
-    % cmd.char dotII: $\dotII$
 %{% if cmd_dotII %}
     \newcommand{\dotII}{\dot{I}}
 %{% endif %}
-    % cmd.char dotJJ: $\dotJJ$
 %{% if cmd_dotJJ %}
     \newcommand{\dotJJ}{\dot{J}}
 %{% endif %}
-    % cmd.char dotKK: $\dotKK$
 %{% if cmd_dotKK %}
     \newcommand{\dotKK}{\dot{K}}
 %{% endif %}
-    % cmd.char dotLL: $\dotLL$
 %{% if cmd_dotLL %}
     \newcommand{\dotLL}{\dot{L}}
 %{% endif %}
-    % cmd.char dotMM: $\dotMM$
 %{% if cmd_dotMM %}
     \newcommand{\dotMM}{\dot{M}}
 %{% endif %}
-    % cmd.char dotNN: $\dotNN$
 %{% if cmd_dotNN %}
     \newcommand{\dotNN}{\dot{N}}
 %{% endif %}
-    % cmd.char dotOO: $\dotOO$
 %{% if cmd_dotOO %}
     \newcommand{\dotOO}{\dot{O}}
 %{% endif %}
-    % cmd.char dotPP: $\dotPP$
 %{% if cmd_dotPP %}
     \newcommand{\dotPP}{\dot{P}}
 %{% endif %}
-    % cmd.char dotQQ: $\dotQQ$
 %{% if cmd_dotQQ %}
     \newcommand{\dotQQ}{\dot{Q}}
 %{% endif %}
-    % cmd.char dotRR: $\dotRR$
 %{% if cmd_dotRR %}
     \newcommand{\dotRR}{\dot{R}}
 %{% endif %}
-    % cmd.char dotSS: $\dotSS$
 %{% if cmd_dotSS %}
     \newcommand{\dotSS}{\dot{S}}
 %{% endif %}
-    % cmd.char dotTT: $\dotTT$
 %{% if cmd_dotTT %}
     \newcommand{\dotTT}{\dot{T}}
 %{% endif %}
-    % cmd.char dotUU: $\dotUU$
 %{% if cmd_dotUU %}
     \newcommand{\dotUU}{\dot{U}}
 %{% endif %}
-    % cmd.char dotVV: $\dotVV$
 %{% if cmd_dotVV %}
     \newcommand{\dotVV}{\dot{V}}
 %{% endif %}
-    % cmd.char dotWW: $\dotWW$
 %{% if cmd_dotWW %}
     \newcommand{\dotWW}{\dot{W}}
 %{% endif %}
-    % cmd.char dotXX: $\dotXX$
 %{% if cmd_dotXX %}
     \newcommand{\dotXX}{\dot{X}}
 %{% endif %}
-    % cmd.char dotYY: $\dotYY$
 %{% if cmd_dotYY %}
     \newcommand{\dotYY}{\dot{Y}}
 %{% endif %}
-    % cmd.char dotZZ: $\dotZZ$
 %{% if cmd_dotZZ %}
     \newcommand{\dotZZ}{\dot{Z}}
 %{% endif %}
@@ -3931,211 +3192,159 @@
 %% ddot
 %% --------------------
 
-    % cmd.char ddotA: $\ddotA$
 %{% if cmd_ddotA %}
     \newcommand{\ddotA}{\ddot{a}}
 %{% endif %}
-    % cmd.char ddotB: $\ddotB$
 %{% if cmd_ddotB %}
     \newcommand{\ddotB}{\ddot{b}}
 %{% endif %}
-    % cmd.char ddotC: $\ddotC$
 %{% if cmd_ddotC %}
     \newcommand{\ddotC}{\ddot{c}}
 %{% endif %}
-    % cmd.char ddotD: $\ddotD$
 %{% if cmd_ddotD %}
     \newcommand{\ddotD}{\ddot{d}}
 %{% endif %}
-    % cmd.char ddotE: $\ddotE$
 %{% if cmd_ddotE %}
     \newcommand{\ddotE}{\ddot{e}}
 %{% endif %}
-    % cmd.char ddotF: $\ddotF$
 %{% if cmd_ddotF %}
     \newcommand{\ddotF}{\ddot{f}}
 %{% endif %}
-    % cmd.char ddotG: $\ddotG$
 %{% if cmd_ddotG %}
     \newcommand{\ddotG}{\ddot{g}}
 %{% endif %}
-    % cmd.char ddotH: $\ddotH$
 %{% if cmd_ddotH %}
     \newcommand{\ddotH}{\ddot{h}}
 %{% endif %}
-    % cmd.char ddotI: $\ddotI$
 %{% if cmd_ddotI %}
     \newcommand{\ddotI}{\ddot{i}}
 %{% endif %}
-    % cmd.char ddotJ: $\ddotJ$
 %{% if cmd_ddotJ %}
     \newcommand{\ddotJ}{\ddot{j}}
 %{% endif %}
-    % cmd.char ddotK: $\ddotK$
 %{% if cmd_ddotK %}
     \newcommand{\ddotK}{\ddot{k}}
 %{% endif %}
-    % cmd.char ddotL: $\ddotL$
 %{% if cmd_ddotL %}
     \newcommand{\ddotL}{\ddot{l}}
 %{% endif %}
-    % cmd.char ddotM: $\ddotM$
 %{% if cmd_ddotM %}
     \newcommand{\ddotM}{\ddot{m}}
 %{% endif %}
-    % cmd.char ddotN: $\ddotN$
 %{% if cmd_ddotN %}
     \newcommand{\ddotN}{\ddot{n}}
 %{% endif %}
-    % cmd.char ddotO: $\ddotO$
 %{% if cmd_ddotO %}
     \newcommand{\ddotO}{\ddot{o}}
 %{% endif %}
-    % cmd.char ddotP: $\ddotP$
 %{% if cmd_ddotP %}
     \newcommand{\ddotP}{\ddot{p}}
 %{% endif %}
-    % cmd.char ddotQ: $\ddotQ$
 %{% if cmd_ddotQ %}
     \newcommand{\ddotQ}{\ddot{q}}
 %{% endif %}
-    % cmd.char ddotR: $\ddotR$
 %{% if cmd_ddotR %}
     \newcommand{\ddotR}{\ddot{r}}
 %{% endif %}
-    % cmd.char ddotS: $\ddotS$
 %{% if cmd_ddotS %}
     \newcommand{\ddotS}{\ddot{s}}
 %{% endif %}
-    % cmd.char ddotT: $\ddotT$
 %{% if cmd_ddotT %}
     \newcommand{\ddotT}{\ddot{t}}
 %{% endif %}
-    % cmd.char ddotU: $\ddotU$
 %{% if cmd_ddotU %}
     \newcommand{\ddotU}{\ddot{u}}
 %{% endif %}
-    % cmd.char ddotV: $\ddotV$
 %{% if cmd_ddotV %}
     \newcommand{\ddotV}{\ddot{v}}
 %{% endif %}
-    % cmd.char ddotW: $\ddotW$
 %{% if cmd_ddotW %}
     \newcommand{\ddotW}{\ddot{w}}
 %{% endif %}
-    % cmd.char ddotX: $\ddotX$
 %{% if cmd_ddotX %}
     \newcommand{\ddotX}{\ddot{x}}
 %{% endif %}
-    % cmd.char ddotY: $\ddotY$
 %{% if cmd_ddotY %}
     \newcommand{\ddotY}{\ddot{y}}
 %{% endif %}
-    % cmd.char ddotZ: $\ddotZ$
 %{% if cmd_ddotZ %}
     \newcommand{\ddotZ}{\ddot{z}}
 %{% endif %}
-    % cmd.char ddotAA: $\ddotAA$
 %{% if cmd_ddotAA %}
     \newcommand{\ddotAA}{\ddot{A}}
 %{% endif %}
-    % cmd.char ddotBB: $\ddotBB$
 %{% if cmd_ddotBB %}
     \newcommand{\ddotBB}{\ddot{B}}
 %{% endif %}
-    % cmd.char ddotCC: $\ddotCC$
 %{% if cmd_ddotCC %}
     \newcommand{\ddotCC}{\ddot{C}}
 %{% endif %}
-    % cmd.char ddotDD: $\ddotDD$
 %{% if cmd_ddotDD %}
     \newcommand{\ddotDD}{\ddot{D}}
 %{% endif %}
-    % cmd.char ddotEE: $\ddotEE$
 %{% if cmd_ddotEE %}
     \newcommand{\ddotEE}{\ddot{E}}
 %{% endif %}
-    % cmd.char ddotFF: $\ddotFF$
 %{% if cmd_ddotFF %}
     \newcommand{\ddotFF}{\ddot{F}}
 %{% endif %}
-    % cmd.char ddotGG: $\ddotGG$
 %{% if cmd_ddotGG %}
     \newcommand{\ddotGG}{\ddot{G}}
 %{% endif %}
-    % cmd.char ddotHH: $\ddotHH$
 %{% if cmd_ddotHH %}
     \newcommand{\ddotHH}{\ddot{H}}
 %{% endif %}
-    % cmd.char ddotII: $\ddotII$
 %{% if cmd_ddotII %}
     \newcommand{\ddotII}{\ddot{I}}
 %{% endif %}
-    % cmd.char ddotJJ: $\ddotJJ$
 %{% if cmd_ddotJJ %}
     \newcommand{\ddotJJ}{\ddot{J}}
 %{% endif %}
-    % cmd.char ddotKK: $\ddotKK$
 %{% if cmd_ddotKK %}
     \newcommand{\ddotKK}{\ddot{K}}
 %{% endif %}
-    % cmd.char ddotLL: $\ddotLL$
 %{% if cmd_ddotLL %}
     \newcommand{\ddotLL}{\ddot{L}}
 %{% endif %}
-    % cmd.char ddotMM: $\ddotMM$
 %{% if cmd_ddotMM %}
     \newcommand{\ddotMM}{\ddot{M}}
 %{% endif %}
-    % cmd.char ddotNN: $\ddotNN$
 %{% if cmd_ddotNN %}
     \newcommand{\ddotNN}{\ddot{N}}
 %{% endif %}
-    % cmd.char ddotOO: $\ddotOO$
 %{% if cmd_ddotOO %}
     \newcommand{\ddotOO}{\ddot{O}}
 %{% endif %}
-    % cmd.char ddotPP: $\ddotPP$
 %{% if cmd_ddotPP %}
     \newcommand{\ddotPP}{\ddot{P}}
 %{% endif %}
-    % cmd.char ddotQQ: $\ddotQQ$
 %{% if cmd_ddotQQ %}
     \newcommand{\ddotQQ}{\ddot{Q}}
 %{% endif %}
-    % cmd.char ddotRR: $\ddotRR$
 %{% if cmd_ddotRR %}
     \newcommand{\ddotRR}{\ddot{R}}
 %{% endif %}
-    % cmd.char ddotSS: $\ddotSS$
 %{% if cmd_ddotSS %}
     \newcommand{\ddotSS}{\ddot{S}}
 %{% endif %}
-    % cmd.char ddotTT: $\ddotTT$
 %{% if cmd_ddotTT %}
     \newcommand{\ddotTT}{\ddot{T}}
 %{% endif %}
-    % cmd.char ddotUU: $\ddotUU$
 %{% if cmd_ddotUU %}
     \newcommand{\ddotUU}{\ddot{U}}
 %{% endif %}
-    % cmd.char ddotVV: $\ddotVV$
 %{% if cmd_ddotVV %}
     \newcommand{\ddotVV}{\ddot{V}}
 %{% endif %}
-    % cmd.char ddotWW: $\ddotWW$
 %{% if cmd_ddotWW %}
     \newcommand{\ddotWW}{\ddot{W}}
 %{% endif %}
-    % cmd.char ddotXX: $\ddotXX$
 %{% if cmd_ddotXX %}
     \newcommand{\ddotXX}{\ddot{X}}
 %{% endif %}
-    % cmd.char ddotYY: $\ddotYY$
 %{% if cmd_ddotYY %}
     \newcommand{\ddotYY}{\ddot{Y}}
 %{% endif %}
-    % cmd.char ddotZZ: $\ddotZZ$
 %{% if cmd_ddotZZ %}
     \newcommand{\ddotZZ}{\ddot{Z}}
 %{% endif %}
@@ -4144,211 +3353,159 @@
 %% tild
 %% --------------------
 
-    % cmd.char tildA: $\tildA$
 %{% if cmd_tildA %}
     \newcommand{\tildA}{\tilde{a}}
 %{% endif %}
-    % cmd.char tildB: $\tildB$
 %{% if cmd_tildB %}
     \newcommand{\tildB}{\tilde{b}}
 %{% endif %}
-    % cmd.char tildC: $\tildC$
 %{% if cmd_tildC %}
     \newcommand{\tildC}{\tilde{c}}
 %{% endif %}
-    % cmd.char tildD: $\tildD$
 %{% if cmd_tildD %}
     \newcommand{\tildD}{\tilde{d}}
 %{% endif %}
-    % cmd.char tildE: $\tildE$
 %{% if cmd_tildE %}
     \newcommand{\tildE}{\tilde{e}}
 %{% endif %}
-    % cmd.char tildF: $\tildF$
 %{% if cmd_tildF %}
     \newcommand{\tildF}{\tilde{f}}
 %{% endif %}
-    % cmd.char tildG: $\tildG$
 %{% if cmd_tildG %}
     \newcommand{\tildG}{\tilde{g}}
 %{% endif %}
-    % cmd.char tildH: $\tildH$
 %{% if cmd_tildH %}
     \newcommand{\tildH}{\tilde{h}}
 %{% endif %}
-    % cmd.char tildI: $\tildI$
 %{% if cmd_tildI %}
     \newcommand{\tildI}{\tilde{i}}
 %{% endif %}
-    % cmd.char tildJ: $\tildJ$
 %{% if cmd_tildJ %}
     \newcommand{\tildJ}{\tilde{j}}
 %{% endif %}
-    % cmd.char tildK: $\tildK$
 %{% if cmd_tildK %}
     \newcommand{\tildK}{\tilde{k}}
 %{% endif %}
-    % cmd.char tildL: $\tildL$
 %{% if cmd_tildL %}
     \newcommand{\tildL}{\tilde{l}}
 %{% endif %}
-    % cmd.char tildM: $\tildM$
 %{% if cmd_tildM %}
     \newcommand{\tildM}{\tilde{m}}
 %{% endif %}
-    % cmd.char tildN: $\tildN$
 %{% if cmd_tildN %}
     \newcommand{\tildN}{\tilde{n}}
 %{% endif %}
-    % cmd.char tildO: $\tildO$
 %{% if cmd_tildO %}
     \newcommand{\tildO}{\tilde{o}}
 %{% endif %}
-    % cmd.char tildP: $\tildP$
 %{% if cmd_tildP %}
     \newcommand{\tildP}{\tilde{p}}
 %{% endif %}
-    % cmd.char tildQ: $\tildQ$
 %{% if cmd_tildQ %}
     \newcommand{\tildQ}{\tilde{q}}
 %{% endif %}
-    % cmd.char tildR: $\tildR$
 %{% if cmd_tildR %}
     \newcommand{\tildR}{\tilde{r}}
 %{% endif %}
-    % cmd.char tildS: $\tildS$
 %{% if cmd_tildS %}
     \newcommand{\tildS}{\tilde{s}}
 %{% endif %}
-    % cmd.char tildT: $\tildT$
 %{% if cmd_tildT %}
     \newcommand{\tildT}{\tilde{t}}
 %{% endif %}
-    % cmd.char tildU: $\tildU$
 %{% if cmd_tildU %}
     \newcommand{\tildU}{\tilde{u}}
 %{% endif %}
-    % cmd.char tildV: $\tildV$
 %{% if cmd_tildV %}
     \newcommand{\tildV}{\tilde{v}}
 %{% endif %}
-    % cmd.char tildW: $\tildW$
 %{% if cmd_tildW %}
     \newcommand{\tildW}{\tilde{w}}
 %{% endif %}
-    % cmd.char tildX: $\tildX$
 %{% if cmd_tildX %}
     \newcommand{\tildX}{\tilde{x}}
 %{% endif %}
-    % cmd.char tildY: $\tildY$
 %{% if cmd_tildY %}
     \newcommand{\tildY}{\tilde{y}}
 %{% endif %}
-    % cmd.char tildZ: $\tildZ$
 %{% if cmd_tildZ %}
     \newcommand{\tildZ}{\tilde{z}}
 %{% endif %}
-    % cmd.char tildAA: $\tildAA$
 %{% if cmd_tildAA %}
     \newcommand{\tildAA}{\tilde{A}}
 %{% endif %}
-    % cmd.char tildBB: $\tildBB$
 %{% if cmd_tildBB %}
     \newcommand{\tildBB}{\tilde{B}}
 %{% endif %}
-    % cmd.char tildCC: $\tildCC$
 %{% if cmd_tildCC %}
     \newcommand{\tildCC}{\tilde{C}}
 %{% endif %}
-    % cmd.char tildDD: $\tildDD$
 %{% if cmd_tildDD %}
     \newcommand{\tildDD}{\tilde{D}}
 %{% endif %}
-    % cmd.char tildEE: $\tildEE$
 %{% if cmd_tildEE %}
     \newcommand{\tildEE}{\tilde{E}}
 %{% endif %}
-    % cmd.char tildFF: $\tildFF$
 %{% if cmd_tildFF %}
     \newcommand{\tildFF}{\tilde{F}}
 %{% endif %}
-    % cmd.char tildGG: $\tildGG$
 %{% if cmd_tildGG %}
     \newcommand{\tildGG}{\tilde{G}}
 %{% endif %}
-    % cmd.char tildHH: $\tildHH$
 %{% if cmd_tildHH %}
     \newcommand{\tildHH}{\tilde{H}}
 %{% endif %}
-    % cmd.char tildII: $\tildII$
 %{% if cmd_tildII %}
     \newcommand{\tildII}{\tilde{I}}
 %{% endif %}
-    % cmd.char tildJJ: $\tildJJ$
 %{% if cmd_tildJJ %}
     \newcommand{\tildJJ}{\tilde{J}}
 %{% endif %}
-    % cmd.char tildKK: $\tildKK$
 %{% if cmd_tildKK %}
     \newcommand{\tildKK}{\tilde{K}}
 %{% endif %}
-    % cmd.char tildLL: $\tildLL$
 %{% if cmd_tildLL %}
     \newcommand{\tildLL}{\tilde{L}}
 %{% endif %}
-    % cmd.char tildMM: $\tildMM$
 %{% if cmd_tildMM %}
     \newcommand{\tildMM}{\tilde{M}}
 %{% endif %}
-    % cmd.char tildNN: $\tildNN$
 %{% if cmd_tildNN %}
     \newcommand{\tildNN}{\tilde{N}}
 %{% endif %}
-    % cmd.char tildOO: $\tildOO$
 %{% if cmd_tildOO %}
     \newcommand{\tildOO}{\tilde{O}}
 %{% endif %}
-    % cmd.char tildPP: $\tildPP$
 %{% if cmd_tildPP %}
     \newcommand{\tildPP}{\tilde{P}}
 %{% endif %}
-    % cmd.char tildQQ: $\tildQQ$
 %{% if cmd_tildQQ %}
     \newcommand{\tildQQ}{\tilde{Q}}
 %{% endif %}
-    % cmd.char tildRR: $\tildRR$
 %{% if cmd_tildRR %}
     \newcommand{\tildRR}{\tilde{R}}
 %{% endif %}
-    % cmd.char tildSS: $\tildSS$
 %{% if cmd_tildSS %}
     \newcommand{\tildSS}{\tilde{S}}
 %{% endif %}
-    % cmd.char tildTT: $\tildTT$
 %{% if cmd_tildTT %}
     \newcommand{\tildTT}{\tilde{T}}
 %{% endif %}
-    % cmd.char tildUU: $\tildUU$
 %{% if cmd_tildUU %}
     \newcommand{\tildUU}{\tilde{U}}
 %{% endif %}
-    % cmd.char tildVV: $\tildVV$
 %{% if cmd_tildVV %}
     \newcommand{\tildVV}{\tilde{V}}
 %{% endif %}
-    % cmd.char tildWW: $\tildWW$
 %{% if cmd_tildWW %}
     \newcommand{\tildWW}{\tilde{W}}
 %{% endif %}
-    % cmd.char tildXX: $\tildXX$
 %{% if cmd_tildXX %}
     \newcommand{\tildXX}{\tilde{X}}
 %{% endif %}
-    % cmd.char tildYY: $\tildYY$
 %{% if cmd_tildYY %}
     \newcommand{\tildYY}{\tilde{Y}}
 %{% endif %}
-    % cmd.char tildZZ: $\tildZZ$
 %{% if cmd_tildZZ %}
     \newcommand{\tildZZ}{\tilde{Z}}
 %{% endif %}
@@ -4357,211 +3514,159 @@
 %% bar
 %% --------------------
 
-    % cmd.char barA: $\barA$
 %{% if cmd_barA %}
     \newcommand{\barA}{\bar{a}}
 %{% endif %}
-    % cmd.char barB: $\barB$
 %{% if cmd_barB %}
     \newcommand{\barB}{\bar{b}}
 %{% endif %}
-    % cmd.char barC: $\barC$
 %{% if cmd_barC %}
     \newcommand{\barC}{\bar{c}}
 %{% endif %}
-    % cmd.char barD: $\barD$
 %{% if cmd_barD %}
     \newcommand{\barD}{\bar{d}}
 %{% endif %}
-    % cmd.char barE: $\barE$
 %{% if cmd_barE %}
     \newcommand{\barE}{\bar{e}}
 %{% endif %}
-    % cmd.char barF: $\barF$
 %{% if cmd_barF %}
     \newcommand{\barF}{\bar{f}}
 %{% endif %}
-    % cmd.char barG: $\barG$
 %{% if cmd_barG %}
     \newcommand{\barG}{\bar{g}}
 %{% endif %}
-    % cmd.char barH: $\barH$
 %{% if cmd_barH %}
     \newcommand{\barH}{\bar{h}}
 %{% endif %}
-    % cmd.char barI: $\barI$
 %{% if cmd_barI %}
     \newcommand{\barI}{\bar{i}}
 %{% endif %}
-    % cmd.char barJ: $\barJ$
 %{% if cmd_barJ %}
     \newcommand{\barJ}{\bar{j}}
 %{% endif %}
-    % cmd.char barK: $\barK$
 %{% if cmd_barK %}
     \newcommand{\barK}{\bar{k}}
 %{% endif %}
-    % cmd.char barL: $\barL$
 %{% if cmd_barL %}
     \newcommand{\barL}{\bar{l}}
 %{% endif %}
-    % cmd.char barM: $\barM$
 %{% if cmd_barM %}
     \newcommand{\barM}{\bar{m}}
 %{% endif %}
-    % cmd.char barN: $\barN$
 %{% if cmd_barN %}
     \newcommand{\barN}{\bar{n}}
 %{% endif %}
-    % cmd.char barO: $\barO$
 %{% if cmd_barO %}
     \newcommand{\barO}{\bar{o}}
 %{% endif %}
-    % cmd.char barP: $\barP$
 %{% if cmd_barP %}
     \newcommand{\barP}{\bar{p}}
 %{% endif %}
-    % cmd.char barQ: $\barQ$
 %{% if cmd_barQ %}
     \newcommand{\barQ}{\bar{q}}
 %{% endif %}
-    % cmd.char barR: $\barR$
 %{% if cmd_barR %}
     \newcommand{\barR}{\bar{r}}
 %{% endif %}
-    % cmd.char barS: $\barS$
 %{% if cmd_barS %}
     \newcommand{\barS}{\bar{s}}
 %{% endif %}
-    % cmd.char barT: $\barT$
 %{% if cmd_barT %}
     \newcommand{\barT}{\bar{t}}
 %{% endif %}
-    % cmd.char barU: $\barU$
 %{% if cmd_barU %}
     \newcommand{\barU}{\bar{u}}
 %{% endif %}
-    % cmd.char barV: $\barV$
 %{% if cmd_barV %}
     \newcommand{\barV}{\bar{v}}
 %{% endif %}
-    % cmd.char barW: $\barW$
 %{% if cmd_barW %}
     \newcommand{\barW}{\bar{w}}
 %{% endif %}
-    % cmd.char barX: $\barX$
 %{% if cmd_barX %}
     \newcommand{\barX}{\bar{x}}
 %{% endif %}
-    % cmd.char barY: $\barY$
 %{% if cmd_barY %}
     \newcommand{\barY}{\bar{y}}
 %{% endif %}
-    % cmd.char barZ: $\barZ$
 %{% if cmd_barZ %}
     \newcommand{\barZ}{\bar{z}}
 %{% endif %}
-    % cmd.char barAA: $\barAA$
 %{% if cmd_barAA %}
     \newcommand{\barAA}{\bar{A}}
 %{% endif %}
-    % cmd.char barBB: $\barBB$
 %{% if cmd_barBB %}
     \newcommand{\barBB}{\bar{B}}
 %{% endif %}
-    % cmd.char barCC: $\barCC$
 %{% if cmd_barCC %}
     \newcommand{\barCC}{\bar{C}}
 %{% endif %}
-    % cmd.char barDD: $\barDD$
 %{% if cmd_barDD %}
     \newcommand{\barDD}{\bar{D}}
 %{% endif %}
-    % cmd.char barEE: $\barEE$
 %{% if cmd_barEE %}
     \newcommand{\barEE}{\bar{E}}
 %{% endif %}
-    % cmd.char barFF: $\barFF$
 %{% if cmd_barFF %}
     \newcommand{\barFF}{\bar{F}}
 %{% endif %}
-    % cmd.char barGG: $\barGG$
 %{% if cmd_barGG %}
     \newcommand{\barGG}{\bar{G}}
 %{% endif %}
-    % cmd.char barHH: $\barHH$
 %{% if cmd_barHH %}
     \newcommand{\barHH}{\bar{H}}
 %{% endif %}
-    % cmd.char barII: $\barII$
 %{% if cmd_barII %}
     \newcommand{\barII}{\bar{I}}
 %{% endif %}
-    % cmd.char barJJ: $\barJJ$
 %{% if cmd_barJJ %}
     \newcommand{\barJJ}{\bar{J}}
 %{% endif %}
-    % cmd.char barKK: $\barKK$
 %{% if cmd_barKK %}
     \newcommand{\barKK}{\bar{K}}
 %{% endif %}
-    % cmd.char barLL: $\barLL$
 %{% if cmd_barLL %}
     \newcommand{\barLL}{\bar{L}}
 %{% endif %}
-    % cmd.char barMM: $\barMM$
 %{% if cmd_barMM %}
     \newcommand{\barMM}{\bar{M}}
 %{% endif %}
-    % cmd.char barNN: $\barNN$
 %{% if cmd_barNN %}
     \newcommand{\barNN}{\bar{N}}
 %{% endif %}
-    % cmd.char barOO: $\barOO$
 %{% if cmd_barOO %}
     \newcommand{\barOO}{\bar{O}}
 %{% endif %}
-    % cmd.char barPP: $\barPP$
 %{% if cmd_barPP %}
     \newcommand{\barPP}{\bar{P}}
 %{% endif %}
-    % cmd.char barQQ: $\barQQ$
 %{% if cmd_barQQ %}
     \newcommand{\barQQ}{\bar{Q}}
 %{% endif %}
-    % cmd.char barRR: $\barRR$
 %{% if cmd_barRR %}
     \newcommand{\barRR}{\bar{R}}
 %{% endif %}
-    % cmd.char barSS: $\barSS$
 %{% if cmd_barSS %}
     \newcommand{\barSS}{\bar{S}}
 %{% endif %}
-    % cmd.char barTT: $\barTT$
 %{% if cmd_barTT %}
     \newcommand{\barTT}{\bar{T}}
 %{% endif %}
-    % cmd.char barUU: $\barUU$
 %{% if cmd_barUU %}
     \newcommand{\barUU}{\bar{U}}
 %{% endif %}
-    % cmd.char barVV: $\barVV$
 %{% if cmd_barVV %}
     \newcommand{\barVV}{\bar{V}}
 %{% endif %}
-    % cmd.char barWW: $\barWW$
 %{% if cmd_barWW %}
     \newcommand{\barWW}{\bar{W}}
 %{% endif %}
-    % cmd.char barXX: $\barXX$
 %{% if cmd_barXX %}
     \newcommand{\barXX}{\bar{X}}
 %{% endif %}
-    % cmd.char barYY: $\barYY$
 %{% if cmd_barYY %}
     \newcommand{\barYY}{\bar{Y}}
 %{% endif %}
-    % cmd.char barZZ: $\barZZ$
 %{% if cmd_barZZ %}
     \newcommand{\barZZ}{\bar{Z}}
 %{% endif %}
@@ -4570,211 +3675,159 @@
 %% bbar
 %% --------------------
 
-    % cmd.char bbarA: $\bbarA$
 %{% if cmd_bbarA %}
     \newcommand{\bbarA}{\bar{\bar{a}}}
 %{% endif %}
-    % cmd.char bbarB: $\bbarB$
 %{% if cmd_bbarB %}
     \newcommand{\bbarB}{\bar{\bar{b}}}
 %{% endif %}
-    % cmd.char bbarC: $\bbarC$
 %{% if cmd_bbarC %}
     \newcommand{\bbarC}{\bar{\bar{c}}}
 %{% endif %}
-    % cmd.char bbarD: $\bbarD$
 %{% if cmd_bbarD %}
     \newcommand{\bbarD}{\bar{\bar{d}}}
 %{% endif %}
-    % cmd.char bbarE: $\bbarE$
 %{% if cmd_bbarE %}
     \newcommand{\bbarE}{\bar{\bar{e}}}
 %{% endif %}
-    % cmd.char bbarF: $\bbarF$
 %{% if cmd_bbarF %}
     \newcommand{\bbarF}{\bar{\bar{f}}}
 %{% endif %}
-    % cmd.char bbarG: $\bbarG$
 %{% if cmd_bbarG %}
     \newcommand{\bbarG}{\bar{\bar{g}}}
 %{% endif %}
-    % cmd.char bbarH: $\bbarH$
 %{% if cmd_bbarH %}
     \newcommand{\bbarH}{\bar{\bar{h}}}
 %{% endif %}
-    % cmd.char bbarI: $\bbarI$
 %{% if cmd_bbarI %}
     \newcommand{\bbarI}{\bar{\bar{i}}}
 %{% endif %}
-    % cmd.char bbarJ: $\bbarJ$
 %{% if cmd_bbarJ %}
     \newcommand{\bbarJ}{\bar{\bar{j}}}
 %{% endif %}
-    % cmd.char bbarK: $\bbarK$
 %{% if cmd_bbarK %}
     \newcommand{\bbarK}{\bar{\bar{k}}}
 %{% endif %}
-    % cmd.char bbarL: $\bbarL$
 %{% if cmd_bbarL %}
     \newcommand{\bbarL}{\bar{\bar{l}}}
 %{% endif %}
-    % cmd.char bbarM: $\bbarM$
 %{% if cmd_bbarM %}
     \newcommand{\bbarM}{\bar{\bar{m}}}
 %{% endif %}
-    % cmd.char bbarN: $\bbarN$
 %{% if cmd_bbarN %}
     \newcommand{\bbarN}{\bar{\bar{n}}}
 %{% endif %}
-    % cmd.char bbarO: $\bbarO$
 %{% if cmd_bbarO %}
     \newcommand{\bbarO}{\bar{\bar{o}}}
 %{% endif %}
-    % cmd.char bbarP: $\bbarP$
 %{% if cmd_bbarP %}
     \newcommand{\bbarP}{\bar{\bar{p}}}
 %{% endif %}
-    % cmd.char bbarQ: $\bbarQ$
 %{% if cmd_bbarQ %}
     \newcommand{\bbarQ}{\bar{\bar{q}}}
 %{% endif %}
-    % cmd.char bbarR: $\bbarR$
 %{% if cmd_bbarR %}
     \newcommand{\bbarR}{\bar{\bar{r}}}
 %{% endif %}
-    % cmd.char bbarS: $\bbarS$
 %{% if cmd_bbarS %}
     \newcommand{\bbarS}{\bar{\bar{s}}}
 %{% endif %}
-    % cmd.char bbarT: $\bbarT$
 %{% if cmd_bbarT %}
     \newcommand{\bbarT}{\bar{\bar{t}}}
 %{% endif %}
-    % cmd.char bbarU: $\bbarU$
 %{% if cmd_bbarU %}
     \newcommand{\bbarU}{\bar{\bar{u}}}
 %{% endif %}
-    % cmd.char bbarV: $\bbarV$
 %{% if cmd_bbarV %}
     \newcommand{\bbarV}{\bar{\bar{v}}}
 %{% endif %}
-    % cmd.char bbarW: $\bbarW$
 %{% if cmd_bbarW %}
     \newcommand{\bbarW}{\bar{\bar{w}}}
 %{% endif %}
-    % cmd.char bbarX: $\bbarX$
 %{% if cmd_bbarX %}
     \newcommand{\bbarX}{\bar{\bar{x}}}
 %{% endif %}
-    % cmd.char bbarY: $\bbarY$
 %{% if cmd_bbarY %}
     \newcommand{\bbarY}{\bar{\bar{y}}}
 %{% endif %}
-    % cmd.char bbarZ: $\bbarZ$
 %{% if cmd_bbarZ %}
     \newcommand{\bbarZ}{\bar{\bar{z}}}
 %{% endif %}
-    % cmd.char bbarAA: $\bbarAA$
 %{% if cmd_bbarAA %}
     \newcommand{\bbarAA}{\bar{\bar{A}}}
 %{% endif %}
-    % cmd.char bbarBB: $\bbarBB$
 %{% if cmd_bbarBB %}
     \newcommand{\bbarBB}{\bar{\bar{B}}}
 %{% endif %}
-    % cmd.char bbarCC: $\bbarCC$
 %{% if cmd_bbarCC %}
     \newcommand{\bbarCC}{\bar{\bar{C}}}
 %{% endif %}
-    % cmd.char bbarDD: $\bbarDD$
 %{% if cmd_bbarDD %}
     \newcommand{\bbarDD}{\bar{\bar{D}}}
 %{% endif %}
-    % cmd.char bbarEE: $\bbarEE$
 %{% if cmd_bbarEE %}
     \newcommand{\bbarEE}{\bar{\bar{E}}}
 %{% endif %}
-    % cmd.char bbarFF: $\bbarFF$
 %{% if cmd_bbarFF %}
     \newcommand{\bbarFF}{\bar{\bar{F}}}
 %{% endif %}
-    % cmd.char bbarGG: $\bbarGG$
 %{% if cmd_bbarGG %}
     \newcommand{\bbarGG}{\bar{\bar{G}}}
 %{% endif %}
-    % cmd.char bbarHH: $\bbarHH$
 %{% if cmd_bbarHH %}
     \newcommand{\bbarHH}{\bar{\bar{H}}}
 %{% endif %}
-    % cmd.char bbarII: $\bbarII$
 %{% if cmd_bbarII %}
     \newcommand{\bbarII}{\bar{\bar{I}}}
 %{% endif %}
-    % cmd.char bbarJJ: $\bbarJJ$
 %{% if cmd_bbarJJ %}
     \newcommand{\bbarJJ}{\bar{\bar{J}}}
 %{% endif %}
-    % cmd.char bbarKK: $\bbarKK$
 %{% if cmd_bbarKK %}
     \newcommand{\bbarKK}{\bar{\bar{K}}}
 %{% endif %}
-    % cmd.char bbarLL: $\bbarLL$
 %{% if cmd_bbarLL %}
     \newcommand{\bbarLL}{\bar{\bar{L}}}
 %{% endif %}
-    % cmd.char bbarMM: $\bbarMM$
 %{% if cmd_bbarMM %}
     \newcommand{\bbarMM}{\bar{\bar{M}}}
 %{% endif %}
-    % cmd.char bbarNN: $\bbarNN$
 %{% if cmd_bbarNN %}
     \newcommand{\bbarNN}{\bar{\bar{N}}}
 %{% endif %}
-    % cmd.char bbarOO: $\bbarOO$
 %{% if cmd_bbarOO %}
     \newcommand{\bbarOO}{\bar{\bar{O}}}
 %{% endif %}
-    % cmd.char bbarPP: $\bbarPP$
 %{% if cmd_bbarPP %}
     \newcommand{\bbarPP}{\bar{\bar{P}}}
 %{% endif %}
-    % cmd.char bbarQQ: $\bbarQQ$
 %{% if cmd_bbarQQ %}
     \newcommand{\bbarQQ}{\bar{\bar{Q}}}
 %{% endif %}
-    % cmd.char bbarRR: $\bbarRR$
 %{% if cmd_bbarRR %}
     \newcommand{\bbarRR}{\bar{\bar{R}}}
 %{% endif %}
-    % cmd.char bbarSS: $\bbarSS$
 %{% if cmd_bbarSS %}
     \newcommand{\bbarSS}{\bar{\bar{S}}}
 %{% endif %}
-    % cmd.char bbarTT: $\bbarTT$
 %{% if cmd_bbarTT %}
     \newcommand{\bbarTT}{\bar{\bar{T}}}
 %{% endif %}
-    % cmd.char bbarUU: $\bbarUU$
 %{% if cmd_bbarUU %}
     \newcommand{\bbarUU}{\bar{\bar{U}}}
 %{% endif %}
-    % cmd.char bbarVV: $\bbarVV$
 %{% if cmd_bbarVV %}
     \newcommand{\bbarVV}{\bar{\bar{V}}}
 %{% endif %}
-    % cmd.char bbarWW: $\bbarWW$
 %{% if cmd_bbarWW %}
     \newcommand{\bbarWW}{\bar{\bar{W}}}
 %{% endif %}
-    % cmd.char bbarXX: $\bbarXX$
 %{% if cmd_bbarXX %}
     \newcommand{\bbarXX}{\bar{\bar{X}}}
 %{% endif %}
-    % cmd.char bbarYY: $\bbarYY$
 %{% if cmd_bbarYY %}
     \newcommand{\bbarYY}{\bar{\bar{Y}}}
 %{% endif %}
-    % cmd.char bbarZZ: $\bbarZZ$
 %{% if cmd_bbarZZ %}
     \newcommand{\bbarZZ}{\bar{\bar{Z}}}
 %{% endif %}
@@ -4783,211 +3836,159 @@
 %% u
 %% --------------------
 
-    % cmd.char uA: $\uA$
 %{% if cmd_uA %}
     \newcommand{\uA}{\underline{a}}
 %{% endif %}
-    % cmd.char uB: $\uB$
 %{% if cmd_uB %}
     \newcommand{\uB}{\underline{b}}
 %{% endif %}
-    % cmd.char uC: $\uC$
 %{% if cmd_uC %}
     \newcommand{\uC}{\underline{c}}
 %{% endif %}
-    % cmd.char uD: $\uD$
 %{% if cmd_uD %}
     \newcommand{\uD}{\underline{d}}
 %{% endif %}
-    % cmd.char uE: $\uE$
 %{% if cmd_uE %}
     \newcommand{\uE}{\underline{e}}
 %{% endif %}
-    % cmd.char uF: $\uF$
 %{% if cmd_uF %}
     \newcommand{\uF}{\underline{f}}
 %{% endif %}
-    % cmd.char uG: $\uG$
 %{% if cmd_uG %}
     \newcommand{\uG}{\underline{g}}
 %{% endif %}
-    % cmd.char uH: $\uH$
 %{% if cmd_uH %}
     \newcommand{\uH}{\underline{h}}
 %{% endif %}
-    % cmd.char uI: $\uI$
 %{% if cmd_uI %}
     \newcommand{\uI}{\underline{i}}
 %{% endif %}
-    % cmd.char uJ: $\uJ$
 %{% if cmd_uJ %}
     \newcommand{\uJ}{\underline{j}}
 %{% endif %}
-    % cmd.char uK: $\uK$
 %{% if cmd_uK %}
     \newcommand{\uK}{\underline{k}}
 %{% endif %}
-    % cmd.char uL: $\uL$
 %{% if cmd_uL %}
     \newcommand{\uL}{\underline{l}}
 %{% endif %}
-    % cmd.char uM: $\uM$
 %{% if cmd_uM %}
     \newcommand{\uM}{\underline{m}}
 %{% endif %}
-    % cmd.char uN: $\uN$
 %{% if cmd_uN %}
     \newcommand{\uN}{\underline{n}}
 %{% endif %}
-    % cmd.char uO: $\uO$
 %{% if cmd_uO %}
     \newcommand{\uO}{\underline{o}}
 %{% endif %}
-    % cmd.char uP: $\uP$
 %{% if cmd_uP %}
     \newcommand{\uP}{\underline{p}}
 %{% endif %}
-    % cmd.char uQ: $\uQ$
 %{% if cmd_uQ %}
     \newcommand{\uQ}{\underline{q}}
 %{% endif %}
-    % cmd.char uR: $\uR$
 %{% if cmd_uR %}
     \newcommand{\uR}{\underline{r}}
 %{% endif %}
-    % cmd.char uS: $\uS$
 %{% if cmd_uS %}
     \newcommand{\uS}{\underline{s}}
 %{% endif %}
-    % cmd.char uT: $\uT$
 %{% if cmd_uT %}
     \newcommand{\uT}{\underline{t}}
 %{% endif %}
-    % cmd.char uU: $\uU$
 %{% if cmd_uU %}
     \newcommand{\uU}{\underline{u}}
 %{% endif %}
-    % cmd.char uV: $\uV$
 %{% if cmd_uV %}
     \newcommand{\uV}{\underline{v}}
 %{% endif %}
-    % cmd.char uW: $\uW$
 %{% if cmd_uW %}
     \newcommand{\uW}{\underline{w}}
 %{% endif %}
-    % cmd.char uX: $\uX$
 %{% if cmd_uX %}
     \newcommand{\uX}{\underline{x}}
 %{% endif %}
-    % cmd.char uY: $\uY$
 %{% if cmd_uY %}
     \newcommand{\uY}{\underline{y}}
 %{% endif %}
-    % cmd.char uZ: $\uZ$
 %{% if cmd_uZ %}
     \newcommand{\uZ}{\underline{z}}
 %{% endif %}
-    % cmd.char uAA: $\uAA$
 %{% if cmd_uAA %}
     \newcommand{\uAA}{\underline{A}}
 %{% endif %}
-    % cmd.char uBB: $\uBB$
 %{% if cmd_uBB %}
     \newcommand{\uBB}{\underline{B}}
 %{% endif %}
-    % cmd.char uCC: $\uCC$
 %{% if cmd_uCC %}
     \newcommand{\uCC}{\underline{C}}
 %{% endif %}
-    % cmd.char uDD: $\uDD$
 %{% if cmd_uDD %}
     \newcommand{\uDD}{\underline{D}}
 %{% endif %}
-    % cmd.char uEE: $\uEE$
 %{% if cmd_uEE %}
     \newcommand{\uEE}{\underline{E}}
 %{% endif %}
-    % cmd.char uFF: $\uFF$
 %{% if cmd_uFF %}
     \newcommand{\uFF}{\underline{F}}
 %{% endif %}
-    % cmd.char uGG: $\uGG$
 %{% if cmd_uGG %}
     \newcommand{\uGG}{\underline{G}}
 %{% endif %}
-    % cmd.char uHH: $\uHH$
 %{% if cmd_uHH %}
     \newcommand{\uHH}{\underline{H}}
 %{% endif %}
-    % cmd.char uII: $\uII$
 %{% if cmd_uII %}
     \newcommand{\uII}{\underline{I}}
 %{% endif %}
-    % cmd.char uJJ: $\uJJ$
 %{% if cmd_uJJ %}
     \newcommand{\uJJ}{\underline{J}}
 %{% endif %}
-    % cmd.char uKK: $\uKK$
 %{% if cmd_uKK %}
     \newcommand{\uKK}{\underline{K}}
 %{% endif %}
-    % cmd.char uLL: $\uLL$
 %{% if cmd_uLL %}
     \newcommand{\uLL}{\underline{L}}
 %{% endif %}
-    % cmd.char uMM: $\uMM$
 %{% if cmd_uMM %}
     \newcommand{\uMM}{\underline{M}}
 %{% endif %}
-    % cmd.char uNN: $\uNN$
 %{% if cmd_uNN %}
     \newcommand{\uNN}{\underline{N}}
 %{% endif %}
-    % cmd.char uOO: $\uOO$
 %{% if cmd_uOO %}
     \newcommand{\uOO}{\underline{O}}
 %{% endif %}
-    % cmd.char uPP: $\uPP$
 %{% if cmd_uPP %}
     \newcommand{\uPP}{\underline{P}}
 %{% endif %}
-    % cmd.char uQQ: $\uQQ$
 %{% if cmd_uQQ %}
     \newcommand{\uQQ}{\underline{Q}}
 %{% endif %}
-    % cmd.char uRR: $\uRR$
 %{% if cmd_uRR %}
     \newcommand{\uRR}{\underline{R}}
 %{% endif %}
-    % cmd.char uSS: $\uSS$
 %{% if cmd_uSS %}
     \newcommand{\uSS}{\underline{S}}
 %{% endif %}
-    % cmd.char uTT: $\uTT$
 %{% if cmd_uTT %}
     \newcommand{\uTT}{\underline{T}}
 %{% endif %}
-    % cmd.char uUU: $\uUU$
 %{% if cmd_uUU %}
     \newcommand{\uUU}{\underline{U}}
 %{% endif %}
-    % cmd.char uVV: $\uVV$
 %{% if cmd_uVV %}
     \newcommand{\uVV}{\underline{V}}
 %{% endif %}
-    % cmd.char uWW: $\uWW$
 %{% if cmd_uWW %}
     \newcommand{\uWW}{\underline{W}}
 %{% endif %}
-    % cmd.char uXX: $\uXX$
 %{% if cmd_uXX %}
     \newcommand{\uXX}{\underline{X}}
 %{% endif %}
-    % cmd.char uYY: $\uYY$
 %{% if cmd_uYY %}
     \newcommand{\uYY}{\underline{Y}}
 %{% endif %}
-    % cmd.char uZZ: $\uZZ$
 %{% if cmd_uZZ %}
     \newcommand{\uZZ}{\underline{Z}}
 %{% endif %}
@@ -4996,211 +3997,159 @@
 %% uu
 %% --------------------
 
-    % cmd.char uuA: $\uuA$
 %{% if cmd_uuA %}
     \newcommand{\uuA}{\underline{\underline{a}}}
 %{% endif %}
-    % cmd.char uuB: $\uuB$
 %{% if cmd_uuB %}
     \newcommand{\uuB}{\underline{\underline{b}}}
 %{% endif %}
-    % cmd.char uuC: $\uuC$
 %{% if cmd_uuC %}
     \newcommand{\uuC}{\underline{\underline{c}}}
 %{% endif %}
-    % cmd.char uuD: $\uuD$
 %{% if cmd_uuD %}
     \newcommand{\uuD}{\underline{\underline{d}}}
 %{% endif %}
-    % cmd.char uuE: $\uuE$
 %{% if cmd_uuE %}
     \newcommand{\uuE}{\underline{\underline{e}}}
 %{% endif %}
-    % cmd.char uuF: $\uuF$
 %{% if cmd_uuF %}
     \newcommand{\uuF}{\underline{\underline{f}}}
 %{% endif %}
-    % cmd.char uuG: $\uuG$
 %{% if cmd_uuG %}
     \newcommand{\uuG}{\underline{\underline{g}}}
 %{% endif %}
-    % cmd.char uuH: $\uuH$
 %{% if cmd_uuH %}
     \newcommand{\uuH}{\underline{\underline{h}}}
 %{% endif %}
-    % cmd.char uuI: $\uuI$
 %{% if cmd_uuI %}
     \newcommand{\uuI}{\underline{\underline{i}}}
 %{% endif %}
-    % cmd.char uuJ: $\uuJ$
 %{% if cmd_uuJ %}
     \newcommand{\uuJ}{\underline{\underline{j}}}
 %{% endif %}
-    % cmd.char uuK: $\uuK$
 %{% if cmd_uuK %}
     \newcommand{\uuK}{\underline{\underline{k}}}
 %{% endif %}
-    % cmd.char uuL: $\uuL$
 %{% if cmd_uuL %}
     \newcommand{\uuL}{\underline{\underline{l}}}
 %{% endif %}
-    % cmd.char uuM: $\uuM$
 %{% if cmd_uuM %}
     \newcommand{\uuM}{\underline{\underline{m}}}
 %{% endif %}
-    % cmd.char uuN: $\uuN$
 %{% if cmd_uuN %}
     \newcommand{\uuN}{\underline{\underline{n}}}
 %{% endif %}
-    % cmd.char uuO: $\uuO$
 %{% if cmd_uuO %}
     \newcommand{\uuO}{\underline{\underline{o}}}
 %{% endif %}
-    % cmd.char uuP: $\uuP$
 %{% if cmd_uuP %}
     \newcommand{\uuP}{\underline{\underline{p}}}
 %{% endif %}
-    % cmd.char uuQ: $\uuQ$
 %{% if cmd_uuQ %}
     \newcommand{\uuQ}{\underline{\underline{q}}}
 %{% endif %}
-    % cmd.char uuR: $\uuR$
 %{% if cmd_uuR %}
     \newcommand{\uuR}{\underline{\underline{r}}}
 %{% endif %}
-    % cmd.char uuS: $\uuS$
 %{% if cmd_uuS %}
     \newcommand{\uuS}{\underline{\underline{s}}}
 %{% endif %}
-    % cmd.char uuT: $\uuT$
 %{% if cmd_uuT %}
     \newcommand{\uuT}{\underline{\underline{t}}}
 %{% endif %}
-    % cmd.char uuU: $\uuU$
 %{% if cmd_uuU %}
     \newcommand{\uuU}{\underline{\underline{u}}}
 %{% endif %}
-    % cmd.char uuV: $\uuV$
 %{% if cmd_uuV %}
     \newcommand{\uuV}{\underline{\underline{v}}}
 %{% endif %}
-    % cmd.char uuW: $\uuW$
 %{% if cmd_uuW %}
     \newcommand{\uuW}{\underline{\underline{w}}}
 %{% endif %}
-    % cmd.char uuX: $\uuX$
 %{% if cmd_uuX %}
     \newcommand{\uuX}{\underline{\underline{x}}}
 %{% endif %}
-    % cmd.char uuY: $\uuY$
 %{% if cmd_uuY %}
     \newcommand{\uuY}{\underline{\underline{y}}}
 %{% endif %}
-    % cmd.char uuZ: $\uuZ$
 %{% if cmd_uuZ %}
     \newcommand{\uuZ}{\underline{\underline{z}}}
 %{% endif %}
-    % cmd.char uuAA: $\uuAA$
 %{% if cmd_uuAA %}
     \newcommand{\uuAA}{\underline{\underline{A}}}
 %{% endif %}
-    % cmd.char uuBB: $\uuBB$
 %{% if cmd_uuBB %}
     \newcommand{\uuBB}{\underline{\underline{B}}}
 %{% endif %}
-    % cmd.char uuCC: $\uuCC$
 %{% if cmd_uuCC %}
     \newcommand{\uuCC}{\underline{\underline{C}}}
 %{% endif %}
-    % cmd.char uuDD: $\uuDD$
 %{% if cmd_uuDD %}
     \newcommand{\uuDD}{\underline{\underline{D}}}
 %{% endif %}
-    % cmd.char uuEE: $\uuEE$
 %{% if cmd_uuEE %}
     \newcommand{\uuEE}{\underline{\underline{E}}}
 %{% endif %}
-    % cmd.char uuFF: $\uuFF$
 %{% if cmd_uuFF %}
     \newcommand{\uuFF}{\underline{\underline{F}}}
 %{% endif %}
-    % cmd.char uuGG: $\uuGG$
 %{% if cmd_uuGG %}
     \newcommand{\uuGG}{\underline{\underline{G}}}
 %{% endif %}
-    % cmd.char uuHH: $\uuHH$
 %{% if cmd_uuHH %}
     \newcommand{\uuHH}{\underline{\underline{H}}}
 %{% endif %}
-    % cmd.char uuII: $\uuII$
 %{% if cmd_uuII %}
     \newcommand{\uuII}{\underline{\underline{I}}}
 %{% endif %}
-    % cmd.char uuJJ: $\uuJJ$
 %{% if cmd_uuJJ %}
     \newcommand{\uuJJ}{\underline{\underline{J}}}
 %{% endif %}
-    % cmd.char uuKK: $\uuKK$
 %{% if cmd_uuKK %}
     \newcommand{\uuKK}{\underline{\underline{K}}}
 %{% endif %}
-    % cmd.char uuLL: $\uuLL$
 %{% if cmd_uuLL %}
     \newcommand{\uuLL}{\underline{\underline{L}}}
 %{% endif %}
-    % cmd.char uuMM: $\uuMM$
 %{% if cmd_uuMM %}
     \newcommand{\uuMM}{\underline{\underline{M}}}
 %{% endif %}
-    % cmd.char uuNN: $\uuNN$
 %{% if cmd_uuNN %}
     \newcommand{\uuNN}{\underline{\underline{N}}}
 %{% endif %}
-    % cmd.char uuOO: $\uuOO$
 %{% if cmd_uuOO %}
     \newcommand{\uuOO}{\underline{\underline{O}}}
 %{% endif %}
-    % cmd.char uuPP: $\uuPP$
 %{% if cmd_uuPP %}
     \newcommand{\uuPP}{\underline{\underline{P}}}
 %{% endif %}
-    % cmd.char uuQQ: $\uuQQ$
 %{% if cmd_uuQQ %}
     \newcommand{\uuQQ}{\underline{\underline{Q}}}
 %{% endif %}
-    % cmd.char uuRR: $\uuRR$
 %{% if cmd_uuRR %}
     \newcommand{\uuRR}{\underline{\underline{R}}}
 %{% endif %}
-    % cmd.char uuSS: $\uuSS$
 %{% if cmd_uuSS %}
     \newcommand{\uuSS}{\underline{\underline{S}}}
 %{% endif %}
-    % cmd.char uuTT: $\uuTT$
 %{% if cmd_uuTT %}
     \newcommand{\uuTT}{\underline{\underline{T}}}
 %{% endif %}
-    % cmd.char uuUU: $\uuUU$
 %{% if cmd_uuUU %}
     \newcommand{\uuUU}{\underline{\underline{U}}}
 %{% endif %}
-    % cmd.char uuVV: $\uuVV$
 %{% if cmd_uuVV %}
     \newcommand{\uuVV}{\underline{\underline{V}}}
 %{% endif %}
-    % cmd.char uuWW: $\uuWW$
 %{% if cmd_uuWW %}
     \newcommand{\uuWW}{\underline{\underline{W}}}
 %{% endif %}
-    % cmd.char uuXX: $\uuXX$
 %{% if cmd_uuXX %}
     \newcommand{\uuXX}{\underline{\underline{X}}}
 %{% endif %}
-    % cmd.char uuYY: $\uuYY$
 %{% if cmd_uuYY %}
     \newcommand{\uuYY}{\underline{\underline{Y}}}
 %{% endif %}
-    % cmd.char uuZZ: $\uuZZ$
 %{% if cmd_uuZZ %}
     \newcommand{\uuZZ}{\underline{\underline{Z}}}
 %{% endif %}
@@ -5209,211 +4158,159 @@
 %% o
 %% --------------------
 
-    % cmd.char oA: $\oA$
 %{% if cmd_oA %}
     \newcommand{\oA}{\mathring{a}}
 %{% endif %}
-    % cmd.char oB: $\oB$
 %{% if cmd_oB %}
     \newcommand{\oB}{\mathring{b}}
 %{% endif %}
-    % cmd.char oC: $\oC$
 %{% if cmd_oC %}
     \newcommand{\oC}{\mathring{c}}
 %{% endif %}
-    % cmd.char oD: $\oD$
 %{% if cmd_oD %}
     \newcommand{\oD}{\mathring{d}}
 %{% endif %}
-    % cmd.char oE: $\oE$
 %{% if cmd_oE %}
     \newcommand{\oE}{\mathring{e}}
 %{% endif %}
-    % cmd.char oF: $\oF$
 %{% if cmd_oF %}
     \newcommand{\oF}{\mathring{f}}
 %{% endif %}
-    % cmd.char oG: $\oG$
 %{% if cmd_oG %}
     \newcommand{\oG}{\mathring{g}}
 %{% endif %}
-    % cmd.char oH: $\oH$
 %{% if cmd_oH %}
     \newcommand{\oH}{\mathring{h}}
 %{% endif %}
-    % cmd.char oI: $\oI$
 %{% if cmd_oI %}
     \newcommand{\oI}{\mathring{i}}
 %{% endif %}
-    % cmd.char oJ: $\oJ$
 %{% if cmd_oJ %}
     \newcommand{\oJ}{\mathring{j}}
 %{% endif %}
-    % cmd.char oK: $\oK$
 %{% if cmd_oK %}
     \newcommand{\oK}{\mathring{k}}
 %{% endif %}
-    % cmd.char oL: $\oL$
 %{% if cmd_oL %}
     \newcommand{\oL}{\mathring{l}}
 %{% endif %}
-    % cmd.char oM: $\oM$
 %{% if cmd_oM %}
     \newcommand{\oM}{\mathring{m}}
 %{% endif %}
-    % cmd.char oN: $\oN$
 %{% if cmd_oN %}
     \newcommand{\oN}{\mathring{n}}
 %{% endif %}
-    % cmd.char oO: $\oO$
 %{% if cmd_oO %}
     \newcommand{\oO}{\mathring{o}}
 %{% endif %}
-    % cmd.char oP: $\oP$
 %{% if cmd_oP %}
     \newcommand{\oP}{\mathring{p}}
 %{% endif %}
-    % cmd.char oQ: $\oQ$
 %{% if cmd_oQ %}
     \newcommand{\oQ}{\mathring{q}}
 %{% endif %}
-    % cmd.char oR: $\oR$
 %{% if cmd_oR %}
     \newcommand{\oR}{\mathring{r}}
 %{% endif %}
-    % cmd.char oS: $\oS$
 %{% if cmd_oS %}
     \newcommand{\oS}{\mathring{s}}
 %{% endif %}
-    % cmd.char oT: $\oT$
 %{% if cmd_oT %}
     \newcommand{\oT}{\mathring{t}}
 %{% endif %}
-    % cmd.char oU: $\oU$
 %{% if cmd_oU %}
     \newcommand{\oU}{\mathring{u}}
 %{% endif %}
-    % cmd.char oV: $\oV$
 %{% if cmd_oV %}
     \newcommand{\oV}{\mathring{v}}
 %{% endif %}
-    % cmd.char oW: $\oW$
 %{% if cmd_oW %}
     \newcommand{\oW}{\mathring{w}}
 %{% endif %}
-    % cmd.char oX: $\oX$
 %{% if cmd_oX %}
     \newcommand{\oX}{\mathring{x}}
 %{% endif %}
-    % cmd.char oY: $\oY$
 %{% if cmd_oY %}
     \newcommand{\oY}{\mathring{y}}
 %{% endif %}
-    % cmd.char oZ: $\oZ$
 %{% if cmd_oZ %}
     \newcommand{\oZ}{\mathring{z}}
 %{% endif %}
-    % cmd.char oAA: $\oAA$
 %{% if cmd_oAA %}
     \newcommand{\oAA}{\mathring{A}}
 %{% endif %}
-    % cmd.char oBB: $\oBB$
 %{% if cmd_oBB %}
     \newcommand{\oBB}{\mathring{B}}
 %{% endif %}
-    % cmd.char oCC: $\oCC$
 %{% if cmd_oCC %}
     \newcommand{\oCC}{\mathring{C}}
 %{% endif %}
-    % cmd.char oDD: $\oDD$
 %{% if cmd_oDD %}
     \newcommand{\oDD}{\mathring{D}}
 %{% endif %}
-    % cmd.char oEE: $\oEE$
 %{% if cmd_oEE %}
     \newcommand{\oEE}{\mathring{E}}
 %{% endif %}
-    % cmd.char oFF: $\oFF$
 %{% if cmd_oFF %}
     \newcommand{\oFF}{\mathring{F}}
 %{% endif %}
-    % cmd.char oGG: $\oGG$
 %{% if cmd_oGG %}
     \newcommand{\oGG}{\mathring{G}}
 %{% endif %}
-    % cmd.char oHH: $\oHH$
 %{% if cmd_oHH %}
     \newcommand{\oHH}{\mathring{H}}
 %{% endif %}
-    % cmd.char oII: $\oII$
 %{% if cmd_oII %}
     \newcommand{\oII}{\mathring{I}}
 %{% endif %}
-    % cmd.char oJJ: $\oJJ$
 %{% if cmd_oJJ %}
     \newcommand{\oJJ}{\mathring{J}}
 %{% endif %}
-    % cmd.char oKK: $\oKK$
 %{% if cmd_oKK %}
     \newcommand{\oKK}{\mathring{K}}
 %{% endif %}
-    % cmd.char oLL: $\oLL$
 %{% if cmd_oLL %}
     \newcommand{\oLL}{\mathring{L}}
 %{% endif %}
-    % cmd.char oMM: $\oMM$
 %{% if cmd_oMM %}
     \newcommand{\oMM}{\mathring{M}}
 %{% endif %}
-    % cmd.char oNN: $\oNN$
 %{% if cmd_oNN %}
     \newcommand{\oNN}{\mathring{N}}
 %{% endif %}
-    % cmd.char oOO: $\oOO$
 %{% if cmd_oOO %}
     \newcommand{\oOO}{\mathring{O}}
 %{% endif %}
-    % cmd.char oPP: $\oPP$
 %{% if cmd_oPP %}
     \newcommand{\oPP}{\mathring{P}}
 %{% endif %}
-    % cmd.char oQQ: $\oQQ$
 %{% if cmd_oQQ %}
     \newcommand{\oQQ}{\mathring{Q}}
 %{% endif %}
-    % cmd.char oRR: $\oRR$
 %{% if cmd_oRR %}
     \newcommand{\oRR}{\mathring{R}}
 %{% endif %}
-    % cmd.char oSS: $\oSS$
 %{% if cmd_oSS %}
     \newcommand{\oSS}{\mathring{S}}
 %{% endif %}
-    % cmd.char oTT: $\oTT$
 %{% if cmd_oTT %}
     \newcommand{\oTT}{\mathring{T}}
 %{% endif %}
-    % cmd.char oUU: $\oUU$
 %{% if cmd_oUU %}
     \newcommand{\oUU}{\mathring{U}}
 %{% endif %}
-    % cmd.char oVV: $\oVV$
 %{% if cmd_oVV %}
     \newcommand{\oVV}{\mathring{V}}
 %{% endif %}
-    % cmd.char oWW: $\oWW$
 %{% if cmd_oWW %}
     \newcommand{\oWW}{\mathring{W}}
 %{% endif %}
-    % cmd.char oXX: $\oXX$
 %{% if cmd_oXX %}
     \newcommand{\oXX}{\mathring{X}}
 %{% endif %}
-    % cmd.char oYY: $\oYY$
 %{% if cmd_oYY %}
     \newcommand{\oYY}{\mathring{Y}}
 %{% endif %}
-    % cmd.char oZZ: $\oZZ$
 %{% if cmd_oZZ %}
     \newcommand{\oZZ}{\mathring{Z}}
 %{% endif %}
@@ -5426,163 +4323,123 @@
 %% ch
 %% --------------------
 
-    % cmd.char chalpha: $\chalpha$
 %{% if cmd_chalpha %}
     \newcommand{\chalpha}{\check{\alpha}}
 %{% endif %}
-    % cmd.char chbeta: $\chbeta$
 %{% if cmd_chbeta %}
     \newcommand{\chbeta}{\check{\beta}}
 %{% endif %}
-    % cmd.char chgamma: $\chgamma$
 %{% if cmd_chgamma %}
     \newcommand{\chgamma}{\check{\gamma}}
 %{% endif %}
-    % cmd.char chdelta: $\chdelta$
 %{% if cmd_chdelta %}
     \newcommand{\chdelta}{\check{\delta}}
 %{% endif %}
-    % cmd.char chvarepsilon: $\chvarepsilon$
 %{% if cmd_chvarepsilon %}
     \newcommand{\chvarepsilon}{\check{\varepsilon}}
 %{% endif %}
-    % cmd.char chepsilon: $\chepsilon$
 %{% if cmd_chepsilon %}
     \newcommand{\chepsilon}{\check{\epsilon}}
 %{% endif %}
-    % cmd.char chzeta: $\chzeta$
 %{% if cmd_chzeta %}
     \newcommand{\chzeta}{\check{\zeta}}
 %{% endif %}
-    % cmd.char cheta: $\cheta$
 %{% if cmd_cheta %}
     \newcommand{\cheta}{\check{\eta}}
 %{% endif %}
-    % cmd.char chtheta: $\chtheta$
 %{% if cmd_chtheta %}
     \newcommand{\chtheta}{\check{\theta}}
 %{% endif %}
-    % cmd.char chvartheta: $\chvartheta$
 %{% if cmd_chvartheta %}
     \newcommand{\chvartheta}{\check{\vartheta}}
 %{% endif %}
-    % cmd.char chiota: $\chiota$
 %{% if cmd_chiota %}
     \newcommand{\chiota}{\check{\iota}}
 %{% endif %}
-    % cmd.char chkappa: $\chkappa$
 %{% if cmd_chkappa %}
     \newcommand{\chkappa}{\check{\kappa}}
 %{% endif %}
-    % cmd.char chlambda: $\chlambda$
 %{% if cmd_chlambda %}
     \newcommand{\chlambda}{\check{\lambda}}
 %{% endif %}
-    % cmd.char chmu: $\chmu$
 %{% if cmd_chmu %}
     \newcommand{\chmu}{\check{\mu}}
 %{% endif %}
-    % cmd.char chnu: $\chnu$
 %{% if cmd_chnu %}
     \newcommand{\chnu}{\check{\nu}}
 %{% endif %}
-    % cmd.char chxi: $\chxi$
 %{% if cmd_chxi %}
     \newcommand{\chxi}{\check{\xi}}
 %{% endif %}
-    % cmd.char chpi: $\chpi$
 %{% if cmd_chpi %}
     \newcommand{\chpi}{\check{\pi}}
 %{% endif %}
-    % cmd.char chvarpi: $\chvarpi$
 %{% if cmd_chvarpi %}
     \newcommand{\chvarpi}{\check{\varpi}}
 %{% endif %}
-    % cmd.char chrho: $\chrho$
 %{% if cmd_chrho %}
     \newcommand{\chrho}{\check{\rho}}
 %{% endif %}
-    % cmd.char chvarrho: $\chvarrho$
 %{% if cmd_chvarrho %}
     \newcommand{\chvarrho}{\check{\varrho}}
 %{% endif %}
-    % cmd.char chsigma: $\chsigma$
 %{% if cmd_chsigma %}
     \newcommand{\chsigma}{\check{\sigma}}
 %{% endif %}
-    % cmd.char chvarsigma: $\chvarsigma$
 %{% if cmd_chvarsigma %}
     \newcommand{\chvarsigma}{\check{\varsigma}}
 %{% endif %}
-    % cmd.char chtau: $\chtau$
 %{% if cmd_chtau %}
     \newcommand{\chtau}{\check{\tau}}
 %{% endif %}
-    % cmd.char chupsilon: $\chupsilon$
 %{% if cmd_chupsilon %}
     \newcommand{\chupsilon}{\check{\upsilon}}
 %{% endif %}
-    % cmd.char chphi: $\chphi$
 %{% if cmd_chphi %}
     \newcommand{\chphi}{\check{\phi}}
 %{% endif %}
-    % cmd.char chvarphi: $\chvarphi$
 %{% if cmd_chvarphi %}
     \newcommand{\chvarphi}{\check{\varphi}}
 %{% endif %}
-    % cmd.char chchi: $\chchi$
 %{% if cmd_chchi %}
     \newcommand{\chchi}{\check{\chi}}
 %{% endif %}
-    % cmd.char chpsi: $\chpsi$
 %{% if cmd_chpsi %}
     \newcommand{\chpsi}{\check{\psi}}
 %{% endif %}
-    % cmd.char chomega: $\chomega$
 %{% if cmd_chomega %}
     \newcommand{\chomega}{\check{\omega}}
 %{% endif %}
-    % cmd.char chGamma: $\chGamma$
 %{% if cmd_chGamma %}
     \newcommand{\chGamma}{\check{\Gamma}}
 %{% endif %}
-    % cmd.char chDelta: $\chDelta$
 %{% if cmd_chDelta %}
     \newcommand{\chDelta}{\check{\Delta}}
 %{% endif %}
-    % cmd.char chTheta: $\chTheta$
 %{% if cmd_chTheta %}
     \newcommand{\chTheta}{\check{\Theta}}
 %{% endif %}
-    % cmd.char chLambda: $\chLambda$
 %{% if cmd_chLambda %}
     \newcommand{\chLambda}{\check{\Lambda}}
 %{% endif %}
-    % cmd.char chXi: $\chXi$
 %{% if cmd_chXi %}
     \newcommand{\chXi}{\check{\Xi}}
 %{% endif %}
-    % cmd.char chPi: $\chPi$
 %{% if cmd_chPi %}
     \newcommand{\chPi}{\check{\Pi}}
 %{% endif %}
-    % cmd.char chSigma: $\chSigma$
 %{% if cmd_chSigma %}
     \newcommand{\chSigma}{\check{\Sigma}}
 %{% endif %}
-    % cmd.char chUpsilon: $\chUpsilon$
 %{% if cmd_chUpsilon %}
     \newcommand{\chUpsilon}{\check{\Upsilon}}
 %{% endif %}
-    % cmd.char chPhi: $\chPhi$
 %{% if cmd_chPhi %}
     \newcommand{\chPhi}{\check{\Phi}}
 %{% endif %}
-    % cmd.char chPsi: $\chPsi$
 %{% if cmd_chPsi %}
     \newcommand{\chPsi}{\check{\Psi}}
 %{% endif %}
-    % cmd.char chOmega: $\chOmega$
 %{% if cmd_chOmega %}
     \newcommand{\chOmega}{\check{\Omega}}
 %{% endif %}
@@ -5591,163 +4448,123 @@
 %% vec
 %% --------------------
 
-    % cmd.char vecalpha: $\vecalpha$
 %{% if cmd_vecalpha %}
     \newcommand{\vecalpha}{\vec{\alpha}}
 %{% endif %}
-    % cmd.char vecbeta: $\vecbeta$
 %{% if cmd_vecbeta %}
     \newcommand{\vecbeta}{\vec{\beta}}
 %{% endif %}
-    % cmd.char vecgamma: $\vecgamma$
 %{% if cmd_vecgamma %}
     \newcommand{\vecgamma}{\vec{\gamma}}
 %{% endif %}
-    % cmd.char vecdelta: $\vecdelta$
 %{% if cmd_vecdelta %}
     \newcommand{\vecdelta}{\vec{\delta}}
 %{% endif %}
-    % cmd.char vecvarepsilon: $\vecvarepsilon$
 %{% if cmd_vecvarepsilon %}
     \newcommand{\vecvarepsilon}{\vec{\varepsilon}}
 %{% endif %}
-    % cmd.char vecepsilon: $\vecepsilon$
 %{% if cmd_vecepsilon %}
     \newcommand{\vecepsilon}{\vec{\epsilon}}
 %{% endif %}
-    % cmd.char veczeta: $\veczeta$
 %{% if cmd_veczeta %}
     \newcommand{\veczeta}{\vec{\zeta}}
 %{% endif %}
-    % cmd.char veceta: $\veceta$
 %{% if cmd_veceta %}
     \newcommand{\veceta}{\vec{\eta}}
 %{% endif %}
-    % cmd.char vectheta: $\vectheta$
 %{% if cmd_vectheta %}
     \newcommand{\vectheta}{\vec{\theta}}
 %{% endif %}
-    % cmd.char vecvartheta: $\vecvartheta$
 %{% if cmd_vecvartheta %}
     \newcommand{\vecvartheta}{\vec{\vartheta}}
 %{% endif %}
-    % cmd.char veciota: $\veciota$
 %{% if cmd_veciota %}
     \newcommand{\veciota}{\vec{\iota}}
 %{% endif %}
-    % cmd.char veckappa: $\veckappa$
 %{% if cmd_veckappa %}
     \newcommand{\veckappa}{\vec{\kappa}}
 %{% endif %}
-    % cmd.char veclambda: $\veclambda$
 %{% if cmd_veclambda %}
     \newcommand{\veclambda}{\vec{\lambda}}
 %{% endif %}
-    % cmd.char vecmu: $\vecmu$
 %{% if cmd_vecmu %}
     \newcommand{\vecmu}{\vec{\mu}}
 %{% endif %}
-    % cmd.char vecnu: $\vecnu$
 %{% if cmd_vecnu %}
     \newcommand{\vecnu}{\vec{\nu}}
 %{% endif %}
-    % cmd.char vecxi: $\vecxi$
 %{% if cmd_vecxi %}
     \newcommand{\vecxi}{\vec{\xi}}
 %{% endif %}
-    % cmd.char vecpi: $\vecpi$
 %{% if cmd_vecpi %}
     \newcommand{\vecpi}{\vec{\pi}}
 %{% endif %}
-    % cmd.char vecvarpi: $\vecvarpi$
 %{% if cmd_vecvarpi %}
     \newcommand{\vecvarpi}{\vec{\varpi}}
 %{% endif %}
-    % cmd.char vecrho: $\vecrho$
 %{% if cmd_vecrho %}
     \newcommand{\vecrho}{\vec{\rho}}
 %{% endif %}
-    % cmd.char vecvarrho: $\vecvarrho$
 %{% if cmd_vecvarrho %}
     \newcommand{\vecvarrho}{\vec{\varrho}}
 %{% endif %}
-    % cmd.char vecsigma: $\vecsigma$
 %{% if cmd_vecsigma %}
     \newcommand{\vecsigma}{\vec{\sigma}}
 %{% endif %}
-    % cmd.char vecvarsigma: $\vecvarsigma$
 %{% if cmd_vecvarsigma %}
     \newcommand{\vecvarsigma}{\vec{\varsigma}}
 %{% endif %}
-    % cmd.char vectau: $\vectau$
 %{% if cmd_vectau %}
     \newcommand{\vectau}{\vec{\tau}}
 %{% endif %}
-    % cmd.char vecupsilon: $\vecupsilon$
 %{% if cmd_vecupsilon %}
     \newcommand{\vecupsilon}{\vec{\upsilon}}
 %{% endif %}
-    % cmd.char vecphi: $\vecphi$
 %{% if cmd_vecphi %}
     \newcommand{\vecphi}{\vec{\phi}}
 %{% endif %}
-    % cmd.char vecvarphi: $\vecvarphi$
 %{% if cmd_vecvarphi %}
     \newcommand{\vecvarphi}{\vec{\varphi}}
 %{% endif %}
-    % cmd.char vecchi: $\vecchi$
 %{% if cmd_vecchi %}
     \newcommand{\vecchi}{\vec{\chi}}
 %{% endif %}
-    % cmd.char vecpsi: $\vecpsi$
 %{% if cmd_vecpsi %}
     \newcommand{\vecpsi}{\vec{\psi}}
 %{% endif %}
-    % cmd.char vecomega: $\vecomega$
 %{% if cmd_vecomega %}
     \newcommand{\vecomega}{\vec{\omega}}
 %{% endif %}
-    % cmd.char vecGamma: $\vecGamma$
 %{% if cmd_vecGamma %}
     \newcommand{\vecGamma}{\vec{\Gamma}}
 %{% endif %}
-    % cmd.char vecDelta: $\vecDelta$
 %{% if cmd_vecDelta %}
     \newcommand{\vecDelta}{\vec{\Delta}}
 %{% endif %}
-    % cmd.char vecTheta: $\vecTheta$
 %{% if cmd_vecTheta %}
     \newcommand{\vecTheta}{\vec{\Theta}}
 %{% endif %}
-    % cmd.char vecLambda: $\vecLambda$
 %{% if cmd_vecLambda %}
     \newcommand{\vecLambda}{\vec{\Lambda}}
 %{% endif %}
-    % cmd.char vecXi: $\vecXi$
 %{% if cmd_vecXi %}
     \newcommand{\vecXi}{\vec{\Xi}}
 %{% endif %}
-    % cmd.char vecPi: $\vecPi$
 %{% if cmd_vecPi %}
     \newcommand{\vecPi}{\vec{\Pi}}
 %{% endif %}
-    % cmd.char vecSigma: $\vecSigma$
 %{% if cmd_vecSigma %}
     \newcommand{\vecSigma}{\vec{\Sigma}}
 %{% endif %}
-    % cmd.char vecUpsilon: $\vecUpsilon$
 %{% if cmd_vecUpsilon %}
     \newcommand{\vecUpsilon}{\vec{\Upsilon}}
 %{% endif %}
-    % cmd.char vecPhi: $\vecPhi$
 %{% if cmd_vecPhi %}
     \newcommand{\vecPhi}{\vec{\Phi}}
 %{% endif %}
-    % cmd.char vecPsi: $\vecPsi$
 %{% if cmd_vecPsi %}
     \newcommand{\vecPsi}{\vec{\Psi}}
 %{% endif %}
-    % cmd.char vecOmega: $\vecOmega$
 %{% if cmd_vecOmega %}
     \newcommand{\vecOmega}{\vec{\Omega}}
 %{% endif %}
@@ -5756,163 +4573,123 @@
 %% hat
 %% --------------------
 
-    % cmd.char hatalpha: $\hatalpha$
 %{% if cmd_hatalpha %}
     \newcommand{\hatalpha}{\hat{\alpha}}
 %{% endif %}
-    % cmd.char hatbeta: $\hatbeta$
 %{% if cmd_hatbeta %}
     \newcommand{\hatbeta}{\hat{\beta}}
 %{% endif %}
-    % cmd.char hatgamma: $\hatgamma$
 %{% if cmd_hatgamma %}
     \newcommand{\hatgamma}{\hat{\gamma}}
 %{% endif %}
-    % cmd.char hatdelta: $\hatdelta$
 %{% if cmd_hatdelta %}
     \newcommand{\hatdelta}{\hat{\delta}}
 %{% endif %}
-    % cmd.char hatvarepsilon: $\hatvarepsilon$
 %{% if cmd_hatvarepsilon %}
     \newcommand{\hatvarepsilon}{\hat{\varepsilon}}
 %{% endif %}
-    % cmd.char hatepsilon: $\hatepsilon$
 %{% if cmd_hatepsilon %}
     \newcommand{\hatepsilon}{\hat{\epsilon}}
 %{% endif %}
-    % cmd.char hatzeta: $\hatzeta$
 %{% if cmd_hatzeta %}
     \newcommand{\hatzeta}{\hat{\zeta}}
 %{% endif %}
-    % cmd.char hateta: $\hateta$
 %{% if cmd_hateta %}
     \newcommand{\hateta}{\hat{\eta}}
 %{% endif %}
-    % cmd.char hattheta: $\hattheta$
 %{% if cmd_hattheta %}
     \newcommand{\hattheta}{\hat{\theta}}
 %{% endif %}
-    % cmd.char hatvartheta: $\hatvartheta$
 %{% if cmd_hatvartheta %}
     \newcommand{\hatvartheta}{\hat{\vartheta}}
 %{% endif %}
-    % cmd.char hatiota: $\hatiota$
 %{% if cmd_hatiota %}
     \newcommand{\hatiota}{\hat{\iota}}
 %{% endif %}
-    % cmd.char hatkappa: $\hatkappa$
 %{% if cmd_hatkappa %}
     \newcommand{\hatkappa}{\hat{\kappa}}
 %{% endif %}
-    % cmd.char hatlambda: $\hatlambda$
 %{% if cmd_hatlambda %}
     \newcommand{\hatlambda}{\hat{\lambda}}
 %{% endif %}
-    % cmd.char hatmu: $\hatmu$
 %{% if cmd_hatmu %}
     \newcommand{\hatmu}{\hat{\mu}}
 %{% endif %}
-    % cmd.char hatnu: $\hatnu$
 %{% if cmd_hatnu %}
     \newcommand{\hatnu}{\hat{\nu}}
 %{% endif %}
-    % cmd.char hatxi: $\hatxi$
 %{% if cmd_hatxi %}
     \newcommand{\hatxi}{\hat{\xi}}
 %{% endif %}
-    % cmd.char hatpi: $\hatpi$
 %{% if cmd_hatpi %}
     \newcommand{\hatpi}{\hat{\pi}}
 %{% endif %}
-    % cmd.char hatvarpi: $\hatvarpi$
 %{% if cmd_hatvarpi %}
     \newcommand{\hatvarpi}{\hat{\varpi}}
 %{% endif %}
-    % cmd.char hatrho: $\hatrho$
 %{% if cmd_hatrho %}
     \newcommand{\hatrho}{\hat{\rho}}
 %{% endif %}
-    % cmd.char hatvarrho: $\hatvarrho$
 %{% if cmd_hatvarrho %}
     \newcommand{\hatvarrho}{\hat{\varrho}}
 %{% endif %}
-    % cmd.char hatsigma: $\hatsigma$
 %{% if cmd_hatsigma %}
     \newcommand{\hatsigma}{\hat{\sigma}}
 %{% endif %}
-    % cmd.char hatvarsigma: $\hatvarsigma$
 %{% if cmd_hatvarsigma %}
     \newcommand{\hatvarsigma}{\hat{\varsigma}}
 %{% endif %}
-    % cmd.char hattau: $\hattau$
 %{% if cmd_hattau %}
     \newcommand{\hattau}{\hat{\tau}}
 %{% endif %}
-    % cmd.char hatupsilon: $\hatupsilon$
 %{% if cmd_hatupsilon %}
     \newcommand{\hatupsilon}{\hat{\upsilon}}
 %{% endif %}
-    % cmd.char hatphi: $\hatphi$
 %{% if cmd_hatphi %}
     \newcommand{\hatphi}{\hat{\phi}}
 %{% endif %}
-    % cmd.char hatvarphi: $\hatvarphi$
 %{% if cmd_hatvarphi %}
     \newcommand{\hatvarphi}{\hat{\varphi}}
 %{% endif %}
-    % cmd.char hatchi: $\hatchi$
 %{% if cmd_hatchi %}
     \newcommand{\hatchi}{\hat{\chi}}
 %{% endif %}
-    % cmd.char hatpsi: $\hatpsi$
 %{% if cmd_hatpsi %}
     \newcommand{\hatpsi}{\hat{\psi}}
 %{% endif %}
-    % cmd.char hatomega: $\hatomega$
 %{% if cmd_hatomega %}
     \newcommand{\hatomega}{\hat{\omega}}
 %{% endif %}
-    % cmd.char hatGamma: $\hatGamma$
 %{% if cmd_hatGamma %}
     \newcommand{\hatGamma}{\hat{\Gamma}}
 %{% endif %}
-    % cmd.char hatDelta: $\hatDelta$
 %{% if cmd_hatDelta %}
     \newcommand{\hatDelta}{\hat{\Delta}}
 %{% endif %}
-    % cmd.char hatTheta: $\hatTheta$
 %{% if cmd_hatTheta %}
     \newcommand{\hatTheta}{\hat{\Theta}}
 %{% endif %}
-    % cmd.char hatLambda: $\hatLambda$
 %{% if cmd_hatLambda %}
     \newcommand{\hatLambda}{\hat{\Lambda}}
 %{% endif %}
-    % cmd.char hatXi: $\hatXi$
 %{% if cmd_hatXi %}
     \newcommand{\hatXi}{\hat{\Xi}}
 %{% endif %}
-    % cmd.char hatPi: $\hatPi$
 %{% if cmd_hatPi %}
     \newcommand{\hatPi}{\hat{\Pi}}
 %{% endif %}
-    % cmd.char hatSigma: $\hatSigma$
 %{% if cmd_hatSigma %}
     \newcommand{\hatSigma}{\hat{\Sigma}}
 %{% endif %}
-    % cmd.char hatUpsilon: $\hatUpsilon$
 %{% if cmd_hatUpsilon %}
     \newcommand{\hatUpsilon}{\hat{\Upsilon}}
 %{% endif %}
-    % cmd.char hatPhi: $\hatPhi$
 %{% if cmd_hatPhi %}
     \newcommand{\hatPhi}{\hat{\Phi}}
 %{% endif %}
-    % cmd.char hatPsi: $\hatPsi$
 %{% if cmd_hatPsi %}
     \newcommand{\hatPsi}{\hat{\Psi}}
 %{% endif %}
-    % cmd.char hatOmega: $\hatOmega$
 %{% if cmd_hatOmega %}
     \newcommand{\hatOmega}{\hat{\Omega}}
 %{% endif %}
@@ -5921,163 +4698,123 @@
 %% dot
 %% --------------------
 
-    % cmd.char dotalpha: $\dotalpha$
 %{% if cmd_dotalpha %}
     \newcommand{\dotalpha}{\dot{\alpha}}
 %{% endif %}
-    % cmd.char dotbeta: $\dotbeta$
 %{% if cmd_dotbeta %}
     \newcommand{\dotbeta}{\dot{\beta}}
 %{% endif %}
-    % cmd.char dotgamma: $\dotgamma$
 %{% if cmd_dotgamma %}
     \newcommand{\dotgamma}{\dot{\gamma}}
 %{% endif %}
-    % cmd.char dotdelta: $\dotdelta$
 %{% if cmd_dotdelta %}
     \newcommand{\dotdelta}{\dot{\delta}}
 %{% endif %}
-    % cmd.char dotvarepsilon: $\dotvarepsilon$
 %{% if cmd_dotvarepsilon %}
     \newcommand{\dotvarepsilon}{\dot{\varepsilon}}
 %{% endif %}
-    % cmd.char dotepsilon: $\dotepsilon$
 %{% if cmd_dotepsilon %}
     \newcommand{\dotepsilon}{\dot{\epsilon}}
 %{% endif %}
-    % cmd.char dotzeta: $\dotzeta$
 %{% if cmd_dotzeta %}
     \newcommand{\dotzeta}{\dot{\zeta}}
 %{% endif %}
-    % cmd.char doteta: $\doteta$
 %{% if cmd_doteta %}
     \newcommand{\doteta}{\dot{\eta}}
 %{% endif %}
-    % cmd.char dottheta: $\dottheta$
 %{% if cmd_dottheta %}
     \newcommand{\dottheta}{\dot{\theta}}
 %{% endif %}
-    % cmd.char dotvartheta: $\dotvartheta$
 %{% if cmd_dotvartheta %}
     \newcommand{\dotvartheta}{\dot{\vartheta}}
 %{% endif %}
-    % cmd.char dotiota: $\dotiota$
 %{% if cmd_dotiota %}
     \newcommand{\dotiota}{\dot{\iota}}
 %{% endif %}
-    % cmd.char dotkappa: $\dotkappa$
 %{% if cmd_dotkappa %}
     \newcommand{\dotkappa}{\dot{\kappa}}
 %{% endif %}
-    % cmd.char dotlambda: $\dotlambda$
 %{% if cmd_dotlambda %}
     \newcommand{\dotlambda}{\dot{\lambda}}
 %{% endif %}
-    % cmd.char dotmu: $\dotmu$
 %{% if cmd_dotmu %}
     \newcommand{\dotmu}{\dot{\mu}}
 %{% endif %}
-    % cmd.char dotnu: $\dotnu$
 %{% if cmd_dotnu %}
     \newcommand{\dotnu}{\dot{\nu}}
 %{% endif %}
-    % cmd.char dotxi: $\dotxi$
 %{% if cmd_dotxi %}
     \newcommand{\dotxi}{\dot{\xi}}
 %{% endif %}
-    % cmd.char dotpi: $\dotpi$
 %{% if cmd_dotpi %}
     \newcommand{\dotpi}{\dot{\pi}}
 %{% endif %}
-    % cmd.char dotvarpi: $\dotvarpi$
 %{% if cmd_dotvarpi %}
     \newcommand{\dotvarpi}{\dot{\varpi}}
 %{% endif %}
-    % cmd.char dotrho: $\dotrho$
 %{% if cmd_dotrho %}
     \newcommand{\dotrho}{\dot{\rho}}
 %{% endif %}
-    % cmd.char dotvarrho: $\dotvarrho$
 %{% if cmd_dotvarrho %}
     \newcommand{\dotvarrho}{\dot{\varrho}}
 %{% endif %}
-    % cmd.char dotsigma: $\dotsigma$
 %{% if cmd_dotsigma %}
     \newcommand{\dotsigma}{\dot{\sigma}}
 %{% endif %}
-    % cmd.char dotvarsigma: $\dotvarsigma$
 %{% if cmd_dotvarsigma %}
     \newcommand{\dotvarsigma}{\dot{\varsigma}}
 %{% endif %}
-    % cmd.char dottau: $\dottau$
 %{% if cmd_dottau %}
     \newcommand{\dottau}{\dot{\tau}}
 %{% endif %}
-    % cmd.char dotupsilon: $\dotupsilon$
 %{% if cmd_dotupsilon %}
     \newcommand{\dotupsilon}{\dot{\upsilon}}
 %{% endif %}
-    % cmd.char dotphi: $\dotphi$
 %{% if cmd_dotphi %}
     \newcommand{\dotphi}{\dot{\phi}}
 %{% endif %}
-    % cmd.char dotvarphi: $\dotvarphi$
 %{% if cmd_dotvarphi %}
     \newcommand{\dotvarphi}{\dot{\varphi}}
 %{% endif %}
-    % cmd.char dotchi: $\dotchi$
 %{% if cmd_dotchi %}
     \newcommand{\dotchi}{\dot{\chi}}
 %{% endif %}
-    % cmd.char dotpsi: $\dotpsi$
 %{% if cmd_dotpsi %}
     \newcommand{\dotpsi}{\dot{\psi}}
 %{% endif %}
-    % cmd.char dotomega: $\dotomega$
 %{% if cmd_dotomega %}
     \newcommand{\dotomega}{\dot{\omega}}
 %{% endif %}
-    % cmd.char dotGamma: $\dotGamma$
 %{% if cmd_dotGamma %}
     \newcommand{\dotGamma}{\dot{\Gamma}}
 %{% endif %}
-    % cmd.char dotDelta: $\dotDelta$
 %{% if cmd_dotDelta %}
     \newcommand{\dotDelta}{\dot{\Delta}}
 %{% endif %}
-    % cmd.char dotTheta: $\dotTheta$
 %{% if cmd_dotTheta %}
     \newcommand{\dotTheta}{\dot{\Theta}}
 %{% endif %}
-    % cmd.char dotLambda: $\dotLambda$
 %{% if cmd_dotLambda %}
     \newcommand{\dotLambda}{\dot{\Lambda}}
 %{% endif %}
-    % cmd.char dotXi: $\dotXi$
 %{% if cmd_dotXi %}
     \newcommand{\dotXi}{\dot{\Xi}}
 %{% endif %}
-    % cmd.char dotPi: $\dotPi$
 %{% if cmd_dotPi %}
     \newcommand{\dotPi}{\dot{\Pi}}
 %{% endif %}
-    % cmd.char dotSigma: $\dotSigma$
 %{% if cmd_dotSigma %}
     \newcommand{\dotSigma}{\dot{\Sigma}}
 %{% endif %}
-    % cmd.char dotUpsilon: $\dotUpsilon$
 %{% if cmd_dotUpsilon %}
     \newcommand{\dotUpsilon}{\dot{\Upsilon}}
 %{% endif %}
-    % cmd.char dotPhi: $\dotPhi$
 %{% if cmd_dotPhi %}
     \newcommand{\dotPhi}{\dot{\Phi}}
 %{% endif %}
-    % cmd.char dotPsi: $\dotPsi$
 %{% if cmd_dotPsi %}
     \newcommand{\dotPsi}{\dot{\Psi}}
 %{% endif %}
-    % cmd.char dotOmega: $\dotOmega$
 %{% if cmd_dotOmega %}
     \newcommand{\dotOmega}{\dot{\Omega}}
 %{% endif %}
@@ -6086,163 +4823,123 @@
 %% ddot
 %% --------------------
 
-    % cmd.char ddotalpha: $\ddotalpha$
 %{% if cmd_ddotalpha %}
     \newcommand{\ddotalpha}{\ddot{\alpha}}
 %{% endif %}
-    % cmd.char ddotbeta: $\ddotbeta$
 %{% if cmd_ddotbeta %}
     \newcommand{\ddotbeta}{\ddot{\beta}}
 %{% endif %}
-    % cmd.char ddotgamma: $\ddotgamma$
 %{% if cmd_ddotgamma %}
     \newcommand{\ddotgamma}{\ddot{\gamma}}
 %{% endif %}
-    % cmd.char ddotdelta: $\ddotdelta$
 %{% if cmd_ddotdelta %}
     \newcommand{\ddotdelta}{\ddot{\delta}}
 %{% endif %}
-    % cmd.char ddotvarepsilon: $\ddotvarepsilon$
 %{% if cmd_ddotvarepsilon %}
     \newcommand{\ddotvarepsilon}{\ddot{\varepsilon}}
 %{% endif %}
-    % cmd.char ddotepsilon: $\ddotepsilon$
 %{% if cmd_ddotepsilon %}
     \newcommand{\ddotepsilon}{\ddot{\epsilon}}
 %{% endif %}
-    % cmd.char ddotzeta: $\ddotzeta$
 %{% if cmd_ddotzeta %}
     \newcommand{\ddotzeta}{\ddot{\zeta}}
 %{% endif %}
-    % cmd.char ddoteta: $\ddoteta$
 %{% if cmd_ddoteta %}
     \newcommand{\ddoteta}{\ddot{\eta}}
 %{% endif %}
-    % cmd.char ddottheta: $\ddottheta$
 %{% if cmd_ddottheta %}
     \newcommand{\ddottheta}{\ddot{\theta}}
 %{% endif %}
-    % cmd.char ddotvartheta: $\ddotvartheta$
 %{% if cmd_ddotvartheta %}
     \newcommand{\ddotvartheta}{\ddot{\vartheta}}
 %{% endif %}
-    % cmd.char ddotiota: $\ddotiota$
 %{% if cmd_ddotiota %}
     \newcommand{\ddotiota}{\ddot{\iota}}
 %{% endif %}
-    % cmd.char ddotkappa: $\ddotkappa$
 %{% if cmd_ddotkappa %}
     \newcommand{\ddotkappa}{\ddot{\kappa}}
 %{% endif %}
-    % cmd.char ddotlambda: $\ddotlambda$
 %{% if cmd_ddotlambda %}
     \newcommand{\ddotlambda}{\ddot{\lambda}}
 %{% endif %}
-    % cmd.char ddotmu: $\ddotmu$
 %{% if cmd_ddotmu %}
     \newcommand{\ddotmu}{\ddot{\mu}}
 %{% endif %}
-    % cmd.char ddotnu: $\ddotnu$
 %{% if cmd_ddotnu %}
     \newcommand{\ddotnu}{\ddot{\nu}}
 %{% endif %}
-    % cmd.char ddotxi: $\ddotxi$
 %{% if cmd_ddotxi %}
     \newcommand{\ddotxi}{\ddot{\xi}}
 %{% endif %}
-    % cmd.char ddotpi: $\ddotpi$
 %{% if cmd_ddotpi %}
     \newcommand{\ddotpi}{\ddot{\pi}}
 %{% endif %}
-    % cmd.char ddotvarpi: $\ddotvarpi$
 %{% if cmd_ddotvarpi %}
     \newcommand{\ddotvarpi}{\ddot{\varpi}}
 %{% endif %}
-    % cmd.char ddotrho: $\ddotrho$
 %{% if cmd_ddotrho %}
     \newcommand{\ddotrho}{\ddot{\rho}}
 %{% endif %}
-    % cmd.char ddotvarrho: $\ddotvarrho$
 %{% if cmd_ddotvarrho %}
     \newcommand{\ddotvarrho}{\ddot{\varrho}}
 %{% endif %}
-    % cmd.char ddotsigma: $\ddotsigma$
 %{% if cmd_ddotsigma %}
     \newcommand{\ddotsigma}{\ddot{\sigma}}
 %{% endif %}
-    % cmd.char ddotvarsigma: $\ddotvarsigma$
 %{% if cmd_ddotvarsigma %}
     \newcommand{\ddotvarsigma}{\ddot{\varsigma}}
 %{% endif %}
-    % cmd.char ddottau: $\ddottau$
 %{% if cmd_ddottau %}
     \newcommand{\ddottau}{\ddot{\tau}}
 %{% endif %}
-    % cmd.char ddotupsilon: $\ddotupsilon$
 %{% if cmd_ddotupsilon %}
     \newcommand{\ddotupsilon}{\ddot{\upsilon}}
 %{% endif %}
-    % cmd.char ddotphi: $\ddotphi$
 %{% if cmd_ddotphi %}
     \newcommand{\ddotphi}{\ddot{\phi}}
 %{% endif %}
-    % cmd.char ddotvarphi: $\ddotvarphi$
 %{% if cmd_ddotvarphi %}
     \newcommand{\ddotvarphi}{\ddot{\varphi}}
 %{% endif %}
-    % cmd.char ddotchi: $\ddotchi$
 %{% if cmd_ddotchi %}
     \newcommand{\ddotchi}{\ddot{\chi}}
 %{% endif %}
-    % cmd.char ddotpsi: $\ddotpsi$
 %{% if cmd_ddotpsi %}
     \newcommand{\ddotpsi}{\ddot{\psi}}
 %{% endif %}
-    % cmd.char ddotomega: $\ddotomega$
 %{% if cmd_ddotomega %}
     \newcommand{\ddotomega}{\ddot{\omega}}
 %{% endif %}
-    % cmd.char ddotGamma: $\ddotGamma$
 %{% if cmd_ddotGamma %}
     \newcommand{\ddotGamma}{\ddot{\Gamma}}
 %{% endif %}
-    % cmd.char ddotDelta: $\ddotDelta$
 %{% if cmd_ddotDelta %}
     \newcommand{\ddotDelta}{\ddot{\Delta}}
 %{% endif %}
-    % cmd.char ddotTheta: $\ddotTheta$
 %{% if cmd_ddotTheta %}
     \newcommand{\ddotTheta}{\ddot{\Theta}}
 %{% endif %}
-    % cmd.char ddotLambda: $\ddotLambda$
 %{% if cmd_ddotLambda %}
     \newcommand{\ddotLambda}{\ddot{\Lambda}}
 %{% endif %}
-    % cmd.char ddotXi: $\ddotXi$
 %{% if cmd_ddotXi %}
     \newcommand{\ddotXi}{\ddot{\Xi}}
 %{% endif %}
-    % cmd.char ddotPi: $\ddotPi$
 %{% if cmd_ddotPi %}
     \newcommand{\ddotPi}{\ddot{\Pi}}
 %{% endif %}
-    % cmd.char ddotSigma: $\ddotSigma$
 %{% if cmd_ddotSigma %}
     \newcommand{\ddotSigma}{\ddot{\Sigma}}
 %{% endif %}
-    % cmd.char ddotUpsilon: $\ddotUpsilon$
 %{% if cmd_ddotUpsilon %}
     \newcommand{\ddotUpsilon}{\ddot{\Upsilon}}
 %{% endif %}
-    % cmd.char ddotPhi: $\ddotPhi$
 %{% if cmd_ddotPhi %}
     \newcommand{\ddotPhi}{\ddot{\Phi}}
 %{% endif %}
-    % cmd.char ddotPsi: $\ddotPsi$
 %{% if cmd_ddotPsi %}
     \newcommand{\ddotPsi}{\ddot{\Psi}}
 %{% endif %}
-    % cmd.char ddotOmega: $\ddotOmega$
 %{% if cmd_ddotOmega %}
     \newcommand{\ddotOmega}{\ddot{\Omega}}
 %{% endif %}
@@ -6251,163 +4948,123 @@
 %% tild
 %% --------------------
 
-    % cmd.char tildalpha: $\tildalpha$
 %{% if cmd_tildalpha %}
     \newcommand{\tildalpha}{\tilde{\alpha}}
 %{% endif %}
-    % cmd.char tildbeta: $\tildbeta$
 %{% if cmd_tildbeta %}
     \newcommand{\tildbeta}{\tilde{\beta}}
 %{% endif %}
-    % cmd.char tildgamma: $\tildgamma$
 %{% if cmd_tildgamma %}
     \newcommand{\tildgamma}{\tilde{\gamma}}
 %{% endif %}
-    % cmd.char tilddelta: $\tilddelta$
 %{% if cmd_tilddelta %}
     \newcommand{\tilddelta}{\tilde{\delta}}
 %{% endif %}
-    % cmd.char tildvarepsilon: $\tildvarepsilon$
 %{% if cmd_tildvarepsilon %}
     \newcommand{\tildvarepsilon}{\tilde{\varepsilon}}
 %{% endif %}
-    % cmd.char tildepsilon: $\tildepsilon$
 %{% if cmd_tildepsilon %}
     \newcommand{\tildepsilon}{\tilde{\epsilon}}
 %{% endif %}
-    % cmd.char tildzeta: $\tildzeta$
 %{% if cmd_tildzeta %}
     \newcommand{\tildzeta}{\tilde{\zeta}}
 %{% endif %}
-    % cmd.char tildeta: $\tildeta$
 %{% if cmd_tildeta %}
     \newcommand{\tildeta}{\tilde{\eta}}
 %{% endif %}
-    % cmd.char tildtheta: $\tildtheta$
 %{% if cmd_tildtheta %}
     \newcommand{\tildtheta}{\tilde{\theta}}
 %{% endif %}
-    % cmd.char tildvartheta: $\tildvartheta$
 %{% if cmd_tildvartheta %}
     \newcommand{\tildvartheta}{\tilde{\vartheta}}
 %{% endif %}
-    % cmd.char tildiota: $\tildiota$
 %{% if cmd_tildiota %}
     \newcommand{\tildiota}{\tilde{\iota}}
 %{% endif %}
-    % cmd.char tildkappa: $\tildkappa$
 %{% if cmd_tildkappa %}
     \newcommand{\tildkappa}{\tilde{\kappa}}
 %{% endif %}
-    % cmd.char tildlambda: $\tildlambda$
 %{% if cmd_tildlambda %}
     \newcommand{\tildlambda}{\tilde{\lambda}}
 %{% endif %}
-    % cmd.char tildmu: $\tildmu$
 %{% if cmd_tildmu %}
     \newcommand{\tildmu}{\tilde{\mu}}
 %{% endif %}
-    % cmd.char tildnu: $\tildnu$
 %{% if cmd_tildnu %}
     \newcommand{\tildnu}{\tilde{\nu}}
 %{% endif %}
-    % cmd.char tildxi: $\tildxi$
 %{% if cmd_tildxi %}
     \newcommand{\tildxi}{\tilde{\xi}}
 %{% endif %}
-    % cmd.char tildpi: $\tildpi$
 %{% if cmd_tildpi %}
     \newcommand{\tildpi}{\tilde{\pi}}
 %{% endif %}
-    % cmd.char tildvarpi: $\tildvarpi$
 %{% if cmd_tildvarpi %}
     \newcommand{\tildvarpi}{\tilde{\varpi}}
 %{% endif %}
-    % cmd.char tildrho: $\tildrho$
 %{% if cmd_tildrho %}
     \newcommand{\tildrho}{\tilde{\rho}}
 %{% endif %}
-    % cmd.char tildvarrho: $\tildvarrho$
 %{% if cmd_tildvarrho %}
     \newcommand{\tildvarrho}{\tilde{\varrho}}
 %{% endif %}
-    % cmd.char tildsigma: $\tildsigma$
 %{% if cmd_tildsigma %}
     \newcommand{\tildsigma}{\tilde{\sigma}}
 %{% endif %}
-    % cmd.char tildvarsigma: $\tildvarsigma$
 %{% if cmd_tildvarsigma %}
     \newcommand{\tildvarsigma}{\tilde{\varsigma}}
 %{% endif %}
-    % cmd.char tildtau: $\tildtau$
 %{% if cmd_tildtau %}
     \newcommand{\tildtau}{\tilde{\tau}}
 %{% endif %}
-    % cmd.char tildupsilon: $\tildupsilon$
 %{% if cmd_tildupsilon %}
     \newcommand{\tildupsilon}{\tilde{\upsilon}}
 %{% endif %}
-    % cmd.char tildphi: $\tildphi$
 %{% if cmd_tildphi %}
     \newcommand{\tildphi}{\tilde{\phi}}
 %{% endif %}
-    % cmd.char tildvarphi: $\tildvarphi$
 %{% if cmd_tildvarphi %}
     \newcommand{\tildvarphi}{\tilde{\varphi}}
 %{% endif %}
-    % cmd.char tildchi: $\tildchi$
 %{% if cmd_tildchi %}
     \newcommand{\tildchi}{\tilde{\chi}}
 %{% endif %}
-    % cmd.char tildpsi: $\tildpsi$
 %{% if cmd_tildpsi %}
     \newcommand{\tildpsi}{\tilde{\psi}}
 %{% endif %}
-    % cmd.char tildomega: $\tildomega$
 %{% if cmd_tildomega %}
     \newcommand{\tildomega}{\tilde{\omega}}
 %{% endif %}
-    % cmd.char tildGamma: $\tildGamma$
 %{% if cmd_tildGamma %}
     \newcommand{\tildGamma}{\tilde{\Gamma}}
 %{% endif %}
-    % cmd.char tildDelta: $\tildDelta$
 %{% if cmd_tildDelta %}
     \newcommand{\tildDelta}{\tilde{\Delta}}
 %{% endif %}
-    % cmd.char tildTheta: $\tildTheta$
 %{% if cmd_tildTheta %}
     \newcommand{\tildTheta}{\tilde{\Theta}}
 %{% endif %}
-    % cmd.char tildLambda: $\tildLambda$
 %{% if cmd_tildLambda %}
     \newcommand{\tildLambda}{\tilde{\Lambda}}
 %{% endif %}
-    % cmd.char tildXi: $\tildXi$
 %{% if cmd_tildXi %}
     \newcommand{\tildXi}{\tilde{\Xi}}
 %{% endif %}
-    % cmd.char tildPi: $\tildPi$
 %{% if cmd_tildPi %}
     \newcommand{\tildPi}{\tilde{\Pi}}
 %{% endif %}
-    % cmd.char tildSigma: $\tildSigma$
 %{% if cmd_tildSigma %}
     \newcommand{\tildSigma}{\tilde{\Sigma}}
 %{% endif %}
-    % cmd.char tildUpsilon: $\tildUpsilon$
 %{% if cmd_tildUpsilon %}
     \newcommand{\tildUpsilon}{\tilde{\Upsilon}}
 %{% endif %}
-    % cmd.char tildPhi: $\tildPhi$
 %{% if cmd_tildPhi %}
     \newcommand{\tildPhi}{\tilde{\Phi}}
 %{% endif %}
-    % cmd.char tildPsi: $\tildPsi$
 %{% if cmd_tildPsi %}
     \newcommand{\tildPsi}{\tilde{\Psi}}
 %{% endif %}
-    % cmd.char tildOmega: $\tildOmega$
 %{% if cmd_tildOmega %}
     \newcommand{\tildOmega}{\tilde{\Omega}}
 %{% endif %}
@@ -6416,163 +5073,123 @@
 %% bar
 %% --------------------
 
-    % cmd.char baralpha: $\baralpha$
 %{% if cmd_baralpha %}
     \newcommand{\baralpha}{\bar{\alpha}}
 %{% endif %}
-    % cmd.char barbeta: $\barbeta$
 %{% if cmd_barbeta %}
     \newcommand{\barbeta}{\bar{\beta}}
 %{% endif %}
-    % cmd.char bargamma: $\bargamma$
 %{% if cmd_bargamma %}
     \newcommand{\bargamma}{\bar{\gamma}}
 %{% endif %}
-    % cmd.char bardelta: $\bardelta$
 %{% if cmd_bardelta %}
     \newcommand{\bardelta}{\bar{\delta}}
 %{% endif %}
-    % cmd.char barvarepsilon: $\barvarepsilon$
 %{% if cmd_barvarepsilon %}
     \newcommand{\barvarepsilon}{\bar{\varepsilon}}
 %{% endif %}
-    % cmd.char barepsilon: $\barepsilon$
 %{% if cmd_barepsilon %}
     \newcommand{\barepsilon}{\bar{\epsilon}}
 %{% endif %}
-    % cmd.char barzeta: $\barzeta$
 %{% if cmd_barzeta %}
     \newcommand{\barzeta}{\bar{\zeta}}
 %{% endif %}
-    % cmd.char bareta: $\bareta$
 %{% if cmd_bareta %}
     \newcommand{\bareta}{\bar{\eta}}
 %{% endif %}
-    % cmd.char bartheta: $\bartheta$
 %{% if cmd_bartheta %}
     \newcommand{\bartheta}{\bar{\theta}}
 %{% endif %}
-    % cmd.char barvartheta: $\barvartheta$
 %{% if cmd_barvartheta %}
     \newcommand{\barvartheta}{\bar{\vartheta}}
 %{% endif %}
-    % cmd.char bariota: $\bariota$
 %{% if cmd_bariota %}
     \newcommand{\bariota}{\bar{\iota}}
 %{% endif %}
-    % cmd.char barkappa: $\barkappa$
 %{% if cmd_barkappa %}
     \newcommand{\barkappa}{\bar{\kappa}}
 %{% endif %}
-    % cmd.char barlambda: $\barlambda$
 %{% if cmd_barlambda %}
     \newcommand{\barlambda}{\bar{\lambda}}
 %{% endif %}
-    % cmd.char barmu: $\barmu$
 %{% if cmd_barmu %}
     \newcommand{\barmu}{\bar{\mu}}
 %{% endif %}
-    % cmd.char barnu: $\barnu$
 %{% if cmd_barnu %}
     \newcommand{\barnu}{\bar{\nu}}
 %{% endif %}
-    % cmd.char barxi: $\barxi$
 %{% if cmd_barxi %}
     \newcommand{\barxi}{\bar{\xi}}
 %{% endif %}
-    % cmd.char barpi: $\barpi$
 %{% if cmd_barpi %}
     \newcommand{\barpi}{\bar{\pi}}
 %{% endif %}
-    % cmd.char barvarpi: $\barvarpi$
 %{% if cmd_barvarpi %}
     \newcommand{\barvarpi}{\bar{\varpi}}
 %{% endif %}
-    % cmd.char barrho: $\barrho$
 %{% if cmd_barrho %}
     \newcommand{\barrho}{\bar{\rho}}
 %{% endif %}
-    % cmd.char barvarrho: $\barvarrho$
 %{% if cmd_barvarrho %}
     \newcommand{\barvarrho}{\bar{\varrho}}
 %{% endif %}
-    % cmd.char barsigma: $\barsigma$
 %{% if cmd_barsigma %}
     \newcommand{\barsigma}{\bar{\sigma}}
 %{% endif %}
-    % cmd.char barvarsigma: $\barvarsigma$
 %{% if cmd_barvarsigma %}
     \newcommand{\barvarsigma}{\bar{\varsigma}}
 %{% endif %}
-    % cmd.char bartau: $\bartau$
 %{% if cmd_bartau %}
     \newcommand{\bartau}{\bar{\tau}}
 %{% endif %}
-    % cmd.char barupsilon: $\barupsilon$
 %{% if cmd_barupsilon %}
     \newcommand{\barupsilon}{\bar{\upsilon}}
 %{% endif %}
-    % cmd.char barphi: $\barphi$
 %{% if cmd_barphi %}
     \newcommand{\barphi}{\bar{\phi}}
 %{% endif %}
-    % cmd.char barvarphi: $\barvarphi$
 %{% if cmd_barvarphi %}
     \newcommand{\barvarphi}{\bar{\varphi}}
 %{% endif %}
-    % cmd.char barchi: $\barchi$
 %{% if cmd_barchi %}
     \newcommand{\barchi}{\bar{\chi}}
 %{% endif %}
-    % cmd.char barpsi: $\barpsi$
 %{% if cmd_barpsi %}
     \newcommand{\barpsi}{\bar{\psi}}
 %{% endif %}
-    % cmd.char baromega: $\baromega$
 %{% if cmd_baromega %}
     \newcommand{\baromega}{\bar{\omega}}
 %{% endif %}
-    % cmd.char barGamma: $\barGamma$
 %{% if cmd_barGamma %}
     \newcommand{\barGamma}{\bar{\Gamma}}
 %{% endif %}
-    % cmd.char barDelta: $\barDelta$
 %{% if cmd_barDelta %}
     \newcommand{\barDelta}{\bar{\Delta}}
 %{% endif %}
-    % cmd.char barTheta: $\barTheta$
 %{% if cmd_barTheta %}
     \newcommand{\barTheta}{\bar{\Theta}}
 %{% endif %}
-    % cmd.char barLambda: $\barLambda$
 %{% if cmd_barLambda %}
     \newcommand{\barLambda}{\bar{\Lambda}}
 %{% endif %}
-    % cmd.char barXi: $\barXi$
 %{% if cmd_barXi %}
     \newcommand{\barXi}{\bar{\Xi}}
 %{% endif %}
-    % cmd.char barPi: $\barPi$
 %{% if cmd_barPi %}
     \newcommand{\barPi}{\bar{\Pi}}
 %{% endif %}
-    % cmd.char barSigma: $\barSigma$
 %{% if cmd_barSigma %}
     \newcommand{\barSigma}{\bar{\Sigma}}
 %{% endif %}
-    % cmd.char barUpsilon: $\barUpsilon$
 %{% if cmd_barUpsilon %}
     \newcommand{\barUpsilon}{\bar{\Upsilon}}
 %{% endif %}
-    % cmd.char barPhi: $\barPhi$
 %{% if cmd_barPhi %}
     \newcommand{\barPhi}{\bar{\Phi}}
 %{% endif %}
-    % cmd.char barPsi: $\barPsi$
 %{% if cmd_barPsi %}
     \newcommand{\barPsi}{\bar{\Psi}}
 %{% endif %}
-    % cmd.char barOmega: $\barOmega$
 %{% if cmd_barOmega %}
     \newcommand{\barOmega}{\bar{\Omega}}
 %{% endif %}
@@ -6581,163 +5198,123 @@
 %% bbar
 %% --------------------
 
-    % cmd.char bbaralpha: $\bbaralpha$
 %{% if cmd_bbaralpha %}
     \newcommand{\bbaralpha}{\bar{\bar{\alpha}}}
 %{% endif %}
-    % cmd.char bbarbeta: $\bbarbeta$
 %{% if cmd_bbarbeta %}
     \newcommand{\bbarbeta}{\bar{\bar{\beta}}}
 %{% endif %}
-    % cmd.char bbargamma: $\bbargamma$
 %{% if cmd_bbargamma %}
     \newcommand{\bbargamma}{\bar{\bar{\gamma}}}
 %{% endif %}
-    % cmd.char bbardelta: $\bbardelta$
 %{% if cmd_bbardelta %}
     \newcommand{\bbardelta}{\bar{\bar{\delta}}}
 %{% endif %}
-    % cmd.char bbarvarepsilon: $\bbarvarepsilon$
 %{% if cmd_bbarvarepsilon %}
     \newcommand{\bbarvarepsilon}{\bar{\bar{\varepsilon}}}
 %{% endif %}
-    % cmd.char bbarepsilon: $\bbarepsilon$
 %{% if cmd_bbarepsilon %}
     \newcommand{\bbarepsilon}{\bar{\bar{\epsilon}}}
 %{% endif %}
-    % cmd.char bbarzeta: $\bbarzeta$
 %{% if cmd_bbarzeta %}
     \newcommand{\bbarzeta}{\bar{\bar{\zeta}}}
 %{% endif %}
-    % cmd.char bbareta: $\bbareta$
 %{% if cmd_bbareta %}
     \newcommand{\bbareta}{\bar{\bar{\eta}}}
 %{% endif %}
-    % cmd.char bbartheta: $\bbartheta$
 %{% if cmd_bbartheta %}
     \newcommand{\bbartheta}{\bar{\bar{\theta}}}
 %{% endif %}
-    % cmd.char bbarvartheta: $\bbarvartheta$
 %{% if cmd_bbarvartheta %}
     \newcommand{\bbarvartheta}{\bar{\bar{\vartheta}}}
 %{% endif %}
-    % cmd.char bbariota: $\bbariota$
 %{% if cmd_bbariota %}
     \newcommand{\bbariota}{\bar{\bar{\iota}}}
 %{% endif %}
-    % cmd.char bbarkappa: $\bbarkappa$
 %{% if cmd_bbarkappa %}
     \newcommand{\bbarkappa}{\bar{\bar{\kappa}}}
 %{% endif %}
-    % cmd.char bbarlambda: $\bbarlambda$
 %{% if cmd_bbarlambda %}
     \newcommand{\bbarlambda}{\bar{\bar{\lambda}}}
 %{% endif %}
-    % cmd.char bbarmu: $\bbarmu$
 %{% if cmd_bbarmu %}
     \newcommand{\bbarmu}{\bar{\bar{\mu}}}
 %{% endif %}
-    % cmd.char bbarnu: $\bbarnu$
 %{% if cmd_bbarnu %}
     \newcommand{\bbarnu}{\bar{\bar{\nu}}}
 %{% endif %}
-    % cmd.char bbarxi: $\bbarxi$
 %{% if cmd_bbarxi %}
     \newcommand{\bbarxi}{\bar{\bar{\xi}}}
 %{% endif %}
-    % cmd.char bbarpi: $\bbarpi$
 %{% if cmd_bbarpi %}
     \newcommand{\bbarpi}{\bar{\bar{\pi}}}
 %{% endif %}
-    % cmd.char bbarvarpi: $\bbarvarpi$
 %{% if cmd_bbarvarpi %}
     \newcommand{\bbarvarpi}{\bar{\bar{\varpi}}}
 %{% endif %}
-    % cmd.char bbarrho: $\bbarrho$
 %{% if cmd_bbarrho %}
     \newcommand{\bbarrho}{\bar{\bar{\rho}}}
 %{% endif %}
-    % cmd.char bbarvarrho: $\bbarvarrho$
 %{% if cmd_bbarvarrho %}
     \newcommand{\bbarvarrho}{\bar{\bar{\varrho}}}
 %{% endif %}
-    % cmd.char bbarsigma: $\bbarsigma$
 %{% if cmd_bbarsigma %}
     \newcommand{\bbarsigma}{\bar{\bar{\sigma}}}
 %{% endif %}
-    % cmd.char bbarvarsigma: $\bbarvarsigma$
 %{% if cmd_bbarvarsigma %}
     \newcommand{\bbarvarsigma}{\bar{\bar{\varsigma}}}
 %{% endif %}
-    % cmd.char bbartau: $\bbartau$
 %{% if cmd_bbartau %}
     \newcommand{\bbartau}{\bar{\bar{\tau}}}
 %{% endif %}
-    % cmd.char bbarupsilon: $\bbarupsilon$
 %{% if cmd_bbarupsilon %}
     \newcommand{\bbarupsilon}{\bar{\bar{\upsilon}}}
 %{% endif %}
-    % cmd.char bbarphi: $\bbarphi$
 %{% if cmd_bbarphi %}
     \newcommand{\bbarphi}{\bar{\bar{\phi}}}
 %{% endif %}
-    % cmd.char bbarvarphi: $\bbarvarphi$
 %{% if cmd_bbarvarphi %}
     \newcommand{\bbarvarphi}{\bar{\bar{\varphi}}}
 %{% endif %}
-    % cmd.char bbarchi: $\bbarchi$
 %{% if cmd_bbarchi %}
     \newcommand{\bbarchi}{\bar{\bar{\chi}}}
 %{% endif %}
-    % cmd.char bbarpsi: $\bbarpsi$
 %{% if cmd_bbarpsi %}
     \newcommand{\bbarpsi}{\bar{\bar{\psi}}}
 %{% endif %}
-    % cmd.char bbaromega: $\bbaromega$
 %{% if cmd_bbaromega %}
     \newcommand{\bbaromega}{\bar{\bar{\omega}}}
 %{% endif %}
-    % cmd.char bbarGamma: $\bbarGamma$
 %{% if cmd_bbarGamma %}
     \newcommand{\bbarGamma}{\bar{\bar{\Gamma}}}
 %{% endif %}
-    % cmd.char bbarDelta: $\bbarDelta$
 %{% if cmd_bbarDelta %}
     \newcommand{\bbarDelta}{\bar{\bar{\Delta}}}
 %{% endif %}
-    % cmd.char bbarTheta: $\bbarTheta$
 %{% if cmd_bbarTheta %}
     \newcommand{\bbarTheta}{\bar{\bar{\Theta}}}
 %{% endif %}
-    % cmd.char bbarLambda: $\bbarLambda$
 %{% if cmd_bbarLambda %}
     \newcommand{\bbarLambda}{\bar{\bar{\Lambda}}}
 %{% endif %}
-    % cmd.char bbarXi: $\bbarXi$
 %{% if cmd_bbarXi %}
     \newcommand{\bbarXi}{\bar{\bar{\Xi}}}
 %{% endif %}
-    % cmd.char bbarPi: $\bbarPi$
 %{% if cmd_bbarPi %}
     \newcommand{\bbarPi}{\bar{\bar{\Pi}}}
 %{% endif %}
-    % cmd.char bbarSigma: $\bbarSigma$
 %{% if cmd_bbarSigma %}
     \newcommand{\bbarSigma}{\bar{\bar{\Sigma}}}
 %{% endif %}
-    % cmd.char bbarUpsilon: $\bbarUpsilon$
 %{% if cmd_bbarUpsilon %}
     \newcommand{\bbarUpsilon}{\bar{\bar{\Upsilon}}}
 %{% endif %}
-    % cmd.char bbarPhi: $\bbarPhi$
 %{% if cmd_bbarPhi %}
     \newcommand{\bbarPhi}{\bar{\bar{\Phi}}}
 %{% endif %}
-    % cmd.char bbarPsi: $\bbarPsi$
 %{% if cmd_bbarPsi %}
     \newcommand{\bbarPsi}{\bar{\bar{\Psi}}}
 %{% endif %}
-    % cmd.char bbarOmega: $\bbarOmega$
 %{% if cmd_bbarOmega %}
     \newcommand{\bbarOmega}{\bar{\bar{\Omega}}}
 %{% endif %}
@@ -6746,163 +5323,123 @@
 %% u
 %% --------------------
 
-    % cmd.char ualpha: $\ualpha$
 %{% if cmd_ualpha %}
     \newcommand{\ualpha}{\underline{\alpha}}
 %{% endif %}
-    % cmd.char ubeta: $\ubeta$
 %{% if cmd_ubeta %}
     \newcommand{\ubeta}{\underline{\beta}}
 %{% endif %}
-    % cmd.char ugamma: $\ugamma$
 %{% if cmd_ugamma %}
     \newcommand{\ugamma}{\underline{\gamma}}
 %{% endif %}
-    % cmd.char udelta: $\udelta$
 %{% if cmd_udelta %}
     \newcommand{\udelta}{\underline{\delta}}
 %{% endif %}
-    % cmd.char uvarepsilon: $\uvarepsilon$
 %{% if cmd_uvarepsilon %}
     \newcommand{\uvarepsilon}{\underline{\varepsilon}}
 %{% endif %}
-    % cmd.char uepsilon: $\uepsilon$
 %{% if cmd_uepsilon %}
     \newcommand{\uepsilon}{\underline{\epsilon}}
 %{% endif %}
-    % cmd.char uzeta: $\uzeta$
 %{% if cmd_uzeta %}
     \newcommand{\uzeta}{\underline{\zeta}}
 %{% endif %}
-    % cmd.char ueta: $\ueta$
 %{% if cmd_ueta %}
     \newcommand{\ueta}{\underline{\eta}}
 %{% endif %}
-    % cmd.char utheta: $\utheta$
 %{% if cmd_utheta %}
     \newcommand{\utheta}{\underline{\theta}}
 %{% endif %}
-    % cmd.char uvartheta: $\uvartheta$
 %{% if cmd_uvartheta %}
     \newcommand{\uvartheta}{\underline{\vartheta}}
 %{% endif %}
-    % cmd.char uiota: $\uiota$
 %{% if cmd_uiota %}
     \newcommand{\uiota}{\underline{\iota}}
 %{% endif %}
-    % cmd.char ukappa: $\ukappa$
 %{% if cmd_ukappa %}
     \newcommand{\ukappa}{\underline{\kappa}}
 %{% endif %}
-    % cmd.char ulambda: $\ulambda$
 %{% if cmd_ulambda %}
     \newcommand{\ulambda}{\underline{\lambda}}
 %{% endif %}
-    % cmd.char umu: $\umu$
 %{% if cmd_umu %}
     \newcommand{\umu}{\underline{\mu}}
 %{% endif %}
-    % cmd.char unu: $\unu$
 %{% if cmd_unu %}
     \newcommand{\unu}{\underline{\nu}}
 %{% endif %}
-    % cmd.char uxi: $\uxi$
 %{% if cmd_uxi %}
     \newcommand{\uxi}{\underline{\xi}}
 %{% endif %}
-    % cmd.char upi: $\upi$
 %{% if cmd_upi %}
     \newcommand{\upi}{\underline{\pi}}
 %{% endif %}
-    % cmd.char uvarpi: $\uvarpi$
 %{% if cmd_uvarpi %}
     \newcommand{\uvarpi}{\underline{\varpi}}
 %{% endif %}
-    % cmd.char urho: $\urho$
 %{% if cmd_urho %}
     \newcommand{\urho}{\underline{\rho}}
 %{% endif %}
-    % cmd.char uvarrho: $\uvarrho$
 %{% if cmd_uvarrho %}
     \newcommand{\uvarrho}{\underline{\varrho}}
 %{% endif %}
-    % cmd.char usigma: $\usigma$
 %{% if cmd_usigma %}
     \newcommand{\usigma}{\underline{\sigma}}
 %{% endif %}
-    % cmd.char uvarsigma: $\uvarsigma$
 %{% if cmd_uvarsigma %}
     \newcommand{\uvarsigma}{\underline{\varsigma}}
 %{% endif %}
-    % cmd.char utau: $\utau$
 %{% if cmd_utau %}
     \newcommand{\utau}{\underline{\tau}}
 %{% endif %}
-    % cmd.char uupsilon: $\uupsilon$
 %{% if cmd_uupsilon %}
     \newcommand{\uupsilon}{\underline{\upsilon}}
 %{% endif %}
-    % cmd.char uphi: $\uphi$
 %{% if cmd_uphi %}
     \newcommand{\uphi}{\underline{\phi}}
 %{% endif %}
-    % cmd.char uvarphi: $\uvarphi$
 %{% if cmd_uvarphi %}
     \newcommand{\uvarphi}{\underline{\varphi}}
 %{% endif %}
-    % cmd.char uchi: $\uchi$
 %{% if cmd_uchi %}
     \newcommand{\uchi}{\underline{\chi}}
 %{% endif %}
-    % cmd.char upsi: $\upsi$
 %{% if cmd_upsi %}
     \newcommand{\upsi}{\underline{\psi}}
 %{% endif %}
-    % cmd.char uomega: $\uomega$
 %{% if cmd_uomega %}
     \newcommand{\uomega}{\underline{\omega}}
 %{% endif %}
-    % cmd.char uGamma: $\uGamma$
 %{% if cmd_uGamma %}
     \newcommand{\uGamma}{\underline{\Gamma}}
 %{% endif %}
-    % cmd.char uDelta: $\uDelta$
 %{% if cmd_uDelta %}
     \newcommand{\uDelta}{\underline{\Delta}}
 %{% endif %}
-    % cmd.char uTheta: $\uTheta$
 %{% if cmd_uTheta %}
     \newcommand{\uTheta}{\underline{\Theta}}
 %{% endif %}
-    % cmd.char uLambda: $\uLambda$
 %{% if cmd_uLambda %}
     \newcommand{\uLambda}{\underline{\Lambda}}
 %{% endif %}
-    % cmd.char uXi: $\uXi$
 %{% if cmd_uXi %}
     \newcommand{\uXi}{\underline{\Xi}}
 %{% endif %}
-    % cmd.char uPi: $\uPi$
 %{% if cmd_uPi %}
     \newcommand{\uPi}{\underline{\Pi}}
 %{% endif %}
-    % cmd.char uSigma: $\uSigma$
 %{% if cmd_uSigma %}
     \newcommand{\uSigma}{\underline{\Sigma}}
 %{% endif %}
-    % cmd.char uUpsilon: $\uUpsilon$
 %{% if cmd_uUpsilon %}
     \newcommand{\uUpsilon}{\underline{\Upsilon}}
 %{% endif %}
-    % cmd.char uPhi: $\uPhi$
 %{% if cmd_uPhi %}
     \newcommand{\uPhi}{\underline{\Phi}}
 %{% endif %}
-    % cmd.char uPsi: $\uPsi$
 %{% if cmd_uPsi %}
     \newcommand{\uPsi}{\underline{\Psi}}
 %{% endif %}
-    % cmd.char uOmega: $\uOmega$
 %{% if cmd_uOmega %}
     \newcommand{\uOmega}{\underline{\Omega}}
 %{% endif %}
@@ -6911,163 +5448,123 @@
 %% uu
 %% --------------------
 
-    % cmd.char uualpha: $\uualpha$
 %{% if cmd_uualpha %}
     \newcommand{\uualpha}{\underline{\underline{\alpha}}}
 %{% endif %}
-    % cmd.char uubeta: $\uubeta$
 %{% if cmd_uubeta %}
     \newcommand{\uubeta}{\underline{\underline{\beta}}}
 %{% endif %}
-    % cmd.char uugamma: $\uugamma$
 %{% if cmd_uugamma %}
     \newcommand{\uugamma}{\underline{\underline{\gamma}}}
 %{% endif %}
-    % cmd.char uudelta: $\uudelta$
 %{% if cmd_uudelta %}
     \newcommand{\uudelta}{\underline{\underline{\delta}}}
 %{% endif %}
-    % cmd.char uuvarepsilon: $\uuvarepsilon$
 %{% if cmd_uuvarepsilon %}
     \newcommand{\uuvarepsilon}{\underline{\underline{\varepsilon}}}
 %{% endif %}
-    % cmd.char uuepsilon: $\uuepsilon$
 %{% if cmd_uuepsilon %}
     \newcommand{\uuepsilon}{\underline{\underline{\epsilon}}}
 %{% endif %}
-    % cmd.char uuzeta: $\uuzeta$
 %{% if cmd_uuzeta %}
     \newcommand{\uuzeta}{\underline{\underline{\zeta}}}
 %{% endif %}
-    % cmd.char uueta: $\uueta$
 %{% if cmd_uueta %}
     \newcommand{\uueta}{\underline{\underline{\eta}}}
 %{% endif %}
-    % cmd.char uutheta: $\uutheta$
 %{% if cmd_uutheta %}
     \newcommand{\uutheta}{\underline{\underline{\theta}}}
 %{% endif %}
-    % cmd.char uuvartheta: $\uuvartheta$
 %{% if cmd_uuvartheta %}
     \newcommand{\uuvartheta}{\underline{\underline{\vartheta}}}
 %{% endif %}
-    % cmd.char uuiota: $\uuiota$
 %{% if cmd_uuiota %}
     \newcommand{\uuiota}{\underline{\underline{\iota}}}
 %{% endif %}
-    % cmd.char uukappa: $\uukappa$
 %{% if cmd_uukappa %}
     \newcommand{\uukappa}{\underline{\underline{\kappa}}}
 %{% endif %}
-    % cmd.char uulambda: $\uulambda$
 %{% if cmd_uulambda %}
     \newcommand{\uulambda}{\underline{\underline{\lambda}}}
 %{% endif %}
-    % cmd.char uumu: $\uumu$
 %{% if cmd_uumu %}
     \newcommand{\uumu}{\underline{\underline{\mu}}}
 %{% endif %}
-    % cmd.char uunu: $\uunu$
 %{% if cmd_uunu %}
     \newcommand{\uunu}{\underline{\underline{\nu}}}
 %{% endif %}
-    % cmd.char uuxi: $\uuxi$
 %{% if cmd_uuxi %}
     \newcommand{\uuxi}{\underline{\underline{\xi}}}
 %{% endif %}
-    % cmd.char uupi: $\uupi$
 %{% if cmd_uupi %}
     \newcommand{\uupi}{\underline{\underline{\pi}}}
 %{% endif %}
-    % cmd.char uuvarpi: $\uuvarpi$
 %{% if cmd_uuvarpi %}
     \newcommand{\uuvarpi}{\underline{\underline{\varpi}}}
 %{% endif %}
-    % cmd.char uurho: $\uurho$
 %{% if cmd_uurho %}
     \newcommand{\uurho}{\underline{\underline{\rho}}}
 %{% endif %}
-    % cmd.char uuvarrho: $\uuvarrho$
 %{% if cmd_uuvarrho %}
     \newcommand{\uuvarrho}{\underline{\underline{\varrho}}}
 %{% endif %}
-    % cmd.char uusigma: $\uusigma$
 %{% if cmd_uusigma %}
     \newcommand{\uusigma}{\underline{\underline{\sigma}}}
 %{% endif %}
-    % cmd.char uuvarsigma: $\uuvarsigma$
 %{% if cmd_uuvarsigma %}
     \newcommand{\uuvarsigma}{\underline{\underline{\varsigma}}}
 %{% endif %}
-    % cmd.char uutau: $\uutau$
 %{% if cmd_uutau %}
     \newcommand{\uutau}{\underline{\underline{\tau}}}
 %{% endif %}
-    % cmd.char uuupsilon: $\uuupsilon$
 %{% if cmd_uuupsilon %}
     \newcommand{\uuupsilon}{\underline{\underline{\upsilon}}}
 %{% endif %}
-    % cmd.char uuphi: $\uuphi$
 %{% if cmd_uuphi %}
     \newcommand{\uuphi}{\underline{\underline{\phi}}}
 %{% endif %}
-    % cmd.char uuvarphi: $\uuvarphi$
 %{% if cmd_uuvarphi %}
     \newcommand{\uuvarphi}{\underline{\underline{\varphi}}}
 %{% endif %}
-    % cmd.char uuchi: $\uuchi$
 %{% if cmd_uuchi %}
     \newcommand{\uuchi}{\underline{\underline{\chi}}}
 %{% endif %}
-    % cmd.char uupsi: $\uupsi$
 %{% if cmd_uupsi %}
     \newcommand{\uupsi}{\underline{\underline{\psi}}}
 %{% endif %}
-    % cmd.char uuomega: $\uuomega$
 %{% if cmd_uuomega %}
     \newcommand{\uuomega}{\underline{\underline{\omega}}}
 %{% endif %}
-    % cmd.char uuGamma: $\uuGamma$
 %{% if cmd_uuGamma %}
     \newcommand{\uuGamma}{\underline{\underline{\Gamma}}}
 %{% endif %}
-    % cmd.char uuDelta: $\uuDelta$
 %{% if cmd_uuDelta %}
     \newcommand{\uuDelta}{\underline{\underline{\Delta}}}
 %{% endif %}
-    % cmd.char uuTheta: $\uuTheta$
 %{% if cmd_uuTheta %}
     \newcommand{\uuTheta}{\underline{\underline{\Theta}}}
 %{% endif %}
-    % cmd.char uuLambda: $\uuLambda$
 %{% if cmd_uuLambda %}
     \newcommand{\uuLambda}{\underline{\underline{\Lambda}}}
 %{% endif %}
-    % cmd.char uuXi: $\uuXi$
 %{% if cmd_uuXi %}
     \newcommand{\uuXi}{\underline{\underline{\Xi}}}
 %{% endif %}
-    % cmd.char uuPi: $\uuPi$
 %{% if cmd_uuPi %}
     \newcommand{\uuPi}{\underline{\underline{\Pi}}}
 %{% endif %}
-    % cmd.char uuSigma: $\uuSigma$
 %{% if cmd_uuSigma %}
     \newcommand{\uuSigma}{\underline{\underline{\Sigma}}}
 %{% endif %}
-    % cmd.char uuUpsilon: $\uuUpsilon$
 %{% if cmd_uuUpsilon %}
     \newcommand{\uuUpsilon}{\underline{\underline{\Upsilon}}}
 %{% endif %}
-    % cmd.char uuPhi: $\uuPhi$
 %{% if cmd_uuPhi %}
     \newcommand{\uuPhi}{\underline{\underline{\Phi}}}
 %{% endif %}
-    % cmd.char uuPsi: $\uuPsi$
 %{% if cmd_uuPsi %}
     \newcommand{\uuPsi}{\underline{\underline{\Psi}}}
 %{% endif %}
-    % cmd.char uuOmega: $\uuOmega$
 %{% if cmd_uuOmega %}
     \newcommand{\uuOmega}{\underline{\underline{\Omega}}}
 %{% endif %}
@@ -7076,163 +5573,123 @@
 %% o
 %% --------------------
 
-    % cmd.char oalpha: $\oalpha$
 %{% if cmd_oalpha %}
     \newcommand{\oalpha}{\mathring{\alpha}}
 %{% endif %}
-    % cmd.char obeta: $\obeta$
 %{% if cmd_obeta %}
     \newcommand{\obeta}{\mathring{\beta}}
 %{% endif %}
-    % cmd.char ogamma: $\ogamma$
 %{% if cmd_ogamma %}
     \newcommand{\ogamma}{\mathring{\gamma}}
 %{% endif %}
-    % cmd.char odelta: $\odelta$
 %{% if cmd_odelta %}
     \newcommand{\odelta}{\mathring{\delta}}
 %{% endif %}
-    % cmd.char ovarepsilon: $\ovarepsilon$
 %{% if cmd_ovarepsilon %}
     \newcommand{\ovarepsilon}{\mathring{\varepsilon}}
 %{% endif %}
-    % cmd.char oepsilon: $\oepsilon$
 %{% if cmd_oepsilon %}
     \newcommand{\oepsilon}{\mathring{\epsilon}}
 %{% endif %}
-    % cmd.char ozeta: $\ozeta$
 %{% if cmd_ozeta %}
     \newcommand{\ozeta}{\mathring{\zeta}}
 %{% endif %}
-    % cmd.char oeta: $\oeta$
 %{% if cmd_oeta %}
     \newcommand{\oeta}{\mathring{\eta}}
 %{% endif %}
-    % cmd.char otheta: $\otheta$
 %{% if cmd_otheta %}
     \newcommand{\otheta}{\mathring{\theta}}
 %{% endif %}
-    % cmd.char ovartheta: $\ovartheta$
 %{% if cmd_ovartheta %}
     \newcommand{\ovartheta}{\mathring{\vartheta}}
 %{% endif %}
-    % cmd.char oiota: $\oiota$
 %{% if cmd_oiota %}
     \newcommand{\oiota}{\mathring{\iota}}
 %{% endif %}
-    % cmd.char okappa: $\okappa$
 %{% if cmd_okappa %}
     \newcommand{\okappa}{\mathring{\kappa}}
 %{% endif %}
-    % cmd.char olambda: $\olambda$
 %{% if cmd_olambda %}
     \newcommand{\olambda}{\mathring{\lambda}}
 %{% endif %}
-    % cmd.char omu: $\omu$
 %{% if cmd_omu %}
     \newcommand{\omu}{\mathring{\mu}}
 %{% endif %}
-    % cmd.char onu: $\onu$
 %{% if cmd_onu %}
     \newcommand{\onu}{\mathring{\nu}}
 %{% endif %}
-    % cmd.char oxi: $\oxi$
 %{% if cmd_oxi %}
     \newcommand{\oxi}{\mathring{\xi}}
 %{% endif %}
-    % cmd.char opi: $\opi$
 %{% if cmd_opi %}
     \newcommand{\opi}{\mathring{\pi}}
 %{% endif %}
-    % cmd.char ovarpi: $\ovarpi$
 %{% if cmd_ovarpi %}
     \newcommand{\ovarpi}{\mathring{\varpi}}
 %{% endif %}
-    % cmd.char orho: $\orho$
 %{% if cmd_orho %}
     \newcommand{\orho}{\mathring{\rho}}
 %{% endif %}
-    % cmd.char ovarrho: $\ovarrho$
 %{% if cmd_ovarrho %}
     \newcommand{\ovarrho}{\mathring{\varrho}}
 %{% endif %}
-    % cmd.char osigma: $\osigma$
 %{% if cmd_osigma %}
     \newcommand{\osigma}{\mathring{\sigma}}
 %{% endif %}
-    % cmd.char ovarsigma: $\ovarsigma$
 %{% if cmd_ovarsigma %}
     \newcommand{\ovarsigma}{\mathring{\varsigma}}
 %{% endif %}
-    % cmd.char otau: $\otau$
 %{% if cmd_otau %}
     \newcommand{\otau}{\mathring{\tau}}
 %{% endif %}
-    % cmd.char oupsilon: $\oupsilon$
 %{% if cmd_oupsilon %}
     \newcommand{\oupsilon}{\mathring{\upsilon}}
 %{% endif %}
-    % cmd.char ophi: $\ophi$
 %{% if cmd_ophi %}
     \newcommand{\ophi}{\mathring{\phi}}
 %{% endif %}
-    % cmd.char ovarphi: $\ovarphi$
 %{% if cmd_ovarphi %}
     \newcommand{\ovarphi}{\mathring{\varphi}}
 %{% endif %}
-    % cmd.char ochi: $\ochi$
 %{% if cmd_ochi %}
     \newcommand{\ochi}{\mathring{\chi}}
 %{% endif %}
-    % cmd.char opsi: $\opsi$
 %{% if cmd_opsi %}
     \newcommand{\opsi}{\mathring{\psi}}
 %{% endif %}
-    % cmd.char oomega: $\oomega$
 %{% if cmd_oomega %}
     \newcommand{\oomega}{\mathring{\omega}}
 %{% endif %}
-    % cmd.char oGamma: $\oGamma$
 %{% if cmd_oGamma %}
     \newcommand{\oGamma}{\mathring{\Gamma}}
 %{% endif %}
-    % cmd.char oDelta: $\oDelta$
 %{% if cmd_oDelta %}
     \newcommand{\oDelta}{\mathring{\Delta}}
 %{% endif %}
-    % cmd.char oTheta: $\oTheta$
 %{% if cmd_oTheta %}
     \newcommand{\oTheta}{\mathring{\Theta}}
 %{% endif %}
-    % cmd.char oLambda: $\oLambda$
 %{% if cmd_oLambda %}
     \newcommand{\oLambda}{\mathring{\Lambda}}
 %{% endif %}
-    % cmd.char oXi: $\oXi$
 %{% if cmd_oXi %}
     \newcommand{\oXi}{\mathring{\Xi}}
 %{% endif %}
-    % cmd.char oPi: $\oPi$
 %{% if cmd_oPi %}
     \newcommand{\oPi}{\mathring{\Pi}}
 %{% endif %}
-    % cmd.char oSigma: $\oSigma$
 %{% if cmd_oSigma %}
     \newcommand{\oSigma}{\mathring{\Sigma}}
 %{% endif %}
-    % cmd.char oUpsilon: $\oUpsilon$
 %{% if cmd_oUpsilon %}
     \newcommand{\oUpsilon}{\mathring{\Upsilon}}
 %{% endif %}
-    % cmd.char oPhi: $\oPhi$
 %{% if cmd_oPhi %}
     \newcommand{\oPhi}{\mathring{\Phi}}
 %{% endif %}
-    % cmd.char oPsi: $\oPsi$
 %{% if cmd_oPsi %}
     \newcommand{\oPsi}{\mathring{\Psi}}
 %{% endif %}
-    % cmd.char oOmega: $\oOmega$
 %{% if cmd_oOmega %}
     \newcommand{\oOmega}{\mathring{\Omega}}
 %{% endif %}
@@ -7257,7 +5714,6 @@
 %% Size
 %% --------------------
 
-    % cmd diagramsize:
 %{% if cmd_diagramsize %}
     \newcommand{\diagramsize}[2]{
         \ifthenelse{\equal{#1}{}}{\def\@tRowsep{2}}{\def\@tRowsep{#1}}
@@ -7270,7 +5726,6 @@
 %% Styles
 %% --------------------
 
-    % cmd diagramarrows: Sets the arrow type for commutative diagrams. Takes 4 arguments among \texttt{->} (default), \texttt{-}, \texttt{<-}, \texttt{<->}, \texttt{->>}, \texttt{<<-}, \texttt{>->}, \texttt{<-<}, \texttt{right hook->}, \texttt{<-left hook}, \texttt{|->}, \texttt{<-|}.
 %{% if cmd_diagramarrows %}
     \newcommand{\diagramarrows}[4]{
         \ifthenelse{\equal{#1}{}}{\def\@diagAA{->}}{}
@@ -7328,7 +5783,6 @@
     } % \newcommand{\diagramarrows}[4]{
 %{% endif %}
 
-    % cmd diagramlines: Sets the arrow line styles for commutative diagrams. Takes 4 arguments, among \texttt{-} (default), \texttt{=}, \texttt{..}, \texttt{--}.
 %{% if cmd_diagramlines %}
     \newcommand{\diagramlines}[4]{
         \ifthenelse{\equal{#1}{}}{\def\@diagLA{solid}}{}
@@ -7358,7 +5812,6 @@
 %% Reset styles
 %% --------------------
 
-    % cmd rds: Resets diagram styles.
 %{% if cmd_rds %}
     \newcommand{\rds}{
         \diagramarrows{}{}{}{}
@@ -7371,7 +5824,6 @@
 %% Simple square
 %% --------------------
 
-    % cmd squarediagram: Square diagram.
 %{% if cmd_squarediagram %}
     \newcommand{\squarediagram}[8]{
         \begin{tikzpicture}
@@ -7396,7 +5848,6 @@
 %% Pushout
 %% --------------------
 
-    % cmd pushoutdiagram: Pushout diagram.
 %{% if cmd_pushoutdiagram %}
     \newcommand{\pushoutdiagram}[8]{
         \begin{tikzpicture}
@@ -7422,7 +5873,6 @@
 %% Pullback
 %% --------------------
 
-    % cmd pullbackdiagram: Pullback diagram.
 %{% if cmd_pullbackdiagram %}
     \newcommand{\pullbackdiagram}[8]{
         \begin{tikzpicture}
@@ -7448,7 +5898,6 @@
 %% Triangular UL : Up left
 %% --------------------
 
-    % cmd triangleULdiagram:
 %{% if cmd_triangleULdiagram %}
     \newcommand{\triangleULdiagram}[6]{
         \begin{tikzpicture}
@@ -7472,7 +5921,6 @@
 %% Triangular UR : Up right
 %% --------------------
 
-    % cmd triangleURdiagram:
 %{% if cmd_triangleURdiagram %}
     \newcommand{\triangleURdiagram}[6]{
         \begin{tikzpicture}
@@ -7496,7 +5944,6 @@
 %% Triangular DL : Down left
 %% --------------------
 
-    % cmd triangleDLdiagram:
 %{% if cmd_triangleDLdiagram %}
     \newcommand{\triangleDLdiagram}[6]{
         \begin{tikzpicture}
@@ -7520,7 +5967,6 @@
 %% Triangular DR : Down right
 %% --------------------
 
-    % cmd triangleDRdiagram:
 %{% if cmd_triangleDRdiagram %}
     \newcommand{\triangleDRdiagram}[6]{
         \begin{tikzpicture}
@@ -7544,7 +5990,6 @@
 %% Triangular U : Up
 %% --------------------
 
-    % cmd triangleUdiagram:
 %{% if cmd_triangleUdiagram %}
     \newcommand{\triangleUdiagram}[6]{
         \begin{tikzpicture}
@@ -7567,7 +6012,6 @@
 %% --------------------
 %% Triangular L : Left
 %% --------------------
-    % cmd triangleLdiagram:
 %{% if cmd_triangleLdiagram %}
     \newcommand{\triangleLdiagram}[6]{
         \begin{tikzpicture}
@@ -7592,7 +6036,6 @@
 %% Triangular R : Right
 %% --------------------
 
-    % cmd triangleRdiagram:
 %{% if cmd_triangleRdiagram %}
     \newcommand{\triangleRdiagram}[6]{
         \begin{tikzpicture}
@@ -7617,7 +6060,6 @@
 %% Triangular D : Down
 %% --------------------
 
-    % cmd triangleDdiagram:
 %{% if cmd_triangleDdiagram %}
     \newcommand{\triangleDdiagram}[6]{
         \begin{tikzpicture}
@@ -7641,7 +6083,6 @@
 %% Equalizer
 %% --------------------
 
-    % cmd eqdiagram:
 %{% if cmd_eqdiagram %}
     \newcommand{\eqdiagram}[6]{
         \begin{tikzpicture}
@@ -7664,7 +6105,6 @@
 %% Coequalizer
 %% --------------------
 
-    % cmd coeqdiagram:
 %{% if cmd_coeqdiagram %}
     \newcommand{\coeqdiagram}[6]{
         \begin{tikzpicture}
@@ -7697,31 +6137,24 @@
 %% Metadatas
 %% --------------------
 
-    % cmd editor: For custome title pages.
 %{% if cmd_editor %}
     \newcommand{\editor}    [1]{\def\@editor{#1}}       \editor{}
 %{% endif %}
-    % cmd email: For custome title pages.
 %{% if cmd_email %}
     \newcommand{\email}     [1]{\def\@email{#1}}        \email{}
 %{% endif %}
-    % cmd image: For custome title pages.
 %{% if cmd_image %}
     \newcommand{\image}     [2]{\def\@image{#1}         \def\@imagescale{#2}}   \image{}{}
 %{% endif %}
-    % cmd logo: For custome title pages.
 %{% if cmd_logo %}
     \newcommand{\logo}      [2]{\def\@logo{#1}          \def\@logoscale{#2}}    \logo{}{}
 %{% endif %}
-    % cmd publisher: For custome title pages.
 %{% if cmd_publisher %}
     \newcommand{\publisher} [1]{\def\@publisher{#1}}    \publisher{}
 %{% endif %}
-    % cmd subauthor: For custome title pages.
 %{% if cmd_subauthor %}
     \newcommand{\subauthor} [1]{\def\@subauthor{#1}}    \subauthor{}
 %{% endif %}
-    % cmd subtitle: For custome title pages.
 %{% if cmd_subtitle %}
     \newcommand{\subtitle}  [1]{\def\@subtitle{#1}}     \subtitle{}
 %{% endif %}
@@ -7730,7 +6163,6 @@
 %% Insertions
 %% --------------------
 
-    % cmd authorshere: Inserts the author and the subauthor if it is set. See the \texttt{\\author} and \texttt{\\subauthor} commands.
 %{% if cmd_authorshere %}
     \newcommand{\authorshere}{
         \ifthenelse{\equal{\@subauthor}{}}{
@@ -7741,7 +6173,6 @@
     }
 %{% endif %}
 
-    % cmd imagehere: Inserts the image. See the \texttt{\\image} command.
 %{% if cmd_imagehere %}
     \newcommand{\imagehere}[1]{
         \ifthenelse{\equal{\@image}{}}{}{
@@ -7757,7 +6188,6 @@
     }
 %{% endif %}
 
-    % cmd logohere: Inserts the logo. See the \texttt{\\logo} command.
 %{% if cmd_logohere %}
     \newcommand{\logohere}[1]{
         \ifthenelse{\equal{\@logo}{}}{}{
@@ -8329,83 +6759,63 @@
 
     \theoremstyle{definition}
 
-    % env.th axiom: The \texttt{axiom} theorem environment.
 %{% if env_axiom %}
     \newtheorem{axiom}          [axiom]         {\@upcase \@axiomName}
 %{% endif %}
-    % env.th axioms: The \texttt{axioms} theorem environment.
 %{% if env_axioms %}
     \newtheorem{axioms}         [axiom]         {\@upcase \@axiomsName}
 %{% endif %}
-    % env.th axiom*: The \texttt{axiom*} theorem environment.
 %{% if env_axiom %}
     \newtheorem*{axiom*}                        {\@upcase \@axiomName}
 %{% endif %}
-    % env.th axioms*: The \texttt{axioms*} theorem environment.
 %{% if env_axioms %}
     \newtheorem*{axioms*}                       {\@upcase \@axiomsName}
 %{% endif %}
-    % env.th definition: The \texttt{definition} theorem environment.
 %{% if env_definition %}
     \newtheorem{definition}     [definition]    {\@upcase \@definitionName}
 %{% endif %}
-    % env.th definitions: The \texttt{definitions} theorem environment.
 %{% if env_definitions %}
     \newtheorem{definitions}    [definition]    {\@upcase \@definitionsName}
 %{% endif %}
-    % env.th definition*: The \texttt{definition*} theorem environment.
 %{% if env_definition %}
     \newtheorem*{definition*}                   {\@upcase \@definitionName}
 %{% endif %}
-    % env.th definitions*: The \texttt{definitions*} theorem environment.
 %{% if env_definitions %}
     \newtheorem*{definitions*}                  {\@upcase \@definitionsName}
 %{% endif %}
-    % env.th example: The \texttt{example} theorem environment.
 %{% if env_example %}
     \newtheorem{example}        [example]       {\@upcase \@exampleName}
 %{% endif %}
-    % env.th examples: The \texttt{examples} theorem environment.
 %{% if env_examples %}
     \newtheorem{examples}       [example]       {\@upcase \@examplesName}
 %{% endif %}
-    % env.th example*: The \texttt{example*} theorem environment.
 %{% if env_example %}
     \newtheorem*{example*}                      {\@upcase \@exampleName}
 %{% endif %}
-    % env.th examples*: The \texttt{examples*} theorem environment.
 %{% if env_examples %}
     \newtheorem*{examples*}                     {\@upcase \@examplesName}
 %{% endif %}
-    % env.th exercise: The \texttt{exercise} theorem environment.
 %{% if env_exercise %}
     \newtheorem{exercise}       [exercise]      {\@upcase \@exerciseName}
 %{% endif %}
-    % env.th exercises: The \texttt{exercises} theorem environment.
 %{% if env_exercises %}
     \newtheorem{exercises}      [exercise]      {\@upcase \@exercisesName}
 %{% endif %}
-    % env.th exercise*: The \texttt{exercise*} theorem environment.
 %{% if env_exercise %}
     \newtheorem*{exercise*}                     {\@upcase \@exerciseName}
 %{% endif %}
-    % env.th exercises*: The \texttt{exercises*} theorem environment.
 %{% if env_exercises %}
     \newtheorem*{exercises*}                    {\@upcase \@exercisesName}
 %{% endif %}
-    % env.th question: The \texttt{question} theorem environment.
 %{% if env_question %}
     \newtheorem{question}       [question]      {\@upcase \@questionName}
 %{% endif %}
-    % env.th questions: The \texttt{questions} theorem environment.
 %{% if env_questions %}
     \newtheorem{questions}      [question]      {\@upcase \@questionsName}
 %{% endif %}
-    % env.th question*: The \texttt{question*} theorem environment.
 %{% if env_question %}
     \newtheorem*{question*}                     {\@upcase \@questionName}
 %{% endif %}
-    % env.th questions*: The \texttt{questions*} theorem environment.
 %{% if env_questions %}
     \newtheorem*{questions*}                    {\@upcase \@questionsName}
 %{% endif %}
@@ -8414,131 +6824,99 @@
          \theoremstyle{plain}
     }{}
 
-    % env.th assertion: The \texttt{assertion} theorem environment.
 %{% if env_assertion %}
     \newtheorem{assertion}      [assertion]     {\@upcase \@assertionName}
 %{% endif %}
-    % env.th assertions: The \texttt{assertions} theorem environment.
 %{% if env_assertions %}
     \newtheorem{assertions}     [assertion]     {\@upcase \@assertionsName}
 %{% endif %}
-    % env.th assertion*: The \texttt{assertion*} theorem environment.
 %{% if env_assertion %}
     \newtheorem*{assertion*}                    {\@upcase \@assertionName}
 %{% endif %}
-    % env.th assertions*: The \texttt{assertions*} theorem environment.
 %{% if env_assertions %}
     \newtheorem*{assertions*}                   {\@upcase \@assertionsName}
 %{% endif %}
-    % env.th conjecture: The \texttt{conjecture} theorem environment.
 %{% if env_conjecture %}
     \newtheorem{conjecture}     [conjecture]    {\@upcase \@conjectureName}
 %{% endif %}
-    % env.th conjectures: The \texttt{conjectures} theorem environment.
 %{% if env_conjectures %}
     \newtheorem{conjectures}    [conjecture]    {\@upcase \@conjecturesName}
 %{% endif %}
-    % env.th conjecture*: The \texttt{conjecture*} theorem environment.
 %{% if env_conjecture %}
     \newtheorem*{conjecture*}                   {\@upcase \@conjectureName}
 %{% endif %}
-    % env.th conjectures*: The \texttt{conjectures*} theorem environment.
 %{% if env_conjectures %}
     \newtheorem*{conjectures*}                  {\@upcase \@conjecturesName}
 %{% endif %}
-    % env.th corollary: The \texttt{corollary} theorem environment.
 %{% if env_corollary %}
     \newtheorem{corollary}      [corollary]     {\@upcase \@corollaryName}
 %{% endif %}
-    % env.th corollaries: The \texttt{corollaries} theorem environment.
 %{% if env_corollaries %}
     \newtheorem{corollaries}    [corollary]     {\@upcase \@corollariesName}
 %{% endif %}
-    % env.th corollary*: The \texttt{corollary*} theorem environment.
 %{% if env_corollary %}
     \newtheorem*{corollary*}                    {\@upcase \@corollaryName}
 %{% endif %}
-    % env.th corollaries*: The \texttt{corollaries*} theorem environment.
 %{% if env_corollaries %}
     \newtheorem*{corollaries*}                  {\@upcase \@corollariesName}
 %{% endif %}
-    % env.th lemma: The \texttt{lemma} theorem environment.
 %{% if env_lemma %}
     \newtheorem{lemma}          [lemma]         {\@upcase \@lemmaName}
 %{% endif %}
-    % env.th lemmas: The \texttt{lemmas} theorem environment.
 %{% if env_lemmas %}
     \newtheorem{lemmas}         [lemma]         {\@upcase \@lemmasName}
 %{% endif %}
-    % env.th lemma*: The \texttt{lemma*} theorem environment.
 %{% if env_lemma %}
     \newtheorem*{lemma*}                        {\@upcase \@lemmaName}
 %{% endif %}
-    % env.th lemmas*: The \texttt{lemmas*} theorem environment.
 %{% if env_lemmas %}
     \newtheorem*{lemmas*}                       {\@upcase \@lemmasName}
 %{% endif %}
-    % env.th property: The \texttt{property} theorem environment.
 %{% if env_property %}
     \newtheorem{property}       [property]      {\@upcase \@propertyName}
 %{% endif %}
-    % env.th properties: The \texttt{properties} theorem environment.
 %{% if env_properties %}
     \newtheorem{properties}     [property]      {\@upcase \@propertiesName}
 %{% endif %}
-    % env.th property*: The \texttt{property*} theorem environment.
 %{% if env_property %}
     \newtheorem*{property*}                     {\@upcase \@propertyName}
 %{% endif %}
-    % env.th properties*: The \texttt{properties*} theorem environment.
 %{% if env_properties %}
     \newtheorem*{properties*}                   {\@upcase \@propertiesName}
 %{% endif %}
-    % env.th proposition: The \texttt{proposition} theorem environment.
 %{% if env_proposition %}
     \newtheorem{proposition}    [proposition]   {\@upcase \@propositionName}
 %{% endif %}
-    % env.th propositions: The \texttt{propositions} theorem environment.
 %{% if env_propositions %}
     \newtheorem{propositions}   [proposition]   {\@upcase \@propositionsName}
 %{% endif %}
-    % env.th proposition*: The \texttt{proposition*} theorem environment.
 %{% if env_proposition %}
     \newtheorem*{proposition*}                  {\@upcase \@propositionName}
 %{% endif %}
-    % env.th propositions*: The \texttt{propositions*} theorem environment.
 %{% if env_propositions %}
     \newtheorem*{propositions*}                 {\@upcase \@propositionsName}
 %{% endif %}
-    % env.th scholia: The \texttt{scholia} theorem environment.
 %{% if env_scholia %}
     \newtheorem{scholia}        [scholia]       {\@upcase \@scholiaName}
 %{% endif %}
-    % env.th scholias: The \texttt{scholias} theorem environment.
 %{% if env_scholias %}
     \newtheorem{scholias}       [scholia]       {\@upcase \@scholiasName}
 %{% endif %}
-    % env.th scholia*: The \texttt{scholia*} theorem environment.
 %{% if env_scholia %}
     \newtheorem{scholia*}                       {\@upcase \@scholiaName}
 %{% endif %}
-    % env.th scholias*: The \texttt{scholias*} theorem environment.
 %{% if env_scholias %}
     \newtheorem{scholias*}                      {\@upcase \@scholiasName}
 %{% endif %}
-    % env.th theorem: The \texttt{theorem} theorem environment.
 %{% if env_theorem %}
     \newtheorem{theorem}        [theorem]       {\@upcase \@theoremName}
 %{% endif %}
-    % env.th theorems: The \texttt{theorems} theorem environment.
 %{% if env_theorems %}
     \newtheorem{theorems}       [theorem]       {\@upcase \@theoremsName}
 %{% endif %}
-    % env.th theorem*: The \texttt{theorem*} theorem environment.
 %{% if env_theorem %}
     \newtheorem*{theorem*}                      {\@upcase \@theoremName}
 %{% endif %}
-    % env.th theorems*: The \texttt{theorems*} theorem environment.
 %{% if env_theorems %}
     \newtheorem*{theorems*}                     {\@upcase \@theoremsName}
 %{% endif %}
@@ -8547,89 +6925,68 @@
         \theoremstyle{remark}
     }{}
 
-    % env.th convention: The \texttt{convention} theorem environment.
 %{% if env_convention %}
     \newtheorem{convention}     [convention]    {\@upcase \@conventionName}
 %{% endif %}
-    % env.th conventions: The \texttt{conventions} theorem environment.
 %{% if env_conventions %}
     \newtheorem{conventions}    [convention]    {\@upcase \@conventionsName}
 %{% endif %}
-    % env.th convention*: The \texttt{convention*} theorem environment.
 %{% if env_convention %}
     \newtheorem*{convention*}                   {\@upcase \@conventionName}
 %{% endif %}
-    % env.th conventions*: The \texttt{conventions*} theorem environment.
 %{% if env_conventions %}
     \newtheorem*{conventions*}                  {\@upcase \@conventionsName}
 %{% endif %}
-    % env.th notation: The \texttt{notation} theorem environment.
 %{% if env_notation %}
     \newtheorem{notation}       [notation]      {\@upcase \@notationName}
 %{% endif %}
-    % env.th notations: The \texttt{notations} theorem environment.
 %{% if env_notations %}
     \newtheorem{notations}      [notation]      {\@upcase \@notationsName}
 %{% endif %}
-    % env.th notation*: The \texttt{notation*} theorem environment.
 %{% if env_notation %}
     \newtheorem*{notation*}                     {\@upcase \@notationName}
 %{% endif %}
-    % env.th notations*: The \texttt{notations*} theorem environment.
 %{% if env_notations %}
     \newtheorem*{notations*}                    {\@upcase \@notationsName}
 %{% endif %}
-    % env.th remark: The \texttt{remark} theorem environment.
 %{% if env_remark %}
     \newtheorem{remark}         [remark]        {\@upcase \@remarkName}
 %{% endif %}
-    % env.th remarks: The \texttt{remarks} theorem environment.
 %{% if env_remarks %}
     \newtheorem{remarks}        [remark]        {\@upcase \@remarksName}
 %{% endif %}
-    % env.th remark*: The \texttt{remark*} theorem environment.
 %{% if env_remark %}
     \newtheorem*{remark*}                       {\@upcase \@remarkName}
 %{% endif %}
-    % env.th remarks*: The \texttt{remarks*} theorem environment.
 %{% if env_remarks %}
     \newtheorem*{remarks*}                      {\@upcase \@remarksName}
 %{% endif %}
-    % env.th reminder: The \texttt{reminder} theorem environment.
 %{% if env_reminder %}
     \newtheorem{reminder}       [reminder]      {\@upcase \@reminderName}
 %{% endif %}
-    % env.th reminders: The \texttt{reminders} theorem environment.
 %{% if env_reminders %}
     \newtheorem{reminders}      [reminder]      {\@upcase \@remindersName}
 %{% endif %}
-    % env.th reminder*: The \texttt{reminder*} theorem environment.
 %{% if env_reminder %}
     \newtheorem*{reminder*}                     {\@upcase \@reminderName}
 %{% endif %}
-    % env.th reminders*: The \texttt{reminders*} theorem environment.
 %{% if env_reminders %}
     \newtheorem*{reminders*}                    {\@upcase \@remindersName}
 %{% endif %}
-    % env.th terminology: The \texttt{terminology} theorem environment.
 %{% if env_terminology %}
     \newtheorem{terminology}    [terminology]   {\@upcase \@terminologyName}
 %{% endif %}
-    % env.th terminologies: The \texttt{terminologies} theorem environment.
 %{% if env_terminologies %}
     \newtheorem{terminologies}  [terminology]   {\@upcase \@terminologiesName}
 %{% endif %}
-    % env.th terminology*: The \texttt{terminology*} theorem environment.
 %{% if env_terminology %}
     \newtheorem*{terminology*}                  {\@upcase \@terminologyName}
 %{% endif %}
-    % env.th terminologies*: The \texttt{terminologies*} theorem environment.
 %{% if env_terminologies %}
     \newtheorem*{terminologies*}                {\@upcase \@terminologiesName}
 %{% endif %}
 
         %% solution(s) and proof(s)
-    % env proof: The \texttt{proof} environment.
 %{% if env_proof %}
     \renewenvironment{proof}[1][{\@upcase \@proofName}]{
         \par
@@ -8644,7 +7001,6 @@
     }
 %{% endif %}
 %{% if env_proofs %}
-    % env proofs: The \texttt{proofs} environment.
     \newenvironment{proofs}[1][{\@upcase \@proofsName}]{
         \par
         \pushQED{\qed}
@@ -8658,7 +7014,6 @@
     }
 %{% endif %}
 %{% if env_solution %}
-    % env solution: The \texttt{solution} environment.
     \newenvironment{solution}[1][{\@upcase \@solutionName}]{
         \par
         \pushQED{\qed}
@@ -8670,7 +7025,6 @@
     }{
         \hfill\ensuremath{\blacksquare}\endtrivlist\@endpefalse
     }
-    % env solutions: The \texttt{solutions} environment.
 %{% endif %}
 %{% if env_solutions %}
     \newenvironment{solutions}[1][{\@upcase \@solutionsName}]{
@@ -8686,7 +7040,6 @@
     }
 %{% endif %}
 
-    % env dedication: The \texttt{dedication} environment.
 %{% if env_dedication %}
     \newenvironment{dedication}{
         \cleardoublepage
