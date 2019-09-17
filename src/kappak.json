@@ -52,6 +52,7 @@
     "definitions": {
 
         "_default": {
+            "argc": 0,
             "exclude": [],
             "requires": []
         },
@@ -1791,6 +1792,8 @@
             "_type": "cmd"
         },
         "coeqdiagram": {
+            "_type": "cmd",
+            "argc": 6,
             "requires": ["tikz"]
         },
         "coker": {
@@ -2076,21 +2079,26 @@
             "_type": "cmd"
         },
         "DeclareBigOperator": {
-            "_type": "cmd"
+            "_type": "cmd",
+            "argc": 2
         },
         "DeclareRotatedSymbol": {
-            "_type": "cmd"
+            "_type": "cmd",
+            "argc": 3
         },
         "diagramarrows": {
             "_type": "cmd",
+            "argc": 4,
             "requires": ["tikz"]
         },
         "diagramlines": {
             "_type": "cmd",
+            "argc": 4,
             "requires": ["tikz"]
         },
         "diagramsize": {
             "_type": "cmd",
+            "argc": 2,
             "requires": ["tikz"]
         },
         "Dom": {
@@ -2376,10 +2384,12 @@
             "_type": "cmd"
         },
         "editor": {
-            "_type": "cmd"
+            "_type": "cmd",
+            "argc": 1
         },
         "email": {
-            "_type": "cmd"
+            "_type": "cmd",
+            "argc": 1
         },
         "End": {
             "_type": "cmd"
@@ -2394,6 +2404,8 @@
             "_type": "cmd"
         },
         "eqdiagram": {
+            "_type": "cmd",
+            "argc": 6,
             "requires": ["tikz"]
         },
         "ev": {
@@ -2862,7 +2874,8 @@
             "_type": "cmd"
         },
         "image": {
-            "_type": "cmd"
+            "_type": "cmd",
+            "argc": 2
         },
         "imagehere": {
             "_type": "cmd"
@@ -3042,7 +3055,8 @@
             "_type": "cmd"
         },
         "logo": {
-            "_type": "cmd"
+            "_type": "cmd",
+            "argc": 2
         },
         "logohere": {
             "_type": "cmd"
@@ -3087,7 +3101,8 @@
             "_type": "cmd"
         },
         "newcategory": {
-            "_type": "cmd"
+            "_type": "cmd",
+            "argc": 4
         },
         "oA": {
             "_type": "cmd"
@@ -3390,14 +3405,17 @@
             "_type": "cmd"
         },
         "publisher": {
-            "_type": "cmd"
+            "_type": "cmd",
+            "argc": 1
         },
         "pullbackdiagram": {
             "_type": "cmd",
+            "argc": 8,
             "requires": ["tikz"]
         },
         "pushoutdiagram": {
             "_type": "cmd",
+            "argc": 8,
             "requires": ["tikz"]
         },
         "rds": {
@@ -3739,6 +3757,7 @@
         },
         "squarediagram": {
             "_type": "cmd",
+            "argc": 8,
             "requires": ["tikz"]
         },
         "sSet": {
@@ -3748,10 +3767,12 @@
             "_type": "cmd"
         },
         "subauthor": {
-            "_type": "cmd"
+            "_type": "cmd",
+            "argc": 1
         },
         "subtitle": {
-            "_type": "cmd"
+            "_type": "cmd",
+            "argc": 1
         },
         "Sym": {
             "_type": "cmd"
@@ -4043,34 +4064,42 @@
         },
         "triangleDdiagram": {
             "_type": "cmd",
+            "argc": 6,
             "requires": ["tikz"]
         },
         "triangleDLdiagram": {
             "_type": "cmd",
+            "argc": 6,
             "requires": ["tikz"]
         },
         "triangleDRdiagram": {
             "_type": "cmd",
+            "argc": 6,
             "requires": ["tikz"]
         },
         "triangleLdiagram": {
             "_type": "cmd",
+            "argc": 6,
             "requires": ["tikz"]
         },
         "triangleRdiagram": {
             "_type": "cmd",
+            "argc": 6,
             "requires": ["tikz"]
         },
         "triangleUdiagram": {
             "_type": "cmd",
+            "argc": 6,
             "requires": ["tikz"]
         },
         "triangleULdiagram": {
             "_type": "cmd",
+            "argc": 6,
             "requires": ["tikz"]
         },
         "triangleURdiagram": {
             "_type": "cmd",
+            "argc": 6,
             "requires": ["tikz"]
         },
         "uA": {
@@ -4917,10 +4946,12 @@
             "_type": "cmd"
         },
         "xtwoheadleftarrow": {
-            "_type": "cmd"
+            "_type": "cmd",
+            "argc": 1
         },
         "xtwoheadrightarrow": {
-            "_type": "cmd"
+            "_type": "cmd",
+            "argc": 1
         },
         "yoneda": {
             "_type": "cmd"
