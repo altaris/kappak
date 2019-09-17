@@ -2082,12 +2082,15 @@
             "_type": "cmd"
         },
         "diagramarrows": {
+            "_type": "cmd",
             "requires": ["tikz"]
         },
         "diagramlines": {
+            "_type": "cmd",
             "requires": ["tikz"]
         },
         "diagramsize": {
+            "_type": "cmd",
             "requires": ["tikz"]
         },
         "Dom": {
@@ -3390,12 +3393,15 @@
             "_type": "cmd"
         },
         "pullbackdiagram": {
+            "_type": "cmd",
             "requires": ["tikz"]
         },
         "pushoutdiagram": {
+            "_type": "cmd",
             "requires": ["tikz"]
         },
         "rds": {
+            "_type": "cmd",
             "requires": ["tikz"]
         },
         "Ring": {
@@ -3732,6 +3738,7 @@
             "_type": "cmd"
         },
         "squarediagram": {
+            "_type": "cmd",
             "requires": ["tikz"]
         },
         "sSet": {
@@ -4035,27 +4042,35 @@
             "_type": "cmd"
         },
         "triangleDdiagram": {
+            "_type": "cmd",
             "requires": ["tikz"]
         },
         "triangleDLdiagram": {
+            "_type": "cmd",
             "requires": ["tikz"]
         },
         "triangleDRdiagram": {
+            "_type": "cmd",
             "requires": ["tikz"]
         },
         "triangleLdiagram": {
+            "_type": "cmd",
             "requires": ["tikz"]
         },
         "triangleRdiagram": {
+            "_type": "cmd",
             "requires": ["tikz"]
         },
         "triangleUdiagram": {
+            "_type": "cmd",
             "requires": ["tikz"]
         },
         "triangleULdiagram": {
+            "_type": "cmd",
             "requires": ["tikz"]
         },
         "triangleURdiagram": {
+            "_type": "cmd",
             "requires": ["tikz"]
         },
         "uA": {
