@@ -20,6 +20,16 @@ def main() -> None:
     """Main function."""
     with open(PARAMETER_FILE, 'r') as parameters_file:
         parameters = json.loads(parameters_file.read())
+
+    for key in parameters:
+        if '_default' not in parameters[key]:
+            continue
+        default_record = parameters[key].pop('_default')
+        for entry in parameters[key]:
+            parameters[key][entry] = {
+                **default_record, **parameters[key][entry]
+            }
+
     generate_sty(parameters)
     generate_autocompletion(parameters)
 

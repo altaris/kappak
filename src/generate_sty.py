@@ -39,35 +39,18 @@ class IncludePolicy(BaseException, Enum):
     INCLUDE = auto()
 
 
-def check_has_requirements(
-        record: Record,
-        default_record: Record,
-        context: JsonDocument
-    ) -> None:
+def check_has_requirements(record: Record, context: JsonDocument) -> None:
     """Checks if the requirements of a record are all present in the current
     template context."""
-    requirements = get_value_or_default('requires', record, default_record)
-    for requirement in requirements:
+    for requirement in record['requires']:
         if not context.get(f'pkg_{requirement}', False):
             raise IncludePolicy.DONT_INCLUDE
 
 
-def check_not_excluded(
-        record: Record,
-        default_record: Record,
-        target: str
-    ) -> None:
+def check_not_excluded(record: Record, target: str) -> None:
     """Checks if the current record should be excluded from the target"""
-    exclude_list = get_value_or_default('exclude', record, default_record)
-    if target in exclude_list:
+    if target in record['exclude']:
         raise IncludePolicy.DONT_INCLUDE
-
-
-def check_not_special(record_key: str) -> None:
-    """Checks if the current record is a special one, i.e. if its name starts
-    with an underscore."""
-    if record_key.startswith('_'):
-        raise IncludePolicy.IGNORE
 
 
 def datetime() -> str:
@@ -89,12 +72,7 @@ def generate_target(
 
     for package in parameters['packages']:
         try:
-            check_not_special(package)
-            check_not_excluded(
-                parameters['packages'][package],
-                parameters['packages']['_default'],
-                target
-            )
+            check_not_excluded(parameters['packages'][package], target)
             raise IncludePolicy.INCLUDE
         except IncludePolicy as policy:
             if policy == IncludePolicy.DONT_INCLUDE:
@@ -105,11 +83,9 @@ def generate_target(
     for definition in parameters['definitions']:
         def_type = parameters['definitions'][definition].get('_type')
         try:
-            check_not_special(definition)
-            def_record = parameters['definitions'][definition]
-            def_default = parameters['definitions']['_default']
-            check_not_excluded(def_record, def_default, target)
-            check_has_requirements(def_record, def_default, context)
+            record = parameters['definitions'][definition]
+            check_not_excluded(record, target)
+            check_has_requirements(record, context)
             raise IncludePolicy.INCLUDE
         except IncludePolicy as policy:
             if policy == IncludePolicy.DONT_INCLUDE:
