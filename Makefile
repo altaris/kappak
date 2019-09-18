@@ -1,7 +1,7 @@
 USER_LATEX_DIR 		= ~/texmf/tex/latex
 USER_KAPPAK_DIR   	= $(USER_LATEX_DIR)/kappak
 
-LOCAL_LATEX_DIR  	= texmf/tex/latex
+LOCAL_LATEX_DIR  	= out/texmf/tex/latex
 LOCAL_KAPPAK_DIR  	= $(LOCAL_LATEX_DIR)/kappak
 
 TEX      			= xelatex

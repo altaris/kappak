@@ -26,7 +26,7 @@ from utils import (
 
 
 MAIN_TEMPLATE = 'kappak.sty'
-OUTPUT_DIRECTORY = '../texmf/tex/latex/kappak'
+OUTPUT_DIRECTORY = '../out/texmf/tex/latex/kappak'
 TEMPLATE_DIRECTORY = 'templates'
 
 
