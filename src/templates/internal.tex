@@ -1,0 +1,544 @@
+%% -----------------------------------------------------------------------------
+%%
+%% Internal commands and required packages.
+%%
+%% -----------------------------------------------------------------------------
+
+%% ----------------------------------------
+%% Require XeTeX
+%% ----------------------------------------
+
+% \RequirePackage{iftex}
+
+% \RequireXeTeX
+
+%% ----------------------------------------
+%% Required packages
+%% ----------------------------------------
+
+%{% if pkg_ifthen %}
+\RequirePackage{ifthen}
+%{% endif %}
+
+%% ----------------------------------------
+%% Draft mode
+%% ----------------------------------------
+
+\usepackage{ifdraft}
+\ifdraft{
+%{% if pkg_draftwatermark %}
+    \RequirePackage{draftwatermark}
+%{% endif %}
+%{% if pkg_lineno %}
+    \RequirePackage[mathlines]{lineno}
+%{% endif %}
+%{% if pkg_showkeys %}
+    \RequirePackage[notcite, notref]{showkeys}
+%{% endif %}
+    \SetWatermarkLightness{0.95}
+    \linenumbers
+}{}
+
+%% ----------------------------------------
+%% Definitions
+%% ----------------------------------------
+
+\newcommand{\@tryNewCommand}[2]{ % #1 cmd, #2 code
+
+    \ifthenelse{\isundefined{#1}}{
+        \newcommand{#1}{#2}
+    }{
+        \PackageWarning{kappak-v4}{Warning : command \protect#1 already defined. Skipping definition, errors may occur later !}
+    }
+
+}
+
+
+%% ----------------------------------------
+%%
+%% Declaring variables and assigning default values.
+%%
+%% ----------------------------------------
+
+%% ----------------------------------------
+%% core
+%% ----------------------------------------
+
+% wether kappak should automatically include packages. ifthen will always be included
+\newboolean{@b_core_use_autoPackInclusion}  \setboolean{@b_core_use_autoPackInclusion}  {true}
+
+%% ----------------------------------------
+%% extpack
+%% ----------------------------------------
+
+\newboolean{@b_extpack_auto}     			\setboolean{@b_extpack_auto}				{true}
+
+\newboolean{@b_extpack_use_stix}			\setboolean{@b_extpack_use_stix}			{false}
+
+\newboolean{@b_extpack_use_tikz}            \setboolean{@b_extpack_use_tikz}            {false}
+\newboolean{@b_extpack_tikz_externalize}    \setboolean{@b_extpack_tikz_externalize}    {false}
+
+\newboolean{@b_extpack_use_xecjk}			\setboolean{@b_extpack_use_xecjk}			{false}
+
+%% ----------------------------------------
+%% maths
+%% ----------------------------------------
+
+% arrows definitions
+\newboolean{@b_maths_use_arrows}            \setboolean{@b_maths_use_arrows}            {false}
+% categories definitions
+\newboolean{@b_maths_use_categories}        \setboolean{@b_maths_use_categories}        {false}
+% character accent definitions
+\newboolean{@b_maths_use_characterAccents}  \setboolean{@b_maths_use_characterAccents}  {false}
+% character styles definitions
+\newboolean{@b_maths_use_characterStyles}   \setboolean{@b_maths_use_characterStyles}   {false}
+% some stuff
+\newboolean{@b_maths_use_misc}              \setboolean{@b_maths_use_misc}              {false}
+% opertor definitions
+\newboolean{@b_maths_use_operators}         \setboolean{@b_maths_use_operators}         {false}
+% theorem environment definition
+\newboolean{@b_maths_use_theoremEnvs}       \setboolean{@b_maths_use_theoremEnvs}       {false}
+% styles inside theorem envs, e.g. italic for theorems, roman for definitions
+\newboolean{@b_maths_use_theoremStyles}     \setboolean{@b_maths_use_theoremStyles}     {true}
+
+%% ----------------------------------------
+%% misc
+%% ----------------------------------------
+
+% some stuff
+\newboolean{@b_use_misc}                    \setboolean{@b_use_misc}                    {true}
+
+%% ----------------------------------------
+%% variables declarations
+%% ----------------------------------------
+
+\def\@bbStyle           {normal}
+\def\@bibliographyStyle {plain}
+\def\@chapterStyle      {normal}
+\def\@fontSet           {normal}
+\def\@headerFooterStyle {normal}
+\def\@language          {english}
+\def\@margins           {normal}
+\def\@scriptStyle       {normal}
+\def\@titlePageStyle    {normal}
+\def\@categoryStyle     {script}
+
+%% -----------------------------------------------------------------------------
+%%
+%% Arguments processing.
+%%
+%% -----------------------------------------------------------------------------
+
+%% ----------------------------------------
+%% Loading required packages.
+%% ----------------------------------------
+
+%{% if pkg_keyval %}
+\RequirePackage{keyval}
+%{% endif %}
+
+%% ----------------------------------------
+%% Preparing keyval arguments processing.
+%% Code taken from
+%% http://www.tuteurs.ens.fr/logiciels/latex/nouveau_package.html .
+%% ----------------------------------------
+
+\@ifundefined{my@unusedlist}{
+  \let\my@unusedlist\@empty}{}
+\@ifundefined{my@extractkey}{%
+\def\my@extractkey#1=#2\my@extractkey{#1}}{}
+\newcommand{\ProcessUnusedOptions}[1]{%
+  \let\my@tempa\@empty
+  \let\my@tempb\@empty
+  \@for\CurrentOption:=\my@unusedlist\do{%
+    \expandafter\expandafter\expandafter\def
+    \expandafter\expandafter\expandafter\my@key
+    \expandafter\expandafter\expandafter{%
+      \expandafter\my@extractkey\CurrentOption=\my@extractkey}%
+    \@ifundefined{KV@#1@\my@key}{%
+      \edef\my@tempa{\my@tempa,\CurrentOption,}}{%
+      \edef\my@tempb{\my@tempb,\CurrentOption,}}}%
+  \@for\CurrentOption:=\my@tempa\do{%
+    \ifx\CurrentOption\@empty\else
+      \PackageWarning{mypack}{`\CurrentOption' not defined.}\fi}%
+  \edef\my@tempb{%
+    \noexpand\setkeys{#1}{\my@tempb}}%
+  \my@tempb
+  \AtEndOfPackage{\let\@unprocessedoptions\relax}}
+
+\DeclareOption*{%
+  \expandafter\expandafter\expandafter\def
+  \expandafter\expandafter\expandafter\my@unusedlist
+  \expandafter\expandafter\expandafter{%
+    \expandafter\my@unusedlist\expandafter,%
+    \CurrentOption}}
+
+%% ----------------------------------------
+%% Recieving options
+%% ----------------------------------------
+
+%% --------------------
+%% Version
+%% --------------------
+
+% opt alpha: Do not use.
+\DeclareOption{alpha}{
+    \def\@usedVersion{0407}
+}
+
+% opt bellatrix: Do not use.
+\DeclareOption{bellatrix}{
+    \def\@usedVersion{0409}
+}
+
+% opt cortana: Do not use.
+\DeclareOption{cortana}{
+    \def\@usedVersion{0410}
+}
+
+% opt durotan: Do not use.
+\DeclareOption{durotan}{
+    \def\@usedVersion{0411}
+}
+
+% opt eientei: Mandatory option.
+\DeclareOption{eientei}{
+    \def\@usedVersion{0412}
+}
+
+%% --------------------
+%% Simple
+%% --------------------
+
+%% -autopackages
+% opt -autopackages: Tells \texttt{kappak} to not automatically include packages.
+\DeclareOption{-autopackages}{
+    \setboolean{@b_extpack_auto}{false}
+}
+
+%% +maths
+% opt +maths: Use all maths commands.
+\DeclareOption{+maths}{
+    \setboolean{@b_maths_use_arrows}{true}
+    \setboolean{@b_maths_use_categories}{true}
+    \setboolean{@b_maths_use_characterAccents}{true}
+    \setboolean{@b_maths_use_characterStyles}{true}
+    \setboolean{@b_maths_use_misc}{true}
+    \setboolean{@b_maths_use_operators}{true}
+    \setboolean{@b_maths_use_theoremEnvs}{true}
+}
+
+%% +maths.arrows
+% opt +maths.arrows: Use mathematical arrows commands.
+\DeclareOption{+maths.arrows}{
+    \setboolean{@b_maths_use_arrows}{true}
+}
+
+%% +maths.categories
+% opt +maths.categories: Use category theory commands.
+\DeclareOption{+maths.categories}{
+    \setboolean{@b_maths_use_categories}{true}
+}
+
+%% +maths.characterAccents
+% opt +maths.characterAccents: Use mathematical character accent commands.
+\DeclareOption{+maths.characterAccents}{
+    \setboolean{@b_maths_use_characterAccents}{true}
+}
+
+%% +maths.characterStyles
+% opt +maths.characterStyles: Use mathematical character styles commands.
+\DeclareOption{+maths.characterStyles}{
+    \setboolean{@b_maths_use_characterStyles}{true}
+}
+
+%% +maths.misc
+% opt +maths.misc: Use mathematical miscallenous commands.
+\DeclareOption{+maths.misc}{
+    \setboolean{@b_maths_use_misc}{true}
+}
+
+%% +maths.operators
+% opt +maths.operators: Use mathematical operators commands.
+\DeclareOption{+maths.operators}{
+    \setboolean{@b_maths_use_operators}{true}
+}
+
+%% +maths.theoremEnvs
+% opt +maths.theoremEnvs: Use theorem environments.
+\DeclareOption{+maths.theoremEnvs}{
+    \setboolean{@b_maths_use_theoremEnvs}{true}
+}
+
+%% +maths.theoremStyles
+% opt -maths.theoremStyles: No not use theorem styles for theorem environments.
+\DeclareOption{-maths.theoremStyles}{
+    \setboolean{@b_maths_use_theoremStyles}{false}
+}
+
+%% +misc
+% opt -misc: Do not use \texttt{kappak} miscallenous commands.
+\DeclareOption{-misc}{
+    \setboolean{@b_use_misc}{false}
+}
+
+%% +stix
+% opt +stix: Use \texttt{stix}.
+\DeclareOption{+stix}{
+	\setboolean{@b_extpack_use_stix}{true}
+}
+
+%% +tikz
+% opt +tikz: Use \texttt{tikz}.
+\DeclareOption{+tikz}{
+    \setboolean{@b_extpack_use_tikz}{true}
+}
+
+%% tikz.externalize
+% opt tikz.externalize: Use \texttt{tikz} compilation cache.
+\DeclareOption{tikz.externalize}{
+	\setboolean{@b_extpack_tikz_externalize}{true}
+}
+
+% opt +xecjk: Use \texttt{xecjk}.
+\DeclareOption{+xecjk}{
+	\setboolean{@b_extpack_use_xecjk}{true}
+}
+
+%% --------------------
+%% Keyval
+%% --------------------
+
+%% bbStyle
+% opt bbStyle: Sets the mathematical blackboard letter style. Supports \texttt{normal} (default), and \texttt{bbold}.
+\define@key{%{{ package_name %}}}{bbStyle}[normal]{
+    \def\@bbStyle{#1}
+}
+
+%% bibliographyStyle
+% opt bibliographyStyle: Sets the bibliography style. Only relevant if you use \texttt{kdocument} instead of the standard \texttt{document} environment.
+\define@key{%{{ package_name %}}}{bibliographyStyle}[normal]{
+    \def\@bibliographyStyle{#1}
+}
+
+%% categoryStyle
+% opt categoryStyle: Sets the category style for category theory. Supports \texttt{script} (default), \texttt{bf}, \texttt{rm}, \texttt{sf}, and \texttt{tt}.
+\define@key{%{{ package_name %}}}{categoryStyle}[script]{
+    \def\@categoryStyle{#1}
+}
+
+%% chapterStyle
+% opt chapterStyle: Sets the chapter style. Supports \texttt{normal} (default), \texttt{cb}, and \texttt{rb}.
+\define@key{%{{ package_name %}}}{chapterStyle}[normal]{
+    \def\@chapterStyle{#1}
+}
+
+%% fontset
+% opt fontSet: Sets the font set. Supports \texttt{normal} (default), \texttt{alternate}, and \texttt{xcharter}.
+\define@key{%{{ package_name %}}}{fontSet}[normal]{
+    \def\@fontSet{#1}
+}
+
+%% headerFooterStyle
+% opt headerFooterStyle: Sets the header and footer style. Supports \texttt{normal} (default), \texttt{classic}, \texttt{cb}, and \texttt{empty}.
+\define@key{%{{ package_name %}}}{headerFooterStyle}[normal]{
+    \def\@headerFooterStyle{#1}
+}
+
+%% language
+% opt language: Sets the language of the document. Supports \texttt{english} (default), and \texttt{french}.
+\define@key{%{{ package_name %}}}{language}[english]{
+    \def\@language{#1}
+}
+
+%% lineSpacing
+% opt lineSpacing: Sets the line spacing.
+\define@key{%{{ package_name %}}}{lineSpacing}[1]{
+    \renewcommand{\baselinestretch}{#1}
+}
+
+%% margins
+% opt margins: Sets the margins. Supports \texttt{normal} (default), \texttt{reduced}, and \texttt{minimal}.
+\define@key{%{{ package_name %}}}{margins}[normal]{
+    \def\@margins{#1}
+}
+
+%% scriptStyle
+% opt scriptStyle: Sets the mathematical script style. Supports \texttt{normal} (default), \texttt{euler}, and \texttt{rsfs}.
+\define@key{%{{ package_name %}}}{scriptStyle}[normal]{
+    \def\@scriptStyle{#1}
+}
+
+%% titlePageStyle
+% opt titlePageStyle: Sets the title page style. Supports \texttt{normal} (default), \texttt{classic}, \texttt{bar}, \texttt{gm}, and \texttt{gb}.
+\define@key{%{{ package_name %}}}{titlePageStyle}[normal]{
+    \def\@titlePageStyle{#1}
+}
+
+%% version
+% opt version: Sets the kappan version to use. Use explicit names instead.
+\define@key{%{{ package_name %}}}{version}[0406]{
+    % 0406 is the version where \@kappakVersion started to be taken into account.
+    \def\@usedVersion{#1}
+}
+
+\ProcessOptions
+\ProcessUnusedOptions{%{{ package_name %}}}
+
+%% ----------------------------------------
+%% Processing
+%% ----------------------------------------
+
+\ifthenelse{\boolean{@b_extpack_auto}}{
+%{% if pkg_babel %}
+	\RequirePackage[\@language]{babel}
+%{% endif %}
+}{}
+
+% stix must be loaded before amsmath if amsmath version is > 2.14
+% http://distrib-coffee.ipsl.jussieu.fr/pub/mirrors/ctan/fonts/stix/doc/stix.pdf
+\ifthenelse{\boolean{@b_extpack_use_stix}}{
+%{% if pkg_stix %}
+	\RequirePackage[notext, not1, notextcomp]{stix}
+%{% endif %}
+	\let\barV\relax
+}{}
+
+\ifthenelse{\boolean{@b_extpack_auto}}{
+%{% if pkg_amsfonts %}
+	\RequirePackage{amsfonts}
+%{% endif %}
+%{% if pkg_amsmath %}
+	\RequirePackage{amsmath}
+%{% endif %}
+%{% if pkg_amssymb %}
+	\RequirePackage{amssymb}
+%{% endif %}
+%{% if pkg_amsthm %}
+	\RequirePackage{amsthm}
+%{% endif %}
+%{% if pkg_mathtools %}
+	\RequirePackage{mathtools}
+%{% endif %}
+
+%{% if pkg_aliascnt %}
+    \RequirePackage{aliascnt} % must be loaded before cleveref
+%{% endif %}
+%{% if pkg_hyperref %}
+	\RequirePackage{hyperref}
+%{% endif %}
+%{% if pkg_cleveref %}
+	\RequirePackage[noabbrev]{cleveref} % must be loaded before cleveref
+%{% endif %}
+
+%{% if pkg_color %}
+	\RequirePackage{color}
+%{% endif %}
+%{% if pkg_enumerate %}
+	\RequirePackage{enumerate}
+%{% endif %}
+%{% if pkg_graphicx %}
+	\RequirePackage{graphicx}
+%{% endif %}
+%{% if pkg_multicol %}
+	\RequirePackage{multicol}
+%{% endif %}
+
+	\hypersetup{ % See https://en.wikibooks.org/wiki/LaTeX/Hyperlinks#Customization
+	    colorlinks=false,
+	    hidelinks,
+	    linktoc=all,
+	    unicode=true
+	}
+}{}
+
+\newcommand{\@bb}{\mathbb}
+\ifthenelse{\equal{\@bbStyle}{bbold}}{
+%{% if pkg_bbold %}
+    \RequirePackage{bbold}
+%{% endif %}
+}{}
+
+\ifthenelse{\boolean{@b_extpack_use_tikz}}{
+%{% if pkg_tikz %}
+    \RequirePackage{tikz}
+%{% endif %}
+    \usetikzlibrary{arrows, calc, matrix}
+}{}
+
+\ifthenelse{\boolean{@b_extpack_tikz_externalize}}{
+	\usetikzlibrary{external}
+	\tikzexternalize[prefix = _tikz/, up to date check = diff]
+}{}
+
+\ifthenelse{\boolean{@b_maths_use_misc}}{
+}{}
+
+\ifthenelse{\equal{\@chapterStyle}{normal}}{}{
+%{% if pkg_titlesec %}
+    \RequirePackage{titlesec}
+%{% endif %}
+}
+
+\ifthenelse{\equal{\@headerFooterStyle}{normal}}{}{
+%{% if pkg_fancyhdr %}
+    \RequirePackage{fancyhdr}
+%{% endif %}
+%{% if pkg_lastpage %}
+    \RequirePackage{lastpage}
+%{% endif %}
+}
+
+\newcommand{\@cal}{\mathcal}
+\ifthenelse{\equal{\@scriptStyle}{euler}}{
+%{% if pkg_euscript %}
+    \RequirePackage[mathscr]{euscript}
+%{% endif %}
+    \renewcommand{\@cal}{\mathscr}
+}{}
+\ifthenelse{\equal{\@scriptStyle}{rsfs}}{
+%{% if pkg_mathrsfs %}
+    \RequirePackage{mathrsfs}
+%{% endif %}
+    \renewcommand{\@cal}{\mathscr}
+}{}
+\ifthenelse{\equal{\@scriptStyle}{rsfso}}{
+%{% if pkg_rsfso %}
+    \RequirePackage{rsfso}
+%{% endif %}
+}{}
+
+\ifthenelse{\equal{\@fontSet}{alternate}}{
+    \RequirePackage{mathptmx} % selects Times Roman as basic font
+    \RequirePackage{helvet}   % selects Helvetica as sans-serif font
+    \RequirePackage{courier}  % selects Courier as typewriter font
+}{}
+\ifthenelse{\equal{\@fontSet}{xcharter}}{
+%{% if pkg_XCharter %}
+    \RequirePackage{XCharter}
+%{% endif %}
+}{}
+
+\ifthenelse{\equal{\@margins}{reduced}}{
+%{% if pkg_geometry %}
+    \RequirePackage{geometry}
+%{% endif %}
+    \geometry{hscale = 0.8, vscale = 0.8, centering}
+}{}
+
+\ifthenelse{\equal{\@margins}{minimal}}{
+%{% if pkg_geometry %}
+    \RequirePackage{geometry}
+%{% endif %}
+    \geometry{margin = 0.5in, centering}
+}{}
+
+\ifthenelse{\boolean{@b_extpack_use_xecjk}}{
+%{% if pkg_xeCJK %}
+	\RequirePackage{xeCJK}
+%{% endif %}
+}{}
+
+\ifthenelse{\@usedVersion < \@kappakVersion}{
+    \PackageWarning{kappak-v4}{You are using an older version of kappak (v\@usedVersion, actual is v\@kappakVersion).}
+}{}

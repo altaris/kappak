@@ -1,0 +1,32 @@
+%% -----------------------------------------------------------------------------
+%%
+%% Misc.
+%%
+%% -----------------------------------------------------------------------------
+
+\ifthenelse{\boolean{@b_use_misc}}{
+
+    % Prevents annoying errors upon non printable chars
+    %\DeclareUnicodeCharacter{00A0}{ }
+
+    % I never remember that thing so here's a command
+%{% if cmd_kbibliography %}
+    \newcommand{\kbibliography}{
+		\nocite{*}
+		\bibliographystyle{\@bibliographyStyle}
+		\bibliography{bibliography}
+    }
+%{% endif %}
+
+%{% if env_kdocument %}
+    \newenvironment{kdocument}{
+		\document
+	    \maketitle
+	    \tableofcontents
+	}{
+		\kbibliography
+	    \enddocument
+    }
+%{% endif %}
+
+}{}
