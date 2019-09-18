@@ -1,0 +1,723 @@
+%% -----------------------------------------------------------------------------
+%%
+%% Environments
+%%
+%% -----------------------------------------------------------------------------
+
+\ifthenelse{\boolean{@b_maths_use_theoremEnvs}}{
+
+    \ifthenelse{\equal{\@language}{english}}{
+%{% if env_assertion %}
+        \def\@assertionName         {assertion}
+%{% endif %}
+%{% if env_assertions %}
+        \def\@assertionsName        {assertions}
+%{% endif %}
+%{% if env_axiom %}
+        \def\@axiomName             {axiom}
+%{% endif %}
+%{% if env_axioms %}
+        \def\@axiomsName            {axioms}
+%{% endif %}
+%{% if env_conjecture %}
+        \def\@conjectureName        {conjecture}
+%{% endif %}
+%{% if env_conjectures %}
+        \def\@conjecturesName       {conjectures}
+%{% endif %}
+%{% if env_convention %}
+        \def\@conventionName        {convention}
+%{% endif %}
+%{% if env_conventions %}
+        \def\@conventionsName       {conventions}
+%{% endif %}
+%{% if env_corollary %}
+        \def\@corollaryName         {corollary}
+%{% endif %}
+%{% if env_corollaries %}
+        \def\@corollariesName       {corollaries}
+%{% endif %}
+%{% if env_definition %}
+        \def\@definitionName        {definition}
+%{% endif %}
+%{% if env_definitions %}
+        \def\@definitionsName       {definitions}
+%{% endif %}
+%{% if env_example %}
+        \def\@exampleName           {example}
+%{% endif %}
+%{% if env_examples %}
+        \def\@examplesName          {examples}
+%{% endif %}
+%{% if env_exercise %}
+        \def\@exerciseName          {exercise}
+%{% endif %}
+%{% if env_exercises %}
+        \def\@exercisesName         {exercises}
+%{% endif %}
+%{% if env_lemma %}
+        \def\@lemmaName             {lemma}
+%{% endif %}
+%{% if env_lemmas %}
+        \def\@lemmasName            {lemmas}
+%{% endif %}
+%{% if env_notation %}
+        \def\@notationName          {notation}
+%{% endif %}
+%{% if env_notations %}
+        \def\@notationsName         {notations}
+%{% endif %}
+%{% if env_proof %}
+        \def\@proofName             {proof}
+%{% endif %}
+%{% if env_proofs %}
+        \def\@proofsName            {proofs}
+%{% endif %}
+%{% if env_property %}
+        \def\@propertyName          {property}
+%{% endif %}
+%{% if env_properties %}
+        \def\@propertiesName        {properties}
+%{% endif %}
+%{% if env_proposition %}
+        \def\@propositionName       {proposition}
+%{% endif %}
+%{% if env_propositions %}
+        \def\@propositionsName      {propositions}
+%{% endif %}
+%{% if env_question %}
+        \def\@questionName          {question}
+%{% endif %}
+%{% if env_questions %}
+        \def\@questionsName         {questions}
+%{% endif %}
+%{% if env_remark %}
+        \def\@remarkName            {remark}
+%{% endif %}
+%{% if env_remarks %}
+        \def\@remarksName           {remarks}
+%{% endif %}
+%{% if env_reminder %}
+        \def\@reminderName          {reminder}
+%{% endif %}
+%{% if env_reminders %}
+        \def\@remindersName         {reminders}
+%{% endif %}
+%{% if env_scholia %}
+        \def\@scholiaName           {scholia}
+%{% endif %}
+%{% if env_scholias %}
+        \def\@scholiasName          {scholias}
+%{% endif %}
+%{% if env_solution %}
+        \def\@solutionName          {solution}
+%{% endif %}
+%{% if env_solutions %}
+        \def\@solutionsName         {solutions}
+%{% endif %}
+%{% if env_terminology %}
+        \def\@terminologyName       {terminology}
+%{% endif %}
+%{% if env_terminologies %}
+        \def\@terminologiesName     {terminologies}
+%{% endif %}
+%{% if env_theorem %}
+        \def\@theoremName           {theorem}
+%{% endif %}
+%{% if env_theorems %}
+        \def\@theoremsName          {theorems}
+%{% endif %}
+
+    }{}
+
+    \ifthenelse{\equal{\@language}{french}}{
+%{% if env_assertion %}
+        \def\@assertionName         {assertion}
+%{% endif %}
+%{% if env_assertions %}
+        \def\@assertionsName        {assertions}
+%{% endif %}
+%{% if env_axiom %}
+        \def\@axiomName             {axiome}
+%{% endif %}
+%{% if env_axioms %}
+        \def\@axiomsName            {axiomes}
+%{% endif %}
+%{% if env_conjecture %}
+        \def\@conjectureName        {conjecture}
+%{% endif %}
+%{% if env_conjectures %}
+        \def\@conjecturesName       {conjectures}
+%{% endif %}
+%{% if env_convention %}
+        \def\@conventionName        {convention}
+%{% endif %}
+%{% if env_conventions %}
+        \def\@conventionsName       {conventions}
+%{% endif %}
+%{% if env_corollary %}
+        \def\@corollaryName         {corollaire}
+%{% endif %}
+%{% if env_corollaries %}
+        \def\@corollariesName       {corollaires}
+%{% endif %}
+%{% if env_definition %}
+        \def\@definitionName        {d\'{e}finition}
+%{% endif %}
+%{% if env_definitions %}
+        \def\@definitionsName       {d\'{e}finitions}
+%{% endif %}
+%{% if env_example %}
+        \def\@exampleName           {exemple}
+%{% endif %}
+%{% if env_examples %}
+        \def\@examplesName          {exemples}
+%{% endif %}
+%{% if env_exercise %}
+        \def\@exerciseName          {exercice}
+%{% endif %}
+%{% if env_exercises %}
+        \def\@exercisesName         {exercices}
+%{% endif %}
+%{% if env_lemma %}
+        \def\@lemmaName             {lemme}
+%{% endif %}
+%{% if env_lemmas %}
+        \def\@lemmasName            {lemmes}
+%{% endif %}
+%{% if env_notation %}
+        \def\@notationName          {notation}
+%{% endif %}
+%{% if env_notations %}
+        \def\@notationsName         {notations}
+%{% endif %}
+%{% if env_proof %}
+        \def\@proofName             {d\'{e}monstration}
+%{% endif %}
+%{% if env_proofs %}
+        \def\@proofsName            {d\'{e}monstrations}
+%{% endif %}
+%{% if env_property %}
+        \def\@propertyName          {propri\'{e}t\'{e}}
+%{% endif %}
+%{% if env_properties %}
+        \def\@propertiesName        {propri\'{e}t\'{e}s}
+%{% endif %}
+%{% if env_proposition %}
+        \def\@propositionName       {proposition}
+%{% endif %}
+%{% if env_propositions %}
+        \def\@propositionsName      {propositions}
+%{% endif %}
+%{% if env_question %}
+        \def\@questionName          {question}
+%{% endif %}
+%{% if env_questions %}
+        \def\@questionsName         {questions}
+%{% endif %}
+%{% if env_remark %}
+        \def\@remarkName            {remarque}
+%{% endif %}
+%{% if env_remarks %}
+        \def\@remarksName           {remarques}
+%{% endif %}
+%{% if env_reminder %}
+        \def\@reminderName          {rappel}
+%{% endif %}
+%{% if env_reminders %}
+        \def\@remindersName         {rappels}
+%{% endif %}
+%{% if env_scholia %}
+        \def\@scholiaName           {scholie}
+%{% endif %}
+%{% if env_scholias %}
+        \def\@scholiasName          {scholies}
+%{% endif %}
+%{% if env_solution %}
+        \def\@solutionName          {solution}
+%{% endif %}
+%{% if env_solutions %}
+        \def\@solutionsName         {solutions}
+%{% endif %}
+%{% if env_terminology %}
+        \def\@terminologyName       {terminologie}
+%{% endif %}
+%{% if env_terminologies %}
+        \def\@terminologiesName     {terminologies}
+%{% endif %}
+%{% if env_theorem %}
+        \def\@theoremName           {th\'{e}or\`{e}me}
+%{% endif %}
+%{% if env_theorems %}
+        \def\@theoremsName          {th\'{e}or\`{e}mes}
+%{% endif %}
+
+    }{}
+
+    \numberwithin{equation}{section}
+%{% if env_assertion %}
+    \newaliascnt{assertion}{equation}
+%{% endif %}
+%{% if env_axiom %}
+    \newaliascnt{axiom}{equation}
+%{% endif %}
+%{% if env_conjecture %}
+    \newaliascnt{conjecture}{equation}
+%{% endif %}
+%{% if env_convention %}
+    \newaliascnt{convention}{equation}
+%{% endif %}
+%{% if env_corollary %}
+    \newaliascnt{corollary}{equation}
+%{% endif %}
+%{% if env_definition %}
+    \newaliascnt{definition}{equation}
+%{% endif %}
+%{% if env_example %}
+    \newaliascnt{example}{equation}
+%{% endif %}
+%{% if env_exercise %}
+    \newaliascnt{exercise}{equation}
+%{% endif %}
+%{% if env_lemma %}
+    \newaliascnt{lemma}{equation}
+%{% endif %}
+%{% if env_notation %}
+    \newaliascnt{notation}{equation}
+%{% endif %}
+%{% if env_property %}
+    \newaliascnt{property}{equation}
+%{% endif %}
+%{% if env_proposition %}
+    \newaliascnt{proposition}{equation}
+%{% endif %}
+%{% if env_question %}
+    \newaliascnt{question}{equation}
+%{% endif %}
+%{% if env_remark %}
+    \newaliascnt{remark}{equation}
+%{% endif %}
+%{% if env_reminder %}
+    \newaliascnt{reminder}{equation}
+%{% endif %}
+%{% if env_scholia %}
+    \newaliascnt{scholia}{equation}
+%{% endif %}
+%{% if env_terminology %}
+    \newaliascnt{terminology}{equation}
+%{% endif %}
+%{% if env_theorem %}
+    \newaliascnt{theorem}{equation}
+%{% endif %}
+
+    \def\@makeupcase#1{\uppercase{#1}}     % https://groups.google.com/forum/#!topic/comp.text.tex/YpzYtAqJ_QQ
+    \def\@upcase{\expandafter\@makeupcase} %
+
+    \theoremstyle{definition}
+
+%{% if env_axiom %}
+    \newtheorem{axiom}          [axiom]         {\@upcase \@axiomName}
+%{% endif %}
+%{% if env_axioms %}
+    \newtheorem{axioms}         [axiom]         {\@upcase \@axiomsName}
+%{% endif %}
+%{% if env_axiom %}
+    \newtheorem*{axiom*}                        {\@upcase \@axiomName}
+%{% endif %}
+%{% if env_axioms %}
+    \newtheorem*{axioms*}                       {\@upcase \@axiomsName}
+%{% endif %}
+%{% if env_definition %}
+    \newtheorem{definition}     [definition]    {\@upcase \@definitionName}
+%{% endif %}
+%{% if env_definitions %}
+    \newtheorem{definitions}    [definition]    {\@upcase \@definitionsName}
+%{% endif %}
+%{% if env_definition %}
+    \newtheorem*{definition*}                   {\@upcase \@definitionName}
+%{% endif %}
+%{% if env_definitions %}
+    \newtheorem*{definitions*}                  {\@upcase \@definitionsName}
+%{% endif %}
+%{% if env_example %}
+    \newtheorem{example}        [example]       {\@upcase \@exampleName}
+%{% endif %}
+%{% if env_examples %}
+    \newtheorem{examples}       [example]       {\@upcase \@examplesName}
+%{% endif %}
+%{% if env_example %}
+    \newtheorem*{example*}                      {\@upcase \@exampleName}
+%{% endif %}
+%{% if env_examples %}
+    \newtheorem*{examples*}                     {\@upcase \@examplesName}
+%{% endif %}
+%{% if env_exercise %}
+    \newtheorem{exercise}       [exercise]      {\@upcase \@exerciseName}
+%{% endif %}
+%{% if env_exercises %}
+    \newtheorem{exercises}      [exercise]      {\@upcase \@exercisesName}
+%{% endif %}
+%{% if env_exercise %}
+    \newtheorem*{exercise*}                     {\@upcase \@exerciseName}
+%{% endif %}
+%{% if env_exercises %}
+    \newtheorem*{exercises*}                    {\@upcase \@exercisesName}
+%{% endif %}
+%{% if env_question %}
+    \newtheorem{question}       [question]      {\@upcase \@questionName}
+%{% endif %}
+%{% if env_questions %}
+    \newtheorem{questions}      [question]      {\@upcase \@questionsName}
+%{% endif %}
+%{% if env_question %}
+    \newtheorem*{question*}                     {\@upcase \@questionName}
+%{% endif %}
+%{% if env_questions %}
+    \newtheorem*{questions*}                    {\@upcase \@questionsName}
+%{% endif %}
+
+    \ifthenelse{\boolean{@b_maths_use_theoremStyles}}{
+         \theoremstyle{plain}
+    }{}
+
+%{% if env_assertion %}
+    \newtheorem{assertion}      [assertion]     {\@upcase \@assertionName}
+%{% endif %}
+%{% if env_assertions %}
+    \newtheorem{assertions}     [assertion]     {\@upcase \@assertionsName}
+%{% endif %}
+%{% if env_assertion %}
+    \newtheorem*{assertion*}                    {\@upcase \@assertionName}
+%{% endif %}
+%{% if env_assertions %}
+    \newtheorem*{assertions*}                   {\@upcase \@assertionsName}
+%{% endif %}
+%{% if env_conjecture %}
+    \newtheorem{conjecture}     [conjecture]    {\@upcase \@conjectureName}
+%{% endif %}
+%{% if env_conjectures %}
+    \newtheorem{conjectures}    [conjecture]    {\@upcase \@conjecturesName}
+%{% endif %}
+%{% if env_conjecture %}
+    \newtheorem*{conjecture*}                   {\@upcase \@conjectureName}
+%{% endif %}
+%{% if env_conjectures %}
+    \newtheorem*{conjectures*}                  {\@upcase \@conjecturesName}
+%{% endif %}
+%{% if env_corollary %}
+    \newtheorem{corollary}      [corollary]     {\@upcase \@corollaryName}
+%{% endif %}
+%{% if env_corollaries %}
+    \newtheorem{corollaries}    [corollary]     {\@upcase \@corollariesName}
+%{% endif %}
+%{% if env_corollary %}
+    \newtheorem*{corollary*}                    {\@upcase \@corollaryName}
+%{% endif %}
+%{% if env_corollaries %}
+    \newtheorem*{corollaries*}                  {\@upcase \@corollariesName}
+%{% endif %}
+%{% if env_lemma %}
+    \newtheorem{lemma}          [lemma]         {\@upcase \@lemmaName}
+%{% endif %}
+%{% if env_lemmas %}
+    \newtheorem{lemmas}         [lemma]         {\@upcase \@lemmasName}
+%{% endif %}
+%{% if env_lemma %}
+    \newtheorem*{lemma*}                        {\@upcase \@lemmaName}
+%{% endif %}
+%{% if env_lemmas %}
+    \newtheorem*{lemmas*}                       {\@upcase \@lemmasName}
+%{% endif %}
+%{% if env_property %}
+    \newtheorem{property}       [property]      {\@upcase \@propertyName}
+%{% endif %}
+%{% if env_properties %}
+    \newtheorem{properties}     [property]      {\@upcase \@propertiesName}
+%{% endif %}
+%{% if env_property %}
+    \newtheorem*{property*}                     {\@upcase \@propertyName}
+%{% endif %}
+%{% if env_properties %}
+    \newtheorem*{properties*}                   {\@upcase \@propertiesName}
+%{% endif %}
+%{% if env_proposition %}
+    \newtheorem{proposition}    [proposition]   {\@upcase \@propositionName}
+%{% endif %}
+%{% if env_propositions %}
+    \newtheorem{propositions}   [proposition]   {\@upcase \@propositionsName}
+%{% endif %}
+%{% if env_proposition %}
+    \newtheorem*{proposition*}                  {\@upcase \@propositionName}
+%{% endif %}
+%{% if env_propositions %}
+    \newtheorem*{propositions*}                 {\@upcase \@propositionsName}
+%{% endif %}
+%{% if env_scholia %}
+    \newtheorem{scholia}        [scholia]       {\@upcase \@scholiaName}
+%{% endif %}
+%{% if env_scholias %}
+    \newtheorem{scholias}       [scholia]       {\@upcase \@scholiasName}
+%{% endif %}
+%{% if env_scholia %}
+    \newtheorem{scholia*}                       {\@upcase \@scholiaName}
+%{% endif %}
+%{% if env_scholias %}
+    \newtheorem{scholias*}                      {\@upcase \@scholiasName}
+%{% endif %}
+%{% if env_theorem %}
+    \newtheorem{theorem}        [theorem]       {\@upcase \@theoremName}
+%{% endif %}
+%{% if env_theorems %}
+    \newtheorem{theorems}       [theorem]       {\@upcase \@theoremsName}
+%{% endif %}
+%{% if env_theorem %}
+    \newtheorem*{theorem*}                      {\@upcase \@theoremName}
+%{% endif %}
+%{% if env_theorems %}
+    \newtheorem*{theorems*}                     {\@upcase \@theoremsName}
+%{% endif %}
+
+    \ifthenelse{\boolean{@b_maths_use_theoremStyles}}{
+        \theoremstyle{remark}
+    }{}
+
+%{% if env_convention %}
+    \newtheorem{convention}     [convention]    {\@upcase \@conventionName}
+%{% endif %}
+%{% if env_conventions %}
+    \newtheorem{conventions}    [convention]    {\@upcase \@conventionsName}
+%{% endif %}
+%{% if env_convention %}
+    \newtheorem*{convention*}                   {\@upcase \@conventionName}
+%{% endif %}
+%{% if env_conventions %}
+    \newtheorem*{conventions*}                  {\@upcase \@conventionsName}
+%{% endif %}
+%{% if env_notation %}
+    \newtheorem{notation}       [notation]      {\@upcase \@notationName}
+%{% endif %}
+%{% if env_notations %}
+    \newtheorem{notations}      [notation]      {\@upcase \@notationsName}
+%{% endif %}
+%{% if env_notation %}
+    \newtheorem*{notation*}                     {\@upcase \@notationName}
+%{% endif %}
+%{% if env_notations %}
+    \newtheorem*{notations*}                    {\@upcase \@notationsName}
+%{% endif %}
+%{% if env_remark %}
+    \newtheorem{remark}         [remark]        {\@upcase \@remarkName}
+%{% endif %}
+%{% if env_remarks %}
+    \newtheorem{remarks}        [remark]        {\@upcase \@remarksName}
+%{% endif %}
+%{% if env_remark %}
+    \newtheorem*{remark*}                       {\@upcase \@remarkName}
+%{% endif %}
+%{% if env_remarks %}
+    \newtheorem*{remarks*}                      {\@upcase \@remarksName}
+%{% endif %}
+%{% if env_reminder %}
+    \newtheorem{reminder}       [reminder]      {\@upcase \@reminderName}
+%{% endif %}
+%{% if env_reminders %}
+    \newtheorem{reminders}      [reminder]      {\@upcase \@remindersName}
+%{% endif %}
+%{% if env_reminder %}
+    \newtheorem*{reminder*}                     {\@upcase \@reminderName}
+%{% endif %}
+%{% if env_reminders %}
+    \newtheorem*{reminders*}                    {\@upcase \@remindersName}
+%{% endif %}
+%{% if env_terminology %}
+    \newtheorem{terminology}    [terminology]   {\@upcase \@terminologyName}
+%{% endif %}
+%{% if env_terminologies %}
+    \newtheorem{terminologies}  [terminology]   {\@upcase \@terminologiesName}
+%{% endif %}
+%{% if env_terminology %}
+    \newtheorem*{terminology*}                  {\@upcase \@terminologyName}
+%{% endif %}
+%{% if env_terminologies %}
+    \newtheorem*{terminologies*}                {\@upcase \@terminologiesName}
+%{% endif %}
+
+        %% solution(s) and proof(s)
+%{% if env_proof %}
+    \renewenvironment{proof}[1][{\@upcase \@proofName}]{
+        \par
+        \pushQED{\qed}
+        \normalfont \topsep6\p@\@plus6\p@\relax
+        \trivlist
+        \item[\hskip\labelsep
+            \itshape
+        #1\@addpunct{.}]\ignorespaces
+    }{
+        \popQED\endtrivlist\@endpefalse
+    }
+%{% endif %}
+%{% if env_proofs %}
+    \newenvironment{proofs}[1][{\@upcase \@proofsName}]{
+        \par
+        \pushQED{\qed}
+        \normalfont \topsep6\p@\@plus6\p@\relax
+        \trivlist
+        \item[\hskip\labelsep
+            \itshape
+        #1\@addpunct{.}]\ignorespaces
+    }{
+        \popQED\endtrivlist\@endpefalse
+    }
+%{% endif %}
+%{% if env_solution %}
+    \newenvironment{solution}[1][{\@upcase \@solutionName}]{
+        \par
+        \pushQED{\qed}
+        \normalfont \topsep6\p@\@plus6\p@\relax
+        \trivlist
+        \item[\hskip\labelsep
+            \itshape
+        #1\@addpunct{.}]\ignorespaces
+    }{
+        \hfill\ensuremath{\blacksquare}\endtrivlist\@endpefalse
+    }
+%{% endif %}
+%{% if env_solutions %}
+    \newenvironment{solutions}[1][{\@upcase \@solutionsName}]{
+        \par
+        \pushQED{\qed}
+        \normalfont \topsep6\p@\@plus6\p@\relax
+        \trivlist
+        \item[\hskip\labelsep
+            \itshape
+        #1\@addpunct{.}]\ignorespaces
+    }{
+        \hfill\ensuremath{\blacksquare}\endtrivlist\@endpefalse
+    }
+%{% endif %}
+
+%{% if env_dedication %}
+    \newenvironment{dedication}{
+        \cleardoublepage
+        \thispagestyle{empty}
+        \vspace*{\stretch{1}}
+        \hfill\begin{minipage}[t]{0.66\textwidth}
+        \raggedright
+    }{
+        \end{minipage}
+        \vspace*{\stretch{3}}
+        \clearpage
+    }
+%{% endif %}
+
+%{% if env_assertion %}
+    \aliascntresetthe{assertion}
+%{% endif %}
+%{% if env_axiom %}
+    \aliascntresetthe{axiom}
+%{% endif %}
+%{% if env_conjecture %}
+    \aliascntresetthe{conjecture}
+%{% endif %}
+%{% if env_convention %}
+    \aliascntresetthe{convention}
+%{% endif %}
+%{% if env_corollary %}
+    \aliascntresetthe{corollary}
+%{% endif %}
+%{% if env_definition %}
+    \aliascntresetthe{definition}
+%{% endif %}
+%{% if env_example %}
+    \aliascntresetthe{example}
+%{% endif %}
+%{% if env_exercise %}
+    \aliascntresetthe{exercise}
+%{% endif %}
+%{% if env_lemma %}
+    \aliascntresetthe{lemma}
+%{% endif %}
+%{% if env_notation %}
+    \aliascntresetthe{notation}
+%{% endif %}
+%{% if env_property %}
+    \aliascntresetthe{property}
+%{% endif %}
+%{% if env_proposition %}
+    \aliascntresetthe{proposition}
+%{% endif %}
+%{% if env_question %}
+    \aliascntresetthe{question}
+%{% endif %}
+%{% if env_remark %}
+    \aliascntresetthe{remark}
+%{% endif %}
+%{% if env_reminder %}
+    \aliascntresetthe{reminder}
+%{% endif %}
+%{% if env_scholia %}
+    \aliascntresetthe{scholia}
+%{% endif %}
+%{% if env_terminology %}
+    \aliascntresetthe{terminology}
+%{% endif %}
+%{% if env_theorem %}
+    \aliascntresetthe{theorem}
+%{% endif %}
+
+%{% if env_assertion %}
+    \crefname{assertion}{\@assertionName}{\@assertionsName}
+%{% endif %}
+%{% if env_axiom %}
+    \crefname{axiom}{\@axiomName}{\@axiomsName}
+%{% endif %}
+%{% if env_conjecture %}
+    \crefname{conjecture}{\@conjectureName}{\@conjecturesName}
+%{% endif %}
+%{% if env_convention %}
+    \crefname{convention}{\@conventionName}{\@conventionsName}
+%{% endif %}
+%{% if env_corollary %}
+    \crefname{corollary}{\@corollaryName}{\@corollariesName}
+%{% endif %}
+%{% if env_definition %}
+    \crefname{definition}{\@definitionName}{\@definitionsName}
+%{% endif %}
+%{% if env_example %}
+    \crefname{example}{\@exampleName}{\@examplesName}
+%{% endif %}
+%{% if env_exercise %}
+    \crefname{exercise}{\@exerciseName}{\@exercisesName}
+%{% endif %}
+%{% if env_lemma %}
+    \crefname{lemma}{\@lemmaName}{\@lemmasName}
+%{% endif %}
+%{% if env_notation %}
+    \crefname{notation}{\@notationName}{\@notationsName}
+%{% endif %}
+%{% if env_property %}
+    \crefname{property}{\@propertyName}{\@propertiesName}
+%{% endif %}
+%{% if env_proposition %}
+    \crefname{proposition}{\@propositionName}{\@propositionsName}
+%{% endif %}
+%{% if env_question %}
+    \crefname{question}{\@questionName}{\@questionsName}
+%{% endif %}
+%{% if env_remark %}
+    \crefname{remark}{\@remarkName}{\@remarksName}
+%{% endif %}
+%{% if env_reminder %}
+    \crefname{reminder}{\@reminderName}{\@remindersName}
+%{% endif %}
+%{% if env_scholia %}
+    \crefname{scholia}{\@scholiaName}{\@scholiasName}
+%{% endif %}
+%{% if env_terminology %}
+    \crefname{terminology}{\@terminologyName}{\@terminologiesName}
+%{% endif %}
+%{% if env_theorem %}
+    \crefname{theorem}{\@theoremName}{\@theoremsName}
+%{% endif %}
+
+}{}

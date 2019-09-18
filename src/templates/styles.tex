@@ -1,0 +1,316 @@
+%% -----------------------------------------------------------------------------
+%%
+%% Document styles
+%%
+%% -----------------------------------------------------------------------------
+
+\ifthenelse{\equal{\@titlePageStyle}{normal}}{}{
+
+%% --------------------
+%% Metadatas
+%% --------------------
+
+%{% if cmd_editor %}
+    \newcommand{\editor}    [1]{\def\@editor{#1}}       \editor{}
+%{% endif %}
+%{% if cmd_email %}
+    \newcommand{\email}     [1]{\def\@email{#1}}        \email{}
+%{% endif %}
+%{% if cmd_image %}
+    \newcommand{\image}     [2]{\def\@image{#1}         \def\@imagescale{#2}}   \image{}{}
+%{% endif %}
+%{% if cmd_logo %}
+    \newcommand{\logo}      [2]{\def\@logo{#1}          \def\@logoscale{#2}}    \logo{}{}
+%{% endif %}
+%{% if cmd_publisher %}
+    \newcommand{\publisher} [1]{\def\@publisher{#1}}    \publisher{}
+%{% endif %}
+%{% if cmd_subauthor %}
+    \newcommand{\subauthor} [1]{\def\@subauthor{#1}}    \subauthor{}
+%{% endif %}
+%{% if cmd_subtitle %}
+    \newcommand{\subtitle}  [1]{\def\@subtitle{#1}}     \subtitle{}
+%{% endif %}
+
+%% --------------------
+%% Insertions
+%% --------------------
+
+%{% if cmd_authorshere %}
+    \newcommand{\authorshere}{
+        \ifthenelse{\equal{\@subauthor}{}}{
+            \@author
+        }{
+            \@author \\ \@subauthor
+        }
+    }
+%{% endif %}
+
+%{% if cmd_imagehere %}
+    \newcommand{\imagehere}[1]{
+        \ifthenelse{\equal{\@image}{}}{}{
+            \ifthenelse{\equal{#1}{centeredFigure}}{
+                \begin{figure}[h]
+                    \center
+                    \includegraphics[scale = \@imagescale]{\@image}
+                \end{figure}
+            }{
+                \includegraphics[scale = \@imagescale]{\@image}
+            }
+        }
+    }
+%{% endif %}
+
+%{% if cmd_logohere %}
+    \newcommand{\logohere}[1]{
+        \ifthenelse{\equal{\@logo}{}}{}{
+            \ifthenelse{\equal{#1}{centeredFigure}}{
+                \begin{figure}[h]
+                    \center
+                    \includegraphics[scale = \@logoscale]{\@logo}
+                \end{figure}
+            }{
+                \includegraphics[scale = \@logoscale]{\@logo}
+            }
+        }
+    }
+%{% endif %}
+
+}
+
+
+%% ----------------------------------------
+%% Front page
+%% ----------------------------------------
+
+%% --------------------
+%% classic
+%% --------------------
+
+\ifthenelse{\equal{\@titlePageStyle}{classic}}{
+    \renewcommand{\maketitle}{
+        \begin{titlepage}
+            \begin{center}
+                \logohere{centeredFigure} ~ \\ [2cm]
+                \huge{\textsc{\@title}} \\ [1.5cm]
+                \begin{center} \large
+                    \authorshere \\ [0.25cm]
+                \end{center}
+                {\large \@date} \\ [4cm]
+                \imagehere{centeredFigure}
+                \vfill
+            \end{center}
+        \end{titlepage}
+    }
+}{}
+
+%% --------------------
+%% bar
+%% --------------------
+
+\ifthenelse{\equal{\@titlePageStyle}{bar}}{
+    \renewcommand{\maketitle}{
+        \begin{titlepage}
+            \begin{center}
+                \logohere{centeredFigure} ~ \\ [1.5cm]
+                \textsc{\Large \@subtitle} \\ [1.5cm]
+                \rule{\linewidth}{0.5mm} \\ [0.4cm]
+                \huge{\bfseries{\@title}} \\
+                \rule{\linewidth}{0.5mm} \\ [1cm]
+                \begin{center}
+                    {\large \authorshere}
+                \end{center}
+                \vfill
+                \imagehere{centeredFigure}
+                \vfill
+                {\large \@date}
+            \end{center}
+        \end{titlepage}
+    }
+}{}
+
+%% --------------------
+%% gm : Gentle madness
+%% --------------------
+
+\ifthenelse{\equal{\@titlePageStyle}{gm}}{
+    \renewcommand{\maketitle}{
+        \begin{titlepage}
+            \vfill
+            \hbox{
+                \rule{2pt}{\textheight}
+                \hspace*{0.05 \textwidth}
+                \parbox[b]{0.75\textwidth}{
+                    \vbox{
+                        {\noindent\Huge\bfseries \@title} \\ [2\baselineskip]
+                        {\Large\itshape \@subtitle} \\ [4\baselineskip]
+                        {\Large \authorshere}\par
+                        \vspace{0.5\textheight}
+                        {\noindent \@publisher} \\ [\baselineskip]
+                        {\large \@date}
+                    }
+                }
+            }
+            \vfill
+        \end{titlepage}
+    }
+}{}
+
+%% --------------------
+%% gb : grey box
+%% --------------------
+
+\ifthenelse{\equal{\@titlePageStyle}{gb}}{
+    \definecolor{grey}{rgb}{0.9, 0.9, 0.9}
+    \renewcommand{\maketitle}{
+        \begin{titlepage}
+            \logohere{centeredFigure}
+            \colorbox{grey}{
+                \parbox[t]{1.0\linewidth}{
+                    \vspace*{0.5cm}
+                    \centering \fontsize{50pt}{50pt}\selectfont \@title \\
+                    \vspace*{0.5cm}
+                    \centering \fontsize{25pt}{40pt}\selectfont \@subtitle
+                    \vspace*{0.5cm}
+                }
+            }
+            \vfill
+            \begin{flushright}
+                {\huge \authorshere}
+            \end{flushright}
+            \vfill
+            \begin{flushright}
+                {\Large \@date}
+            \end{flushright}
+        \end{titlepage}
+    }
+}{}
+
+%% ----------------------------------------
+%% Titles styles
+%% ----------------------------------------
+
+%% --------------------
+%% Language handling
+%% --------------------
+
+\ifthenelse{\equal{\@chapterStyle}{normal}}{}{
+
+    \ifthenelse{\equal{\@language}{french}}{
+        \def\@chapterName{Chapitre}
+        \def\@sectionName{Section}
+    }{}
+
+    \ifthenelse{\equal{\@language}{english}}{
+        \def\@chapterName{Chapter}
+        \def\@sectionName{Section}
+    }{}
+
+}
+
+%% --------------------
+%% cb : Center bar
+%% --------------------
+
+\ifthenelse{\equal{\@chapterStyle}{cb}}{
+
+    \titleformat{\chapter}[display]
+        {\Large\filcenter\bfseries}
+        {
+            \titlerule[1pt]
+            \vspace{1pt}
+            \titlerule
+            \vspace{1pc}
+            \LARGE\MakeUppercase{\@chapterName} \thechapter
+        }
+        {1pc}
+        {
+            \titlerule
+            \vspace{1pc}
+            \Huge
+        }
+
+}{}
+
+%% --------------------
+%% rb : Right bar
+%% --------------------
+
+\ifthenelse{\equal{\@chapterStyle}{rb}}{
+
+    \titleformat{\chapter}[display]
+        {\LARGE\filleft\bfseries}
+        {\huge{\chaptertitlename} \thechapter}
+        {4.5pc}
+        {
+            \titlerule
+            \vspace{1pc}
+            \Huge
+            \filleft
+        }
+        [
+            \vspace{1pc}
+            \titlerule
+        ]
+
+    \titleformat{\section}
+        {\normalfont\large\bfseries\filcenter}
+        {\thesection}
+        {1em}
+        {}
+        [\vspace{0.5pc}]
+
+    \titleformat{\subsection}
+        {\normalfont\bfseries\filcenter}
+        {\thesubsection}
+        {0.5em}
+        {}
+
+}{}
+
+%% ----------------------------------------
+%% Header / footer style
+%% ----------------------------------------
+
+%% --------------------
+%% classic
+%% --------------------
+
+\ifthenelse{\equal{\@headerFooterStyle}{classic}}{
+    \pagestyle{fancy}
+    \renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
+    \fancypagestyle{firstpage}{
+        \fancyhf{}
+    }
+    \renewcommand{\headrulewidth}{0.0pt}
+    \renewcommand{\footrulewidth}{0.0pt}
+    \fancyhead{}
+    \fancyhead[CE]{\thetitle}
+    \fancyhead[CO]{\rightmark}
+    \fancyfoot{}
+    \ifthenelse{\equal{\@language}{english}}{
+        \cfoot{\footnotesize Page \thepage\ of \pageref{LastPage}}
+    }{
+        \cfoot{\footnotesize Page \thepage\ sur \pageref{LastPage}}
+    }
+}{}
+
+%% --------------------
+%% cb : center bar
+%% --------------------
+
+\ifthenelse{\equal{\@headerFooterStyle}{cb}}{
+    \pagestyle{fancy}
+    \lhead{} \chead{} \rhead{}
+    \lfoot{} \cfoot{\thetitle \\ \thepage} \rfoot{}
+    \renewcommand{\headrulewidth}{0.0pt}
+    \renewcommand{\footrulewidth}{0.4pt}
+}{}
+
+%% --------------------
+%% empty
+%% --------------------
+
+\ifthenelse{\equal{\@headerFooterStyle}{empty}}{
+    \pagestyle{empty}
+}{}

@@ -1,0 +1,530 @@
+%% -----------------------------------------------------------------------------
+%%
+%% Maths
+%%
+%% -----------------------------------------------------------------------------
+
+%% ----------------------------------------
+%% Operators
+%% ----------------------------------------
+
+\ifthenelse{\boolean{@b_maths_use_operators}}{
+
+%{% if cmd_Ann %}
+    \DeclareMathOperator {\Ann}   {Ann}
+%{% endif %}
+%{% if cmd_Aut %}
+    \DeclareMathOperator {\Aut}   {Aut}
+%{% endif %}
+%{% if cmd_Bil %}
+    \DeclareMathOperator {\Bil}   {Bil}
+%{% endif %}
+%{% if cmd_car %}
+    \DeclareMathOperator {\car}   {char}
+%{% endif %}
+%{% if cmd_card %}
+    \DeclareMathOperator {\card}  {card}
+%{% endif %}
+%{% if cmd_Card %}
+    \DeclareMathOperator {\Card}  {Card}
+%{% endif %}
+%{% if cmd_codom %}
+    \DeclareMathOperator {\codom} {codom}
+%{% endif %}
+%{% if cmd_coker %}
+    \DeclareMathOperator {\coker} {coker}
+%{% endif %}
+%{% if cmd_colim %}
+    \DeclareMathOperator*{\colim} {colim}
+%{% endif %}
+%{% if cmd_dom %}
+    \DeclareMathOperator {\dom}   {dom}
+%{% endif %}
+%{% if cmd_Dom %}
+    \DeclareMathOperator {\Dom}   {Dom}
+%{% endif %}
+%{% if cmd_End %}
+    \DeclareMathOperator {\End}   {end}
+%{% endif %}
+%{% if cmd_END %}
+    \DeclareMathOperator {\END}   {End}
+%{% endif %}
+%{% if cmd_Ext %}
+    \DeclareMathOperator {\Ext}   {Ext}
+%{% endif %}
+%{% if cmd_ev %}
+    \DeclareMathOperator {\ev}    {ev}
+%{% endif %}
+%{% if cmd_Frac %}
+    \DeclareMathOperator {\Frac}  {Frac}
+%{% endif %}
+%{% if cmd_GL %}
+    \DeclareMathOperator {\GL}    {GL}
+%{% endif %}
+%{% if cmd_Hom %}
+    \DeclareMathOperator {\Hom}   {Hom}
+%{% endif %}
+%{% if cmd_id %}
+    \DeclareMathOperator {\id}    {id}
+%{% endif %}
+%{% if cmd_Id %}
+    \DeclareMathOperator {\Id}    {Id}
+%{% endif %}
+%{% if cmd_im %}
+    \DeclareMathOperator {\im}    {im}
+%{% endif %}
+%{% if cmd_Ind %}
+    \DeclareMathOperator {\Ind}   {Ind}
+%{% endif %}
+%{% if cmd_Ker %}
+    \DeclareMathOperator {\Ker}   {Ker}
+%{% endif %}
+%{% if cmd_Map %}
+    \DeclareMathOperator {\Map}   {Map}
+%{% endif %}
+%{% if cmd_Mor %}
+    \DeclareMathOperator {\Mor}   {Mor}
+%{% endif %}
+%{% if cmd_ob %}
+    \DeclareMathOperator {\ob}    {ob}
+%{% endif %}
+%{% if cmd_Ob %}
+    \DeclareMathOperator {\Ob}    {Ob}
+%{% endif %}
+%{% if cmd_Orb %}
+    \DeclareMathOperator {\Orb}   {Orb}
+%{% endif %}
+%{% if cmd_proj %}
+    \DeclareMathOperator {\proj}  {proj}
+%{% endif %}
+%{% if cmd_rk %}
+    \DeclareMathOperator {\rk}    {rk}
+%{% endif %}
+%{% if cmd_SL %}
+    \DeclareMathOperator {\SL}    {SL}
+%{% endif %}
+%{% if cmd_Stab %}
+    \DeclareMathOperator {\Stab}  {Stab}
+%{% endif %}
+%{% if cmd_Spec %}
+    \DeclareMathOperator {\Spec}  {Spec}
+%{% endif %}
+%{% if cmd_Sym %}
+    \DeclareMathOperator {\Sym}   {Sym}
+%{% endif %}
+%{% if cmd_Tor %}
+    \DeclareMathOperator {\Tor}   {Tor}
+%{% endif %}
+%{% if cmd_tr %}
+    \DeclareMathOperator {\tr}    {tr}
+%{% endif %}
+
+}{}
+
+%% ----------------------------------------
+%% Categories
+%% ----------------------------------------
+
+\ifthenelse{\boolean{@b_maths_use_categories}}{
+
+    \ifthenelse{\equal{\@categoryStyle}{bf}}{
+        \newcommand{\@cat}{\mathbf}
+    }{}
+
+    \ifthenelse{\equal{\@categoryStyle}{script}}{
+        \newcommand{\@cat}{\@cal}
+    }{}
+
+    \ifthenelse{\equal{\@categoryStyle}{rm}}{
+        \newcommand{\@cat}{\mathrm}
+    }{}
+
+    \ifthenelse{\equal{\@categoryStyle}{sf}}{
+        \newcommand{\@cat}{\mathsf}
+    }{}
+
+    \ifthenelse{\equal{\@categoryStyle}{tt}}{
+        \newcommand{\@cat}{\mathtt}
+    }{}
+
+    \ifthenelse{\equal{\@categoryStyle}{script}}{
+%{% if cmd_op %}
+        \newcommand{\op}{\mathrm{op}}
+%{% endif %}
+%{% if cmd_newcategory %}
+        \newcommand{\newcategory}[4]{
+            \newcommand{#1}{#2\@cat{#3}\mathrm{#4}}
+        }
+%{% endif %}
+    }{
+%{% if cmd_op %}
+        \newcommand{\op}{\@cat{op}}
+%{% endif %}
+%{% if cmd_newcategory %}
+        \newcommand{\newcategory}[4]{
+            \newcommand{#1}{\@cat{#2#3#4}}
+        }
+%{% endif %}
+    }
+
+%% --------------------
+%% Some categories
+%% --------------------
+
+%{% if cmd_Ab %}
+    \newcategory{\Ab}    {}{A}{b}
+%{% endif %}
+%{% if cmd_Alg %}
+    \newcategory{\Alg}   {}{A}{lg}
+%{% endif %}
+%{% if cmd_Cat %}
+    \newcategory{\Cat}   {}{C}{at}
+%{% endif %}
+%{% if cmd_CAT %}
+    \newcategory{\CAT}   {}{C}{AT}
+%{% endif %}
+%{% if cmd_Ch %}
+    \newcategory{\Ch}    {}{C}{h}
+%{% endif %}
+%{% if cmd_Fin %}
+    \newcategory{\Fin}   {}{F}{in}
+%{% endif %}
+%{% if cmd_Graph %}
+    \newcategory{\Graph} {}{G}{raph}
+%{% endif %}
+%{% if cmd_Grp %}
+    \newcategory{\Grp}   {}{G}{rp}
+%{% endif %}
+%{% if cmd_Mod %}
+    \newcategory{\Mod}   {}{M}{od}
+%{% endif %}
+%{% if cmd_Mon %}
+    \newcategory{\Mon}   {}{M}{on}
+%{% endif %}
+%{% if cmd_Op %}
+    \newcategory{\Op}    {}{O}{p}
+%{% endif %}
+%{% if cmd_Pos %}
+    \newcategory{\Pos}   {}{P}{os}
+%{% endif %}
+%{% if cmd_pSh %}
+    \newcategory{\pSh}   {p}{S}{h}
+%{% endif %}
+%{% if cmd_Ring %}
+    \newcategory{\Ring}  {}{R}{ing}
+%{% endif %}
+%{% if cmd_Set %}
+    \newcategory{\Set}   {}{S}{et}
+%{% endif %}
+%{% if cmd_SET %}
+    \newcategory{\SET}   {}{S}{ET}
+%{% endif %}
+%{% if cmd_Sh %}
+    \newcategory{\Sh}    {}{S}{h}
+%{% endif %}
+%{% if cmd_sSet %}
+    \newcategory{\sSet}  {s}{S}{et}
+%{% endif %}
+%{% if cmd_Top %}
+    \newcategory{\Top}   {}{T}{op}
+%{% endif %}
+%{% if cmd_Vect %}
+    \newcategory{\Vect}  {}{V}{ect}
+%{% endif %}
+
+%% --------------------
+%% cat style
+%% --------------------
+
+%{% if cmd_catA %}
+    \newcommand{\catA}{\@cat{a}}
+%{% endif %}
+%{% if cmd_catB %}
+    \newcommand{\catB}{\@cat{b}}
+%{% endif %}
+%{% if cmd_catC %}
+    \newcommand{\catC}{\@cat{c}}
+%{% endif %}
+%{% if cmd_catD %}
+    \newcommand{\catD}{\@cat{d}}
+%{% endif %}
+%{% if cmd_catE %}
+    \newcommand{\catE}{\@cat{e}}
+%{% endif %}
+%{% if cmd_catF %}
+    \newcommand{\catF}{\@cat{f}}
+%{% endif %}
+%{% if cmd_catG %}
+    \newcommand{\catG}{\@cat{g}}
+%{% endif %}
+%{% if cmd_catH %}
+    \newcommand{\catH}{\@cat{h}}
+%{% endif %}
+%{% if cmd_catI %}
+    \newcommand{\catI}{\@cat{i}}
+%{% endif %}
+%{% if cmd_catJ %}
+    \newcommand{\catJ}{\@cat{j}}
+%{% endif %}
+%{% if cmd_catK %}
+    \newcommand{\catK}{\@cat{k}}
+%{% endif %}
+%{% if cmd_catL %}
+    \newcommand{\catL}{\@cat{l}}
+%{% endif %}
+%{% if cmd_catM %}
+    \newcommand{\catM}{\@cat{m}}
+%{% endif %}
+%{% if cmd_catN %}
+    \newcommand{\catN}{\@cat{n}}
+%{% endif %}
+%{% if cmd_catO %}
+    \newcommand{\catO}{\@cat{o}}
+%{% endif %}
+%{% if cmd_catP %}
+    \newcommand{\catP}{\@cat{p}}
+%{% endif %}
+%{% if cmd_catQ %}
+    \newcommand{\catQ}{\@cat{q}}
+%{% endif %}
+%{% if cmd_catR %}
+    \newcommand{\catR}{\@cat{r}}
+%{% endif %}
+%{% if cmd_catS %}
+    \newcommand{\catS}{\@cat{s}}
+%{% endif %}
+%{% if cmd_catT %}
+    \newcommand{\catT}{\@cat{t}}
+%{% endif %}
+%{% if cmd_catU %}
+    \newcommand{\catU}{\@cat{u}}
+%{% endif %}
+%{% if cmd_catV %}
+    \newcommand{\catV}{\@cat{v}}
+%{% endif %}
+%{% if cmd_catW %}
+    \newcommand{\catW}{\@cat{w}}
+%{% endif %}
+%{% if cmd_catX %}
+    \newcommand{\catX}{\@cat{x}}
+%{% endif %}
+%{% if cmd_catY %}
+    \newcommand{\catY}{\@cat{y}}
+%{% endif %}
+%{% if cmd_catZ %}
+    \newcommand{\catZ}{\@cat{z}}
+%{% endif %}
+%{% if cmd_catAA %}
+    \newcommand{\catAA}{\@cat{A}}
+%{% endif %}
+%{% if cmd_catBB %}
+    \newcommand{\catBB}{\@cat{B}}
+%{% endif %}
+%{% if cmd_catCC %}
+    \newcommand{\catCC}{\@cat{C}}
+%{% endif %}
+%{% if cmd_catDD %}
+    \newcommand{\catDD}{\@cat{D}}
+%{% endif %}
+%{% if cmd_catEE %}
+    \newcommand{\catEE}{\@cat{E}}
+%{% endif %}
+%{% if cmd_catFF %}
+    \newcommand{\catFF}{\@cat{F}}
+%{% endif %}
+%{% if cmd_catGG %}
+    \newcommand{\catGG}{\@cat{G}}
+%{% endif %}
+%{% if cmd_catHH %}
+    \newcommand{\catHH}{\@cat{H}}
+%{% endif %}
+%{% if cmd_catII %}
+    \newcommand{\catII}{\@cat{I}}
+%{% endif %}
+%{% if cmd_catJJ %}
+    \newcommand{\catJJ}{\@cat{J}}
+%{% endif %}
+%{% if cmd_catKK %}
+    \newcommand{\catKK}{\@cat{K}}
+%{% endif %}
+%{% if cmd_catLL %}
+    \newcommand{\catLL}{\@cat{L}}
+%{% endif %}
+%{% if cmd_catMM %}
+    \newcommand{\catMM}{\@cat{M}}
+%{% endif %}
+%{% if cmd_catNN %}
+    \newcommand{\catNN}{\@cat{N}}
+%{% endif %}
+%{% if cmd_catOO %}
+    \newcommand{\catOO}{\@cat{O}}
+%{% endif %}
+%{% if cmd_catPP %}
+    \newcommand{\catPP}{\@cat{P}}
+%{% endif %}
+%{% if cmd_catQQ %}
+    \newcommand{\catQQ}{\@cat{Q}}
+%{% endif %}
+%{% if cmd_catRR %}
+    \newcommand{\catRR}{\@cat{R}}
+%{% endif %}
+%{% if cmd_catSS %}
+    \newcommand{\catSS}{\@cat{S}}
+%{% endif %}
+%{% if cmd_catTT %}
+    \newcommand{\catTT}{\@cat{T}}
+%{% endif %}
+%{% if cmd_catUU %}
+    \newcommand{\catUU}{\@cat{U}}
+%{% endif %}
+%{% if cmd_catVV %}
+    \newcommand{\catVV}{\@cat{V}}
+%{% endif %}
+%{% if cmd_catWW %}
+    \newcommand{\catWW}{\@cat{W}}
+%{% endif %}
+%{% if cmd_catXX %}
+    \newcommand{\catXX}{\@cat{X}}
+%{% endif %}
+%{% if cmd_catYY %}
+    \newcommand{\catYY}{\@cat{Y}}
+%{% endif %}
+%{% if cmd_catZZ %}
+    \newcommand{\catZZ}{\@cat{Z}}
+%{% endif %}
+
+}{}
+
+%% ----------------------------------------
+%% Arrows
+%% ----------------------------------------
+
+\ifthenelse{\boolean{@b_maths_use_arrows}}{
+
+%{% if cmd_incl %}
+    \newcommand{\incl}{\hookrightarrow}
+%{% endif %}
+%{% if cmd_leftincl %}
+    \newcommand{\leftincl}{\hookleftarrow}
+%{% endif %}
+%{% if cmd_longincl %}
+    \newcommand{\longincl}{\lhook\joinrel\relbar\joinrel\rightarrow}
+%{% endif %}
+%{% if cmd_longleftincl %}
+    \newcommand{\longleftincl}{\leftarrow\joinrel\relbar\joinrel\rhook}
+%{% endif %}
+%{% if cmd_xincl %}
+	\newcommand{\xincl}{\xhookrightarrow}
+%{% endif %}
+%{% if cmd_xleftincl %}
+	\newcommand{\xleftincl}{\xhookleftarrow}
+%{% endif %}
+
+	\renewcommand{\twoheadrightarrow}{\rightarrow\mathrel{\mkern-14mu}\rightarrow}
+	\renewcommand{\twoheadleftarrow}{\leftarrow\mathrel{\mkern-14mu}\leftarrow}
+%{% if cmd_longtwoheadrightarrow %}
+	\newcommand{\longtwoheadrightarrow}{\relbar\joinrel\twoheadrightarrow}
+%{% endif %}
+%{% if cmd_longtwoheadleftarrow %}
+	\newcommand{\longtwoheadleftarrow}{\twoheadleftarrow\joinrel\relbar}
+%{% endif %}
+%{% if cmd_xtwoheadrightarrow %}
+	\newcommand{\xtwoheadrightarrow}[2][]{
+%{% endif %}
+	  \xrightarrow[#1]{#2}\mathrel{\mkern-14mu}\rightarrow
+	}
+%{% if cmd_xtwoheadleftarrow %}
+	\newcommand{\xtwoheadleftarrow}[2][]{
+	  \leftarrow\mathrel{\mkern-14mu}\xleftarrow[#1]{#2}
+    }
+%{% endif %}
+
+%{% if cmd_epi %}
+    \newcommand{\epi}{\twoheadrightarrow}
+%{% endif %}
+%{% if cmd_leftepi %}
+    \newcommand{\leftepi}{\twoheadleftarrow}
+%{% endif %}
+%{% if cmd_longepi %}
+    \newcommand{\longepi}{\longtwoheadrightarrow}
+%{% endif %}
+%{% if cmd_longleftepi %}
+    \newcommand{\longleftepi}{\longtwoheadleftarrow}
+%{% endif %}
+%{% if cmd_xepi %}
+    \newcommand{\xepi}{\xtwoheadrightarrow}
+%{% endif %}
+%{% if cmd_xleftepi %}
+    \newcommand{\xleftepi}{\xtwoheadleftarrow}
+%{% endif %}
+
+%{% if cmd_mono %}
+    \newcommand{\mono}{\rightarrowtail}
+%{% endif %}
+%{% if cmd_longmono %}
+    \newcommand{\longmono}{
+        \stackrel{
+            \begin{tikzpicture}
+                \draw[>->] (0, 0) -- (0.55, 0);
+            \end{tikzpicture}
+        }{}
+    }
+%{% endif %}
+
+%{% if cmd_longmultimap %}
+    \newcommand{\longmultimap}{\relbar\joinrel\multimap}
+%{% endif %}
+
+}{}
+
+%% ----------------------------------------
+%% Other / handy
+%% ----------------------------------------
+
+\ifthenelse{\boolean{@b_maths_use_misc}}{
+
+    \renewcommand{\epsilon}{\varepsilon}
+
+    \ifthenelse{\boolean{@b_extpack_use_xecjk}}{
+%{% if cmd_yoneda %}
+    	\newcommand{\yoneda}{\text{よ}}
+%{% endif %}
+    }{
+%{% if cmd_yoneda %}
+	    \newcommand{\yoneda}{\mathsf{y}}
+%{% endif %}
+    }
+
+    % Define custom big operators, whose size are that of \sum
+    % 9000+ thanks to egreg, https://tex.stackexchange.com/questions/23432/how-to-create-my-own-math-operator-with-limits
+    \DeclareRobustCommand\@bigop[1]{
+    	\mathop{\vphantom{\sum}\mathpalette\@bigop@{#1}}\slimits@
+    }
+    \newcommand{\@bigop@}[2]{
+    	\vcenter{
+    		\sbox\z@{$#1\sum$}
+    		\hbox{\resizebox{\ifx#1\displaystyle.9\fi\dimexpr\ht\z@+\dp\z@}{!}{$\m@th#2$}}
+    	}
+    }
+%{% if cmd_DeclareBigOperator %}
+    \newcommand{\DeclareBigOperator}[2]{\newcommand{#1}{\DOTSB\@bigop{#2}}}
+%{% endif %}
+
+    % Defines a rotated symbol that sizes properly
+%{% if cmd_DeclareRotatedSymbol %}
+    \newcommand{\DeclareRotatedSymbol}[3]{
+    	\newcommand{#1}{{
+    		\mathchoice{
+    			\rotatebox[origin=c]{#2}{$\displaystyle{#3}$}
+    		}{
+    			\rotatebox[origin=c]{#2}{$\textstyle{#3}$}
+    		}{
+	    		\rotatebox[origin=c]{#2}{$\scriptstyle{#3}$}
+	    	}{
+		    	\rotatebox[origin=c]{#2}{$\scriptscriptstyle{#3}$}
+		    }}
+		}
+    }
+%{% endif %}
+
+}{}
