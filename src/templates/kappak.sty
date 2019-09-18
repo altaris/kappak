@@ -42,9 +42,9 @@
 %% Require XeTeX
 %% ----------------------------------------
 
-% \RequirePackage{iftex}
+%\RequirePackage{iftex}
 
-% \RequireXeTeX
+%\RequireXeTeX
 
 %% ----------------------------------------
 %% Required packages
@@ -83,9 +83,9 @@
         \newcommand{#1}{#2}
     }{
         \PackageWarning{kappak-v4}{Warning : command \protect#1 already defined. Skipping definition, errors may occur later !}
-    } % \ifthenelse{\isundefined{#2}}
+    }
 
-} % \newcommand{\@tryNewCommand}[2]{
+}
 
 
 %% ----------------------------------------
@@ -698,7 +698,7 @@
     \DeclareMathOperator {\tr}    {tr}
 %{% endif %}
 
-}{} % \ifthenelse{\boolean{@b_maths_use_operators}}{
+}{}
 
 %% ----------------------------------------
 %% Categories
@@ -744,7 +744,7 @@
             \newcommand{#1}{\@cat{#2#3#4}}
         }
 %{% endif %}
-    } % \ifthenelse{\equal{\@categoryStyle}{script}}{
+    }
 
 %% --------------------
 %% Some categories
@@ -972,7 +972,7 @@
     \newcommand{\catZZ}{\@cat{Z}}
 %{% endif %}
 
-}{} % \ifthenelse{\boolean{@b_maths_use_categories}}{
+}{}
 
 %% ----------------------------------------
 %% Arrows
@@ -1054,7 +1054,7 @@
     \newcommand{\longmultimap}{\relbar\joinrel\multimap}
 %{% endif %}
 
-}{} % \ifthenelse{\boolean{@b_maths_use_arrows}}{
+}{}
 
 %% ----------------------------------------
 %% Other / handy
@@ -1106,7 +1106,7 @@
     }
 %{% endif %}
 
-}{} % \ifthenelse{\boolean{@b_maths_use_misc}}{
+}{}
 
 %% -----------------------------------------------------------------------------
 %%
@@ -1117,7 +1117,7 @@
 \ifthenelse{\boolean{@b_use_misc}}{
 
     % Prevents annoying errors upon non printable chars
-    % \DeclareUnicodeCharacter{00A0}{ }
+    %\DeclareUnicodeCharacter{00A0}{ }
 
     % I never remember that thing so here's a command
 %{% if cmd_kbibliography %}
@@ -1139,7 +1139,7 @@
     }
 %{% endif %}
 
-}{} % \ifthenelse{\boolean{@b_use_misc}}{
+}{}
 
 %% -----------------------------------------------------------------------------
 %%
@@ -1558,7 +1558,7 @@
 %{% if cmd_bbK %}
     \newcommand{\bbK}{\Bbbk}
 %{% endif %}
-} % \ifthenelse{\equal{\@bbStyle}{bbold}}{
+}
 %{% if cmd_bbAA %}
     \newcommand{\bbAA}{\@bb{A}}
 %{% endif %}
@@ -2282,7 +2282,7 @@
     \newcommand{\sfZZ}{\mathsf{Z}}
 %{% endif %}
 
-}{} % \ifthenelse{\boolean{@b_maths_use_characterStyles}}{
+}{}
 
 %% --------------------
 %% Styles des lettres greques
@@ -5694,7 +5694,7 @@
     \newcommand{\oOmega}{\mathring{\Omega}}
 %{% endif %}
 
-}{} % \ifthenelse{\boolean{@b_maths_use_characterAccents}}{
+}{}
 
 %% -----------------------------------------------------------------------------
 %%
@@ -5780,7 +5780,7 @@
         \ifthenelse{\equal{#4}{<-c}}{\def\@diagAD{<-left hook}}{}
         \ifthenelse{\equal{#4}{|->}}{\def\@diagAD{|->}}{}
         \ifthenelse{\equal{#4}{<-|}}{\def\@diagAD{<-|}}{}
-    } % \newcommand{\diagramarrows}[4]{
+    }
 %{% endif %}
 
 %{% if cmd_diagramlines %}
@@ -5805,7 +5805,7 @@
         \ifthenelse{\equal{#4}{-}}{\def\@diagLD{solid}}{}
         \ifthenelse{\equal{#4}{..}}{\def\@diagLD{dotted}}{}
         \ifthenelse{\equal{#4}{--}}{\def\@diagLD{dashed}}{}
-    } % \newcommand{\diagramlines}[4]{
+    }
 %{% endif %}
 
 %% --------------------
@@ -6123,7 +6123,7 @@
     }
 %{% endif %}
 
-}{} % \ifthenelse{\boolean{@b_extpack_use_tikz}}{
+}{}
 
 %% -----------------------------------------------------------------------------
 %%
@@ -6203,7 +6203,7 @@
     }
 %{% endif %}
 
-} % \ifthenelse{\equal{\@titlePageStyle}{normal}}{}{
+}
 
 
 %% ----------------------------------------
@@ -6229,7 +6229,7 @@
             \end{center}
         \end{titlepage}
     }
-}{} % \ifthenelse{\equal{\@titlePageStyle}{classic}}{
+}{}
 
 %% --------------------
 %% bar
@@ -6254,7 +6254,7 @@
             \end{center}
         \end{titlepage}
     }
-}{} % \ifthenelse{\equal{\@titlePageStyle}{bar}}{
+}{}
 
 %% --------------------
 %% gm : Gentle madness
@@ -6281,7 +6281,7 @@
             \vfill
         \end{titlepage}
     }
-}{} % \ifthenelse{\equal{\@titlePageStyle}{gm}}{
+}{}
 
 %% --------------------
 %% gb : grey box
@@ -6311,7 +6311,7 @@
             \end{flushright}
         \end{titlepage}
     }
-}{} % \ifthenelse{\equal{\@titlePageStyle}{gb}}{
+}{}
 
 %% ----------------------------------------
 %% Titles styles
@@ -6357,7 +6357,7 @@
             \Huge
         }
 
-}{} % \ifthenelse{\equal{\@chapterStyle}{cb}}{
+}{}
 
 %% --------------------
 %% rb : Right bar
@@ -6393,7 +6393,7 @@
         {0.5em}
         {}
 
-}{} % \ifthenelse{\equal{\@chapterStyle}{rb}}{
+}{}
 
 %% ----------------------------------------
 %% Header / footer style
@@ -6572,7 +6572,7 @@
         \def\@theoremsName          {theorems}
 %{% endif %}
 
-    }{} % \ifthenelse{\equal{\@language}{english}}{
+    }{}
 
     \ifthenelse{\equal{\@language}{french}}{
 %{% if env_assertion %}
@@ -6696,7 +6696,7 @@
         \def\@theoremsName          {th\'{e}or\`{e}mes}
 %{% endif %}
 
-    }{} % \ifthenelse{\equal{\@language}{french}}{
+    }{}
 
     \numberwithin{equation}{section}
 %{% if env_assertion %}
@@ -7051,7 +7051,7 @@
         \end{minipage}
         \vspace*{\stretch{3}}
         \clearpage
-    } % \newenvironment{dedication}{
+    }
 %{% endif %}
 
 %{% if env_assertion %}
@@ -7164,7 +7164,7 @@
     \crefname{theorem}{\@theoremName}{\@theoremsName}
 %{% endif %}
 
-}{} % \ifthenelse{\boolean{@b_maths_use_theoremEnvs}}{
+}{}
 
 %% ----------------------------------------
 

@@ -2,11 +2,6 @@
 *.code-workspace
 .vscode/
 
-## autocompletion files
-kappak.cwl
-kappak.sublime-completions
-texmaker.txt
-
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof

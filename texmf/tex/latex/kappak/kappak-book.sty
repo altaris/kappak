@@ -21,7 +21,7 @@
 %% SOFTWARE.
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{kappak-book}[2019/09/17 kappak-book]
+\ProvidesPackage{kappak-book}[2019/09/18 kappak-book]
 \makeatletter
 
 %% ----------------------------------------
@@ -42,9 +42,9 @@
 %% Require XeTeX
 %% ----------------------------------------
 
-% \RequirePackage{iftex}
+%\RequirePackage{iftex}
 
-% \RequireXeTeX
+%\RequireXeTeX
 
 %% ----------------------------------------
 %% Required packages
@@ -75,9 +75,9 @@
         \newcommand{#1}{#2}
     }{
         \PackageWarning{kappak-v4}{Warning : command \protect#1 already defined. Skipping definition, errors may occur later !}
-    } % \ifthenelse{\isundefined{#2}}
+    }
 
-} % \newcommand{\@tryNewCommand}[2]{
+}
 
 
 %% ----------------------------------------
@@ -564,7 +564,7 @@
     \DeclareMathOperator {\Tor}   {Tor}
     \DeclareMathOperator {\tr}    {tr}
 
-}{} % \ifthenelse{\boolean{@b_maths_use_operators}}{
+}{}
 
 %% ----------------------------------------
 %% Categories
@@ -602,7 +602,7 @@
         \newcommand{\newcategory}[4]{
             \newcommand{#1}{\@cat{#2#3#4}}
         }
-    } % \ifthenelse{\equal{\@categoryStyle}{script}}{
+    }
 
 %% --------------------
 %% Some categories
@@ -686,7 +686,7 @@
     \newcommand{\catYY}{\@cat{Y}}
     \newcommand{\catZZ}{\@cat{Z}}
 
-}{} % \ifthenelse{\boolean{@b_maths_use_categories}}{
+}{}
 
 %% ----------------------------------------
 %% Arrows
@@ -730,7 +730,7 @@
 
     \newcommand{\longmultimap}{\relbar\joinrel\multimap}
 
-}{} % \ifthenelse{\boolean{@b_maths_use_arrows}}{
+}{}
 
 %% ----------------------------------------
 %% Other / handy
@@ -774,7 +774,7 @@
 		}
     }
 
-}{} % \ifthenelse{\boolean{@b_maths_use_misc}}{
+}{}
 
 %% -----------------------------------------------------------------------------
 %%
@@ -785,7 +785,7 @@
 \ifthenelse{\boolean{@b_use_misc}}{
 
     % Prevents annoying errors upon non printable chars
-    % \DeclareUnicodeCharacter{00A0}{ }
+    %\DeclareUnicodeCharacter{00A0}{ }
 
     % I never remember that thing so here's a command
     \newcommand{\kbibliography}{
@@ -795,7 +795,7 @@
     }
 
 
-}{} % \ifthenelse{\boolean{@b_use_misc}}{
+}{}
 
 %% -----------------------------------------------------------------------------
 %%
@@ -952,7 +952,7 @@
     \newcommand{\bbZ}{\@bb{z}}
 }{
     \newcommand{\bbK}{\Bbbk}
-} % \ifthenelse{\equal{\@bbStyle}{bbold}}{
+}
     \newcommand{\bbAA}{\@bb{A}}
     \newcommand{\bbBB}{\@bb{B}}
     \newcommand{\bbCC}{\@bb{C}}
@@ -1208,7 +1208,7 @@
     \newcommand{\sfYY}{\mathsf{Y}}
     \newcommand{\sfZZ}{\mathsf{Z}}
 
-}{} % \ifthenelse{\boolean{@b_maths_use_characterStyles}}{
+}{}
 
 %% --------------------
 %% Styles des lettres greques
@@ -2436,7 +2436,7 @@
     \newcommand{\oPsi}{\mathring{\Psi}}
     \newcommand{\oOmega}{\mathring{\Omega}}
 
-}{} % \ifthenelse{\boolean{@b_maths_use_characterAccents}}{
+}{}
 
 %% -----------------------------------------------------------------------------
 %%
@@ -2519,7 +2519,7 @@
         \ifthenelse{\equal{#4}{<-c}}{\def\@diagAD{<-left hook}}{}
         \ifthenelse{\equal{#4}{|->}}{\def\@diagAD{|->}}{}
         \ifthenelse{\equal{#4}{<-|}}{\def\@diagAD{<-|}}{}
-    } % \newcommand{\diagramarrows}[4]{
+    }
 
     \newcommand{\diagramlines}[4]{
         \ifthenelse{\equal{#1}{}}{\def\@diagLA{solid}}{}
@@ -2542,7 +2542,7 @@
         \ifthenelse{\equal{#4}{-}}{\def\@diagLD{solid}}{}
         \ifthenelse{\equal{#4}{..}}{\def\@diagLD{dotted}}{}
         \ifthenelse{\equal{#4}{--}}{\def\@diagLD{dashed}}{}
-    } % \newcommand{\diagramlines}[4]{
+    }
 
 %% --------------------
 %% Reset styles
@@ -2831,7 +2831,7 @@
         \end{tikzpicture}
     }
 
-}{} % \ifthenelse{\boolean{@b_extpack_use_tikz}}{
+}{}
 
 %% -----------------------------------------------------------------------------
 %%
@@ -2891,7 +2891,7 @@
         }
     }
 
-} % \ifthenelse{\equal{\@titlePageStyle}{normal}}{}{
+}
 
 
 %% ----------------------------------------
@@ -2917,7 +2917,7 @@
             \end{center}
         \end{titlepage}
     }
-}{} % \ifthenelse{\equal{\@titlePageStyle}{classic}}{
+}{}
 
 %% --------------------
 %% bar
@@ -2942,7 +2942,7 @@
             \end{center}
         \end{titlepage}
     }
-}{} % \ifthenelse{\equal{\@titlePageStyle}{bar}}{
+}{}
 
 %% --------------------
 %% gm : Gentle madness
@@ -2969,7 +2969,7 @@
             \vfill
         \end{titlepage}
     }
-}{} % \ifthenelse{\equal{\@titlePageStyle}{gm}}{
+}{}
 
 %% --------------------
 %% gb : grey box
@@ -2999,7 +2999,7 @@
             \end{flushright}
         \end{titlepage}
     }
-}{} % \ifthenelse{\equal{\@titlePageStyle}{gb}}{
+}{}
 
 %% ----------------------------------------
 %% Titles styles
@@ -3045,7 +3045,7 @@
             \Huge
         }
 
-}{} % \ifthenelse{\equal{\@chapterStyle}{cb}}{
+}{}
 
 %% --------------------
 %% rb : Right bar
@@ -3081,7 +3081,7 @@
         {0.5em}
         {}
 
-}{} % \ifthenelse{\equal{\@chapterStyle}{rb}}{
+}{}
 
 %% ----------------------------------------
 %% Header / footer style
@@ -3180,7 +3180,7 @@
         \def\@theoremName           {theorem}
         \def\@theoremsName          {theorems}
 
-    }{} % \ifthenelse{\equal{\@language}{english}}{
+    }{}
 
     \ifthenelse{\equal{\@language}{french}}{
         \def\@assertionName         {assertion}
@@ -3224,7 +3224,7 @@
         \def\@theoremName           {th\'{e}or\`{e}me}
         \def\@theoremsName          {th\'{e}or\`{e}mes}
 
-    }{} % \ifthenelse{\equal{\@language}{french}}{
+    }{}
 
     \numberwithin{equation}{section}
     \newaliascnt{assertion}{equation}
@@ -3390,7 +3390,7 @@
         \end{minipage}
         \vspace*{\stretch{3}}
         \clearpage
-    } % \newenvironment{dedication}{
+    }
 
     \aliascntresetthe{assertion}
     \aliascntresetthe{axiom}
@@ -3430,7 +3430,7 @@
     \crefname{terminology}{\@terminologyName}{\@terminologiesName}
     \crefname{theorem}{\@theoremName}{\@theoremsName}
 
-}{} % \ifthenelse{\boolean{@b_maths_use_theoremEnvs}}{
+}{}
 
 %% ----------------------------------------
 

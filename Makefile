@@ -13,7 +13,7 @@ autocompletion:
 	installation instructions."
 
 check:
-	mypy src/generate.py
+	mypy src/*.py
 
 clean:
 	rm $(LOCAL_KAPPAK_DIR)/*.sty
