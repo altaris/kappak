@@ -35,6 +35,7 @@ class AbstractGenerator:
         raise NotImplementedError
 
     def generate(self, output_file_name: str) -> None:
+        """Generates an autocompletion file."""
         completions = []  # type: List[str]
         for definition in self._parameters['definitions']:
             record = self._parameters['definitions'][definition]
@@ -117,6 +118,7 @@ class TexstudioGenerator(AbstractGenerator):
 
 
 def generate_autocompletion(parameters: JsonDocument) -> None:
+    """Entry point."""
     SublimeGenerator(parameters).generate('kappak.sublime-completions')
     TexmakerGenerator(parameters).generate('kappak.texmaker.txt')
     TexstudioGenerator(parameters).generate('kappak.cwl')
