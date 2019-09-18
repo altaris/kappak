@@ -4,6 +4,10 @@
 
 import json
 
+from generate_autocompletion import (
+    generate_autocompletion
+)
+
 from generate_sty import (
     generate_sty
 )
@@ -17,6 +21,7 @@ def main() -> None:
     with open(PARAMETER_FILE, 'r') as parameters_file:
         parameters = json.loads(parameters_file.read())
     generate_sty(parameters)
+    generate_autocompletion(parameters)
 
 
 if __name__ == '__main__':
