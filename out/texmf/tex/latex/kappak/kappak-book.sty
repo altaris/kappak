@@ -21,7 +21,7 @@
 %% SOFTWARE.
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{kappak-book}[2019/09/18 kappak-book]
+\ProvidesPackage{kappak-book}[2019/09/19 kappak-book]
 \makeatletter
 
 \def\@kappakVersion{0412}   % Current version of kappak
@@ -134,16 +134,17 @@
 %% variables declarations
 %% ----------------------------------------
 
-\def\@bbStyle           {normal}
-\def\@bibliographyStyle {plain}
-\def\@chapterStyle      {normal}
-\def\@fontSet           {normal}
-\def\@headerFooterStyle {normal}
-\def\@language          {english}
-\def\@margins           {normal}
-\def\@scriptStyle       {normal}
-\def\@titlePageStyle    {normal}
-\def\@categoryStyle     {script}
+\def\@bbStyle               {normal}
+\def\@bibliographyStyle     {plain}
+\def\@chapterStyle          {normal}
+\def\@fontSet               {normal}
+\def\@headerFooterStyle     {normal}
+\def\@language              {english}
+\def\@margins               {normal}
+\def\@numberTheoremsWithin  {section}
+\def\@scriptStyle           {normal}
+\def\@titlePageStyle        {normal}
+\def\@categoryStyle         {script}
 
 %% -----------------------------------------------------------------------------
 %%
@@ -381,6 +382,13 @@
 % opt margins: Sets the margins. Supports \texttt{normal} (default), \texttt{reduced}, and \texttt{minimal}.
 \define@key{kappak-book}{margins}[normal]{
     \def\@margins{#1}
+}
+
+%% numberTheoremsWithin
+% opt numberTheoremsWithin: Any counter, defaults to \texttt{section}.
+\define@key{kappak}{numberTheoremsWithin}[section]{
+    % int @numberTheoremsWithin:
+    \def\@numberTheoremsWithin{#1}
 }
 
 %% scriptStyle
@@ -3210,7 +3218,7 @@
 
     }{}
 
-    \numberwithin{equation}{section}
+    \numberwithin{equation}{\@numberTheoremsWithin}
     \newaliascnt{assertion}{equation}
     \newaliascnt{axiom}{equation}
     \newaliascnt{conjecture}{equation}
