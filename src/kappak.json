@@ -9,6 +9,125 @@
         "mimosis"
     ],
 
+    "options": {
+        "_default": {
+            "doc": "",
+            "vals": []
+        },
+        "alpha": {
+            "doc": "Do not use."
+        },
+        "bellatrix": {
+            "doc": "Do not use."
+        },
+        "cortana": {
+            "doc": "Do not use."
+        },
+        "durotan": {
+            "doc": "Do not use."
+        },
+        "eientei": {
+            "doc": "Mandatory."
+        },
+        "-autopackages": {
+            "doc": "Tells ``kappak` to not automatically include packages."
+        },
+        "+maths": {
+            "doc": "Use all maths commands."
+        },
+        "+maths.arrows": {
+            "doc": "Use mathematical arrows commands."
+        },
+        "+maths.categories": {
+            "doc": "Use category theory commands."
+        },
+        "+maths.characterAccents": {
+            "doc": "Use mathematical character accent commands."
+        },
+        "+maths.characterStyles": {
+            "doc": "Use mathematical character styles commands."
+        },
+        "+maths.misc": {
+            "doc": "Use mathematical miscallenous commands."
+        },
+        "+maths.operators": {
+            "doc": "Use mathematical operators commands."
+        },
+        "+maths.theoremEnvs": {
+            "doc": "Use theorem environments."
+        },
+        "-maths.theoremStyles": {
+            "doc": "Do not use theorem styles for theorem environments."
+        },
+        "-misc": {
+            "doc": "Do not use `kappak` miscallenous commands."
+        },
+        "+stix": {
+            "doc": "Use `stix`."
+        },
+        "+tikz": {
+            "doc": "Use `tikz`."
+        },
+        "tikz.externalize": {
+            "doc": "(EXPERIMENTAL) Use `tikz` compilation cache."
+        },
+        "+xecjk": {
+            "doc": "Use `xecjk`."
+        },
+        "bbStyle": {
+            "doc": "Sets the mathematical blackboard letter style.",
+            "vals": ["normal", "bbold"]
+        },
+        "bibliographyStyle": {
+            "doc": "Sets the bibliography style. Only relevant if you use `kdocument` instead of the standard `document` environment.",
+            "vals": ["_any bibliograph style_"]
+        },
+        "categoryStyle": {
+            "doc": "Sets the category style for category theory.",
+            "vals": ["script", "bf", "rm", "sf", "tt"]
+        },
+        "chapterStyle": {
+            "doc": "Sets the chapter style.",
+            "vals": ["normal", "cb", "rb"]
+        },
+        "fontSet": {
+            "doc": "Sets the font set.",
+            "vals": ["normal", "alternate", "xcharter"]
+        },
+        "headerFooterStyle": {
+            "doc": "Sets the header and footer style.",
+            "vals": ["normal", "classic", "cb", "empty"]
+        },
+        "language": {
+            "doc": "Sets the language of the document.",
+            "vals": ["english", "french"]
+        },
+        "lineSpacing": {
+            "doc": "Sets the line spacing.",
+            "vals": ["_any numerical value_"]
+        },
+        "margins": {
+            "doc": "Sets the margins.",
+            "vals": ["normal", "reduced", "minimal"]
+        },
+        "numberTheoremsWithin": {
+            "doc": "What counter theorems should be numbered from.",
+            "vals": ["_any counter, defaults to section_"]
+        },
+        "scriptStyle": {
+            "doc": "Sets the mathematical script style.",
+            "vals": ["normal", "euler", "rsfs"]
+        },
+        "titlePageStyle": {
+            "doc": "Sets the title page style.",
+            "vals": ["normal", "classic", "bar", "gm", "gb"]
+        },
+        "version": {
+            "doc": "Do not use.",
+            "vals": ["_any version number_"]
+        }
+    },
+
     "packages": {
         "_default": {
             "exclude": []
@@ -53,6 +172,7 @@
 
         "_default": {
             "argc": 0,
+            "doc": "",
             "exclude": [],
             "requires": []
         },
