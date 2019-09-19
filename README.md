@@ -8,28 +8,36 @@ provided under the [MIT](http://opensource.org/licenses/MIT) license.
 
 # [Wiki](https://github.com/altaris/kappak/wiki)
 
-Reasonably:tm: up to date.
+Reasonably up to date.
 
-# Installation :package:
+# Installation
 
-* On Linux: execute the following commands in your favorite terminal:
-  ```sh
-  git clone https://github.com/altaris/kappak.git
-  cd kappak
-  make install
-  ```
-  You're all set!
-* On Winslows: create a folder `this/is/a/path/tex/latex` and clone the
-  repository using git:
-  ```sh
-  git clone https://github.com/altaris/kappak.git
-  ```
-  Alternatively, you can download a zip of this repository, and extract the
-  content of `/out/texmf/tex/latex/kappak/` in
-  `this/is/a/path/tex/latex/kappak`. Then, open the `Settings(Admin)` program.
-  Under the `Roots` tab, add `this/is/a/path`. Under the `General` tab, click
-  on `Refresh FNDB`, then on `Update Formats`.
-* On MacOS: no idea.
+## Linux
+
+On Linux: execute the following commands in your favorite terminal:
+
+    git clone https://github.com/altaris/kappak.git
+    cd kappak
+    make install
+
+You're all set!
+
+## Windows
+
+On Winslows: create a folder `this/is/a/path/tex/latex` and clone the
+repository using git:
+
+    git clone https://github.com/altaris/kappak.git
+
+Alternatively, you can download a zip of this repository, and extract the
+content of `/out/texmf/tex/latex/kappak/` in `this/is/a/path/tex/latex/kappak`.
+Then, open the `Settings(Admin)` program. Under the `Roots` tab, add
+`this/is/a/path`. Under the `General` tab, click on `Refresh FNDB`, then on
+`Update Formats`.
+
+## MacOS
+
+No idea.
 
 # Autocompletion files
 

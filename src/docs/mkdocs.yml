@@ -1,0 +1,4 @@
+site_name: kappak
+nav:
+  - Readme: index.md
+  - Home: home.md

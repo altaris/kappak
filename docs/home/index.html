@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Home - kappak</title>
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="..">kappak</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="..">Readme</a>
+                            </li>
+                            <li class="active">
+                                <a href="./">Home</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="..">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="disabled">
+                                <a rel="prev" >
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#what">What ?</a></li>
+        <li class="main "><a href="#moar-diy-contribute">Moar &amp; DIY &amp; Contribute</a></li>
+        <li class="main "><a href="#hey-i-have-time-to-loose">Hey I have time to loose :)</a></li>
+        <li class="main "><a href="#already-whatched-it">Already whatched it</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="what">What ?</h1>
+<p>As previously written on the readme file of the repository (have you read it
+yet ?), this package regroups functionalities I find useful, from general style
+of LaTeX documents (title page, chatper style, header / footer, ...), to more
+specific maths related commands (commutative diagrams, category theory, ...).
+Consequelty, it might not be as useful for you as it is for me, but you are
+welcome to give a try ;)</p>
+<p>But what does this package contains ? First of all, it includes common packages
+(<code>babel</code>, <code>inputenc</code>, <code>ams</code> stuff, ...) so as to recude your preamble to the
+minimum. It provides various ways to quickly modify the look of your document
+by passing arguments to the package, so again, minimal code is involved. You'll
+find more about that in the Arguments and Styles pages.</p>
+<p>Then, the functionnality that started the developpment of this package some
+time ago, it offers sorthands for common character styles and accents. I was
+extremely tired of repetedly typing <code>\mathbb{R}</code> each time I wanted to refer to
+real numbers, so I created a specific command for that (namely <code>\bbRR</code>).
+Nothing too fancy here, everyone does it all the time. Nonetheless, I
+generalized this to all letters (including greek letters), and many styles and
+accents, in a command name consistent way. You'll find more about that in the
+Letters section.</p>
+<p>Also, when typesetting mathematical documents, I often needed to define theorem
+environments for non ams standard thing, such as <code>lemma</code>, <code>remark</code>, or
+<code>theorems</code> (with an "s"). Sometimes, said documents were in english, sometime
+in french (yeah I'm french). So I created commands for that too. They are
+explained in the Environments section.</p>
+<p>Of course, everyone has their shordhands for various mathematical commands.
+Mine are documented in the Maths section.</p>
+<p>Finally, my studies requires me to draw commutative diagram quite often. I
+started using xypic, but I quicky realized that tikz offers a more fancy
+rendering. Most of them are quite standard : square, triangular, ... So I
+created commands for that too. Now I can draw them in one command call (or up
+to three if custom arrows or lines are needed). Refer to Tikz section for more
+details.</p>
+<h1 id="moar-diy-contribute">Moar &amp; DIY &amp; Contribute</h1>
+<p>Functionalities come as my needs evolve. And functionalities are present
+because I needed them at some point. I try to keep this package as minimal as
+possible, hence it happens I remove things. I devoted a file for compatibility
+matters, but it's not perfectly working for the moment.</p>
+<p>Also, the maths commands present in this package are more related to algebra,
+topology and category theory. So depending on which subject you are willing to
+typeset using this package, you might find it incomplete for your needs.</p>
+<p>So rather that using it out of the box, you might want to consider diging in
+the code and reusing some part for your own package. Or use it partially using
+arguements, and other packages. Conversely, I, sometime, dig in other's code
+and extract cool stuffs for my own package.</p>
+<p>Feel free to give me some feedback, waffles, and to signal bugs so I can make
+it (the package, we are takling about the package since the beginning of this
+file) event better \o/. Also, don't hesitate to send me some cool code snippets
+I could incorporate. I'm especially thinking about styles, header / footer, and
+title pages.</p>
+<h1 id="hey-i-have-time-to-loose">Hey I have time to loose :)</h1>
+<p>Then I suggest you whach Beaking Bad. GREAT show, though a bit slow. Well, slow
+is a storytelling style, which is mastered in an astonishing way, in my
+opinion. Of course, the actors are incredible. Last but not least, it is a non
+negligeable source of internet meme.</p>
+<h1 id="already-whatched-it">Already whatched it</h1>
+<p>Then maybe it's time for me to talk about disclaimers. I'll start with the
+classical</p>
+<pre><code>This package comes "as is", with no warranty of any kind, and blablabla
+</code></pre>
+<p>Also, as told before, it changes some time. I try to make it retrocompatible so
+as to recompile documents I created some time ago. This is achieved trough the
+version system (explained in the Arguments section). But then again, it doesn't
+perfectly work, and I'm too lazy to look into it when my life doesn't depend on
+recompiling a file I crated last year. Seriously though, the package doesn't
+change in a major way <em>that</em> often. Nonetheless, let me copypasta :</p>
+<pre><code>This package comes "as is", with no warranty of any kind, and blablabla
+</code></pre>
+<p>Also, I put it (the package) under the
+<a href="http://opensource.org/licenses/MIT">MIT</a> license. Why so ? Because it is
+simple and permissive. You can modify, distribute it. You can even use it to
+become rich (commercial use, that is). Well that was more an open door for me,
+'cause I'd like to become rich, but whatever, it's open for you too. What this
+licence also tells is that I cannot be held responsible if you computer takes
+fire while compiling this package.</p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
