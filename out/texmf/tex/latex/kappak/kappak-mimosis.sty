@@ -21,7 +21,7 @@
 %% SOFTWARE.
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{kappak-mimosis}[2019/09/19 kappak-mimosis]
+\ProvidesPackage{kappak-mimosis}[2019/09/22 kappak-mimosis]
 \makeatletter
 
 \def\@kappakVersion{0412}   % Current version of kappak
@@ -231,14 +231,10 @@
 %% Simple
 %% --------------------
 
-%% -autopackages
-% opt -autopackages: Tells \texttt{kappak} to not automatically include packages.
 \DeclareOption{-autopackages}{
     \setboolean{@b_extpack_auto}{false}
 }
 
-%% +maths
-% opt +maths: Use all maths commands.
 \DeclareOption{+maths}{
     \setboolean{@b_maths_use_arrows}{true}
     \setboolean{@b_maths_use_categories}{true}
@@ -249,79 +245,54 @@
     \setboolean{@b_maths_use_theoremEnvs}{true}
 }
 
-%% +maths.arrows
-% opt +maths.arrows: Use mathematical arrows commands.
 \DeclareOption{+maths.arrows}{
     \setboolean{@b_maths_use_arrows}{true}
 }
 
-%% +maths.categories
-% opt +maths.categories: Use category theory commands.
 \DeclareOption{+maths.categories}{
     \setboolean{@b_maths_use_categories}{true}
 }
 
-%% +maths.characterAccents
-% opt +maths.characterAccents: Use mathematical character accent commands.
 \DeclareOption{+maths.characterAccents}{
     \setboolean{@b_maths_use_characterAccents}{true}
 }
 
-%% +maths.characterStyles
-% opt +maths.characterStyles: Use mathematical character styles commands.
 \DeclareOption{+maths.characterStyles}{
     \setboolean{@b_maths_use_characterStyles}{true}
 }
 
-%% +maths.misc
-% opt +maths.misc: Use mathematical miscallenous commands.
 \DeclareOption{+maths.misc}{
     \setboolean{@b_maths_use_misc}{true}
 }
 
-%% +maths.operators
-% opt +maths.operators: Use mathematical operators commands.
 \DeclareOption{+maths.operators}{
     \setboolean{@b_maths_use_operators}{true}
 }
 
-%% +maths.theoremEnvs
-% opt +maths.theoremEnvs: Use theorem environments.
 \DeclareOption{+maths.theoremEnvs}{
     \setboolean{@b_maths_use_theoremEnvs}{true}
 }
 
-%% +maths.theoremStyles
-% opt -maths.theoremStyles: No not use theorem styles for theorem environments.
 \DeclareOption{-maths.theoremStyles}{
     \setboolean{@b_maths_use_theoremStyles}{false}
 }
 
-%% +misc
-% opt -misc: Do not use \texttt{kappak} miscallenous commands.
 \DeclareOption{-misc}{
     \setboolean{@b_use_misc}{false}
 }
 
-%% +stix
-% opt +stix: Use \texttt{stix}.
 \DeclareOption{+stix}{
 	\setboolean{@b_extpack_use_stix}{true}
 }
 
-%% +tikz
-% opt +tikz: Use \texttt{tikz}.
 \DeclareOption{+tikz}{
     \setboolean{@b_extpack_use_tikz}{true}
 }
 
-%% tikz.externalize
-% opt tikz.externalize: Use \texttt{tikz} compilation cache.
 \DeclareOption{tikz.externalize}{
 	\setboolean{@b_extpack_tikz_externalize}{true}
 }
 
-% opt +xecjk: Use \texttt{xecjk}.
 \DeclareOption{+xecjk}{
 	\setboolean{@b_extpack_use_xecjk}{true}
 }
@@ -330,81 +301,54 @@
 %% Keyval
 %% --------------------
 
-%% bbStyle
-% opt bbStyle: Sets the mathematical blackboard letter style. Supports \texttt{normal} (default), and \texttt{bbold}.
 \define@key{kappak-mimosis}{bbStyle}[normal]{
     \def\@bbStyle{#1}
 }
 
-%% bibliographyStyle
-% opt bibliographyStyle: Sets the bibliography style. Only relevant if you use \texttt{kdocument} instead of the standard \texttt{document} environment.
 \define@key{kappak-mimosis}{bibliographyStyle}[normal]{
     \def\@bibliographyStyle{#1}
 }
 
-%% categoryStyle
-% opt categoryStyle: Sets the category style for category theory. Supports \texttt{script} (default), \texttt{bf}, \texttt{rm}, \texttt{sf}, and \texttt{tt}.
 \define@key{kappak-mimosis}{categoryStyle}[script]{
     \def\@categoryStyle{#1}
 }
 
-%% chapterStyle
-% opt chapterStyle: Sets the chapter style. Supports \texttt{normal} (default), \texttt{cb}, and \texttt{rb}.
 \define@key{kappak-mimosis}{chapterStyle}[normal]{
     \def\@chapterStyle{#1}
 }
 
-%% fontset
-% opt fontSet: Sets the font set. Supports \texttt{normal} (default), \texttt{alternate}, and \texttt{xcharter}.
 \define@key{kappak-mimosis}{fontSet}[normal]{
     \def\@fontSet{#1}
 }
 
-%% headerFooterStyle
-% opt headerFooterStyle: Sets the header and footer style. Supports \texttt{normal} (default), \texttt{classic}, \texttt{cb}, and \texttt{empty}.
 \define@key{kappak-mimosis}{headerFooterStyle}[normal]{
     \def\@headerFooterStyle{#1}
 }
 
-%% language
-% opt language: Sets the language of the document. Supports \texttt{english} (default), and \texttt{french}.
 \define@key{kappak-mimosis}{language}[english]{
     \def\@language{#1}
 }
 
-%% lineSpacing
-% opt lineSpacing: Sets the line spacing.
 \define@key{kappak-mimosis}{lineSpacing}[1]{
     \renewcommand{\baselinestretch}{#1}
 }
 
-%% margins
-% opt margins: Sets the margins. Supports \texttt{normal} (default), \texttt{reduced}, and \texttt{minimal}.
 \define@key{kappak-mimosis}{margins}[normal]{
     \def\@margins{#1}
 }
 
-%% numberTheoremsWithin
-% opt numberTheoremsWithin: Any counter, defaults to \texttt{section}.
-\define@key{kappak}{numberTheoremsWithin}[section]{
-    % int @numberTheoremsWithin:
+\define@key{kappak-mimosis}{numberTheoremsWithin}[section]{
     \def\@numberTheoremsWithin{#1}
 }
 
-%% scriptStyle
-% opt scriptStyle: Sets the mathematical script style. Supports \texttt{normal} (default), \texttt{euler}, and \texttt{rsfs}.
 \define@key{kappak-mimosis}{scriptStyle}[normal]{
     \def\@scriptStyle{#1}
 }
 
-%% titlePageStyle
-% opt titlePageStyle: Sets the title page style. Supports \texttt{normal} (default), \texttt{classic}, \texttt{bar}, \texttt{gm}, and \texttt{gb}.
 \define@key{kappak-mimosis}{titlePageStyle}[normal]{
     \def\@titlePageStyle{#1}
 }
 
-%% version
-% opt version: Sets the kappan version to use. Use explicit names instead.
 \define@key{kappak-mimosis}{version}[0406]{
     % 0406 is the version where \@kappakVersion started to be taken into account.
     \def\@usedVersion{#1}

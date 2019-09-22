@@ -7,11 +7,11 @@
         
         
         
-        <link rel="shortcut icon" href="/img/favicon.ico">
-        <title>kappak</title>
-        <link href="/css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="/css/font-awesome.min.css" rel="stylesheet">
-        <link href="/css/base.css" rel="stylesheet">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Options - kappak</title>
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -19,8 +19,8 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-        <script src="/js/jquery-1.10.2.min.js" defer></script>
-        <script src="/js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap-3.0.3.min.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
@@ -39,7 +39,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/.">kappak</a>
+                    <a class="navbar-brand" href="..">kappak</a>
                 </div>
 
                 <!-- Expanded navigation -->
@@ -47,13 +47,13 @@
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
                             <li >
-                                <a href="/.">Readme</a>
+                                <a href="..">Readme</a>
                             </li>
                             <li >
-                                <a href="/home/">Home</a>
+                                <a href="../home/">Home</a>
                             </li>
-                            <li >
-                                <a href="/options/">Options</a>
+                            <li class="active">
+                                <a href="./">Options</a>
                             </li>
                         </ul>
 
@@ -63,21 +63,74 @@
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
+                            <li >
+                                <a rel="next" href="../home/">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="disabled">
+                                <a rel="prev" >
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
                     </ul>
                 </div>
             </div>
         </div>
 
         <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#simple-options">Simple options</a></li>
+        <li class="main "><a href="#keyval-options">Keyval options</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
 
-    <div class="row-fluid">
-      <div id="main-content" class="span12">
-        <h1 id="404-page-not-found" style="text-align: center">404</h1>
-        <p style="text-align: center"><strong>Page not found</strong></p>
-      </div>
-    </div>
-
-
+<p>This page explains options that can be used while loading the <code>kappak</code> package.</p>
+<h1 id="simple-options">Simple options</h1>
+<p>The name are built on the following simple rule: <code>+something</code> adds something,
+<code>-something</code> removes (or at lease doesn't add) something, and <code>something</code>
+changes the behavior of something.</p>
+<ul>
+<li><code>alpha</code>: Do not use.</li>
+<li><code>bellatrix</code>: Do not use.</li>
+<li><code>cortana</code>: Do not use.</li>
+<li><code>durotan</code>: Do not use.</li>
+<li><code>eientei</code>: Mandatory.</li>
+<li><code>-autopackages</code>: Tells <code>kappak</code> to not automatically include packages.</li>
+<li><code>+maths</code>: Use all maths commands.</li>
+<li><code>+maths.arrows</code>: Use mathematical arrows commands.</li>
+<li><code>+maths.categories</code>: Use category theory commands.</li>
+<li><code>+maths.characterAccents</code>: Use mathematical character accent commands.</li>
+<li><code>+maths.characterStyles</code>: Use mathematical character styles commands.</li>
+<li><code>+maths.misc</code>: Use mathematical miscallenous commands.</li>
+<li><code>+maths.operators</code>: Use mathematical operators commands.</li>
+<li><code>+maths.theoremEnvs</code>: Use theorem environments.</li>
+<li><code>-maths.theoremStyles</code>: Do not use theorem styles for theorem environments.</li>
+<li><code>-misc</code>: Do not use <code>kappak</code> miscallenous commands.</li>
+<li><code>+stix</code>: Use <code>stix</code>.</li>
+<li><code>+tikz</code>: Use <code>tikz</code>.</li>
+<li><code>tikz.externalize</code>: (EXPERIMENTAL) Use <code>tikz</code> compilation cache.</li>
+<li><code>+xecjk</code>: Use <code>xecjk</code>.</li>
+</ul>
+<h1 id="keyval-options">Keyval options</h1>
+<p>For each option, the default value is the first specified.</p>
+<ul>
+<li><code>bbStyle</code> (<code>normal</code>, <code>bbold</code>): Sets the mathematical blackboard letter style.</li>
+<li><code>bibliographyStyle</code> (<code>_any bibliograph style_</code>): Sets the bibliography style. Only relevant if you use <code>kdocument</code> instead of the standard <code>document</code> environment.</li>
+<li><code>categoryStyle</code> (<code>script</code>, <code>bf</code>, <code>rm</code>, <code>sf</code>, <code>tt</code>): Sets the category style for category theory.</li>
+<li><code>chapterStyle</code> (<code>normal</code>, <code>cb</code>, <code>rb</code>): Sets the chapter style.</li>
+<li><code>fontSet</code> (<code>normal</code>, <code>alternate</code>, <code>xcharter</code>): Sets the font set.</li>
+<li><code>headerFooterStyle</code> (<code>normal</code>, <code>classic</code>, <code>cb</code>, <code>empty</code>): Sets the header and footer style.</li>
+<li><code>language</code> (<code>english</code>, <code>french</code>): Sets the language of the document.</li>
+<li><code>lineSpacing</code> (<code>_any numerical value_</code>): Sets the line spacing.</li>
+<li><code>margins</code> (<code>normal</code>, <code>reduced</code>, <code>minimal</code>): Sets the margins.</li>
+<li><code>numberTheoremsWithin</code> (<code>_any counter, defaults to section_</code>): What counter theorems should be numbered from.</li>
+<li><code>scriptStyle</code> (<code>normal</code>, <code>euler</code>, <code>rsfs</code>): Sets the mathematical script style.</li>
+<li><code>titlePageStyle</code> (<code>normal</code>, <code>classic</code>, <code>bar</code>, <code>gm</code>, <code>gb</code>): Sets the title page style.</li>
+<li><code>version</code> (<code>_any version number_</code>): Do not use.</li>
+</ul></div>
         </div>
 
         <footer class="col-md-12">
@@ -85,11 +138,11 @@
             <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
         <script>
-            var base_url = "/",
+            var base_url = "..",
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
-        <script src="/js/base.js" defer></script>
-        <script src="/search/main.js" defer></script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
     <div class="modal-dialog">

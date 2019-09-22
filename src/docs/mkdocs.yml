@@ -2,3 +2,7 @@ site_name: kappak
 nav:
   - Readme: index.md
   - Home: home.md
+  - Options: options.md
+  - Maths: maths.md
+  - Environments: environments.md
+  - Letter styles and accents: letters.md

@@ -29,7 +29,7 @@
       "doc": "Mandatory."
     },
     "-autopackages": {
-      "doc": "Tells ``kappak` to not automatically include packages."
+      "doc": "Tells `kappak` to not automatically include packages."
     },
     "+maths": {
       "doc": "Use all maths commands."
@@ -214,18 +214,20 @@
   },
   "definitions": {
     "_default": {
+      "_type": "",
       "argc": 0,
       "doc": "",
+      "doc_group": "",
       "exclude": [],
       "requires": []
     },
     "Ab": {
       "_type": "cmd",
-      "doc_group": "maths.categories.categories"
+      "doc_group": "maths.categories_categories"
     },
     "Alg": {
       "_type": "cmd",
-      "doc_group": "maths.categories.categories"
+      "doc_group": "maths.categories_categories"
     },
     "Ann": {
       "_type": "cmd",
@@ -1940,223 +1942,223 @@
     },
     "CAT": {
       "_type": "cmd",
-      "doc_group": "maths.categories.categories"
+      "doc_group": "maths.categories_categories"
     },
     "Cat": {
       "_type": "cmd",
-      "doc_group": "maths.categories.categories"
+      "doc_group": "maths.categories_categories"
     },
     "catA": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catAA": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catB": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catBB": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catC": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catCC": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catD": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catDD": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catE": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catEE": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catF": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catFF": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catG": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catGG": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catH": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catHH": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catI": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catII": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catJ": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catJJ": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catK": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catKK": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catL": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catLL": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catM": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catMM": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catN": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catNN": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catO": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catOO": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catP": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catPP": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catQ": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catQQ": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catR": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catRR": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catS": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catSS": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catT": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catTT": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catU": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catUU": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catV": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catVV": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catW": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catWW": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catX": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catXX": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catY": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catYY": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catZ": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "catZZ": {
       "_type": "cmd",
-      "doc_group": "maths.categories.letters"
+      "doc_group": "maths.categories_letters"
     },
     "Ch": {
       "_type": "cmd",
-      "doc_group": "maths.categories.categories"
+      "doc_group": "maths.categories_categories"
     },
     "chA": {
       "_type": "cmd",
@@ -3347,6 +3349,7 @@
     },
     "epi": {
       "_type": "cmd",
+      "doc": "an alias for `twoheadrightarrow`.",
       "doc_group": "maths.arrows"
     },
     "eqdiagram": {
@@ -3367,7 +3370,7 @@
     },
     "Fin": {
       "_type": "cmd",
-      "doc_group": "maths.categories.categories"
+      "doc_group": "maths.categories_categories"
     },
     "Frac": {
       "_type": "cmd",
@@ -3587,11 +3590,11 @@
     },
     "Graph": {
       "_type": "cmd",
-      "doc_group": "maths.categories.categories"
+      "doc_group": "maths.categories_categories"
     },
     "Grp": {
       "_type": "cmd",
-      "doc_group": "maths.categories.categories"
+      "doc_group": "maths.categories_categories"
     },
     "hatA": {
       "_type": "cmd",
@@ -3988,6 +3991,7 @@
     },
     "incl": {
       "_type": "cmd",
+      "doc": "an alias for `hookrightarrow`",
       "doc_group": "maths.arrows"
     },
     "Ind": {
@@ -4265,14 +4269,15 @@
     },
     "Mod": {
       "_type": "cmd",
-      "doc_group": "maths.categories.categories"
+      "doc_group": "maths.categories_categories"
     },
     "Mon": {
       "_type": "cmd",
-      "doc_group": "maths.categories.categories"
+      "doc_group": "maths.categories_categories"
     },
     "mono": {
       "_type": "cmd",
+      "doc": "an alias for `rightarrowtail`",
       "doc_group": "maths.arrows"
     },
     "Mor": {
@@ -4282,7 +4287,8 @@
     "newcategory": {
       "_type": "cmd",
       "argc": 4,
-      "doc_group": "maths.categories.commands"
+      "doc": "Shorthand to define new categories. For instance : `\\newcommand{\\sSet}{s}{S}{et}`, or `\\newcategory{\\Grp}{}{G}{rp}`",
+      "doc_group": "maths.categories_commands"
     },
     "oA": {
       "_type": "cmd",
@@ -4481,11 +4487,13 @@
       "doc_group": "letters"
     },
     "op": {
-      "_type": "cmd"
+      "_type": "cmd",
+      "doc": "The op exponent for dual categories.",
+      "doc_group": "maths.categories_commands"
     },
     "Op": {
       "_type": "cmd",
-      "doc_group": "maths.categories.categories"
+      "doc_group": "maths.categories_categories"
     },
     "oP": {
       "_type": "cmd",
@@ -4673,7 +4681,7 @@
     },
     "Pos": {
       "_type": "cmd",
-      "doc_group": "maths.categories.categories"
+      "doc_group": "maths.categories_categories"
     },
     "proj": {
       "_type": "cmd",
@@ -4681,7 +4689,7 @@
     },
     "pSh": {
       "_type": "cmd",
-      "doc_group": "maths.categories.categories"
+      "doc_group": "maths.categories_categories"
     },
     "publisher": {
       "_type": "cmd",
@@ -4713,7 +4721,7 @@
     },
     "Ring": {
       "_type": "cmd",
-      "doc_group": "maths.categories.categories"
+      "doc_group": "maths.categories_categories"
     },
     "rk": {
       "_type": "cmd",
@@ -4929,11 +4937,11 @@
     },
     "Set": {
       "_type": "cmd",
-      "doc_group": "maths.categories.categories"
+      "doc_group": "maths.categories_categories"
     },
     "SET": {
       "_type": "cmd",
-      "doc_group": "maths.categories.categories"
+      "doc_group": "maths.categories_categories"
     },
     "sfA": {
       "_type": "cmd",
@@ -5145,7 +5153,7 @@
     },
     "Sh": {
       "_type": "cmd",
-      "doc_group": "maths.categories.categories"
+      "doc_group": "maths.categories_categories"
     },
     "SL": {
       "_type": "cmd",
@@ -5165,7 +5173,7 @@
     },
     "sSet": {
       "_type": "cmd",
-      "doc_group": "maths.categories.categories"
+      "doc_group": "maths.categories_categories"
     },
     "Stab": {
       "_type": "cmd",
@@ -5555,7 +5563,7 @@
     },
     "Top": {
       "_type": "cmd",
-      "doc_group": "maths.categories.categories"
+      "doc_group": "maths.categories_categories"
     },
     "Tor": {
       "_type": "cmd",
@@ -6623,7 +6631,7 @@
     },
     "Vect": {
       "_type": "cmd",
-      "doc_group": "maths.categories.categories"
+      "doc_group": "maths.categories_categories"
     },
     "vecT": {
       "_type": "cmd",

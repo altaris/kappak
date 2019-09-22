@@ -7,7 +7,9 @@ import json
 from generate_autocompletion import (
     generate_autocompletion
 )
-
+from generate_doc import (
+    generate_doc
+)
 from generate_sty import (
     generate_sty
 )
@@ -32,6 +34,7 @@ def main() -> None:
 
     generate_sty(parameters)
     generate_autocompletion(parameters)
+    generate_doc(parameters)
 
 
 if __name__ == '__main__':
