@@ -21,7 +21,7 @@
 %% SOFTWARE.
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{kappak}[2019/09/22 kappak]
+\ProvidesPackage{kappak}[2020/01/07 kappak]
 \makeatletter
 
 \def\@kappakVersion{0412}   % Current version of kappak
@@ -2506,8 +2506,8 @@
                     text height = 1.5 ex,
                     text depth = 0.25 ex,
                     ampersand replacement = \@ampersand] {
-                \displaystyle{#1} \@ampersand \displaystyle{#2} \\
-                \displaystyle{#3} \@ampersand \displaystyle{#4} \\
+                #1 \@ampersand #2 \\
+                #3 \@ampersand #4 \\
             };
             \path [\@diagAA] (m-1-1) edge [\@diagLA] node [above] {$\scriptstyle{#5}$} (m-1-2);
             \path [\@diagAB] (m-1-1) edge [\@diagLB] node [left]  {$\scriptstyle{#6}$} (m-2-1);
@@ -2528,8 +2528,8 @@
                     text height = 1.5 ex,
                     text depth = 0.25 ex,
                     ampersand replacement = \@ampersand] {
-                \displaystyle{#1} \@ampersand \displaystyle{#2} \\
-                \displaystyle{#3} \@ampersand \displaystyle{#4} \\
+                #1 \@ampersand #2 \\
+                #3 \@ampersand #4 \\
             };
             \path (m-1-1) edge [-, draw = white] node [very near end] {$\ulcorner$} (m-2-2);
             \path [\@diagAA] (m-1-1) edge [\@diagLA] node [above] {$\scriptstyle{#5}$} (m-1-2);
@@ -2551,8 +2551,8 @@
                     text height = 1.5 ex,
                     text depth = 0.25ex,
                     ampersand replacement = \@ampersand] {
-                \displaystyle{#1} \@ampersand \displaystyle{#2} \\
-                \displaystyle{#3} \@ampersand \displaystyle{#4} \\
+                #1 \@ampersand #2 \\
+                #3 \@ampersand #4 \\
             };
             \path (m-1-1) edge [-, draw = white] node [very near start] {$\lrcorner$} (m-2-2);
             \path [\@diagAA] (m-1-1) edge [\@diagLA] node [above] {$\scriptstyle{#5}$} (m-1-2);
@@ -2574,8 +2574,8 @@
                     text height = 1.5 ex,
                     text depth = 0.25 ex,
                     ampersand replacement = \@ampersand] {
-                \displaystyle{#1} \@ampersand \displaystyle{#2} \\
-                \displaystyle{#3} \@ampersand \\
+                #1 \@ampersand #2 \\
+                #3 \@ampersand \\
             };
             \path [\@diagAA] (m-1-1) edge [\@diagLA] node [above]       {$\scriptstyle{#4}$} (m-1-2);
             \path [\@diagAB] (m-1-1) edge [\@diagLB] node [left]        {$\scriptstyle{#5}$} (m-2-1);
@@ -2595,8 +2595,8 @@
                     text height = 1.5ex,
                     text depth = 0.25ex,
                     ampersand replacement = \@ampersand] {
-                \displaystyle{#1} \@ampersand \displaystyle{#2} \\
-                \@ampersand \displaystyle{#3} \\
+                #1 \@ampersand #2 \\
+                \@ampersand #3 \\
             };
             \path [\@diagAA] (m-1-1) edge [\@diagLA] node [above]      {$\scriptstyle{#4}$} (m-1-2);
             \path [\@diagAB] (m-1-1) edge [\@diagLB] node [below left] {$\scriptstyle{#5}$} (m-2-2);
@@ -2616,8 +2616,8 @@
                     text height = 1.5ex,
                     text depth = 0.25ex,
                     ampersand replacement = \@ampersand] {
-                \displaystyle{#1} \@ampersand \\
-                \displaystyle{#2} \@ampersand \displaystyle{#3} \\
+                #1 \@ampersand \\
+                #2 \@ampersand #3 \\
             };
             \path [\@diagAA] (m-1-1) edge [\@diagLA] node [left]        {$\scriptstyle{#4}$} (m-2-1);
             \path [\@diagAB] (m-1-1) edge [\@diagLB] node [above right] {$\scriptstyle{#5}$} (m-2-2);
@@ -2637,8 +2637,8 @@
                     text height = 1.5ex,
                     text depth = 0.25ex,
                     ampersand replacement = \@ampersand] {
-                \@ampersand \displaystyle{#1} \\
-                \displaystyle{#2} \@ampersand \displaystyle{#3} \\
+                \@ampersand #1 \\
+                #2 \@ampersand #3 \\
             };
             \path [\@diagAA] (m-2-1) edge [\@diagLA] node [above left] {$\scriptstyle{#4}$} (m-1-2);
             \path [\@diagAB] (m-1-2) edge [\@diagLB] node [right]      {$\scriptstyle{#5}$} (m-2-2);
@@ -2658,8 +2658,8 @@
                     text height = 1.5ex,
                     text depth = 0.25ex,
                     ampersand replacement = \@ampersand] {
-                \@ampersand \displaystyle{#1} \@ampersand \\
-                \displaystyle{#2} \@ampersand \@ampersand \displaystyle{#3} \\
+                \@ampersand #1 \@ampersand \\
+                #2 \@ampersand \@ampersand #3 \\
             };
             \path [\@diagAA] (m-1-2) edge [\@diagLA] node [above left]  {$\scriptstyle{#4}$} (m-2-1);
             \path [\@diagAB] (m-1-2) edge [\@diagLB] node [above right] {$\scriptstyle{#5}$} (m-2-3);
@@ -2678,9 +2678,9 @@
                     text height = 1.5ex,
                     text depth = 0.25ex,
                     ampersand replacement = \@ampersand] {
-                \@ampersand \displaystyle{#1} \\
-                \displaystyle{#2} \@ampersand \\
-                \@ampersand \displaystyle{#3} \\
+                \@ampersand #1 \\
+                #2 \@ampersand \\
+                \@ampersand #3 \\
             };
             \path [\@diagAA] (m-2-1) edge [\@diagLA] node [above left] {$\scriptstyle{#4}$} (m-1-2);
             \path [\@diagAB] (m-1-2) edge [\@diagLB] node [right]      {$\scriptstyle{#5}$} (m-3-2);
@@ -2700,9 +2700,9 @@
                     text height = 1.5ex,
                     text depth = 0.25ex,
                     ampersand replacement = \@ampersand] {
-                \displaystyle{#1} \@ampersand \\
-                \@ampersand \displaystyle{#2} \\
-                \displaystyle{#3} \@ampersand \\
+                #1 \@ampersand \\
+                \@ampersand #2 \\
+                #3 \@ampersand \\
             };
             \path [\@diagAA] (m-1-1) edge [\@diagLA] node [left]        {$\scriptstyle{#4}$} (m-3-1);
             \path [\@diagAB] (m-1-1) edge [\@diagLB] node [above right] {$\scriptstyle{#5}$} (m-2-2);
@@ -2722,8 +2722,8 @@
                     text height = 1.5ex,
                     text depth = 0.25ex,
                     ampersand replacement = \@ampersand] {
-                \displaystyle{#1} \@ampersand \@ampersand \displaystyle{#2} \\
-                \@ampersand \displaystyle{#3} \@ampersand \\
+                #1 \@ampersand \@ampersand #2 \\
+                \@ampersand #3 \@ampersand \\
             };
             \path [\@diagAA] (m-1-1) edge [\@diagLA] node [above]       {$\scriptstyle{#4}$} (m-1-3);
             \path [\@diagAB] (m-1-1) edge [\@diagLB] node [below left]  {$\scriptstyle{#5}$} (m-2-2);
@@ -2743,7 +2743,7 @@
                     text height = 1.5ex,
                     text depth = 0.25ex,
                     ampersand replacement = \@ampersand] {
-                \displaystyle{#1} \@ampersand \displaystyle{#2} \@ampersand \displaystyle{#3} \\
+                #1 \@ampersand #2 \@ampersand #3 \\
             };
             \path [\@diagAA] (m-1-1)                    edge [\@diagLA] node [above] {$\scriptstyle{#4}$} (m-1-2);
             \path [\@diagAB] ($(m-1-2.east) + (0,0.1)$) edge [\@diagLB] node [above] {$\scriptstyle{#5}$} ($(m-1-3.west) + (0,0.1)$);
@@ -2763,7 +2763,7 @@
                     text height = 1.5ex,
                     text depth = 0.25ex,
                     ampersand replacement = \@ampersand] {
-                \displaystyle{#1} \@ampersand \displaystyle{#2} \@ampersand \displaystyle{#3} \\
+                #1 \@ampersand #2 \@ampersand #3 \\
             };
             \path [\@diagAA] ($(m-1-1.east) + (0,0.1)$) edge [\@diagLA] node [above] {$\scriptstyle{#4}$} ($(m-1-2.west) + (0,0.1)$);
             \path [\@diagAB] ($(m-1-1.east) - (0,0.1)$) edge [\@diagLB] node [below] {$\scriptstyle{#5}$} ($(m-1-2.west) - (0,0.1)$);
