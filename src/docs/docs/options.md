@@ -37,7 +37,7 @@ For each option, the default value is the first specified.
 
 * `bbStyle` (`normal`, `bbold`): Sets the mathematical blackboard letter style.
 * `bibliographyStyle` (`_any bibliograph style_`): Sets the bibliography style. Only relevant if you use `kdocument` instead of the standard `document` environment.
-* `categoryStyle` (`script`, `bf`, `rm`, `sf`, `tt`): Sets the category style for category theory.
+* `categoryStyle` (`script`, `allscript`, `bf`, `rm`, `sf`, `tt`): Sets the category style for category theory.
 * `chapterStyle` (`normal`, `cb`, `rb`): Sets the chapter style.
 * `fontSet` (`normal`, `alternate`, `xcharter`): Sets the font set.
 * `headerFooterStyle` (`normal`, `classic`, `cb`, `empty`): Sets the header and footer style.

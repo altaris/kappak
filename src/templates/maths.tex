@@ -127,6 +127,10 @@
 
 \ifthenelse{\boolean{@b_maths_use_categories}}{
 
+    \ifthenelse{\equal{\@categoryStyle}{allscript}}{
+        \newcommand{\@cat}{\@cal}
+    }{}
+
     \ifthenelse{\equal{\@categoryStyle}{bf}}{
         \newcommand{\@cat}{\mathbf}
     }{}

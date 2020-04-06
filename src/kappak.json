@@ -90,6 +90,7 @@
       "doc": "Sets the category style for category theory.",
       "vals": [
         "script",
+        "allscript",
         "bf",
         "rm",
         "sf",

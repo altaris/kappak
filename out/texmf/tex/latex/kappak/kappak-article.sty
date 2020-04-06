@@ -21,7 +21,7 @@
 %% SOFTWARE.
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{kappak-article}[2020/01/14 kappak-article]
+\ProvidesPackage{kappak-article}[2020/04/06 kappak-article]
 \makeatletter
 
 \def\@kappakVersion{0412}   % Current version of kappak
@@ -517,6 +517,10 @@
 %% ----------------------------------------
 
 \ifthenelse{\boolean{@b_maths_use_categories}}{
+
+    \ifthenelse{\equal{\@categoryStyle}{allscript}}{
+        \newcommand{\@cat}{\@cal}
+    }{}
 
     \ifthenelse{\equal{\@categoryStyle}{bf}}{
         \newcommand{\@cat}{\mathbf}
