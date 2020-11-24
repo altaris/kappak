@@ -1,4 +1,6 @@
 \Ab
+\adjunction
+\noitcnujda
 \Alg
 \Ann
 \Aut
@@ -995,6 +997,7 @@
 \logo{arg1%plain}{arg2%plain}
 \logohere
 \longepi
+\longhookrightarrow
 \longincl
 \longleftepi
 \longleftincl
@@ -1770,3 +1773,5 @@
 \end{name}
 \begin{name}
 \end{name}
+\xot
+\xto

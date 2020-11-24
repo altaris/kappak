@@ -2,6 +2,8 @@
     "scope": "text.tex.latex",
     "completions": [
         "\\Ab",
+        "\\adjunction",
+        "\\noitcnujda",
         "\\Alg",
         "\\Ann",
         "\\Aut",
@@ -998,6 +1000,7 @@
         "\\logo{$1}{$2}",
         "\\logohere",
         "\\longepi",
+        "\\longhookrightarrow",
         "\\longincl",
         "\\longleftepi",
         "\\longleftincl",
@@ -1695,6 +1698,8 @@
         "\\begin{name}\n\t$1\n\\end{name}",
         "\\begin{name}\n\t$1\n\\end{name}",
         "\\begin{name}\n\t$1\n\\end{name}",
-        "\\begin{name}\n\t$1\n\\end{name}"
+        "\\begin{name}\n\t$1\n\\end{name}",
+        "\\xot",
+        "\\xto"
     ]
 }

@@ -3,11 +3,13 @@ Maths
 
 # Arrows
 
+* `adjunction`: Adjunction arrows (left adjoint  from left to right)
 * `epi`: an alias for `twoheadrightarrow`.
 * `incl`: an alias for `hookrightarrow`
 * `leftepi`
 * `leftincl`
 * `longepi`
+* `longhookrightarrow`
 * `longincl`
 * `longleftepi`
 * `longleftincl`
@@ -16,10 +18,13 @@ Maths
 * `longtwoheadleftarrow`
 * `longtwoheadrightarrow`
 * `mono`: an alias for `rightarrowtail`
+* `noitcnujda`: Reverse adjunction arrows (left adjoint from right to left)
 * `xepi`
 * `xincl`
 * `xleftepi`
 * `xleftincl`
+* `xot`
+* `xto`
 * `xtwoheadleftarrow`(1)
 * `xtwoheadrightarrow`(1)
 

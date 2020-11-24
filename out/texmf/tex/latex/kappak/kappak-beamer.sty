@@ -21,7 +21,7 @@
 %% SOFTWARE.
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{kappak-beamer}[2020/04/06 kappak-beamer]
+\ProvidesPackage{kappak-beamer}[2020/11/24 kappak-beamer]
 \makeatletter
 
 \def\@kappakVersion{0412}   % Current version of kappak
@@ -679,6 +679,62 @@
     }
 
     \newcommand{\longmultimap}{\relbar\joinrel\multimap}
+
+\newcommand{\longhookrightarrow}{
+    \mathrel{
+        \hookrightarrow
+        \!\!\!\!
+        \tikz \fill[white] (0, 0) rectangle (.1,.4);
+        \!\!\!\!\!\!
+        \relbar
+        \!\!
+        \rightarrow
+    }
+}
+
+\newcommand{\adjunction}{
+    \mathrel{\vcenter{
+        \offinterlineskip\m@th
+        \ialign{
+            \hfil$##$\hfil\cr
+            \longrightarrow\cr
+            \noalign{\kern-.2ex}
+            \begingroup\setlength\unitlength{.15em}
+            \begin{picture} (1, 1)
+                \roundcap
+                \polyline (0, 0) (1, 0)
+                \polyline (0.5, 0) (0.5, 1)
+            \end{picture}
+            \endgroup\cr
+            \longleftarrow\cr
+        }
+    }}
+}
+
+\newcommand{\noitcnujda}{
+    \mathrel{\vcenter{
+        \offinterlineskip\m@th
+        \ialign{
+            \hfil$##$\hfil\cr
+            \longleftarrow\cr
+            \noalign{\kern-.2ex}
+            \begingroup\setlength\unitlength{.15em}
+            \begin{picture} (1, 1)
+                \roundcap
+                \polyline (0, 0) (1, 0)
+                \polyline (0.5, 0) (0.5, 1)
+            \end{picture}
+            \endgroup\cr
+            \longrightarrow\cr
+        }
+    }}
+}
+
+\newcommand*{\xto}[1]{\xrightarrow{\substack{\hphantom{\quad}\\{#1}}}}
+
+\newcommand*{\xot}[1]{\xleftarrow{\substack{\hphantom{\quad}\\{#1}}}}
+
+
 
 }{}
 

@@ -226,6 +226,16 @@
       "_type": "cmd",
       "doc_group": "maths.categories_categories"
     },
+    "adjunction": {
+      "_type": "cmd",
+      "doc_group": "maths.arrows",
+      "doc": "Adjunction arrows (left adjoint  from left to right)"
+    },
+    "noitcnujda": {
+      "_type": "cmd",
+      "doc_group": "maths.arrows",
+      "doc": "Reverse adjunction arrows (left adjoint from right to left)"
+    },
     "Alg": {
       "_type": "cmd",
       "doc_group": "maths.categories_categories"
@@ -4236,6 +4246,10 @@
       "_type": "cmd",
       "doc_group": "maths.arrows"
     },
+    "longhookrightarrow": {
+      "_type": "cmd",
+      "doc_group": "maths.arrows"
+    },
     "longincl": {
       "_type": "cmd",
       "doc_group": "maths.arrows"
@@ -7549,6 +7563,14 @@
     },
     "kdocument": {
       "doc_group": "misc"
+    },
+    "xot": {
+      "_type": "cmd",
+      "doc_group": "maths.arrows"
+    },
+    "xto": {
+      "_type": "cmd",
+      "doc_group": "maths.arrows"
     }
   }
 }
