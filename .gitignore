@@ -1,3 +1,6 @@
+# MacOS littering everywhere
+.DS_Store
+
 # Virtualenv
 venv/
 
