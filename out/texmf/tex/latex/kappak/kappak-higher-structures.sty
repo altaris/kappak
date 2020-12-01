@@ -21,7 +21,7 @@
 %% SOFTWARE.
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{kappak-mimosis}[2020/12/01 kappak-mimosis]
+\ProvidesPackage{kappak-higher-structures}[2020/12/01 kappak-higher-structures]
 \makeatletter
 
 \def\@kappakVersion{0412}   % Current version of kappak
@@ -301,61 +301,61 @@
 %% Keyval
 %% --------------------
 
-\define@key{kappak-mimosis}{bbStyle}[normal]{
+\define@key{kappak-higher-structures}{bbStyle}[normal]{
     \def\@bbStyle{#1}
 }
 
-\define@key{kappak-mimosis}{bibliographyStyle}[normal]{
+\define@key{kappak-higher-structures}{bibliographyStyle}[normal]{
     \def\@bibliographyStyle{#1}
 }
 
-\define@key{kappak-mimosis}{categoryStyle}[script]{
+\define@key{kappak-higher-structures}{categoryStyle}[script]{
     \def\@categoryStyle{#1}
 }
 
-\define@key{kappak-mimosis}{chapterStyle}[normal]{
+\define@key{kappak-higher-structures}{chapterStyle}[normal]{
     \def\@chapterStyle{#1}
 }
 
-\define@key{kappak-mimosis}{fontSet}[normal]{
+\define@key{kappak-higher-structures}{fontSet}[normal]{
     \def\@fontSet{#1}
 }
 
-\define@key{kappak-mimosis}{headerFooterStyle}[normal]{
+\define@key{kappak-higher-structures}{headerFooterStyle}[normal]{
     \def\@headerFooterStyle{#1}
 }
 
-\define@key{kappak-mimosis}{language}[english]{
+\define@key{kappak-higher-structures}{language}[english]{
     \def\@language{#1}
 }
 
-\define@key{kappak-mimosis}{lineSpacing}[1]{
+\define@key{kappak-higher-structures}{lineSpacing}[1]{
     \renewcommand{\baselinestretch}{#1}
 }
 
-\define@key{kappak-mimosis}{margins}[normal]{
+\define@key{kappak-higher-structures}{margins}[normal]{
     \def\@margins{#1}
 }
 
-\define@key{kappak-mimosis}{numberTheoremsWithin}[section]{
+\define@key{kappak-higher-structures}{numberTheoremsWithin}[section]{
     \def\@numberTheoremsWithin{#1}
 }
 
-\define@key{kappak-mimosis}{scriptStyle}[normal]{
+\define@key{kappak-higher-structures}{scriptStyle}[normal]{
     \def\@scriptStyle{#1}
 }
 
-\define@key{kappak-mimosis}{titlePageStyle}[normal]{
+\define@key{kappak-higher-structures}{titlePageStyle}[normal]{
     \def\@titlePageStyle{#1}
 }
 
-\define@key{kappak-mimosis}{version}[0406]{
+\define@key{kappak-higher-structures}{version}[0406]{
     % 0406 is the version where \@kappakVersion started to be taken into account.
     \def\@usedVersion{#1}
 }
 
 \ProcessOptions
-\ProcessUnusedOptions{kappak-mimosis}
+\ProcessUnusedOptions{kappak-higher-structures}
 
 %% ----------------------------------------
 %% Processing
@@ -384,7 +384,6 @@
 	\RequirePackage[noabbrev]{cleveref} % must be loaded before cleveref
 
 	\RequirePackage{color}
-	\RequirePackage{enumerate}
 	\RequirePackage{graphicx}
 	\RequirePackage{multicol}
 
@@ -3376,6 +3375,17 @@
         \hfill\ensuremath{\blacksquare}\endtrivlist\@endpefalse
     }
 
+    \newenvironment{dedication}{
+        \cleardoublepage
+        \thispagestyle{empty}
+        \vspace*{\stretch{1}}
+        \hfill\begin{minipage}[t]{0.66\textwidth}
+        \raggedright
+    }{
+        \end{minipage}
+        \vspace*{\stretch{3}}
+        \clearpage
+    }
 
     \aliascntresetthe{assertion}
     \aliascntresetthe{axiom}

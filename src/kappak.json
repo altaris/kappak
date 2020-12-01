@@ -6,7 +6,8 @@
     "article",
     "beamer",
     "book",
-    "mimosis"
+    "mimosis",
+    "higher-structures"
   ],
   "options": {
     "_default": {
@@ -189,7 +190,11 @@
     "color": {},
     "courier": {},
     "draftwatermark": {},
-    "enumerate": {},
+    "enumerate": {
+      "exclude": [
+        "higher-structures"
+      ]
+    },
     "euscript": {},
     "fancyhdr": {},
     "geometry": {},
