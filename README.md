@@ -6,7 +6,7 @@ kappak
 This is a homemade LaTeX package regrouping functionalities I deem handy. It is
 provided under the [MIT](http://opensource.org/licenses/MIT) license.
 
-# [Wiki](https://github.com/altaris/kappak/wiki)
+# [Documentation](https://altaris.github.io/kappak/)
 
 Reasonably up to date.
 
