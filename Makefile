@@ -4,11 +4,10 @@ USER_KAPPAK_DIR   	= $(USER_LATEX_DIR)/kappak
 LOCAL_LATEX_DIR  	= out/texmf/tex/latex
 LOCAL_KAPPAK_DIR  	= $(LOCAL_LATEX_DIR)/kappak
 
-DOCS_OUTPUT_DIR		= docs
-DOCS_SRC_DIR		= src/docs
+DOCS_OUTPUT_DIR		= out/docs
+DOCS_SRC_DIR		= docs
 
-TEX      			= xelatex
-TEXFLAGS 			= -interaction=nonstopmode
+all: generate docs
 
 check:
 	black -l 79 src/*.py
@@ -20,7 +19,7 @@ clean:
 
 .PHONY: docs
 docs:
-	cd $(DOCS_SRC_DIR) && mkdocs build -c -d ../../$(DOCS_OUTPUT_DIR)/
+	cd $(DOCS_SRC_DIR) && mkdocs build -c -d ../$(DOCS_OUTPUT_DIR)/
 
 generate:
 	cd src/ && python3 generate.py

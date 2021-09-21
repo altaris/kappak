@@ -1,13 +1,14 @@
 """Contains autocompletion files generation code."""
 
-import json
+from abc import ABC, abstractmethod
 from typing import Any, Dict, List
+import json
 
 
 OUTPUT_DIRECTORY = "../out/autocompletion"
 
 
-class AbstractGenerator:
+class AbstractGenerator(ABC):
     """Abstract class representing a autocompletion file generator."""
 
     _parameters: Dict[str, Any]
@@ -15,32 +16,33 @@ class AbstractGenerator:
     def __init__(self, parameters: Dict[str, Any]):
         self._parameters = parameters
 
+    @abstractmethod
     def generate_file_text(self, completions: List[str]) -> str:
         """Generates the autocompletion file content from its entry list."""
-        raise NotImplementedError
 
+    @abstractmethod
     def generate_record_cmd(
         self, name: str, record: Dict[str, Any]
     ) -> List[str]:
         """Generates one or multiple completion entries from a cmd record."""
-        raise NotImplementedError
 
+    @abstractmethod
     def generate_record_env(
         self, name: str, record: Dict[str, Any]
     ) -> List[str]:
         """Generates one or multiple completion entries from a env record."""
-        raise NotImplementedError
 
     def generate(self, output_file_name: str) -> None:
         """Generates an autocompletion file."""
         completions = []  # type: List[str]
-        for definition in self._parameters["definitions"]:
-            record = self._parameters["definitions"][definition]
+        for name, record in self._parameters["definitions"].items():
             def_type = record.get("_type", None)
-            if def_type == "cmd":
-                completions += self.generate_record_cmd(definition, record)
+            if not def_type:
+                pass
+            elif def_type == "cmd":
+                completions += self.generate_record_cmd(name, record)
             elif def_type == "env":
-                completions += self.generate_record_env(definition, record)
+                completions += self.generate_record_env(name, record)
             else:
                 print(f"[WARNING] Unknown record type '{def_type}'")
         output_file_path = f"{OUTPUT_DIRECTORY}/{output_file_name}"

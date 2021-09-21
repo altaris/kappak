@@ -42,11 +42,6 @@ def check_not_excluded(record: Dict[str, Any], target: str) -> None:
         raise IncludePolicy.DONT_INCLUDE
 
 
-def datetime() -> str:
-    """Gets the current date in YYYY/MM/DD format."""
-    return strftime("%Y/%m/%d", gmtime())
-
-
 def generate_target(
     target: str, template: Template, parameters: Dict[str, Any]
 ) -> None:
@@ -54,35 +49,34 @@ def generate_target(
     package_name = f"kappak-{target}" if target else "kappak"
     context = {
         "package_name": package_name,
-        "date": datetime(),
+        "date": strftime("%Y/%m/%d", gmtime()),
     }  # type: Dict[str, Any]
 
-    for package in parameters["packages"]:
+    for name, record in parameters["packages"].items():
         try:
-            check_not_excluded(parameters["packages"][package], target)
+            check_not_excluded(record, target)
             raise IncludePolicy.INCLUDE
         except IncludePolicy as policy:
             if policy == IncludePolicy.DONT_INCLUDE:
-                context[f"pkg_{package}"] = False
+                context[f"pkg_{name}"] = False
             elif policy == IncludePolicy.INCLUDE:
-                context[f"pkg_{package}"] = True
+                context[f"pkg_{name}"] = True
 
-    for definition in parameters["definitions"]:
-        def_type = parameters["definitions"][definition].get("_type")
+    for name, record in parameters["definitions"].items():
+        def_type = record.get("_type")
         try:
-            record = parameters["definitions"][definition]
             check_not_excluded(record, target)
             check_has_requirements(record, context)
             raise IncludePolicy.INCLUDE
         except IncludePolicy as policy:
             if policy == IncludePolicy.DONT_INCLUDE:
-                context[f"{def_type}_{definition}"] = False
+                context[f"{def_type}_{name}"] = False
                 print(
                     f"[INFO] Target '{target}': excluded definition "
-                    f"'{definition}'"
+                    f"'{name}'"
                 )
             elif policy == IncludePolicy.INCLUDE:
-                context[f"{def_type}_{definition}"] = True
+                context[f"{def_type}_{name}"] = True
 
     output_file_path = f"{OUTPUT_DIRECTORY}/{package_name}.sty"
     with open(f"{output_file_path}", "w", encoding="utf-8") as output_file:

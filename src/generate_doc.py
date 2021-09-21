@@ -1,5 +1,6 @@
 """Contains doc file generation code."""
 
+from abc import ABC, abstractmethod
 from typing import Any, Dict, List
 
 from jinja2 import Environment, FileSystemLoader, Template
@@ -9,74 +10,81 @@ OUTPUT_DIRECTORY = "docs/docs"
 TEMPLATE_DIRECTORY = "templates"
 
 
-class AbstractDocGenerator:
+class AbstractDocGenerator(ABC):
+    """Abstract documentation generator."""
 
     _parameters: Dict[str, Any]
 
     def __init__(self, parameters: Dict[str, Any]):
         self._parameters = parameters
 
+    @abstractmethod
     def get_context(self) -> Dict[str, Any]:
-        raise NotImplementedError
+        """Returns a Jinja2 context to render the doc template."""
 
     def generate(self, template: Template, output_path: str) -> None:
+        """Renders the documentation template to a file."""
         with open(output_path, "w", encoding="utf-8") as output_file:
             output_file.write(template.render(self.get_context()))
 
 
 class EnvironmentsDocGenerator(AbstractDocGenerator):
+    """Documentation generator for the "Environments" page."""
+
     def get_context(self) -> Dict[str, Any]:
         return {
             "environments": [
-                {"name": env}
-                for env in self._parameters["definitions"]
-                if self._parameters["definitions"][env]["_type"] == "env"
+                {"name": name}
+                for name in self._parameters["definitions"]
+                if self._parameters["definitions"][name]["_type"] == "env"
             ]
         }
 
 
 class LettersDocGenerator(AbstractDocGenerator):
+    """Documentation generator for the "Letters" page."""
+
     def get_context(self) -> Dict[str, Any]:
         return {}
 
 
 class MathsDocGenerator(AbstractDocGenerator):
+    """Documentation generator for the "Maths" page."""
+
     def get_context(self) -> Dict[str, Any]:
         context = {}  # type: Dict[str, Any]
-        for definition in self._parameters["definitions"]:
-            record = self._parameters["definitions"][definition]
+        for name, record in self._parameters["definitions"].items():
             groups = record["doc_group"].split(".")
             if groups[0] != "maths":
                 continue
             maths_group = groups[1] if len(groups) >= 1 else ""
             context[maths_group] = context.get(maths_group, []) + [
-                {"name": definition, **record}
+                {"name": name, **record}
             ]
         return context
 
 
 class OptionsDocGenerator(AbstractDocGenerator):
+    """Documentation generator for the "Options" page."""
+
     def get_context(self) -> Dict[str, Any]:
         keyval_options = []  # type: List[Dict[str, Any]]
         simple_options = []  # type: List[Dict[str, Any]]
 
-        for option in self._parameters["options"]:
-            option_definition = self._parameters["options"][option]
-            if option_definition["vals"]:
+        for name, record in self._parameters["options"].items():
+            if record["vals"]:
                 possible_values = ", ".join(
-                    [f"`{val}`" for val in option_definition["vals"]]
+                    [f"`{val}`" for val in record["vals"]]
                 )
                 keyval_options += [
                     {
-                        "doc": option_definition["doc"],
-                        "name": option,
+                        "doc": record["doc"],
+                        "name": name,
                         "possible_values": possible_values,
                     }
                 ]
             else:
-                simple_options += [
-                    {"doc": option_definition["doc"], "name": option}
-                ]
+                simple_options += [{"doc": record["doc"], "name": name}]
 
         return {
             "keyval_options": keyval_options,
@@ -85,6 +93,7 @@ class OptionsDocGenerator(AbstractDocGenerator):
 
 
 def generate_doc(parameters: Dict[str, Any]) -> None:
+    """Generates all documentation pages."""
     environment = Environment(
         loader=FileSystemLoader(TEMPLATE_DIRECTORY + "/"),
         lstrip_blocks=True,
