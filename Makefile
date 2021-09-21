@@ -11,7 +11,9 @@ TEX      			= xelatex
 TEXFLAGS 			= -interaction=nonstopmode
 
 check:
+	black -l 79 src/*.py
 	mypy src/*.py
+	pylint src/*.py
 
 clean:
 	rm $(LOCAL_KAPPAK_DIR)/*.sty
