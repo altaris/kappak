@@ -9,76 +9,63 @@
         
         <link rel="shortcut icon" href="../img/favicon.ico">
         <title>Options - kappak</title>
-        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/font-awesome.min.css" rel="stylesheet">
         <link href="../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
 
         <script src="../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../js/bootstrap-3.0.3.min.js" defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
     <body>
-
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-
-                <!-- Collapsed navigation -->
-                <div class="navbar-header">
-                    <!-- Expander button -->
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="..">kappak</a>
-                </div>
+                <a class="navbar-brand" href="..">kappak</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
                 <!-- Expanded navigation -->
-                <div class="navbar-collapse collapse">
+                <div id="navbar-collapse" class="navbar-collapse collapse">
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
-                            <li >
-                                <a href="..">Readme</a>
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Readme</a>
                             </li>
-                            <li >
-                                <a href="../home/">Home</a>
+                            <li class="navitem">
+                                <a href="../home/" class="nav-link">Home</a>
                             </li>
-                            <li class="active">
-                                <a href="./">Options</a>
+                            <li class="navitem active">
+                                <a href="./" class="nav-link">Options</a>
                             </li>
-                            <li >
-                                <a href="../maths/">Maths</a>
+                            <li class="navitem">
+                                <a href="../maths/" class="nav-link">Maths</a>
                             </li>
-                            <li >
-                                <a href="../environments/">Environments</a>
+                            <li class="navitem">
+                                <a href="../environments/" class="nav-link">Environments</a>
                             </li>
-                            <li >
-                                <a href="../letters/">Letter styles and accents</a>
+                            <li class="navitem">
+                                <a href="../letters/" class="nav-link">Letter styles and accents</a>
                             </li>
                         </ul>
 
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
-                            <li >
-                                <a rel="next" href="../home/">
+                            <li class="nav-item">
+                                <a rel="prev" href="../home/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
-                            <li >
-                                <a rel="prev" href="../maths/">
+                            <li class="nav-item">
+                                <a rel="next" href="../maths/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -88,14 +75,36 @@
         </div>
 
         <div class="container">
-                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#options">Options</a></li>
-        <li class="main "><a href="#simple-options">Simple options</a></li>
-        <li class="main "><a href="#keyval-options">Keyval options</a></li>
-    </ul>
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#options" class="nav-link">Options</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#simple-options" class="nav-link">Simple options</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#keyval-options" class="nav-link">Keyval options</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
 </div></div>
-                <div class="col-md-9" role="main">
+                    <div class="col-md-9" role="main">
 
 <h1 id="options">Options</h1>
 <p>This page explains options that can be used while loading the <code>kappak</code> package.</p>
@@ -104,12 +113,6 @@
 <code>-something</code> removes (or at lease doesn't add) something, and <code>something</code>
 changes the behavior of something.</p>
 <ul>
-<li><code>alpha</code>: Do not use.</li>
-<li><code>bellatrix</code>: Do not use.</li>
-<li><code>cortana</code>: Do not use.</li>
-<li><code>durotan</code>: Do not use.</li>
-<li><code>eientei</code>: Mandatory.</li>
-<li><code>-autopackages</code>: Tells <code>kappak</code> to not automatically include packages.</li>
 <li><code>+maths</code>: Use all maths commands.</li>
 <li><code>+maths.arrows</code>: Use mathematical arrows commands.</li>
 <li><code>+maths.categories</code>: Use category theory commands.</li>
@@ -118,19 +121,25 @@ changes the behavior of something.</p>
 <li><code>+maths.misc</code>: Use mathematical miscallenous commands.</li>
 <li><code>+maths.operators</code>: Use mathematical operators commands.</li>
 <li><code>+maths.theoremEnvs</code>: Use theorem environments.</li>
-<li><code>-maths.theoremStyles</code>: Do not use theorem styles for theorem environments.</li>
-<li><code>-misc</code>: Do not use <code>kappak</code> miscallenous commands.</li>
 <li><code>+stix</code>: Use <code>stix</code>.</li>
 <li><code>+tikz</code>: Use <code>tikz</code>.</li>
-<li><code>tikz.externalize</code>: (EXPERIMENTAL) Use <code>tikz</code> compilation cache.</li>
 <li><code>+xecjk</code>: Use <code>xecjk</code>.</li>
+<li><code>-autopackages</code>: Tells <code>kappak</code> to not automatically include packages.</li>
+<li><code>-maths.theoremStyles</code>: Do not use theorem styles for theorem environments.</li>
+<li><code>-misc</code>: Do not use <code>kappak</code> miscallenous commands.</li>
+<li><code>alpha</code>: Do not use.</li>
+<li><code>bellatrix</code>: Do not use.</li>
+<li><code>cortana</code>: Do not use.</li>
+<li><code>durotan</code>: Do not use.</li>
+<li><code>eientei</code>: Mandatory.</li>
+<li><code>tikz.externalize</code>: (EXPERIMENTAL) Use <code>tikz</code> compilation cache.</li>
 </ul>
 <h1 id="keyval-options">Keyval options</h1>
 <p>For each option, the default value is the first specified.</p>
 <ul>
 <li><code>bbStyle</code> (<code>normal</code>, <code>bbold</code>): Sets the mathematical blackboard letter style.</li>
 <li><code>bibliographyStyle</code> (<code>_any bibliograph style_</code>): Sets the bibliography style. Only relevant if you use <code>kdocument</code> instead of the standard <code>document</code> environment.</li>
-<li><code>categoryStyle</code> (<code>script</code>, <code>bf</code>, <code>rm</code>, <code>sf</code>, <code>tt</code>): Sets the category style for category theory.</li>
+<li><code>categoryStyle</code> (<code>script</code>, <code>allscript</code>, <code>bf</code>, <code>rm</code>, <code>sf</code>, <code>tt</code>): Sets the category style for category theory.</li>
 <li><code>chapterStyle</code> (<code>normal</code>, <code>cb</code>, <code>rb</code>): Sets the chapter style.</li>
 <li><code>fontSet</code> (<code>normal</code>, <code>alternate</code>, <code>xcharter</code>): Sets the font set.</li>
 <li><code>headerFooterStyle</code> (<code>normal</code>, <code>classic</code>, <code>cb</code>, <code>empty</code>): Sets the header and footer style.</li>
@@ -142,6 +151,7 @@ changes the behavior of something.</p>
 <li><code>titlePageStyle</code> (<code>normal</code>, <code>classic</code>, <code>bar</code>, <code>gm</code>, <code>gb</code>): Sets the title page style.</li>
 <li><code>version</code> (<code>_any version number_</code>): Do not use.</li>
 </ul></div>
+            </div>
         </div>
 
         <footer class="col-md-12">
@@ -155,35 +165,32 @@ changes the behavior of something.</p>
         <script src="../js/base.js" defer></script>
         <script src="../search/main.js" defer></script>
 
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
-    <div class="modal-dialog">
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
             </div>
             <div class="modal-body">
-                <p>
-                    From here you can search these documents. Enter
-                    your search terms below.
-                </p>
-                <form role="form">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
                     </div>
                 </form>
-                <div id="mkdocs-search-results"></div>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
             </div>
             <div class="modal-footer">
             </div>
         </div>
     </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
             </div>
             <div class="modal-body">
               <table class="table">
