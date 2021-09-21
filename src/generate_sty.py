@@ -109,15 +109,3 @@ def generate_sty(parameters: Dict[str, Any]) -> None:
     template = environment.get_template(MAIN_TEMPLATE)
     for target in parameters["targets"]:
         generate_target(target, template, parameters)
-
-
-def get_value_or_default(
-    key: str, record: Dict[str, Any], default_record: Dict[str, Any]
-) -> Any:
-    """Gets a value from a record, or a provided default record."""
-    if key in record:
-        return record[key]
-    if key in default_record:
-        return default_record[key]
-    print(f"[WARNING] Key {key} not found")
-    return None

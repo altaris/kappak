@@ -9,12 +9,6 @@ The name are built on the following simple rule: `+something` adds something,
 `-something` removes (or at lease doesn't add) something, and `something`
 changes the behavior of something.
 
-* `alpha`: Do not use.
-* `bellatrix`: Do not use.
-* `cortana`: Do not use.
-* `durotan`: Do not use.
-* `eientei`: Mandatory.
-* `-autopackages`: Tells `kappak` to not automatically include packages.
 * `+maths`: Use all maths commands.
 * `+maths.arrows`: Use mathematical arrows commands.
 * `+maths.categories`: Use category theory commands.
@@ -23,12 +17,18 @@ changes the behavior of something.
 * `+maths.misc`: Use mathematical miscallenous commands.
 * `+maths.operators`: Use mathematical operators commands.
 * `+maths.theoremEnvs`: Use theorem environments.
-* `-maths.theoremStyles`: Do not use theorem styles for theorem environments.
-* `-misc`: Do not use `kappak` miscallenous commands.
 * `+stix`: Use `stix`.
 * `+tikz`: Use `tikz`.
-* `tikz.externalize`: (EXPERIMENTAL) Use `tikz` compilation cache.
 * `+xecjk`: Use `xecjk`.
+* `-autopackages`: Tells `kappak` to not automatically include packages.
+* `-maths.theoremStyles`: Do not use theorem styles for theorem environments.
+* `-misc`: Do not use `kappak` miscallenous commands.
+* `alpha`: Do not use.
+* `bellatrix`: Do not use.
+* `cortana`: Do not use.
+* `durotan`: Do not use.
+* `eientei`: Mandatory.
+* `tikz.externalize`: (EXPERIMENTAL) Use `tikz` compilation cache.
 
 
 # Keyval options

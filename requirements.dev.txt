@@ -2,3 +2,4 @@ black
 mkdocs
 mypy
 pylint
+types-PyYAML

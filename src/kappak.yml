@@ -1,0 +1,7423 @@
+_defaults:
+  definitions: &definitions_defaults
+    _type: ''
+    argc: 0
+    doc: ''
+    doc_group: ''
+    exclude: []
+    requires: []
+  options: &options_defaults
+    doc: ''
+    vals: []
+  packages: &packages_defaults
+    exclude: []
+options:
+  +maths:
+    <<: *options_defaults
+    doc: Use all maths commands.
+  +maths.arrows:
+    <<: *options_defaults
+    doc: Use mathematical arrows commands.
+  +maths.categories:
+    <<: *options_defaults
+    doc: Use category theory commands.
+  +maths.characterAccents:
+    <<: *options_defaults
+    doc: Use mathematical character accent commands.
+  +maths.characterStyles:
+    <<: *options_defaults
+    doc: Use mathematical character styles commands.
+  +maths.misc:
+    <<: *options_defaults
+    doc: Use mathematical miscallenous commands.
+  +maths.operators:
+    <<: *options_defaults
+    doc: Use mathematical operators commands.
+  +maths.theoremEnvs:
+    <<: *options_defaults
+    doc: Use theorem environments.
+  +stix:
+    <<: *options_defaults
+    doc: Use `stix`.
+  +tikz:
+    <<: *options_defaults
+    doc: Use `tikz`.
+  +xecjk:
+    <<: *options_defaults
+    doc: Use `xecjk`.
+  -autopackages:
+    <<: *options_defaults
+    doc: Tells `kappak` to not automatically include packages.
+  -maths.theoremStyles:
+    <<: *options_defaults
+    doc: Do not use theorem styles for theorem environments.
+  -misc:
+    <<: *options_defaults
+    doc: Do not use `kappak` miscallenous commands.
+  alpha:
+    <<: *options_defaults
+    doc: Do not use.
+  bbStyle:
+    <<: *options_defaults
+    doc: Sets the mathematical blackboard letter style.
+    vals:
+    - normal
+    - bbold
+  bellatrix:
+    <<: *options_defaults
+    doc: Do not use.
+  bibliographyStyle:
+    <<: *options_defaults
+    doc: Sets the bibliography style. Only relevant if you use `kdocument` instead
+      of the standard `document` environment.
+    vals:
+    - _any bibliograph style_
+  categoryStyle:
+    <<: *options_defaults
+    doc: Sets the category style for category theory.
+    vals:
+    - script
+    - allscript
+    - bf
+    - rm
+    - sf
+    - tt
+  chapterStyle:
+    <<: *options_defaults
+    doc: Sets the chapter style.
+    vals:
+    - normal
+    - cb
+    - rb
+  cortana:
+    <<: *options_defaults
+    doc: Do not use.
+  durotan:
+    <<: *options_defaults
+    doc: Do not use.
+  eientei:
+    <<: *options_defaults
+    doc: Mandatory.
+  fontSet:
+    <<: *options_defaults
+    doc: Sets the font set.
+    vals:
+    - normal
+    - alternate
+    - xcharter
+  headerFooterStyle:
+    <<: *options_defaults
+    doc: Sets the header and footer style.
+    vals:
+    - normal
+    - classic
+    - cb
+    - empty
+  language:
+    <<: *options_defaults
+    doc: Sets the language of the document.
+    vals:
+    - english
+    - french
+  lineSpacing:
+    <<: *options_defaults
+    doc: Sets the line spacing.
+    vals:
+    - _any numerical value_
+  margins:
+    <<: *options_defaults
+    doc: Sets the margins.
+    vals:
+    - normal
+    - reduced
+    - minimal
+  numberTheoremsWithin:
+    <<: *options_defaults
+    doc: What counter theorems should be numbered from.
+    vals:
+    - _any counter, defaults to section_
+  scriptStyle:
+    <<: *options_defaults
+    doc: Sets the mathematical script style.
+    vals:
+    - normal
+    - euler
+    - rsfs
+  tikz.externalize:
+    <<: *options_defaults
+    doc: (EXPERIMENTAL) Use `tikz` compilation cache.
+  titlePageStyle:
+    <<: *options_defaults
+    doc: Sets the title page style.
+    vals:
+    - normal
+    - classic
+    - bar
+    - gm
+    - gb
+  version:
+    <<: *options_defaults
+    doc: Do not use.
+    vals:
+    - _any version number_
+definitions:
+  Ab:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_categories
+  Alg:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_categories
+  Ann:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.operators
+  Aut:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.operators
+  Bil:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.operators
+  CAT:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_categories
+  Card:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.operators
+  Cat:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_categories
+  Ch:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_categories
+  DeclareBigOperator:
+    <<: *definitions_defaults
+    _type: cmd
+    argc: 2
+    doc_group: maths.misc
+  DeclareRotatedSymbol:
+    <<: *definitions_defaults
+    _type: cmd
+    argc: 3
+    doc_group: maths.misc
+  Dom:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.operators
+  END:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.operators
+  End:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.operators
+  Ext:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.operators
+  Fin:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_categories
+  Frac:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.operators
+  GL:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.operators
+  Graph:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_categories
+  Grp:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_categories
+  Hom:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.operators
+  Id:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.operators
+  Ind:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.operators
+  Ker:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.operators
+  Map:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.operators
+  Mod:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_categories
+  Mon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_categories
+  Mor:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.operators
+  Ob:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.operators
+  Op:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_categories
+  Orb:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.operators
+  Pos:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_categories
+  Ring:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_categories
+  SET:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_categories
+  SL:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.operators
+  Set:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_categories
+  Sh:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_categories
+  Spec:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.operators
+  Stab:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.operators
+  Sym:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.operators
+  Top:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_categories
+  Tor:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.operators
+  Vect:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_categories
+  adjunction:
+    <<: *definitions_defaults
+    _type: cmd
+    doc: Adjunction arrows (left adjoint  from left to right)
+    doc_group: maths.arrows
+  assertion:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  assertion*:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  assertions:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  assertions*:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  authorshere:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: styles
+  axiom:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  axiom*:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  axioms:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  axioms*:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  barA:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barAA:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barB:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barBB:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barC:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barCC:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barD:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barDD:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barDelta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barE:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barEE:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barF:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barFF:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barG:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barGG:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barGamma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barH:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barHH:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barI:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barII:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barJ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barJJ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barK:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barKK:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barL:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barLL:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barLambda:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barM:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barMM:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barN:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barNN:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barO:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barOO:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barOmega:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barP:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barPP:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barPhi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barPi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barPsi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barQ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barQQ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barR:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barRR:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barS:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barSS:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barSigma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barT:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barTT:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barTheta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barU:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barUU:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barUpsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barV:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barVV:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barW:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barWW:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barX:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barXX:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barXi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barY:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barYY:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barZ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barZZ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  baralpha:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barbeta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barchi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bardelta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barepsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bareta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bargamma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bariota:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barkappa:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barlambda:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barmu:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barnu:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  baromega:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barphi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barpi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barpsi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barrho:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barsigma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bartau:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bartheta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barupsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barvarepsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barvarphi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barvarpi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barvarrho:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barvarsigma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barvartheta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barxi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  barzeta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbA:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbAA:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbB:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbBB:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbC:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbCC:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbD:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbDD:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbDelta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbE:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbEE:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbF:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbFF:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbG:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbGG:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbGamma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbH:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbHH:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbI:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbII:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbJ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbJJ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbK:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbKK:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbL:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbLL:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbLambda:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbM:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbMM:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbN:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbNN:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbO:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbOO:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbOmega:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbP:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbPP:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbPhi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbPi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbPsi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbQ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbQQ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbR:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbRR:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbS:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbSS:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbSigma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbT:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbTT:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbTheta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbU:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbUU:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbUpsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbV:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbVV:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbW:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbWW:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbX:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbXX:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbXi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbY:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbYY:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbZ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbZZ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbalpha:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarA:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarAA:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarB:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarBB:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarC:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarCC:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarD:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarDD:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarDelta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarE:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarEE:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarF:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarFF:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarG:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarGG:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarGamma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarH:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarHH:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarI:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarII:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarJ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarJJ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarK:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarKK:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarL:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarLL:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarLambda:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarM:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarMM:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarN:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarNN:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarO:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarOO:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarOmega:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarP:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarPP:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarPhi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarPi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarPsi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarQ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarQQ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarR:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarRR:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarS:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarSS:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarSigma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarT:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarTT:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarTheta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarU:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarUU:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarUpsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarV:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarVV:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarW:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarWW:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarX:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarXX:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarXi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarY:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarYY:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarZ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarZZ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbaralpha:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarbeta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarchi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbardelta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarepsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbareta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbargamma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbariota:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarkappa:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarlambda:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarmu:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarnu:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbaromega:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarphi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarpi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarpsi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarrho:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarsigma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbartau:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbartheta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarupsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarvarepsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarvarphi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarvarpi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarvarrho:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarvarsigma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarvartheta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarxi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbarzeta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbbeta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbchi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbdelta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbepsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbeta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbgamma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbiota:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbkappa:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bblambda:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbmu:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbnu:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbomega:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbphi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbpi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbpsi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbrho:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbsigma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbtau:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbtheta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbupsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbvarepsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbvarphi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbvarpi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbvarrho:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbvarsigma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbvartheta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbxi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bbzeta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  begin:
+    <<: *definitions_defaults
+    _type: cmd
+  bfA:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfAA:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfB:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfBB:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfC:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfCC:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfD:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfDD:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfDelta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfE:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfEE:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfF:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfFF:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfG:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfGG:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfGamma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfH:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfHH:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfI:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfII:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfJ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfJJ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfK:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfKK:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfL:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfLL:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfLambda:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfM:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfMM:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfN:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfNN:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfO:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfOO:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfOmega:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfP:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfPP:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfPhi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfPi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfPsi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfQ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfQQ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfR:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfRR:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfS:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfSS:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfSigma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfT:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfTT:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfTheta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfU:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfUU:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfUpsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfV:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfVV:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfW:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfWW:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfX:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfXX:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfXi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfY:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfYY:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfZ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfZZ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfalpha:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfbeta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfchi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfdelta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfepsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfeta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfgamma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfiota:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfkappa:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bflambda:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfmu:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfnu:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfomega:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfphi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfpi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfpsi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfrho:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfsigma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bftau:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bftheta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfupsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfvarepsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfvarphi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfvarpi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfvarrho:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfvarsigma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfvartheta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfxi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  bfzeta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calA:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calAA:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calB:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calBB:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calC:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calCC:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calD:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calDD:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calE:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calEE:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calF:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calFF:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calG:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calGG:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calH:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calHH:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calI:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calII:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calJ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calJJ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calK:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calKK:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calL:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calLL:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calM:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calMM:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calN:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calNN:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calO:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calOO:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calP:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calPP:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calQ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calQQ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calR:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calRR:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calS:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calSS:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calT:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calTT:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calU:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calUU:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calV:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calVV:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calW:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calWW:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calX:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calXX:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calY:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calYY:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calZ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  calZZ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  car:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.operators
+  card:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.operators
+  catA:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catAA:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catB:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catBB:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catC:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catCC:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catD:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catDD:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catE:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catEE:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catF:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catFF:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catG:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catGG:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catH:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catHH:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catI:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catII:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catJ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catJJ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catK:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catKK:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catL:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catLL:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catM:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catMM:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catN:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catNN:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catO:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catOO:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catP:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catPP:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catQ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catQQ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catR:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catRR:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catS:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catSS:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catT:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catTT:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catU:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catUU:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catV:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catVV:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catW:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catWW:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catX:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catXX:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catY:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catYY:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catZ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  catZZ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_letters
+  chA:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chAA:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chB:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chBB:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chC:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chCC:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chD:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chDD:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chDelta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chE:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chEE:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chF:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chFF:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chG:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chGG:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chGamma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chH:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chHH:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chI:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chII:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chJ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chJJ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chK:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chKK:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chL:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chLL:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chLambda:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chM:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chMM:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chN:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chNN:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chO:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chOO:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chOmega:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chP:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chPP:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chPhi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chPi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chPsi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chQ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chQQ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chR:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chRR:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chS:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chSS:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chSigma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chT:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chTT:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chTheta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chU:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chUU:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chUpsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chV:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chVV:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chW:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chWW:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chX:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chXX:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chXi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chY:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chYY:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chZ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chZZ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chalpha:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chbeta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chchi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chdelta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chepsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  cheta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chgamma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chiota:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chkappa:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chlambda:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chmu:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chnu:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chomega:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chphi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chpi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chpsi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chrho:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chsigma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chtau:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chtheta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chupsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chvarepsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chvarphi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chvarpi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chvarrho:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chvarsigma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chvartheta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chxi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  chzeta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  codom:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.operators
+  coeqdiagram:
+    <<: *definitions_defaults
+    _type: cmd
+    argc: 6
+    doc_group: tikz
+    requires:
+    - tikz
+  coker:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.operators
+  colim:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.operators
+  conjecture:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  conjecture*:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  conjectures:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  conjectures*:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  convention:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  convention*:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  conventions:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  conventions*:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  corollaries:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  corollaries*:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  corollary:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  corollary*:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  ddotA:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotAA:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotB:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotBB:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotC:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotCC:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotD:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotDD:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotDelta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotE:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotEE:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotF:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotFF:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotG:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotGG:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotGamma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotH:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotHH:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotI:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotII:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotJ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotJJ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotK:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotKK:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotL:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotLL:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotLambda:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotM:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotMM:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotN:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotNN:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotO:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotOO:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotOmega:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotP:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotPP:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotPhi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotPi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotPsi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotQ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotQQ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotR:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotRR:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotS:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotSS:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotSigma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotT:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotTT:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotTheta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotU:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotUU:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotUpsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotV:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotVV:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotW:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotWW:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotX:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotXX:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotXi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotY:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotYY:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotZ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotZZ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotalpha:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotbeta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotchi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotdelta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotepsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddoteta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotgamma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotiota:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotkappa:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotlambda:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotmu:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotnu:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotomega:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotphi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotpi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotpsi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotrho:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotsigma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddottau:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddottheta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotupsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotvarepsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotvarphi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotvarpi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotvarrho:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotvarsigma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotvartheta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotxi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ddotzeta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dedication:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    - mimosis
+    requires:
+    - amsthm
+  definition:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  definition*:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  definitions:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  definitions*:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  diagramarrows:
+    <<: *definitions_defaults
+    _type: cmd
+    argc: 4
+    doc_group: tikz
+    requires:
+    - tikz
+  diagramlines:
+    <<: *definitions_defaults
+    _type: cmd
+    argc: 4
+    doc_group: tikz
+    requires:
+    - tikz
+  diagramsize:
+    <<: *definitions_defaults
+    _type: cmd
+    argc: 2
+    doc_group: tikz
+    requires:
+    - tikz
+  dom:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.operators
+  dotA:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotAA:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotB:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotBB:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotC:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotCC:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotD:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotDD:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotDelta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotE:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotEE:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotF:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotFF:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotG:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotGG:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotGamma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotH:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotHH:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotI:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotII:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotJ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotJJ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotK:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotKK:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotL:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotLL:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotLambda:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotM:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotMM:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotN:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotNN:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotO:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotOO:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotOmega:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotP:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotPP:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotPhi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotPi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotPsi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotQ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotQQ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotR:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotRR:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotS:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotSS:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotSigma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotT:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotTT:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotTheta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotU:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotUU:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotUpsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotV:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotVV:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotW:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotWW:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotX:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotXX:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotXi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotY:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotYY:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotZ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotZZ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotalpha:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotbeta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotchi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotdelta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotepsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  doteta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotgamma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotiota:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotkappa:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotlambda:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotmu:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotnu:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotomega:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotphi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotpi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotpsi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotrho:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotsigma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dottau:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dottheta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotupsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotvarepsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotvarphi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotvarpi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotvarrho:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotvarsigma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotvartheta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotxi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  dotzeta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  editor:
+    <<: *definitions_defaults
+    _type: cmd
+    argc: 1
+    doc_group: styles
+  email:
+    <<: *definitions_defaults
+    _type: cmd
+    argc: 1
+    doc_group: styles
+  end:
+    <<: *definitions_defaults
+    _type: cmd
+  epi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc: an alias for `twoheadrightarrow`.
+    doc_group: maths.arrows
+  eqdiagram:
+    <<: *definitions_defaults
+    _type: cmd
+    argc: 6
+    doc_group: tikz
+    requires:
+    - tikz
+  ev:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.operators
+  example:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  example*:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  examples:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  examples*:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  exercise:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  exercise*:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  exercises:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  exercises*:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  frakA:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakAA:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakB:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakBB:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakC:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakCC:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakD:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakDD:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakE:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakEE:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakF:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakFF:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakG:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakGG:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakH:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakHH:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakI:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakII:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakJ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakJJ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakK:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakKK:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakL:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakLL:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakM:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakMM:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakN:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakNN:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakO:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakOO:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakP:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakPP:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakQ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakQQ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakR:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakRR:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakS:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakSS:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakT:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakTT:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakU:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakUU:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakV:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakVV:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakW:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakWW:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakX:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakXX:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakY:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakYY:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakZ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  frakZZ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatA:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatAA:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatB:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatBB:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatC:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatCC:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatD:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatDD:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatDelta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatE:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatEE:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatF:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatFF:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatG:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatGG:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatGamma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatH:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatHH:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatI:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatII:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatJ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatJJ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatK:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatKK:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatL:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatLL:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatLambda:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatM:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatMM:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatN:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatNN:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatO:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatOO:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatOmega:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatP:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatPP:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatPhi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatPi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatPsi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatQ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatQQ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatR:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatRR:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatS:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatSS:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatSigma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatT:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatTT:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatTheta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatU:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatUU:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatUpsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatV:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatVV:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatW:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatWW:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatX:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatXX:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatXi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatY:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatYY:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatZ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatZZ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatalpha:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatbeta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatchi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatdelta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatepsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hateta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatgamma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatiota:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatkappa:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatlambda:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatmu:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatnu:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatomega:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatphi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatpi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatpsi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatrho:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatsigma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hattau:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hattheta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatupsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatvarepsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatvarphi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatvarpi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatvarrho:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatvarsigma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatvartheta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatxi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  hatzeta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  id:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.operators
+  im:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.operators
+  image:
+    <<: *definitions_defaults
+    _type: cmd
+    argc: 2
+    doc_group: styles
+  imagehere:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: styles
+  incl:
+    <<: *definitions_defaults
+    _type: cmd
+    doc: an alias for `hookrightarrow`
+    doc_group: maths.arrows
+  itA:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itAA:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itB:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itBB:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itC:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itCC:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itD:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itDD:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itE:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itEE:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itF:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itFF:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itG:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itGG:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itH:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itHH:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itI:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itII:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itJ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itJJ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itK:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itKK:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itL:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itLL:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itM:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itMM:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itN:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itNN:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itO:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itOO:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itP:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itPP:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itQ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itQQ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itR:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itRR:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itS:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itSS:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itT:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itTT:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itU:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itUU:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itV:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itVV:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itW:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itWW:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itX:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itXX:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itY:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itYY:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itZ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  itZZ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  kbibliography:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: misc
+  kdocument:
+    <<: *definitions_defaults
+    doc_group: misc
+  leftepi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.arrows
+  leftincl:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.arrows
+  lemma:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  lemma*:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  lemmas:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  lemmas*:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  logo:
+    <<: *definitions_defaults
+    _type: cmd
+    argc: 2
+    doc_group: styles
+  logohere:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: styles
+  longepi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.arrows
+  longhookrightarrow:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.arrows
+  longincl:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.arrows
+  longleftepi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.arrows
+  longleftincl:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.arrows
+  longmono:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.arrows
+  longmultimap:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.arrows
+  longtwoheadleftarrow:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.arrows
+  longtwoheadrightarrow:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.arrows
+  mono:
+    <<: *definitions_defaults
+    _type: cmd
+    doc: an alias for `rightarrowtail`
+    doc_group: maths.arrows
+  newcategory:
+    <<: *definitions_defaults
+    _type: cmd
+    argc: 4
+    doc: 'Shorthand to define new categories. For instance : `\newcommand{\sSet}{s}{S}{et}`,
+      or `\newcategory{\Grp}{}{G}{rp}`'
+    doc_group: maths.categories_commands
+  noitcnujda:
+    <<: *definitions_defaults
+    _type: cmd
+    doc: Reverse adjunction arrows (left adjoint from right to left)
+    doc_group: maths.arrows
+  notation:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  notation*:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  notations:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  notations*:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  oA:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oAA:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oB:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oBB:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oC:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oCC:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oD:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oDD:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oDelta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oE:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oEE:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oF:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oFF:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oG:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oGG:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oGamma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oH:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oHH:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oI:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oII:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oJ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oJJ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oK:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oKK:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oL:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oLL:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oLambda:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oM:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oMM:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oN:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oNN:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oO:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oOO:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oOmega:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oP:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oPP:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oPhi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oPi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oPsi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oQ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oQQ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oR:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oRR:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oS:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oSS:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oSigma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oT:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oTT:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oTheta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oU:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oUU:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oUpsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oV:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oVV:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oW:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oWW:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oX:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oXX:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oXi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oY:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oYY:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oZ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oZZ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oalpha:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ob:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.operators
+  obeta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ochi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  odelta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oepsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oeta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ogamma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oiota:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  okappa:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  olambda:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  omu:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  onu:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oomega:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  op:
+    <<: *definitions_defaults
+    _type: cmd
+    doc: The op exponent for dual categories.
+    doc_group: maths.categories_commands
+  ophi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  opi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  opsi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  orho:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  osigma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  otau:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  otheta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oupsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ovarepsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ovarphi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ovarpi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ovarrho:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ovarsigma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ovartheta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  oxi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ozeta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  pSh:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_categories
+  proj:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.operators
+  proof:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  proofs:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  properties:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  properties*:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  property:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  property*:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  proposition:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  proposition*:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  propositions:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  propositions*:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  publisher:
+    <<: *definitions_defaults
+    _type: cmd
+    argc: 1
+    doc_group: styles
+  pullbackdiagram:
+    <<: *definitions_defaults
+    _type: cmd
+    argc: 8
+    doc_group: tikz
+    requires:
+    - tikz
+  pushoutdiagram:
+    <<: *definitions_defaults
+    _type: cmd
+    argc: 8
+    doc_group: tikz
+    requires:
+    - tikz
+  question:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  question*:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  questions:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  questions*:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  rds:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: tikz
+    requires:
+    - tikz
+  remark:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  remark*:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  remarks:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  remarks*:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  reminder:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  reminder*:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  reminders:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  reminders*:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  rk:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.operators
+  rmA:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmAA:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmB:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmBB:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmC:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmCC:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmD:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmDD:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmE:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmEE:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmF:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmFF:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmG:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmGG:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmH:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmHH:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmI:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmII:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmJ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmJJ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmK:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmKK:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmL:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmLL:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmM:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmMM:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmN:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmNN:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmO:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmOO:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmP:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmPP:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmQ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmQQ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmR:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmRR:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmS:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmSS:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmT:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmTT:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmU:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmUU:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmV:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmVV:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmW:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmWW:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmX:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmXX:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmY:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmYY:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmZ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  rmZZ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sSet:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.categories_categories
+  scholia:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  scholia*:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  scholias:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  scholias*:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  sfA:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfAA:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfB:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfBB:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfC:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfCC:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfD:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfDD:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfE:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfEE:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfF:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfFF:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfG:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfGG:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfH:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfHH:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfI:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfII:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfJ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfJJ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfK:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfKK:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfL:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfLL:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfM:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfMM:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfN:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfNN:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfO:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfOO:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfP:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfPP:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfQ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfQQ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfR:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfRR:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfS:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfSS:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfT:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfTT:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfU:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfUU:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfV:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfVV:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfW:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfWW:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfX:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfXX:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfY:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfYY:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfZ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  sfZZ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  solution:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  solutions:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  squarediagram:
+    <<: *definitions_defaults
+    _type: cmd
+    argc: 8
+    doc_group: tikz
+    requires:
+    - tikz
+  subauthor:
+    <<: *definitions_defaults
+    _type: cmd
+    argc: 1
+    doc_group: styles
+  subtitle:
+    <<: *definitions_defaults
+    _type: cmd
+    argc: 1
+    doc_group: styles
+  terminologies:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  terminologies*:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  terminology:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  terminology*:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  theorem:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  theorem*:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  theorems:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  theorems*:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
+  tildA:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildAA:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildB:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildBB:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildC:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildCC:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildD:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildDD:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildDelta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildE:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildEE:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildF:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildFF:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildG:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildGG:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildGamma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildH:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildHH:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildI:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildII:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildJ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildJJ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildK:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildKK:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildL:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildLL:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildLambda:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildM:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildMM:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildN:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildNN:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildO:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildOO:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildOmega:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildP:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildPP:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildPhi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildPi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildPsi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildQ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildQQ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildR:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildRR:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildS:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildSS:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildSigma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildT:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildTT:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildTheta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildU:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildUU:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildUpsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildV:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildVV:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildW:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildWW:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildX:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildXX:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildXi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildY:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildYY:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildZ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildZZ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildalpha:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildbeta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildchi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tilddelta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildepsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildeta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildgamma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildiota:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildkappa:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildlambda:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildmu:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildnu:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildomega:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildphi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildpi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildpsi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildrho:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildsigma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildtau:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildtheta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildupsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildvarepsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildvarphi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildvarpi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildvarrho:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildvarsigma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildvartheta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildxi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tildzeta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  tr:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.operators
+  triangleDLdiagram:
+    <<: *definitions_defaults
+    _type: cmd
+    argc: 6
+    doc_group: tikz
+    requires:
+    - tikz
+  triangleDRdiagram:
+    <<: *definitions_defaults
+    _type: cmd
+    argc: 6
+    doc_group: tikz
+    requires:
+    - tikz
+  triangleDdiagram:
+    <<: *definitions_defaults
+    _type: cmd
+    argc: 6
+    doc_group: tikz
+    requires:
+    - tikz
+  triangleLdiagram:
+    <<: *definitions_defaults
+    _type: cmd
+    argc: 6
+    doc_group: tikz
+    requires:
+    - tikz
+  triangleRdiagram:
+    <<: *definitions_defaults
+    _type: cmd
+    argc: 6
+    doc_group: tikz
+    requires:
+    - tikz
+  triangleULdiagram:
+    <<: *definitions_defaults
+    _type: cmd
+    argc: 6
+    doc_group: tikz
+    requires:
+    - tikz
+  triangleURdiagram:
+    <<: *definitions_defaults
+    _type: cmd
+    argc: 6
+    doc_group: tikz
+    requires:
+    - tikz
+  triangleUdiagram:
+    <<: *definitions_defaults
+    _type: cmd
+    argc: 6
+    doc_group: tikz
+    requires:
+    - tikz
+  uA:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uAA:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uB:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uBB:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uC:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uCC:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uD:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uDD:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uDelta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uE:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uEE:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uF:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uFF:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uG:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uGG:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uGamma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uH:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uHH:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uI:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uII:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uJ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uJJ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uK:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uKK:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uL:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uLL:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uLambda:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uM:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uMM:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uN:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uNN:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uO:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uOO:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uOmega:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uP:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uPP:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uPhi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uPi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uPsi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uQ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uQQ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uR:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uRR:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uS:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uSS:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uSigma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uT:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uTT:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uTheta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uU:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uUU:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uUpsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uV:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uVV:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uW:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uWW:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uX:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uXX:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uXi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uY:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uYY:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uZ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uZZ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ualpha:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ubeta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uchi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  udelta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uepsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ueta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ugamma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uiota:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ukappa:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  ulambda:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  umu:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  unu:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uomega:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uphi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  upi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  upsi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  urho:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  usigma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  utau:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  utheta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuA:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuAA:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuB:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuBB:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuC:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuCC:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuD:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuDD:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuDelta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuE:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuEE:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuF:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuFF:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuG:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuGG:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuGamma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuH:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuHH:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuI:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuII:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuJ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuJJ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuK:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuKK:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuL:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuLL:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuLambda:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuM:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuMM:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuN:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuNN:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuO:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuOO:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuOmega:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuP:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuPP:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuPhi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuPi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuPsi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuQ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuQQ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuR:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuRR:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuS:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuSS:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuSigma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuT:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuTT:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuTheta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuU:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuUU:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuUpsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuV:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuVV:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuW:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuWW:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuX:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuXX:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuXi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuY:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuYY:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuZ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuZZ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uualpha:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uubeta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuchi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uudelta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuepsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uueta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uugamma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuiota:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uukappa:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uulambda:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uumu:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uunu:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuomega:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuphi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uupi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uupsi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uupsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uurho:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uusigma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uutau:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uutheta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuupsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuvarepsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuvarphi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuvarpi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuvarrho:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuvarsigma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuvartheta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuxi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uuzeta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uvarepsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uvarphi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uvarpi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uvarrho:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uvarsigma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uvartheta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uxi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  uzeta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecA:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecAA:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecB:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecBB:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecC:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecCC:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecD:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecDD:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecDelta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecE:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecEE:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecF:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecFF:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecG:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecGG:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecGamma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecH:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecHH:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecI:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecII:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecJ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecJJ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecK:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecKK:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecL:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecLL:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecLambda:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecM:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecMM:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecN:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecNN:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecO:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecOO:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecOmega:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecP:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecPP:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecPhi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecPi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecPsi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecQ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecQQ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecR:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecRR:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecS:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecSS:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecSigma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecT:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecTT:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecTheta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecU:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecUU:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecUpsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecV:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecVV:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecW:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecWW:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecX:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecXX:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecXi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecY:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecYY:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecZ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecZZ:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecalpha:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecbeta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecchi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecdelta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecepsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  veceta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecgamma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  veciota:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  veckappa:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  veclambda:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecmu:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecnu:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecomega:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecphi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecpi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecpsi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecrho:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecsigma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vectau:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vectheta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecupsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecvarepsilon:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecvarphi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecvarpi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecvarrho:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecvarsigma:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecvartheta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  vecxi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  veczeta:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: letters
+  xepi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.arrows
+  xincl:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.arrows
+  xleftepi:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.arrows
+  xleftincl:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.arrows
+  xot:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.arrows
+  xto:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.arrows
+  xtwoheadleftarrow:
+    <<: *definitions_defaults
+    _type: cmd
+    argc: 1
+    doc_group: maths.arrows
+  xtwoheadrightarrow:
+    <<: *definitions_defaults
+    _type: cmd
+    argc: 1
+    doc_group: maths.arrows
+  yoneda:
+    <<: *definitions_defaults
+    _type: cmd
+    doc_group: maths.misc
+packages:
+  aliascnt:
+    <<: *packages_defaults
+  amsfonts:
+    <<: *packages_defaults
+  amsmath:
+    <<: *packages_defaults
+  amssymb:
+    <<: *packages_defaults
+  amsthm:
+    <<: *packages_defaults
+  babel:
+    <<: *packages_defaults
+  bbold:
+    <<: *packages_defaults
+  cleveref:
+    <<: *packages_defaults
+  color:
+    <<: *packages_defaults
+  courier:
+    <<: *packages_defaults
+  draftwatermark:
+    <<: *packages_defaults
+  enumerate:
+    <<: *packages_defaults
+    exclude:
+    - higher-structures
+  euscript:
+    <<: *packages_defaults
+  fancyhdr:
+    <<: *packages_defaults
+  geometry:
+    <<: *packages_defaults
+  graphicx:
+    <<: *packages_defaults
+  helvet:
+    <<: *packages_defaults
+  hyperref:
+    <<: *packages_defaults
+  ifthen:
+    <<: *packages_defaults
+  keyval:
+    <<: *packages_defaults
+  lastpage:
+    <<: *packages_defaults
+  lineno:
+    <<: *packages_defaults
+  mathptmx:
+    <<: *packages_defaults
+  mathrsfs:
+    <<: *packages_defaults
+  mathtools:
+    <<: *packages_defaults
+  multicol:
+    <<: *packages_defaults
+  noabbrev:
+    <<: *packages_defaults
+  rsfso:
+    <<: *packages_defaults
+  showkeys:
+    <<: *packages_defaults
+  stix:
+    <<: *packages_defaults
+  tikz:
+    <<: *packages_defaults
+  titlesec:
+    <<: *packages_defaults
+  XCharter:
+    <<: *packages_defaults
+  xeCJK:
+    <<: *packages_defaults
+targets:
+- ''
+- amsart
+- amsbook
+- article
+- beamer
+- book
+- mimosis
+- higher-structures

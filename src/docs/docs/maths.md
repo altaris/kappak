@@ -34,15 +34,15 @@ Maths
 * `Aut`
 * `Bil`
 * `car`
-* `card`
 * `Card`
+* `card`
 * `codom`
 * `coker`
 * `colim`
 * `Dom`
 * `dom`
-* `End`
 * `END`
+* `End`
 * `ev`
 * `Ext`
 * `Frac`
@@ -90,8 +90,8 @@ Maths
 * `Pos`
 * `pSh`
 * `Ring`
-* `Set`
 * `SET`
+* `Set`
 * `Sh`
 * `sSet`
 * `Top`
