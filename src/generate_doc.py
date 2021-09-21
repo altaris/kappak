@@ -6,7 +6,7 @@ from typing import Any, Dict, List
 from jinja2 import Environment, FileSystemLoader, Template
 
 
-OUTPUT_DIRECTORY = "../docs/docs"
+OUTPUT_DIRECTORY = "docs/docs"
 TEMPLATE_DIRECTORY = "templates"
 
 
