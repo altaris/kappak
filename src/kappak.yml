@@ -327,6 +327,7 @@ definitions:
     <<: *definitions_defaults
     _type: cmd
     doc_group: maths.categories_categories
+    exclude: [acmart]
   Tor:
     <<: *definitions_defaults
     _type: cmd
@@ -7350,6 +7351,7 @@ packages:
     <<: *packages_defaults
   amssymb:
     <<: *packages_defaults
+    exclude: [acmart]
   amsthm:
     <<: *packages_defaults
   babel:
@@ -7414,10 +7416,11 @@ packages:
     <<: *packages_defaults
 targets:
 - ''
+- acmart
 - amsart
 - amsbook
 - article
 - beamer
 - book
-- mimosis
 - higher-structures
+- mimosis
