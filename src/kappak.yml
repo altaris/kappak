@@ -7354,6 +7354,8 @@ packages:
     exclude: [acmart]
   amsthm:
     <<: *packages_defaults
+    exclude:
+    - llncs
   babel:
     <<: *packages_defaults
   bbold:
@@ -7423,4 +7425,5 @@ targets:
 - beamer
 - book
 - higher-structures
+- llncs
 - mimosis

@@ -21,7 +21,7 @@
 %% SOFTWARE.
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{kappak-amsart}[2022/02/24 kappak-amsart]
+\ProvidesPackage{kappak-llncs}[2022/02/24 kappak-llncs]
 \makeatletter
 
 \def\@kappakVersion{0412}   % Current version of kappak
@@ -301,61 +301,61 @@
 %% Keyval
 %% --------------------
 
-\define@key{kappak-amsart}{bbStyle}[normal]{
+\define@key{kappak-llncs}{bbStyle}[normal]{
     \def\@bbStyle{#1}
 }
 
-\define@key{kappak-amsart}{bibliographyStyle}[normal]{
+\define@key{kappak-llncs}{bibliographyStyle}[normal]{
     \def\@bibliographyStyle{#1}
 }
 
-\define@key{kappak-amsart}{categoryStyle}[script]{
+\define@key{kappak-llncs}{categoryStyle}[script]{
     \def\@categoryStyle{#1}
 }
 
-\define@key{kappak-amsart}{chapterStyle}[normal]{
+\define@key{kappak-llncs}{chapterStyle}[normal]{
     \def\@chapterStyle{#1}
 }
 
-\define@key{kappak-amsart}{fontSet}[normal]{
+\define@key{kappak-llncs}{fontSet}[normal]{
     \def\@fontSet{#1}
 }
 
-\define@key{kappak-amsart}{headerFooterStyle}[normal]{
+\define@key{kappak-llncs}{headerFooterStyle}[normal]{
     \def\@headerFooterStyle{#1}
 }
 
-\define@key{kappak-amsart}{language}[english]{
+\define@key{kappak-llncs}{language}[english]{
     \def\@language{#1}
 }
 
-\define@key{kappak-amsart}{lineSpacing}[1]{
+\define@key{kappak-llncs}{lineSpacing}[1]{
     \renewcommand{\baselinestretch}{#1}
 }
 
-\define@key{kappak-amsart}{margins}[normal]{
+\define@key{kappak-llncs}{margins}[normal]{
     \def\@margins{#1}
 }
 
-\define@key{kappak-amsart}{numberTheoremsWithin}[section]{
+\define@key{kappak-llncs}{numberTheoremsWithin}[section]{
     \def\@numberTheoremsWithin{#1}
 }
 
-\define@key{kappak-amsart}{scriptStyle}[normal]{
+\define@key{kappak-llncs}{scriptStyle}[normal]{
     \def\@scriptStyle{#1}
 }
 
-\define@key{kappak-amsart}{titlePageStyle}[normal]{
+\define@key{kappak-llncs}{titlePageStyle}[normal]{
     \def\@titlePageStyle{#1}
 }
 
-\define@key{kappak-amsart}{version}[0406]{
+\define@key{kappak-llncs}{version}[0406]{
     % 0406 is the version where \@kappakVersion started to be taken into account.
     \def\@usedVersion{#1}
 }
 
 \ProcessOptions
-\ProcessUnusedOptions{kappak-amsart}
+\ProcessUnusedOptions{kappak-llncs}
 
 %% ----------------------------------------
 %% Processing
@@ -376,7 +376,6 @@
 	\RequirePackage{amsfonts}
 	\RequirePackage{amsmath}
 	\RequirePackage{amssymb}
-	\RequirePackage{amsthm}
 	\RequirePackage{mathtools}
 
     \RequirePackage{aliascnt} % must be loaded before cleveref
@@ -3131,303 +3130,6 @@
 %% Environments
 %%
 %% -----------------------------------------------------------------------------
-
-
-\ifthenelse{\boolean{@b_maths_use_theoremEnvs}}{
-
-    \ifthenelse{\equal{\@language}{english}}{
-        \def\@assertionName         {assertion}
-        \def\@assertionsName        {assertions}
-        \def\@axiomName             {axiom}
-        \def\@axiomsName            {axioms}
-        \def\@conjectureName        {conjecture}
-        \def\@conjecturesName       {conjectures}
-        \def\@conventionName        {convention}
-        \def\@conventionsName       {conventions}
-        \def\@corollaryName         {corollary}
-        \def\@corollariesName       {corollaries}
-        \def\@definitionName        {definition}
-        \def\@definitionsName       {definitions}
-        \def\@exampleName           {example}
-        \def\@examplesName          {examples}
-        \def\@exerciseName          {exercise}
-        \def\@exercisesName         {exercises}
-        \def\@lemmaName             {lemma}
-        \def\@lemmasName            {lemmas}
-        \def\@notationName          {notation}
-        \def\@notationsName         {notations}
-        \def\@proofName             {proof}
-        \def\@proofsName            {proofs}
-        \def\@propertyName          {property}
-        \def\@propertiesName        {properties}
-        \def\@propositionName       {proposition}
-        \def\@propositionsName      {propositions}
-        \def\@questionName          {question}
-        \def\@questionsName         {questions}
-        \def\@remarkName            {remark}
-        \def\@remarksName           {remarks}
-        \def\@reminderName          {reminder}
-        \def\@remindersName         {reminders}
-        \def\@scholiaName           {scholia}
-        \def\@scholiasName          {scholias}
-        \def\@solutionName          {solution}
-        \def\@solutionsName         {solutions}
-        \def\@terminologyName       {terminology}
-        \def\@terminologiesName     {terminologies}
-        \def\@theoremName           {theorem}
-        \def\@theoremsName          {theorems}
-
-    }{}
-
-    \ifthenelse{\equal{\@language}{french}}{
-        \def\@assertionName         {assertion}
-        \def\@assertionsName        {assertions}
-        \def\@axiomName             {axiome}
-        \def\@axiomsName            {axiomes}
-        \def\@conjectureName        {conjecture}
-        \def\@conjecturesName       {conjectures}
-        \def\@conventionName        {convention}
-        \def\@conventionsName       {conventions}
-        \def\@corollaryName         {corollaire}
-        \def\@corollariesName       {corollaires}
-        \def\@definitionName        {d\'{e}finition}
-        \def\@definitionsName       {d\'{e}finitions}
-        \def\@exampleName           {exemple}
-        \def\@examplesName          {exemples}
-        \def\@exerciseName          {exercice}
-        \def\@exercisesName         {exercices}
-        \def\@lemmaName             {lemme}
-        \def\@lemmasName            {lemmes}
-        \def\@notationName          {notation}
-        \def\@notationsName         {notations}
-        \def\@proofName             {d\'{e}monstration}
-        \def\@proofsName            {d\'{e}monstrations}
-        \def\@propertyName          {propri\'{e}t\'{e}}
-        \def\@propertiesName        {propri\'{e}t\'{e}s}
-        \def\@propositionName       {proposition}
-        \def\@propositionsName      {propositions}
-        \def\@questionName          {question}
-        \def\@questionsName         {questions}
-        \def\@remarkName            {remarque}
-        \def\@remarksName           {remarques}
-        \def\@reminderName          {rappel}
-        \def\@remindersName         {rappels}
-        \def\@scholiaName           {scholie}
-        \def\@scholiasName          {scholies}
-        \def\@solutionName          {solution}
-        \def\@solutionsName         {solutions}
-        \def\@terminologyName       {terminologie}
-        \def\@terminologiesName     {terminologies}
-        \def\@theoremName           {th\'{e}or\`{e}me}
-        \def\@theoremsName          {th\'{e}or\`{e}mes}
-
-    }{}
-
-    \numberwithin{equation}{\@numberTheoremsWithin}
-    \newaliascnt{assertion}{equation}
-    \newaliascnt{axiom}{equation}
-    \newaliascnt{conjecture}{equation}
-    \newaliascnt{convention}{equation}
-    \newaliascnt{corollary}{equation}
-    \newaliascnt{definition}{equation}
-    \newaliascnt{example}{equation}
-    \newaliascnt{exercise}{equation}
-    \newaliascnt{lemma}{equation}
-    \newaliascnt{notation}{equation}
-    \newaliascnt{property}{equation}
-    \newaliascnt{proposition}{equation}
-    \newaliascnt{question}{equation}
-    \newaliascnt{remark}{equation}
-    \newaliascnt{reminder}{equation}
-    \newaliascnt{scholia}{equation}
-    \newaliascnt{terminology}{equation}
-    \newaliascnt{theorem}{equation}
-
-    \def\@makeupcase#1{\uppercase{#1}}     % https://groups.google.com/forum/#!topic/comp.text.tex/YpzYtAqJ_QQ
-    \def\@upcase{\expandafter\@makeupcase} %
-
-    \theoremstyle{definition}
-
-    \newtheorem{axiom}          [axiom]         {\@upcase \@axiomName}
-    \newtheorem{axioms}         [axiom]         {\@upcase \@axiomsName}
-    \newtheorem*{axiom*}                        {\@upcase \@axiomName}
-    \newtheorem*{axioms*}                       {\@upcase \@axiomsName}
-    \newtheorem{definition}     [definition]    {\@upcase \@definitionName}
-    \newtheorem{definitions}    [definition]    {\@upcase \@definitionsName}
-    \newtheorem*{definition*}                   {\@upcase \@definitionName}
-    \newtheorem*{definitions*}                  {\@upcase \@definitionsName}
-    \newtheorem{example}        [example]       {\@upcase \@exampleName}
-    \newtheorem{examples}       [example]       {\@upcase \@examplesName}
-    \newtheorem*{example*}                      {\@upcase \@exampleName}
-    \newtheorem*{examples*}                     {\@upcase \@examplesName}
-    \newtheorem{exercise}       [exercise]      {\@upcase \@exerciseName}
-    \newtheorem{exercises}      [exercise]      {\@upcase \@exercisesName}
-    \newtheorem*{exercise*}                     {\@upcase \@exerciseName}
-    \newtheorem*{exercises*}                    {\@upcase \@exercisesName}
-    \newtheorem{question}       [question]      {\@upcase \@questionName}
-    \newtheorem{questions}      [question]      {\@upcase \@questionsName}
-    \newtheorem*{question*}                     {\@upcase \@questionName}
-    \newtheorem*{questions*}                    {\@upcase \@questionsName}
-
-    \ifthenelse{\boolean{@b_maths_use_theoremStyles}}{
-         \theoremstyle{plain}
-    }{}
-
-    \newtheorem{assertion}      [assertion]     {\@upcase \@assertionName}
-    \newtheorem{assertions}     [assertion]     {\@upcase \@assertionsName}
-    \newtheorem*{assertion*}                    {\@upcase \@assertionName}
-    \newtheorem*{assertions*}                   {\@upcase \@assertionsName}
-    \newtheorem{conjecture}     [conjecture]    {\@upcase \@conjectureName}
-    \newtheorem{conjectures}    [conjecture]    {\@upcase \@conjecturesName}
-    \newtheorem*{conjecture*}                   {\@upcase \@conjectureName}
-    \newtheorem*{conjectures*}                  {\@upcase \@conjecturesName}
-    \newtheorem{corollary}      [corollary]     {\@upcase \@corollaryName}
-    \newtheorem{corollaries}    [corollary]     {\@upcase \@corollariesName}
-    \newtheorem*{corollary*}                    {\@upcase \@corollaryName}
-    \newtheorem*{corollaries*}                  {\@upcase \@corollariesName}
-    \newtheorem{lemma}          [lemma]         {\@upcase \@lemmaName}
-    \newtheorem{lemmas}         [lemma]         {\@upcase \@lemmasName}
-    \newtheorem*{lemma*}                        {\@upcase \@lemmaName}
-    \newtheorem*{lemmas*}                       {\@upcase \@lemmasName}
-    \newtheorem{property}       [property]      {\@upcase \@propertyName}
-    \newtheorem{properties}     [property]      {\@upcase \@propertiesName}
-    \newtheorem*{property*}                     {\@upcase \@propertyName}
-    \newtheorem*{properties*}                   {\@upcase \@propertiesName}
-    \newtheorem{proposition}    [proposition]   {\@upcase \@propositionName}
-    \newtheorem{propositions}   [proposition]   {\@upcase \@propositionsName}
-    \newtheorem*{proposition*}                  {\@upcase \@propositionName}
-    \newtheorem*{propositions*}                 {\@upcase \@propositionsName}
-    \newtheorem{scholia}        [scholia]       {\@upcase \@scholiaName}
-    \newtheorem{scholias}       [scholia]       {\@upcase \@scholiasName}
-    \newtheorem{scholia*}                       {\@upcase \@scholiaName}
-    \newtheorem{scholias*}                      {\@upcase \@scholiasName}
-    \newtheorem{theorem}        [theorem]       {\@upcase \@theoremName}
-    \newtheorem{theorems}       [theorem]       {\@upcase \@theoremsName}
-    \newtheorem*{theorem*}                      {\@upcase \@theoremName}
-    \newtheorem*{theorems*}                     {\@upcase \@theoremsName}
-
-    \ifthenelse{\boolean{@b_maths_use_theoremStyles}}{
-        \theoremstyle{remark}
-    }{}
-
-    \newtheorem{convention}     [convention]    {\@upcase \@conventionName}
-    \newtheorem{conventions}    [convention]    {\@upcase \@conventionsName}
-    \newtheorem*{convention*}                   {\@upcase \@conventionName}
-    \newtheorem*{conventions*}                  {\@upcase \@conventionsName}
-    \newtheorem{notation}       [notation]      {\@upcase \@notationName}
-    \newtheorem{notations}      [notation]      {\@upcase \@notationsName}
-    \newtheorem*{notation*}                     {\@upcase \@notationName}
-    \newtheorem*{notations*}                    {\@upcase \@notationsName}
-    \newtheorem{remark}         [remark]        {\@upcase \@remarkName}
-    \newtheorem{remarks}        [remark]        {\@upcase \@remarksName}
-    \newtheorem*{remark*}                       {\@upcase \@remarkName}
-    \newtheorem*{remarks*}                      {\@upcase \@remarksName}
-    \newtheorem{reminder}       [reminder]      {\@upcase \@reminderName}
-    \newtheorem{reminders}      [reminder]      {\@upcase \@remindersName}
-    \newtheorem*{reminder*}                     {\@upcase \@reminderName}
-    \newtheorem*{reminders*}                    {\@upcase \@remindersName}
-    \newtheorem{terminology}    [terminology]   {\@upcase \@terminologyName}
-    \newtheorem{terminologies}  [terminology]   {\@upcase \@terminologiesName}
-    \newtheorem*{terminology*}                  {\@upcase \@terminologyName}
-    \newtheorem*{terminologies*}                {\@upcase \@terminologiesName}
-
-        %% solution(s) and proof(s)
-    \renewenvironment{proof}[1][{\@upcase \@proofName}]{
-        \par
-        \pushQED{\qed}
-        \normalfont \topsep6\p@\@plus6\p@\relax
-        \trivlist
-        \item[\hskip\labelsep
-            \itshape
-        #1\@addpunct{.}]\ignorespaces
-    }{
-        \popQED\endtrivlist\@endpefalse
-    }
-    \newenvironment{proofs}[1][{\@upcase \@proofsName}]{
-        \par
-        \pushQED{\qed}
-        \normalfont \topsep6\p@\@plus6\p@\relax
-        \trivlist
-        \item[\hskip\labelsep
-            \itshape
-        #1\@addpunct{.}]\ignorespaces
-    }{
-        \popQED\endtrivlist\@endpefalse
-    }
-    \newenvironment{solution}[1][{\@upcase \@solutionName}]{
-        \par
-        \pushQED{\qed}
-        \normalfont \topsep6\p@\@plus6\p@\relax
-        \trivlist
-        \item[\hskip\labelsep
-            \itshape
-        #1\@addpunct{.}]\ignorespaces
-    }{
-        \hfill\ensuremath{\blacksquare}\endtrivlist\@endpefalse
-    }
-    \newenvironment{solutions}[1][{\@upcase \@solutionsName}]{
-        \par
-        \pushQED{\qed}
-        \normalfont \topsep6\p@\@plus6\p@\relax
-        \trivlist
-        \item[\hskip\labelsep
-            \itshape
-        #1\@addpunct{.}]\ignorespaces
-    }{
-        \hfill\ensuremath{\blacksquare}\endtrivlist\@endpefalse
-    }
-
-    \newenvironment{dedication}{
-        \cleardoublepage
-        \thispagestyle{empty}
-        \vspace*{\stretch{1}}
-        \hfill\begin{minipage}[t]{0.66\textwidth}
-        \raggedright
-    }{
-        \end{minipage}
-        \vspace*{\stretch{3}}
-        \clearpage
-    }
-
-    \aliascntresetthe{assertion}
-    \aliascntresetthe{axiom}
-    \aliascntresetthe{conjecture}
-    \aliascntresetthe{convention}
-    \aliascntresetthe{corollary}
-    \aliascntresetthe{definition}
-    \aliascntresetthe{example}
-    \aliascntresetthe{exercise}
-    \aliascntresetthe{lemma}
-    \aliascntresetthe{notation}
-    \aliascntresetthe{property}
-    \aliascntresetthe{proposition}
-    \aliascntresetthe{question}
-    \aliascntresetthe{remark}
-    \aliascntresetthe{reminder}
-    \aliascntresetthe{scholia}
-    \aliascntresetthe{terminology}
-    \aliascntresetthe{theorem}
-
-    \crefname{assertion}{\@assertionName}{\@assertionsName}
-    \crefname{axiom}{\@axiomName}{\@axiomsName}
-    \crefname{conjecture}{\@conjectureName}{\@conjecturesName}
-    \crefname{convention}{\@conventionName}{\@conventionsName}
-    \crefname{corollary}{\@corollaryName}{\@corollariesName}
-    \crefname{definition}{\@definitionName}{\@definitionsName}
-    \crefname{example}{\@exampleName}{\@examplesName}
-    \crefname{exercise}{\@exerciseName}{\@exercisesName}
-    \crefname{lemma}{\@lemmaName}{\@lemmasName}
-    \crefname{notation}{\@notationName}{\@notationsName}
-    \crefname{property}{\@propertyName}{\@propertiesName}
-    \crefname{proposition}{\@propositionName}{\@propositionsName}
-    \crefname{question}{\@questionName}{\@questionsName}
-    \crefname{remark}{\@remarkName}{\@remarksName}
-    \crefname{reminder}{\@reminderName}{\@remindersName}
-    \crefname{scholia}{\@scholiaName}{\@scholiasName}
-    \crefname{terminology}{\@terminologyName}{\@terminologiesName}
-    \crefname{theorem}{\@theoremName}{\@theoremsName}
-
-}{}
 
 
 \makeatother

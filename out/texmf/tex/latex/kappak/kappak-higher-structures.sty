@@ -21,7 +21,7 @@
 %% SOFTWARE.
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{kappak-higher-structures}[2021/12/10 kappak-higher-structures]
+\ProvidesPackage{kappak-higher-structures}[2022/02/24 kappak-higher-structures]
 \makeatletter
 
 \def\@kappakVersion{0412}   % Current version of kappak
@@ -3131,6 +3131,7 @@
 %%
 %% -----------------------------------------------------------------------------
 
+
 \ifthenelse{\boolean{@b_maths_use_theoremEnvs}}{
 
     \ifthenelse{\equal{\@language}{english}}{
@@ -3426,5 +3427,7 @@
     \crefname{theorem}{\@theoremName}{\@theoremsName}
 
 }{}
+
+
 \makeatother
 \endinput
