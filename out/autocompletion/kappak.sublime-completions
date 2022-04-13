@@ -1046,6 +1046,7 @@
         "\\itZ",
         "\\itZZ",
         "\\kbibliography",
+        "\\begin{ktheorem}\n\t$1\n\\end{ktheorem}",
         "\\leftepi",
         "\\leftincl",
         "\\begin{lemma}\n\t$1\n\\end{lemma}",

@@ -1076,6 +1076,8 @@
 \itZ
 \itZZ
 \kbibliography
+\begin{ktheorem}
+\end{ktheorem}
 \leftepi
 \leftincl
 \begin{lemma}

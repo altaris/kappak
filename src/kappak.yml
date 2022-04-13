@@ -4499,6 +4499,14 @@ definitions:
   kdocument:
     <<: *definitions_defaults
     doc_group: misc
+  ktheorem:
+    <<: *definitions_defaults
+    _type: env
+    doc_group: environments
+    exclude:
+    - beamer
+    requires:
+    - amsthm
   leftepi:
     <<: *definitions_defaults
     _type: cmd
@@ -5746,6 +5754,7 @@ definitions:
     doc_group: environments
     exclude:
     - beamer
+    - higher-structures
     requires:
     - amsthm
   theorem*:

@@ -21,7 +21,7 @@
 %% SOFTWARE.
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{kappak-higher-structures}[2022/02/24 kappak-higher-structures]
+\ProvidesPackage{kappak-higher-structures}[2022/04/13 kappak-higher-structures]
 \makeatletter
 
 \def\@kappakVersion{0412}   % Current version of kappak
@@ -3258,7 +3258,7 @@
     \newaliascnt{reminder}{equation}
     \newaliascnt{scholia}{equation}
     \newaliascnt{terminology}{equation}
-    \newaliascnt{theorem}{equation}
+    \newaliascnt{ktheorem}{equation}
 
     \def\@makeupcase#1{\uppercase{#1}}     % https://groups.google.com/forum/#!topic/comp.text.tex/YpzYtAqJ_QQ
     \def\@upcase{\expandafter\@makeupcase} %
@@ -3318,9 +3318,8 @@
     \newtheorem{scholias}       [scholia]       {\@upcase \@scholiasName}
     \newtheorem{scholia*}                       {\@upcase \@scholiaName}
     \newtheorem{scholias*}                      {\@upcase \@scholiasName}
-    \newtheorem{theorem}        [theorem]       {\@upcase \@theoremName}
+    \newtheorem{ktheorem}       [ktheorem]      {\@upcase \@theoremName}
     \newtheorem{theorems}       [theorem]       {\@upcase \@theoremsName}
-    \newtheorem*{theorem*}                      {\@upcase \@theoremName}
     \newtheorem*{theorems*}                     {\@upcase \@theoremsName}
 
     \ifthenelse{\boolean{@b_maths_use_theoremStyles}}{
@@ -3423,7 +3422,7 @@
     \aliascntresetthe{reminder}
     \aliascntresetthe{scholia}
     \aliascntresetthe{terminology}
-    \aliascntresetthe{theorem}
+    \aliascntresetthe{ktheorem}
 
     \crefname{assertion}{\@assertionName}{\@assertionsName}
     \crefname{axiom}{\@axiomName}{\@axiomsName}
@@ -3442,7 +3441,7 @@
     \crefname{reminder}{\@reminderName}{\@remindersName}
     \crefname{scholia}{\@scholiaName}{\@scholiasName}
     \crefname{terminology}{\@terminologyName}{\@terminologiesName}
-    \crefname{theorem}{\@theoremName}{\@theoremsName}
+    \crefname{ktheorem}{\@theoremName}{\@theoremsName}
 
 }{}
 

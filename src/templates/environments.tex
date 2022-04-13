@@ -122,7 +122,7 @@
 %{% if env_terminologies %}
         \def\@terminologiesName     {terminologies}
 %{% endif %}
-%{% if env_theorem %}
+%{% if env_theorem or env_ktheorem %}
         \def\@theoremName           {theorem}
 %{% endif %}
 %{% if env_theorems %}
@@ -246,7 +246,7 @@
 %{% if env_terminologies %}
         \def\@terminologiesName     {terminologies}
 %{% endif %}
-%{% if env_theorem %}
+%{% if env_theorem or env_ktheorem %}
         \def\@theoremName           {th\'{e}or\`{e}me}
 %{% endif %}
 %{% if env_theorems %}
@@ -309,6 +309,9 @@
 %{% endif %}
 %{% if env_theorem %}
     \newaliascnt{theorem}{equation}
+%{% endif %}
+%{% if env_ktheorem %}
+    \newaliascnt{ktheorem}{equation}
 %{% endif %}
 
     \def\@makeupcase#1{\uppercase{#1}}     % https://groups.google.com/forum/#!topic/comp.text.tex/YpzYtAqJ_QQ
@@ -467,6 +470,9 @@
 %{% endif %}
 %{% if env_theorem %}
     \newtheorem{theorem}        [theorem]       {\@upcase \@theoremName}
+%{% endif %}
+%{% if env_ktheorem %}
+    \newtheorem{ktheorem}       [ktheorem]      {\@upcase \@theoremName}
 %{% endif %}
 %{% if env_theorems %}
     \newtheorem{theorems}       [theorem]       {\@upcase \@theoremsName}
@@ -665,6 +671,9 @@
 %{% if env_theorem %}
     \aliascntresetthe{theorem}
 %{% endif %}
+%{% if env_ktheorem %}
+    \aliascntresetthe{ktheorem}
+%{% endif %}
 
 %{% if env_assertion %}
     \crefname{assertion}{\@assertionName}{\@assertionsName}
@@ -719,6 +728,9 @@
 %{% endif %}
 %{% if env_theorem %}
     \crefname{theorem}{\@theoremName}{\@theoremsName}
+%{% endif %}
+%{% if env_ktheorem %}
+    \crefname{ktheorem}{\@theoremName}{\@theoremsName}
 %{% endif %}
 
 }{}

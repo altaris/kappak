@@ -21,7 +21,7 @@
 %% SOFTWARE.
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{kappak-amsbook}[2022/02/24 kappak-amsbook]
+\ProvidesPackage{kappak-amsbook}[2022/04/13 kappak-amsbook]
 \makeatletter
 
 \def\@kappakVersion{0412}   % Current version of kappak
@@ -3260,6 +3260,7 @@
     \newaliascnt{scholia}{equation}
     \newaliascnt{terminology}{equation}
     \newaliascnt{theorem}{equation}
+    \newaliascnt{ktheorem}{equation}
 
     \def\@makeupcase#1{\uppercase{#1}}     % https://groups.google.com/forum/#!topic/comp.text.tex/YpzYtAqJ_QQ
     \def\@upcase{\expandafter\@makeupcase} %
@@ -3320,6 +3321,7 @@
     \newtheorem{scholia*}                       {\@upcase \@scholiaName}
     \newtheorem{scholias*}                      {\@upcase \@scholiasName}
     \newtheorem{theorem}        [theorem]       {\@upcase \@theoremName}
+    \newtheorem{ktheorem}       [ktheorem]      {\@upcase \@theoremName}
     \newtheorem{theorems}       [theorem]       {\@upcase \@theoremsName}
     \newtheorem*{theorem*}                      {\@upcase \@theoremName}
     \newtheorem*{theorems*}                     {\@upcase \@theoremsName}
@@ -3425,6 +3427,7 @@
     \aliascntresetthe{scholia}
     \aliascntresetthe{terminology}
     \aliascntresetthe{theorem}
+    \aliascntresetthe{ktheorem}
 
     \crefname{assertion}{\@assertionName}{\@assertionsName}
     \crefname{axiom}{\@axiomName}{\@axiomsName}
@@ -3444,6 +3447,7 @@
     \crefname{scholia}{\@scholiaName}{\@scholiasName}
     \crefname{terminology}{\@terminologyName}{\@terminologiesName}
     \crefname{theorem}{\@theoremName}{\@theoremsName}
+    \crefname{ktheorem}{\@theoremName}{\@theoremsName}
 
 }{}
 
