@@ -1,11 +1,10 @@
 """Contains sty file generation code."""
 
-from enum import auto, Enum, unique
+from enum import Enum, auto, unique
 from time import gmtime, strftime
 from typing import Any, Dict
 
 from jinja2 import Environment, FileSystemLoader, Template
-
 
 MAIN_TEMPLATE = "kappak.sty"
 OUTPUT_DIRECTORY = "../out/texmf/tex/latex/kappak"
@@ -50,6 +49,7 @@ def generate_target(
     context = {
         "package_name": package_name,
         "date": strftime("%Y/%m/%d", gmtime()),
+        "target": target,
     }  # type: Dict[str, Any]
 
     for name, record in parameters["packages"].items():
